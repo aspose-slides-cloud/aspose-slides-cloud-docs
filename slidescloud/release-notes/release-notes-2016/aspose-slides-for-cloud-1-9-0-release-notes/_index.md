@@ -9,11 +9,11 @@ New Features
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
-|SLIDESCLOUD-98|[Convert a PPT to SWF](http://www.aspose.com/docs/display/slidescloud/Presentation)|New Feature|
-|SLIDESCLOUD-205|[Ability to clone shapes](http://www.aspose.com/docs/display/slidescloud/Shapes)|New Feature|
-|SLIDESCLOUD-207|[Add support for AudioFrame](http://www.aspose.com/docs/display/slidescloud/Shape#Shape-AudioFrame)|New Feature|
-|SLIDESCLOUD-208|[Add support for VideoFrame](http://www.aspose.com/docs/display/slidescloud/Shape#Shape-VideoFrame)|New Feature|
-|SLIDESCLOUD-241|[Support for accessing slide notes using REST Api](http://www.aspose.com/docs/display/slidescloud/NotesSlide)|New Feature|
+|SLIDESCLOUD-98|[Convert a PPT to SWF](/working-with-document/)|New Feature|
+|SLIDESCLOUD-205|[Ability to clone shapes](/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-207|[Add support for AudioFrame](/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-208|[Add support for VideoFrame](/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-241|[Support for accessing slide notes using REST Api](/working-with-notesslides/)|New Feature|
 ## **Public API Changes**
 - 'Swf' and 'SwfNotes' values have been added to the list of available Presentation export formats. It allows to export slides or notes to swf format.
 - 'TiffNotes' value has been added to the list of available Presentation export formats. It allows to export notes to tiff format.

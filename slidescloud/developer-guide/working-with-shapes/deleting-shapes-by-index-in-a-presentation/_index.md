@@ -33,7 +33,7 @@ This example allows you to format a text portion with a Slide. You can use our 
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="4" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Python" >}}
 

@@ -23,7 +23,7 @@ The page contains release notes for Aspose.Slides Cloud 20.7 – [API Reference
 - SLIDESCLOUD-922 - Make ShapeIndex nullable for animation GET method in SDKs
 ## **Public API changes**
 
-### **1. series resource**
+### **Series resource**
 The new resource is a subresource of **shape**. It works only for Chart shapes and allows to add, modify & delete chart series.
 #### **Example 1 (Add series to a chart)**
 ```java
@@ -166,6 +166,6 @@ Chart chart = api.DeleteChartSeries(request);
 Console.WriteLine(chart.Series.Count);
 
 ```
-### **2. PortionList property**
+### **PortionList property**
 *Paragraph* class now has *PortionList* property which allows us to retrieve text and other properties for paragraph portions.
 Similarly, *Portions* class now has *Items* property of the same kind.

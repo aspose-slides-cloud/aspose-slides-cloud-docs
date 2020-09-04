@@ -5,15 +5,15 @@ url: /aspose-slides-cloud-features/
 weight: 20
 ---
 
-### **General**
+## **General**
 - REST based API
 - Platform Independent
 - Integrates with other cloud services
-### **Storage**
+## **Storage**
 - Work with Aspose for Cloud storage
 - Work with [third party storages](https://docs.aspose.cloud/display/totalcloud/How+to+Configure+3rd+Party+Cloud+Storages)
 - Store output documents to Aspose for Cloud or [third party storages](https://docs.aspose.cloud/display/totalcloud/How+to+Configure+3rd+Party+Cloud+Storages)
-### **Document**
+## **Document**
 - Create empty presentations
 - Merge multiple presentations
 - Split presentations
@@ -29,7 +29,7 @@ weight: 20
   - Set a particular property
   - Remove all properties
   - Remove a particular property
-### **Slide**
+## **Slide**
 - Save a particular slide as an image
 - Convert all or specific slides to different formats
 - Add / remove slides
@@ -45,19 +45,19 @@ weight: 20
   - Color scheme
   - Background
   - Comment
-### **Images**
+## **Images**
 - Get image count
   - from the complete document
   - from a particular slide
 - Convert slides to images
   - with default size
   - with specified size
-### **Text**
+## **Text**
 - Get text items
   - from the complete document
   - from a particular slide
 - Replace text
   - from the complete document
   - from a particular slide
-### **Shapes**
+## **Shapes**
 - Extract shapes from a particular slide

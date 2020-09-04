@@ -62,19 +62,16 @@ Once downloaded, please follow these steps to install the module to your WordPre
 After you have installed the Aspose Cloud Presentation Importer plugin it is really simple to start using it on your website. Please follow these simple steps to get started.
 
 1. Make sure you are logged-in to a WordPress site as Admin level account.
-1. Make sure you have set up Aspose App Key & Id on the plugin configuration page. For further details on how to get app keys, [click here ](http://www.aspose.com/docs/display/rest/Creating+a+New+App+and+Getting+App+Key).   
+1. Make sure you have set up Aspose App Key & Id on the plugin configuration page. For further details on how to get app keys, [click here ](https://docs.aspose.cloud/display/storagecloud/Create+New+App+and+Get+App+Key+and+SID).   
 
-![todo:image\_alt\_text](http://www.aspose.com/blogs/wp-content/uploads/2015/01/screen1.png)
 
 1. Navigate to the page or posts where you want to import contents from the Presentation File using Aspose Cloud Presentation Importer plugin.
 1. Click the \*Aspose Presentation Importer \*button.  
 
-![todo:image\_alt\_text](http://www.aspose.com/blogs/wp-content/uploads/2015/01/screen2.png)
 
 1. Click Select Presentation File. It will show WordPress Media Gallery on popup. Either upload a Presentation file or choose from the Media Library.
 1. Click the Use this presentation file for Importing button.
 1. Click the Insert Presentation to Editor button. It inserts the text from the presentation file to the editor.  
 
-![todo:image\_alt\_text](http://www.aspose.com/blogs/wp-content/uploads/2015/01/screen31.png)
 ### **Video Demo**
 Please check [the video](https://www.youtube.com/watch?v=he1JgYYA8fA&feature=youtu.be) below to see the module in action.

@@ -19,7 +19,7 @@ The page contains release notes for Aspose.Slides Cloud 20.6 – [API Reference
 - SLIDESCLOUD-935 - PdfOptions.AccessPermissions option
 - SLIDESCLOUD-953 - PutPresentationMerge API throws System.OutOfMemory Exception
 ## **Public API changes**
-### **1. notesSlide/exist resource**
+### **NotesSlide/exist resource**
 The new method (GET for storage files, POST for files in the request body) returns information about whether notes exist for a slide.
 #### **Example 1 (storage file)**
 
@@ -87,7 +87,7 @@ EntityExists exists = api.PostGetNotesSlideExists(request);
 Console.WriteLine(exists.Exists);
 
 ```
-### **2. Methods for handling subshapes**
+### **Methods for handling subshapes**
 SDK Request classes related to shapes have no more Path property. You can no longer access subshapes (i.e. shapes inside a grouped shape or a SmartArt figure) using those classes. The affected classes are:
 
 GetSlideShapeRequest, GetSlideShapesRequest, GetSlideShapeParagraphRequest, GetSlideShapeParagraphsRequest, GetParagraphPortionRequest, GetParagraphPortionsRequest, GetNotesSlideShapeRequest, GetNotesSlideShapesRequest, GetNotesSlideShapeParagraphRequest, GetNotesSlideShapeParagraphsRequest, GetNotesSlideShapePortionRequest, GetNotesSlideShapePortionsRequest, PostAddNewShapeRequest, PostAddNewParagraphRequest, PostAddNewPortionRequest, PostNotesSlideAddNewShapeRequest, PostNotesSlideAddNewParagraphRequest, PostNotesSlideAddNewPortionRequest, PutSlideShapeInfoRequest, PutSetParagraphPropertiesRequest, PutSetParagraphPortionPropertiesRequest, PutUpdateNotesSlideShapeRequest, PutUpdateNotesSlideShapeParagraphRequest, PutUpdateNotesSlideShapePortionRequestDeleteSlideShapeRequest, DeleteSlideShapesRequest, DeleteParagraphRequest, DeleteParagraphsRequest, DeletePortionRequest, DeletePortionsRequest, DeleteNotesSlideShapeRequest, DeleteNotesSlideShapesRequest, DeleteNotesSlideParagraphRequest, DeleteNotesSlideParagraphsRequest, DeleteNotesSlidePortionRequest, DeleteNotesSlidePortionsRequest, PostShapeSaveAsRequest, PostNotesSlideShapeSaveAsRequest, PutShapeSaveAsRequest, PutNotesSlideShapeSaveAsRequest.
@@ -137,7 +137,7 @@ Stream file = TestUtils.SlidesApi.PostSubshapeSaveAs(request);
 file.CopyTo(File.Create("subshape.png"));
 
 ```
-### **3. FODP export format**
+### **FODP export format**
 You can export presentations and slide to FODP.
 #### **Usage example (Download a shape that is part of a shape group)**
 ```java
@@ -167,7 +167,7 @@ Stream response = api.PostSlidesSaveAs(request);
 response.CopyTo(File.Create("myPresentation.fodp"));
 
 ```
-### **4. PdfExportOptions.AccessPermissions property**
+### **PdfExportOptions.AccessPermissions property**
 A new **AccessPermissions** property has been added to **PdfExportOptions** class. It specifies access permissions that should be granted when the document is opened with user access.
-### **5. New PdfCompliance options**
+### **New PdfCompliance options**
 New **PdfA1a** and **PdfUa** options have been added to **ComplianceEnum** enumeration. It is used in the **Compliance** property of the **PdfExportOptions** class.

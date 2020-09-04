@@ -5,7 +5,7 @@ url: /working-with-document-properties/
 weight: 100
 ---
 
-- [Reading Properties from a PowerPoint Presentation](/reading-properties-from-a-powerpoint-presentation-html/)
-- [Adding Custom Properties to a PowerPoint Presentation](/adding-custom-properties-to-a-powerpoint-presentation-html/)
-- [Update an existing document property in a PowerPoint Presentation](/update-an-existing-document-property-in-a-powerpoint-presentation-html/)
-- [Removing properties from a PowerPoint Presentation](/removing-properties-from-a-powerpoint-presentation-html/)
+- [Reading Properties from a PowerPoint Presentation](/reading-properties-from-a-powerpoint-presentation/)
+- [Adding Custom Properties to a PowerPoint Presentation](/adding-custom-properties-to-a-powerpoint-presentation/)
+- [Update an existing document property in a PowerPoint Presentation](/update-an-existing-document-property-in-a-powerpoint-presentation/)
+- [Removing properties from a PowerPoint Presentation](/removing-properties-from-a-powerpoint-presentation/)

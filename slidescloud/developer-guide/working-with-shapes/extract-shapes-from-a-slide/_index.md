@@ -10,7 +10,7 @@ This example allows you to extract shapes from a particular slide using Aspose.S
 ## **Resource**
 The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](https://apireference.aspose.cloud/slides/#!/SlidesShapes/SlidesShapes_GetSlidesSlideShapes).
 ## **REST Methods References**
-We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](http://www.aspose.com/docs/display/rest/REST+API+Methods) 
+We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](https://apireference.aspose.cloud/slides/) 
 ## **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -138,7 +138,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes?f
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Android" tabName9="Perl" >}}
 

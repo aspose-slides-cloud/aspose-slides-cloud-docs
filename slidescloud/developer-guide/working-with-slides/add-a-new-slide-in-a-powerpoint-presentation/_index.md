@@ -8,9 +8,9 @@ weight: 40
 ## **Introduction**
 This example allows you to add new slides in a presentation using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 ## **Resource**
-The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](/pages/createpage.action?spaceKey=slidescloud&title=Slides&linkCreation=true&fromPageId=5046473).
+The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](https://apireference.aspose.cloud/slides/).
 ## **REST Methods References**
-We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](http://www.aspose.com/docs/display/rest/REST+API+Methods) 
+We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](https://apireference.aspose.cloud/slides/) 
 ## **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -106,7 +106,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample.pptx/slides"-X POST -H "Cont
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ### **SDK Examples**
 {{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
 

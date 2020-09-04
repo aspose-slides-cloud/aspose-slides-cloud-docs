@@ -5,7 +5,7 @@ url: /convert-powerpoint-documents-to-other-file-formats/
 weight: 10
 ---
 
-# **Introduction**
+## **Introduction**
 This example allows you to save a presentation to different other formats using Aspose.Slides Cloud API in your applications. The Slides Cloud API supports two types of conversion
 ## **Using Storage**
 ### **API Information**
@@ -45,7 +45,7 @@ curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.
 {{< /tab >}}
 
 {{< /tabs >}}
-# **Without using Storage**
+## **Without using Storage**
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Swagger Link**|
@@ -147,4 +147,4 @@ The Aspose.Slides Cloud API supports the following format conversions
 |GIF Image|gif|
 |Bitmap File|bmp|
 ## **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/available-sdks-html/)
+The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/available-sdks/)

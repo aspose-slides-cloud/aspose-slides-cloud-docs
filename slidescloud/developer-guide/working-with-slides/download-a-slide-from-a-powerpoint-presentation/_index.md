@@ -115,6 +115,6 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< /tabs >}}
 ### **SDK Source**
-The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 
 

@@ -5,7 +5,7 @@ url: /create-new-powerpoint-presentations/
 weight: 20
 ---
 
-# **Introduction**
+## **Introduction**
 This example allows you to create a new empty presentation from scratch using Aspose.Slides Cloud API in your applications. Aspose.Slides Cloud API lets you create a new presentation from the following resources 
 ## **Using a Source**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation using a source document as a starting point
@@ -276,7 +276,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 {{< /tab >}}
 
 {{< /tabs >}}
-# **Using an HTML Document**
+## **Using an HTML Document**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation using an HTML document in the request body
 ## **API Information**
 
@@ -581,14 +581,14 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 {{< /tab >}}
 
 {{< /tabs >}}
-# **Using a Template**
+## **Using a Template**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation Using a Template document in the request body
-#### **API Information**
+### **API Information**
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
 |/slides/{name}/Template?templatepath|POST|Create a new presentation from a template in storage|[PostSlidesDocumentFromTemplate](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromTemplate)|
-#### **cURL Example**
+### **cURL Example**
 {{% alert color="primary" %}} 
 
 You can download a sample template file from [TemplateCV.pptx](https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet/blob/master/TestData/TemplateCV.pptx). The template is then populated with the below data. See the below cURL example to see how to use this information.
@@ -945,4 +945,4 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< /tabs >}}
 ### **SDK Source**
-The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)

@@ -14,13 +14,13 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 |MainSequence|Effect array|The list of main sequence effects.|
 |InteractiveSequences|InteractiveSequence array|The list of interactive sequences.|
 
-##### **InteractiveSequence properties**
+#### **InteractiveSequence properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
 |Effects|Effect array|The list of sequence effects.|
 |TriggerShapeIndex|int|The index of the shape that triggers the sequence.|
-##### **Effect properties**
+#### **Effect properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
@@ -38,7 +38,7 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 |Restart|enum|The way for a effect to restart after complete.|
 |Speed|float|The percentage by which to speed up (or slow down) the timing.|
 |TriggerDelayTime|float|Delay time after trigger.|
-##### **EffectType, EffectSubtype and EffectPresetClassType**
+#### **EffectType, EffectSubtype and EffectPresetClassType**
 
 |**Type**|**Valid subtypes**|**Valid classes**|
 | :- | :- | :- |
@@ -199,6 +199,6 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 ### **Resource Demonstration**
 For all of the pages below we have used [animation.pptx](attachments/7243161/7209032.pptx) as a sample file
 
-- [Reading Animation Information from a PowerPoint Presentation](/reading-animation-information-from-a-powerpoint-presentation-html/)
-- [Updating the interactive sequence of a PowerPoint Presentation](/updating-the-interactive-sequence-of-a-powerpoint-presentation-html/)
-- [Updating the MainSequence of an animation in a PowerPoint Slide](/updating-the-mainsequence-of-an-animation-in-a-powerpoint-slide-html/)
+- [Reading Animation Information from a PowerPoint Presentation](/reading-animation-information-from-a-powerpoint-presentation/)
+- [Updating the interactive sequence of a PowerPoint Presentation](/updating-the-interactive-sequence-of-a-powerpoint-presentation/)
+- [Updating the MainSequence of an animation in a PowerPoint Slide](/updating-the-mainsequence-of-an-animation-in-a-powerpoint-slide/)

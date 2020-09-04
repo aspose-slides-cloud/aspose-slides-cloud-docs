@@ -5,5 +5,5 @@ url: /working-with-text/
 weight: 90
 ---
 
-- [Read TextItems from a PowerPoint Presentation](/read-textitems-from-a-powerpoint-presentation-html/)
-- [Replace occurrence of a Text in a PowerPoint Presentation](/replace-occurrence-of-a-text-in-a-powerpoint-presentation-html/)
+- [Read TextItems from a PowerPoint Presentation](/read-textitems-from-a-powerpoint-presentation/)
+- [Replace occurrence of a Text in a PowerPoint Presentation](/replace-occurrence-of-a-text-in-a-powerpoint-presentation/)

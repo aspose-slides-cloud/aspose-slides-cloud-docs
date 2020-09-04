@@ -10,9 +10,9 @@ This example allows you to merge multiple presentation files using Aspose.Slides
 ## **Resource**
 The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Merge Presentations](https://apireference.aspose.cloud/slides/#!/SlidesMergeDocument/SlidesMergeDocument_PostPresentationMerge).
 ## **REST Methods References**
-We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](http://www.aspose.com/docs/display/rest/REST+API+Methods) 
+We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](https://apireference.aspose.cloud/slides/) 
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ## **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

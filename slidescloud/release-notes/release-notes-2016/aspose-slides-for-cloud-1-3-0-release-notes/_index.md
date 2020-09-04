@@ -25,11 +25,11 @@ SAASSLIDES-101 - PPTX to PPT Support PPTX to PPT conversion
 
 SAASSLIDES-142 - Update Aspose.Slides for .NET version to 14.x.0
 
-SAASSLIDES-100 - [Slide to Image](/pages/createpage.action?spaceKey=slidescloud&title=Slide+to+Image&linkCreation=true&fromPageId=5046341) Unexpected black background in output images
+SAASSLIDES-100 - Slide to Image Unexpected black background in output images
 
 SAASSLIDES-133 - PPTX to PDF conversion missing dotted lines
 
-SAASSLIDES-140 - <http://www.aspose.com/community/forums/thread/564431/cannot-retrieve-presentation-text.aspx>
+SAASSLIDES-140 - [Cannot retrieve presentation text](http://www.aspose.com/community/forums/thread/564431/cannot-retrieve-presentation-text.aspx)
 
 SAASSLIDES-144 - Text missing after conversion from PPTX to PDF
 

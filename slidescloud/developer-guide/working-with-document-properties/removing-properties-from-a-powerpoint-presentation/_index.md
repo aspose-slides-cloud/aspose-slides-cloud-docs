@@ -386,5 +386,5 @@ curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/destination.pptx/docume
 
 {{< /tabs >}}
 ## **SDK Source**
-Aspose.Slides  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+Aspose.Slides  Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ## **SDK Example**

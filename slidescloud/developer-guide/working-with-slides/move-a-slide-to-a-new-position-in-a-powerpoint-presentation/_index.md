@@ -7,12 +7,12 @@ weight: 60
 
 ## **Introduction**
 Aspose.Slides Cloud lets you move a slide to a new position within a PowerPoint Presentation
-#### **API Information**
+### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/move|POST|Move a slide to a new position defined by the newPosition parameter|[PostSlidesReorder](https://apireference.aspose.cloud/slides/#/Slides/PostSlidesReorder)|
-#### **cURL Example**
+### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -95,7 +95,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx
 
 {{< /tabs >}}
 ## **SDK Source**
-Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks-html/)
+Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
 ### **SDK Examples**
 {{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
 

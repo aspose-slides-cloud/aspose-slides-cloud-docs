@@ -9,6 +9,6 @@ New Features
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
-|SLIDESCLOUD-204|[Add support for Connectors](http://www.aspose.com/docs/display/slidescloud/Shape#Shape-Connector)|Feature|
-|SLIDESCLOUD-212|[Support for batch](http://www.aspose.com/docs/display/slidescloud/Pipeline)|Feature|
-- [Aspose.Slides for Cloud 1.7.0 Public API Changes](/aspose-slides-for-cloud-1-7-0-public-api-changes-html/)
+|SLIDESCLOUD-204|Add support for Connectors|Feature|
+|SLIDESCLOUD-212|Support for batch|Feature|
+- [Aspose.Slides for Cloud 1.7.0 Public API Changes](/aspose-slides-for-cloud-1-7-0-public-api-changes/)
