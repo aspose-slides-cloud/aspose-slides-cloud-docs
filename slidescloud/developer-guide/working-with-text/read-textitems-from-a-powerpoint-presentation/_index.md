@@ -192,5 +192,5 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/destination.pptx/slides/1/
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
+The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
 ## **SDK Examples**

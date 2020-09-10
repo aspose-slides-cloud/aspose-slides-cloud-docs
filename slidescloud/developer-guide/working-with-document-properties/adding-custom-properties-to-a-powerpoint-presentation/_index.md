@@ -423,5 +423,5 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/destination.pptx/document
 
 
 ## **SDK Source**
-The Aspose.Slide Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
+The Aspose.Slide Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
 ## **SDK Examples**

@@ -5,4 +5,4 @@ url: /working-with-shapes-using-third-party-storage/
 weight: 30
 ---
 
-- [Extract Shapes from a Slide Using Third Party Storage](/extract-shapes-from-a-slide-using-third-party-storage/)
+- [Extract Shapes from a Slide Using Third Party Storage](/slidescloud/extract-shapes-from-a-slide-using-third-party-storage/)

@@ -5,7 +5,7 @@ url: /get-a-particular-shape-from-the-slide/
 weight: 20
 ---
 
-![todo:image\_alt\_text](/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image\_alt\_text](/slidescloud/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to get a particular shape from the slide using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language NET, Java, PHP, Ruby, Rails, Python, jQuery and many more.
 ## **Resource**
@@ -191,7 +191,7 @@ elf",
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/available-sdks/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Android" tabName9="Perl" >}}
 
