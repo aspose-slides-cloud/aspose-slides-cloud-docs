@@ -6,4 +6,4 @@ weight: 90
 ---
 
 - [Read TextItems from a PowerPoint Presentation](/slidescloud/read-textitems-from-a-powerpoint-presentation/)
-- [Replace occurrence of a Text in a PowerPoint Presentation](/replace-occurrence-of-a-text-in-a-powerpoint-presentation/)
+- [Replace occurrence of a Text in a PowerPoint Presentation](/slidescloud/replace-occurrence-of-a-text-in-a-powerpoint-presentation/)

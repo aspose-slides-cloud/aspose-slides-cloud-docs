@@ -7,4 +7,4 @@ weight: 10
 
 This section has following topics:
 
-- [Aspose Cloud Presentation Importer for Wordpress](/aspose-cloud-presentation-importer-for-wordpress/)
+- [Aspose Cloud Presentation Importer for Wordpress](/slidescloud/aspose-cloud-presentation-importer-for-wordpress/)

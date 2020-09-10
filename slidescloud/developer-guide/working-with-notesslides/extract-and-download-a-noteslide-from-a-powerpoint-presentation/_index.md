@@ -15,7 +15,7 @@ Aspose.Slides Cloud API allows you to export and download a NoteSlide to a desir
 ### **cURL Example**
 {{% alert color="primary" %}} 
 
-For available formats to export a NoteSlide in please visit [Supported Document Formats](/supported-document-formats/) section of our documentation guide
+For available formats to export a NoteSlide in please visit [Supported Document Formats](/slidescloud/supported-document-formats/) section of our documentation guide
 
 {{% /alert %}} 
 
