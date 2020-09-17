@@ -1,7 +1,7 @@
 ---
 title: "Add Chart Series"
 type: docs
-url: /working-with-chart-series/add-chart-series/
+url: /add-chart-series/
 weight: 10
 ---
 

@@ -50,7 +50,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 
 {{< tab tabNum="1" >}}
 
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.cs" >}}
 
 {{< /tab >}}
 
@@ -62,13 +62,13 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 
 {{< tab tabNum="3" >}}
 
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.cs" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
 
 {{< /tab >}}
 
@@ -81,7 +81,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
 
 
 {{< /tab >}}
@@ -93,16 +93,13 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
-
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-
+{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
-
