@@ -14,8 +14,8 @@ New Features
 |SLIDESCLOUD-146|Cell borders missing in the generated PDF file|Bug |
 |SLIDESCLOUD-225|Incorrect text alignment in generated pdf|Bug|
 ## **Public API Changes**
-- Properties MasterSlides and LayoutSlides have been to Presentation DTO (Data Transfer Object).
-- Added property LayoutSlide to Slide DTO (Data Transfer Object).
+- Properties **MasterSlides** and **LayoutSlides** have been to **Presentation** DTO (Data Transfer Object).
+- Added property **LayoutSlide** to **Slide** DTO (Data Transfer Object).
 - Added new resource MasterSlides. It allows to GET list of all master slides in presentation. It also allows to clone master slide from another presentation via POST request and optionally apply cloned master to all existing slides.
 - Added new resource MasterSlide. It allows to GET list of child layout slides and list of depending slides.
 - Added new resource LayoutSlides. It allows to GET list of all layout slides in presentation. It also allows to clone layout slide from another presentation via POST request.

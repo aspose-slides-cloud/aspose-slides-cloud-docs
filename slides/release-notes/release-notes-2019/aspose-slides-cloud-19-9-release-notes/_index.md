@@ -16,5 +16,5 @@ weight: 30
 ## **Public API changes**
 
 
-- Widescreen is added to allowed values for sizeType parameter of slideSize resource.
-- LayoutTargetType property is added to base PlotArea object for charts.
+- **Widescreen** is added to allowed values for sizeType parameter of slideSize resource.
+- **LayoutTargetType** property is added to base **PlotArea** object for charts.
