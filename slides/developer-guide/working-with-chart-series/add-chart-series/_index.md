@@ -1,7 +1,7 @@
 ---
 title: "Add Chart Series"
 type: docs
-url: /add-chart-series/
+url: /working-with-chart-series/add-chart-series/
 weight: 10
 ---
 
@@ -14,17 +14,17 @@ Aspose.Slides Cloud provides resources to achieve this. You can add a chart seri
 | :- | :- | :- | :- |
 |/slides/{name}/Chart/{name}|POST|Add the chart series|[PostChartSeries](https://apireference.aspose.cloud/slides/#/Chart/PostChartSeries)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 By omitting the slide index parameter you can clean the presentation of all slides
 
-{{% /alert %}} 
+{{% /alert %}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers** 
+**Create Authentication Headers**
 
 ```java
 
@@ -34,7 +34,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\
 
 ```java
 
-curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/PostChartSeries/presentation\_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token] 
+curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/PostChartSeries/presentation\_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 
@@ -87,6 +87,3 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 {{< /tab >}}
 
 {{< /tabs >}}
-
-
-
