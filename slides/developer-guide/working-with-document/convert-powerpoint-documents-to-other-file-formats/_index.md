@@ -22,13 +22,13 @@ This example allows you to save a presentation to different other formats using 
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.pdf" --data-binary @test.pptx -H "Content-Type: application/octet-stream" -H "Authorization: Bearer CwEsXL\_ddljbOuknQ2d-grMMRhNcAUhsDDEbBfORflhLt7zZZEVDIC15mmk99AjMBlSywCpPiFcvPqJ0dc2SJBEhdGNcDBTQ1rbuy08Wa6LGvcASPRXXmj04WxgC4nkzuoJN4UTTECNruH1n85P3V1s2hwFXqCVWxcushRupPXr1L9bpALlG9uEQq9\_1OAF\_m\_REnrTSF51YKKr1NJkzcL0YuZqPsu4ER4qu9Y132ipP4SruqjrHWnkbgQ0JcE81Zuw7hmCXjb8SJDi0xsfKWBfhQOPT-Ff9-OnrmMJ1m6KyaqLTpGmhgrSMVYf5KXbRNspaBdTgKMToKH-rUOukIdMWOjV7VF8L0libDd2YaMzleJdo6DVRLQN12oBZDYDXPL3QDkD3doi9aq848rNSw\_Mj\_3aHQ1xaGehBMPk7ea\_WuKMf" --ssl-no-revoke
+curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.pdf" --data-binary @test.pptx -H "Content-Type: application/octet-stream" -H "Authorization: Bearer CwEsXL_ddljbOuknQ2d-grMMRhNcAUhsDDEbBfORflhLt7zZZEVDIC15mmk99AjMBlSywCpPiFcvPqJ0dc2SJBEhdGNcDBTQ1rbuy08Wa6LGvcASPRXXmj04WxgC4nkzuoJN4UTTECNruH1n85P3V1s2hwFXqCVWxcushRupPXr1L9bpALlG9uEQq9_1OAF_m_REnrTSF51YKKr1NJkzcL0YuZqPsu4ER4qu9Y132ipP4SruqjrHWnkbgQ0JcE81Zuw7hmCXjb8SJDi0xsfKWBfhQOPT-Ff9-OnrmMJ1m6KyaqLTpGmhgrSMVYf5KXbRNspaBdTgKMToKH-rUOukIdMWOjV7VF8L0libDd2YaMzleJdo6DVRLQN12oBZDYDXPL3QDkD3doi9aq848rNSw_Mj_3aHQ1xaGehBMPk7ea_WuKMf" --ssl-no-revoke
 
 ```
 
@@ -60,13 +60,13 @@ curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/convert/pdf" --data-binary @test.pptx -H "Content-Type: application/octet-stream" -H "Accept: Multipart/Form data" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NjMxNTUsImV4cCI6MTU1OTg0OTU1NSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.qashpcOro6uHwPqYauzYEQ\_zNHUPx9SOuBN1HVf3z3vOK\_4ctWsLYyaNETUjPaWDzAhQAGJbG2IBE1hNQk4uS\_rjTMdbe5SzcVy\_w6DPwGELVe6erOqBVOxyZML3zL43a5sy9XEpjjp5S3N54l3kL2KJY86AAgh5ShTFx4I9kKx4vkqOGtJCjqZ0XWcS0D3BmnL6sOtBa9rNEc-f3ICzynOXo-ACkomKrRlNuQz8HiZlMDXILhKt1N0c0Kco9CuclPYwynuFAmthvSlmcVfRTF9V5Mz2MnQSFVIlg-ql7wvtkJJybYmxlwd8Fp4gKytyV8x2lDLTOuNJZxVqS7vMqg" --ssl-no-revoke --output outfile.pdf
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/convert/pdf" --data-binary @test.pptx -H "Content-Type: application/octet-stream" -H "Accept: Multipart/Form data" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NjMxNTUsImV4cCI6MTU1OTg0OTU1NSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.qashpcOro6uHwPqYauzYEQ_zNHUPx9SOuBN1HVf3z3vOK_4ctWsLYyaNETUjPaWDzAhQAGJbG2IBE1hNQk4uS_rjTMdbe5SzcVy_w6DPwGELVe6erOqBVOxyZML3zL43a5sy9XEpjjp5S3N54l3kL2KJY86AAgh5ShTFx4I9kKx4vkqOGtJCjqZ0XWcS0D3BmnL6sOtBa9rNEc-f3ICzynOXo-ACkomKrRlNuQz8HiZlMDXILhKt1N0c0Kco9CuclPYwynuFAmthvSlmcVfRTF9V5Mz2MnQSFVIlg-ql7wvtkJJybYmxlwd8Fp4gKytyV8x2lDLTOuNJZxVqS7vMqg" --ssl-no-revoke --output outfile.pdf
 
 ```
 
@@ -84,7 +84,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/convert/pdf" --data-binar
 
 {{< /tabs >}}
 # **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slidescloud/available-sdks/) article to learn how to add an SDK to your project.
+Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ## **SDK Examples**
 {{< tabs tabTotal="5" tabID="9" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
 
@@ -147,4 +147,4 @@ The Aspose.Slides Cloud API supports the following format conversions
 |GIF Image|gif|
 |Bitmap File|bmp|
 ## **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slidescloud/available-sdks/)
+The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)

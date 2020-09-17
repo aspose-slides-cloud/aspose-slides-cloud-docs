@@ -24,42 +24,28 @@ The new method (GET for storage files, POST for files in the request body) retur
 #### **Example 1 (storage file)**
 
 
-```java
-
+```
 GET https://api.aspose.cloud/v3.0/slides/myPresentaion.pptx/slides/1/notesSlide/exist?folder=myFolder
-
 ```
 
 **SDK Code:**
 
-```java
-
+```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-
 GetNotesSlideExistsRequest request = new GetNotesSlideExistsRequest
-
 {
-
     Name = "myPresentaion.pptx",
-
     Folder = "myFolder",
-
     SlideIndex = 1
-
-code
-
+};
 EntityExists exists = api.GetNotesSlideExists(request);
-
 Console.WriteLine(exists.Exists);
-
 ```
 
 
 #### **Example 2 (no storage)**
-```java
-
+```
 POST https://api.aspose.cloud/v3.0/slides/slides/1/notesSlide/exist
-
 ```
 
 ***Request body:***
@@ -68,24 +54,15 @@ Contains the presentation.
 
 ***SDK Code:***
 
-```java
-
+```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-
 PostGetNotesSlideExistsRequest request = new PostGetNotesSlideExistsRequest
-
 {
-
     Document = File.OpenRead("myPresentaion.pptx"),
-
     SlideIndex = 1
-
 };
-
 EntityExists exists = api.PostGetNotesSlideExists(request);
-
 Console.WriteLine(exists.Exists);
-
 ```
 ### **Methods for handling subshapes**
 SDK Request classes related to shapes have no more Path property. You can no longer access subshapes (i.e. shapes inside a grouped shape or a SmartArt figure) using those classes. The affected classes are:
@@ -98,74 +75,46 @@ GetSlideSubshape, GetSlideSubshapes, GetSlideSubshapeParagraph, GetSlideSubshape
 #### **Example (Download a shape that is part of a shape group)**
 CURL request remains unchanged:
 
-
-
-```java
-
+```
 POST https://api.aspose.cloud/v3.0/slides/myPresentaion.pptx/slides/1/shapes/4/shapes/1/png?folder=myFolder
-
 ```
 
 
 
 **SDK Code:**
 
-```java
-
+```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-
 PostSubshapeSaveAsRequest request = new PostSubshapeSaveAsRequest
-
 {
-
     Name = "myPresentaion.pptx",
-
     Folder = "myFolder",
-
     SlideIndex = 1,
-
     Path = "4/shapes",
-
     ShapeIndex = 1,
-
     Format = ShapeExportFormat.Png
-
 };
-
 Stream file = TestUtils.SlidesApi.PostSubshapeSaveAs(request);
-
 file.CopyTo(File.Create("subshape.png"));
-
 ```
 ### **FODP export format**
 You can export presentations and slide to FODP.
 #### **Usage example (Download a shape that is part of a shape group)**
-```java
-
+```
 POST https://api.aspose.cloud/v3.0/slides/myPresentaion.pptx/fodp?folder=myFolder
-
 ```
 
 ***SDK Code:***
 
-```java
-
+```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-
 PostSlidesSaveAsRequest request = new PostSlidesSaveAsRequest
-
 {
-
     Name = "myPresentation.pptx",
-
     Format = ExportFormat.Fodp
-
 };
-
 Stream response = api.PostSlidesSaveAs(request);
-
 response.CopyTo(File.Create("myPresentation.fodp"));
-
 ```
 ### **PdfExportOptions.AccessPermissions property**
 A new **AccessPermissions** property has been added to **PdfExportOptions** class. It specifies access permissions that should be granted when the document is opened with user access.

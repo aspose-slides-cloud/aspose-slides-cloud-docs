@@ -11,4 +11,4 @@ New Features
 | :- | :- | :- |
 |SLIDESCLOUD-204|Add support for Connectors|Feature|
 |SLIDESCLOUD-212|Support for batch|Feature|
-- [Aspose.Slides for Cloud 1.7.0 Public API Changes](/slidescloud/aspose-slides-for-cloud-1-7-0-public-api-changes/)
+- [Aspose.Slides for Cloud 1.7.0 Public API Changes](/slides/aspose-slides-for-cloud-1-7-0-public-api-changes/)

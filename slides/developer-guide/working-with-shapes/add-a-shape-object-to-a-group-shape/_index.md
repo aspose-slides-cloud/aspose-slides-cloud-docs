@@ -5,7 +5,7 @@ url: /add-a-shape-object-to-a-group-shape/
 weight: 40
 ---
 
-![todo:image\_alt\_text](/slidescloud/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to add a shape to a presentatio using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 ## **Resource**
@@ -37,7 +37,7 @@ We are referring some common methods in the REST examples to perform general ope
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="9" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Perl" tabName9="Android" >}}
 

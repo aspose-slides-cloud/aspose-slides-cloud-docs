@@ -29,13 +29,13 @@ This request returns the slide in the response with the desired export format. Y
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer []Access Token" --ssl-no-revoke --output test\_export\_pdf.pdf
+curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer []Access Token" --ssl-no-revoke --output test_export_pdf.pdf
 
 ```
 
@@ -63,13 +63,13 @@ This request exports the slide to Storage. You have to provide the **outPath** p
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/pdf?outPath=myFile.pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
+curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/pdf?outPath=myFile.pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 
@@ -79,7 +79,7 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/
 
 
 ## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slidescloud/available-sdks/) article to learn how to add an SDK to your project.
+Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
 {{< tabs tabTotal="5" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
 
@@ -115,6 +115,6 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< /tabs >}}
 ### **SDK Source**
-The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 
 

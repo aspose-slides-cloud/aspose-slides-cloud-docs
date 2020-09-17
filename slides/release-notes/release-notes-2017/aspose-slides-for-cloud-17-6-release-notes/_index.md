@@ -9,7 +9,7 @@ weight: 60
 
 |**Key**|**Summary**|**Category**|
 | :- | :- | :- |
-|SLIDESCLOUD-280|[Implement Font Location Parameter](/slidescloud/working-with-document/)|New Feature|
+|SLIDESCLOUD-280|[Implement Font Location Parameter](/slides/working-with-document/)|New Feature|
 |SLIDESCLOUD-265|Exception: parameter is not valid|Enhancement|
 |SLIDESCLOUD-277|Vesion Number missing in response URL|Enhancement|
 |SLIDESCLOUD-278|API is not supporting custom embedded font|Enhancement|

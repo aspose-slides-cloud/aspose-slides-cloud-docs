@@ -39,9 +39,9 @@ You need to have the following installed in order to open and extend the source 
 1. Open PHP Storm and Choose **File**  > **Open Project**
 1. Browse to the latest source code that you have downloaded,
 ### **Source code overview**
-- Aspose\_Cloud\_SDK\_For\_PHP-master - Contains Aspose for Cloud SDK API for different operations.
-- Aspose\_Cloud\_Presentation\_Importer.php - Contains main plugin code.
-- aspose\_cloud\_presentation\_importer\_admin.php - Contains configuration page html and other admin related code.
+- Aspose_Cloud_SDK_For_PHP-master - Contains Aspose for Cloud SDK API for different operations.
+- Aspose_Cloud_Presentation_Importer.php - Contains main plugin code.
+- aspose_cloud_presentation_importer_admin.php - Contains configuration page html and other admin related code.
 - getAsposePptContent.php - Contains code for importing content from presentation file.
 ## **Downloading and Installing**
 ### **Downloading**
