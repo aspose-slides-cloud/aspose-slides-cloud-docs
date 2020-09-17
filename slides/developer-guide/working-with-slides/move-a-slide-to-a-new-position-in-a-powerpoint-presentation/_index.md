@@ -95,7 +95,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx
 
 {{< /tabs >}}
 ## **SDK Source**
-Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ### **SDK Examples**
 {{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
 

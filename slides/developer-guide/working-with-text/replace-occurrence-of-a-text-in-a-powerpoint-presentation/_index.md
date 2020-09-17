@@ -284,5 +284,5 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/destination.pptx/replaceT
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**

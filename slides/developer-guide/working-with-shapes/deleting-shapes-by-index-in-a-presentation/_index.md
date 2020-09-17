@@ -5,7 +5,7 @@ url: /deleting-shapes-by-index-in-a-presentation/
 weight: 70
 ---
 
-![todo:image\_alt\_text](/slidescloud/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to format a text portion with a Slide. You can use our REST API with any language: NET, Java, PHP, Ruby, Rails, Python, jQuery and many more.
 ## **cURL Examples**
@@ -33,7 +33,7 @@ This example allows you to format a text portion with a Slide. You can use our 
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="4" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Python" >}}
 

@@ -9,11 +9,11 @@ New Features
 
 |**Key** |**Summary** |**Category** |
 | :- | :- | :- |
-|SLIDESCLOUD-98|[Convert a PPT to SWF](/slidescloud/working-with-document/)|New Feature|
-|SLIDESCLOUD-205|[Ability to clone shapes](/slidescloud/working-with-shapes/)|New Feature|
-|SLIDESCLOUD-207|[Add support for AudioFrame](/slidescloud/working-with-shapes/)|New Feature|
-|SLIDESCLOUD-208|[Add support for VideoFrame](/slidescloud/working-with-shapes/)|New Feature|
-|SLIDESCLOUD-241|[Support for accessing slide notes using REST Api](/slidescloud/working-with-notesslides/)|New Feature|
+|SLIDESCLOUD-98|[Convert a PPT to SWF](/slides/working-with-document/)|New Feature|
+|SLIDESCLOUD-205|[Ability to clone shapes](/slides/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-207|[Add support for AudioFrame](/slides/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-208|[Add support for VideoFrame](/slides/working-with-shapes/)|New Feature|
+|SLIDESCLOUD-241|[Support for accessing slide notes using REST Api](/slides/working-with-notesslides/)|New Feature|
 ## **Public API Changes**
 - 'Swf' and 'SwfNotes' values have been added to the list of available Presentation export formats. It allows to export slides or notes to swf format.
 - 'TiffNotes' value has been added to the list of available Presentation export formats. It allows to export notes to tiff format.

@@ -5,7 +5,7 @@ url: /extract-shapes-from-a-slide-using-third-party-storage/
 weight: 10
 ---
 
-![todo:image\_alt\_text](/slidescloud/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to extract shapes from a particular slide using third party Storage. You just need to use Aspose.Slides for Cloud API in any language: NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 
@@ -140,7 +140,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes?a
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slidescloud/available-sdks/)
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
 {{< tabs tabTotal="9" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Perl" tabName9="Android" >}}
 

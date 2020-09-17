@@ -15,7 +15,7 @@ Aspose.Slides Cloud API allows you to export and download a NoteSlide to a desir
 ### **cURL Example**
 {{% alert color="primary" %}} 
 
-For available formats to export a NoteSlide in please visit [Supported Document Formats](/slidescloud/supported-document-formats/) section of our documentation guide
+For available formats to export a NoteSlide in please visit [Supported Document Formats](/slides/supported-document-formats/) section of our documentation guide
 
 {{% /alert %}} 
 
@@ -41,7 +41,7 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/
 
 {{< /tabs >}}
 ## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slidescloud/available-sdks/) article to learn how to add an SDK to your project.
+Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
 {{< tabs tabTotal="9" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
@@ -101,4 +101,4 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< /tabs >}}
 ### **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slidescloud/available-sdks/)
+The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)

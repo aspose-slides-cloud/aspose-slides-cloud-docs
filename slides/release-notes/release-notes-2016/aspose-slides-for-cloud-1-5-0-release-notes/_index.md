@@ -7,7 +7,7 @@ weight: 60
 
 We are pleased to announce the release of Aspose.Slides for Cloud 1.5.0 with following improvements.
 ## **Major Changes**
-SAASSLIDES-61 [Charts Support](/slidescloud/working-with-chart-series/) Ability to add graphs in the presentation
+SAASSLIDES-61 [Charts Support](/slides/working-with-chart-series/) Ability to add graphs in the presentation
 
 SAASSLIDES-163 Add support for Diagrams
 # **API Changes**
