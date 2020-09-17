@@ -5,7 +5,7 @@ url: /working-with-smart-art-shape-management/
 weight: 60
 ---
 
-![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image_alt_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to work with Smart Art Shape Management using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 ## **Resource**
@@ -101,7 +101,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available
 
 
 
-![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image_alt_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 
 |<p>**Contents Summary**</p><p>1 [Introduction ](#Introduction)</p><p>2 [Resource](#Resource)</p><p>3 [REST Methods References](#RESTMethodsReferences)</p><p>4 [cURL Example](#cURLExample)</p><p>5 [SDK Source](#SDKSource)</p><p>6 [SDK Examples](#SDKExamples)</p><p>7 [Introduction ](#Introduction.1)</p><p>8 [Resource](#Resource.1)</p><p>9 [REST Methods References](#RESTMethodsReferences.1)</p><p>10 [cURL Example](#cURLExample.1)</p><p>11 [SDK Source](#SDKSource.1)</p><p>12 [SDK Examples](#SDKExamples.1)</p>| | |
 | :- | :- | :- |

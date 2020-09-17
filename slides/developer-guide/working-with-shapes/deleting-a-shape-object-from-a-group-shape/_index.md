@@ -5,7 +5,7 @@ url: /deleting-a-shape-object-from-a-group-shape/
 weight: 50
 ---
 
-![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image_alt_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to delete a shape object from a presentation using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 ## **Resource**
