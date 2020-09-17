@@ -6,6 +6,6 @@ weight: 130
 ---
 -## [ADD Chart Series](/slides/add-chart-series/)
 
--[DELETE Chart Series](/delete-chart-series/)
+-[DELETE Chart Series](/slides/delete-chart-series/)
 
--[UPDATE Chart Series](/update-chart-series/)
+-[UPDATE Chart Series](/slides/update-chart-series/)
