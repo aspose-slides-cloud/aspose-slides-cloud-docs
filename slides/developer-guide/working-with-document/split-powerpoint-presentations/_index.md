@@ -27,13 +27,13 @@ By skipping the **to** and **from** parameters in the request URL, the whole doc
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&to=2&format=png" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3Njc2NjYsImV4cCI6MTU1OTg1NDA2NiwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.ostZtFSAtDFwvFygXzgg9optoSgYcrZWu2K2YPordXS7MRCbpSVV0wBuUPineb\_\_3VdobkasIL5WGavlVTLa4d1R1\_MxjZ5Wcv6Uth\_lMir5bvngnECv3SREE3e0XHEtZQWy4uh23UmWnqu1UTM60NS-onYRLQ0-eqXYmMSts7yl8oTq\_P1gepffW8oVssD6TZvcNqcUIPUCtC5sQXCEy7edlEsHOR611N\_772RJZaZ-yd6BDUkBLZGrek9POLQvcM85uGK4uQ53uuzoV\_5iYXE73jrYOXHgUIfcX1UDHhoJ4utt06sKH0FtugU5jT6rGqRuEi6LbahI2\_63IVE7LQ" --ssl-no-revoke
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&to=2&format=png" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3Njc2NjYsImV4cCI6MTU1OTg1NDA2NiwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.ostZtFSAtDFwvFygXzgg9optoSgYcrZWu2K2YPordXS7MRCbpSVV0wBuUPineb__3VdobkasIL5WGavlVTLa4d1R1_MxjZ5Wcv6Uth_lMir5bvngnECv3SREE3e0XHEtZQWy4uh23UmWnqu1UTM60NS-onYRLQ0-eqXYmMSts7yl8oTq_P1gepffW8oVssD6TZvcNqcUIPUCtC5sQXCEy7edlEsHOR611N_772RJZaZ-yd6BDUkBLZGrek9POLQvcM85uGK4uQ53uuzoV_5iYXE73jrYOXHgUIfcX1UDHhoJ4utt06sKH0FtugU5jT6rGqRuEi6LbahI2_63IVE7LQ" --ssl-no-revoke
 
 ```
 
@@ -49,7 +49,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source\_1.png",
+         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_1.png",
 
          "relation":"self",
 
@@ -61,7 +61,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source\_2.png",
+         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_2.png",
 
          "relation":"self",
 

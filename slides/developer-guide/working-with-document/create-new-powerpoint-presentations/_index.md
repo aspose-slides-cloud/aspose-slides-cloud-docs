@@ -23,13 +23,13 @@ Aspose.Slides Cloud allows you to create a PowerPoint Presentation using a sourc
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fromSource?sourcePath=destination.pptx" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-\_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu\_l\_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W\_D7bh28jMSZqbVIS9FlA-INUD\_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt\_5hGWmtlF874Q" --ssl-no-revoke -d {}
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_source.pptx/fromSource?sourcePath=destination.pptx" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu_l_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W_D7bh28jMSZqbVIS9FlA-INUD_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt_5hGWmtlF874Q" --ssl-no-revoke -d {}
 
 ```
 
@@ -45,7 +45,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/documentProperties",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/documentProperties",
 
          "relation":"self"
 
@@ -57,7 +57,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/slides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/slides",
 
          "relation":"self"
 
@@ -69,7 +69,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/images",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/images",
 
          "relation":"self"
 
@@ -81,7 +81,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/layoutSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/layoutSlides",
 
          "relation":"self"
 
@@ -93,7 +93,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/masterSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/masterSlides",
 
          "relation":"self"
 
@@ -103,7 +103,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
    "selfUri":{
 
-      "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx",
+      "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx",
 
       "relation":"self"
 
@@ -113,7 +113,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/odp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/odp",
 
          "relation":"alternate",
 
@@ -125,7 +125,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppt",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppt",
 
          "relation":"alternate",
 
@@ -137,7 +137,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pdf",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pdf",
 
          "relation":"alternate",
 
@@ -149,7 +149,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/tiff",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/tiff",
 
          "relation":"alternate",
 
@@ -161,7 +161,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/xps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/xps",
 
          "relation":"alternate",
 
@@ -173,7 +173,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pps",
 
          "relation":"alternate",
 
@@ -185,7 +185,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppsx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsx",
 
          "relation":"alternate",
 
@@ -197,7 +197,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pptm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pptm",
 
          "relation":"alternate",
 
@@ -209,7 +209,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppsm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsm",
 
          "relation":"alternate",
 
@@ -221,7 +221,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/potx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potx",
 
          "relation":"alternate",
 
@@ -233,7 +233,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/potm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potm",
 
          "relation":"alternate",
 
@@ -245,7 +245,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/otp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/otp",
 
          "relation":"alternate",
 
@@ -257,7 +257,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_source.pptx/fro
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/html",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/html",
 
          "relation":"alternate",
 
@@ -292,13 +292,13 @@ Aspose.Slides Cloud allows you to create a PowerPoint Presentation using an HTML
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-\_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu\_l\_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W\_D7bh28jMSZqbVIS9FlA-INUD\_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt\_5hGWmtlF874Q" --ssl-no-revoke -d "<html> <head></head> <body> <p>Html content</p> </body> </html>"
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one.pptx/fromHTML" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu_l_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W_D7bh28jMSZqbVIS9FlA-INUD_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt_5hGWmtlF874Q" --ssl-no-revoke -d "<html> <head></head> <body> <p>Html content</p> </body> </html>"
 
 ```
 
@@ -314,7 +314,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/documentProperties",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/documentProperties",
 
          "relation":"self"
 
@@ -326,7 +326,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/slides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/slides",
 
          "relation":"self"
 
@@ -338,7 +338,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/images",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/images",
 
          "relation":"self"
 
@@ -350,7 +350,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/layoutSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/layoutSlides",
 
          "relation":"self"
 
@@ -362,7 +362,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/masterSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/masterSlides",
 
          "relation":"self"
 
@@ -372,7 +372,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
    "selfUri":{
 
-      "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx",
+      "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx",
 
       "relation":"self"
 
@@ -382,7 +382,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/odp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/odp",
 
          "relation":"alternate",
 
@@ -394,7 +394,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppt",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppt",
 
          "relation":"alternate",
 
@@ -406,7 +406,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pdf",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pdf",
 
          "relation":"alternate",
 
@@ -418,7 +418,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/tiff",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/tiff",
 
          "relation":"alternate",
 
@@ -430,7 +430,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/xps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/xps",
 
          "relation":"alternate",
 
@@ -442,7 +442,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pps",
 
          "relation":"alternate",
 
@@ -454,7 +454,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppsx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsx",
 
          "relation":"alternate",
 
@@ -466,7 +466,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/pptm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pptm",
 
          "relation":"alternate",
 
@@ -478,7 +478,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/ppsm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsm",
 
          "relation":"alternate",
 
@@ -490,7 +490,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/potx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potx",
 
          "relation":"alternate",
 
@@ -502,7 +502,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/potm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potm",
 
          "relation":"alternate",
 
@@ -514,7 +514,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/otp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/otp",
 
          "relation":"alternate",
 
@@ -526,7 +526,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one.pptx/fromHTML" -
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one.pptx/html",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/html",
 
          "relation":"alternate",
 
@@ -589,7 +589,6 @@ Aspose.Slides Cloud allows you to create a PowerPoint Presentation Using a Templ
 | :- | :- | :- | :- |
 |/slides/{name}/Template?templatepath|POST|Create a new presentation from a template in storage|[PostSlidesDocumentFromTemplate](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromTemplate)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
 
 You can download a sample template file from [TemplateCV.pptx](https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet/blob/master/TestData/TemplateCV.pptx). The template is then populated with the below data. See the below cURL example to see how to use this information.
 
@@ -645,8 +644,6 @@ You can download a sample template file from [TemplateCV.pptx](https://github.co
 
 ```
 
-{{% /alert %}} 
-
 {{< tabs tabTotal="2" tabID="11" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -655,13 +652,13 @@ You can download a sample template file from [TemplateCV.pptx](https://github.co
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/fromTemplate?templatePath=TemplateCV.pptx" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-\_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu\_l\_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W\_D7bh28jMSZqbVIS9FlA-INUD\_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt\_5hGWmtlF874Q" --ssl-no-revoke -d "<staff> <person> <name>John Doe</name> <address> <line1>10 Downing Street</line1> <line2>London</line2> </address> <phone>+457 123456</phone> <bio>Hi, I'm John and this is my CV</bio> <skills> <skill> <title>C#</title> <level>Excellent</level> </skill> <skill> <title>C++</title> <level>Good</level> </skill> <skill> <title>Java</title> <level>Average</level> </skill> </skills> </person></staff>"
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/fromTemplate?templatePath=TemplateCV.pptx" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3NzMwMDQsImV4cCI6MTU1OTg1OTQwNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.uz9tjVx3LddNa1POM2MEM6xGz5L4z4BaQgGQnLX55YT-_5Dztj631qT19kWhLJcONgYDqMp-c8Tgv2lV0iGfoKs-ZLZsvjOlpv0Oq3QJywj17LoUWap8feZyRlIFZz6nxB-OQhdd8JHglHx3Fu_l_gEssp6TrhXX6wdOgPPmV3DOrNZJR8ylc-e8V2Fx8or47CVVJ21e35DVzVRJK2EM4W_D7bh28jMSZqbVIS9FlA-INUD_ZCjTG2ix7TlUcBxblkcMUykq-M6KbNk1rd34tS0wV3RopQ8YmL-xeDQyDu8KVqBoUUEwjzY5fI9Y5GvuvATW6PXLt_5hGWmtlF874Q" --ssl-no-revoke -d "<staff> <person> <name>John Doe</name> <address> <line1>10 Downing Street</line1> <line2>London</line2> </address> <phone>+457 123456</phone> <bio>Hi, I'm John and this is my CV</bio> <skills> <skill> <title>C#</title> <level>Excellent</level> </skill> <skill> <title>C++</title> <level>Good</level> </skill> <skill> <title>Java</title> <level>Average</level> </skill> </skills> </person></staff>"
 
 ```
 
@@ -677,7 +674,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/documentProperties",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/documentProperties",
 
          "relation":"self"
 
@@ -689,7 +686,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/slides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/slides",
 
          "relation":"self"
 
@@ -701,7 +698,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/images",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/images",
 
          "relation":"self"
 
@@ -713,7 +710,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/layoutSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/layoutSlides",
 
          "relation":"self"
 
@@ -725,7 +722,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/masterSlides",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/masterSlides",
 
          "relation":"self"
 
@@ -735,7 +732,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
    "selfUri":{
 
-      "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx",
+      "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx",
 
       "relation":"self"
 
@@ -745,7 +742,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/odp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/odp",
 
          "relation":"alternate",
 
@@ -757,7 +754,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/ppt",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppt",
 
          "relation":"alternate",
 
@@ -769,7 +766,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/pdf",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pdf",
 
          "relation":"alternate",
 
@@ -781,7 +778,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/tiff",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/tiff",
 
          "relation":"alternate",
 
@@ -793,7 +790,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/xps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/xps",
 
          "relation":"alternate",
 
@@ -805,7 +802,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/pps",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pps",
 
          "relation":"alternate",
 
@@ -817,7 +814,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/ppsx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppsx",
 
          "relation":"alternate",
 
@@ -829,7 +826,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/pptm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pptm",
 
          "relation":"alternate",
 
@@ -841,7 +838,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/ppsm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppsm",
 
          "relation":"alternate",
 
@@ -853,7 +850,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/potx",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/potx",
 
          "relation":"alternate",
 
@@ -865,7 +862,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/potm",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/potm",
 
          "relation":"alternate",
 
@@ -877,7 +874,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/otp",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/otp",
 
          "relation":"alternate",
 
@@ -889,7 +886,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/f
 
       {
 
-         "href":"https://api.aspose.cloud/v3.0/slides/new\_one\_template.pptx/html",
+         "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/html",
 
          "relation":"alternate",
 

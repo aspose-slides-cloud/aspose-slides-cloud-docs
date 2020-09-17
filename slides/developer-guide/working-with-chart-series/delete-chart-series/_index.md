@@ -28,13 +28,13 @@ By omitting the slide index parameter you can clean the presentation of all slid
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/DeleteChartSeries/presentation\_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token] 
+curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/DeleteChartSeries/presentation_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token] 
 
 ```
 

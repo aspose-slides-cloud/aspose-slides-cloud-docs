@@ -21,13 +21,13 @@ Aspose.Slides Cloud API allows you to read NoteSlide information from a PowerPoi
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client\_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/notesSlide/" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjAwOTI0MzUsImV4cCI6MTU2MDE3ODgzNSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.B-97utZQ3cy0KUQCnKt\_bB\_3V5Qov8RYt2gTDT9heSEuqNBgDOHDjzyWEGlN8NufcXWVELQ53ti2Xu9f\_f7QXeicMf6Kvh1fLrlr7W0\_9SG5tDoSO\_raAE8ZMzpxmXJBH6mdqUBsG2aTlsd06BPT-evjmakNn57PjyX5AAGN2NXLMCuzdx\_wZvCKUcgiziSq5tlO1ohNAK7UI7P0JEA2\_R\_jd4xTxtE1sO--eioNNJoS5JEQtgbh7XlF-SG4EnLk5nhjl0dlNRKngQKgjUSekLSO45rdyzOIIBO1ssUMQqmBm0CgNmUGrwXv\_ruq7HATsKYNb-1IGMGB-s2SVBAuuA" --ssl-no-revoke
+curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/notesSlide/" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjAwOTI0MzUsImV4cCI6MTU2MDE3ODgzNSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.B-97utZQ3cy0KUQCnKt_bB_3V5Qov8RYt2gTDT9heSEuqNBgDOHDjzyWEGlN8NufcXWVELQ53ti2Xu9f_f7QXeicMf6Kvh1fLrlr7W0_9SG5tDoSO_raAE8ZMzpxmXJBH6mdqUBsG2aTlsd06BPT-evjmakNn57PjyX5AAGN2NXLMCuzdx_wZvCKUcgiziSq5tlO1ohNAK7UI7P0JEA2_R_jd4xTxtE1sO--eioNNJoS5JEQtgbh7XlF-SG4EnLk5nhjl0dlNRKngQKgjUSekLSO45rdyzOIIBO1ssUMQqmBm0CgNmUGrwXv_ruq7HATsKYNb-1IGMGB-s2SVBAuuA" --ssl-no-revoke
 
 ```
 
@@ -45,7 +45,7 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/
 
       "uri":{
 
-         "href":"https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/notesSlide/shapes",
+         "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/notesSlide/shapes",
 
          "relation":"self"
 
@@ -55,7 +55,7 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/
 
    "selfUri":{
 
-      "href":"https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/notesSlide",
+      "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/notesSlide",
 
       "relation":"self"
 
@@ -93,13 +93,13 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming\_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming\_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
@@ -117,13 +117,13 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming\_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming\_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

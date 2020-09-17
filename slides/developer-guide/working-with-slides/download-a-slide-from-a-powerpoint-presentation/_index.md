@@ -29,13 +29,13 @@ This request returns the slide in the response with the desired export format. Y
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer []Access Token" --ssl-no-revoke --output test\_export\_pdf.pdf
+curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer []Access Token" --ssl-no-revoke --output test_export_pdf.pdf
 
 ```
 
@@ -63,13 +63,13 @@ This request exports the slide to Storage. You have to provide the **outPath** p
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/pdf?outPath=myFile.pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
+curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/pdf?outPath=myFile.pdf" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 

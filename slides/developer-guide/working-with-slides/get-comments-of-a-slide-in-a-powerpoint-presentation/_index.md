@@ -21,13 +21,13 @@ Aspose.Slides Cloud lets you easily read comment information from a PowerPoint P
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant\_type=client\_credentials&client\_id=XXX&client\_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
 ```java
 
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/comments" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk4NjA5ODcsImV4cCI6MTU1OTk0NzM4NywiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.syoUePcSLvXUVSXIYO7hYdG6Xuw2DyY8rv08JhnklMHBbZml9j6zXOZtUVp73L7F1if53zDipDwqjbwdZcbooxU6jwftPt8DX1jW4YDV6kaGzV1VU1neOm6b8D3vd26K1Mg\_5sN5jeeCvN7cNo64NTDVAkEqgiUiNsdQ3xh16nJ9HPmnzIUnxGHNnQI-RxtJCm\_WkQOQqtK3mieRi9MXgfwjP2tacgL\_14O2vSvBN3kBXBb-R\_gqw9w3c3OcF2KGZ1f26dNk\_gYQw31Cz95bSY\_5rg959IHC90t5NUbtthliBB1Hyhy5HWOZM4\_hSKsvqBM9wwubwrHNl3CjDp0PVg" --ssl-no-revoke 
+curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/comments" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk4NjA5ODcsImV4cCI6MTU1OTk0NzM4NywiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.syoUePcSLvXUVSXIYO7hYdG6Xuw2DyY8rv08JhnklMHBbZml9j6zXOZtUVp73L7F1if53zDipDwqjbwdZcbooxU6jwftPt8DX1jW4YDV6kaGzV1VU1neOm6b8D3vd26K1Mg_5sN5jeeCvN7cNo64NTDVAkEqgiUiNsdQ3xh16nJ9HPmnzIUnxGHNnQI-RxtJCm_WkQOQqtK3mieRi9MXgfwjP2tacgL_14O2vSvBN3kBXBb-R_gqw9w3c3OcF2KGZ1f26dNk_gYQw31Cz95bSY_5rg959IHC90t5NUbtthliBB1Hyhy5HWOZM4_hSKsvqBM9wwubwrHNl3CjDp0PVg" --ssl-no-revoke 
 
 ```
 
@@ -45,7 +45,7 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/
 
    "selfUri":{
 
-      "href":"https://api.aspose.cloud/v3.0/slides/presentation\_images.pptx/slides/1/comments",
+      "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/comments",
 
       "relation":"self"
 
