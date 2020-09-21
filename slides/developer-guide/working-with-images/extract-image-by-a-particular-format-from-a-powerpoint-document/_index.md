@@ -13,15 +13,15 @@ Aspose.Slides Cloud API allows you to easily extract an image from a Power Point
 | :- | :- | :- | :- |
 |/slides/{name}/images/{index}/{format}|GET|Extra image by index from the Power Point Document|[GetSlidesImageWithFormat](https://apireference.aspose.cloud/slides/#/Images/GetSlidesImageWithFormat)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 Please remember to set the **-h "Content-Type: application/octet-stream"** in the request
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="primary" %}}
 
 Image can be export in the following formats: JPEG, PNG, GIF
 
-{{% /alert %}} 
+{{% /alert %}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -37,7 +37,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/images/1/png" -h "Content-Type: application/octet-stream" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk4NDY0NTQsImV4cCI6MTU1OTkzMjg1NCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.jeWJiVCVWeRJ_1Uux9PP701XZ7inSf2g1gotFTBkb76tWBOJf7cASswVUM7gXhMKSZ7suYwRl_ZC0KmGHUiVjCBQZrjsAAAvwZsFIHLZMd_H-hbZti4XPjRSChUYzTF1kJ1vnvLEABXPf4yybZqNdbqe5zBMtsWuVFtaNs_V7PkVhz_e3v1L6nYKw84VbINMOCwqMXd2EwRilzt7VsKWBL47A1AY1D3b-Mp4xrKoc5ICWUAA_qqEOaPmp1V8GF0OzjFgn6FKeeSa13pIbD7Xt6qVZDpK2mm11vGnlGE3FMgSUz7HWempfsNyo1KpAiDhQG4VS6wl3QYdyVB7EzwyPA" --ssl-no-revoke 
+curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/images/1/png" -h "Content-Type: application/octet-stream" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk4NDY0NTQsImV4cCI6MTU1OTkzMjg1NCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.jeWJiVCVWeRJ_1Uux9PP701XZ7inSf2g1gotFTBkb76tWBOJf7cASswVUM7gXhMKSZ7suYwRl_ZC0KmGHUiVjCBQZrjsAAAvwZsFIHLZMd_H-hbZti4XPjRSChUYzTF1kJ1vnvLEABXPf4yybZqNdbqe5zBMtsWuVFtaNs_V7PkVhz_e3v1L6nYKw84VbINMOCwqMXd2EwRilzt7VsKWBL47A1AY1D3b-Mp4xrKoc5ICWUAA_qqEOaPmp1V8GF0OzjFgn6FKeeSa13pIbD7Xt6qVZDpK2mm11vGnlGE3FMgSUz7HWempfsNyo1KpAiDhQG4VS6wl3QYdyVB7EzwyPA" --ssl-no-revoke
 
 ```
 
@@ -114,5 +114,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 {{< /tab >}}
 
 {{< /tabs >}}
+
+
 ### **SDK Source**
 The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)

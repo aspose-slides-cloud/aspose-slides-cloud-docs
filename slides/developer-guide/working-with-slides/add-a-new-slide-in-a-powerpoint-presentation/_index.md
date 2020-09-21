@@ -16,7 +16,7 @@ We are referring to some common methods in the REST examples to perform general 
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers** 
+**Create Authentication Headers**
 
 ```java
 
@@ -108,7 +108,7 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample.pptx/slides"-X POST -H "Cont
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ### **SDK Examples**
-{{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -130,13 +130,37 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddNewSlide.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddNewSlide.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "AddNewSlide.java" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

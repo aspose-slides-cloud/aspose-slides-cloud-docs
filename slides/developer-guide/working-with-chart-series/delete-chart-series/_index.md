@@ -14,17 +14,17 @@ Aspose.Slides Cloud provides resources to achieve this. You can either delete a 
 | :- | :- | :- | :- |
 |/slides/{name}/Chart/{name}|DELETE|Delete the chart series|[DeleteChartSeries](https://apireference.aspose.cloud/slides/#/Chart/DeleteChartSeries)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 By omitting the slide index parameter you can clean the presentation of all slides
 
-{{% /alert %}} 
+{{% /alert %}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers** 
+**Create Authentication Headers**
 
 ```java
 
@@ -34,7 +34,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/DeleteChartSeries/presentation_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token] 
+curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/DeleteChartSeries/presentation_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 
@@ -54,7 +54,7 @@ Code: 200
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-{{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -76,17 +76,38 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "DeleteChartSeries.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "DeleteChartSeries.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "DeleteChartSeries.java" >}}
 
 {{< /tab >}}
 
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
 {{< /tabs >}}
-
-
-

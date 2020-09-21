@@ -13,11 +13,11 @@ The article explains how to split a PowerPoint Presentation and export the resul
 | :- | :- | :- | :- |
 |/slides/{name}/split|POST|Splits a file and stores the resultant parts on Storage|[PostSlidesSplit](https://apireference.aspose.cloud/slides/#/Document/PostSlidesSplit)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 By skipping the **to** and **from** parameters in the request URL, the whole document is split page by page into the desired format.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -93,7 +93,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -115,13 +115,37 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "SplitPresentations.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "SplitPresentations.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "SplitPresentations.java" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

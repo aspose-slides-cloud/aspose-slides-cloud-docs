@@ -13,15 +13,15 @@ Aspose.Slides Cloud API allows you to easily extract an image from a Power Point
 | :- | :- | :- | :- |
 |/slides/{name}/images/{index}|GET|Extra image by index from the Power Point Document|[GetSlidesImageWithDefaultFormat](https://apireference.aspose.cloud/slides/#/Images/GetSlidesImageWithDefaultFormat)|
 ### **cURL Example**
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
 Please remember to set the **-h "Content-Type: application/octet-stream"** in the request
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="primary" %}}
 
 Images will be downloaded in JPEG Format
 
-{{% /alert %}} 
+{{% /alert %}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -114,5 +114,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 {{< /tab >}}
 
 {{< /tabs >}}
+
+
 ### **SDK Source**
 The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)

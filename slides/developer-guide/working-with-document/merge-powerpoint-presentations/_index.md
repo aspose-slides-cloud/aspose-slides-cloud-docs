@@ -462,7 +462,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 
 ### **SDK Examples**
-{{< tabs tabTotal="5" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -484,13 +484,37 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "MergePresentations.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "MergePresentations.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "MergePresentations.java" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

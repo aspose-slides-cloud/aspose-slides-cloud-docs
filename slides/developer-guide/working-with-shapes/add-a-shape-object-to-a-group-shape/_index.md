@@ -39,59 +39,59 @@ We are referring some common methods in the REST examples to perform general ope
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-{{< tabs tabTotal="9" tabID="4" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Perl" tabName9="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
-
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddShapeObjectToGroupShape.cs" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-
+{{< gist "" "17b08f624ccca40e351e7204e318237e" "AddShapeObjectToGroupShape.java" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-
+{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "AddShapeObjectToGroupShape.php" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddShapeObjectToGroupShape.js" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-
+{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "AddShapeObjectToGroupShape.java" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

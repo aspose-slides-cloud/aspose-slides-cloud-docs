@@ -27,11 +27,11 @@ curl -v "https://api.aspose.cloud/oauth2/token" -X POST -d "grant_type=client_cr
 
 ```java
 
-curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/2/shapes/1?from=1&to=2" 
+curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/2/shapes/1?from=1&to=2"
 
--X GET 
+-X GET
 
--H "Content-Type: application/json" 
+-H "Content-Type: application/json"
 
 -H "Accept: application/json"
 
@@ -193,57 +193,60 @@ elf",
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Objective C" tabName8="Android" tabName9="Perl" >}}
+
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "9bc8522e2e3c9bc1323b9ce413dd3dbc" "Examples-DotNET-CSharp-Shapes-GetParticularShape-1.cs" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "GetSlidesSlideShape.cs" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-{{< gist "aspose-slides" "74de7640c8f072fe50c273602772094b" "Examples-JAVA-SDK-src-main-java-com-aspose-slides-cloud-examples-images-GetNumberOfImagesPresentation-1.java" >}}
+{{< gist "" "17b08f624ccca40e351e7204e318237e" "GetSlidesSlideShape.java" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "51dc0ddaa7b2a43dfb0423bf806de1f4" "Examples-PHP-Shapes-GetSlideShape-.php" >}}
+{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "GetSlidesSlideShape.php" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "553f01b949bcc9b9e502f93bcb733638" "Examples-Ruby-Shapes-get_slide_shape-.rb" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "aspose-slides" "95a1eec70765177679d02f656365f1da" "GetParticularShapeFromSlide.py" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "0e4b22863aaa595f9c6c9e370c0b7792" "Examples-Node.js-Shapes-GetParticularShape-1.js" >}}
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "GetSlidesSlideShape.js" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
+{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "GetSlidesSlideShape.java" >}}
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "aspose-slides" "30c37de1e8d2221a42041040c9224f66" "Examples-Android-app-src-main-java-com-aspose-slides-cloud-examples-shapes-ExtractParticularShape-1.java" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-{{< gist "" "be8ff26063bd02327ae8b4dff8512fab" "Examples-Perl-Shapes-GetParticularShape-1.pl" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

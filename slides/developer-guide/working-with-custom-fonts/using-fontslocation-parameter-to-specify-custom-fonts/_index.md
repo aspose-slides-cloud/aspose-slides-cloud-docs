@@ -43,62 +43,61 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 {{< /tab >}}
 
 {{< /tabs >}}
+
 ## **SDK Examples**
-
-
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="Objective C" tabName9="Perl" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.cs" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.cs" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-{{< gist "aspose-slides" "74de7640c8f072fe50c273602772094b" "Examples-JAVA-SDK-src-main-java-com-aspose-slides-cloud-examples-convert-ConvertPowerPointDocuments-1.java" >}}
+{{< gist "" "17b08f624ccca40e351e7204e318237e" "AddNewSlideWithCustomFont.java" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.cs" >}}
+{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "AddNewSlideWithCustomFont.php" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-
-
-{{< gist "aspose-slides" "95a1eec70765177679d02f656365f1da" "ConvertPowerPointDocumentsToOtherStorageWithoutStorage.py" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
 
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddNewSlideWithCustomFont.js" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "aspose-slides" "30c37de1e8d2221a42041040c9224f66" "Examples-Android-app-src-main-java-com-aspose-slides-cloud-examples-convert-ConvertPowerPointDocuments-1.java" >}}
+{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "AddNewSlideWithCustomFont.java" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-{{< gist "aspose-slides" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt .cs" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

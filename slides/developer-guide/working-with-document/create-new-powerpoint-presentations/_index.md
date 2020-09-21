@@ -548,7 +548,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one.pptx/fromHTML" -H
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="5" tabID="9" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -570,17 +570,43 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "CreateNewPresentationFromHTML.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "CreateNewPresentationFromHTML.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "CreateNewPresentationFromHTML.java" >}}
 
 {{< /tab >}}
 
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
 {{< /tabs >}}
+
+
 ## **Using a Template**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation Using a Template document in the request body
 ### **API Information**
@@ -908,7 +934,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/fro
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="5" tabID="15" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Node.js" tabName5="Android" >}}
+{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -930,16 +956,42 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "CreateNewPresentationFromTemplate.js" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+{{< gist "" "bc650902bdc45144b1727d329023dcba" "CreateNewPresentationFromTemplate.js" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
 {{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "CreateNewPresentationFromTemplate.java" >}}
 
 {{< /tab >}}
 
+{{< tab tabNum="8" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+
+{{< /tab >}}
+
 {{< /tabs >}}
+
+
 ### **SDK Source**
 The Aspose  Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
