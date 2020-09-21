@@ -5,7 +5,7 @@ url: /deleting-shapes-by-index-in-a-presentation/
 weight: 70
 ---
 
-![todo:image\_alt\_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
+![todo:image_alt_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
 ## **Introduction**
 This example allows you to format a text portion with a Slide. You can use our REST API with any language: NET, Java, PHP, Ruby, Rails, Python, jQuery and many more.
 ## **cURL Examples**
