@@ -5,7 +5,7 @@ url: /add-a-shape-object-to-a-group-shape/
 weight: 40
 ---
 
-![todo:image_alt_text](/slides/plugins/servlet/confluence/placeholder/unknown-macro)
+
 ## **Introduction**
 This example allows you to add a shape to a presentatio using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
 ## **Resource**
