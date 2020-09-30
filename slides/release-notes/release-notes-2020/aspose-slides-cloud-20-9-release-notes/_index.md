@@ -2,7 +2,7 @@
 title: "Aspose.Slides Cloud 20.9 Release Notes"
 type: docs
 url: /aspose-slides-cloud-20-9-release-notes/
-weight: 
+weight: 8
 ---
 
 {{% alert color="primary" %}}
@@ -18,7 +18,7 @@ The page contains release notes for Aspose.Slides Cloud 20.9 – [API Reference
 
 ## **Other improvements and changes**
 
--     SLIDESCLOUD-994 Enable category management for Sunburst & treemap charts
+- SLIDESCLOUD-994 Enable category management for Sunburst & treemap charts
 ## **Public API changes**
 
 ### **1. sections resource**
