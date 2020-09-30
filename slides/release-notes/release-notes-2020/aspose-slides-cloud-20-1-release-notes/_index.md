@@ -1,5 +1,5 @@
 ---
-title: "Aspose.Slides Cloud 20.1 release notes"
+title: "Aspose.Slides Cloud 20.1 Release Notes"
 type: docs
 url: /aspose-slides-cloud-20-1-release-notes/
 weight: 60
