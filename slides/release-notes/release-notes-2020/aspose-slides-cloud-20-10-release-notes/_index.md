@@ -15,10 +15,10 @@ The page contains release notes for Aspose.Slides Cloud 20.10 – [API Referenc
 
 ## **Other improvements and changes**
 
-- SLIDESCLOUD-1023 Remove redundant ResourceUriElement
-- SLIDESCLOUD-855 Refactor Type & ShapeType properies for Shape
-- SLIDESCLOUD-912 Make nullable parameter optional in Swift SDK requests
-- SLIDESCLOUD-810 Remove semicolon from downloaded file names in SDKs
+- **SLIDESCLOUD-1023** Remove redundant ResourceUriElement.
+- **SLIDESCLOUD-855**  Refactor Type & ShapeType properies for Shape.
+- **SLIDESCLOUD-912**  Make nullable parameter optional in Swift SDK requests.
+- **SLIDESCLOUD-810**  Remove semicolon from downloaded file names in SDKs.
 
 ## **Public API changes**
 
