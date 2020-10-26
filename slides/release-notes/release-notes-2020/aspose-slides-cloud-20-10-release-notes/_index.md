@@ -25,4 +25,4 @@ The page contains release notes for Aspose.Slides Cloud 20.10 – [API Referenc
 ### **1. ResourceUriElement Excluded**
 ***ResourceUriElement*** class contained a single ***ResourceUri*** property. Now it is replaced directly by ***ResourceUri*** to avoid excessive nesting.
 ### **2. ShapeType Property Excluded**
-***ShapeType*** property duplicated ***GeometryShapeType*** for geometry shapes, and ***Type*** property for all the rest. Thus it was redundant and is now excluded for all shapes except ***GeometryShape*** . For ***GeometryShape**** and ***GeometryShapeType*** are excluded.
+***ShapeType*** property duplicated ***GeometryShapeType*** for geometry shapes, and ***Type*** property for all the rest. Thus it was redundant and is now excluded for all shapes except ***GeometryShape*** . For **GeometryShape** and **GeometryShapeType** are excluded.
