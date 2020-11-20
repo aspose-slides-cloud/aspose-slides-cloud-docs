@@ -15,7 +15,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 ## **SDK benefits**
 Our supported SDKs are 100% tested and out of the box running. These SDKs are open source and have the MIT license. You can use them and even customize them for absolutely free of charge.
 # **Supported SDKs**
-{{< tabs tabTotal="7" tabID="1" tabName1=".NET" tabName2="Java" tabName3="PHP" tabName4="Python" tabName5="Node.js" tabName6="Go" tabName7="C++" >}}
+{{< tabs tabTotal="11" tabID="1" tabName1=".NET" tabName2="Java" tabName3="PHP" tabName4="Python" tabName5="Node.js" tabName6="Go" tabName7="C++" tabName8="Swift" tabName9="Perl" tabName10="Ruby" tabName11="Android">}}
 
 {{< tab tabNum="1" >}}
 
@@ -70,6 +70,38 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 **Aspose.Slides Cloud SDK for C++** empowers you to work with Aspose.Slides Cloud REST APIs in your C++ applications.
 
 - <https://github.com/aspose-slides-cloud/aspose-slides-cloud-cpp>
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+**Aspose.Slides Cloud SDK for Swift** empowers you to work with Aspose.Slides Cloud REST APIs in your Swift applications.
+
+- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-swift>
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+**Aspose.Slides Cloud SDK for Perl** empowers you to work with Aspose.Slides Cloud REST APIs in your Perl applications.
+
+- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-perl>
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+**Aspose.Slides Cloud SDK for Ruby** empowers you to work with Aspose.Slides Cloud REST APIs in your Ruby applications.
+
+- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-ruby>
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+**Aspose.Slides Cloud SDK for Android** empowers you to work with Aspose.Slides Cloud REST APIs in your Java(Android) applications.
+
+- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-android>
 
 {{< /tab >}}
 
