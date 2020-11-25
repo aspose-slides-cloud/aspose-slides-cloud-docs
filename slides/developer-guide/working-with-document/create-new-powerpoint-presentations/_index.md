@@ -14,7 +14,50 @@ Aspose.Slides Cloud allows you to create a PowerPoint Presentation using a sourc
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
 |/slides/{name}/fromSource|POST|Create a new presentation from a Source Document in storage|[PostSlidesDocumentFromSource](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromSource)|
-### **cURL Examples**
+
+#### **Request Parameters**
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password|POST|string|Optional|Password to create an encrypted presentation |
+|folder|POST|string|Optional|New presentation folder |
+|storage|POST|string|Optional|New presentation storage name |
+|sourcePassword|POST|string|Optional|Source presentation password |
+|sourceStorage|POST|string|Optional|Source presentation storage name |
+|sourcePath|POST|string|Required|Source presentation path |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP POST**
+Create presentation from existing template.
+
+##### **Example**
+```
+POST https://api.aspose.cloud/v3.0/slides/Sales.pptx?sourcePath=folder/SalesTemplate.potx&templateStorage=SomeAmazonS3Storage
+```
+
+###### **Response:**
+Full resource representation.
+
+###### **C# SDK Code:**
+
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+PostSlidesDocumentFromSourceRequest request = new PostSlidesDocumentFromSourceRequest { Name = "Sales.pptx", Folder = "MyFolder", SourcePath = "MyFolder/SalesTemplate.potx" };
+Document response = api.PostSlidesDocumentFromSource(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
+```
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP DELETE**
+Not supported.
+
+
+#### **cURL Examples**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -38,237 +81,121 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_source.pptx/fromS
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "documentProperties":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/documentProperties",
-
          "relation":"self"
-
       }
-
    },
-
    "slides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/slides",
-
          "relation":"self"
-
       }
-
    },
-
    "images":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/images",
-
          "relation":"self"
-
       }
-
    },
-
    "layoutSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/layoutSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "masterSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/masterSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx",
-
       "relation":"self"
-
    },
-
    "alternateLinks":[
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/odp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation",
-
          "title":"Download as Odp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppt",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Ppt"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pdf",
-
          "relation":"alternate",
-
          "linkType":"application/pdf",
-
          "title":"Download as Pdf"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/tiff",
-
          "relation":"alternate",
-
          "linkType":"image/tiff",
-
          "title":"Download as Tiff"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/xps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-xpsdocument",
-
          "title":"Download as Xps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Pps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-
          "title":"Download as Ppsx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pptm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.presentation.macroEnabled.12",
-
          "title":"Download as Pptm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
-
          "title":"Download as Ppsm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.template",
-
          "title":"Download as Potx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.template.macroEnabled.12",
-
          "title":"Download as Potm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/otp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation-template",
-
          "title":"Download as Otp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/html",
-
          "relation":"alternate",
-
          "linkType":"text/html",
-
          "title":"Download as Html"
-
       }
-
    ]
-
 }
 
 ```
@@ -278,11 +205,97 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_source.pptx/fromS
 {{< /tabs >}}
 ## **Using an HTML Document**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation using an HTML document in the request body
-## **API Information**
+### **API Information**
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
 |/slides/{name}/fromHtml|POST|Create a new presentation from a HTML Document is the request body|[PostSlidesDocumentFromHtml](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromHtml)|
+
+
+#### **Request Parameters**
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password|POST|string|Optional|Password to create an encrypted presentation |
+|folder|POST|string|Optional|New presentation folder |
+|storage|POST|string|Optional|New presentation storage name |
+
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP POST**
+Create new presentation.
+
+##### **Example**
+Create presentation from html.
+```
+POST https://api.aspose.cloud/v3.0/slides/Sales.pptx/fromHtml
+```
+
+###### **Request body:**
+```xml
+<html>
+  <head></head>
+  <body>
+    <p>Html content</p>
+  </body>
+</html>
+```
+
+###### **Response:**
+Full presentation resource representation.
+
+###### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+string html = @"
+<html>
+  <head></head>
+  <body>
+    <p>Html content</p>
+  </body>
+</html>";
+PostSlidesDocumentFromHtmlRequest request = new PostSlidesDocumentFromHtmlRequest { Name = "NewPresentation.pptx", Folder = "MyFolder", Html = html };
+Document response = api.PostSlidesDocumentFromHtml(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/NewPresentation.pptx?folder=MyFolder
+```
+
+#### **HTTP PUT**
+Update a presentation.
+
+##### **Example**
+```
+PUT https://api.aspose.cloud/v3.0/slides/Sales.pptx/fromHtml
+```
+
+###### **Request body:**
+```xml
+<html>
+  <head></head>
+  <body>
+    <p>Html content</p>
+  </body>
+</html>
+```
+
+###### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+string html = @"
+<html>
+  <head></head>
+  <body>
+    <p>Html content</p>
+  </body>
+</html>";
+PutSlidesDocumentFromHtmlRequest request = new PutSlidesDocumentFromHtmlRequest { Name = "ExistingPresentation.pptx", Folder = "MyFolder", Html = html };
+Document response = api.PutSlidesDocumentFromHtml(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/ExistingPresentation.pptx?folder=MyFolder
+```
+
+#### **HTTP DELETE**
+Not supported.
+
+
 ### **cURL Examples**
 {{< tabs tabTotal="2" tabID="5" tabName1="Request" tabName2="Response" >}}
 
@@ -307,237 +320,121 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one.pptx/fromHTML" -H
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "documentProperties":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/documentProperties",
-
          "relation":"self"
-
       }
-
    },
-
    "slides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/slides",
-
          "relation":"self"
-
       }
-
    },
-
    "images":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/images",
-
          "relation":"self"
-
       }
-
    },
-
    "layoutSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/layoutSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "masterSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/masterSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx",
-
       "relation":"self"
-
    },
-
    "alternateLinks":[
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/odp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation",
-
          "title":"Download as Odp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppt",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Ppt"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pdf",
-
          "relation":"alternate",
-
          "linkType":"application/pdf",
-
          "title":"Download as Pdf"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/tiff",
-
          "relation":"alternate",
-
          "linkType":"image/tiff",
-
          "title":"Download as Tiff"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/xps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-xpsdocument",
-
          "title":"Download as Xps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Pps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-
          "title":"Download as Ppsx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/pptm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.presentation.macroEnabled.12",
-
          "title":"Download as Pptm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/ppsm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
-
          "title":"Download as Ppsm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.template",
-
          "title":"Download as Potx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/potm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.template.macroEnabled.12",
-
          "title":"Download as Potm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/otp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation-template",
-
          "title":"Download as Otp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one.pptx/html",
-
          "relation":"alternate",
-
          "linkType":"text/html",
-
          "title":"Download as Html"
-
       }
-
    ]
-
 }
 
 ```
@@ -608,66 +505,148 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 
 ## **Using a Template**
-Aspose.Slides Cloud allows you to create a PowerPoint Presentation Using a Template document in the request body
+Aspose.Slides Cloud allows you to create a PowerPoint Presentation from a Template and data in request body using template engine.
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/Template?templatepath|POST|Create a new presentation from a template in storage|[PostSlidesDocumentFromTemplate](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromTemplate)|
+|/slides/{file-name}/fromTemplate|POST|Create a new presentation from a template in storage|[PostSlidesDocumentFromTemplate](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromTemplate)|
+
+
+#### **Request Parameters**
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password|POST|string|Optional|Password to create an encrypted presentation |
+|isImageDataEmbeeded|POST|bool|Optional|Set this parameter to true if user's data contains embedded images in Base64 format.|
+|templatePassword|POST|string|Optional|Template password.| 
+|templateStorage|POST|string|Optional|Template storage name.| 
+|templatePath|POST|string|Required|Template file path.| 
+|folder|POST|string|Optional|Presentation folder. |
+|storage|POST|string|Optional|Presentation storage name. |
+
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP POST**
+Create new presentation from template and data in request body.
+
+##### **Example**
+Creates new presentation JohnDoeCV.pptx from CVTemplate.potx and data in request body.
+
+###### **Request:**
+```
+POST https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx&templatePath=CVTemplate.potx
+```
+
+###### **Request body:**
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<staff>
+   <person>
+      <name>John Doe</name>
+      <address>
+         <line1>10 Downing Street</line1>
+         <line2>London</line2>
+      </address>
+      <phone>+457 123456</phone>
+      <bio>Hi, I'm John and this is my CV</bio>
+      <skills>
+         <skill>
+            <title>C#</title>
+            <level>Excellent</level>
+         </skill>
+         <skill>
+            <title>Cpp</title>
+            <level>Good</level>
+         </skill>
+         <skill>
+            <title>Java</title>
+            <level>Average</level>
+         </skill>
+      </skills>
+   </person>
+</staff>
+```
+
+###### **Response:**
+Full resource representation.
+
+###### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+string data = @"
+<staff>
+    <person>
+        <name>John Doe</name>
+        <address>
+            <line1>10 Downing Street</line1>
+            <line2>London</line2>
+        </address>
+        <phone>+457 123456</phone>
+        <bio>Hi, I'm John and this is my CV</bio>
+        <skills>
+            <skill>
+                <title>C#</title>
+                <level>Excellent</level>
+            </skill>
+            <skill>
+                <title>Cpp</title>
+                <level>Good</level>
+            </skill>
+            <skill>
+                <title>Java</title>
+                <level>Average</level>
+            </skill>
+        </skills>
+    </person>
+</staff>";
+PostSlidesDocumentFromTemplateRequest request = new PostSlidesDocumentFromTemplateRequest
+{
+    Name = "JohnDoeCV.pptx",
+    Folder = "MyFolder",
+    TemplatePath="MyFolder/TemplateCV.potx",
+    Data = data
+};
+Document response = api.PostSlidesDocumentFromTemplate(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=MyFolder
+```
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP DELETE**
+Not supported.
+
 ### **cURL Example**
 
 You can download a sample template file from [TemplateCV.pptx](https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet/blob/master/TestData/TemplateCV.pptx). The template is then populated with the below data. See the below cURL example to see how to use this information.
 
 ```java
-
 <staff>
-
-<person>
-
-<name>John Doe</name>
-
-<address>
-
-<line1>10 Downing Street</line1>
-
-<line2>London</line2>
-
-</address>
-
-<phone>+457 123456</phone>
-
-<bio>Hi, I'm John and this is my CV</bio>
-
-<skills>
-
-<skill>
-
-<title>C#</title>
-
-<level>Excellent</level>
-
-</skill>
-
-<skill>
-
-<title>C++</title>
-
-<level>Good</level>
-
-</skill>
-
-<skill>
-
-<title>Java</title>
-
-<level>Average</level>
-
-</skill>
-
-</skills>
-
-</person>
-
+    <person>
+        <name>John Doe</name>
+        <address>
+            <line1>10 Downing Street</line1>
+            <line2>London</line2>
+        </address>
+        <phone>+457 123456</phone>
+        <bio>Hi, I'm John and this is my CV</bio>
+        <skills>
+            <skill>
+                <title>C#</title>
+                <level>Excellent</level>
+            </skill>
+            <skill>
+                <title>Cpp</title>
+                <level>Good</level>
+            </skill>
+            <skill>
+                <title>Java</title>
+                <level>Average</level>
+            </skill>
+        </skills>
+    </person>
+</staff>
 ```
 
 {{< tabs tabTotal="2" tabID="11" tabName1="Request" tabName2="Response" >}}
@@ -693,237 +672,121 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/fro
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "documentProperties":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/documentProperties",
-
          "relation":"self"
-
       }
-
    },
-
    "slides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/slides",
-
          "relation":"self"
-
       }
-
    },
-
    "images":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/images",
-
          "relation":"self"
-
       }
-
    },
-
    "layoutSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/layoutSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "masterSlides":{
-
       "uri":{
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/masterSlides",
-
          "relation":"self"
-
       }
-
    },
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx",
-
       "relation":"self"
-
    },
-
    "alternateLinks":[
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/odp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation",
-
          "title":"Download as Odp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppt",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Ppt"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pdf",
-
          "relation":"alternate",
-
          "linkType":"application/pdf",
-
          "title":"Download as Pdf"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/tiff",
-
          "relation":"alternate",
-
          "linkType":"image/tiff",
-
          "title":"Download as Tiff"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/xps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-xpsdocument",
-
          "title":"Download as Xps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pps",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint",
-
          "title":"Download as Pps"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppsx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-
          "title":"Download as Ppsx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/pptm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.presentation.macroEnabled.12",
-
          "title":"Download as Pptm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/ppsm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
-
          "title":"Download as Ppsm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/potx",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.openxmlformats-officedocument.presentationml.template",
-
          "title":"Download as Potx"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/potm",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.ms-powerpoint.template.macroEnabled.12",
-
          "title":"Download as Potm"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/otp",
-
          "relation":"alternate",
-
          "linkType":"application/vnd.oasis.opendocument.presentation-template",
-
          "title":"Download as Otp"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/html",
-
          "relation":"alternate",
-
          "linkType":"text/html",
-
          "title":"Download as Html"
-
       }
-
    ]
-
 }
 
 ```
