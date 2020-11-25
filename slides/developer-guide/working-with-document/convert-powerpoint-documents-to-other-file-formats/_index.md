@@ -56,7 +56,7 @@ curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.
 Where {format} - conversion format. [You can see all valid values for this parameter here]()
 
 #### **Request parameters**
-|**Parameter Name**|**HTTP Method(s)**|**Type**|**Optional/Required**|**Description**|
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
 | :- | :- | :- | :- | :- |
 |password|POST/PUT|string|Optional|Presentation password if required.|
 |outPath|PUT|string|Required|Local storage path for the output file (required).|
@@ -68,7 +68,7 @@ Not supported.
 #### **HTTP PUT**
 Convert presentation in request body to specified format and save it to the specified storage location.
 
-##### **Exapmle 1**
+##### **Example 1**
 This examples converts presentation to TIFF image and saves output picture on server.
 ```
 PUT https://api.aspose.cloud/v3.0/slides/convert/tiff?outPath=SomeFolder/result.tiff 
@@ -89,7 +89,7 @@ Stream response = api.PostSlidesConvert(request);
 response.CopyTo(File.Create("MyPresentation.tiff"));
 ```
 
-##### **Exapmle 2**
+##### **Example 2**
 This examples converts presentation to PDF document using custom fonts contained in *customFonts* storage folder.
 
 ```
