@@ -7,13 +7,239 @@ weight: 20
 
 ## **Introduction**
 This example allows you to create a new empty presentation from scratch using Aspose.Slides Cloud API in your applications. Aspose.Slides Cloud API lets you create a new presentation from the following resources 
+
+## **Create a new presentation.**
+### **Resource URI**
+```
+/slides/{file-name}
+```
+#### **Request Parameters**
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|format|GET|string|Optional|Return the presentation in the specified format.|
+|password|POST|string|Optional|Password to create an encrypted presentation |
+|inputPassword|POST|string|Optional|Password to open the presentation that is passed in request body |
+|folder|GET/POST|string|Optional|Presentation folder |
+|storage|POST|string|Optional|Presentation storage|
+|fontsFolder|GET|string|Optional|Storage folder containing custom fonts to be used to save the presentation in a specified format. |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+#### **HTTP GET**
+Returns a JSON/XML representation of the presentation, unless a specific format is provided in which case it will return the presentation in the specified format (either source presentation, converted presentation or rendered presentation).
+
+The different representations of a Presentation are basically the formats to which the presentation can be converted. So to achieve a conversion all a user has to do is use one of these links.
+
+##### **Example**
+```
+GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx?folder=myFolder
+```
+
+##### **Response:**
+Full resource representation:
+**JSON**
+```
+{
+    "documentProperties": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/documentProperties?folder=myFolder",
+        "relation": "self"
+    },
+    "slides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation": "self"
+    },
+    "images": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/images?folder=myFolder",
+        "relation": "self"
+    },
+    "layoutSlides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/layoutSlides?folder=myFolder",
+        "relation": "self"
+    },
+    "masterSlides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/masterSlides?folder=myFolder",
+        "relation": "self"
+    },
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx?folder=myFolder",
+        "relation": "self"
+    },
+    "alternateLinks": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/odp?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.oasis.opendocument.presentation",
+            "title":"Download as Odp"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pptx?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "title":"Download as Pptx"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pdf?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/pdf",
+            "title":"Download as Pdf"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/tiff?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "image/tiff",
+            "title":"Download as Tiff"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/xps?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-xpsdocument",
+            "title":"Download as Xps"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pps?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint",
+            "title":"Download as Pps"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/ppsx?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
+            "title":"Download as Ppsx"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pptm?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.presentation.macroEnabled.12",
+            "title":"Download as Pptm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/ppsm?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
+            "title":"Download as Ppsm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/potx?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.template",
+            "title":"Download as Potx"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/potm?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.template.macroEnabled.12",
+            "title":"Download as Potm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/otp?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "application/vnd.oasis.opendocument.presentation-template",
+            "title":"Download as Otp"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/html?folder=myFolder",
+            "relation": "alternate",
+            "linkType": "text/html",
+            "title":"Download as Html"
+        }
+    ]
+}
+```
+
+**XML**
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx?folder=myFolder" rel="self" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/odp?folder=myFolder" rel="alternate" type="application/vnd.oasis.opendocument.presentation" title="Download as Odp" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pptx?folder=myFolder" rel="alternate" type="application/vnd.openxmlformats-officedocument.presentationml.presentation" title="Download as Pptx" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pdf?folder=myFolder" rel="alternate" type="application/pdf" title="Download as Pdf" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/tiff?folder=myFolder" rel="alternate" type="image/tiff" title="Download as Tiff" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/xps?folder=myFolder" rel="alternate" type="application/vnd.ms-xpsdocument" title="Download as Xps" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pps?folder=myFolder" rel="alternate" type="application/vnd.ms-powerpoint" title="Download as Pps" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/ppsx?folder=myFolder" rel="alternate" type="application/vnd.openxmlformats-officedocument.presentationml.slideshow" title="Download as Ppsx" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pptm?folder=myFolder" rel="alternate" type="application/vnd.ms-powerpoint.presentation.macroEnabled.12" title="Download as Pptm" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/ppsm?folder=myFolder" rel="alternate" type="application/vnd.ms-powerpoint.slideshow.macroEnabled.12" title="Download as Ppsm" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/potx?folder=myFolder" rel="alternate" type="application/vnd.openxmlformats-officedocument.presentationml.template" title="Download as Potx" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/potm?folder=myFolder" rel="alternate" type="application/vnd.ms-powerpoint.template.macroEnabled.12" title="Download as Potm" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/otp?folder=myFolder" rel="alternate" type="application/vnd.oasis.opendocument.presentation-template" title="Download as Otp" />
+   <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/html?folder=myFolder" rel="alternate" type="text/html" title="Download as Html" />
+   <DocumentProperties href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/documentProperties?folder=myFolder" rel="self" />
+   <Slides href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+   <Images href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/images?folder=myFolder" rel="self" />
+   <LayoutSlides href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/layoutSlides?folder=myFolder" rel="self" />
+   <MasterSlides href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/masterSlides?folder=myFolder" rel="self" />
+</Document>
+```
+
+##### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+GetSlidesDocumentRequest request = new GetSlidesDocumentRequest { Name = "MyPresentation.pptx", Folder = "MyFolder" };
+Document response = api.GetSlidesDocument(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
+```
+
+#### **HTTP POST**
+Create a new presentation. File format will be determined based on extension.
+
+To create Office 97-2003 compatible presentation file name must have ppt or ppx extension. For Office 2007-2010 compatible presentation (aka OpenXML) use Pptx, Pptm, Potx, Potm, Ppsx or Ppsm file extensions.
+
+You can create an empty presentation or provide a source document in request body.
+
+##### **Example 1.**
+Creates empty Sales.pptx presentation.
+```
+POST https://api.aspose.cloud/v3.0/slides/Sales.pptx 
+```
+
+###### **Response:**
+Full resource representation.
+
+###### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesDocumentRequest request = new PostSlidesDocumentRequest { Name = "Sales.pptx", Folder = "MyFolder" };
+Document response = api.PostSlidesDocument(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
+```
+
+##### **Example 2.**
+Creates Sales.pptx presentation from the presentation in request body.
+```
+POST https://api.aspose.cloud/v3.0/slides/Sales.pptx 
+```
+
+###### **Request body:**
+Contains the input presentation.
+
+###### **Response:**
+Full resource representation.
+
+###### **C# SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+Stream file = File.OpenRead("input.pptx");
+PostSlidesDocumentRequest request = new PostSlidesDocumentRequest { Name = "Sales.pptx", Folder = "MyFolder", Data = file };
+Document response = api.PostSlidesDocument(request);
+Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
+```
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP DELETE**
+Not supported.
+
+
 ## **Using a Source**
 Aspose.Slides Cloud allows you to create a PowerPoint Presentation using a source document as a starting point
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/fromSource|POST|Create a new presentation from a Source Document in storage|[PostSlidesDocumentFromSource](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromSource)|
+| /slides/{name}/fromSource | POST | Create a new presentation from a Source Document in storage| [PostSlidesDocumentFromSource](https://apireference.aspose.cloud/slides/#/Document/PostSlidesDocumentFromSource) |
 
 #### **Request Parameters**
 | **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
@@ -296,7 +522,7 @@ Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides
 Not supported.
 
 
-### **cURL Examples**
+#### **cURL Examples**
 {{< tabs tabTotal="2" tabID="5" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -442,9 +668,9 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one.pptx/fromHTML" -H
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
+### **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
+#### **SDK Examples**
 {{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
@@ -794,9 +1020,9 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/new_one_template.pptx/fro
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
+### **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
+#### **SDK Examples**
 {{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
 {{< tab tabNum="1" >}}
