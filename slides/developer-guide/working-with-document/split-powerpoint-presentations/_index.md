@@ -14,7 +14,9 @@ The article explains how to split a PowerPoint Presentation and export the resul
 |/slides/{name}/split|POST|Splits a file and stores the resultant parts on Storage|[PostSlidesSplit](https://apireference.aspose.cloud/slides/#/Document/PostSlidesSplit)|
 
 
-#### **Request Parameters**
+
+{{< expand-list title="Request Parameters" >}}
+
 | **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
 | :- | :- | :- | :- | :- |
 |password|POST|string|Optional|Presentation password |
@@ -55,13 +57,16 @@ The article explains how to split a PowerPoint Presentation and export the resul
 
 {{< /expand-list >}}
 
+{{< /expand-list >}}
+
 #### **HTTP GET**
 Not supported.
 
 #### **HTTP POST**
 
 ##### **Example 1**
-Splits whole presentation on jpeg images.
+
+Splits the whole presentation into a set of jpeg images.
 
 ```
 POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?folder=test

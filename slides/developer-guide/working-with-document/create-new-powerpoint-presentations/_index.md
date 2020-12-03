@@ -36,8 +36,10 @@ GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx?folder=myFolder
 ```
 
 ##### **Response:**
+
+{{< expand-list title="JSON" >}}
+
 Full resource representation:
-**JSON**
 ```
 {
     "documentProperties": {
@@ -146,8 +148,11 @@ Full resource representation:
     ]
 }
 ```
+{{< /expand-list >}}
 
-**XML**
+
+{{< expand-list title="XML" >}}
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -172,6 +177,8 @@ Full resource representation:
    <MasterSlides href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/masterSlides?folder=myFolder" rel="self" />
 </Document>
 ```
+
+{{< /expand-list >}}
 
 ##### **C# SDK Code:**
 ```csharp
