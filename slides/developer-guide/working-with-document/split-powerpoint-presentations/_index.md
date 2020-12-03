@@ -22,7 +22,7 @@ The article explains how to split a PowerPoint Presentation and export the resul
 |password|POST|string|Optional|Presentation password |
 |folder|POST|string|Optional|The document folder. |
 |storage|POST|string|Optional|The document storage. |
-|format|POST|string|Optional 	See a table below for valid formats. Default value is jpeg. |
+|format|POST|string|Optional|See a table below for valid formats. Default value is jpeg. |
 |from|POST|int|Optional|The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation. |
 |to|POST|int|Optional|The last slide number for splitting, if is not specified splitting ends at the last slide of the document. |
 |height|POST|int|Optional|The height of slide in created file.  Not affected to html format. |
