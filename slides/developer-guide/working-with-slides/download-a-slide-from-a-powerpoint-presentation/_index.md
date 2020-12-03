@@ -218,38 +218,47 @@ Aspose.Slides Cloud allows you to easily export a particular slide from a PowerP
 #### **HTTP GET**
 Download presentation, slide, or shape in the requested format.
 
-##### **Example 1.**
-Save presentation as ppt.
 
-###### **Request**
+{{< tabs tabTotal="3" tabID="1" tabName1="Example 1" tabName2="Example 2" tabName3="Example 3" >}}
+
+{{< tab tabNum="1" >}}
+
+**Save presentation as ppt.**
+
 ```
 GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/ppt
 ```
 
-###### **Response**
-Response contains the conversion operation result.
+*Response* contains the conversion operation result.
 
-##### **Example 2.**
-Save the second slide of the presentation as JPG with size 720x480.
+{{< /tab >}}
 
-###### **Request**
+{{< tab tabNum="2" >}}
+
+**Save the second slide of the presentation as JPG with size 720x480.**
+
 ```
 GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2/jpeg?width=720&height=480
 ```
 
-###### **Response**
-Response contains the conversion operation result.
+*Response* contains the conversion operation result.
 
-##### **Example 3.**
-Save the first shape of second slide of the presentation as PNG.
+{{< /tab >}}
 
-###### **Request**
+{{< tab tabNum="3" >}}
+
+**Save the first shape of second slide of the presentation as PNG.**
+
 ```
 GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2/shapes/1/png
 ```
 
-###### **Response**
-Response contains the conversion operation result.
+*Response* contains the conversion operation result.
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 
 #### **HTTP POST**
 Saves presentation in requested format using the export options, if specified.
@@ -321,7 +330,9 @@ Save presentation as html and pack all external html-resources in zip.
 ```
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/html
 ```
+
 {{< expand-list title="Request body:" >}}
+
 **JSON**
 ```
 {
@@ -337,6 +348,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/html
   <SubDirectoryName/>
 </HtmlExportOptions>
 ```
+
 {{< /expand-list >}}
 
 ###### **Response**
@@ -367,7 +379,9 @@ Save presentation as tiff with custom save options.
 ```
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/tiff
 ```
+
 {{< expand-list title="Request body:" >}}
+
 **JSON**
 ```
 {
