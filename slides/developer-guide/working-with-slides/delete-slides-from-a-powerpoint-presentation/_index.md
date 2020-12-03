@@ -19,8 +19,11 @@ Aspose.Slides Cloud proides two resources to achive this. You can either delete 
 #### **HTTP DELETE**
 Removes slide by its position.
 
-##### **Example**
-Removes first slide.
+{{< tabs tabTotal="3" tabID="11" tabName1="Example 1" tabName2="Example 2" tabName3="Example 3" >}}
+
+{{< tab tabNum="1" >}}
+
+##### **Removes first slide.**
 
 ###### **Request**
 ```
@@ -31,6 +34,139 @@ DELETE https://api.aspose.cloud/v3.0/slides/genericPpt.ppt/slides/1
 {{< expand-list title="XML/JSON representation the presentation slides." >}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+DeleteSlidesCleanSlidesListRequest request = new DeleteSlidesCleanSlidesListRequest
+{
+    Name = "myPresentation.pptx",
+    Slides = new List<int> { 1, 4, 6 }
+};
+Slides response = api.DeleteSlidesCleanSlidesList(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+##### **Removes all slides from presentation and adds one blank slide.**
+
+###### **Request**
+```
+DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
+```
+
+###### **Response** 
+{{< expand-list title="XML/JSON representation the presentation slides." >}}
+
+{{< tabs tabTotal="2" tabID="12" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+##### **Removes the first, fouth and sixth slides from the presentation.**
+
+###### **Request**
+```
+DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?slides=1,4,6
+```
+
+###### **Response** 
+{{< expand-list title="XML/JSON representation the presentation slides." >}}
+
+{{< tabs tabTotal="2" tabID="14" tabName1="JSON" tabName2="XML" >}}
 
 {{< tab tabNum="1" >}}
 ```
@@ -92,6 +228,9 @@ foreach (ResourceUriElement slide in response.SlideList)
 }
 ```
 
+{{< /tab >}}
+
+{{< /tabs >}}
 
 
 ### **cURL Example**
@@ -101,7 +240,7 @@ By omitting the slide index parameter you can clean the presentation of all slid
 
 {{% /alert %}}
 
-{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="3" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
