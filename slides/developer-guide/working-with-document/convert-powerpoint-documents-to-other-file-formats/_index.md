@@ -5,6 +5,8 @@ url: /convert-powerpoint-documents-to-other-file-formats/
 weight: 10
 ---
 
+## **Convert**
+
 ## **Introduction**
 This example allows you to save a presentation to different other formats using Aspose.Slides Cloud API in your applications. The Slides Cloud API supports two types of conversion
 ## **Using Storage**

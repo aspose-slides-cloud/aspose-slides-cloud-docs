@@ -5,6 +5,8 @@ url: /merge-powerpoint-presentations/
 weight: 40
 ---
 
+## **Merge**
+
 ## **Introduction**
 This example allows you to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language:  NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
 

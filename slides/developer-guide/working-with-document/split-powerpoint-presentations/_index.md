@@ -5,6 +5,8 @@ url: /split-powerpoint-presentations/
 weight: 30
 ---
 
+## **Split**
+
 ## **Introduction**
 The article explains how to split a PowerPoint Presentation and export the resultant splits into various formats. 
 ### **API Information**
