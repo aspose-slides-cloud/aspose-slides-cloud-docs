@@ -14,6 +14,86 @@ Aspose.Slides Cloud proides two resources to achive this. You can either delete 
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}|DELETE|Delete the slide at the index|[DeleteSlideByIndex](https://apireference.aspose.cloud/slides/#/Slides/DeleteSlideByIndex)|
 |/slides/{name}/slides/|DELETE|Delete all slides |[DeleteSlidesCleanSlidesList](https://apireference.aspose.cloud/slides/#/Slides/DeleteSlidesCleanSlidesList)|
+
+
+#### **HTTP DELETE**
+Removes slide by its position.
+
+##### **Example**
+Removes first slide.
+
+###### **Request**
+```
+DELETE https://api.aspose.cloud/v3.0/slides/genericPpt.ppt/slides/1
+```
+
+###### **Response** 
+{{< expand-list title="XML/JSON representation the presentation slides." >}}
+
+{{< tabs tabTotal="2" tabID="1" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+DeleteSlidesCleanSlidesListRequest request = new DeleteSlidesCleanSlidesListRequest
+{
+    Name = "myPresentation.pptx",
+    Slides = new List<int> { 1, 4, 6 }
+};
+Slides response = api.DeleteSlidesCleanSlidesList(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
+}
+```
+
+
+
 ### **cURL Example**
 {{% alert color="primary" %}}
 
@@ -21,7 +101,7 @@ By omitting the slide index parameter you can clean the presentation of all slid
 
 {{% /alert %}}
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -44,66 +124,41 @@ curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/presentation_images.ppt
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "slideList":[
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/2",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/3",
-
             "relation":"self"
-
          }
-
       }
-
    ],
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides",
-
       "relation":"self"
-
    }
-
 }
-
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+
+## **SDKs**
+Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
+
 ### **SDK Examples**
 {{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
 
