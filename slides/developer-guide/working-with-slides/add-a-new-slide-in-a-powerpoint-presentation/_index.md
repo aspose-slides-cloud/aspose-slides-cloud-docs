@@ -32,7 +32,7 @@ This example allows you to add new slides in a presentation using Aspose.Slides 
 #### **HTTP POST**
 Adds a new slide to the presentation.
 
-{{< tabs tabTotal="3" tabID="2" tabName1="Example 1" tabName2="Example 2" tabName2="Example 3">}}
+{{< tabs tabTotal="3" tabID="2" tabName1="Example 1" tabName2="Example 2" tabName3="Example 3">}}
 
 {{< tab tabNum="1" >}}
 
