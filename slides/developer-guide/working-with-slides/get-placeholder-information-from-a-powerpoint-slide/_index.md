@@ -18,7 +18,7 @@ Aspose.Slides Cloud allows you to read placeholder information from a PowerPoint
 
 | **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
 | :- | :- | :- | :- | :- |
-| password | GET | string | Optional | Presentation password 
+| password | GET | string | Optional | Presentation password |
 | folder | GET | string | Optional | Presentation folder |
 | storage | GET | string | Optional | Presentation storage |
 

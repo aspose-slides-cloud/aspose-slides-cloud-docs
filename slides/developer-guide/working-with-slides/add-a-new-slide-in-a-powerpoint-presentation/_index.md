@@ -7,6 +7,257 @@ weight: 40
 
 ## **Introduction**
 This example allows you to add new slides in a presentation using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/{name}/slides|POST|Create a slide.|[PostSlidesAdd](https://apireference.aspose.cloud/slides/#/Slides/PostSlidesAdd)|
+
+{{< expand-list title="Request Parameters" >}}
+
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password | GET/POST/DELETE | string | Optional | Presentation password |
+|folder | GET/POST/DELETE | string | Optional | Presentation folder |
+|storage | GET/POST/DELETE | string | Optional | Presentation storage |
+|slides | DELETE | int[] | Optional | Comma separated index list of slides to be deleted. Delete all by default |
+|position | POST | int | Optional | Position of the new slide. Adds a slide to the end by default.  |
+|layoutAlias | POST | string | Optional | Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+{{< /expand-list >}}
+
+#### **HTTP POST**
+Adds a new slide to the presentation.
+
+{{< tabs tabTotal="3" tabID="2" tabName1="Example 1" tabName2="Example 2" tabName2="Example 3">}}
+
+{{< tab tabNum="1" >}}
+
+##### **Adds new empty slide to the presentation.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
+```
+
+###### **Response** 
+
+{{< expand-list title="Full Slides response that includes new slide" >}}
+
+{{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx" };
+Slides response = api.PostSlidesAdd(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+##### **Adds a slide to the specified position. If position is not specified then the slide will be added to the end of the slides list.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?position=1 
+```
+
+###### **Response** 
+
+{{< expand-list title="Full Slides response that includes new slide" >}}
+
+{{< tabs tabTotal="2" tabID="4" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx", Position = 1 };
+Slides response = api.PostSlidesAdd(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+##### **Adds new empty slide to the presentation with layout TextAndChart.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?layoutAlias=TextAndChart
+```
+
+###### **Response** 
+
+{{< expand-list title="Full Slides response that includes new slide" >}}
+
+{{< tabs tabTotal="2" tabID="6" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx", LayoutAlias = "TextAndChart" };
+Slides response = api.PostSlidesAdd(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 ## **Resource**
 The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](https://apireference.aspose.cloud/slides/).
 ## **REST Methods References**
@@ -35,71 +286,38 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample.pptx/slides"-X POST -H "Cont
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "Slides":{
-
       "SlideList":[
-
          {
-
             "Uri":{
-
                "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides/1",
-
                "Relation":"self",
-
                "LinkType":null,
-
                "Title":null
-
             }
-
          }
-
       ],
-
       "SelfUri":{
-
          "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides",
-
          "Relation":"self",
-
          "LinkType":null,
-
          "Title":null
-
       },
-
       "AlternateLinks":[
-
       ],
-
       "Links":[
-
          {
-
             "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides",
-
             "Relation":"self",
-
             "LinkType":null,
-
             "Title":null
-
          }
-
       ]
-
    },
-
    "Code":200,
-
    "Status":"OK"
-
 }
-
 ```
 
 {{< /tab >}}
