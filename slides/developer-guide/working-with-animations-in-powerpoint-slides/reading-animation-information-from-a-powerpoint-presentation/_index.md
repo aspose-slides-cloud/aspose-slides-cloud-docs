@@ -21,7 +21,7 @@ Aspose.Slides Cloud allows you to read information from a Power Point Presentati
 
 ```java
 
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=xxxx&client_secret=xxx-xx" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
@@ -161,13 +161,13 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "GetSlideAnimations.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "GetSlideAnimations.py" >}}
 
 {{< /tab >}}
 

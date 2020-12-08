@@ -61,19 +61,19 @@ curl -v "http://api.aspose.cloud/v1.1/slides/convert?format=pdf&fontsLocation=fo
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "AddNewSlideWithCustomFont.php" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "AddNewSlideWithCustomFont.php" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "AddNewSlideWithCustomFont.py" >}}
 
 {{< /tab >}}
 
