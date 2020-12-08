@@ -13,6 +13,157 @@ Aspose.Slides Cloud allows you to read placeholder information from a PowerPoint
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/placeholders|GET|Get list of all placeholders from the PowerPoint Presentation|[GetSlidesPlaceholders](https://apireference.aspose.cloud/slides/#/Placeholders/GetSlidesPlaceholders)|
 |/slides/{name}/slides/{slideIndex}/placeholders/{placeholderIndex}|GET|Read placeholder information for the particular index|[GetSlidesPlaceholder](https://apireference.aspose.cloud/slides/#/Placeholders/GetSlidesPlaceholder)|
+
+{{< expand-list title="Request Parameters" >}}
+
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+| password | GET | string | Optional | Presentation password |
+| folder | GET | string | Optional | Presentation folder |
+| storage | GET | string | Optional | Presentation storage |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+{{< /expand-list >}}
+
+#### **HTTP GET**
+Gets placeholders information from a presentation.
+
+{{< tabs tabTotal="2" tabID="2" tabName1="Example 1" tabName2="Example 2">}}
+
+{{< tab tabNum="1" >}}
+
+##### **Read placeholders information from `myPresentation.pptx`.**
+
+###### **Request**
+```
+GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders
+```
+
+###### **Response** 
+
+{{< expand-list title="JSON/XML representation of the Placeholders resource" >}}
+
+{{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "placeholderLinks": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1",
+            "relation": "self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/2",
+            "relation": "self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders",
+        "relation": "self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Placeholders>
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders" rel="self"/>
+    <Placeholder href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1" rel="self"/>
+    <Placeholder href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/2" rel="self"/>
+</Placeholders>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+
+GetSlidesPlaceholdersRequest request = new GetSlidesPlaceholdersRequest
+{
+    Name = "myPresentation.pptx",
+    SlideIndex = 1
+};
+Placeholders response = api.GetSlidesPlaceholders(request);
+foreach (ResourceUri uri in response.PlaceholderLinks)
+{
+    Console.WriteLine(uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+##### **Read placeholders information from `myPresentation.pptx` using storage parameters.**
+
+###### **Request**
+```
+GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders?folder=SomeBucket/SomeFolder&storage=SomeAmazonS3Storage
+```
+
+###### **Response** 
+
+{{< expand-list title="JSON/XML representation of the Placeholders resource" >}}
+
+{{< tabs tabTotal="2" tabID="4" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "placeholderLinks": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1",
+            "relation": "self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/2",
+            "relation": "self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders",
+        "relation": "self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Placeholders>
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders" rel="self"/>
+    <Placeholder href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1" rel="self"/>
+    <Placeholder href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/2" rel="self"/>
+</Placeholders>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP POST**
+Not supported.
+
+#### **HTTP DELETE**
+Not supported.
+
+
 ### **cURL Example**
 {{% alert color="primary" %}} 
 
@@ -43,39 +194,22 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/s
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "placeholderLinks":[
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/placeholders/1",
-
          "relation":"self"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/placeholders/2",
-
          "relation":"self"
-
       }
-
    ],
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/placeholders",
-
       "relation":"self"
-
    }
-
 }
-
 ```
 
 {{< /tab >}}

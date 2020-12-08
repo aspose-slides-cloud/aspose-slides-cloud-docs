@@ -12,6 +12,268 @@ Aspose.Slides Cloud lets you easily copy a slide with its content to create a ne
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/{name}/slides/copy|POST|Copy a slide to create a new slide|[PostSlidesCopy](https://apireference.aspose.cloud/slides/#/Slides/PostSlidesCopy)|
+
+{{< expand-list title="Request Parameters" >}}
+
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password | POST | string | Optional | Presentation password |
+|folder | POST | string | Optional | Presentation folder |
+|storage | POST | string | Optional | Presentation storage |
+|position | POST | int | Optional | New slide position. Copy to the end by default |
+|slideToCopy | POST | int | Required | Position of slide to copy |
+|source | POST | string | Optional | The presentation to copy the slide from. If not specified, the slide is copied from the current presentation |
+|sourcePassword | POST | string | Optional | Source presentation password. Ignored if source parameter is not specified |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+{{< /expand-list >}}
+
+#### **HTTP POST**
+Copies a presentation slide.
+
+{{< tabs tabTotal="3" tabID="2" tabName1="Example 1" tabName2="Example 2" tabName3="Example 3">}}
+
+{{< tab tabNum="1" >}}
+
+##### **Adds copy of first slide to the end of slides list.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?slideToCopy=1
+```
+
+###### **Response** 
+
+{{< expand-list title="Full resource response that includes cloned slide" >}}
+
+{{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesCopyRequest request = new PostSlidesCopyRequest
+{
+    Name = "myPresentation.pptx",
+    SlideToCopy = 1
+};
+Slides response = api.PostSlidesCopy(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+##### **Creates copy of second slide and insert to third position.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?position=3&slideToCopy=2
+```
+
+###### **Response** 
+
+{{< expand-list title="Full resource response that includes cloned slide" >}}
+
+{{< tabs tabTotal="2" tabID="4" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesCopyRequest request = new PostSlidesCopyRequest
+{
+    Name = "myPresentation.pptx",
+    SlideToCopy = 2,
+    Position = 3
+};
+Slides response = api.PostSlidesCopy(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+##### **Adds copy of second slide from presentation "reports/sales.pptx" at position 3**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?position=3&source=reports/sales.pptx&slideToCopy=2
+```
+
+###### **Response** 
+
+{{< expand-list title="Full resource response that includes cloned slide" >}}
+
+{{< tabs tabTotal="2" tabID="6" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesCopyRequest request = new PostSlidesCopyRequest
+{
+    Name = "myPresentation.pptx",
+    Source = "reports/sales.pptx",
+    SlideToCopy = 2,
+    Position = 3
+};
+Slides response = api.PostSlidesCopy(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -36,71 +298,38 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "slideList":[
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/2",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/3",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/4",
-
             "relation":"self"
-
          }
-
       }
-
    ],
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides",
-
       "relation":"self"
-
    }
-
 }
-
 ```
 
 {{< /tab >}}

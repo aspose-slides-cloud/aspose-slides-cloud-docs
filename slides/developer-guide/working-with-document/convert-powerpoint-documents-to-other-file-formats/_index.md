@@ -5,6 +5,8 @@ url: /convert-powerpoint-documents-to-other-file-formats/
 weight: 10
 ---
 
+## **Convert**
+
 ## **Introduction**
 This example allows you to save a presentation to different other formats using Aspose.Slides Cloud API in your applications. The Slides Cloud API supports two types of conversion
 ## **Using Storage**
@@ -45,13 +47,88 @@ curl  -v -X PUT "https://api.aspose.cloud/v4.0/slides/convert/pdf?outPath=myabc.
 {{< /tab >}}
 
 {{< /tabs >}}
+
 ## **Without using Storage**
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
 |/slides/convert/{format}|PUT|Convert the file to the desired format and saves a file on Cloud Storage|[PostSlidesConvert](https://apireference.aspose.cloud/slides/#/General/PostSlidesConvert)|
-### **cURL Example**
+
+Where {format} - conversion format. [You can see all valid values for this parameter here]()
+
+#### **Request parameters**
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password|POST/PUT|string|Optional|Presentation password if required.|
+|outPath|PUT|string|Required|Local storage path for the output file (required).|
+|fontsFolder|POST/PUT|string|Optional|Storage folder containing custom fonts to be used with the presentation.|
+
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP PUT**
+Convert presentation in request body to specified format and save it to the specified storage location.
+
+##### **Example 1**
+This examples converts presentation to TIFF image and saves output picture on server.
+```
+PUT https://api.aspose.cloud/v3.0/slides/convert/tiff?outPath=SomeFolder/result.tiff 
+```
+###### **Request body:**
+Contains the presentation to convert data.
+
+###### **Response:**
+OK status code.
+
+###### **C# SDK Code:**
+
+```csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+Stream file = File.OpenRead("MyPresentation.pptx");
+PostSlidesConvertRequest request = new PostSlidesConvertRequest { Format = ExportFormat.Tiff, Document = file };
+Stream response = api.PostSlidesConvert(request);
+response.CopyTo(File.Create("MyPresentation.tiff"));
+```
+
+##### **Example 2**
+This examples converts presentation to PDF document using custom fonts contained in *customFonts* storage folder.
+
+```
+POST https://api.aspose.cloud/v3.0/slides/convert/pdf?fontsFolder=customFonts 
+```
+
+###### **Request body:**
+Contains the presentation to convert data.
+
+###### **Response:**
+Contains the conversion to PDF result.
+
+###### **C# SDK Code:**
+
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+const string fontsFolder = "customFonts";
+CreateFolderRequest folderRequest = new CreateFolderRequest { Path = fontsFolder };
+api.CreateFolder(folderRequest);
+Stream font = File.OpenRead("custom.ttf");
+UploadFileRequest fileRequest = new UploadFileRequest { Path = $"{fontsFolder}/custom.ttf", File = font };
+api.UploadFile(fileRequest);
+Stream file = File.OpenRead("customfont.pptx");
+PostSlidesConvertRequest request = new PostSlidesConvertRequest
+{
+    Format = ExportFormat.Pdf,
+    Document = file,
+    FontsFolder = fontsFolder
+};
+Stream response = api.PostSlidesConvert(request);
+response.CopyTo(File.Create("customfont.pdf"));
+```
+
+#### **HTTP DELETE**
+Not supported.
+
+#### **cURL Example**
 {{< tabs tabTotal="2" tabID="5" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -153,13 +230,13 @@ The Aspose.Slides Cloud API supports the following format conversions
 | :- | :- |
 |PowerPoint Presentation|pptx|
 |PowerPoint Presentation|ppt|
-|` `Microsoft PowerPoint Open XML Macro-Enabled Presentation File|pptm|
-|` `Microsoft PowerPoint Open XML Slide Show File|ppsx|
+|Microsoft PowerPoint Open XML Macro-Enabled Presentation File|pptm|
+|Microsoft PowerPoint Open XML Slide Show File|ppsx|
 |Microsoft PowerPoint Show File|pps|
-|` `Microsoft PowerPoint Open XML Macro-enabled Slide Show File |ppsm|
+|Microsoft PowerPoint Open XML Macro-enabled Slide Show File |ppsm|
 |Microsoft PowerPoint Open XML Template File |potx|
 |Microsoft PowerPoint Macro-Enabled Template|potm|
-|` `OpenDocument Presentation file|odp|
+|OpenDocument Presentation file|odp|
 |Open Office / Star Office Presentation|otp|
 |Portable Document Format|pdf|
 |HTML File|html|
@@ -171,5 +248,6 @@ The Aspose.Slides Cloud API supports the following format conversions
 |PNG File|png|
 |GIF Image|gif|
 |Bitmap File|bmp|
+
 ## **SDK Source**
 The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)

@@ -5,6 +5,8 @@ url: /split-powerpoint-presentations/
 weight: 30
 ---
 
+## **Split**
+
 ## **Introduction**
 The article explains how to split a PowerPoint Presentation and export the resultant splits into various formats. 
 ### **API Information**
@@ -12,6 +14,200 @@ The article explains how to split a PowerPoint Presentation and export the resul
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
 |/slides/{name}/split|POST|Splits a file and stores the resultant parts on Storage|[PostSlidesSplit](https://apireference.aspose.cloud/slides/#/Document/PostSlidesSplit)|
+
+
+
+{{< expand-list title="Request Parameters" >}}
+
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password|POST|string|Optional|Presentation password |
+|folder|POST|string|Optional|The document folder. |
+|storage|POST|string|Optional|The document storage. |
+|format|POST|string|Optional|See a table below for valid formats. Default value is jpeg. |
+|from|POST|int|Optional|The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation. |
+|to|POST|int|Optional|The last slide number for splitting, if is not specified splitting ends at the last slide of the document. |
+|height|POST|int|Optional|The height of slide in created file.  Not affected to html format. |
+|width|POST|int|Optional|The width of slide in created file.  Not affected to html format. |
+|destFolder|POST|string|Optional|Folder on storage where files are going to be uploaded. If not specified then files are uploaded to same folder as presentation. |
+|fontsFolder|PUT|string|Optional|Storage folder containing custom fonts to be used with the presentation. |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+{{< expand-list title="Available values for format parameter" >}}
+
+| **Parameter Value** | **Format of the returned Page** | 
+| :- | :- |
+|tiff|Tagged Image File Format |
+|jpeg|Joint Photographic Experts Group Image Format |
+|png|Portable Networks Graphic Image Format |
+|bmp|Bitmap Picture |
+|gif|Graphics Interchange Format |
+|svg|Scalable Vector Graphics Format |
+|html|HyperText Markup Language |
+|pdf|Portable Document Format |
+|xps|XML Paper Specification Format |
+|pptx|Powerpoint 2007 2010 file format |
+|odp|OpenDocument Presentation Format |
+|ppt|Powerpoint 1997 2003 file format |
+|pps|Powerpoint 1997 2003 Show|
+|ppsx|PowerPoint Show |
+|pptm|PowerPoint Macro-Enabled Presentation |
+|ppsm|PowerPoint Macro-Enabled Show |
+|potx|PowerPoint Design Templates |
+|potm|PowerPoint Macro-Enabled Design Template |
+
+{{< /expand-list >}}
+
+{{< /expand-list >}}
+
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP POST**
+
+##### **Example 1**
+
+Splits the whole presentation into a set of jpeg images.
+
+```
+POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?folder=test
+```
+
+###### **Response:**
+
+{{< expand-list title="JSON" >}}
+```
+{
+    "slides": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 1"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_2.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 2"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_3.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 3"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/test.ppt?folder=test",
+        "relation": "self"
+    }
+}
+```
+{{< /expand-list >}}
+	
+	
+{{< expand-list title="XML" >}}
+```
+<SplitResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx?folder=test" rel="self" />
+    <Slides>
+        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg" rel="self" type="image/jpeg" title="Slide 1" />
+        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_2.jpeg" rel="self" type="image/jpeg" title="Slide 2" />
+        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_3.jpeg" rel="self" type="image/jpeg" title="Slide 3" />
+    </Slides>
+</SplitResult>
+```
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+``` csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesSplitRequest request = new PostSlidesSplitRequest
+{
+    Name = "ShapeTest.pptx",
+    Folder = "test"
+};
+SplitDocumentResult response = api.PostSlidesSplit(request);
+foreach (ResourceUri slide in response.Slides)
+{
+    Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg etc.
+}
+```
+
+##### **Example 2**
+Converts 2nd and 3rd slides of the presentation to PNG format and uploads them to "images" folder.
+
+```
+POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?from=2&to=3&format=png&destFolder=images
+```
+
+###### **Response:**
+
+{{< expand-list title="JSON" >}}
+```
+{
+    "slides": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png",
+            "relation": "self",
+            "linkType": "image/png",
+            "title": "Slide 2"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png",
+            "relation": "self",
+            "linkType": "image/png",
+            "title": "Slide 3"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/test.ppt",
+        "relation": "self"
+    }
+}
+```
+{{< /expand-list >}}
+
+{{< expand-list title="XML" >}}
+```
+<SplitResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx" rel="self" />
+    <Slides>
+        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png" rel="self" type="image/png" title="Slide 2" />
+        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_3.png" rel="self" type="image/png" title="Slide 3" />
+    </Slides>
+</SplitResult>
+```
+{{< /expand-list >}}
+
+###### **.Net SDK Code:**
+``` csharp
+SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
+PostSlidesSplitRequest request = new PostSlidesSplitRequest
+{
+    Name = "ShapeTest.pptx",
+    Folder = "test",
+    From = 2,
+    To = 3,
+    Format = SlideExportFormat.Png,
+    DestFolder = "Images"
+};
+SplitDocumentResult response = api.PostSlidesSplit(request);
+foreach (ResourceUri slide in response.Slides)
+{
+    Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/Images/ShapeTest_2.png etc.
+}
+```
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP DELETE**
+Not supported.
+
 ### **cURL Example**
 {{% alert color="primary" %}}
 
@@ -42,48 +238,26 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "slides":[
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_1.png",
-
          "relation":"self",
-
          "linkType":"image/png",
-
          "title":"Slide 1"
-
       },
-
       {
-
          "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_2.png",
-
          "relation":"self",
-
          "linkType":"image/png",
-
          "title":"Slide 2"
-
       }
-
    ],
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/source.pptx",
-
       "relation":"self"
-
    }
-
 }
-
-
 
 ```
 
