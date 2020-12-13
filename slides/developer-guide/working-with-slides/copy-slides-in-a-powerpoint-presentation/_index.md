@@ -43,7 +43,7 @@ Copies a presentation slide.
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?slideToCopy=1
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full resource response that includes cloned slide" >}}
 
@@ -121,7 +121,7 @@ foreach (ResourceUriElement slide in response.SlideList)
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?position=3&slideToCopy=2
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full resource response that includes cloned slide" >}}
 
@@ -200,7 +200,7 @@ foreach (ResourceUriElement slide in response.SlideList)
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?position=3&source=reports/sales.pptx&slideToCopy=2
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full resource response that includes cloned slide" >}}
 
@@ -361,13 +361,13 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "CopySlides.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "CopySlides.py" >}}
 
 {{< /tab >}}
 

@@ -43,7 +43,7 @@ Adds a new slide to the presentation.
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full Slides response that includes new slide" >}}
 
@@ -114,10 +114,10 @@ foreach (ResourceUriElement slide in response.SlideList)
 
 ###### **Request**
 ```
-POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?position=1 
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?position=1
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full Slides response that includes new slide" >}}
 
@@ -191,7 +191,7 @@ foreach (ResourceUriElement slide in response.SlideList)
 POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?layoutAlias=TextAndChart
 ```
 
-###### **Response** 
+###### **Response**
 
 {{< expand-list title="Full Slides response that includes new slide" >}}
 
@@ -348,13 +348,13 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "AddNewSlide.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "AddNewSlide.py" >}}
 
 {{< /tab >}}
 

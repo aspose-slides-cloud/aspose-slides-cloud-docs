@@ -30,7 +30,7 @@ Removes slide by its position.
 DELETE https://api.aspose.cloud/v3.0/slides/genericPpt.ppt/slides/1
 ```
 
-###### **Response** 
+###### **Response**
 {{< expand-list title="XML/JSON representation the presentation slides." >}}
 
 {{< tabs tabTotal="2" tabID="1" tabName1="JSON" tabName2="XML" >}}
@@ -107,7 +107,7 @@ foreach (ResourceUriElement slide in response.SlideList)
 DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
 ```
 
-###### **Response** 
+###### **Response**
 {{< expand-list title="XML/JSON representation the presentation slides." >}}
 
 {{< tabs tabTotal="2" tabID="12" tabName1="JSON" tabName2="XML" >}}
@@ -182,7 +182,7 @@ foreach (ResourceUriElement slide in response.SlideList)
 DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?slides=1,4,6
 ```
 
-###### **Response** 
+###### **Response**
 {{< expand-list title="XML/JSON representation the presentation slides." >}}
 
 {{< tabs tabTotal="2" tabID="14" tabName1="JSON" tabName2="XML" >}}
@@ -340,13 +340,13 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "DeleteSlides.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "DeleteSlides.py" >}}
 
 {{< /tab >}}
 

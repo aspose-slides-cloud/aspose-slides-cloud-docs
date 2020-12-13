@@ -62,19 +62,19 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "a41a3c7c75241129b94faf7179d42527" "DeleteShapeObjectToGroupShape.rb" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "DeleteShapeObjectToGroupShape.py" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "DeleteShapeObjectToGroupShape.js" >}}
+{{< gist "" "88b9472c3f741eae6c606abdd003c791" "DeleteShapeObjectToGroupShape.js" >}}
 
 {{< /tab >}}
 
