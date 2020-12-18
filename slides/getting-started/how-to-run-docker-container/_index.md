@@ -8,13 +8,14 @@ description: "How to run Docker container"
 weight: 100
 ---
 
-The **Docker** technology is designed to automate deployment of applications by using lightweight containers. Developers can use a **Docker Container** to wrap up an application with all of its libraries and dependencies and deploy everything as a single package.
+**Docker** technology is designed to automate the deployment of applications by using lightweight containers. 
+Developers can use **Docker Container** to wrap the application with all of its libraries and dependencies and deploy everything as a single package.
 
-Aspose.Slides Cloud team has published a Docker Container on [Docker Hub](https://hub.docker.com/r/aspose/slides-cloud) to facilitate Docker users.
+Aspose.Slides Cloud team has published Docker Container on [Docker Hub](https://hub.docker.com/r/aspose/slides-cloud) to facilitate Docker users.
 
-## Container configuration
+## Container Configuration
 
-### Required volumes
+### Required Volumes
 
 |Mount path in container|Description|
 | :- | :- |
@@ -29,11 +30,12 @@ Aspose.Slides Cloud team has published a Docker Container on [Docker Hub](https:
 |ClientId|Username|
 |ClientSecret|Password|
 
-If "License" parameters are omitted, the app will work in trial mode. If "ClientId" parameter is set, each request requires "Authorization" header (JWT authentication). The URL to obtain a token is "/connect/token".
+If "License" parameters are omitted, the app will work in trial mode. If "ClientId" parameter is set, each request requires "Authorization" header (JWT authentication). 
+The URL to obtain the token is "/connect/token".
 
-### Run the container using command line
+### Run Container using Command Line
 
-You can use the following command to run the container after pulling the container from [Docker Hub](https://href.li/?https://hub.docker.com/r/aspose/slides-cloud).
+You can use the following command to run the container after pulling it from [Docker Hub](https://href.li/?https://hub.docker.com/r/aspose/slides-cloud).
 
 ```JAVA
 docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" -v "/data:/storage" aspose/slides-cloud
