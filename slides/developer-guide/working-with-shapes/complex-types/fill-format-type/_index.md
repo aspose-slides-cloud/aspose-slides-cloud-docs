@@ -14,7 +14,7 @@ This complex type represents a fill format. There are 5 different types of fill 
 - [PatternFill](#pattern-fill)
 - [NoFill](#picture-fill)
 
-#### No Fill
+### No Fill
 Represents FillFormat with no fill.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="JSON" tabName2="XML" >}}
@@ -33,10 +33,10 @@ Represents FillFormat with no fill.
 
 {{< /tabs >}}
 
-#### Solid Fill
+### Solid Fill
 Represents FillFormat with solid color fill.
 
-|**Property Name**|**Type**|**Description**|
+| **Property Name** | **Type** | **Description** |
 | :- | :- | :- | 
 | Color   | string  |  Solid color. |
 
@@ -60,10 +60,10 @@ Represents FillFormat with solid color fill.
 
 {{< /tabs >}}
 
-#### Gradient Fill
+### **Gradient Fill**
 Represents FillFormat with gradient color fill.
 
-|**Property Name**|**Type**|**Description**|
+| **Property Name** | **Type** | **Description** |
 | :- | :- | :- | 
 | Direction |NotDefined / FromCorner1 / FromCorner2 / FromCorner3 / FromCorner4 / FromCenter | Gradient direction. |
 | Shape | NotDefined / Linear / Rectangle / Radial / Path | Gradient shape type. |
@@ -72,11 +72,12 @@ Represents FillFormat with gradient color fill.
 | TileFlip | NotDefined / NoFlip / FlipX / FlipY / FlipBoth | Gradient tile type. |
 | Stops | List | List of [GradientStop](#gradient-stop) items. |
 
-##### Gradient Stop
-|**Property Name**|**Type**|**Description**|
+#### **Gradient Stop**
+| **Property Name** | **Type** | **Description** |
 | :- | :- | :- | 
 | Position | float | The relative (0..1) offset of gradient stop. |
 | Color | string | Solid color. |
+
 *Color represents hexadecimal triplets representing opacity and colors red, green, and blue (#OORRGGBB). Ex. #FFFF0000 - red color.*
 
 {{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
@@ -142,10 +143,10 @@ Represents FillFormat with gradient color fill.
 
 {{< /tabs >}}
 
-#### Pattern Fill
+### Pattern Fill
 Represents FillFormat with pattern color fill.
 
-|**Property Name**|**Type**|**Description**|
+| **Property Name** | **Type** | **Description** |
 | :- | :- | :- | 
 | BackColor | string | Background solid color. | 
 | ForeColor | string | Foreground solid color. | 
@@ -239,7 +240,7 @@ Represents FillFormat with pattern color fill.
 
 {{< /tabs >}}
 
-#### Picture Fill
+### Picture Fill
 Represents FillFormat with picture fill.
 
 |**Property Name**|**Type**|**Description**|
@@ -254,7 +255,7 @@ Represents FillFormat with picture fill.
 | Base64Data | string | Used only in operations for update background, shape fill, or create pictures. Represents a base64 encoded picture. In GET operations this property is omitted |
 | SvgData | string | Used only in operations for update background, shape fill, or create pictures. Represents an SVG image. In GET operations this property is omitted. Ignored if Base64Data is specified |
 
-{{< tabs tabTotal="2" tabID="4" tabName1="JSON" tabName2="XML" >}}
+{{< tabs tabTotal="2" tabID="5" tabName1="JSON" tabName2="XML" >}}
 
 {{< tab tabNum="1" >}}
 ```

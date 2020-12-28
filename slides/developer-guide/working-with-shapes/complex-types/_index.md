@@ -2,7 +2,7 @@
 title: "Complex types"
 type: docs
 url: /complex-types/
-weight: 90
+weight: 10
 ---
 
 - [EffectFormat](/slides/effect-format-type/)
