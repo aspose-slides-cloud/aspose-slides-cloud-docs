@@ -59,7 +59,7 @@ Represents blur effect parameters.
 Represents glow effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
+| :- | :- | :- | 
 | Radius | double | radius | 
 | Color | string  | color | 
 
@@ -95,11 +95,11 @@ Represents glow effect parameters.
 Represents inner shadow effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
-|  Direction | float | shadow direction (in 60000ths of a degree)  | 
-|  Distance | double | specifies how far to offset the shadow  | 
-|  BlurRadius | double | blur radius  | 
-|  ShadowColor | string | shadow color  | 
+| :- | :- | :- | 
+| Direction | float | shadow direction (in 60000ths of a degree)  | 
+| Distance | double | specifies how far to offset the shadow  | 
+| BlurRadius | double | blur radius  | 
+| ShadowColor | string | shadow color  | 
 
 *ShadowColor represents hexadecimal triplets representing opacity and colors red, green, and blue (#OORRGGBB). Ex. #FFFF0000 - red color.*
 
@@ -137,11 +137,11 @@ Represents inner shadow effect parameters.
 Represents outer shadow effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
-|  Direction | float | shadow direction (in 60000ths of a degree)  | 
-|  Distance | double | specifies how far to offset the shadow  | 
-|  BlurRadius | double | blur radius  | 
-|  ShadowColor | string | shadow color  | 
+| :- | :- | :- | 
+| Direction | float | shadow direction (in 60000ths of a degree)  | 
+| Distance | double | specifies how far to offset the shadow  | 
+| BlurRadius | double | blur radius  | 
+| ShadowColor | string | shadow color  | 
 
 *ShadowColor represents hexadecimal triplets representing opacity and colors red, green, and blue (#OORRGGBB). Ex. #FFFF0000 - red color.*
 
@@ -179,11 +179,11 @@ Represents outer shadow effect parameters.
 Represents preset shadow effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
-|  Direction | float | shadow direction (in 60000ths of a degree)  | 
-|  Distance | double | specifies how far to offset the shadow  | 
-|  Preset | string | [preset shadow type.](#preset-shadow-type)  | 
-|  ShadowColor | string | shadow color | 
+| :- | :- | :- | 
+| Direction | float | shadow direction (in 60000ths of a degree)  | 
+| Distance | double | specifies how far to offset the shadow  | 
+| Preset | string | [preset shadow type.](#preset-shadow-type)  | 
+| ShadowColor | string | shadow color | 
 
 *ShadowColor represents hexadecimal triplets representing opacity and colors red, green, and blue (#OORRGGBB). Ex. #FFFF0000 - red color.*
 
@@ -191,28 +191,28 @@ Represents preset shadow effect parameters.
 {{< expand-list title="Available values for Preset property:" >}}
 
 
-|  **Parameter Value** | **Preset Size Type**  | 
-|  :- | :- | 
-|  TopLeftDropShadow | Top Left Drop Shadow  | 
-|  TopLeftLargeDropShadow | Top Left Large Drop Shadow  | 
-|  BackLeftLongPerspectiveShadow | Back Left Long Perspective Shadow  | 
-|  BackRightLongPerspectiveShadow | Back Right Long Perspective Shadow  | 
-|  TopLeftDoubleDropShadow | Top Left Double Drop Shadow  | 
-|  BottomRightSmallDropShadow | Bottom Right Small Drop Shadow  | 
-|  FrontLeftLongPerspectiveShadow | Front Left Long Perspective Shadow  | 
-|  FrontRightLongPerspectiveShadow | Front Right Long Perspective Shadow  | 
-|  OuterBoxShadow3D | Outer Box Shadow 3D  | 
-|  InnerBoxShadow3D | Inner Box Shadow 3D  | 
-|  BackCenterPerspectiveShadow | Back Center Perspective Shadow  | 
-|  TopRightDropShadow | Top Right Drop Shadow  | 
-|  FrontBottomShadow | Front Bottom Shadow  | 
-|  BackLeftPerspectiveShadow | Back Left Perspective Shadow  | 
-|  BackRightPerspectiveShadow | Back Right Perspective Shadow  | 
-|  BottomLeftDropShadow | Bottom Left Drop Shadow  | 
-|  BottomRightDropShadow | Bottom Right Drop Shadow  | 
-|  FrontLeftPerspectiveShadow | Front Left Perspective Shadow  | 
-|  FrontRightPerspectiveShadow | Front Right Perspective Shadow  | 
-|  TopLeftSmallDropShadow | Top Left Small Drop Shadow  | 
+| **Parameter Value** | **Preset Size Type**  | 
+| :- | :- | 
+| TopLeftDropShadow | Top Left Drop Shadow  | 
+| TopLeftLargeDropShadow | Top Left Large Drop Shadow  | 
+| BackLeftLongPerspectiveShadow | Back Left Long Perspective Shadow  | 
+| BackRightLongPerspectiveShadow | Back Right Long Perspective Shadow  | 
+| TopLeftDoubleDropShadow | Top Left Double Drop Shadow  | 
+| BottomRightSmallDropShadow | Bottom Right Small Drop Shadow  | 
+| FrontLeftLongPerspectiveShadow | Front Left Long Perspective Shadow  | 
+| FrontRightLongPerspectiveShadow | Front Right Long Perspective Shadow  | 
+| OuterBoxShadow3D | Outer Box Shadow 3D  | 
+| InnerBoxShadow3D | Inner Box Shadow 3D  | 
+| BackCenterPerspectiveShadow | Back Center Perspective Shadow  | 
+| TopRightDropShadow | Top Right Drop Shadow  | 
+| FrontBottomShadow | Front Bottom Shadow  | 
+| BackLeftPerspectiveShadow | Back Left Perspective Shadow  | 
+| BackRightPerspectiveShadow | Back Right Perspective Shadow  | 
+| BottomLeftDropShadow | Bottom Left Drop Shadow  | 
+| BottomRightDropShadow | Bottom Right Drop Shadow  | 
+| FrontLeftPerspectiveShadow | Front Left Perspective Shadow  | 
+| FrontRightPerspectiveShadow | Front Right Perspective Shadow  | 
+| TopLeftSmallDropShadow | Top Left Small Drop Shadow  | 
 
 
 {{< /expand-list >}}
@@ -251,7 +251,7 @@ Represents preset shadow effect parameters.
 Represents soft edge effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
+| :- | :- | :- | 
 | Radius | double | radius | 
 
 
@@ -283,38 +283,38 @@ Represents soft edge effect parameters.
 Represents reflection effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
-|  Direction | float | shadow direction (in 60000ths of a degree)  | 
-|  FadeDirection | float | reflection direction (in 60000ths of a degree)  | 
-|  Distance | double | specifies how far to offset the shadow  | 
-|  BlurRadius | double | blur radius  | 
-|  ScaleHorizontal | double | horizontal scaling factor (as percentage)  | 
-|  ScaleVertical | double | vertical scaling factor (as percentage)  | 
-|  SkewHorizontal | double | horizontal skew angle (in 60000ths of a degree)  | 
-|  SkewVertical | double | vertical skew angle (in 60000ths of a degree)  | 
-|  StartPosAlpha | float | start position of the start alpha value (as percentage)  | 
-|  EndPosAlpha | float | end position of the end alpha value (as percentage)  | 
-|  StartReflectionOpacity | float | starting reflection opacity (as percentage)  | 
-|  EndReflectionOpacity | float | ending reflection opacity (as percentage)  | 
-|  RectangleAlign | string | [shadow alignment](#rectangle-align-values) | 
-|  RotateShadowWithShape | bool | specifies whether reflection should rotate when the shape is rotated   | 
+| :- | :- | :- | 
+| Direction | float | shadow direction (in 60000ths of a degree)  | 
+| FadeDirection | float | reflection direction (in 60000ths of a degree)  | 
+| Distance | double | specifies how far to offset the shadow  | 
+| BlurRadius | double | blur radius  | 
+| ScaleHorizontal | double | horizontal scaling factor (as percentage)  | 
+| ScaleVertical | double | vertical scaling factor (as percentage)  | 
+| SkewHorizontal | double | horizontal skew angle (in 60000ths of a degree)  | 
+| SkewVertical | double | vertical skew angle (in 60000ths of a degree)  | 
+| StartPosAlpha | float | start position of the start alpha value (as percentage)  | 
+| EndPosAlpha | float | end position of the end alpha value (as percentage)  | 
+| StartReflectionOpacity | float | starting reflection opacity (as percentage)  | 
+| EndReflectionOpacity | float | ending reflection opacity (as percentage)  | 
+| RectangleAlign | string | [shadow alignment](#rectangle-align-values) | 
+| RotateShadowWithShape | bool | specifies whether reflection should rotate when the shape is rotated   | 
 
 
 ##### Rectangle Align Values
 {{< expand-list title="Available values for RectangleAlign property:" >}}
 
 
-|  **Parameter Value** | **Alignment**  | 
-|  :- | :- | 
-|  TopLeft |  Top Left  | 
-|  Top | Top  | 
-|  TopRight | Top Right  | 
-|  Left | Left  | 
-|  Center | Center  | 
-|  Right | Right  | 
-|  BottomLeft | Bottom Left  | 
-|  Bottom | Bottom  | 
-|  BottomRight | Bottom Right  | 
+| **Parameter Value** | **Alignment**  | 
+| :- | :- | 
+| TopLeft |  Top Left  | 
+| Top | Top  | 
+| TopRight | Top Right  | 
+| Left | Left  | 
+| Center | Center  | 
+| Right | Right  | 
+| BottomLeft | Bottom Left  | 
+| Bottom | Bottom  | 
+| BottomRight | Bottom Right  | 
 
 
 {{< /expand-list >}}
@@ -361,19 +361,19 @@ Represents reflection effect parameters.
 Represents fill overlay effect parameters.
 
 | **Property Name** | **Type** | **Description** | 
-|  :- | :- | :- | 
-|  Blend  | string  | [Fill blend mode](#fill-blend-mode)  | 
+| :- | :- | :- | 
+| Blend  | string  | [Fill blend mode](#fill-blend-mode)  | 
 
 ##### Rectangle Align Values
 {{< expand-list title="Available values for Blend property:" >}}
 
-|  **Parameter Value** | **Blend Mode**  | 
-|  :- | :- | 
-|  Darken | Darken  | 
-|  Lighten | Lighten  | 
-|  Multiply | Multiply  | 
-|  Overlay | Overlay  | 
-|  Screen | Screen  | 
+| **Parameter Value** | **Blend Mode**  | 
+| :- | :- | 
+| Darken | Darken  | 
+| Lighten | Lighten  | 
+| Multiply | Multiply  | 
+| Overlay | Overlay  | 
+| Screen | Screen  | 
 
 {{< /expand-list >}}
 
