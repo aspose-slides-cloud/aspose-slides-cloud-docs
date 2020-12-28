@@ -12,6 +12,115 @@ Aspose.Slides Cloud lets you move a slide to a new position within a PowerPoint 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/move|POST|Move a slide to a new position defined by the newPosition parameter|[PostSlidesReorder](https://apireference.aspose.cloud/slides/#/Slides/PostSlidesReorder)|
+
+{{< expand-list title="Request Parameters" >}}
+
+| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+| :- | :- | :- | :- | :- |
+|password | POST | string | Optional | Presentation password |
+|folder | POST | string | Optional | Presentation folder |
+|storage | POST | string | Optional | Presentation storage |
+|newPosition|POST|int|Required|New position of the slide. |
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+{{< /expand-list >}}
+#### **HTTP GET**
+Not supported.
+
+#### **HTTP PUT**
+Not supported.
+
+#### **HTTP POST**
+Moves a slide to another position.
+
+{{< tabs tabTotal="3" tabID="2" tabName1="Example 1">}}
+
+{{< tab tabNum="1" >}}
+
+##### **Move the 3rd slide to the 1st position.**
+
+###### **Request**
+```
+POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3/move?newPosition=1 
+```
+
+###### **Response**
+
+{{< expand-list title="Full resource response" >}}
+
+{{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
+
+{{< tab tabNum="1" >}}
+```
+{
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
+            "relation":"self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
+            "relation":"self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
+        "relation":"self"
+    }
+}
+```
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+```
+<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
+    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
+</Slides>
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+{{< /expand-list >}}
+
+
+###### **.Net SDK Code:**
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+PostSlidesReorderRequest request = new PostSlidesReorderRequest
+{
+    Name = "myPresentation.pptx",
+    SlideIndex = 3,
+    NewPosition = 1
+};
+Slides response = api.PostSlidesReorder(request);
+foreach (ResourceUriElement slide in response.SlideList)
+{
+    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+#### **HTTP DELETE**
+Not supported.
+
+
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -36,59 +145,32 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/
 {{< tab tabNum="2" >}}
 
 ```java
-
 {
-
    "slideList":[
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/2",
-
             "relation":"self"
-
          }
-
       },
-
       {
-
          "uri":{
-
             "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/3",
-
             "relation":"self"
-
          }
-
       }
-
    ],
-
    "selfUri":{
-
       "href":"https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides",
-
       "relation":"self"
-
    }
-
 }
-
 ```
 
 {{< /tab >}}
