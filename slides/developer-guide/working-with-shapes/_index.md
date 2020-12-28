@@ -13,3 +13,4 @@ weight: 80
 - [Working with Smart Art Shape Management](/slides/working-with-smart-art-shape-management/)
 - [Deleting shapes by Index in a Presentation](/slides/deleting-shapes-by-index-in-a-presentation/)
 - [Editing Paragraphs within Grouped Shapes](/slides/editing-paragraphs-within-grouped-shapes/)
+- [Complex types](/slides/complex-types/)
