@@ -73,7 +73,7 @@ curl -X POST "http://localhost:8088/v3.0/slides/convert/pdf" --data-binary "@pre
 You can use SDKs with your docker container. You should specify the base url (if you don't, api.aspose.cloud will be used by default) and you need not provide ClientId and ClientSecret (unless you specify those parameters in docker run command).
 Below is an example of conversion a presentation to PDF using .NET SDK.
 
-```scharp
+```csharp
 Configuration config = new Configuration();
 config.ApiBaseUrl = "http://localhost:8088";
 SlidesApi api = new SlidesApi(config);
