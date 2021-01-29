@@ -83,8 +83,10 @@ Console.WriteLine(response.Height);
 
 ### **password field moved to header**
 Password fields (**password**, **sourcePassword**, **templatePassword** etc.) used with protected presentations should now be supplied in request header instead of query string.
+
 Nothing is changed in the API if you use SDK.
 
 ### **Deprecated methods**
 **PUT fromHtml** method is deprecated and will be deleted in 21.4 release. Use **POST fromHtml** method for both creating presentations and adding slides to it.
+
 **slideSize** resource is deprecated and will be deleted in 21.4 release. Use **slideProperties** resource instead.
