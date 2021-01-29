@@ -6,16 +6,16 @@ weight: 60
 ---
 
 ## **Important Changes and Enhancements**
-- SLIDESCLOUD-1066 - Enable PDF Import
-- SLIDESCLOUD-939 - Support ProtectionManager properties
-- SLIDESCLOUD-1073 - Remove password field from request query string
+- **SLIDESCLOUD-1066** Enable PDF Import
+- **SLIDESCLOUD-939** Support ProtectionManager properties
+- **SLIDESCLOUD-1073** Remove password field from request query string
 
-## **Other improvements and changes**
-- SLIDESCLOUD-1026 - NullReferenceException is thrown when not all shape properties are provided
-- SLIDESCLOUD-1036 - Export to SVG with VectorizeText option fails in linux image
+## **Other Improvements and Changes**
+- **SLIDESCLOUD-1026** NullReferenceException is thrown when not all shape properties are provided
+- **SLIDESCLOUD-1036** Export to SVG with VectorizeText option fails in linux image
 
 ## **Public API changes**
-### **PDF import**
+### **PDF Import**
 The new **fromPdf** POST method allows to create presentations or append slides to existing ones using PDF files.
 #### **Example**
 
@@ -81,12 +81,12 @@ Console.WriteLine(response.Width);
 Console.WriteLine(response.Height);
 ```
 
-### **password field moved to header**
-Password fields (**password**, **sourcePassword**, **templatePassword** etc.) used with protected presentations should now be supplied in request header instead of query string.
+### **Password Field Moved to Header**
+Password fields (**password**, **sourcePassword**, **templatePassword** etc.) used with protected presentations should now be supplied in the request header instead of query string.
 
 Nothing is changed in the API if you use SDK.
 
-### **Deprecated methods**
+### **Deprecated Methods**
 **PUT fromHtml** method is deprecated and will be deleted in 21.4 release. Use **POST fromHtml** method for both creating presentations and adding slides to it.
 
 **slideSize** resource is deprecated and will be deleted in 21.4 release. Use **slideProperties** resource instead.
