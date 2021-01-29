@@ -16,7 +16,7 @@ weight: 60
 
 ## **Public API changes**
 ### **PDF import**
-The new **fromHtml** POST method allows to create presentations or append slides to existing ones using PDF files.
+The new **fromPdf** POST method allows to create presentations or append slides to existing ones using PDF files.
 #### **Example**
 
 ```
