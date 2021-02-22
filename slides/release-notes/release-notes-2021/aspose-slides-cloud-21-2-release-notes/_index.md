@@ -14,14 +14,14 @@ weight: 60
 - **SLIDESCLOUD-984** Chart type changes after deleting a series
 - **SLIDESCLOUD-1089** fromPDF method should return 400 error in case of invalid input data
 
-## **Public API changes**
+## **Public API Changes**
 ### Map Charts
-**Map** is added to the list of valid **ChartType** properties to support Map charts.
+**Map** has been added to the list of valid **ChartType** properties to support Map charts.
 
 ### **LineFormat.SketchFormat** Property
-A new **SketchFormat** property is added **LineFormat** class. The allowable values for the property are **None**, **Curved**, **Freehand**, **Scribble** and **NotDefined**.
+A new **SketchFormat** property has been added to **LineFormat** class. The property values: **None**, **Curved**, **Freehand**, **Scribble** and **NotDefined**.
 
 ### **Deprecated Methods**
-**PUT fromHtml** method is deprecated and will be deleted in 21.4 release. Use **POST fromHtml** method for both creating presentations and adding slides to it.
+**PUT fromHtml** method is deprecated and will be deleted since 21.4 release. Use **POST fromHtml** method for both creating presentations and adding slides to it.
 
-**slideSize** resource is deprecated and will be deleted in 21.4 release. Use **slideProperties** resource instead.
+**slideSize** resource is deprecated and will be deleted since 21.4 release. Use **slideProperties** resource instead.
