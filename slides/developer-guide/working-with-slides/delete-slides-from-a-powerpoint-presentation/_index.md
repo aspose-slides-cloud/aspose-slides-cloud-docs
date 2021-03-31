@@ -84,12 +84,7 @@ DELETE https://api.aspose.cloud/v3.0/slides/genericPpt.ppt/slides/1
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-DeleteSlideByIndexRequest request = new DeleteSlideByIndexRequest
-{
-    Name = "genericPpt.ppt",
-    SlideIndex = 1
-};
-Slides response = api.DeleteSlideByIndex(request);
+Slides response = api.DeleteSlide("genericPpt.ppt", 1);
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/genericPpt.ppt/slides/1 etc.
@@ -160,11 +155,7 @@ DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-DeleteSlidesCleanSlidesListRequest request = new DeleteSlidesCleanSlidesListRequest
-{
-    Name = "myPresentation.pptx"
-};
-Slides response = api.DeleteSlidesCleanSlidesList(request);
+Slides response = api.DeleteSlides("myPresentation.pptx");
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1
@@ -235,12 +226,7 @@ DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?slides=1,
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-DeleteSlidesCleanSlidesListRequest request = new DeleteSlidesCleanSlidesListRequest
-{
-    Name = "myPresentation.pptx",
-    Slides = new List<int> { 1, 4, 6 }
-};
-Slides response = api.DeleteSlidesCleanSlidesList(request);
+Slides response = api.DeleteSlidesCleanSlidesList("myPresentation.pptx", new List<int> { 1, 4, 6 });
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.

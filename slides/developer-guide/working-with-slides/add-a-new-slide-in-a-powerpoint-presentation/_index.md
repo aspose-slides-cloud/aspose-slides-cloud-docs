@@ -98,8 +98,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx" };
-Slides response = api.PostSlidesAdd(request);
+Slides response = api.CreateSlide("myPresentation.pptx");
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
@@ -172,8 +171,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?position=1
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx", Position = 1 };
-Slides response = api.PostSlidesAdd(request);
+Slides response = api.PostSlidesAdd("myPresentation.pptx", position: 1);
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
@@ -246,8 +244,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?layoutAlias
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesAddRequest request = new PostSlidesAddRequest { Name = "myPresentation.pptx", LayoutAlias = "TextAndChart" };
-Slides response = api.PostSlidesAdd(request);
+Slides response = api.PostSlidesAdd("myPresentation.pptx", "TextAndChart");
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.

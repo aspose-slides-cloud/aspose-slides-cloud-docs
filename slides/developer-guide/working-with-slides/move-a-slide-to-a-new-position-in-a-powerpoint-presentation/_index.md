@@ -100,13 +100,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3/move?newP
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-PostSlidesReorderRequest request = new PostSlidesReorderRequest
-{
-    Name = "myPresentation.pptx",
-    SlideIndex = 3,
-    NewPosition = 1
-};
-Slides response = api.PostSlidesReorder(request);
+Slides response = api.MoveSlide("myPresentation.pptx", 3, 1);
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.

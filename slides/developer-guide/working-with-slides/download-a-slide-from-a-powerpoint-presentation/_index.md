@@ -304,22 +304,16 @@ Response contains the conversion operation result.
 ###### **.NET SDK code**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesSaveAsRequest request = new PostSlidesSaveAsRequest
+PdfExportOptions options = new PdfExportOptions
 {
-    Name = "myPresentation.pptx",
-    Folder = "TempSlidesSDK",
-    Format = ExportFormat.Pdf,
-    Options = new PdfExportOptions
-    {
-        TextCompression = PdfExportOptions.TextCompressionEnum.Flate,
-        EmbedFullFonts = true,
-        Compliance = PdfExportOptions.ComplianceEnum.Pdf15,
-        JpegQuality = 50,
-        SaveMetafilesAsPng = false,
-        EmbedTrueTypeFontsForASCII = true
-    }
+    TextCompression = PdfExportOptions.TextCompressionEnum.Flate,
+    EmbedFullFonts = true,
+    Compliance = PdfExportOptions.ComplianceEnum.Pdf15,
+    JpegQuality = 50,
+    SaveMetafilesAsPng = false,
+    EmbedTrueTypeFontsForASCII = true
 };
-Stream response = api.PostSlidesSaveAs(request);
+Stream response = api.DownloadPresentation("myPresentation.pptx", ExportFormat.Pdf, options, folder: "TempSlidesSDK");
 response.CopyTo(File.Create("myPresentation.pdf"));
 ```
 
