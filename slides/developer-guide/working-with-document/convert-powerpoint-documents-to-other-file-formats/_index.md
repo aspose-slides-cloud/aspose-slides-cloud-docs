@@ -86,8 +86,7 @@ OK status code.
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
 Stream file = File.OpenRead("MyPresentation.pptx");
-PostSlidesConvertRequest request = new PostSlidesConvertRequest { Format = ExportFormat.Tiff, Document = file };
-Stream response = api.PostSlidesConvert(request);
+Stream response = api.Convert(file, ExportFormat.Tiff);
 response.CopyTo(File.Create("MyPresentation.tiff"));
 ```
 
@@ -109,19 +108,11 @@ Contains the conversion to PDF result.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 const string fontsFolder = "customFonts";
-CreateFolderRequest folderRequest = new CreateFolderRequest { Path = fontsFolder };
-api.CreateFolder(folderRequest);
+api.CreateFolder(fontsFolder);
 Stream font = File.OpenRead("custom.ttf");
-UploadFileRequest fileRequest = new UploadFileRequest { Path = $"{fontsFolder}/custom.ttf", File = font };
-api.UploadFile(fileRequest);
+api.UploadFile(font, $"{fontsFolder}/custom.ttf");
 Stream file = File.OpenRead("customfont.pptx");
-PostSlidesConvertRequest request = new PostSlidesConvertRequest
-{
-    Format = ExportFormat.Pdf,
-    Document = file,
-    FontsFolder = fontsFolder
-};
-Stream response = api.PostSlidesConvert(request);
+Stream response = api.Convert(file, ExportFormat.Pdf, fontsFolder: fontsFolder);
 response.CopyTo(File.Create("customfont.pdf"));
 ```
 

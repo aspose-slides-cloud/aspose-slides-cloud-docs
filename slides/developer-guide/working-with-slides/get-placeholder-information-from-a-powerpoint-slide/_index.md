@@ -86,12 +86,7 @@ GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholde
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
 
-GetSlidesPlaceholdersRequest request = new GetSlidesPlaceholdersRequest
-{
-    Name = "myPresentation.pptx",
-    SlideIndex = 1
-};
-Placeholders response = api.GetSlidesPlaceholders(request);
+Placeholders response = api.GetPlaceholders("myPresentation.pptx", 1);
 foreach (ResourceUri uri in response.PlaceholderLinks)
 {
     Console.WriteLine(uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/placeholders/1 etc.

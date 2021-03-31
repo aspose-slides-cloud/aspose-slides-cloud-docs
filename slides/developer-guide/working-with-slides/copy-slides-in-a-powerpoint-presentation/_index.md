@@ -98,12 +98,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?slideT
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesCopyRequest request = new PostSlidesCopyRequest
-{
-    Name = "myPresentation.pptx",
-    SlideToCopy = 1
-};
-Slides response = api.PostSlidesCopy(request);
+Slides response = api.CopySlide("myPresentation.pptx", 1);
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
@@ -176,13 +171,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?positi
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesCopyRequest request = new PostSlidesCopyRequest
-{
-    Name = "myPresentation.pptx",
-    SlideToCopy = 2,
-    Position = 3
-};
-Slides response = api.PostSlidesCopy(request);
+Slides response = api.CopySlide("myPresentation.pptx", 2, 3);
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.
@@ -255,14 +244,7 @@ POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/copy?positi
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesCopyRequest request = new PostSlidesCopyRequest
-{
-    Name = "myPresentation.pptx",
-    Source = "reports/sales.pptx",
-    SlideToCopy = 2,
-    Position = 3
-};
-Slides response = api.PostSlidesCopy(request);
+Slides response = api.CopySlide("myPresentation.pptx", 2, 3, "reports/sales.pptx");
 foreach (ResourceUriElement slide in response.SlideList)
 {
     Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/1 etc.

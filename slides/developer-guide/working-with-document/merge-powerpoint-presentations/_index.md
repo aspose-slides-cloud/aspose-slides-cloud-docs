@@ -74,16 +74,12 @@ https://api.aspose.cloud/v3.0/slides/genericPptx.pptx/merge
 
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostPresentationMergeRequest request = new PostPresentationMergeRequest
+PresentationsMergeRequest request = new PresentationsMergeRequest
 {
-    Name = "genericPptx.pptx",
-    Request = new PresentationsMergeRequest
-    {
-        PresentationPaths = new List<string> { "TempSlides/Pres1.pptx", "TempSlides/Pres2.pptx" },
-        PresentationPasswords = new List<string> { "mypassword01" }
-    }
+    PresentationPaths = new List<string> { "TempSlides/Pres1.pptx", "TempSlides/Pres2.pptx" },
+    PresentationPasswords = new List<string> { "mypassword01" }
 };
-Document response = api.PostPresentationMerge(request);
+Document response = api.Merge("genericPptx.pptx", request);
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/genericPptx.pptx
 ```
 
@@ -142,13 +138,7 @@ OrderedMergeRequest mergeRequest = new OrderedMergeRequest
 {
     Presentations = new List<PresentationToMerge> { presentationToMerge }
 };
-PutPresentationMergeRequest request = new PutPresentationMergeRequest
-{
-    Name = "NewPresentation.pptx",
-    Folder = "TempSlidesSDK",
-    Request = mergeRequest
-};
-Document response = api.PutPresentationMerge(request);
+Document response = api.OrderedMerge("NewPresentation.pptx", mergeRequest, folder: "TempSlidesSDK");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/genericPptx.pptx
 ```
 

@@ -125,12 +125,7 @@ POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?folder=test
 ###### **.Net SDK Code:**
 ``` csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesSplitRequest request = new PostSlidesSplitRequest
-{
-    Name = "ShapeTest.pptx",
-    Folder = "test"
-};
-SplitDocumentResult response = api.PostSlidesSplit(request);
+SplitDocumentResult response = api.Split("ShapeTest.pptx", folder: "test");
 foreach (ResourceUri slide in response.Slides)
 {
     Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg etc.
@@ -186,16 +181,7 @@ POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?from=2&to=3&forma
 ###### **.Net SDK Code:**
 ``` csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesSplitRequest request = new PostSlidesSplitRequest
-{
-    Name = "ShapeTest.pptx",
-    Folder = "test",
-    From = 2,
-    To = 3,
-    Format = SlideExportFormat.Png,
-    DestFolder = "Images"
-};
-SplitDocumentResult response = api.PostSlidesSplit(request);
+SplitDocumentResult response = api.Split("ShapeTest.pptx", format: SlideExportFormat.Png, from: 2, to: 3, destFolder: "Images", folder: "test");
 foreach (ResourceUri slide in response.Slides)
 {
     Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/Images/ShapeTest_2.png etc.

@@ -183,8 +183,7 @@ Full resource representation:
 ##### **C# SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-GetSlidesDocumentRequest request = new GetSlidesDocumentRequest { Name = "MyPresentation.pptx", Folder = "MyFolder" };
-Document response = api.GetSlidesDocument(request);
+Document response = api.GetDocument("MyPresentation.pptx", folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
 ```
 
@@ -207,8 +206,7 @@ Full resource representation.
 ###### **C# SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-PostSlidesDocumentRequest request = new PostSlidesDocumentRequest { Name = "Sales.pptx", Folder = "MyFolder" };
-Document response = api.PostSlidesDocument(request);
+Document response = api.CreatePresentation("Sales.pptx", folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
 ```
 
@@ -228,8 +226,7 @@ Full resource representation.
 ```csharp
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
 Stream file = File.OpenRead("input.pptx");
-PostSlidesDocumentRequest request = new PostSlidesDocumentRequest { Name = "Sales.pptx", Folder = "MyFolder", Data = file };
-Document response = api.PostSlidesDocument(request);
+Document response = api.CreatePresentation("Sales.pptx", file, folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
 ```
 
@@ -278,8 +275,7 @@ Full resource representation.
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-PostSlidesDocumentFromSourceRequest request = new PostSlidesDocumentFromSourceRequest { Name = "Sales.pptx", Folder = "MyFolder", SourcePath = "MyFolder/SalesTemplate.potx" };
-Document response = api.PostSlidesDocumentFromSource(request);
+Document response = api.CreatePresentationFromSource("Sales.pptx", "MyFolder/SalesTemplate.potx", folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=MyFolder
 ```
 
@@ -487,8 +483,7 @@ string html = @"
     <p>Html content</p>
   </body>
 </html>";
-PostSlidesDocumentFromHtmlRequest request = new PostSlidesDocumentFromHtmlRequest { Name = "NewPresentation.pptx", Folder = "MyFolder", Html = html };
-Document response = api.PostSlidesDocumentFromHtml(request);
+Document response = api.ImportFromHtml("NewPresentation.pptx", html, folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/NewPresentation.pptx?folder=MyFolder
 ```
 
@@ -520,8 +515,7 @@ string html = @"
     <p>Html content</p>
   </body>
 </html>";
-PutSlidesDocumentFromHtmlRequest request = new PutSlidesDocumentFromHtmlRequest { Name = "ExistingPresentation.pptx", Folder = "MyFolder", Html = html };
-Document response = api.PutSlidesDocumentFromHtml(request);
+Document response = api.ImportFromHtml("ExistingPresentation.pptx", html, folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/ExistingPresentation.pptx?folder=MyFolder
 ```
 
@@ -833,14 +827,7 @@ string data = @"
         </skills>
     </person>
 </staff>";
-PostSlidesDocumentFromTemplateRequest request = new PostSlidesDocumentFromTemplateRequest
-{
-    Name = "JohnDoeCV.pptx",
-    Folder = "MyFolder",
-    TemplatePath="MyFolder/TemplateCV.potx",
-    Data = data
-};
-Document response = api.PostSlidesDocumentFromTemplate(request);
+Document response = api.CreatePresentationFromTemplate("JohnDoeCV.pptx", "MyFolder/TemplateCV.potx", data, folder: "MyFolder");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=MyFolder
 ```
 

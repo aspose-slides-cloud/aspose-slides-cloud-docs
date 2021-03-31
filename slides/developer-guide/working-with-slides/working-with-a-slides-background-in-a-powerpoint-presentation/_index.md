@@ -90,13 +90,7 @@ GET https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/background
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-GetSlidesSlideBackgroundRequest request = new GetSlidesSlideBackgroundRequest
-{
-    Name = "myPresentation.pptx",
-    Folder = "myFolder",
-    SlideIndex = 1
-};
-SlideBackground response = api.GetSlidesSlideBackground(request);
+SlideBackground response = api.GetBackground("myPresentation.pptx", 1, folder: "myFolder");
 Console.WriteLine(response.Type); //NoFill
 ```
 
@@ -216,13 +210,8 @@ PictureFill fill = new PictureFill
     Base64Data = "/9j/4AAQSkZJRgABAQAASABIAAD...",
     PictureFillMode = PictureFill.PictureFillModeEnum.Stretch
 };
-PutSlidesSlideBackgroundRequest request = new PutSlidesSlideBackgroundRequest
-{
-    Name = "ImageContentShape.pptx",
-    SlideIndex = 1,
-    Background = new SlideBackground { FillFormat = fill }
-};
-SlideBackground response = api.PutSlidesSlideBackground(request);
+SlideBackground background = new SlideBackground { FillFormat = fill };
+SlideBackground response = api.SetBackground("ImageContentShape.pptx", 1, background);
 Console.WriteLine(response.Type); //Picture
 ```
 
@@ -285,13 +274,7 @@ DELETE https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/backgro
 ###### **.Net SDK Code:**
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-DeleteSlidesSlideBackgroundRequest request = new DeleteSlidesSlideBackgroundRequest
-{
-    Name = "NewPresentation.pptx",
-    Folder = "TempSlidesSDK",
-    SlideIndex = 1
-};
-SlideBackground response = api.DeleteSlidesSlideBackground(request);
+SlideBackground response = api.DeleteBackground("NewPresentation.pptx", 1, folder: "TempSlidesSDK");
 Console.WriteLine(response.Type); //NoFill
 ```
 
