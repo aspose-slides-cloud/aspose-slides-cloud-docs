@@ -71,7 +71,7 @@ POST https://api.aspose.cloud/v3.0/slides/merge
 
 Files to merge and the following JSON:
 ```json
-{ presentations = [{ slides = [1, 2] }]}
+{ "presentations": [{ "slides": [1, 2] }]}
 ```
 
 **SDK Code:**
@@ -98,7 +98,7 @@ POST https://api.aspose.cloud/v3.0/slides/merge
 
 File to merge and the following JSON:
 ```json
-{ presentations = [{ source = "Storage", path = "myfolder/myfile.pptx" }]}
+{ "presentations": [{ "source": "Storage", "path": "myfolder/myfile.pptx" }]}
 ```
 
 **SDK Code:**
