@@ -222,4 +222,4 @@ outputFile.CopyTo(File.Create("MyPresentation.pptx"));
 
 SDK methods no longer use Request parameters. Also, many method names are changed.
 The old method declarations are deprecated and will be removed in 21.6 release.
-For a list of renamed methods, see [21.3 release notes](../aspose-slides-cloud-21-4-release-notes).
+For a list of renamed methods, see [21.3 release notes](/slides/aspose-slides-cloud-21-3-release-notes).
