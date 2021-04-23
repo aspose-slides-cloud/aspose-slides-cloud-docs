@@ -14,7 +14,7 @@ weight: 60
 
 ## **Public API changes**
 ### **Add/remove watermarks**
-A new **watermark** resource allow to add and delete watermarks in presentations. You can specify watermark parameters using query string, JSON or image file.
+A new **watermark** resource allows to add and delete watermarks in presentations. You can specify watermark properties using query string parameters, JSON or image file.
 #### **Example 1 - add a text watermark to a presentation**
 
 ```
@@ -60,7 +60,7 @@ Shape watermark = new Shape
     Width = 500,
     Height = 200
 };
-Stream outputFile = api.CreateWatermarkOnline(document, watermark);
+Stream outputFile = api.CreateWatermarkOnline(inputFile, watermark);
 outputFile.CopyTo(File.Create("MyPresentationWithWatermark.pptx"));
 ```
 
@@ -122,7 +122,7 @@ DELETE https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/watermark
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Stream outputFile = api.DeleteWatermark("MyPresentation.pptx");
+api.DeleteWatermark("MyPresentation.pptx");
 ```
 
 #### **Example 6 - delete watermarks in a presentation from request body**
