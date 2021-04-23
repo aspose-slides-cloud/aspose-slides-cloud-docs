@@ -13,8 +13,8 @@ weight: 60
 - **SLIDESCLOUD-1155** Uploading file throws ApiException with default arguments
 
 ## **Public API changes**
-### **Add/remove watermarks to presentations**
-A new **watermark** POST & PUT methods allow to merge presentations from a multipart request body. You can optionally provide a JSON to specify merge details (like slides to merge). You can also merge presentations provided in request body with ones that exist on the storage.
+### **Add/remove watermarks**
+A new **watermark** resource allow to add and delete watermarks in presentations. You can specify watermark parameters using query string, JSON or image file.
 #### **Example 1 - add a text watermark to a presentation**
 
 ```
@@ -36,7 +36,7 @@ POST https://api.aspose.cloud/v3.0/slides/watermark
 
 ***Request body:***
 
-Presentation fole and the following JSON:
+Presentation file and the following JSON:
 ```json
 {
   "text": "this is a watermark",
@@ -96,7 +96,7 @@ Presentation file and the following JSON:
     "type": "PictureFrame",
     "fillFormat": {
         "type": "Picture",
-        "base64Data": "<Base64 data for the image>"
+        "base64Data": "<Base64 image data>"
     }
 }
 ```
@@ -126,7 +126,7 @@ Stream outputFile = api.DeleteWatermark("MyPresentation.pptx");
 ```
 
 #### **Example 6 - delete watermarks in a presentation from request body**
-Watermarks are identified as shapes with name "custom_watermark" in this example (the default name is "watermark").
+Watermarks are identified as shapes with name "custom_watermark" in this example (the default value is "watermark").
 
 ```
 POST https://api.aspose.cloud/v3.0/slides/watermark/delete?shapeName=custom_watermark
@@ -157,7 +157,7 @@ POST https://api.aspose.cloud/v3.0/slides/protection
 
 Presentation file and the following JSON:
 ```json
-{ "readPassword": "readPassword" }
+{ "readPassword": "newPassword" }
 ```
 
 **SDK Code:**
