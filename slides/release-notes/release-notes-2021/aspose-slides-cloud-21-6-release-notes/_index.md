@@ -134,7 +134,9 @@ outputFile.CopyTo(File.Create("MyPresentationWithNoCommentsOnSlide2.pptx"));
 ### **Removed Duplicate Resources**
 
 **GET {name}/{format}** method is removed. Instead, use **POST {name}/{format}** method to retrive presentations in a specific format instead.
+
 **GET {name}/slides/{slideIndex}/{format}** method is removed. Instead, use **POST {name}/slides/{slideIndex}/{format}** method to retrieve slides in a specific format instead.
+
 **GET {name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}** method is removed. Instead, use **POST {name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}** method to retrieve shapes in a specific format.
 
 ### **Removed SDK Methods**
