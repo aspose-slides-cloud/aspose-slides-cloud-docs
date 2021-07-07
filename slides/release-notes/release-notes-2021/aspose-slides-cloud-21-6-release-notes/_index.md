@@ -131,7 +131,13 @@ Stream outputFile = api.DeleteSlideCommentsOnline(inputFile, 2);
 outputFile.CopyTo(File.Create("MyPresentationWithNoCommentsOnSlide2.pptx"));
 ```
 
-### **Removed Methods**
+### **Removed Duplicate Resources**
+
+**GET {name}/{format}** method is removed. Instead, use **POST {name}/{format}** method to retrive presentations in a specific format instead.
+**GET {name}/slides/{slideIndex}/{format}** method is removed. Instead, use **POST {name}/slides/{slideIndex}/{format}** method to retrieve slides in a specific format instead.
+**GET {name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}** method is removed. Instead, use **POST {name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}** method to retrieve shapes in a specific format.
+
+### **Removed SDK Methods**
 
 SDK methods no longer use Request parameters. Also, many method names are changed.
 The old method declarations, as well as Request classes, have been deleted.
