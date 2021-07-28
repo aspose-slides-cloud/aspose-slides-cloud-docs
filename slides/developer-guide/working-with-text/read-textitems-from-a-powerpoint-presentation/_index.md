@@ -6,7 +6,7 @@ weight: 10
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud lets you easily read Text items from a PowerPoint Presentation. Aspose.Slides Cloud provides REST interfaces for reading items from a individual slide or from a presentation as whole
+Aspose.Slides Cloud lets you easily read Text items from a PowerPoint Presentation. Aspose.Slides Cloud provides REST interfaces for reading items from a individual slide or from a presentation as whole.
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Swagger Link**|
@@ -15,7 +15,7 @@ Aspose.Slides Cloud lets you easily read Text items from a PowerPoint Presentati
 |/slides/{name}/slides/{slideIndex}/textItems|GET|Read TextItems from a slide within a PowerPoint Presentation|[GetSlidesSlideTextItems](https://apireference.aspose.cloud/slides/#/Text/GetSlidesSlideTextItems)|
 ### **cURL Examples**
 
-You need to get the Authentication Token before using these resources
+You need to get the Authentication Token before using these resources.
 
 **Get Authentication Token**
 
@@ -192,3 +192,90 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/destination.pptx/slides/1/
 ## **SDK Source**
 The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" tabName10="Swift" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+TextItems presentationItems = api.GetPresentationTextItems("destination.pptx");
+TextItems firstSlideItems = api.GetSlideTextItems("destination.pptx", 1);
+Console.WriteLine(presentationItems.Items.Count);
+Console.WriteLine(firstSlideItems.Items.Count);
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+TextItems presentationItems = api.getPresentationTextItems("destination.pptx", null, null, null);
+TextItems firstSlideItems = api.getSlideTextItems("destination.pptx", 1, null, null, null);
+System.out.println(presentationItems.getItems().size());
+System.out.println(firstSlideItems.getItems().size());
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$presentationItems = $api->getPresentationTextItems("destination.pptx");
+$firstSlideItems = $api->getSlideTextItems("destination.pptx", 1);
+print(count($presentationItems->getItems()));
+print(count($firstSlideItems->getItems()));
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+api.getPresentationTextItems("destination.pptx").then((result) => {
+    console.log(result.body.items.length);
+});
+
+api.getSlideTextItems("destination.pptx", 1).then((result) => {
+    console.log(result.body.items.length);
+});
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
