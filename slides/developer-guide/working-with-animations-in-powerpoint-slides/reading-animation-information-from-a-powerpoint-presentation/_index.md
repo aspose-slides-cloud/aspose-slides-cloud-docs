@@ -143,7 +143,14 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "GetSlideAnimations.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+SlideAnimation response = api.GetSlideAnimation("myPresentation.pptx", 1, folder: "MyStorageFolder");
+foreach (Effect effect in response.MainSequence)
+{
+    Console.WriteLine(effect.Type);
+}
+```
 
 {{< /tab >}}
 

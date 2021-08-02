@@ -34,7 +34,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/DeleteChartSeries/presentation_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
+curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/shapes/1/series/2" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 
@@ -58,7 +58,11 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "DeleteChartSeries.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+Chart chart = api.DeleteChartSeries("myPresentaion.pptx", 1, 1, 2);
+Console.WriteLine(chart.Series.Count);
+```
 
 {{< /tab >}}
 
