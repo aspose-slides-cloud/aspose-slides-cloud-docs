@@ -242,6 +242,23 @@ print(count($firstSlideItems->getItems()));
 
 {{< tab tabNum="5" >}}
 
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+result = api.get_presentation_text_items("destination.pptx")
+print(len(result.items))
+slide_result = api.get_slide_text_items("destination.pptx", 1)
+print(len(slide_result.items))
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}

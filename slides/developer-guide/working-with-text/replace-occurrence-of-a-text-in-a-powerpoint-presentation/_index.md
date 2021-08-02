@@ -330,6 +330,21 @@ print($result->getMatches());
 
 {{< tab tabNum="5" >}}
 
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+result = api.replace_presentation_text("destination.pptx", "banana", "orange", True)
+print(len(result.matches))
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}

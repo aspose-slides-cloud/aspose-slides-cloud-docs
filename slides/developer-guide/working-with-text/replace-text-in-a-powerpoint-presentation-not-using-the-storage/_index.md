@@ -98,6 +98,24 @@ print("The updated file was saved to " . $result->getPathname());
 
 {{< tab tabNum="5" >}}
 
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+with open("MyPresentation.pptx", 'rb') as f:
+    input_file = f.read()
+
+result = api.replace_presentation_text(input_file, "banana", "orange", True)
+print('The updated file was saved to ' + result)
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
