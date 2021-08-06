@@ -34,7 +34,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/Chart/PutChartSeries/presentation_images.pptx/" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
+curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/presentation_images.pptx/slides/1/shapes/1/series/2" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer [Access Token]
 
 ```
 
@@ -59,7 +59,16 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "UpdateChartSeries.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+OneValueSeries dto = new OneValueSeries();
+dto.DataPoints = new List<OneValueChartDataPoint>();
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 5.5 });
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 76 });
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 27 });
+Chart chart = api.UpdateChartSeries("myPresentaion.pptx", 1, 1, 2, dto);
+Console.WriteLine(chart.Series.Count);
+```
 
 {{< /tab >}}
 

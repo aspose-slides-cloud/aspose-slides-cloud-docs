@@ -6,17 +6,17 @@ weight: 20
 ---
 
 ## **Introduction**
-Using Aspose.Slides Cloud you can you easily replace all occurrences of a Text. Aspose.Slides Cloud provides you methods to replace text in a individual slide or a presentation as a whole
+Using Aspose.Slides Cloud you can you easily replace all occurrences of a Text. Aspose.Slides Cloud provides you methods to replace text in a individual slide or a presentation as a whole.
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/replaceText|POST|Replace text within a presentation|[PostSlidesPresentationReplaceText](https://apireference.aspose.cloud/slides/#/Text/PostSlidesPresentationReplaceText)|
-|/slides/{name}/slides/{slideIndex}/replaceText|POST|Replace text within a individual slide|[PostSlidesSlideReplaceText](https://apireference.aspose.cloud/slides/#/Text/PostSlidesSlideReplaceText)|
+|/slides/{name}/replaceText|POST|Replace text within a presentation|[ReplacePresentationText](https://apireference.aspose.cloud/slides/#/Text/ReplacePresentationText)|
+|/slides/{name}/slides/{slideIndex}/replaceText|POST|Replace text within a individual slide in a presentation|[ReplaceSlideText](https://apireference.aspose.cloud/slides/#/Text/ReplaceSlideText)|
 ### **cURL Example**
 {{% alert color="primary" %}} 
 
-We are using the **/slides/{name}/slides/{slideIndex}/replaceText** resource as an example below. You can use **/slides/{name}/replaceText** with the same query parameters to replace all matching occurrences of the text items in the whole power point presentation
+We are using the **/slides/{name}/replaceText** resource as an example below. You can use **/slides/{name}/slides/{slideIndex}/replaceText** with the same query parameters to replace all matching occurrences of the text items in a specific slide of a PowerPoint presentation.
 
 {{% /alert %}} 
 
@@ -286,3 +286,94 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/destination.pptx/replaceT
 ## **SDK Source**
 The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" tabName10="Swift" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+DocumentReplaceResult result = api.ReplacePresentationText("destination.pptx", "banana", "orange", true);
+Console.WriteLine(result.Matches);
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+DocumentReplaceResult result = api.replacePresentationText("destination.pptx", "banana", "orange", true, null, null, null);
+System.out.println(result.getMatches());
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$result = $api->replacePresentationText("destination.pptx", "banana", "orange", true);
+print($result->getMatches());
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+result = api.replace_presentation_text("destination.pptx", "banana", "orange", True)
+print(len(result.matches))
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+api.replacePresentationText("destination.pptx", "banana", "orange", true).then((result) => {
+    console.log(result.body.matches);
+});
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}

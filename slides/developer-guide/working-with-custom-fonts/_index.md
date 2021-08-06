@@ -5,4 +5,4 @@ url: /working-with-custom-fonts/
 weight: 110
 ---
 
-- [Using fontsLocation Parameter to specify custom fonts](/slides/using-fontslocation-parameter-to-specify-custom-fonts/)
+- [Using fontsFolder Parameter to specify custom fonts](/slides/using-fontsfolder-parameter-to-specify-custom-fonts/)

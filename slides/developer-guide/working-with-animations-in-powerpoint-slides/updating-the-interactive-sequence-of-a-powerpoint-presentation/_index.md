@@ -143,7 +143,29 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "UpdateSlideAnimationInteractiveSequence.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+InteractiveSequence sequence = new InteractiveSequence
+{
+    TriggerShapeIndex = 1,
+    Effects = new List<Effect>
+    {
+        new Effect
+        {
+            Type = Effect.TypeEnum.Fly,
+            Subtype = Effect.SubtypeEnum.Bottom,
+            PresetClassType = Effect.PresetClassTypeEnum.Entrance,
+            ShapeIndex = 5,
+            TriggerType = Effect.TriggerTypeEnum.OnClick
+        }
+    }
+};
+SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, sequence);
+foreach (InteractiveSequence sequence in response.InteractiveSequences)
+{
+    Console.WriteLine(sequence.TriggerShapeIndex); //should display 1
+}
+```
 
 {{< /tab >}}
 

@@ -58,7 +58,16 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddChartSeries.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+OneValueSeries dto = new OneValueSeries();
+dto.DataPoints = new List<OneValueChartDataPoint>();
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 5.5 });
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 76 });
+dto.DataPoints.Add(new OneValueChartDataPoint { Value = 27 });
+Chart chart = api.CreateChartSeries("myPresentaion.pptx", 1, 2, dto);
+Console.WriteLine(chart.Series.Count);
+```
 
 {{< /tab >}}
 
