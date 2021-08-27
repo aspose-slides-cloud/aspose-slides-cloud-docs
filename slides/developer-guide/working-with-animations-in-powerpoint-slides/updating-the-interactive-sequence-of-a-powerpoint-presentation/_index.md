@@ -171,49 +171,133 @@ foreach (InteractiveSequence sequence in response.InteractiveSequences)
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "UpdateSlideAnimationInteractiveSequence.java" >}}
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, sequence);
+foreach (InteractiveSequence sequence in response.InteractiveSequences)
+{
+    Console.WriteLine(sequence.TriggerShapeIndex); //should display 1
+}
+
+InteractiveSequence dto = new InteractiveSequence();
+dto.setTriggerShapeIndex(1);
+
+List<Effect> effects = new ArrayList<Effect>();
+Effect effect = new Effect();
+effect.setType(Effect.TypeEnum.FLY);
+effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
+effect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
+effect.setShapeIndex(5);
+effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
+effects.add(effect);
+dto.setEffects(effects);
+
+SlideAnimation response = api.createAnimationInteractiveSequence("myPresentation.pptx", 1, dto, null, null, null);
+for (InteractiveSequence sequence : response.getInteractiveSequences()) {
+    System.out.println(sequence.getTriggerShapeIndex());
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "UpdateSlideAnimationInteractiveSequence.php" >}}
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence;
+use Aspose\Slides\Cloud\Sdk\Model\Effect;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$dto = new InteractiveSequence();
+$dto->setTriggerShapeIndex(1);
+
+$effect = new Effect();
+$effect->setType("Fly");
+$effect->setSubtype("Bottom");
+$effect->setPresetClassType("Entrance");
+$effect->setShapeIndex(5);
+$effect->setTriggerType("OnClick");
+$dto->setEffects([ effect ]);
+
+$response = $api->createAnimationInteractiveSequence("MyPresentation.pptx", 1, $dto);
+foreach ($response->getInteractiveSequences() as $sequence)
+{
+    print(count($sequence->getTriggerShapeIndex()));
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "UpdateSlideAnimationInteractiveSequence.rb" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "UpdateSlideAnimationInteractiveSequence.py" >}}
+```python
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.interactive_sequence import InteractiveSequence
+from asposeslidescloud.models.effect import Effect
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+dto = InteractiveSequence()
+dto.trigger_shape_index = 1
+
+effect = Effect()
+effect.type = "Fly"
+effect.subtype = "Bottom"
+effect.preset_class_type = "Entrance"
+effect.shape_index = 5
+effect.trigger_type = "OnClick"
+dto.effects = [ effect ]
+
+result = api.create_animation_interactive_sequence("MyPresentation.pptx", 1, dto)
+for sequence in result.intercative_sequences:
+    print(sequence.trigger_shape_index)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "UpdateSlideAnimationInteractiveSequence.js" >}}
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const dto = new model.InteractiveSequence();
+dto.triggerShapeIndex = 1;
+
+const effect = new model.Effect();
+effect.type = model.Effect.TypeEnum.Fly;
+effect.subtype = model.Effect.SubtypeEnum.Bottom;
+effect.presetClassType = model.Effect.PresetClassTypeEnum.Entrance;
+effect.shapeIndex = 5;
+effect.triggerType = model.Effect.TriggerTypeEnum.OnClick;
+dto.effects = [ effect ];
+return api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, chart).then((result) => {
+    (result.body as model.SlideAnimation).interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
+});
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "UpdateSlideAnimationInteractiveSequence.java" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

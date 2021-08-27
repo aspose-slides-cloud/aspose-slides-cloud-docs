@@ -349,7 +349,6 @@ print(len(result.matches))
 
 {{< tab tabNum="6" >}}
 
-
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
