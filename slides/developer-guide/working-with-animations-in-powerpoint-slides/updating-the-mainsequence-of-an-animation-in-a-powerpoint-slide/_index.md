@@ -202,7 +202,7 @@ $dto->setPresetClassType("Entrance");
 $dto->setShapeIndex(5);
 $dto->setTriggerType("OnClick");
 
-$response = $api->createAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto, null, "MyStorageFolder");
+$response = $api->CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto, null, "MyStorageFolder");
 foreach ($response->getInteractiveSequences()[0]->getEffects() as $effect)
 {
     print(count($effect->getShapeIndex()));

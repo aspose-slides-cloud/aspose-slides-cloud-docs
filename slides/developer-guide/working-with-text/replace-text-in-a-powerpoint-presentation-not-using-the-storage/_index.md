@@ -86,7 +86,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 $file = fopen("MyPresentation.pptx", 'r');
-$result = $api->replacePresentationTextOnline($file, "banana", "orange", true);
+$result = $api->ReplacePresentationTextOnline($file, "banana", "orange", true);
 print("The updated file was saved to " . $result->getPathname());
 ```
 

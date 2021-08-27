@@ -177,7 +177,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->getAnimation("MyPresentation.pptx", 1, null, null, "MyStorageFolder");
+$result = $api->GetAnimation("MyPresentation.pptx", 1, null, null, "MyStorageFolder");
 foreach ($result->getMainSequence() as $effect)
 {
     print(count($effect->getType()));

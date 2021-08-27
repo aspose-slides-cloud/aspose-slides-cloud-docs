@@ -223,7 +223,7 @@ $effect->setShapeIndex(5);
 $effect->setTriggerType("OnClick");
 $dto->setEffects([ effect ]);
 
-$response = $api->createAnimationInteractiveSequence("MyPresentation.pptx", 1, $dto);
+$response = $api->CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, $dto);
 foreach ($response->getInteractiveSequences() as $sequence)
 {
     print(count($sequence->getTriggerShapeIndex()));

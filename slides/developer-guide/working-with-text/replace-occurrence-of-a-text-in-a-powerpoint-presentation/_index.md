@@ -318,7 +318,7 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->replacePresentationText("destination.pptx", "banana", "orange", true);
+$result = $api->ReplacePresentationText("destination.pptx", "banana", "orange", true);
 print($result->getMatches());
 ```
 

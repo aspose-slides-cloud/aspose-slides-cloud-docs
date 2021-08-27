@@ -131,7 +131,7 @@ $dataPoint3 = new OneValueChartDataPoint();
 $dataPoint3->setValue(27);
 $dto->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3]);
 
-$result = $api->createChartSeries("MyPresentation.pptx", 1, 2, $dto);
+$result = $api->CreateChartSeries("MyPresentation.pptx", 1, 2, $dto);
 print(count($result->getSeries()));
 ```
 

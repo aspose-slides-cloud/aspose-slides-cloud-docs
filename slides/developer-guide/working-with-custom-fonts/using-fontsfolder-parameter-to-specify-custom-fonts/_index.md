@@ -83,7 +83,7 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $file = fopen("customfont.pptx", 'r');
-$result = $api->convert($file, ExportFormat::PDF, null, null, "customFonts");
+$result = $api->Convert($file, ExportFormat::PDF, null, null, "customFonts");
 print("The converted file was saved to " . $result->getPathname());
 ```
 

@@ -245,7 +245,7 @@ $dataPoint3->setValue(30);
 $series->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3]);
 $dto->setSeries([ $series ]);
 
-$result = $api->createShape("MyPresentation.pptx", 1, $dto);
+$result = $api->CreateShape("MyPresentation.pptx", 1, $dto);
 print(count($result->getCategories()));
 ```
 

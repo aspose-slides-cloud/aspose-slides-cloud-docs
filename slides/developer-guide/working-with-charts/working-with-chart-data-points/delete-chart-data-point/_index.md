@@ -87,7 +87,7 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->deleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3);
+$result = $api->DeleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3);
 print(count($result->getSeries()[1]->getDataPoints()));
 ```
 

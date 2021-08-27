@@ -106,7 +106,7 @@ $api = new SlidesApi(null, $config);
 $dto = new ScatterChartDataPoint();
 $dto->setXValue(25);
 $dto->setYValue(9);
-$result = $api->createChartDataPoint("MyPresentation.pptx", 1, 2, 2, $dto);
+$result = $api->CreateChartDataPoint("MyPresentation.pptx", 1, 2, 2, $dto);
 print(count($result->getSeries()[1]->getDataPoints()));
 ```
 
