@@ -60,31 +60,78 @@ response.CopyTo(File.Create("myPresentation.pdf"));
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "AddNewSlideWithCustomFont.java" >}}
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+api.createFolder(fontsFolder);
+byte[] file = Files.readAllBytes(Paths.get("customfont.pptx"));
+File response = api.convert(file, ExportFormat.PDF, null, null, "customFonts");
+System.out.println("The converted file was saved to " + response.getPath());
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "AddNewSlideWithCustomFont.php" >}}
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+
+$file = fopen("customfont.pptx", 'r');
+$result = $api->Convert($file, ExportFormat::PDF, null, null, "customFonts");
+print("The converted file was saved to " . $result->getPathname());
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddNewSlideWithCustomFont.rb" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "AddNewSlideWithCustomFont.py" >}}
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.export_format import ExportFormat
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+with open("customfont.pptx", 'rb') as f:
+    input_file = f.read()
+result = api.convert(input_file, ExportFormat.PDF, None, None, "customFonts")
+print('The converted file was saved to ' + result)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddNewSlideWithCustomFont.js" >}}
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const fontsFolder = "customFonts";
+api.createFolder(fontsFolder).then(() => {
+    const file = fs.createReadStream("customfont.pptx");
+    api.convert(file, "pdf", null, null, "customFonts").then(() => {
+        fs.writeFile("customfont.pdf", response.body, (err) => {
+            if (err) throw err;
+        });
+    });
+});
+```
 
 {{< /tab >}}
 

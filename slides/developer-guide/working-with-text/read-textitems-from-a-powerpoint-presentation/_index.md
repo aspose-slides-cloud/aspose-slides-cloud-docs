@@ -228,8 +228,8 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$presentationItems = $api->getPresentationTextItems("destination.pptx");
-$firstSlideItems = $api->getSlideTextItems("destination.pptx", 1);
+$presentationItems = $api->GetPresentationTextItems("destination.pptx");
+$firstSlideItems = $api->GetSlideTextItems("destination.pptx", 1);
 print(count($presentationItems->getItems()));
 print(count($firstSlideItems->getItems()));
 ```

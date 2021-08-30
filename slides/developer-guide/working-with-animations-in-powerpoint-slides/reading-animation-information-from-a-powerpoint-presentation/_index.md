@@ -145,7 +145,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.GetSlideAnimation("myPresentation.pptx", 1, folder: "MyStorageFolder");
+SlideAnimation response = api.GetAnimation("myPresentation.pptx", 1, folder: "MyStorageFolder");
 foreach (Effect effect in response.MainSequence)
 {
     Console.WriteLine(effect.Type);
@@ -156,49 +156,80 @@ foreach (Effect effect in response.MainSequence)
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "GetSlideAnimations.java" >}}
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, "MyStorageFolder");
+for (Effect effect : response.getMainSequence()) {
+    System.out.println(effect.getType());
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "GetSlideAnimations.php" >}}
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+
+$result = $api->GetAnimation("MyPresentation.pptx", 1, null, null, "MyStorageFolder");
+foreach ($result->getMainSequence() as $effect)
+{
+    print(count($effect->getType()));
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "GetSlideAnimations.rb" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "GetSlideAnimations.py" >}}
+```python
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+result = api.get_animation("MyPresentation.pptx", 1, None, None, "MyStorageFolder")
+for effect in result.main_sequence:
+    print(effect.type)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "GetSlideAnimations.js" >}}
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+return api.getAnimation("MyPresentation.pptx", 1, chart).then((result) => {
+    (result.body as model.SlideAnimation).mainSequence.forEach((effect) => { console.log(effect.type); });
+});
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "GetSlideAnimations.java" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 

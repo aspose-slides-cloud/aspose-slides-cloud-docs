@@ -166,49 +166,108 @@ foreach (Effect effect in response.InteractiveSequences[0].Effects)
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "UpdateSlideAnimationInteractiveSequenceEffect.java" >}}
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+
+Effect newEffect = new Effect();
+newEffect.setType(Effect.TypeEnum.FLY);
+newEffect.setSubtype(Effect.SubtypeEnum.BOTTOM);
+newEffect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
+newEffect.setShapeIndex(5);
+newEffect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
+
+SlideAnimation response = api.createAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect, null, "MyStorageFolder", null);
+for (Effect effect : response.getInteractiveSequences().get(0).getEffects()) {
+    System.out.println(sequence.getShapeIndex());
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "UpdateSlideAnimationInteractiveSequenceEffect.php" >}}
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Effect;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$dto = new Effect();
+$dto->setType("Fly");
+$dto->setSubtype("Bottom");
+$dto->setPresetClassType("Entrance");
+$dto->setShapeIndex(5);
+$dto->setTriggerType("OnClick");
+
+$response = $api->CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto, null, "MyStorageFolder");
+foreach ($response->getInteractiveSequences()[0]->getEffects() as $effect)
+{
+    print(count($effect->getShapeIndex()));
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```python
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.effect import Effect
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+dto = Effect()
+dto.type = "Fly"
+dto.subtype = "Bottom"
+dto.preset_class_type = "Entrance"
+dto.shape_index = 5
+dto.trigger_type = "OnClick"
+
+result = api.create_animation_interactive_sequence_effect("MyPresentation.pptx", 1, 1, dto, None, "MyStorageFolder")
+for effect in result.intercative_sequences[0].effects:
+    print(effect.shape_index)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "UpdateSlideAnimationInteractiveSequenceEffect.js" >}}
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const dto = new model.Effect();
+dto.type = model.Effect.TypeEnum.Fly;
+dto.subtype = model.Effect.SubtypeEnum.Bottom;
+dto.presetClassType = model.Effect.PresetClassTypeEnum.Entrance;
+dto.shapeIndex = 5;
+dto.triggerType = model.Effect.TriggerTypeEnum.OnClick;
+return api.createAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, dto, null, "MyStorageFolder").then((result) => {
+    (result.body as model.SlideAnimation).interactiveSequences[0].effects.forEach((sequence) => { console.log(sequence.shapeIndex); });
+});
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "UpdateSlideAnimationInteractiveSequenceEffect.java" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
 
 {{< /tab >}}
 
