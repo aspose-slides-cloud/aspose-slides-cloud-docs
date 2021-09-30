@@ -25,6 +25,8 @@ You can optionally use **fontsFolder** parameter to use custom fonts with your f
 
 You can [convert parts of presentations](/slides/convert-selected-document-slides/) using optional **slides** parameter.
 
+You can [specify format-specific options](/slides/conversion-options/) using **options** body parameter.
+
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -109,7 +111,7 @@ api.createFolder(fontsFolder);
 byte[] font = Files.readAllBytes(Paths.get("custom.ttf"));
 api.uploadFile(font, $"{fontsFolder}/custom.ttf");
 byte[] file = Files.readAllBytes(Paths.get("customfont.pptx"));
-File response = api.convert(file, ExportFormat.PDF, null, null, fontsFolder);
+File response = api.convert(file, ExportFormat.PDF, null, null, fontsFolder, null, null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 

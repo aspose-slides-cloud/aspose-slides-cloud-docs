@@ -11,7 +11,7 @@ Aspose.Slides Cloud API allows you clone MasterSlide information from a source P
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/masterSlides|GET|Clone MasterSlide information from a source and apply to a destination presentation|[PostCopyMasterSlideFromSourcePresentation](https://apireference.aspose.cloud/slides/#/MasterSlides/PostCopyMasterSlideFromSourcePresentation)|
+|/slides/{name}/masterSlides|POST|Clone MasterSlide information from a source and apply to a destination presentation|[CopyMasterSlide](https://apireference.aspose.cloud/slides/#/MasterSlides/CopyMasterSlide)|
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
