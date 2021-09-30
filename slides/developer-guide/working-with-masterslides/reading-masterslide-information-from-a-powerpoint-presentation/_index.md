@@ -11,7 +11,7 @@ Aspose.Slides Cloud API allows you to read MasterSlide information from a PowerP
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/masterSlides|GET|Read MasterSlide information from a PowerPoint Presentation|[GetMasterSlidesList](https://apireference.aspose.cloud/slides/#/MasterSlides/GetMasterSlidesList)|
+|/slides/{name}/masterSlides|GET|Read MasterSlide information from a PowerPoint Presentation|[GetMasterSlides](https://apireference.aspose.cloud/slides/#/MasterSlides/GetMasterSlides)|
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

@@ -2,7 +2,7 @@
 title: "Merge PowerPoint Presentations"
 type: docs
 url: /merge-powerpoint-presentations/
-weight: 50
+weight: 60
 ---
 
 ## **Merge**
@@ -14,8 +14,8 @@ This example allows you to merge multiple presentation files using Aspose.Slides
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/merge|POST|Merge the presentation with other presentations specified in the request parameter.|[PostPresentationMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/PostPresentationMerge)|
-|/slides/{name}/merge|PUT|Merge the presentation with other presentations or some of their slides specified in the request parameter.|[PutPresentationMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/PutPresentationMerge)|
+|/slides/{name}/merge|POST|Merge the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
+|/slides/{name}/merge|PUT|Merge the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
 
 {{< expand-list title="Request Parameters" >}}
 

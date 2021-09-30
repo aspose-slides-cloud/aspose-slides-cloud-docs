@@ -67,7 +67,7 @@ response.CopyTo(File.Create("MyPresentation.pdf"));
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.convert(file, ExportFormat.PDF, null, null, null, Arrays.asList(2, 4));
+File response = api.convert(file, ExportFormat.PDF, null, null, null, Arrays.asList(2, 4), null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 

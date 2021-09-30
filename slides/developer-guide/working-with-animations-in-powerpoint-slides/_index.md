@@ -200,5 +200,6 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 For all of the pages below we have used [animation.pptx](attachments/7243161/7209032.pptx) as a sample file
 
 - [Reading Animation Information from a PowerPoint Presentation](/slides/reading-animation-information-from-a-powerpoint-presentation/)
-- [Updating the interactive sequence of a PowerPoint Presentation](/slides/updating-the-interactive-sequence-of-a-powerpoint-presentation/)
-- [Updating the MainSequence of an animation in a PowerPoint Slide](/slides/updating-the-mainsequence-of-an-animation-in-a-powerpoint-slide/)
+- [Updating the interactive Sequence of a PowerPoint Presentation](/slides/updating-the-interactive-sequence-of-a-powerpoint-presentation/)
+- [Updating the MainSequence of an Animation in a PowerPoint Slide](/slides/updating-the-mainsequence-of-an-animation-in-a-powerpoint-slide/)
+- [Working with Special Slide Animation in a PowerPoint Slide](/slides/working-with-special-slide-animation-in-a-powerpoint-slide/)
