@@ -2,7 +2,7 @@
 title: "Aspose.Slides Cloud Features"
 type: docs
 url: /aspose-slides-cloud-features/
-weight: 20
+weight: 30
 ---
 
 ## **General**

@@ -2,7 +2,7 @@
 title: "Pricing Plan"
 type: docs
 url: /pricing-plan/
-weight: 70
+weight: 80
 ---
 
 {{% alert color="primary" %}} 
