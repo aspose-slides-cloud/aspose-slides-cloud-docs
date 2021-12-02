@@ -2,9 +2,8 @@
 title: "Available SDKs"
 type: docs
 url: /available-sdks/
-weight: 40
+weight: 50
 ---
-
 
 
 

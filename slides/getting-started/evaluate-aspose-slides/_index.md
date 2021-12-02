@@ -2,7 +2,7 @@
 title: "Evaluate Aspose.Slides"
 type: docs
 url: /evaluate-aspose-slides/
-weight: 50
+weight: 60
 ---
 
 {{% alert color="primary" %}} 

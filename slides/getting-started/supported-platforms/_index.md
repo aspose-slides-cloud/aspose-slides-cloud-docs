@@ -2,7 +2,7 @@
 title: "Supported Platforms"
 type: docs
 url: /supported-platforms/
-weight: 30
+weight: 40
 ---
 
 ## **Supported Platforms**
