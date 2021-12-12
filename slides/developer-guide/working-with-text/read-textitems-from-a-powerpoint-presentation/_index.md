@@ -281,6 +281,27 @@ api.getSlideTextItems("destination.pptx", 1).then((result) => {
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+presentationItems, _, e := c.SlidesApi.GetPresentationTextItems("destination.pptx", nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Found %v items.", len(presentationItems.getItems()))
+
+slideItems, _, e := c.SlidesApi.GetSlideTextItems("destination.pptx", 1, nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Found %v items.", len(slideItems.getItems()))
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}

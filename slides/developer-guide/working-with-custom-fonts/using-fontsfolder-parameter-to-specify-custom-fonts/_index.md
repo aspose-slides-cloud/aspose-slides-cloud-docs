@@ -45,7 +45,7 @@ curl -v "http://api.aspose.cloud/v3.0/slides/convert?format=pdf&fontsFolder=font
 {{< /tabs >}}
 
 ## **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName9="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -122,13 +122,10 @@ const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const fontsFolder = "customFonts";
-api.createFolder(fontsFolder).then(() => {
-    const file = fs.createReadStream("customfont.pptx");
-    api.convert(file, "pdf", null, null, "customFonts").then(() => {
-        fs.writeFile("customfont.pdf", response.body, (err) => {
-            if (err) throw err;
-        });
+const file = fs.createReadStream("customfont.pptx");
+api.convert(file, "pdf", null, null, "customFonts").then(() => {
+    fs.writeFile("customfont.pdf", response.body, (err) => {
+        if (err) throw err;
     });
 });
 ```
@@ -137,7 +134,24 @@ api.createFolder(fontsFolder).then(() => {
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "AddNewSlideWithCustomFont.java" >}}
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("customfont.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", "customFonts", nil, nil)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
+```
 
 {{< /tab >}}
 

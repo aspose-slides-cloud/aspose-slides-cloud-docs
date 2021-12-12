@@ -106,7 +106,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -279,7 +279,52 @@ api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.model.SpecialSlideT
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-                                                                                                                                
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+fileName := "MyPresentation.pptx"
+var slideIndex int32 = 1
+var shapeIndex int32 = 2
+
+paragraphs, _, e := c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "masterSlide", shapeIndex, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+paragraphCount := len(portions.getParagraphLinks())
+
+dto := NewParagraph()
+dto.Alignment = "Right"
+portion := NewPortion()
+portion.Text = "New paragraph"
+dto.Portions = []IPotrion { portion }
+paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getAlignment()) //Right
+
+dto = NewParagraph()
+dto.Alignment = "Center"
+paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getAlignment()) //Center
+
+_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
@@ -287,6 +332,10 @@ api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.model.SpecialSlideT
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

@@ -129,6 +129,20 @@ return api.deleteChartCategory("MyPresentation.pptx", 1, 2, 2).then((result) => 
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 1, 2, 2, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    fmt.Printf("%v series.", len(result.(IChart).getCategories()))
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}

@@ -139,7 +139,7 @@ curl -v -X POST "https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/an
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -291,6 +291,33 @@ return api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, chart).t
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+dto := NewInteractiveSequence()
+dto.TriggerShapeIndex = 1
+
+effect := NewEffect()
+effect.Type_ = "Fly"
+effect.Subtype = "Bottom"
+effect.PresetClassType = "Entrance"
+effect.ShapeIndex = 5
+effect.TriggerType = "OnClick"
+dto.Effects = []IEffect { effect }
+
+animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, dto, "", "MyStorageFolder", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    for i, sequence := range animation.getInteractiveSequences() {
+        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.getTriggerShapeIndex())
+    }
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
@@ -298,6 +325,10 @@ return api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, chart).t
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

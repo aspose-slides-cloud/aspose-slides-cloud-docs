@@ -204,6 +204,27 @@ api.convert(file, "pdf", null, null, null, [ 2, 4 ], options).then(() => {
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("MyPresentation.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+options := NewPdfExportOptions()
+options.DrawSlidesFrame = true
+result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", "", [ 2, 4 ], options)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}

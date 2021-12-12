@@ -124,7 +124,7 @@ print('The updated file was saved to ' + result)
 const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-const file = fs.createReadStream("TestData/test.pptx");
+const file = fs.createReadStream("MyPresentation.pptx");
 api.replacePresentationTextOnline(file, "banana", "orange", true).then((response) => {
     fs.writeFile("UpdatedPresentation.pptx", response.body, (err) => {
         if (err) throw err;
@@ -135,6 +135,27 @@ api.replacePresentationTextOnline(file, "banana", "orange", true).then((response
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("MyPresentation.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+var ignoreCase bool = true
+result, _, e := c.SlidesApi.ReplacePresentationTextOnline(source, "banana", "orange", &ignoreCase, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The updated file was saved to %v.", result.Name())
+```
 
 {{< /tab >}}
 

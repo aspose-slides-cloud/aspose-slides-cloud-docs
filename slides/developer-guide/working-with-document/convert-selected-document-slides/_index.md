@@ -112,13 +112,6 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-fonts_folder = "customFonts"
-api.create_folder(fonts_folder)
-
-with open("custom.ttf", 'rb') as ff:
-    font_file = ff.read()
-api.upload_file(font_file, fonts_folder + "/custom.ttf")
-
 with open("customfont.pptx", 'rb') as f:
     input_file = f.read()
 result = api.convert(input_file, ExportFormat.PDF, None, None, None, [ 2, 4 ])
@@ -134,15 +127,10 @@ const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const fontsFolder = "customFonts";
-api.createFolder(fontsFolder).then(() => {
-    const font = fs.createReadStream("custom.ttf");
-    api.uploadFile(font, fontsFolder + "/custom.ttf").then(() => {
-        const file = fs.createReadStream("customfont.pptx");
-        api.convert(file, "pdf", null, null, null, [ 2, 4 ]).then(() => {
-            fs.writeFile("customfont.pdf", response.body, (err) => {
-                if (err) throw err;
-            });
+const file = fs.createReadStream("customfont.pptx");
+    api.convert(file, "pdf", null, fontsFolder, null, [ 2, 4 ]).then(() => {
+        fs.writeFile("customfont.pdf", response.body, (err) => {
+            if (err) throw err;
         });
     });
 });
@@ -151,6 +139,25 @@ api.createFolder(fontsFolder).then(() => {
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("customfont.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", fontsFolder, nil, []int32 { 2, 4 })
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
+```
 
 {{< /tab >}}
 

@@ -194,6 +194,33 @@ return api.updateChartCategory("MyPresentation.pptx", 1, 2, 2, dto).then((result
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+dto := NewChartCategory()
+dto.Value = "UpdatedCategory"
+
+dataPoint1 := NewOneValueChartDataPoint()
+dataPoint1.Value = 20
+
+dataPoint2 := NewOneValueChartDataPoint()
+dataPoint2.Value = 50
+
+dataPoint3 := NewOneValueChartDataPoint()
+dataPoint3.Value = 30
+dto.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
+
+result, _, e := c.SlidesApi.UpdateChartCategory("MyPresentation.pptx", 1, 2, 2, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    fmt.Printf("%v series.", len(result.(IChart).getSeries()))
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
