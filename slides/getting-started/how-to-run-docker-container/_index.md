@@ -68,6 +68,24 @@ Below is an example cURL command to convert a presentation to PDF format.
 curl -X POST "http://localhost:8088/v3.0/slides/convert/pdf" --data-binary "@presentation.pptx" -H "Content-Type: application/octet-stream" -o "presentation.pdf"
 ```
 
+### Authorization
+
+By default (when ClientId and ClientSecret are not specified) the requests are not authorized, so anyone who has access to the container has access to the API hosted there.
+
+You may specify ClientId and ClientSecret invented by you as environment parameters for the container (not to be mixed with license public & private keys that you get from Aspose).
+
+```JAVA
+docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" -e "ClientId=MyClientId" -e "ClientSecret=MyClientSecret" -v "/data:/storage" aspose/slides-cloud
+```
+
+When you start the container with ClientId and ClientSecret set, you must get auth token using /connect/token URL to do API requests.
+
+```JAVA
+curl -X POST "http://localhost:8088/connect/token" -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret"
+```
+
+Then you provide the token in the Authorizatrion header for API requests just the way you authenticate cloud requests at api.aspose.cloud.
+
 ### Use SDKs with the container
 
 You can use SDKs with your docker container. You should specify the base url (if you don't, api.aspose.cloud will be used by default) and you need not provide ClientId and ClientSecret (unless you specify those parameters in docker run command).
@@ -81,4 +99,15 @@ Stream file = File.OpenRead("presentation.pptx");
 PostSlidesConvertRequest request = new PostSlidesConvertRequest { Format = ExportFormat.Pdf, Document = file };
 Stream response = api.PostSlidesConvert(request);
 response.CopyTo(File.Create("presentation.pdf"));
+```
+
+If you use [authorization](#authorization), you also set ClientId and ClientSecret:
+
+```csharp
+Configuration config = new Configuration();
+config.ApiBaseUrl = "http://localhost:8088";
+config.ClientId = "MyClientId";
+config.ClientSecret = "MyClientSecret";
+SlidesApi api = new SlidesApi(config);
+... // My API requests
 ```
