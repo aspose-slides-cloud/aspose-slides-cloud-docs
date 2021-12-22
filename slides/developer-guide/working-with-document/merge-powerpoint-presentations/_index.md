@@ -5,24 +5,25 @@ url: /merge-powerpoint-presentations/
 weight: 60
 ---
 
-## **Merge**
 
 ## **Introduction**
-This example allows you to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language:  NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+These examples show you how to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language:  NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/merge|POST|Merge the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
-|/slides/{name}/merge|PUT|Merge the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
+|/slides/{name}/merge|POST|Merges the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
+|/slides/{name}/merge|PUT|Merges the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
+|/slides/merge|POST|Merges presentations or some of their slides specified in the request parameter. Returns the result file in the response.|[MergeOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeOnline)|
 
 {{< expand-list title="Request Parameters" >}}
 
 | **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
 | :- | :- | :- | :- | :- |
-|folder|POST/PUT|string|Optional|The merging presentation folder.|
-|storage|POST/PUT|string|Optional|The presentations storage.|
+|folder|POST/PUT|string (query)|Optional|The merging presentation folder.|
+|storage|POST/PUT|string (query)|Optional|The presentations storage.|
+|password|POST/PUT|string (header)|Optional|The merging presentation password.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -34,6 +35,7 @@ Not supported.
 #### **HTTP POST**
 
 ##### **Example 1**
+
 Merge presentation 'genericPptx.pptx' with presentations 'TempSlides\Pres1.pptx' and 'TempSlides\Pres2.pptx'. Using a password to open Pres1.pptx document.
 
 ###### **Request**
@@ -83,9 +85,51 @@ Document response = api.Merge("genericPptx.pptx", request);
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/genericPptx.pptx
 ```
 
+##### **Example 2**
+
+Merge presentations without uploading them to a storage.
+
+###### **Request**
+
+```
+https://api.aspose.cloud/v3.0/slides/merge
+```
+
+{{< expand-list title="Request body:" >}}
+**JSON**
+```
+{
+    "Presentations": [
+        {
+            "Path": "example1.pptx",
+        },
+        {
+           "Path": "example2.pptx",
+        }
+    ]
+}
+```
+
+{{< /expand-list >}}
+
+###### **.Net SDK Code:**
+
+```csharp
+var slidesApi = new SlidesApi(config);
+
+var file1 = new FileInfo { Content = File.OpenRead(@"TestData\example1.pptx") };
+var file2 = new FileInfo { Content = File.OpenRead(@"TestData\example2.pptx") };
+
+var files = new List<FileInfo> { file1, file2 };
+var resultStream = slidesApi.MergeOnline(files);
+
+var fileStream = File.Open("merge_result.pptx", FileMode.Create);
+resultStream.CopyTo(fileStream);
+```
+
 #### **HTTP PUT**
 
-##### **Example 2**
+##### **Example 1**
 Merge presentation 'genericPptx.pptx' with second slide and first slide of presentation 'TempSlides\Pres1.pptx'
 
 ###### **Request**
