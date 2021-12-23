@@ -33,6 +33,8 @@ The article explains how to split a PowerPoint Presentation and export the resul
 |fontsFolder|PUT|string|Optional|Storage folder containing custom fonts to be used with the presentation. |
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+*The `from` and `to` parameters are 1-based indices.*
+*The `from` and `to` parameters cannot be less than 1 or more than the number of slides.*
 
 {{< expand-list title="Available values for format parameter" >}}
 
