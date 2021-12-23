@@ -362,7 +362,41 @@ The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Availab
 
 {{< tab tabNum="3" >}}
 
-{{< gist "" "67ba57c9ba0134d2e8c8ed2132d6515f" "WorkingWithSlideBackground.php" >}}
+```php
+<?php 
+    // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+
+    include(dirname(__DIR__) . '\CommonUtils.php');
+    use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+    use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+    use Aspose\Slides\Cloud\Sdk\Model;
+    use Aspose\Slides\Cloud\Sdk\Model\Requests;
+
+    try {
+        // Create SlidesApi instance
+        $config = new Configuration();
+        $config->setAppSid(CommonUtils::$AppSid);
+        $config->setAppKey(CommonUtils::$AppKey);
+        $slidesApi = new SlidesApi(null, $config);
+
+        $fileName = "test-unprotected.ppt";
+        $index = 1;
+        $slideBackground = new Model\SlideBackground();
+        $slideBackground->setType(Model\SlideBackground::TYPE_SOLID);
+
+        // Upload original document to storage
+        $fileStream = fopen(realpath(__DIR__ . '/../..') . '\resources\\' . $fileName, 'r');
+        $slidesApi->uploadFile($fileName,  $fileStream, CommonUtils::$MyStorage);
+        
+        $request = new Requests\PutSlidesSlideBackgroundRequest($fileName, $index, $slideBackground);
+        $result = $slidesApi->putSlidesSlideBackground($request);
+        print_r($result);
+
+    } catch (Exception $e) {
+        echo "Something went wrong: ", $e->getMessage(), "\n";
+    }
+?>
+```
 
 {{< /tab >}}
 
