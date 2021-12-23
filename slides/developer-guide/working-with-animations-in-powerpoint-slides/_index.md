@@ -28,6 +28,7 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 |Subtype|Subtype enum|Effect subtype.|
 |PresetClassType|EffectPresetClassType enum|Preset class type.|
 |ShapeIndex|int|The index of the shape to which the effect applies.|
+|ParagraphIndex|int|The index of the paragraph to which the effect applies.|
 |TriggerType|EffectTriggerType enum|Effect trigger type.|
 |Accelerate|float|The percentage of duration accelerate behavior effect.|
 |Decelerate|float|The percentage of duration decelerate behavior effect.|
@@ -203,3 +204,4 @@ For all of the pages below we have used [animation.pptx](attachments/7243161/72
 - [Updating the interactive Sequence of a PowerPoint Presentation](/slides/updating-the-interactive-sequence-of-a-powerpoint-presentation/)
 - [Updating the MainSequence of an Animation in a PowerPoint Slide](/slides/updating-the-mainsequence-of-an-animation-in-a-powerpoint-slide/)
 - [Working with Special Slide Animation in a PowerPoint Slide](/slides/working-with-special-slide-animation-in-a-powerpoint-slide/)
+- [Working with Animation for a Specific Paragraph](/slides/working-with-animation-for-a-specific-paragraph/)

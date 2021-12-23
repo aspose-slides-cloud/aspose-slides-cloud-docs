@@ -2,7 +2,7 @@
 title: "Merge PowerPoint Presentations"
 type: docs
 url: /merge-powerpoint-presentations/
-weight: 60
+weight: 70
 ---
 
 ## **Merge**

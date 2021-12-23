@@ -61,7 +61,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = api.DeleteChartSeries("myPresentaion.pptx", 1, 2 2);
+Chart chart = api.DeleteChartSeries("myPresentaion.pptx", 1, 2, 2);
 Console.WriteLine(chart.Series.Count);
 ```
 
