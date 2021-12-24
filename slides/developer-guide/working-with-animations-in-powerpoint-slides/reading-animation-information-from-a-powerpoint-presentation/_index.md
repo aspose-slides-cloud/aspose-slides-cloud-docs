@@ -139,7 +139,7 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/ani
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -223,6 +223,21 @@ return api.getAnimation("MyPresentation.pptx", 1, chart).then((result) => {
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, "masterSlide", nil, "", "MyStorageFolder", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    for i, effect := range animation.getMainSequence() {
+        fmt.Printf("Effect %v: %v.", i + 1, effect.getType())
+    }
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
@@ -230,6 +245,10 @@ return api.getAnimation("MyPresentation.pptx", 1, chart).then((result) => {
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

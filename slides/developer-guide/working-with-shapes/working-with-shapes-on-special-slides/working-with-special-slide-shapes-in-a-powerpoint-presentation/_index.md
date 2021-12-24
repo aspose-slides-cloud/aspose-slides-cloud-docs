@@ -112,7 +112,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -284,6 +284,51 @@ api.getSpecialSlideShapes(fileName, slideIndex, CloudSdk.model.SpecialSlideType.
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+fileName := "MyPresentation.pptx"
+var slideIndex int32 = 1
+
+shapes, _, e := c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "masterSlide", "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+shapeCount := len(shapes.getShapesLinks())
+
+dto := NewShape()
+dto.ShapeType = "Rectangle"
+dto.X = 100
+dto.Y = 100
+dto.Width = 500
+dto.Height = 200
+dto.Text = "New shape"
+shape, _, e := c.SlidesApi.CreateSpecialSlideShape(fileName, slideIndex, "masterSlide", dto, nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getText()) //New shape
+
+dto.Text = "Updated shape"
+shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "masterSlide", shapeCount + 1, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getAlignment()) //Updated shape
+
+_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "masterSlide", shapeCount + 1, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+```
 
 {{< /tab >}}
 

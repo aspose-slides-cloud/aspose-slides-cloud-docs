@@ -14,6 +14,8 @@ You can use options with all conversion methods - for presentations, slides or s
 |**Option**|**Type**|**Description**|**Output Format**|
 | :- | :- | :- | :- |
 |DefaultRegularFont|string|Default regular font for rendering the presentation.|all|
+|Width|double|Output document width.|all|
+|Height|double|Output document height.|all|
 |NotesPosition|None / BottomFull / BottomTruncated|The position of the notes on the page.|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|
 |CommentsPosition|None / Bottom / Right|The position of the comments on the page.|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|
 |CommentsAreaWidth|integer|The width of the comment output area in pixels (Applies only if comments are displayed on the right).|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|
@@ -57,6 +59,8 @@ You can use options with all conversion methods - for presentations, slides or s
 |SaveAsZip|boolean|True to save presentation as zip file.|HTML|
 |SubDirectoryName|string|The name of subdirectory in zip-file for store external files.|HTML|
 |SvgResponsiveLayout|boolean|True to make layout responsive by excluding width and height attributes from svg container.|HTML|
+|AnimateTransitions|boolean|True to animate transitions.|HTML5|
+|AnimateShapes|boolean|True to animate shapes.|HTML5|
 |ExternalFontsHandling|AddLinksToFontFiles/Embed/Vectorize|Determines a way of handling externally loaded fonts.|SVG|
 |VectorizeText|boolean|Determines whether the text on a slide will be saved as graphics.|SVG|
 |MetafileRasterizationDpi|integer|The lower resolution limit for metafile rasterization.|SVG|
@@ -203,6 +207,27 @@ api.convert(file, "pdf", null, null, null, [ 2, 4 ], options).then(() => {
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("MyPresentation.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+options := NewPdfExportOptions()
+options.DrawSlidesFrame = true
+result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", "", [ 2, 4 ], options)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
+```
 
 {{< /tab >}}
 

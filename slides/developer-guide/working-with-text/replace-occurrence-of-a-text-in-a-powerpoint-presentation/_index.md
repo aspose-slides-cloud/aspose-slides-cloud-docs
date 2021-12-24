@@ -361,6 +361,21 @@ api.replacePresentationText("destination.pptx", "banana", "orange", true).then((
 
 {{< tab tabNum="7" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+var ignoreCase bool = true
+result, _, e := c.SlidesApi.ReplacePresentationText("destination.pptx", "banana", "orange", &ignoreCase, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Replaced %v matches.", len(result.getMatches()))
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}

@@ -107,7 +107,7 @@ $api = new SlidesApi(null, $config);
 $dto = new ScatterChartDataPoint();
 $dto->setXValue(25);
 $dto->setYValue(9);
-$result = $api->UpdateChartCategory("MyPresentation.pptx", 1, 2, 2, 3, $dto);
+$result = $api->UpdateChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3, $dto);
 print(count($result->getSeries()[1]->getDataPoints()));
 ```
 
@@ -149,7 +149,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const dto = new model.ScatterChartDataPoint();
 dto.xValue = 25;
 dto.yValue = 9;
-return api.updateChartCategory("MyPresentation.pptx", 1, 2, 2, dto).then((result) => {
+return api.updateChartDataPoint("MyPresentation.pptx", 1, 2, 2, dto).then((result) => {
     console.log(((result.body as model.Chart).series[1] as model.ScatterSeries).dataPoints.length);
 });
 ```
@@ -157,6 +157,23 @@ return api.updateChartCategory("MyPresentation.pptx", 1, 2, 2, dto).then((result
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+dto := NewScatterChartDataPoint()
+dto.XValue = 25
+dto.YValue = 9
+result, _, e := c.SlidesApi.UpdateChartDataPoint("MyPresentation.pptx", 1, 2, 2, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    fmt.Printf("%v series.", len(result.(IChart).getSeries()[1].(IScatterSeries).getDataPoints()))
+}
+```
 
 {{< /tab >}}
 

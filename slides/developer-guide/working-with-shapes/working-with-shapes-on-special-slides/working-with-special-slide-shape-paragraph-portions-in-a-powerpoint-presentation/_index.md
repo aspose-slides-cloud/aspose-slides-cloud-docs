@@ -96,7 +96,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -284,7 +284,55 @@ portions = api.getSpecialSlidePortions(fileName, slideIndex, CloudSdk.model.Spec
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-                                                                                                                                
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+fileName := "MyPresentation.pptx"
+var slideIndex int32 = 1
+var shapeIndex int32 = 2
+var paragraphIndex int32 = 3
+
+portions, _, e := c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+portionCount := len(portions.getItems())
+
+dto := NewPortion()
+dto.Text = "New portion"
+dto.FontBold = "True"
+portion, _, e := c.SlidesApi.CreateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, dto, nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getFontBold()) //True
+fmt.Printf("Error: %v.", portion.getText()) //New portion
+
+dto = NewPortion()
+dto.Text = "Updated portion"
+dto.FontHeight = 22
+portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, portionCount + 1, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Error: %v.", portion.getFontBold()) //True
+fmt.Printf("Error: %v.", portion.getFontHeight()) //22.0
+fmt.Printf("Error: %v.", portion.getText()) //Updated portion
+
+_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, portionCount + 1, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
@@ -292,6 +340,10 @@ portions = api.getSpecialSlidePortions(fileName, slideIndex, CloudSdk.model.Spec
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

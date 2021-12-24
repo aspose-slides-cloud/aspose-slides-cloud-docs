@@ -7,3 +7,4 @@ weight: 10
 
 - [EffectFormat](/slides/effect-format-type/)
 - [FillFormat](/slides/fill-format-type/)
+- [ThreeDFormat](/slides/three-d-format-type/)

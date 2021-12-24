@@ -202,7 +202,43 @@ api.createFolder(fontsFolder).then(() => {
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+fontsFolder := "customFonts"
+_, e := c.SlidesApi.CreateFolder(fontsFolder)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+font, e := ioutil.ReadFile("custom.ttf")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+_, e = c.SlidesApi.UploadFile(font, fontsFolder + /custom.ttf")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+source, e := ioutil.ReadFile("customfont.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", fontsFolder, nil, nil)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
+```
 
 {{< /tab >}}
 

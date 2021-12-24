@@ -192,7 +192,7 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/destination.pptx/slides/1/
 ## **SDK Source**
 The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" tabName10="Swift" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="Perl" tabName9="C++" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -280,6 +280,27 @@ api.getSlideTextItems("destination.pptx", 1).then((result) => {
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+presentationItems, _, e := c.SlidesApi.GetPresentationTextItems("destination.pptx", nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Found %v items.", len(presentationItems.getItems()))
+
+slideItems, _, e := c.SlidesApi.GetSlideTextItems("destination.pptx", 1, nil, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Found %v items.", len(slideItems.getItems()))
+```
 
 {{< /tab >}}
 

@@ -2,7 +2,7 @@
 title: "Split PowerPoint Presentations"
 type: docs
 url: /split-powerpoint-presentations/
-weight: 50
+weight: 60
 ---
 
 ## **Split**

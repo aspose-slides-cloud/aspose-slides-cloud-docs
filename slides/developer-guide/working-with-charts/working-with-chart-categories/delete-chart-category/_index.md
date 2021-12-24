@@ -61,7 +61,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = api.DeleteChartCategory("myPresentaion.pptx", 1, 2 2);
+Chart chart = api.DeleteChartCategory("myPresentaion.pptx", 1, 2, 2);
 Console.WriteLine(chart.Categories.Count);
 ```
 
@@ -128,6 +128,20 @@ return api.deleteChartCategory("MyPresentation.pptx", 1, 2, 2).then((result) => 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 1, 2, 2, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    fmt.Printf("%v series.", len(result.(IChart).getCategories()))
+}
+```
 
 {{< /tab >}}
 
