@@ -7,7 +7,7 @@ weight: 70
 
 
 ## **Introduction**
-These examples show you how to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language:  NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+These examples show you how to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
 
 ### **API Information**
 
@@ -16,6 +16,7 @@ These examples show you how to merge multiple presentation files using Aspose.Sl
 |/slides/{name}/merge|POST|Merges the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
 |/slides/{name}/merge|PUT|Merges the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
 |/slides/merge|POST|Merges presentations or some of their slides specified in the request parameter. Returns the result file in the response.|[MergeOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeOnline)|
+|/slides/merge|PUT|Merges presentations or some of their slides specified in the request parameter. Result will be saved in the storage.|[MergeAndSaveOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeAndSaveOnline)|
 
 {{< expand-list title="Request Parameters" >}}
 
@@ -24,6 +25,7 @@ These examples show you how to merge multiple presentation files using Aspose.Sl
 |folder|POST/PUT|string (query)|Optional|The merging presentation folder.|
 |storage|POST/PUT|string (query)|Optional|The presentations storage.|
 |password|POST/PUT|string (header)|Optional|The merging presentation password.|
+|outPath|PUT|string (query)|Required|A path to save the result.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -174,9 +176,9 @@ https://api.aspose.cloud/v3.0/slides/genericPptx.pptx/merge
 SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
 PresentationToMerge presentationToMerge = new PresentationToMerge
 {
-    Path = "TempSlides\Pres1.pptx",
+    Path = "TempSlides/Pres1.pptx",
     Password = "mypassword01",
-    Slides = new List<int?> { 2, 1 }
+    Slides = new List<int> { 2, 1 }
 };
 OrderedMergeRequest mergeRequest = new OrderedMergeRequest
 {
@@ -184,6 +186,216 @@ OrderedMergeRequest mergeRequest = new OrderedMergeRequest
 };
 Document response = api.OrderedMerge("NewPresentation.pptx", mergeRequest, folder: "TempSlidesSDK");
 Console.WriteLine(response.SelfUri.Href); //https://api.aspose.cloud/v3.0/slides/genericPptx.pptx
+```
+
+##### **Example 2**
+Merge a presentation 'TestData/example1.pptx' existing on a storage with specified slides from a presentation 'example2.pptx' existing as a local file.
+
+###### **Request**
+```
+https://api.aspose.cloud/v3.0/slides/merge?outPath=merge_result.pptx
+```
+
+{{< expand-list title="Request body:" >}}
+**JSON**
+```
+{
+   "Presentations": [
+      {
+         "Path":"TestData/example1.pptx",
+         "Password":"******",
+         "Slides":[],
+         "Source":"Storage"
+      },
+      {
+         "Path":"second",
+         "Password":null,
+         "Slides":[2,4],
+         "Source":"Request"
+      }
+   ]
+}
+```
+{{< /expand-list >}}
+
+{{< expand-list title="Response:" >}}
+**JSON**
+```
+{
+    "DocumentProperties": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/documentProperties",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "ViewProperties": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/viewProperties",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "Slides": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/slides",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "Images": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/images",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "LayoutSlides": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/layoutSlides",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "MasterSlides": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/masterSlides",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "SelfUri": {
+        "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx",
+        "Relation": "self",
+        "LinkType": null,
+        "Title": null
+    },
+    "AlternateLinks": [
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/odp",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.oasis.opendocument.presentation",
+            "Title": "Download as Odp"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/fodp",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.oasis.opendocument.presentation",
+            "Title": "Download as Fodp"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppt",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint",
+            "Title": "Download as Ppt"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pdf",
+            "Relation": "alternate",
+            "LinkType": "application/pdf",
+            "Title": "Download as Pdf"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/tiff",
+            "Relation": "alternate",
+            "LinkType": "image/tiff",
+            "Title": "Download as Tiff"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/xps",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-xpsdocument",
+            "Title": "Download as Xps"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pps",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint",
+            "Title": "Download as Pps"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsx",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
+            "Title": "Download as Ppsx"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pptm",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint.presentation.macroEnabled.12",
+            "Title": "Download as Pptm"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsm",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
+            "Title": "Download as Ppsm"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pot",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint",
+            "Title": "Download as Pot"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potx",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.openxmlformats-officedocument.presentationml.template",
+            "Title": "Download as Potx"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potm",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.ms-powerpoint.template.macroEnabled.12",
+            "Title": "Download as Potm"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/otp",
+            "Relation": "alternate",
+            "LinkType": "application/vnd.oasis.opendocument.presentation-template",
+            "Title": "Download as Otp"
+        },
+        {
+            "Href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/html",
+            "Relation": "alternate",
+            "LinkType": "text/html",
+            "Title": "Download as Html"
+        }
+    ]
+}
+```
+{{< /expand-list >}}
+
+###### **.Net SDK Code:**
+
+```csharp
+var slidesApi = new SlidesApi(config);
+
+// a presentation existing in a storage
+var presentation1 = new PresentationToMerge
+{
+    Path = "TestData/example1.pptx",
+    Password = "my_password",
+    Source = PresentationToMerge.SourceEnum.Storage
+};
+
+// a presentation existing as a local file
+var presentation2 = new PresentationToMerge
+{
+    Path = "second",
+    Slides = new List<int> { 2, 4 },
+    Source = PresentationToMerge.SourceEnum.Request
+};
+
+var file2 = new FileInfo
+{
+    Content = File.OpenRead("example2.pptx"),
+    Name = "second"
+};
+
+var files = new List<FileInfo> { file2 };
+
+OrderedMergeRequest mergeRequest = new OrderedMergeRequest
+{
+    Presentations = new List<PresentationToMerge> { presentation1, presentation2 }
+};
+
+// merge and save to the storage
+slidesApi.MergeAndSaveOnline("merge_result.pptx", files, mergeRequest);
 ```
 
 #### **HTTP DELETE**
