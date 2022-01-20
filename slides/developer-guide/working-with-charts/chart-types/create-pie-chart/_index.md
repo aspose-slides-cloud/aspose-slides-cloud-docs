@@ -139,7 +139,7 @@ series.DataPoints.Add(new OneValueChartDataPoint { Value = 30 });
 dto.Series = new System.Collections.Generic.List<Series>();
 dto.Series.Add(series);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
 Console.WriteLine(chart.Categories.Count);
 ```
 

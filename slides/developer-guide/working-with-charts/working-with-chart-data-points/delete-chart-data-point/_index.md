@@ -61,8 +61,8 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = api.DeleteChartDataPoint("myPresentaion.pptx", 1, 2, 2, 3);
-Console.WriteLine(chart.Series[1].DataPoints.Count);
+Chart chart = api.DeleteChartDataPoint("myPresentaion.pptx", 3, 2, 1, 3);
+Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```
 
 {{< /tab >}}
@@ -71,8 +71,8 @@ Console.WriteLine(chart.Series[1].DataPoints.Count);
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = (Chart)api.deleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3, null, null, null);
-System.out.println(chart.getSeries().get(1).getDataPoints().size());
+Chart chart = (Chart)api.deleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, null, null, null);
+System.out.println(chart.getSeries().get(0).getDataPoints().size());
 ```
 
 {{< /tab >}}
@@ -87,8 +87,8 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->DeleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3);
-print(count($result->getSeries()[1]->getDataPoints()));
+$result = $api->DeleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3);
+print(count($result->getSeries()[0]->getDataPoints()));
 ```
 
 {{< /tab >}}
@@ -109,8 +109,8 @@ configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
-result = api.delete_chart_data_point("MyPresentation.pptx", 1, 2, 2, 3)
-print(len(result.series[1].data_points))
+result = api.delete_chart_data_point("MyPresentation.pptx", 3, 2, 1, 3)
+print(len(result.series[0].data_points))
 ```
 
 {{< /tab >}}
@@ -120,8 +120,8 @@ print(len(result.series[1].data_points))
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-return api.deleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3).then((result) => {
-    console.log(((result.body as model.Chart).series[1] as model.ScatterSeries).dataPoints.length);
+return api.deleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3).then((result) => {
+    console.log(((result.body as model.Chart).series[0] as model.ScatterSeries).dataPoints.length);
 });
 ```
 
@@ -135,11 +135,11 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.DeleteChartDataPoint("MyPresentation.pptx", 1, 2, 2, 3, "", "", "")
+result, _, e := c.SlidesApi.DeleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getSeries()[1].(IScatterSeries).getDataPoints()))
+    fmt.Printf("%v series.", len(result.(IChart).getSeries()[0].(IScatterSeries).getDataPoints()))
 }
 ```
 

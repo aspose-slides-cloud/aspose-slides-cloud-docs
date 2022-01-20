@@ -156,8 +156,8 @@ series.DataPoints.Add(new OneValueChartDataPoint { Value = 70 });
 series.DataPoints.Add(new OneValueChartDataPoint { Value = 60 });
 dto.Series.Add(series);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
-Console.WriteLine(chart.Series[0].Count);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
+Console.WriteLine(chart.Series.Count);
 ```
 
 {{< /tab >}}

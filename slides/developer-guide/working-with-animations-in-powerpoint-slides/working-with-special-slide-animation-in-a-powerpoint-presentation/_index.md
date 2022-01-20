@@ -126,7 +126,7 @@ int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 SlideAnimation animation = api.GetSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide);
-Console.WriteLine(animation.MainSequnece.Count);
+Console.WriteLine(animation.MainSequence.Count);
 
 SlideAnimation dto = new SlideAnimation
 {
@@ -145,10 +145,10 @@ SlideAnimation dto = new SlideAnimation
     }
 };
 animation = api.SetSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide, dto);
-Console.WriteLine(animation.MainSequnece.Count); //2
+Console.WriteLine(animation.MainSequence.Count); //2
 
 animation = api.DeleteSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide);
-Console.WriteLine(animation.MainSequnece.Count); //0
+Console.WriteLine(animation.MainSequence.Count); //0
 ```
 
 {{< /tab >}}
@@ -161,7 +161,7 @@ int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 SlideAnimation animation = api.getSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null, null);
-System.out.println(animation.getMainSequnece().size());
+System.out.println(animation.getMainSequence().size());
 
 SlideAnimation dto = new SlideAnimation();
 List<Effect> effects = new ArrayList<Effect>();
@@ -175,10 +175,10 @@ effect2.setShapeIndex(3);
 effects.add(effect2);
 dto.setMainSequence(effects);
 animation = api.setSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, dto, null, null, null);
-System.out.println(animation.getMainSequnece().size()); //2
+System.out.println(animation.getMainSequence().size()); //2
 
 animation = api.deleteSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null);
-System.out.println(animation.getMainSequnece().size()); //0
+System.out.println(animation.getMainSequence().size()); //0
 ```
 
 {{< /tab >}}

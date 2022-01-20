@@ -79,7 +79,7 @@ dto.DataPoints = new List<OneValueChartDataPoint>();
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 5.5 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 76 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 27 });
-Chart chart = api.UpdateChartSeries("myPresentaion.pptx", 1, 2, 2, dto);
+Chart chart = api.UpdateChartSeries("myPresentaion.pptx", 3, 1, 2, dto);
 Console.WriteLine(chart.Series.Count);
 ```
 
@@ -104,7 +104,7 @@ dataPoint3.setValue(27);
 dataPoints.add(dataPoint3);
 dto.setDataPoints(dataPoints);
 
-Chart chart = (Chart)api.updateChartSeries("MyPresentation.pptx", 1, 2, 2, dto, null, null, null);
+Chart chart = (Chart)api.updateChartSeries("MyPresentation.pptx", 3, 1, 2, dto, null, null, null);
 System.out.println(chart.getSeries().size());
 ```
 
@@ -132,7 +132,7 @@ $dataPoint3 = new OneValueChartDataPoint();
 $dataPoint3->setValue(27);
 $dto->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3]);
 
-$result = $api->UpdateChartSeries("MyPresentation.pptx", 1, 2, 2, $dto);
+$result = $api->UpdateChartSeries("MyPresentation.pptx", 3, 1, 2, $dto);
 print(count($result->getSeries()));
 ```
 
@@ -166,7 +166,7 @@ data_point3 = OneValueChartDataPoint()
 data_point3.value = 27
 dto.data_points = [ data_point1, data_point2, data_point3 ])
 
-result = api.update_chart_series("MyPresentation.pptx", 1, 2, 2, dto)
+result = api.update_chart_series("MyPresentation.pptx", 3, 1, 2, dto)
 print(len(result.series))
 ```
 
@@ -180,7 +180,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const dto = new model.OneValueSeries();
 dto.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-return api.updateChartSeries("MyPresentation.pptx", 1, 2, 2, dto).then((result) => {
+return api.updateChartSeries("MyPresentation.pptx", 3, 1, 2, dto).then((result) => {
     console.log((result.body as model.Chart).series.length);
 });
 ```
@@ -207,7 +207,7 @@ dataPoint3 := NewOneValueChartDataPoint()
 dataPoint3.Value = 30
 dto.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
 
-result, _, e := c.SlidesApi.UpdateChartSeries("MyPresentation.pptx", 1, 2, 2, dto, "", "", "")
+result, _, e := c.SlidesApi.UpdateChartSeries("MyPresentation.pptx", 3, 1, 2, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {

@@ -133,7 +133,7 @@ Shape dto = new Shape
     ShapeType = GeometryShape.ShapeTypeEnum.Rectangle,
     Text = "New shape"
 };
-Shape shape = (Shape)api.CreateSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MasterSlide, null, null, dto);
+Shape shape = (Shape)api.CreateSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MasterSlide, dto);
 Console.WriteLine(shape.Text); //New shape
 
 dto.Text = "Updated shape";

@@ -151,8 +151,8 @@ series2.DataPoints.Add(new ScatterChartDataPoint { XValue = 2, YValue = 2 });
 series2.DataPoints.Add(new ScatterChartDataPoint { XValue = 5, YValue = 1 });
 dto.Series.Add(series2);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
-Console.WriteLine(chart.Series[0].Count);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
+Console.WriteLine(chart.Series.Count);
 ```
 
 {{< /tab >}}

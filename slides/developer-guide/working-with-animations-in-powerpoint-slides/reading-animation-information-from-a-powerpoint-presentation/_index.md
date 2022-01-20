@@ -145,7 +145,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.GetAnimation("myPresentation.pptx", 1, folder: "MyStorageFolder");
+SlideAnimation response = api.GetAnimation("myPresentation.pptx", 1);
 foreach (Effect effect in response.MainSequence)
 {
     Console.WriteLine(effect.Type);
@@ -158,7 +158,7 @@ foreach (Effect effect in response.MainSequence)
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, "MyStorageFolder");
+SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, null);
 for (Effect effect : response.getMainSequence()) {
     System.out.println(effect.getType());
 }
@@ -177,7 +177,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->GetAnimation("MyPresentation.pptx", 1, null, null, "MyStorageFolder");
+$result = $api->GetAnimation("MyPresentation.pptx", 1);
 foreach ($result->getMainSequence() as $effect)
 {
     print(count($effect->getType()));
@@ -201,7 +201,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-result = api.get_animation("MyPresentation.pptx", 1, None, None, "MyStorageFolder")
+result = api.get_animation("MyPresentation.pptx", 1)
 for effect in result.main_sequence:
     print(effect.type)
 ```
@@ -214,7 +214,7 @@ for effect in result.main_sequence:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-return api.getAnimation("MyPresentation.pptx", 1, chart).then((result) => {
+return api.getAnimation("MyPresentation.pptx", 1).then((result) => {
     (result.body as model.SlideAnimation).mainSequence.forEach((effect) => { console.log(effect.type); });
 });
 ```
@@ -228,7 +228,7 @@ cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
-animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, "masterSlide", nil, "", "MyStorageFolder", "")
+animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, "masterSlide", nil, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {

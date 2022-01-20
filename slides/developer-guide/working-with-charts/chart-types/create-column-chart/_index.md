@@ -163,7 +163,7 @@ series2.DataPoints.Add(new OneValueChartDataPoint { Value = 10 });
 series2.DataPoints.Add(new OneValueChartDataPoint { Value = 60 });
 dto.Series.Add(series2);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
 Console.WriteLine(chart.Categories.Count);
 ```
 

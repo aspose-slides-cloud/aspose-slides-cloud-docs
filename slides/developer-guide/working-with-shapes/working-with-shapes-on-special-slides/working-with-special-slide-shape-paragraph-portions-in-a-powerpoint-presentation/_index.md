@@ -115,7 +115,7 @@ Portion dto = new Portion
     FontBold = Portion.FontBoldEnum.True,
     Text = "New portion"
 };
-Portion portion = api.CreateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, null, dto);
+Portion portion = api.CreateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, dto);
 Console.WriteLine(portion.FontBold); //True
 Console.WriteLine(portion.Text); //New portion
 

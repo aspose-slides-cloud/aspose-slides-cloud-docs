@@ -94,7 +94,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 const string fontsFolder = "customFonts";
 api.CreateFolder(fontsFolder);
 Stream font = File.OpenRead("custom.ttf");
-api.UploadFile(font, $"{fontsFolder}/custom.ttf");
+api.UploadFile($"{fontsFolder}/custom.ttf", font);
 Stream file = File.OpenRead("customfont.pptx");
 Stream response = api.Convert(file, ExportFormat.Pdf, fontsFolder: fontsFolder);
 response.CopyTo(File.Create("customfont.pdf"));

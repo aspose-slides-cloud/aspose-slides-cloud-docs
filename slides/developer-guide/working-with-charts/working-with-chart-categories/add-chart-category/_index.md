@@ -79,7 +79,7 @@ dto.DataPoints = new List<OneValueChartDataPoint>();
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 40 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 50 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 14 });
-Chart chart = api.CreateChartCategory("myPresentaion.pptx", 1, 2, dto);
+Chart chart = api.CreateChartCategory("myPresentaion.pptx", 3, 1, dto);
 Console.WriteLine(chart.Categories.Count);
 ```
 
@@ -105,7 +105,7 @@ dataPoint3.setValue(14);
 dataPoints.add(dataPoint3);
 dto.setDataPoints(dataPoints);
 
-Chart chart = (Chart)api.createChartCategory("MyPresentation.pptx", 1, 2, dto, null, null, null);
+Chart chart = (Chart)api.createChartCategory("MyPresentation.pptx", 3, 1, dto, null, null, null);
 System.out.println(chart.getCategories().size());
 ```
 
@@ -134,7 +134,7 @@ $dataPoint3 = new OneValueChartDataPoint();
 $dataPoint3->setValue(27);
 $dto->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3]);
 
-$result = $api->CreateChartCategory("MyPresentation.pptx", 1, 2, $dto);
+$result = $api->CreateChartCategory("MyPresentation.pptx", 3, 1, $dto);
 print(count($result->getCategories()));
 ```
 
@@ -169,7 +169,7 @@ data_point3 = OneValueChartDataPoint()
 data_point3.value = 27
 dto.data_points = [ data_point1, data_point2, data_point3 ])
 
-result = api.create_chart_category("MyPresentation.pptx", 1, 2, dto)
+result = api.create_chart_category("MyPresentation.pptx", 3, 1, dto)
 print(len(result.categories))
 ```
 
@@ -184,7 +184,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const dto = new model.ChartCategory();
 dto.value = "NewCategory";
 dto.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-return api.createChartCategory("MyPresentation.pptx", 1, 2, dto).then((result) => {
+return api.createChartCategory("MyPresentation.pptx", 3, 1, dto).then((result) => {
     console.log((result.body as model.Chart).series.length);
 });
 ```
@@ -212,7 +212,7 @@ dataPoint3 := NewOneValueChartDataPoint()
 dataPoint3.Value = 30
 dto.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
 
-result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 1, 2, dto, "", "", "")
+result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 3, 1, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {

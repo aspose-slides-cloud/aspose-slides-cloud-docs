@@ -61,7 +61,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = api.DeleteChartCategory("myPresentaion.pptx", 1, 2, 2);
+Chart chart = api.DeleteChartCategory("myPresentaion.pptx", 3, 1, 2);
 Console.WriteLine(chart.Categories.Count);
 ```
 
@@ -71,7 +71,7 @@ Console.WriteLine(chart.Categories.Count);
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Chart chart = (Chart)api.deleteChartCategory("MyPresentation.pptx", 1, 2, 2, null, null, null);
+Chart chart = (Chart)api.deleteChartCategory("MyPresentation.pptx", 3, 1, 2, null, null, null);
 System.out.println(chart.getCategories().size());
 ```
 
@@ -87,7 +87,7 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->DeleteChartCategory("MyPresentation.pptx", 1, 2, 2);
+$result = $api->DeleteChartCategory("MyPresentation.pptx", 3, 1, 2);
 print(count($result->getCategories()));
 ```
 
@@ -109,7 +109,7 @@ configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
-result = api.delete_chart_categories("MyPresentation.pptx", 1, 2, 2)
+result = api.delete_chart_categories("MyPresentation.pptx", 3, 1, 2)
 print(len(result.categories))
 ```
 
@@ -120,7 +120,7 @@ print(len(result.categories))
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-return api.deleteChartCategory("MyPresentation.pptx", 1, 2, 2).then((result) => {
+return api.deleteChartCategory("MyPresentation.pptx", 3, 1, 2).then((result) => {
     console.log((result.body as model.Chart).categories.length);
 });
 ```
@@ -135,7 +135,7 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 1, 2, 2, "", "", "")
+result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 3, 1, 2, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
