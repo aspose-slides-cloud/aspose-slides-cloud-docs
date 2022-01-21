@@ -56,10 +56,11 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Stream file = File.OpenRead("MyPresentation.pptx");
+using Stream file = File.OpenRead("MyPresentation.pptx");
 ExportOptions options = new ImageExportOptions { Width = 480, Height = 360 };
-Stream response = api.Convert(file, ExportFormat.Png, null, null, null, null, options);
-response.CopyTo(File.Create("MyPresentation.zip"));
+using Stream response = api.Convert(file, ExportFormat.Png, null, null, null, null, options);
+using Stream outFile = File.Create("MyPresentation.zip");
+response.CopyTo(outFile);
 ```
 
 {{< /tab >}}
