@@ -214,8 +214,8 @@ for effect in result.main_sequence:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-return api.getAnimation("MyPresentation.pptx", 1).then((result) => {
-    (result.body as model.SlideAnimation).mainSequence.forEach((effect) => { console.log(effect.type); });
+api.getAnimation("MyPresentation.pptx", 1).then((result) => {
+    result.body.mainSequence.forEach((effect) => { console.log(effect.type); });
 });
 ```
 

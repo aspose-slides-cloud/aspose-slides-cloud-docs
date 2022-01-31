@@ -205,7 +205,7 @@ dto.shapeIndex = shapeIndex;
 dto.paragraphIndex = paragraphIndex;
 api.createAnimationEffect(fileName, slideIndex, dto).then(() => {
     api.getSpecialSlideAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
-        console.log((putResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //1
+        console.log(putResult.body.mainSequence.length); //1
     });
 });
 ```

@@ -375,17 +375,17 @@ print(shape.three_d_format.depth)
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.Shape();
-const effectFormat = new model.EffectFormat();
-const innerShadow = new model.InnerShadowEffect();
+const dto = new CloudSdk.Shape();
+const effectFormat = new CloudSdk.EffectFormat();
+const innerShadow = new CloudSdk.InnerShadowEffect();
 innerShadow.direction = 35;
 innerShadow.blurRadius = 30;
 innerShadow.distance = 40;
 innerShadow.shadowColor = "#FFFFFF00";
 effectFormat.innerShadow = innerShadow;
 dto.effectFormat = effectFormat;
-return api.updateShape("MyPresentation.pptx", 1, 1, dto).then((result) => {
-    console.log((getResult.body as model.Shape).effectFormat.innerShadow.direction);
+api.updateShape("MyPresentation.pptx", 1, 1, dto).then((result) => {
+    console.log(getResult.body.effectFormat.innerShadow.direction);
 });
 ```
 

@@ -316,25 +316,25 @@ print(len(result.categories))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.Pie;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.Pie;
 chart.x = 100;
 chart.y = 100;
 chart.width = 400;
 chart.height = 400;
 
-title = new model.ChartTitle();
+title = new CloudSdk.ChartTitle();
 title.hasTitle = true;
 title.text = 'Pie Chart';
 chart.title = title;
 
 chart.categories = [{ value: "First" }, { value: "Second" }, { value: "Third" }];
 
-const series = new model.OneValueSeries();
+const series = new CloudSdk.OneValueSeries();
 series.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
 chart.series = [ series ];
-return api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
-    console.log((result.body as model.Chart).categories.length);
+api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
+    console.log(result.body.categories.length);
 });
 ```
 

@@ -120,8 +120,8 @@ print(len(result.series[0].data_points))
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-return api.deleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3).then((result) => {
-    console.log(((result.body as model.Chart).series[0] as model.ScatterSeries).dataPoints.length);
+api.deleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3).then((result) => {
+    console.log(result.body.series[0].dataPoints.length);
 });
 ```
 

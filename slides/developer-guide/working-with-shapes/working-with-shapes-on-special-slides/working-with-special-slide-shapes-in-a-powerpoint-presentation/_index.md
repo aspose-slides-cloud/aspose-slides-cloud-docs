@@ -261,21 +261,21 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
-api.getSpecialSlideShapes(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide).then((result) => {
-    const shapeCount = (result.body as CloudSdk.model.Shapes).shapesLinks.length;
-    const dto = new CloudSdk.model.Shape();
-    dto.shapeType = CloudSdk.model.Shape.ShapeTypeEnum.Rectangle;
+api.getSpecialSlideShapes(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((result) => {
+    const shapeCount = result.body.shapesLinks.length;
+    const dto = new CloudSdk.Shape();
+    dto.shapeType = CloudSdk.Shape.ShapeTypeEnum.Rectangle;
     dto.x = 100;
     dto.y = 100;
     dto.width = 500;
     dto.height = 200;
     dto.text = "New shape";
-    api.createSpecialSlideShape(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, null, null, dto).then((postResult) => {
-        console.log((postResult.body as CloudSdk.model.Shape).text); //New shape
+    api.createSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, null, null, dto).then((postResult) => {
+        console.log(postResult.body.text); //New shape
         dto.text = "Updated shape";
-        api.updateSpecialSlideShape(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeCount + 1, dto).then((putResult) => {
-            console.log((putResult.body as CloudSdk.model.Shape).text); //Updated shape
-            api.deleteSpecialSlideShape(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeCount + 1);
+        api.updateSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeCount + 1, dto).then((putResult) => {
+            console.log(putResult.body.text); //Updated shape
+            api.deleteSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeCount + 1);
         });
     });
 });

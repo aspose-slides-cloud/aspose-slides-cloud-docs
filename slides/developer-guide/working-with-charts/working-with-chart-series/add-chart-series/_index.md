@@ -177,10 +177,10 @@ print(len(result.series))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.OneValueSeries();
+const dto = new CloudSdk.OneValueSeries();
 dto.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-return api.createChartSeries("MyPresentation.pptx", 3, 1, dto).then((result) => {
-    console.log((result.body as model.Chart).series.length);
+api.createChartSeries("MyPresentation.pptx", 3, 1, dto).then((result) => {
+    console.log(result.body.series.length);
 });
 ```
 

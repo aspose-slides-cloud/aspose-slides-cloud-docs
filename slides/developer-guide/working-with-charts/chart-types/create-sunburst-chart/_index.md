@@ -384,40 +384,40 @@ print(len(result.series[0]))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.Sunburst;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.Sunburst;
 chart.x = 100;
 chart.y = 100;
 chart.width = 400;
 chart.height = 400;
 
-title = new model.ChartTitle();
+title = new CloudSdk.ChartTitle();
 title.hasTitle = true;
 title.text = 'Sunburst Chart';
 chart.title = title;
 
-const category1 = new model.ChartCategory();
+const category1 = new CloudSdk.ChartCategory();
 category1.value = "Leaf1";
 category1.level = 3;
 category1.parentCategories = [ "Branch1", "Stem1" ];
-const category2 = new model.ChartCategory();
+const category2 = new CloudSdk.ChartCategory();
 category2.value = "Leaf2";
 category2.level = 3;
 category2.parentCategories = [ "Branch1", "Stem1" ];
-const category3 = new model.ChartCategory();
+const category3 = new CloudSdk.ChartCategory();
 category3.value = "Branch2";
 category3.level = 2;
 category3.parentCategories = [ "Stem1" ];
-const category4 = new model.ChartCategory();
+const category4 = new CloudSdk.ChartCategory();
 category4.value = "Stem2";
 category4.level = 1;
 chart.categories = [ category1, category2, category3, category4 ];
 
-const series = new model.OneValueSeries();
+const series = new CloudSdk.OneValueSeries();
 series.dataPoints = [{ value: 40 }, { value: 50 }, { value: 70 }, { value: 60 }];
 chart.series = [ series ];
-return api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
-    console.log((result.body as model.Chart).series[0].length);
+api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
+    console.log(result.body.series[0].length);
 });
 ```
 

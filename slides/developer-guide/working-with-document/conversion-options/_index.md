@@ -196,7 +196,7 @@ const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const file = fs.createReadStream("MyPresentation.pptx");
-const options = new model.PdfExportOptions();
+const options = new CloudSdk.PdfExportOptions();
 options.drawSlidesFrame = true;
 api.convert(file, "pdf", null, null, null, [ 2, 4 ], options).then(() => {
     fs.writeFile("MyPresentation.pdf", response.body, (err) => {

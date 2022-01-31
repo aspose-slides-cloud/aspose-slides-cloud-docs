@@ -365,25 +365,25 @@ print(len(result.series[0]))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.Bubble;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.Bubble;
 chart.x = 100;
 chart.y = 100;
 chart.width = 400;
 chart.height = 400;
 
-title = new model.ChartTitle();
+title = new CloudSdk.ChartTitle();
 title.hasTitle = true;
 title.text = 'Bubble Chart';
 chart.title = title;
 
-const series1 = new model.BubbleSeries();
+const series1 = new CloudSdk.BubbleSeries();
 series1.dataPoints = [{ xValue: 1, yValue: 3, bubbleSize: 2 }, { xValue: 2, yValue: 10, bubbleSize: 12 }];
-const series2 = new model.BubbleSeries();
+const series2 = new CloudSdk.BubbleSeries();
 series2.dataPoints = [{ xValue: 5, yValue: 2, bubbleSize: 4 }, { xValue: 3, yValue: 1, bubbleSize: 8 }, { xValue: 2, yValue: 2, bubbleSize: 1 }, { xValue: 5, yValue: 1, bubbleSize: 6 }];
 chart.series = [ series1, series2 ];
-return api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
-    console.log((result.body as model.Chart).series[0].length);
+api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
+    console.log(result.body.series[0].length);
 });
 ```
 

@@ -120,8 +120,8 @@ print(len(result.categories))
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-return api.deleteChartCategory("MyPresentation.pptx", 3, 1, 2).then((result) => {
-    console.log((result.body as model.Chart).categories.length);
+api.deleteChartCategory("MyPresentation.pptx", 3, 1, 2).then((result) => {
+    console.log(result.body.categories.length);
 });
 ```
 

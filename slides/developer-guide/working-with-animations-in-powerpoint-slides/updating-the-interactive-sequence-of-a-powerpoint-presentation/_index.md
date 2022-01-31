@@ -272,18 +272,18 @@ for sequence in result.intercative_sequences:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.InteractiveSequence();
+const dto = new CloudSdk.InteractiveSequence();
 dto.triggerShapeIndex = 1;
 
-const effect = new model.Effect();
-effect.type = model.Effect.TypeEnum.Fly;
-effect.subtype = model.Effect.SubtypeEnum.Bottom;
-effect.presetClassType = model.Effect.PresetClassTypeEnum.Entrance;
+const effect = new CloudSdk.Effect();
+effect.type = CloudSdk.Effect.TypeEnum.Fly;
+effect.subtype = CloudSdk.Effect.SubtypeEnum.Bottom;
+effect.presetClassType = CloudSdk.Effect.PresetClassTypeEnum.Entrance;
 effect.shapeIndex = 4;
-effect.triggerType = model.Effect.TriggerTypeEnum.OnClick;
+effect.triggerType = CloudSdk.Effect.TriggerTypeEnum.OnClick;
 dto.effects = [ effect ];
-return api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, chart).then((result) => {
-    (result.body as model.SlideAnimation).interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
+api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, dto).then((result) => {
+    result.body.interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
 });
 ```
 

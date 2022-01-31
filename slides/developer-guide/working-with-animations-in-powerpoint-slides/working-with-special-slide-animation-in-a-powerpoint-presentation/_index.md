@@ -270,20 +270,20 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
-api.getSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide).then((result) => {
-    console.log((result.body as CloudSdk.model.SlideAnimation).mainSequence.length);
-    const dto = new CloudSdk.model.SlideAnimation();
-    const effect1 = CloudSdk.model.Effect();
-    effect1.type = CloudSdk.model.Effect.TypeEnum.Blink;
+api.getSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((result) => {
+    console.log(result.body.mainSequence.length);
+    const dto = new CloudSdk.SlideAnimation();
+    const effect1 = CloudSdk.Effect();
+    effect1.type = CloudSdk.Effect.TypeEnum.Blink;
     effect1.shapeIndex = 2;
-    const effect2 = CloudSdk.model.Effect();
-    effect2.type = CloudSdk.model.Effect.TypeEnum.Appear;
+    const effect2 = CloudSdk.Effect();
+    effect2.type = CloudSdk.Effect.TypeEnum.Appear;
     effect2.shapeIndex = 3;
     dto.mainSequence = [ effect1, effect2 ];
-    api.setSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, dto).then((putResult) => {
-        console.log((putResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //2
-        api.deleteSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide).then((deleteResult) => {
-            console.log((deleteResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //0
+    api.setSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, dto).then((putResult) => {
+        console.log(putResult.body.mainSequence.length); //2
+        api.deleteSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((deleteResult) => {
+            console.log(deleteResult.body.mainSequence.length); //0
         });
     });
 });

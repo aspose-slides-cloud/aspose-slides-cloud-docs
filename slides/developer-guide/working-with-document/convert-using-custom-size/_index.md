@@ -142,13 +142,12 @@ const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const file = fs.createReadStream("MyPresentation.pptx");
-    const options = new CloudSdk.ImageExportOptions();
-    options.width = 480;
-    options.height = 360;
-    api.convert(file, "png", null, null, null, options).then(() => {
-        fs.writeFile("MyPresentation.zip", response.body, (err) => {
-            if (err) throw err;
-        });
+const options = new CloudSdk.ImageExportOptions();
+options.width = 480;
+options.height = 360;
+api.convert(file, "png", null, null, null, options).then(() => {
+    fs.writeFile("MyPresentation.zip", response.body, (err) => {
+        if (err) throw err;
     });
 });
 ```

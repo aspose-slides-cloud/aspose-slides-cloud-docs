@@ -257,20 +257,20 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
-api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex).then((result) => {
-    const paragraphCount = (result.body as CloudSdk.model.Paragraphs).paragraphLinks.length;
-    var dto = new CloudSdk.model.Paragraph();
+api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex).then((result) => {
+    const paragraphCount = result.body.paragraphLinks.length;
+    var dto = new CloudSdk.Paragraph();
     dto.alignment = "Right";
-    const portion = new CloudSdk.model.Portion();
+    const portion = new CloudSdk.Portion();
     portion.text = "New paragraph";
     dto.portionList = [ portion ];
-    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, null, dto).then((postResult) => {
-        console.log((postResult.body as CloudSdk.model.Paragraph).alignment); //Right
-        dto = new CloudSdk.model.Paragraph();
+    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, null, dto).then((postResult) => {
+        console.log(postResult.body.alignment); //Right
+        dto = new CloudSdk.Paragraph();
         dto.alignment = "Center";
-        api.updateSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1, dto).then((putResult) => {
-            console.log((putResult.body as CloudSdk.model.Paragraph).alignment); //Center
-            api.deleteSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1);
+        api.updateSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1, dto).then((putResult) => {
+            console.log(putResult.body.alignment); //Center
+            api.deleteSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1);
         });
     });
 });

@@ -146,11 +146,11 @@ print(len(result.series[0].data_points))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.ScatterChartDataPoint();
+const dto = new CloudSdk.ScatterChartDataPoint();
 dto.xValue = 25;
 dto.yValue = 9;
-return api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto).then((result) => {
-    console.log(((result.body as model.Chart).series[0] as model.ScatterSeries).dataPoints.length);
+api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto).then((result) => {
+    console.log(result.body.series[0].dataPoints.length);
 });
 ```
 

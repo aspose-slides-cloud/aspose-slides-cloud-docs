@@ -181,11 +181,11 @@ print(len(result.categories))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.ChartCategory();
+const dto = new CloudSdk.ChartCategory();
 dto.value = "NewCategory";
 dto.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-return api.createChartCategory("MyPresentation.pptx", 3, 1, dto).then((result) => {
-    console.log((result.body as model.Chart).series.length);
+api.createChartCategory("MyPresentation.pptx", 3, 1, dto).then((result) => {
+    console.log(result.body.series.length);
 });
 ```
 
