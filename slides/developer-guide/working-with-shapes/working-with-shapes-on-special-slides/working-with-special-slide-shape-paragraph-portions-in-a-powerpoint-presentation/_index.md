@@ -115,7 +115,7 @@ Portion dto = new Portion
     FontBold = Portion.FontBoldEnum.True,
     Text = "New portion"
 };
-Portion portion = api.CreateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, null, dto);
+Portion portion = api.CreateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, dto);
 Console.WriteLine(portion.FontBold); //True
 Console.WriteLine(portion.Text); //New portion
 
@@ -260,22 +260,22 @@ const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
 const paragraphIndex = 3;
-portions = api.getSpecialSlidePortions(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex).then((result) => {
-    const portionCount = (result.body as CloudSdk.model.Portions).items.length;
-    var dto = new CloudSdk.model.Portion();
-    dto.fontBold(CloudSdk.model.Portion.FontBoldEnum.True);
+api.getSpecialSlidePortions(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex).then((result) => {
+    const portionCount = result.body.items.length;
+    var dto = new CloudSdk.Portion();
+    dto.fontBold(CloudSdk.Portion.FontBoldEnum.True);
     dto.text = "New portion";
-    portion = api.createSpecialSlidePortion(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, null, dto).then((postResult) => {
-        console.log((postResult.body as CloudSdk.model.Portion).fontBold); //True
-        console.log((postResult.body as CloudSdk.model.Portion).text); //New portion
-        dto = new CloudSdk.model.Portion();
+    api.createSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, null, dto).then((postResult) => {
+        console.log(postResult.body.fontBold); //True
+        console.log(postResult.body.text); //New portion
+        dto = new CloudSdk.Portion();
         dto.fontHeight(22);
         dto.text = "Updated portion";
-        api.updateSpecialSlidePortion(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, portionCount + 1, dto).then((putResult) => {
-            console.log((postResult.body as CloudSdk.model.Portion).fontBold); //True
-            console.log((postResult.body as CloudSdk.model.Portion).fontHeight); //22.0
-            console.log((postResult.body as CloudSdk.model.Portion).text); //Updated portion
-            api.deleteSpecialSlidePortion(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, portionCount + 1);
+        api.updateSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, portionCount + 1, dto).then((putResult) => {
+            console.log(postResult.body.fontBold); //True
+            console.log(postResult.body.fontHeight); //22.0
+            console.log(postResult.body.text); //Updated portion
+            api.deleteSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, portionCount + 1);
         });
     });
 });

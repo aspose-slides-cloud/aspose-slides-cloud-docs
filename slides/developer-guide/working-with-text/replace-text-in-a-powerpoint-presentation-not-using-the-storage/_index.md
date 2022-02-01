@@ -57,9 +57,10 @@ The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Availab
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Stream file = File.OpenRead("InputPresentation.pptx");
-Stream result = TestUtils.SlidesApi.ReplacePresentationTextOnline(file, "banana", "orange", true);
-result.CopyTo(File.OpenWrite("UpdatedPresentation.pptx"));
+using Stream file = File.OpenRead("InputPresentation.pptx");
+using Stream result = api.ReplacePresentationTextOnline(file, "banana", "orange", true);
+using Stream outFile = File.OpenWrite("UpdatedPresentation.pptx");
+result.CopyTo(outFile);
 ```
 
 {{< /tab >}}

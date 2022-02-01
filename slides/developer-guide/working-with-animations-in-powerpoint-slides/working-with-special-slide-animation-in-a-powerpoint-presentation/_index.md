@@ -126,7 +126,7 @@ int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 SlideAnimation animation = api.GetSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide);
-Console.WriteLine(animation.MainSequnece.Count);
+Console.WriteLine(animation.MainSequence.Count);
 
 SlideAnimation dto = new SlideAnimation
 {
@@ -145,10 +145,10 @@ SlideAnimation dto = new SlideAnimation
     }
 };
 animation = api.SetSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide, dto);
-Console.WriteLine(animation.MainSequnece.Count); //2
+Console.WriteLine(animation.MainSequence.Count); //2
 
 animation = api.DeleteSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MasterSlide);
-Console.WriteLine(animation.MainSequnece.Count); //0
+Console.WriteLine(animation.MainSequence.Count); //0
 ```
 
 {{< /tab >}}
@@ -161,7 +161,7 @@ int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 SlideAnimation animation = api.getSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null, null);
-System.out.println(animation.getMainSequnece().size());
+System.out.println(animation.getMainSequence().size());
 
 SlideAnimation dto = new SlideAnimation();
 List<Effect> effects = new ArrayList<Effect>();
@@ -175,10 +175,10 @@ effect2.setShapeIndex(3);
 effects.add(effect2);
 dto.setMainSequence(effects);
 animation = api.setSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, dto, null, null, null);
-System.out.println(animation.getMainSequnece().size()); //2
+System.out.println(animation.getMainSequence().size()); //2
 
 animation = api.deleteSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null);
-System.out.println(animation.getMainSequnece().size()); //0
+System.out.println(animation.getMainSequence().size()); //0
 ```
 
 {{< /tab >}}
@@ -270,20 +270,20 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
-api.getSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide).then((result) => {
-    console.log((result.body as CloudSdk.model.SlideAnimation).mainSequence.length);
-    const dto = new CloudSdk.model.SlideAnimation();
-    const effect1 = CloudSdk.model.Effect();
-    effect1.type = CloudSdk.model.Effect.TypeEnum.Blink;
+api.getSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((result) => {
+    console.log(result.body.mainSequence.length);
+    const dto = new CloudSdk.SlideAnimation();
+    const effect1 = CloudSdk.Effect();
+    effect1.type = CloudSdk.Effect.TypeEnum.Blink;
     effect1.shapeIndex = 2;
-    const effect2 = CloudSdk.model.Effect();
-    effect2.type = CloudSdk.model.Effect.TypeEnum.Appear;
+    const effect2 = CloudSdk.Effect();
+    effect2.type = CloudSdk.Effect.TypeEnum.Appear;
     effect2.shapeIndex = 3;
     dto.mainSequence = [ effect1, effect2 ];
-    api.setSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, dto).then((putResult) => {
-        console.log((putResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //2
-        api.deleteSpecialSlideAnimation(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide).then((deleteResult) => {
-            console.log((deleteResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //0
+    api.setSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, dto).then((putResult) => {
+        console.log(putResult.body.mainSequence.length); //2
+        api.deleteSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((deleteResult) => {
+            console.log(deleteResult.body.mainSequence.length); //0
         });
     });
 });

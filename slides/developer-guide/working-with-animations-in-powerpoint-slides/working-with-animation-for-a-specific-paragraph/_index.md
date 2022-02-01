@@ -94,10 +94,10 @@ Effect dto = new Effect
     ShapeIndex = shapeIndex,
     ParagraphIndex = paragraphIndex
 };
-animation = api.CreateAnimationEffect(fileName, slideIndex, paragraphIndex, dto);
+api.CreateAnimationEffect(fileName, slideIndex, dto);
 
 SlideAnimation animation = api.GetAnimation(fileName, slideIndex, shapeIndex, paragraphIndex);
-Console.WriteLine(animation.MainSequnece.Count); //1
+Console.WriteLine(animation.MainSequence.Count); //1
 ```
 
 {{< /tab >}}
@@ -118,7 +118,7 @@ dto.setParagraphIndex(paragraphIndex);
 animation = api.createAnimationEffect(fileName, slideIndex, dto, null, null, null);
 
 SlideAnimation animation = api.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex, null, null, null);
-System.out.println(animation.getMainSequnece().size()); //1
+System.out.println(animation.getMainSequence().size()); //1
 ```
 
 {{< /tab >}}
@@ -205,7 +205,7 @@ dto.shapeIndex = shapeIndex;
 dto.paragraphIndex = paragraphIndex;
 api.createAnimationEffect(fileName, slideIndex, dto).then(() => {
     api.getSpecialSlideAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
-        console.log((putResult.body as CloudSdk.model.SlideAnimation).mainSequence.length); //1
+        console.log(putResult.body.mainSequence.length); //1
     });
 });
 ```

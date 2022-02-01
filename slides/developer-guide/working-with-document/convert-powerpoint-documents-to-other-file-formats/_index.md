@@ -93,11 +93,12 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 const string fontsFolder = "customFonts";
 api.CreateFolder(fontsFolder);
-Stream font = File.OpenRead("custom.ttf");
-api.UploadFile(font, $"{fontsFolder}/custom.ttf");
-Stream file = File.OpenRead("customfont.pptx");
-Stream response = api.Convert(file, ExportFormat.Pdf, fontsFolder: fontsFolder);
-response.CopyTo(File.Create("customfont.pdf"));
+using Stream font = File.OpenRead("custom.ttf");
+api.UploadFile($"{fontsFolder}/custom.ttf", font);
+using Stream file = File.OpenRead("customfont.pptx");
+using Stream response = api.Convert(file, ExportFormat.Pdf, fontsFolder: fontsFolder);
+using Stream outFile = File.Create("customfont.pdf");
+response.CopyTo(outFile);
 ```
 
 {{< /tab >}}

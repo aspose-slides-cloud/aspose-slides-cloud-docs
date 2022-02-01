@@ -145,7 +145,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-InteractiveSequence sequence = new InteractiveSequence
+InteractiveSequence newSequence = new InteractiveSequence
 {
     TriggerShapeIndex = 1,
     Effects = new List<Effect>
@@ -155,12 +155,12 @@ InteractiveSequence sequence = new InteractiveSequence
             Type = Effect.TypeEnum.Fly,
             Subtype = Effect.SubtypeEnum.Bottom,
             PresetClassType = Effect.PresetClassTypeEnum.Entrance,
-            ShapeIndex = 5,
+            ShapeIndex = 4,
             TriggerType = Effect.TriggerTypeEnum.OnClick
         }
     }
 };
-SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, sequence);
+SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, newSequence);
 foreach (InteractiveSequence sequence in response.InteractiveSequences)
 {
     Console.WriteLine(sequence.TriggerShapeIndex); //should display 1
@@ -187,7 +187,7 @@ Effect effect = new Effect();
 effect.setType(Effect.TypeEnum.FLY);
 effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
 effect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
-effect.setShapeIndex(5);
+effect.setShapeIndex(4);
 effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 effects.add(effect);
 dto.setEffects(effects);
@@ -219,7 +219,7 @@ $effect = new Effect();
 $effect->setType("Fly");
 $effect->setSubtype("Bottom");
 $effect->setPresetClassType("Entrance");
-$effect->setShapeIndex(5);
+$effect->setShapeIndex(4);
 $effect->setTriggerType("OnClick");
 $dto->setEffects([ effect ]);
 
@@ -255,7 +255,7 @@ effect = Effect()
 effect.type = "Fly"
 effect.subtype = "Bottom"
 effect.preset_class_type = "Entrance"
-effect.shape_index = 5
+effect.shape_index = 4
 effect.trigger_type = "OnClick"
 dto.effects = [ effect ]
 
@@ -272,18 +272,18 @@ for sequence in result.intercative_sequences:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.InteractiveSequence();
+const dto = new CloudSdk.InteractiveSequence();
 dto.triggerShapeIndex = 1;
 
-const effect = new model.Effect();
-effect.type = model.Effect.TypeEnum.Fly;
-effect.subtype = model.Effect.SubtypeEnum.Bottom;
-effect.presetClassType = model.Effect.PresetClassTypeEnum.Entrance;
-effect.shapeIndex = 5;
-effect.triggerType = model.Effect.TriggerTypeEnum.OnClick;
+const effect = new CloudSdk.Effect();
+effect.type = CloudSdk.Effect.TypeEnum.Fly;
+effect.subtype = CloudSdk.Effect.SubtypeEnum.Bottom;
+effect.presetClassType = CloudSdk.Effect.PresetClassTypeEnum.Entrance;
+effect.shapeIndex = 4;
+effect.triggerType = CloudSdk.Effect.TriggerTypeEnum.OnClick;
 dto.effects = [ effect ];
-return api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, chart).then((result) => {
-    (result.body as model.SlideAnimation).interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
+api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, dto).then((result) => {
+    result.body.interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
 });
 ```
 
@@ -304,7 +304,7 @@ effect := NewEffect()
 effect.Type_ = "Fly"
 effect.Subtype = "Bottom"
 effect.PresetClassType = "Entrance"
-effect.ShapeIndex = 5
+effect.ShapeIndex = 4
 effect.TriggerType = "OnClick"
 dto.Effects = []IEffect { effect }
 

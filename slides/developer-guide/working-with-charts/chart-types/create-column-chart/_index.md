@@ -163,7 +163,7 @@ series2.DataPoints.Add(new OneValueChartDataPoint { Value = 10 });
 series2.DataPoints.Add(new OneValueChartDataPoint { Value = 60 });
 dto.Series.Add(series2);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
 Console.WriteLine(chart.Categories.Count);
 ```
 
@@ -371,27 +371,27 @@ print(len(result.categories))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.ClusteredColumn;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.ClusteredColumn;
 chart.x = 100;
 chart.y = 100;
 chart.width = 400;
 chart.height = 400;
 
-title = new model.ChartTitle();
+title = new CloudSdk.ChartTitle();
 title.hasTitle = true;
 title.text = 'Column Chart';
 chart.title = title;
 
 chart.categories = [{ value: "Category1" }, { value: "Category2" }, { value: "Category3" }];
 
-const series1 = new model.OneValueSeries();
+const series1 = new CloudSdk.OneValueSeries();
 series1.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-const series2 = new model.OneValueSeries();
+const series2 = new CloudSdk.OneValueSeries();
 series2.dataPoints = [{ value: 30 }, { value: 10 }, { value: 60 }];
 chart.series = [ series1, series2 ];
-return api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
-    console.log((result.body as model.Chart).categories.length);
+api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
+    console.log(result.body.categories.length);
 });
 ```
 

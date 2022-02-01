@@ -80,7 +80,7 @@ dto.DataPoints = new List<OneValueChartDataPoint>();
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 5.5 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 76 });
 dto.DataPoints.Add(new OneValueChartDataPoint { Value = 27 });
-Chart chart = api.UpdateChartCategory("myPresentaion.pptx", 1, 2, 2, dto);
+Chart chart = api.UpdateChartCategory("myPresentaion.pptx", 3, 1, 2, dto);
 Console.WriteLine(chart.Categories.Count);
 ```
 
@@ -106,7 +106,7 @@ dataPoint3.setValue(27);
 dataPoints.add(dataPoint3);
 dto.setDataPoints(dataPoints);
 
-Chart chart = (Chart)api.updateChartCategory("MyPresentation.pptx", 1, 2, 2, dto, null, null, null);
+Chart chart = (Chart)api.updateChartCategory("MyPresentation.pptx", 3, 1, 2, dto, null, null, null);
 System.out.println(chart.getSeries().size());
 ```
 
@@ -135,7 +135,7 @@ $dataPoint3 = new OneValueChartDataPoint();
 $dataPoint3->setValue(27);
 $dto->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3]);
 
-$result = $api->UpdateChartCategory("MyPresentation.pptx", 1, 2, 2, $dto);
+$result = $api->UpdateChartCategory("MyPresentation.pptx", 3, 1, 2, $dto);
 print(count($result->getSeries()));
 ```
 
@@ -170,7 +170,7 @@ data_point3 = OneValueChartDataPoint()
 data_point3.value = 27
 dto.data_points = [ data_point1, data_point2, data_point3 ])
 
-result = api.update_chart_category("MyPresentation.pptx", 1, 2, 2, dto)
+result = api.update_chart_category("MyPresentation.pptx", 3, 1, 2, dto)
 print(len(result.series))
 ```
 
@@ -182,11 +182,11 @@ print(len(result.series))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.ChartCategory();
+const dto = new CloudSdk.ChartCategory();
 dto.value = "UpdatedCategory";
 dto.dataPoints = [{ value: 20 }, { value: 50 }, { value: 30 }];
-return api.updateChartCategory("MyPresentation.pptx", 1, 2, 2, dto).then((result) => {
-    console.log((result.body as model.Chart).series.length);
+api.updateChartCategory("MyPresentation.pptx", 3, 1, 2, dto).then((result) => {
+    console.log(result.body.series.length);
 });
 ```
 
@@ -213,7 +213,7 @@ dataPoint3 := NewOneValueChartDataPoint()
 dataPoint3.Value = 30
 dto.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
 
-result, _, e := c.SlidesApi.UpdateChartCategory("MyPresentation.pptx", 1, 2, 2, dto, "", "", "")
+result, _, e := c.SlidesApi.UpdateChartCategory("MyPresentation.pptx", 3, 1, 2, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {

@@ -122,13 +122,13 @@ int paragraphCount = paragraphs.ParagraphLinks.Count;
 Paragraph dto = new Paragraph
 {
     Alignment = Paragraph.AlignmentEnum.Right,
-    Portions = new List<Portion>
+    PortionList = new List<Portion>
     {
         new Portion { Text = "New paragraph" }
     }
 };
-Paragraph paragraph = api.CreateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, null, dto);
-Console.WriteLine(paragraph.Aligment); //Right
+Paragraph paragraph = api.CreateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, dto);
+Console.WriteLine(paragraph.Alignment); //Right
 
 dto.Alignment = Paragraph.AlignmentEnum.Center;
 paragraph = api.UpdateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1, dto);
@@ -156,7 +156,7 @@ List<Portion> portions = new ArrayList<Portion>();
 Portion portion = new Portion();
 portion.setText("New paragraph");
 portions.add(portion);
-dto.setPortions(portions);
+dto.setPortionList(portions);
 Paragraph paragraph = api.createSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, null, dto);
 System.out.println(paragraph.getAlignment()); //Right
 
@@ -193,7 +193,7 @@ $dto = new Paragraph();
 $dto->setAlignment("Right");
 $portion = new Portion();
 $portion->setText("New paragraph");
-$dto->setPortions([ $portion ]);
+$dto->setPortionList([ $portion ]);
 $paragraph = $api->CreateSpecialSlideParagraph($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, null, $dto);
 print($paragraph->getAlignment()); //Right
 
@@ -235,7 +235,7 @@ dto = Paragraph()
 dto.alignment = "Right"
 portion = Portion()
 portion.text = "New paragraph"
-dto.portions = [ portion ]
+dto.portion_list = [ portion ]
 paragraph = api.create_special_slide_paragraph(file_name, slide_index, 'masterSlide', shape_index, None, dto)
 print(paragraph.alignment) #Right
 
@@ -257,20 +257,20 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
-api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex).then((result) => {
-    const paragraphCount = (result.body as CloudSdk.model.Paragraphs).paragraphLinks.length;
-    var dto = new CloudSdk.model.Paragraph();
+api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex).then((result) => {
+    const paragraphCount = result.body.paragraphLinks.length;
+    var dto = new CloudSdk.Paragraph();
     dto.alignment = "Right";
-    const portion = new CloudSdk.model.Portion();
+    const portion = new CloudSdk.Portion();
     portion.text = "New paragraph";
-    dto.portions = [ portion ];
-    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, null, dto).then((postResult) => {
-        console.log((postResult.body as CloudSdk.model.Paragraph).alignment); //Right
-        dto = new CloudSdk.model.Paragraph();
+    dto.portionList = [ portion ];
+    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, null, dto).then((postResult) => {
+        console.log(postResult.body.alignment); //Right
+        dto = new CloudSdk.Paragraph();
         dto.alignment = "Center";
-        api.updateSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1, dto).then((putResult) => {
-            console.log((putResult.body as CloudSdk.model.Paragraph).alignment); //Center
-            api.deleteSpecialSlideParagraph(fileName, slideIndex, CloudSdk.model.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1);
+        api.updateSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1, dto).then((putResult) => {
+            console.log(putResult.body.alignment); //Center
+            api.deleteSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphCount + 1);
         });
     });
 });
@@ -301,7 +301,7 @@ dto := NewParagraph()
 dto.Alignment = "Right"
 portion := NewPortion()
 portion.Text = "New paragraph"
-dto.Portions = []IPotrion { portion }
+dto.PortionList = []IPotrion { portion }
 paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)

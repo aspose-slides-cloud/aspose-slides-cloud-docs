@@ -151,8 +151,8 @@ series2.DataPoints.Add(new ScatterChartDataPoint { XValue = 2, YValue = 2 });
 series2.DataPoints.Add(new ScatterChartDataPoint { XValue = 5, YValue = 1 });
 dto.Series.Add(series2);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto);
-Console.WriteLine(chart.Series[0].Count);
+Chart chart = (Chart)api.CreateShape("MyPresentation.pptx", 1, dto);
+Console.WriteLine(chart.Series.Count);
 ```
 
 {{< /tab >}}
@@ -347,25 +347,25 @@ print(len(result.series[0]))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.ScatterWithSmoothLines;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.ScatterWithSmoothLines;
 chart.x = 100;
 chart.y = 100;
 chart.width = 400;
 chart.height = 400;
 
-title = new model.ChartTitle();
+title = new CloudSdk.ChartTitle();
 title.hasTitle = true;
 title.text = 'Scattered Chart';
 chart.title = title;
 
-const series1 = new model.ScatterSeries();
+const series1 = new CloudSdk.ScatterSeries();
 series1.dataPoints = [{ xValue: 1, yValue: 3 }, { xValue: 2, yValue: 10 }];
-const series2 = new model.ScatterSeries();
+const series2 = new CloudSdk.ScatterSeries();
 series2.dataPoints = [{ xValue: 5, yValue: 2 }, { xValue: 3, yValue: 1 }, { xValue: 2, yValue: 2 }, { xValue: 5, yValue: 1 }];
 chart.series = [ series1, series2 ];
-return api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
-    console.log((result.body as model.Chart).series[0].length);
+api.createShape("MyPresentation.pptx", 1, chart).then((result) => {
+    console.log(result.body.series[0].length);
 });
 ```
 

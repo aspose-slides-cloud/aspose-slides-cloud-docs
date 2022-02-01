@@ -152,10 +152,10 @@ Effect newEffect = new Effect
     Type = Effect.TypeEnum.Fly,
     Subtype = Effect.SubtypeEnum.Bottom,
     PresetClassType = Effect.PresetClassTypeEnum.Entrance,
-    ShapeIndex = 5,
+    ShapeIndex = 4,
     TriggerType = Effect.TriggerTypeEnum.OnClick
 };
-SlideAnimation response = api.CreateAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect, folder: "MyStorageFolder");
+SlideAnimation response = api.CreateAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect);
 foreach (Effect effect in response.InteractiveSequences[0].Effects)
 {
     Console.WriteLine($"{effect.ShapeIndex} - {effect.Type}"); //5 - Fly
@@ -173,10 +173,10 @@ Effect newEffect = new Effect();
 newEffect.setType(Effect.TypeEnum.FLY);
 newEffect.setSubtype(Effect.SubtypeEnum.BOTTOM);
 newEffect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
-newEffect.setShapeIndex(5);
+newEffect.setShapeIndex(4);
 newEffect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
-SlideAnimation response = api.createAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect, null, "MyStorageFolder", null);
+SlideAnimation response = api.createAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect, null, null, null);
 for (Effect effect : response.getInteractiveSequences().get(0).getEffects()) {
     System.out.println(sequence.getShapeIndex());
 }
@@ -199,10 +199,10 @@ $dto = new Effect();
 $dto->setType("Fly");
 $dto->setSubtype("Bottom");
 $dto->setPresetClassType("Entrance");
-$dto->setShapeIndex(5);
+$dto->setShapeIndex(4);
 $dto->setTriggerType("OnClick");
 
-$response = $api->CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto, null, "MyStorageFolder");
+$response = $api->CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto);
 foreach ($response->getInteractiveSequences()[0]->getEffects() as $effect)
 {
     print(count($effect->getShapeIndex()));
@@ -230,10 +230,10 @@ dto = Effect()
 dto.type = "Fly"
 dto.subtype = "Bottom"
 dto.preset_class_type = "Entrance"
-dto.shape_index = 5
+dto.shape_index = 4
 dto.trigger_type = "OnClick"
 
-result = api.create_animation_interactive_sequence_effect("MyPresentation.pptx", 1, 1, dto, None, "MyStorageFolder")
+result = api.create_animation_interactive_sequence_effect("MyPresentation.pptx", 1, 1, dto)
 for effect in result.intercative_sequences[0].effects:
     print(effect.shape_index)
 ```
@@ -246,14 +246,14 @@ for effect in result.intercative_sequences[0].effects:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.Effect();
-dto.type = model.Effect.TypeEnum.Fly;
-dto.subtype = model.Effect.SubtypeEnum.Bottom;
-dto.presetClassType = model.Effect.PresetClassTypeEnum.Entrance;
-dto.shapeIndex = 5;
-dto.triggerType = model.Effect.TriggerTypeEnum.OnClick;
-return api.createAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, dto, null, "MyStorageFolder").then((result) => {
-    (result.body as model.SlideAnimation).interactiveSequences[0].effects.forEach((sequence) => { console.log(sequence.shapeIndex); });
+const dto = new CloudSdk.Effect();
+dto.type = CloudSdk.Effect.TypeEnum.Fly;
+dto.subtype = CloudSdk.Effect.SubtypeEnum.Bottom;
+dto.presetClassType = CloudSdk.Effect.PresetClassTypeEnum.Entrance;
+dto.shapeIndex = 4;
+dto.triggerType = CloudSdk.Effect.TriggerTypeEnum.OnClick;
+api.createAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, dto).then((result) => {
+    result.body.interactiveSequences[0].effects.forEach((sequence) => { console.log(sequence.shapeIndex); });
 });
 ```
 
@@ -271,10 +271,10 @@ effect := NewEffect()
 effect.Type_ = "Fly"
 effect.Subtype = "Bottom"
 effect.PresetClassType = "Entrance"
-effect.ShapeIndex = 5
+effect.ShapeIndex = 4
 effect.TriggerType = "OnClick"
 
-animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, effect, "", "MyStorageFolder", "")
+animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, effect, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {

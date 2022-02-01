@@ -15,3 +15,6 @@ weight: 80
 - [Editing Paragraphs within Grouped Shapes](/slides/editing-paragraphs-within-grouped-shapes/)
 - [Complex types](/slides/complex-types/)
 - [Working with Shapes on Special Slides](/slides/working-with-shapes-on-special-slides/)
+- [Working with Math Formulas](/slides/working-with-math-formulas/)
+- [Working with Hyperlinks](/slides/working-with-hyperlinks/)
+- [Working with Geometry Paths](/slides/working-with-geometry-paths/)

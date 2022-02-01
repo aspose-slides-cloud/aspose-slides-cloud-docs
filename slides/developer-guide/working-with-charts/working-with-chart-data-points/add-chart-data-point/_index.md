@@ -72,8 +72,8 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
 dto.XValue = 25;
 dto.YValue = 9;
-Chart chart = api.CreateChartDataPoint("myPresentaion.pptx", 1, 2, 2, dto);
-Console.WriteLine(chart.Series[1].DataPoints.Count);
+Chart chart = api.CreateChartDataPoint("myPresentaion.pptx", 3, 2, 1, dto);
+Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```
 
 {{< /tab >}}
@@ -85,8 +85,8 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
 dto.setXValue(25);
 dto.setYValue(9);
-Chart chart = (Chart)api.createChartDataPoint("MyPresentation.pptx", 1, 2, 2, dto, null, null, null);
-System.out.println(chart.getSeries().get(1).getDataPoints().size());
+Chart chart = (Chart)api.createChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto, null, null, null);
+System.out.println(chart.getSeries().get(0).getDataPoints().size());
 ```
 
 {{< /tab >}}
@@ -106,8 +106,8 @@ $api = new SlidesApi(null, $config);
 $dto = new ScatterChartDataPoint();
 $dto->setXValue(25);
 $dto->setYValue(9);
-$result = $api->CreateChartDataPoint("MyPresentation.pptx", 1, 2, 2, $dto);
-print(count($result->getSeries()[1]->getDataPoints()));
+$result = $api->CreateChartDataPoint("MyPresentation.pptx", 3, 2, 1, $dto);
+print(count($result->getSeries()[0]->getDataPoints()));
 ```
 
 {{< /tab >}}
@@ -134,8 +134,8 @@ dto = ScatterChartDataPoint()
 dto.x_value = 25
 dto.y_value = 9
 
-result = api.create_chart_data_point("MyPresentation.pptx", 1, 2, 2, dto)
-print(len(result.series[1].data_points))
+result = api.create_chart_data_point("MyPresentation.pptx", 3, 2, 1, dto)
+print(len(result.series[0].data_points))
 ```
 
 {{< /tab >}}
@@ -146,11 +146,11 @@ print(len(result.series[1].data_points))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.ScatterChartDataPoint();
+const dto = new CloudSdk.ScatterChartDataPoint();
 dto.xValue = 25;
 dto.yValue = 9;
-return api.createChartDataPoint("MyPresentation.pptx", 1, 2, 2, dto).then((result) => {
-    console.log(((result.body as model.Chart).series[1] as model.ScatterSeries).dataPoints.length);
+api.createChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto).then((result) => {
+    console.log(result.body.series[0].dataPoints.length);
 });
 ```
 
@@ -167,11 +167,11 @@ api := asposeslidescloud.NewAPIClient(cfg)
 dto := NewScatterChartDataPoint()
 dto.XValue = 25
 dto.YValue = 9
-result, _, e := c.SlidesApi.CreateChartDataPoint("MyPresentation.pptx", 1, 2, 2, dto, "", "", "")
+result, _, e := c.SlidesApi.CreateChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getSeries()[1].(IScatterSeries).getDataPoints()))
+    fmt.Printf("%v series.", len(result.(IChart).getSeries()[0].(IScatterSeries).getDataPoints()))
 }
 ```
 
