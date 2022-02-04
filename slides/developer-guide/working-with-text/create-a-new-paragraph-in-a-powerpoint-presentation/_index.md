@@ -14,7 +14,7 @@ This article shows how you can create a new paragraph in PowerPoint presentation
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs|POST|Creates a new paragraph in a shape.|[CreateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/CreateParagraph)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |

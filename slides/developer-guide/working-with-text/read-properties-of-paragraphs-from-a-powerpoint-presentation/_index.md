@@ -14,7 +14,7 @@ This article shows how you can read the formatting properties of paragraphs from
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs|GET|Reads properties of paragraphs in a shape.|[GetParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraphs)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
@@ -103,11 +103,11 @@ namespace SlidesCloudApp
                 using (var fileStream = File.OpenRead(fileName))
                 {
                     slidesApi.UploadFile(filePath, fileStream, storageName);
-
-                    var paragraphs = slidesApi.GetParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
-                    var paragraphCount = paragraphs.ParagraphLinks.Count;
-                    Console.WriteLine(paragraphCount);
                 }
+
+                var paragraphs = slidesApi.GetParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
+                var paragraphCount = paragraphs.ParagraphLinks.Count;
+                Console.WriteLine(paragraphCount);
             }
             catch (ApiException e)
             {

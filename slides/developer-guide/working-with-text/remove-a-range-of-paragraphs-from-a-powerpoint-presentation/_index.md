@@ -14,7 +14,7 @@ This article shows how you can remove a range of paragraphs in PowerPoint presen
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs|DELETE|Removes a range of paragraphs in a shape.|[DeleteParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraphs)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |

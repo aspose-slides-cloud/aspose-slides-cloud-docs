@@ -14,7 +14,7 @@ This article shows how you can remove a paragraph by index in PowerPoint present
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|DELETE|Removes a paragraph in a shape.|[DeleteParagraph](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraph)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |

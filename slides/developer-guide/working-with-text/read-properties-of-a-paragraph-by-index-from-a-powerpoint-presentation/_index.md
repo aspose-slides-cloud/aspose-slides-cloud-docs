@@ -14,7 +14,7 @@ This article shows how you can read properties of a paragraph by index from Powe
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|GET|Reads properties of a paragraph in a shape.|[GetParagraph](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraph)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
