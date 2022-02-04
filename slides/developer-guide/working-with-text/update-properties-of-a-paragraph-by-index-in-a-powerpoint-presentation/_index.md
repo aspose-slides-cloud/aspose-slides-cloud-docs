@@ -14,7 +14,7 @@ This article shows how you can update properties of a paragraph by index in Powe
 | :- | :- | :- | :- |
 |/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|PUT|Updates properties of a paragraph in a shape.|[UpdateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/UpdateParagraph)|
 
-###### **Request Parameters**
+### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
