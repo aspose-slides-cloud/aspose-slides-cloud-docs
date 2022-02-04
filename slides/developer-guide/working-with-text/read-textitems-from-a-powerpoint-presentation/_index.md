@@ -2,7 +2,7 @@
 title: "Read TextItems from a PowerPoint Presentation"
 type: docs
 url: /read-textitems-from-a-powerpoint-presentation/
-weight: 10
+weight: 70
 ---
 
 ## **Introduction**

@@ -2,7 +2,7 @@
 title: "Replace occurrence of a Text in a PowerPoint Presentation"
 type: docs
 url: /replace-occurrence-of-a-text-in-a-powerpoint-presentation/
-weight: 20
+weight: 80
 ---
 
 ## **Introduction**
