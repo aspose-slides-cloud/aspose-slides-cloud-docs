@@ -6,7 +6,7 @@ weight: 10
 ---
 
 ## **Introduction**
-This article shows how you can read the formatting properties of paragraphs from PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+This article shows how you can read the formatting properties of paragraphs from PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Python, С++, and much more.
 
 ## **API Information**
 
