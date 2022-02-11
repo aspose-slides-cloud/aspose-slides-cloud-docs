@@ -59,7 +59,39 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using System.IO;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var folderName = "Data";
+        var fileName = "example.pptx";
+        var slideIndex = 1;
+        var shapeIndex = 1;
+        var paragraphIndex = 2;
+        var password = "";
+        
+        // Get a paragraph from the presentation.
+        var paragraph = slidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+
+        // Change some paragraph settings.
+        paragraph.Alignment = Paragraph.AlignmentEnum.Justify;
+        paragraph.MarginLeft = 30;
+        paragraph.SpaceBefore = -20; // The negative value means it is in points.
+
+        // Update the paragraph settings.
+        slidesApi.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
