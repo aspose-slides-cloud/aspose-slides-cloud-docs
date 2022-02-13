@@ -61,10 +61,9 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
-using System;
-using System.IO;
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
+using System;
 
 class Test
 {
@@ -99,7 +98,36 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraph;
+import com.aspose.slides.ApiException;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var folderName = "Data";
+        var fileName = "example.pptx";
+        var slideIndex = 1;
+        var shapeIndex = 1;
+        var paragraphIndex = 2;
+        var password = "";
+
+        // Get a paragraph from the presentation.
+        var paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+
+        // Change some paragraph settings.
+        paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);
+        paragraph.setMarginLeft(30.0);
+        paragraph.setSpaceBefore(-20.0); // The negative value means it is in points.
+
+        // Update the paragraph settings.
+        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -139,7 +167,36 @@ class Test
 {{< tab tabNum="7" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraph;
+import com.aspose.slides.ApiException;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var folderName = "Data";
+        var fileName = "example.pptx";
+        var slideIndex = 1;
+        var shapeIndex = 1;
+        var paragraphIndex = 2;
+        var password = "";
+
+        // Get a paragraph from the presentation.
+        var paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+
+        // Change some paragraph settings.
+        paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);
+        paragraph.setMarginLeft(30.0);
+        paragraph.setSpaceBefore(-20.0); // The negative value means it is in points.
+
+        // Update the paragraph settings.
+        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
