@@ -205,7 +205,33 @@ $slidesApi->updateParagraph($fileName, $slideIndex, $shapeIndex, $paragraphIndex
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.paragraph import Paragraph
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storageName = "Main"
+folderName = "Data"
+fileName = "example.pptx"
+slideIndex = 1
+shapeIndex = 1
+paragraphIndex = 2
+password = ""
+
+# Get a paragraph from the presentation.
+paragraph = slides_api.get_paragraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName)
+
+# Change some paragraph settings.
+paragraph.alignment = "Justify"
+paragraph.margin_left = 30
+paragraph.space_before = -20 # The negative value means it is in points.
+
+# Update the paragraph settings.
+slides_api.update_paragraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName)
 ```
 
 {{< /tab >}}
