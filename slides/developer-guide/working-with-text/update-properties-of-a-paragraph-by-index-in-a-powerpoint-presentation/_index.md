@@ -309,7 +309,38 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto folderName = to_string_t("Data");
+	auto fileName = to_string_t("example.pptx");
+	auto slideIndex = 1;
+	auto shapeIndex = 1;
+	auto paragraphIndex = 2;
+	auto password = to_string_t("");
+
+    // Get a paragraph from the presentation.
+    auto paragraph = slidesApi->getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).get();
+
+    // Change some paragraph settings.
+    paragraph->setAlignment(to_string_t("Justify"));
+    paragraph->setMarginLeft(30);
+    paragraph->setSpaceBefore(-20); // The negative value means it is in points.
+
+    // Update the paragraph settings.
+    slidesApi->updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName).get();
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
