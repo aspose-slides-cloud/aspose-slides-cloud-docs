@@ -160,7 +160,36 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$folderName = "Data";
+$fileName = "example.pptx";
+$slideIndex = 1;
+$shapeIndex = 1;
+$paragraphIndex = 2;
+$password = "";
+
+// Get a paragraph from the presentation.
+$paragraph = $slidesApi->getParagraph($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folderName, $storageName);
+
+// Change some paragraph settings.
+$paragraph->setAlignment(Model\Paragraph::ALIGNMENT_JUSTIFY);
+$paragraph->setMarginLeft(30);
+$paragraph->setSpaceBefore(-20); // The negative value means it is in points.
+
+// Update the paragraph settings.
+$slidesApi->updateParagraph($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $paragraph, $password, $folderName, $storageName);
 ```
 
 {{< /tab >}}
