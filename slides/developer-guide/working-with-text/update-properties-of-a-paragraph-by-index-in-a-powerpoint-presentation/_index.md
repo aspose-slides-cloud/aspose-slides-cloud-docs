@@ -30,20 +30,43 @@ This article shows how you can update properties of a paragraph by index in Powe
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ## **cURL Example**
+Update the second paragraph in the first shape on the first slide. Set text alignment to Justify. Set Margin Left to 30pt. Set Space Before to 20pt. The storage name is "Main". The folder name is "Data".
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
 ```
-
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shapes/1/paragraphs/2?folder=Data&storage=Main" -d "{'Alignment':'Justify','MarginLeft':30.0,'SpaceBefore':-20.0}" -H "Content-Type: application/json" -H %token% --ssl-no-revoke
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```
-
+```json
+{
+    "marginLeft": 30.0,
+    "spaceBefore": -20.0,
+    "alignment": "Justify",
+    "portionList": [
+        {
+            "text": "The second paragraph to demonstrate updating the paragraph settings.",
+            "fontColor": "#FF000000",
+            "highlightColor": "#0",
+            "fontHeight": 18.0,
+            "languageId": "en-US",
+            "selfUri": {
+                "href": "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shapes/1/paragraphs/2/portions/1?folder=Data",
+                "relation": "self"
+            }
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shapes/1/paragraphs/2?folder=Data",
+        "relation": "self"
+    }
+}
 ```
 
 {{< /tab >}}
@@ -54,6 +77,8 @@ This article shows how you can update properties of a paragraph by index in Powe
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](https://docs.aspose.cloud/slides/available-sdks/).
 
 ## **SDK Examples**
+Update the second paragraph in the first shape on the first slide. Set text alignment to Justify. Set Margin Left to 30pt. Set Space Before to 20pt. The storage name is "Main". The folder name is "Data".
+
 {{< tabs tabTotal="11" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
