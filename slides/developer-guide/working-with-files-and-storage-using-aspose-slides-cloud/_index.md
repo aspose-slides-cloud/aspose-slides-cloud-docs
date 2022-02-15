@@ -14,7 +14,15 @@ Aspose.Slides Cloud provides helper functions to work with files uploaded to As
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|GET|Download a File from Storage|[DownloadFile](https://apireference.aspose.cloud/slides/#/File/DownloadFile)|
+|/slides/storage/file/{path}|GET|Downloads a file from a Cloud storage.|[DownloadFile](https://apireference.aspose.cloud/slides/#/File/DownloadFile)|
+
+#### **Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|path|string|path|true|The file path in a storage.|
+|storageName|string|query|false|The storage name.|
+|versionId|string|query|false|The file version ID.|
 
 ### **cURL Example**
 
@@ -42,7 +50,15 @@ curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/presentation_
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|PUT|Upload a file to Cloud Storage|[UploadFile](https://apireference.aspose.cloud/slides/#/File/UploadFile)|
+|/slides/storage/file/{path}|PUT|Uploads a file to a Cloud storage.|[UploadFile](https://apireference.aspose.cloud/slides/#/File/UploadFile)|
+
+#### **Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|path|string|path|true|The file path in a storage. If the content is multipart and the path does not contains the file name, it tries to get them from `filename` parameter from the Content-Disposition header.|
+|file|file|formData|true|The file to upload.|
+|storageName|string|query|false|The storage name.|
 
 ### **cURL Example**
 
@@ -84,7 +100,17 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/presentation_
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/storage/file/copy/{srcPath}|PUT|Duplicate a file to a new location on Cloud Storage|[CopyFile](https://apireference.aspose.cloud/slides/#/File/CopyFile)|
+|/slides/storage/file/copy/{srcPath}|PUT|Duplicates a file to a new location on a Cloud storage.|[CopyFile](https://apireference.aspose.cloud/slides/#/File/CopyFile)|
+
+#### **Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|srcPath|string|path|true|The source file path.|
+|destPath|string|query|true|The destination file path.|
+|srcStorageName|string|query|false|The source storage name.|
+|destStorageName|string|query|false|The destination storage name.|
+|versionId|string|query|false|The version ID of the file to copy.|
 
 ### **cURL Example**
 
@@ -112,7 +138,17 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/presentat
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/storage/file/MOVE/{srcPath}|PUT|Move a file to a new location on Cloud Storage|[MoveFile](https://apireference.aspose.cloud/slides/#/File/MoveFile)|
+|/slides/storage/file/move/{srcPath}|PUT|Moves a file to a new location on a Cloud storage.|[MoveFile](https://apireference.aspose.cloud/slides/#/File/MoveFile)|
+
+#### **Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|srcPath|string|path|true|The source file path.|
+|destPath|string|query|true|The destination file path.|
+|srcStorageName|string|query|false|The source storage name.|
+|destStorageName|string|query|false|The destination storage name.|
+|versionId|string|query|false|The version ID of the file to move.|
 
 ### **cURL Example**
 
@@ -140,7 +176,15 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/cp.pptx?d
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|DELETE|Delete a file from Cloud Storage|[DeleteFile](https://apireference.aspose.cloud/slides/#/File/DeleteFile)|
+|/slides/storage/file/{path}|DELETE|Deletes a file from a Cloud storage.|[DeleteFile](https://apireference.aspose.cloud/slides/#/File/DeleteFile)|
+
+#### **Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|path|string|path|true|The file path.|
+|storageName|string|query|false|The storage name.|
+|versionId|string|query|false|The version ID of the file to delete.|
 
 ### **cURL Example**
 
