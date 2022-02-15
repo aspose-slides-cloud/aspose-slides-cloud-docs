@@ -6,7 +6,7 @@ weight: 50
 ---
 
 ## **Introduction**
-This article shows how you can update properties of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+This article shows you how you can update settings of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
 
 ## **API Information**
 
@@ -78,6 +78,12 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ## **SDK Examples**
 Update the second paragraph in the first shape on the first slide. Set text alignment to Justify. Set Margin Left to 30pt. Set Space Before to 20pt. The storage name is "Main". The folder name is "Data".
+
+{{% alert color="primary" %}}
+
+The following code examples also use `GetParagraph` method.
+
+{{% /alert %}}
 
 {{< tabs tabTotal="11" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
@@ -370,3 +376,9 @@ int main()
 {{< /tab >}}
 
 {{< /tabs >}}
+
+{{% alert color="primary" %}}
+
+To see all available paragraph settings, go to `Paragraph Properties` section.
+
+{{% /alert %}}
