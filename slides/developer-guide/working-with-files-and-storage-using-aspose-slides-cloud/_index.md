@@ -6,7 +6,7 @@ weight: 120
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud provides helper functions to work with files uploaded to Aspose Cloud Storage or any other Cloud Storage of your choice. If you need any help getting started with setting third party storage please refer to [Aspose Cloud UI Help Topics](https://docs.aspose.cloud/display/totalcloud/Aspose+Cloud+UI+Help+Topics).
+Aspose.Slides Cloud provides methods to work with files uploaded to Aspose Cloud Storage or any other Cloud Storage of your choice. If you need any help getting started with setting third party storage please refer to [Aspose Cloud UI Help Topics](https://docs.aspose.cloud/storage/aspose-cloud-ui-help-topics/).
 
 **Request Access Token**
 
@@ -101,7 +101,7 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.p
 ```java
 {
    "uploaded":[
-      "presentation_images_1.pptx"
+      "result.pptx"
    ],
    "errors":[
    ]
@@ -202,7 +202,7 @@ Delete a file **Resources/example.pptx** on a storage **Main**.
 {{< tab tabNum="1" >}}
 
 ```java
-curl -v -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources/example.pptx?storageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>" -d {} --ssl-no-revoke
+curl -v -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources/example.pptx?storageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>" --ssl-no-revoke
 ```
 
 {{< /tab >}}
