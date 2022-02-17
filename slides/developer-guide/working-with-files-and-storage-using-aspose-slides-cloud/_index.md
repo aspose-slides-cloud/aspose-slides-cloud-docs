@@ -67,6 +67,100 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/Data/example.p
 
 {{< /tabs >}}
 
+### **SDK Examples**
+
+{{< tabs tabTotal="11" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```swift
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+```go
+
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 ## **Uploading a file to Cloud Storage**
 
 ### **API Information**
@@ -112,6 +206,100 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.p
 
 {{< /tabs >}}
 
+### **SDK Examples**
+
+{{< tabs tabTotal="11" tabID="8" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```swift
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+```go
+
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 ## **Copying a file to a new location on Cloud Storage**
 
 ### **API Information**
@@ -139,6 +327,100 @@ Copy a file **Data/example.pptx** to the path **Resources/example_copy.pptx** on
 
 ```java
 curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/Data/example.pptx?destPath=Resources/example_copy.pptx&srcStorageName=Main&destStorageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>"  -d {} --ssl-no-revoke
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+### **SDK Examples**
+
+{{< tabs tabTotal="11" tabID="9" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```swift
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+```go
+
 ```
 
 {{< /tab >}}
@@ -178,6 +460,100 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/Data/exam
 
 {{< /tabs >}}
 
+### **SDK Examples**
+
+{{< tabs tabTotal="11" tabID="10" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```swift
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+```go
+
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 ## **Deleting a file on Cloud Storage**
 
 ### **API Information**
@@ -203,6 +579,100 @@ Delete a file **Resources/example.pptx** on a storage **Main**.
 
 ```java
 curl -v -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources/example.pptx?storageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>" --ssl-no-revoke
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+### **SDK Examples**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```swift
+
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+```go
+
 ```
 
 {{< /tab >}}
