@@ -68,13 +68,34 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/Data/example.p
 {{< /tabs >}}
 
 ### **SDK Examples**
+Download a file **Data/example.pptx** from a storage **Main** and save the file to **result.pptx**. 
 
 {{< tabs tabTotal="11" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using System.IO;
+using Aspose.Slides.Cloud.Sdk;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var resultPath = "result.pptx";
+
+        using (var fileStream = slidesApi.DownloadFile(filePath, storageName))
+        using (var resultStream = File.OpenWrite(resultPath))
+            fileStream.CopyTo(resultStream);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -207,13 +228,36 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.p
 {{< /tabs >}}
 
 ### **SDK Examples**
+Upload a file **example.pptx** to the path **Data/result.pptx** on a storage **Main**.
 
 {{< tabs tabTotal="11" tabID="8" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using System.IO;
+using Aspose.Slides.Cloud.Sdk;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "example.pptx";
+        var resultPath = "Data/result.pptx";
+
+        using (var fileStream = File.OpenRead(filePath))
+        {
+            var response = slidesApi.UploadFile(resultPath, fileStream, storageName);
+            Console.WriteLine(response.Uploaded.Count);
+        }
+    }
+}
 ```
 
 {{< /tab >}}
@@ -334,13 +378,31 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/Data/exam
 {{< /tabs >}}
 
 ### **SDK Examples**
+Copy a file **Data/example.pptx** to the path **Resources/example_copy.pptx** on a storage **Main**.
 
 {{< tabs tabTotal="11" tabID="9" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using Aspose.Slides.Cloud.Sdk;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var copyPath = "Resources/example_copy.pptx";
+
+        slidesApi.CopyFile(filePath, copyPath, storageName, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -461,13 +523,31 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/Data/exam
 {{< /tabs >}}
 
 ### **SDK Examples**
+Move a file **Data/example.pptx** to the path **Resources/example.pptx** on a storage **Main**.
 
 {{< tabs tabTotal="11" tabID="10" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using Aspose.Slides.Cloud.Sdk;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var newPath = "Resources/example.pptx";
+
+        slidesApi.MoveFile(filePath, newPath, storageName, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -586,13 +666,30 @@ curl -v -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources/e
 {{< /tabs >}}
 
 ### **SDK Examples**
+Delete a file **Resources/example.pptx** on a storage **Main**.
 
 {{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using System;
+using Aspose.Slides.Cloud.Sdk;
+
+class Test
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Resources/example.pptx";
+
+        slidesApi.DeleteFile(filePath, storageName);
+    }
+}
 ```
 
 {{< /tab >}}
