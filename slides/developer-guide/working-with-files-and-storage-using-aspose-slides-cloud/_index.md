@@ -103,7 +103,29 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.ApiException;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class Main {
+    public static void main(String[] args) throws ApiException, IOException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var resultPath = "result.pptx";
+
+        // Note: The file data will be stored to a temporary file.
+        var file = slidesApi.downloadFile(filePath, storageName, null);
+
+        Files.copy(file.toPath(), Paths.get(resultPath));
+    }
+}
 ```
 
 {{< /tab >}}
@@ -265,7 +287,29 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.ApiException;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class Main {
+    public static void main(String[] args) throws ApiException, IOException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "example.pptx";
+        var resultPath = "Data/result.pptx";
+
+        var fileData = Files.readAllBytes(Paths.get(filePath));
+
+        var response = slidesApi.uploadFile(resultPath, fileData, storageName);
+        System.out.println(response.getUploaded().size());
+    }
+}
 ```
 
 {{< /tab >}}
@@ -410,7 +454,22 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.ApiException;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var copyPath = "Resources/example_copy.pptx";
+
+        slidesApi.copyFile(filePath, copyPath, storageName, storageName, null);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -555,7 +614,22 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.ApiException;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Data/example.pptx";
+        var newPath = "Resources/example.pptx";
+
+        slidesApi.moveFile(filePath, newPath, storageName, storageName, null);
+    }
+}
 ```
 
 {{< /tab >}}
@@ -697,7 +771,21 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.ApiException;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        var storageName = "Main";
+        var filePath = "Resources/example.pptx";
+
+        slidesApi.deleteFile(filePath, storageName, null);
+    }
+}
 ```
 
 {{< /tab >}}
