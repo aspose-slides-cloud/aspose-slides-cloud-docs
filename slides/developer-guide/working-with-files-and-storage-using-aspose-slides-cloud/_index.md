@@ -133,7 +133,25 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$filePath = "Data/example.pptx";
+$resultPath = "result.pptx";
+
+// Note: The file data will be stored to a temporary file.
+$file = $slidesApi->downloadFile($filePath, $storageName);
+
+copy($file->getRealPath(), $resultPath);
 ```
 
 {{< /tab >}}
@@ -305,8 +323,8 @@ public class Main {
         var resultPath = "Data/result.pptx";
 
         var fileData = Files.readAllBytes(Paths.get(filePath));
-
         var response = slidesApi.uploadFile(resultPath, fileData, storageName);
+
         System.out.println(response.getUploaded().size());
     }
 }
@@ -317,7 +335,25 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$filePath = "example.pptx";
+$resultPath = "Data/result.pptx";
+
+$fileStream = fopen($filePath, 'r');
+$response = $slidesApi->uploadFile($resultPath, $fileStream, $storageName);
+
+echo count($response->getUploaded());
 ```
 
 {{< /tab >}}
@@ -477,7 +513,22 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$filePath = "Data/example.pptx";
+$copyPath = "Resources/example_copy.pptx";
+
+$slidesApi->copyFile($filePath, $copyPath, $storageName, $storageName);
 ```
 
 {{< /tab >}}
@@ -637,7 +688,22 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$filePath = "Data/example.pptx";
+$newPath = "Resources/example.pptx";
+
+$slidesApi->moveFile($filePath, $newPath, $storageName, $storageName);
 ```
 
 {{< /tab >}}
@@ -793,7 +859,21 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$storageName = "Main";
+$filePath = "Resources/example.pptx";
+
+$slidesApi->deleteFile($filePath, $storageName);
 ```
 
 {{< /tab >}}
