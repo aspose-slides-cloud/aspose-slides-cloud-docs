@@ -36,7 +36,7 @@ curl -v -X POST "https://api.aspose.cloud/connect/token" -d "grant_type=client_c
 
 {{< /tabs >}}
 
-## **Download a file from Cloud Storage**
+## **Downloading a file from Cloud Storage**
 
 ### **API Information**
 
@@ -167,7 +167,23 @@ copy($file->getRealPath(), $resultPath);
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+import shutil
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storage_name = "Main"
+file_path = "Data/example.pptx"
+result_path = "result.pptx"
+
+# Note: The file data will be stored to a temporary file.
+temp_path = slides_api.download_file(file_path, storage_name)
+
+shutil.copyfile(temp_path, result_path)
 ```
 
 {{< /tab >}}
@@ -369,7 +385,22 @@ echo count($response->getUploaded());
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storage_name = "Main"
+file_path = "example.pptx"
+result_path = "Data/result.pptx"
+
+with open(file_path, "rb") as file_stream:
+    response = slides_api.upload_file(result_path, file_stream, storage_name)
+
+print(len(response.uploaded))
 ```
 
 {{< /tab >}}
@@ -544,7 +575,19 @@ $slidesApi->copyFile($filePath, $copyPath, $storageName, $storageName);
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storage_name = "Main"
+file_path = "Data/example.pptx"
+copy_path = "Resources/example_copy.pptx"
+
+slides_api.copy_file(file_path, copy_path, storage_name, storage_name)
 ```
 
 {{< /tab >}}
@@ -719,7 +762,19 @@ $slidesApi->moveFile($filePath, $newPath, $storageName, $storageName);
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storage_name = "Main"
+file_path = "Data/example.pptx"
+new_path = "Resources/example.pptx"
+
+slides_api.move_file(file_path, new_path, storage_name, storage_name)
 ```
 
 {{< /tab >}}
@@ -889,7 +944,18 @@ $slidesApi->deleteFile($filePath, $storageName);
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+storage_name = "Main"
+file_path = "Resources/example.pptx"
+
+slides_api.delete_file(file_path, storage_name)
 ```
 
 {{< /tab >}}
