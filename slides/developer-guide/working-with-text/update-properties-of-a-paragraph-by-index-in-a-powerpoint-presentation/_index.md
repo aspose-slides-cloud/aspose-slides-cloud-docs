@@ -6,7 +6,7 @@ weight: 50
 ---
 
 ## **Introduction**
-This article shows how you can update properties of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. Using the paragraph settings, you can change the appearance of an entire block of text. You can use our REST API with any language: .NET, Java, PHP, Ruby, Python, С++, and much more.
+This article shows how you can update properties of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. Using the paragraph settings, you can change the appearance of an entire block of text. These settings include alignments, indents, spacing, etc. Some settings allow you to create bulleted and numbered lists. You can use our REST API with any language: .NET, Java, PHP, Ruby, Python, С++, and much more.
 
 ## **API Information**
 
@@ -30,14 +30,14 @@ This article shows how you can update properties of a paragraph by index in Powe
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ## **cURL Example**
-Update the second paragraph in the first shape on the first slide. Set text alignment to Justify. Set Margin Left to 30pt. Set Space Before to 20pt. The storage name is "Main". The folder name is "Data".
+Update the second paragraph in the first shape on the first slide. Set text alignment to **Justify**. Set Margin Left to **30pt**. Set Space Before to **20pt**. The storage name is **Main**. The folder name is **Data**.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-```
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shapes/1/paragraphs/2?folder=Data&storage=Main" -d "{'Alignment':'Justify','MarginLeft':30.0,'SpaceBefore':-20.0}" -H "Content-Type: application/json" -H %token% --ssl-no-revoke
+```java
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shapes/1/paragraphs/2?folder=Data&storage=Main" -d "{'Alignment':'Justify','MarginLeft':30.0,'SpaceBefore':-20.0}" -H "Content-Type: application/json" -H "Authorization: Bearer <access_token>" --ssl-no-revoke
 ```
 
 {{< /tab >}}
@@ -77,11 +77,11 @@ curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shape
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](https://docs.aspose.cloud/slides/available-sdks/).
 
 ## **SDK Examples**
-Update the second paragraph in the first shape on the first slide. Set text alignment to Justify. Set Margin Left to 30pt. Set Space Before to 20pt. The storage name is "Main". The folder name is "Data".
+Update the second paragraph in the first shape on the first slide. Set text alignment to **Justify**. Set Margin Left to **30pt**. Set Space Before to **20pt**. The storage name is **Main**. The folder name is **Data**.
 
 {{% alert color="primary" %}}
 
-The following code examples also use `GetParagraph` method.
+The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/) method.
 
 {{% /alert %}}
 
@@ -379,6 +379,6 @@ int main()
 
 {{% alert color="primary" %}}
 
-To see all available paragraph settings, go to `Paragraph Properties` section.
+To see all available paragraph settings, go to [Paragraph Properties](/slides/read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/#paragraph-properties) section.
 
 {{% /alert %}}
