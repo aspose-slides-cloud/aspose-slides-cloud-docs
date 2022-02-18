@@ -6,7 +6,7 @@ weight: 30
 ---
 
 ## **Introduction**
-This article shows how you can remove a range of paragraphs in PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+This article shows how you can remove a range of paragraphs in PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Python, С++, and much more.
 
 ## **API Information**
 

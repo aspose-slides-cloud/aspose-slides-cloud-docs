@@ -6,7 +6,7 @@ weight: 50
 ---
 
 ## **Introduction**
-This article shows you how you can update settings of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
+This article shows how you can update properties of a paragraph by index in PowerPoint presentations using Aspose.Slides for Cloud API. Using the paragraph settings, you can change the appearance of an entire block of text. You can use our REST API with any language: .NET, Java, PHP, Ruby, Python, С++, and much more.
 
 ## **API Information**
 
