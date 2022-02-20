@@ -246,7 +246,26 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto filePath = to_string_t("Data/example.pptx");
+	auto resultPath = to_string_t("result.pptx");
+
+	std::ofstream resultStream(resultPath, std::ofstream::binary);
+	slidesApi->downloadFile(filePath, storageName).get().writeTo(resultStream);
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
@@ -499,7 +518,30 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto filePath = to_string_t("example.pptx");
+	auto resultPath = to_string_t("Data/result.pptx");
+
+	auto fileStream = std::make_shared<std::ifstream>(filePath, std::ios::binary);
+	auto uploadContent = std::make_shared<HttpContent>();
+	uploadContent->setData(fileStream);
+
+	auto response = slidesApi->uploadFile(resultPath, uploadContent, storageName).get();
+	std::cout << response->getUploaded().size();
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
@@ -713,7 +755,25 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto filePath = to_string_t("Data/example.pptx");
+	auto copyPath = to_string_t("Resources/example_copy.pptx");
+
+	slidesApi->copyFile(filePath, copyPath, storageName, storageName);
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
@@ -927,7 +987,25 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto filePath = to_string_t("Data/example.pptx");
+	auto newPath = to_string_t("Resources/example.pptx");
+
+	slidesApi->moveFile(filePath, newPath, storageName, storageName);
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
@@ -1133,7 +1211,24 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+	auto storageName = to_string_t("Main");
+	auto filePath = to_string_t("Resources/example.pptx");
+
+	slidesApi->deleteFile(filePath, storageName);
+	
+	return 0;
+}
 ```
 
 {{< /tab >}}
