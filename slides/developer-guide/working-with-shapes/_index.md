@@ -18,3 +18,5 @@ weight: 80
 - [Working with Math Formulas](/slides/working-with-math-formulas/)
 - [Working with Hyperlinks](/slides/working-with-hyperlinks/)
 - [Working with Geometry Paths](/slides/working-with-geometry-paths/)
+- [Working with Zoom Frames](/slides/working-with-zoom-frames/)
+- [Working with WordArt](/slides/working-with-word-art/)

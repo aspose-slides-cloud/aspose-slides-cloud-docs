@@ -2,7 +2,7 @@
 title: "Working with Shapes on Special Slides"
 type: docs
 url: /working-with-shapes-on-special-slides/
-weight: 90
+weight: 100
 ---
 
 You can work with shapes on notes slides, layout slides and master slides just the same as you do on regular slides.
