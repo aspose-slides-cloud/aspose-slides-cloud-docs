@@ -72,7 +72,7 @@ https://api.aspose.cloud/v3.0/slides/genericPptx.pptx/merge
 {{< /expand-list >}}
 
 ###### **Response:**
-[Full presentation resource representation.](https://docs.aspose.cloud/slides/create-new-powerpoint-presentations/#response)
+Full resource representation. See a cURL response in [Reading Information about a Presentation](/slides/reading-information-about-a-presentation/) article.
 
 ###### **.Net SDK Code:**
 
