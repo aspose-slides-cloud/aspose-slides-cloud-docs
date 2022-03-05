@@ -181,7 +181,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/Sales.pptx/fromHtml?folder=Da
 
 {{< /tab >}}
 
-{{< /tabs >}
+{{< /tabs >}}
 
 ## **SDK Examples**
 Create a new presentation **Data/Sales.pptx** in a **Main** storage from an HTML document.
