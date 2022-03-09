@@ -5,85 +5,22 @@ url: /convert-powerpoint-documents-to-other-file-formats/
 weight: 10
 ---
 
-## **Convert**
-
 ## **Introduction**
 You can convert presentations to different formats using Aspose.Slides Cloud API in your applications. You can convert files that are uploaded to Aspose Cloud Storage, or local files provided in request body. Likewise, you can either save the conversion result to Aspose Cloud Storage or download in response body. Thus, Slides Cloud API provides four conversion methods:
-## **Using Storage**
+
 ### **API Information**
 
 |**URL**|**HTTP Method**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/convert/{format}|POST|Convert the file in request body to the desired format and returns it|[Convert](https://apireference.aspose.cloud/slides/#/Document/Convert)|
 |/slides/convert/{format}|PUT|Convert the file in request body to the desired format and saves the result to Cloud Storage|[ConvertAndSave](https://apireference.aspose.cloud/slides/#/Document/ConvertAndSave)|
 |/slides/{name}/{format}|POST|Convert a file on Cloud Storage to the desired format and returns it|[DownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/DownloadPresentation)|
 |/slides/{name}/{format}|PUT|Convert a file on Cloud Storage to the desired format and saves the result to Cloud Storage|[SavePresentation](https://apireference.aspose.cloud/slides/#/Document/SavePresentation)|
 
 PUT-methods require **outPath** query string parameter that specifies Storage path to save the output file.
 
-You can optionally use **fontsFolder** parameter to use custom fonts with your files. **fontsFolder** should be a Storage folder that contains font files. You can create storage folders and upload files to it using Slides Cloud API.
-
-You can [convert parts of presentations](/slides/convert-selected-document-slides/) using optional **slides** parameter.
-
-You can [specify format-specific options](/slides/conversion-options/) using **options** body parameter.
-
-### **cURL Example**
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
-
-{{< tab tabNum="1" >}}
-
-**Create Request Token**
-
-```java
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
-```
-
-
-**Create Fonts Folder**
-
-
-```java
-
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/folder/customFonts" -d "" -H "Authorization: Bearer CwEsXL_ddljbOuknQ2d-grMMRhNcAUhsDDEbBfORflhLt7zZZEVDIC15mmk99AjMBlSywCpPiFcvPqJ0dc2SJBEhdGNcDBTQ1rbuy08Wa6LGvcASPRXXmj04WxgC4nkzuoJN4UTTECNruH1n85P3V1s2hwFXqCVWxcushRupPXr1L9bpALlG9uEQq9_1OAF_m_REnrTSF51YKKr1NJkzcL0YuZqPsu4ER4qu9Y132ipP4SruqjrHWnkbgQ0JcE81Zuw7hmCXjb8SJDi0xsfKWBfhQOPT-Ff9-OnrmMJ1m6KyaqLTpGmhgrSMVYf5KXbRNspaBdTgKMToKH-rUOukIdMWOjV7VF8L0libDd2YaMzleJdo6DVRLQN12oBZDYDXPL3QDkD3doi9aq848rNSw_Mj_3aHQ1xaGehBMPk7ea_WuKMf" --ssl-no-revoke
-
-```
-
-**Upload Font File**
-
-
-```java
-
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/customFonts/custom.ttf" --data-binary @custom.ttf -H "Content-Type: application/octet-stream" -H "Authorization: Bearer CwEsXL_ddljbOuknQ2d-grMMRhNcAUhsDDEbBfORflhLt7zZZEVDIC15mmk99AjMBlSywCpPiFcvPqJ0dc2SJBEhdGNcDBTQ1rbuy08Wa6LGvcASPRXXmj04WxgC4nkzuoJN4UTTECNruH1n85P3V1s2hwFXqCVWxcushRupPXr1L9bpALlG9uEQq9_1OAF_m_REnrTSF51YKKr1NJkzcL0YuZqPsu4ER4qu9Y132ipP4SruqjrHWnkbgQ0JcE81Zuw7hmCXjb8SJDi0xsfKWBfhQOPT-Ff9-OnrmMJ1m6KyaqLTpGmhgrSMVYf5KXbRNspaBdTgKMToKH-rUOukIdMWOjV7VF8L0libDd2YaMzleJdo6DVRLQN12oBZDYDXPL3QDkD3doi9aq848rNSw_Mj_3aHQ1xaGehBMPk7ea_WuKMf" --ssl-no-revoke
-
-```
-
-**Convert the Presentation**
-
-
-```java
-
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/convert/pdf?fontsFolder=customFonts" --data-binary @customfont.pptx -H "Content-Type: application/octet-stream" -H "Authorization: Bearer CwEsXL_ddljbOuknQ2d-grMMRhNcAUhsDDEbBfORflhLt7zZZEVDIC15mmk99AjMBlSywCpPiFcvPqJ0dc2SJBEhdGNcDBTQ1rbuy08Wa6LGvcASPRXXmj04WxgC4nkzuoJN4UTTECNruH1n85P3V1s2hwFXqCVWxcushRupPXr1L9bpALlG9uEQq9_1OAF_m_REnrTSF51YKKr1NJkzcL0YuZqPsu4ER4qu9Y132ipP4SruqjrHWnkbgQ0JcE81Zuw7hmCXjb8SJDi0xsfKWBfhQOPT-Ff9-OnrmMJ1m6KyaqLTpGmhgrSMVYf5KXbRNspaBdTgKMToKH-rUOukIdMWOjV7VF8L0libDd2YaMzleJdo6DVRLQN12oBZDYDXPL3QDkD3doi9aq848rNSw_Mj_3aHQ1xaGehBMPk7ea_WuKMf" --ssl-no-revoke -o customfont.pdf
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="2" >}}
-
-```java
-
-{response-data}
-
-```
-
-{{< /tab >}}
-
-{{< /tabs >}}
-
 ## **SDK Source**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+
 ## **SDK Examples**
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
