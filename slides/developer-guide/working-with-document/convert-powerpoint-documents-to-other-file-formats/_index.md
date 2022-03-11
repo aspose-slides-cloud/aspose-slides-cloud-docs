@@ -12,11 +12,8 @@ You can convert presentations to different formats using Aspose.Slides Cloud API
 
 |**URL**|**HTTP Method**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/convert/{format}|PUT|Convert the file in request body to the desired format and saves the result to Cloud Storage|[ConvertAndSave](https://apireference.aspose.cloud/slides/#/Document/ConvertAndSave)|
 |/slides/{name}/{format}|POST|Convert a file on Cloud Storage to the desired format and returns it|[DownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/DownloadPresentation)|
 |/slides/{name}/{format}|PUT|Convert a file on Cloud Storage to the desired format and saves the result to Cloud Storage|[SavePresentation](https://apireference.aspose.cloud/slides/#/Document/SavePresentation)|
-
-PUT-methods require **outPath** query string parameter that specifies Storage path to save the output file.
 
 
 ## **SDK Source**

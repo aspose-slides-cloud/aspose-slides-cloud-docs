@@ -22,10 +22,10 @@ The following method allows you to convert a PowerPoint presentation to a specif
 |document|file|formData|true|The data of the presentation.|
 |format|string|path|true|The desired format for the conversion.|
 |password|string|header|false|The password to open the presentation.|
-|storage|string|query|false|The name of a storage containing the external fonts.|
-|fontsFolder|string|query|false|The path to a storage folder containing the external fonts.|
-|slides|string|query|false|The 1-based indices of the slides to be converted. If not specified, all slides are converted by default.|
-|options|data|body|false|The format-specific options for the conversion.|
+|storage|string|query|false|The name of the storage containing the external fonts.|
+|fontsFolder|string|query|false|The path to the storage folder containing the external fonts.|
+|slides|string|query|false|The 1-based indices of the slides to be converted. If it is not specified, all slides are converted by default.|
+|options|object|body|false|The format-specific options for the conversion.|
 
 To use **fontsFolder** parameter, you can create storage folders and upload font files to them using Slides Cloud API.
 
