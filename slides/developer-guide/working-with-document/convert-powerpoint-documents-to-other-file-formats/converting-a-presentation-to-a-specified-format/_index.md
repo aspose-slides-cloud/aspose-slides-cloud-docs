@@ -1,7 +1,7 @@
 ---
-title: "Passing a Presentation to Storage and Obtaining It in a Specified Format"
+title: "Converting a Presentation to a Specified Format"
 type: docs
-url: /passing-a-presentation-to-storage-and-obtaining-it-in-a-specified-format/
+url: /converting-a-presentation-to-a-specified-format/
 weight: 10
 ---
 
