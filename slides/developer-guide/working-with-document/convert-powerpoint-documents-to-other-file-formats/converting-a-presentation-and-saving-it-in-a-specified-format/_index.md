@@ -31,3 +31,28 @@ The following method allows you to transfer a PowerPoint presentation from a loc
 {{% alert color="primary" %}} 
 If the presentation is converted to images (for example, PNG, JPG, etc.), then the result will be a ZIP archive, and the `.zip` extension will be added to the output file name.
 {{% /alert %}} 
+
+## **cURL Examples**
+
+Convert **example.pptx** presentation from a local file to PNG images and save the result to **MyFolder/images.zip** file in **MyStorage** storage.
+
+{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+```java
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/convert/Png?outPath=MyFolder/images&storage=MyStorage" \
+     -H "authorization: Bearer <access_token>" \
+     -H "Content-Type: application/octet-stream" \
+     --data-binary @example.pptx
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+no data
+
+{{< /tab >}}
+
+{{< /tabs >}}

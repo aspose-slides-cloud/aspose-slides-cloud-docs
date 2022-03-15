@@ -71,7 +71,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/convert/Pdf?storage=Main&font
 
 **Creating the storage folder**
 
-empty
+no data
 
 **Adding the font to the folder**
 ```json
@@ -85,7 +85,7 @@ empty
 
 **Converting the presentation**
 
-empty
+no data
 
 {{< /tab >}}
 
