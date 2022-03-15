@@ -111,3 +111,14 @@ config.ClientSecret = "MyClientSecret";
 SlidesApi api = new SlidesApi(config);
 ... // My API requests
 ```
+
+### Use Google Cloud Storage
+
+Instead of storing files in a host computer's folder, you can use Google Cloud storage with your docker container. To use Google Cloud storage, specify path to the credentials file and the bucket name in GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_STORAGE_BUCKET enviromnent variables.
+
+```JAVA
+docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" \
+-e "GOOGLE_APPLICATION_CREDENTIALS=/creds/myCreds.json" -e "GOOGLE_STORAGE_BUCKET=myBucket" \
+-v "/home/user/google-cloud-creds:/creds" \
+aspose/slides-cloud
+```
