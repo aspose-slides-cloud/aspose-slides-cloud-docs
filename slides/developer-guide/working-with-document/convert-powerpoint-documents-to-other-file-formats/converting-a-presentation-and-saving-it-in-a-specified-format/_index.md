@@ -28,9 +28,11 @@ The following method allows you to transfer a PowerPoint presentation from a loc
 |slides|string|query|false|The 1-based indices of the slides to be converted. If it is not specified, all slides are converted by default.|
 |options|object|body|false|The format-specific options for the conversion.|
 
+To use **fontsFolder** parameter, you can create storage folders and upload font files to them using Slides Cloud API.
+
 {{% alert color="primary" %}}
 
-If the presentation is converted to images (for example, PNG, JPG, etc.), then the result will be a ZIP archive, and the `.zip` extension will be added to the output file name.
+If the slides of the presentation are converted to separate images (for example, PNG, JPG, etc.), the result will be a ZIP archive, and the `.zip` extension will be added to the output file name.
 
 {{% /alert %}}
 
