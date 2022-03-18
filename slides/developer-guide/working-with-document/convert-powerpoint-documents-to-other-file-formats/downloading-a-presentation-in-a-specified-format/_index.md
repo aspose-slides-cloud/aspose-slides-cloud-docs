@@ -204,7 +204,28 @@ File.binwrite("output.html", html_data)
 {{< tab tabNum="5" >}}
 
 ```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
 
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.html_export_options import HtmlExportOptions
+from asposeslidescloud.models.export_format import ExportFormat
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+# Use the Helvetica font if any presentation font is not found.
+html_options = HtmlExportOptions()
+html_options.default_regular_font = "Helvetica"
+
+# The HTML document should only contain the slides with indexes 2 and 4.
+slide_indices = [2, 4]
+
+# Export the presentation to HTML document and download the result.
+html_path = slides_api.download_presentation(
+    "example.pptx", ExportFormat.HTML, html_options, None, "MyFolder", "MyStorage", None, slide_indices)
+
+print('The HTML document was saved to ' + html_path)
 ```
 
 {{< /tab >}}
@@ -212,7 +233,28 @@ File.binwrite("output.html", html_data)
 {{< tab tabNum="6" >}}
 
 ```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
+const cloud = require("asposeslidescloud")
+const fs = require("fs")
+
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+
+// Use the Helvetica font if any presentation font is not found.
+const htmlOptions = new cloud.HtmlExportOptions()
+htmlOptions.defaultRegularFont = "Helvetica"
+
+// The HTML document should only contain the slides with indexes 2 and 4.
+const slideIndices = [2, 4]
+
+// Export the presentation to HTML document and download the result.
+slidesApi.downloadPresentation("example.pptx", cloud.ExportFormat.Html, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices).then((response) => {
+
+    // Save the HTML document to output.html file.
+    fs.writeFile("output.html", response.body, (error) => {
+        if (error) throw error
+    })
+})
 ```
 
 {{< /tab >}}
@@ -220,7 +262,32 @@ File.binwrite("output.html", html_data)
 {{< tab tabNum="7" >}}
 
 ```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
 
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.*;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Use the Helvetica font if any presentation font is not found.
+        var htmlOptions = new HtmlExportOptions();
+        htmlOptions.setDefaultRegularFont("Helvetica");
+
+        // The HTML document should only contain the slides with indexes 2 and 4.
+        var slideIndices = Arrays.asList(2, 4);
+
+        // Export the presentation to HTML document and download the result.
+        var response = slidesApi.downloadPresentation(
+            "example.pptx", ExportFormat.HTML, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices);
+
+        System.out.println("The HTML document was saved to " + response.getPath());
+    }
+}
 ```
 
 {{< /tab >}}
@@ -228,7 +295,35 @@ File.binwrite("output.html", html_data)
 {{< tab tabNum="8" >}}
 
 ```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
+#include "asposeslidescloud/api/SlidesApi.h"
+#include "asposeslidescloud/model/HtmlExportOptions.h"
+
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+    // Use the Helvetica font if any presentation font is not found.
+    auto htmlOptions = std::make_shared<HtmlExportOptions>();
+    htmlOptions->setDefaultRegularFont(to_string_t("Helvetica"));
+
+    // The HTML document should only contain the slides with indexes 2 and 4.
+    auto slideIndices = { 2, 4 };
+
+    // Export the presentation to HTML document and download the result.
+    auto htmlContent = slidesApi->downloadPresentation(
+        to_string_t("example.pptx"), to_string_t("html"), htmlOptions, utility::string_t(), to_string_t("MyFolder"), to_string_t("MyStorage"), utility::string_t(), slideIndices).get();
+
+    // Save the HTML document to output.html file.
+    std::ofstream htmlStream(to_string_t("output.html"), std::ofstream::binary);
+    htmlContent.writeTo(htmlStream);
+
+    return 0;
+}
 ```
 
 {{< /tab >}}
