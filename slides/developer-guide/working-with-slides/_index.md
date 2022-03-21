@@ -12,5 +12,5 @@ weight: 20
 - [Copy Slides in a PowerPoint Presentation](/slides/copy-slides-in-a-powerpoint-presentation/)
 - [Move a slide to a new position in a PowerPoint Presentation](/slides/move-a-slide-to-a-new-position-in-a-powerpoint-presentation/)
 - [Working with a slides background in a PowerPoint Presentation](/slides/working-with-a-slides-background-in-a-powerpoint-presentation/)
-- [Get comments of a slide in a PowerPoint Presentation](/slides/get-comments-of-a-slide-in-a-powerpoint-presentation/)
+- [Slide Comments](/slides/slide-comments/)
 - [Get PowerPoint Slide Count](/slides/get-powerpoint-slide-count/)

@@ -12,3 +12,4 @@ weight: 10
 - [Create new PowerPoint Presentations](/slides/create-new-powerpoint-presentations/)
 - [Split PowerPoint Presentations](/slides/split-powerpoint-presentations/)
 - [Merge PowerPoint Presentations](/slides/merge-powerpoint-presentations/)
+- [Convert Using FontFallbackRules](/slides/convert-using-fontfallbackrules)
