@@ -11,9 +11,6 @@ You can convert presentations to different formats using Aspose.Slides Cloud API
 
 
 
-## **SDK Source**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-
 ## **Conversion Formats**
 The Aspose.Slides Cloud API supports the following format conversions
 

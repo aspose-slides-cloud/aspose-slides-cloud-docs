@@ -160,7 +160,7 @@ $htmlOptions = new HtmlExportOptions();
 $htmlOptions->setDefaultRegularFont("Helvetica");
 
 // The HTML document should only contain the slides with indexes 2 and 4.
-$slideIndices = [ 2, 4 ];
+$slideIndices = [2, 4];
 
 // Export the presentation to HTML document and download the result.
 $response = $slidesApi->downloadPresentation(
