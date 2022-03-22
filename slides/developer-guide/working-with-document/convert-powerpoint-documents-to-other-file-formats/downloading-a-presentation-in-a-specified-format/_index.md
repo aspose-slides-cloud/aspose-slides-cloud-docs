@@ -7,13 +7,13 @@ weight: 30
 
 ## **Introduction**
 
-The following method allows you to download a PowerPoint presentation located in a Cloud storage in a desired format. The result will be obtained immediately for saving to a local file. In addition, you can also specify a folder in a storage containing external fonts that can be used in the presentation, and other options.
+The following method allows you to download a PowerPoint presentation located in a Cloud Storage in a desired format.
 
 ## **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/{format}|POST|Converts a presentation located in a Cloud storage to a specified format and returns the result.|[DownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/DownloadPresentation)|
+|/slides/{name}/{format}|POST|Converts a presentation located in a storage to a specified format and returns the result.|[DownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/DownloadPresentation)|
 
 ### **Request Parameters**
 

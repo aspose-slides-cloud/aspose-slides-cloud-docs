@@ -7,7 +7,7 @@ weight: 10
 
 ## **Introduction**
 
-The following method allows you to convert a PowerPoint presentation to a specified format by passing a local file. The result of the conversion will be obtained immediately for saving to a local file as well. In addition, you can also specify a folder in a storage containing external fonts that can be used in the presentation, and other options.
+The following method allows you to transfer a PowerPoint presentation from a local file to a Cloud Storage, convert the presentation to a desired format and obtain the result.
 
 ## **API Information**
 

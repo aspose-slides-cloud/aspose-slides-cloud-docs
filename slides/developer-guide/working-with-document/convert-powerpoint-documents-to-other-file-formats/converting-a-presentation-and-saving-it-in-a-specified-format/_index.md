@@ -7,13 +7,13 @@ weight: 20
 
 ## **Introduction**
 
-The following method allows you to transfer a PowerPoint presentation from a local file to a Cloud Storage, convert the presentation to a desired format and save the result in the storage. In addition, you can also specify a folder in the storage containing external fonts that can be used in the presentation, and other options.
+The following method allows you to transfer a PowerPoint presentation from a local file to a Cloud Storage, convert the presentation to a desired format and save the result in the storage.
 
 ## **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/convert/{format}|PUT|Converts a passed presentation to a specified format and saves the result to the Cloud Storage.|[ConvertAndSave](https://apireference.aspose.cloud/slides/#/Document/ConvertAndSave)|
+|/slides/convert/{format}|PUT|Converts a passed presentation to a specified format and saves the result to the storage.|[ConvertAndSave](https://apireference.aspose.cloud/slides/#/Document/ConvertAndSave)|
 
 ### **Request Parameters**
 

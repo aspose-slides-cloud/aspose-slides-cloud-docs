@@ -6,18 +6,13 @@ weight: 10
 ---
 
 ## **Introduction**
-You can convert presentations to different formats using Aspose.Slides Cloud API in your applications. You can convert files that are uploaded to Aspose Cloud Storage, or local files provided in request body. Likewise, you can either save the conversion result to Aspose Cloud Storage or download in response body. Thus, Slides Cloud API provides four conversion methods:
 
-### **API Information**
+You can convert presentations to different formats using Aspose.Slides Cloud API in your applications. Many file formats have common and their own parameters. You can set these parameters, affecting the final result. Password-protected presentations can also be converted to other formats if a password is provided. Sometimes you only need to convert part of a presentation to a different format. You can do this by specifying the indexes of the slides to be converted. In addition, you can also specify a storage folder containing external fonts that can be used in the presentation, and other options.
 
-|**URL**|**HTTP Method**|**Description**|**Swagger Link**|
-| :- | :- | :- | :- |
-|/slides/{name}/{format}|PUT|Convert a file on Cloud Storage to the desired format and saves the result to Cloud Storage|[SavePresentation](https://apireference.aspose.cloud/slides/#/Document/SavePresentation)|
 
 
 ## **SDK Source**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-
 
 ## **Conversion Formats**
 The Aspose.Slides Cloud API supports the following format conversions
