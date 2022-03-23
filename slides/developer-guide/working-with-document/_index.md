@@ -6,7 +6,6 @@ weight: 10
 ---
 
 - [Convert PowerPoint Documents to other File Formats](/slides/convert-powerpoint-documents-to-other-file-formats/)
-- [Convert Selected Document Slides](/slides/convert-selected-document-slides/)
 - [Conversion Options](/slides/conversion-options/)
 - [Convert Using Custom Size](/slides/convert-using-custom-size/)
 - [Create new PowerPoint Presentations](/slides/create-new-powerpoint-presentations/)

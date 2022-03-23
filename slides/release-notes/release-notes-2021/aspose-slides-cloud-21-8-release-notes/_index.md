@@ -10,4 +10,4 @@ weight: 80
 - **SLIDESCLOUD-1232** Add optional slides parameter to convert presentation methods
 
 ## **Public API changes**
-A new optional **slides** parameter is added to convert presentation resources. you can now specify (as a comma-separated list) slide ranges that should be included in convert output. See [documentation](/slides/convert-selected-document-slides/) for more info.
+A new optional **slides** parameter is added to convert presentation resources. You can now specify (as a comma-separated list) slide ranges that should be included in convert output. See [documentation](/slides/convert-powerpoint-documents-to-other-file-formats/) for more info.

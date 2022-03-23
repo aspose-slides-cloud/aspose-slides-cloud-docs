@@ -29,8 +29,6 @@ The following method allows you to transfer a PowerPoint presentation from a loc
 
 To use **fontsFolder** parameter, you can create storage folders and upload font files to them using Slides Cloud API.
 
-You can [convert parts of presentations](/slides/convert-selected-document-slides/) using the optional **slides** parameter.
-
 You can specify [format-specific options](/slides/conversion-options/) using the **options** parameter.
 
 ## **cURL Examples**
