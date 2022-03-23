@@ -1,7 +1,7 @@
 ---
-title: "Converting a Presentation to a Specified Format"
+title: "Converting a Presentation and Obtaining It in a Specified Format"
 type: docs
-url: /converting-a-presentation-to-a-specified-format/
+url: /converting-a-presentation-and-obtaining-it-in-a-specified-format/
 weight: 10
 ---
 
@@ -45,7 +45,8 @@ Create **MyFonts** storage folder in **Main** storage, add **custom.ttf** font t
 ```java
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/folder/MyFonts?storageName=Main" \
      -H "authorization: Bearer <access_token>" \
-     -H "Content-Length: 0"
+     -H "Content-Length: 0" \
+     -H "accept: application/json"
 ```
 
 **Adding the font to the folder**
@@ -61,6 +62,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/MyFonts/custom.tt
 curl -X POST "https://api.aspose.cloud/v3.0/slides/convert/Pdf?storage=Main&fontsFolder=MyFonts" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/octet-stream" \
+     -H "accept: multipart/form-data" \
      --data-binary @example.pptx \
      -o output.pdf
 ```

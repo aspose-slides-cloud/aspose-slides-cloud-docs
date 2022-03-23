@@ -7,12 +7,13 @@ weight: 10
 
 ## **Introduction**
 
-You can convert presentations to different formats using Aspose.Slides Cloud API in your applications. Many file formats have common and their own parameters. You can set these parameters, affecting the final result. Password-protected presentations can also be converted to other formats if a password is provided. Sometimes you only need to convert part of a presentation to a different format. You can do this by specifying the indexes of the slides to be converted. In addition, you can also specify a storage folder containing external fonts that can be used in the presentation, and other options.
+You can convert presentations to different formats using Aspose.Slides Cloud API in your applications. Many file formats have common and their own parameters. You can set these parameters, affecting the final result. Password-protected presentations can also be converted to other formats if a password is specified. Sometimes you only need to convert part of a presentation to a different format. You can do this by specifying the indexes of the slides to be converted. In addition, you can also specify a storage folder containing external fonts that can be used in the presentation, and other options.
 
-- [Converting a Presentation to a Specified Format](/slides/converting-a-presentation-to-a-specified-format/)
-- [Converting a Presentation and Saving It in a Specified Format](/slides/converting-a-presentation-and-saving-it-in-a-specified-format/)
-- [Downloading a Presentation in a Specified Format](/slides/downloading-a-presentation-in-a-specified-format/)
-- [Saving a Presentation in a Specified Format](/slides/saving-a-presentation-in-a-specified-format/)
+The following articles describe methods for converting presentations.
+- [Converting a Presentation and Obtaining It in a Specified Format](/slides/converting-a-presentation-and-obtaining-it-in-a-specified-format/)
+- [Converting a Presentation and Saving It in a Specified Format in a Storage](/slides/converting-a-presentation-and-saving-it-in-a-specified-format-in-a-storage/)
+- [Downloading a Presentation in a Specified Format from a Storage](/slides/downloading-a-presentation-in-a-specified-format-from-a-storage/)
+- [Saving a Presentation in a Specified Format in a Storage](/slides/saving-a-presentation-in-a-specified-format-in-a-storage/)
 
 ## **Conversion Formats**
 The Aspose.Slides Cloud API supports converting presentations to the following formats.

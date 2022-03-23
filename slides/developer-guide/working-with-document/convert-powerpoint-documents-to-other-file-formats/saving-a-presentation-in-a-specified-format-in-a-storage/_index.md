@@ -1,7 +1,7 @@
 ---
-title: "Saving a Presentation in a Specified Format"
+title: "Saving a Presentation in a Specified Format in a Storage"
 type: docs
-url: /saving-a-presentation-in-a-specified-format/
+url: /saving-a-presentation-in-a-specified-format-in-a-storage/
 weight: 40
 ---
 
@@ -49,6 +49,7 @@ Convert **MyFolder/example.pptx** presentation located in **MyStorage** storage 
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/Tiff?outPath=MyImages/output.tiff&folder=MyFolder&storage=MyStorage&slides=1,3" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
+     -H "accept: application/json" \
      -d "{ 'NotesPosition':'BottomFull' }"
 ```
 

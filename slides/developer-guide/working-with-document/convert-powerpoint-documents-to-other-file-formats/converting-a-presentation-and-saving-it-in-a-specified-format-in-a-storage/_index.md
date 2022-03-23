@@ -1,7 +1,7 @@
 ---
-title: "Converting a Presentation and Saving It in a Specified Format"
+title: "Converting a Presentation and Saving It in a Specified Format in a Storage"
 type: docs
-url: /converting-a-presentation-and-saving-it-in-a-specified-format/
+url: /converting-a-presentation-and-saving-it-in-a-specified-format-in-a-storage/
 weight: 20
 ---
 
@@ -48,6 +48,7 @@ Convert **example.pptx** presentation from a local file to PNG images and save t
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/convert/Png?outPath=MyFolder/images&storage=MyStorage" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/octet-stream" \
+     -H "accept: application/json" \
      --data-binary @example.pptx
 ```
 

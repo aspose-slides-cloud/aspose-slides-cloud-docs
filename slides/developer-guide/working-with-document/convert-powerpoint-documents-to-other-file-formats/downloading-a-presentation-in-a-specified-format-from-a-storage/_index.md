@@ -1,7 +1,7 @@
 ---
-title: "Downloading a Presentation in a Specified Format"
+title: "Downloading a Presentation in a Specified Format from a Storage"
 type: docs
-url: /downloading-a-presentation-in-a-specified-format/
+url: /downloading-a-presentation-in-a-specified-format-from-a-storage/
 weight: 30
 ---
 
@@ -47,6 +47,8 @@ Download **MyFolder/example.pptx** presentation from **MyStorage** storage and s
 ```java
 curl -X POST "https://api.aspose.cloud/v3.0/slides/example.pptx/Html?folder=MyFolder&storage=MyStorage&slides=2,4" \
      -H "authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "accept: multipart/form-data" \
      -d "{'DefaultRegularFont': 'Helvetica'}" \
      -o output.html
 ```
