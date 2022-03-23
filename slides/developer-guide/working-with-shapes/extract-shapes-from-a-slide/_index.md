@@ -19,19 +19,19 @@ This article shows how to retrieve all shapes or shapes of the specified type fr
 
 **Get Authentication Header**
 
-```java
+```sh
 
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 **Get all shapes**
-```java
+```sh
 
 curl -v "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes" -d "" -H "Authorization: Bearer MyAuthToken"
 
 ```
 **Get shapes of the specified type**
-```java
+```sh
 
 curl -v "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes?shapeType=chart" -d "" -H "Authorization: Bearer MyAuthToken"
 

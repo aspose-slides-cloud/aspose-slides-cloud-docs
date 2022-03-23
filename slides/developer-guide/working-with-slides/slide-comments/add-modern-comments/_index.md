@@ -1,8 +1,8 @@
 ---
-title: "Add Chart Series"
+title: "Add Modern Comments"
 type: docs
-url: /convert-using-fontfallbackrules/
-weight: 10
+url: /add-modern-comments/
+weight: 30
 ---
 ## **Introduction**
 The article shows how to add a modern comment using Aspose.Slides Cloud.
@@ -62,7 +62,7 @@ Returns slide comments info.
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 

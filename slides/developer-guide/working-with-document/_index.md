@@ -9,7 +9,7 @@ weight: 10
 - [Convert Selected Document Slides](/slides/convert-selected-document-slides/)
 - [Conversion Options](/slides/conversion-options/)
 - [Convert Using Custom Size](/slides/convert-using-custom-size/)
+- [Convert Using FontFallbackRules](/slides/convert-using-fontfallbackrules)
 - [Create new PowerPoint Presentations](/slides/create-new-powerpoint-presentations/)
 - [Split PowerPoint Presentations](/slides/split-powerpoint-presentations/)
 - [Merge PowerPoint Presentations](/slides/merge-powerpoint-presentations/)
-- [Convert Using FontFallbackRules](/slides/convert-using-fontfallbackrules)

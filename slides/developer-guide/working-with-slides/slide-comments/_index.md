@@ -1,12 +1,11 @@
 ---
-title: "Working with Slides"
+title: "Slide Comments"
 type: docs
-url: /working-with-slides/
-weight: 20
+url: /slide-comments/
+weight: 80
 ---
-
+- [Get Slide Comments](/slides/get-slide-comments/)
 - [Add comments](/slides/add-comments/)
 - [Add Modern Comments](/slides/add-modern-comments/)
 - [Delete Comments](/slides/delete-comments/)
 - [Delete Slide Comments](/slides/delete-slide-comments/)
-- [Get Slide Comments](/slides/get-slide-comments/)

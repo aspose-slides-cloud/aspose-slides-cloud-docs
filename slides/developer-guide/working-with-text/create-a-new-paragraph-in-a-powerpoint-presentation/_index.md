@@ -36,13 +36,13 @@ You can add an empty paragraph or paragraph with portions.
 
 {{< tab tabNum="1" >}}
 
-```java
+```sh
 
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
 
-```java
+```sh
 
 curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs" -d @"paragraph.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]
 
