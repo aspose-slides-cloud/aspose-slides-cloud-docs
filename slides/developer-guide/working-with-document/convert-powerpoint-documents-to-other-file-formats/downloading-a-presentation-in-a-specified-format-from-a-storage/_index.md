@@ -30,6 +30,10 @@ The following method allows you to download a PowerPoint presentation located in
 
 To use **fontsFolder** parameter, you can create storage folders and upload font files to them using Slides Cloud API.
 
+You can [convert parts of presentations](/slides/convert-selected-document-slides/) using the optional **slides** parameter.
+
+You can specify [format-specific options](/slides/conversion-options/) using the **options** parameter.
+
 {{% alert color="primary" %}}
 
 If the slides of the presentation are converted to separate images (for example, PNG, JPG, etc.), the result will be a ZIP archive, and the `.zip` extension will be added to the output file name.
