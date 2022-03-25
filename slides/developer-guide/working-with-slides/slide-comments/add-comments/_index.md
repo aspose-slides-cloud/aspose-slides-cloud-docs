@@ -5,7 +5,7 @@ url: /add-comments/
 weight: 20
 ---
 ## **Introduction**
-The article shows how to add a regular comment using Aspose.Slides Cloud.
+You can add comments using **CreateComment** method. The example below shows how to add a regular comment. You can also add a [modern comment](/slides/add-modern-comments/) using the same method.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -81,8 +81,8 @@ SlideComment dto = new SlideComment()
     }
 };
 
-SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, null, null);
-            
+SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto);
+Console.WriteLine($"The slide has {response.List.Count} comments");
 ```
 
 {{< /tab >}}
@@ -90,6 +90,18 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, 
 {{< tab tabNum="2" >}}
 
 ```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+SlideComment dto = new SlideComment();
+dto.setText("Comment text");
+dto.setAuthor("Author Name");
+List<SlideCommentBase> childComments = new ArrayList<SlideCommentBase>();
+SlideComment childComment = new SlideComment();
+childComment.setText("Child comment text");
+childComment.setAuthor("Author Name");
+childComments.add(childComment);
+dto.setChildComments(childComments);
+SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, null, null);
+System.out.println("The slide has " + response.getList().size() + " comments");
 ```
 
 {{< /tab >}}
@@ -97,17 +109,92 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, 
 {{< tab tabNum="3" >}}
 
 ```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\SlideComment;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+
+$dto = new SlideComment();
+$dto->setText("Comment text");
+$dto->setAuthor("Author Name");
+$childComment = new SlideComment();
+$childComment->setText("Child comment text");
+$childComment->setAuthor("Author Name");
+$childComments = [ $childComment ];
+$dto->setChildComments($childComments);
+$response = $api->CreateComment("MyPresentation.pptx", 3, $dto);
+print("The slide has " . count($response->getList()) . " comments");
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
+```ruby
+configuration = AsposeSlidesCloud::Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+api = AsposeSlidesCloud::SlidesApi.new(configuration)
+
+dto = AsposeSlidesCloud::SlideComment.new()
+dto.text = "Comment text"
+dto.author = "Author Name"
+child_comment = AsposeSlidesCloud::SlideComment.new()
+child_comment.text = "Child comment text"
+child_comment.author = "Author Name"
+dto.child_comments = [ childComment ]
+response = api.create_comment("MyPresentation.pptx", 3, dto)
+p("The slide has " + response.list.length + " comments")
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.slide_comment import SlideComment
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+dto = SlideComment()
+dto.text = "Comment text"
+dto.author = "Author Name"
+child_comment = SlideComment()
+child_comment.text = "Child comment text"
+child_comment.author = "Author Name"
+dto.child_comments = [ childComment ]
+response = api.create_comment("MyPresentation.pptx", 3, dto)
+print("The slide has " + str(len(response.list)) + " comments")
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const dto = new CloudSdk.SlideComment();
+dto.text = "Comment text";
+dto.author = "Author Name";
+const childComment = new CloudSdk.SlideComment();
+childComment.text = "Child comment text";
+childComment.author = "Author Name";
+dto.childComments= [ childComment ];
+api.createComment("MyPresentation.pptx", 3, dto).then((comments) => {
+    console.log("The slide has " + comments.body.list.length + " comments");
+});
 ```
 
 {{< /tab >}}
@@ -115,6 +202,25 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, 
 {{< tab tabNum="7" >}}
 
 ```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+dto := NewSlideComment()
+dto.Text = "Comment text"
+dto.Author = "Author Name"
+childComment := NewSlideComment()
+childComment.Text = "Child comment text"
+childComment.Author = "Author Name"
+childComments := []ISlideCommentBase { childComment }
+dto.ChildComments = childComments
+comments, _, e := c.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The slide has %v comments", len(comments.(ISlideComments).getList()))
 ```
 
 {{< /tab >}}
@@ -124,6 +230,29 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::SlideComment;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $dto = AsposeSlidesCloud::Object::SlideComment->new();
+$dto->{text} = "Comment text";
+$dto->{author} = "Author Name";
+my $childComment = AsposeSlidesCloud::Object::SlideComment->new();
+$childComment->{text} = "Child comment text";
+$childComment->{author} = "Author Name";
+my @childComments = ( $childComment );
+$dto->{child_comments} = \@childComments;
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 3, 'dto' => $dto);
+my $comments = $api->create_comment(%params);
+print "The slide has " . (scalar @($comments->{list})) . " comments";
+```
 
 {{< /tab >}}
 

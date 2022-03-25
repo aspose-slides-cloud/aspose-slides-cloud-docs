@@ -5,7 +5,10 @@ url: /delete-comments/
 weight: 40
 ---
 ## **Introduction**
-The article shows how to delete all comments of the specified author from the presentation. If the author is not specified all comments will be deleted. 
+The article shows how to delete all comments of the specified author from the presentation. If the author is not specified all comments will be deleted.
+
+You can also [delete comments from a single slide](/slides/delete-slide-comments/).
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -31,7 +34,7 @@ curl  -v -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/com
 
 {{< tab tabNum="2" >}}
 
-```java
+```sh
 
 Code: 200
 Returns OK status.
@@ -51,8 +54,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.DeleteComments(c_fileName, null, null, null);
-            
+api.DeleteComments("MyPresentation.pptx", "Author Name");
 ```
 
 {{< /tab >}}
@@ -60,6 +62,8 @@ api.DeleteComments(c_fileName, null, null, null);
 {{< tab tabNum="2" >}}
 
 ```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+api.deleteComments("MyPresentation.pptx", "Author Name", null, null, null);
 ```
 
 {{< /tab >}}
@@ -67,17 +71,55 @@ api.DeleteComments(c_fileName, null, null, null);
 {{< tab tabNum="3" >}}
 
 ```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$api->DeleteComments("MyPresentation.pptx", "Author Name");
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
+```ruby
+configuration = AsposeSlidesCloud::Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+api = AsposeSlidesCloud::SlidesApi.new(configuration)
+api.delete_comments("MyPresentation.pptx", "Author Name")
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+api.delete_comments("MyPresentation.pptx", "Author Name")
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+api.deleteComments("MyPresentation.pptx", "Author Name").then(() => {
+    console.log("The comments have been deleted");
+});
 ```
 
 {{< /tab >}}
@@ -85,6 +127,15 @@ api.DeleteComments(c_fileName, null, null, null);
 {{< tab tabNum="7" >}}
 
 ```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+_, e := c.SlidesApi.DeleteComments("MyPresentation.pptx", "Author Name", "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
 ```
 
 {{< /tab >}}
@@ -94,6 +145,18 @@ api.DeleteComments(c_fileName, null, null, null);
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my %params = ('name' => 'MyPresentation.pptx', 'author' => "Author Name");
+$api->delete_comments(%params);
+```
 
 {{< /tab >}}
 

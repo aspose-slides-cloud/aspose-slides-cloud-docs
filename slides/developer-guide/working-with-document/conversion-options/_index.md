@@ -16,6 +16,7 @@ You can use options with all conversion methods - for presentations, slides or s
 |DefaultRegularFont|string|Default regular font for rendering the presentation.|all|
 |Width|double|Output document width.|all|
 |Height|double|Output document height.|all|
+|FontFallbackRules|FontFallbackRule\[\]|[Font fallback rules](/slides/convert-using-fontfallbackrules/).|all|
 |NotesPosition|None / BottomFull / BottomTruncated|The position of the notes on the page.|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|
 |CommentsPosition|None / Bottom / Right|The position of the comments on the page.|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|
 |CommentsAreaWidth|integer|The width of the comment output area in pixels (Applies only if comments are displayed on the right).|PDF, SWF, TIFF, HTML, PNG, JPG, GIF, BMP|

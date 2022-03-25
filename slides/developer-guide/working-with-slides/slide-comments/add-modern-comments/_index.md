@@ -5,7 +5,7 @@ url: /add-modern-comments/
 weight: 30
 ---
 ## **Introduction**
-The article shows how to add a modern comment using Aspose.Slides Cloud.
+You can add comments using **CreateComment** method. The example below shows how to add a modern comment. You can also add a [regular comment](/slides/add-comments/) using the same method.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -69,7 +69,7 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 int textSelectionStartIndex = 1;
-int textSellectionLength = 5;
+int textSelectionLength = 5;
             
 SlideModernComment childComment = new SlideModernComment()
 {
@@ -83,13 +83,12 @@ SlideModernComment dto = new SlideModernComment
     Text = "Comment text",
     Status  = SlideModernComment.StatusEnum.Active,
     TextSelectionStart = textSelectionStartIndex,
-    TextSelectionLength = textSellectionLength,
+    TextSelectionLength = textSelectionLength,
     ChildComments = new List<SlideCommentBase>(){childComment}
 };
             
 SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, 1, null, null);
-            
-            
+Console.WriteLine($"The slide has {response.List.Count} comments");
 ```
 
 {{< /tab >}}
@@ -97,6 +96,27 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, 1, nul
 {{< tab tabNum="2" >}}
 
 ```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+int textSelectionStartIndex = 1;
+int textSelectionLength = 5;
+
+SlideModernComment dto = new SlideModernComment();
+dto.setText("Comment text");
+dto.setAuthor("Author Name");
+dto.setStatus(SlideModernComment.StatusEnum.RESOLVED);
+
+List<SlideCommentBase> childComments = new ArrayList<SlideCommentBase>();
+SlideModernComment childComment = new SlideModernComment();
+childComment.setText("Child comment text");
+childComment.setAuthor("Author Name");
+childComment.setStatus(SlideModernComment.StatusEnum.ACTIVE);
+childComment.setTextSelectionStart(textSelectionStartIndex);
+childComment.setTextSelectionLength(textSelectionLength);
+
+childComments.add(childComment);
+dto.setChildComments(childComments);
+SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, null, null);
+System.out.println("The slide has " + response.getList().size() + " comments");
 ```
 
 {{< /tab >}}
@@ -104,17 +124,121 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, 1, nul
 {{< tab tabNum="3" >}}
 
 ```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\SlideModernComment;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+$textSelectionStartIndex = 1;
+$textSelectionLength = 5;
+
+$dto = new SlideModernComment();
+$dto->setText("Comment text");
+$dto->setAuthor("Author Name");
+$dto->setStatus("Resolved");
+
+$childComment = new SlideModernComment();
+$childComment->setText("Child comment text");
+$childComment->setAuthor("Author Name");
+$childComment->setStatus("Active");
+$childComment->setTextSelectionStart($textSelectionStartIndex);
+$childComment->setTextSelectionLength($textSelectionLength);
+$childComments = [ $childComment ];
+$dto->setChildComments($childComments);
+$response = $api->CreateComment("MyPresentation.pptx", 3, $dto);
+print("The slide has " . count($response->getList()) . " comments");
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
+```ruby
+configuration = AsposeSlidesCloud::Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+api = AsposeSlidesCloud::SlidesApi.new(configuration)
+text_selection_start_index = 1
+text_selection_length = 5
+
+dto = AsposeSlidesCloud::SlideModernComment.new()
+dto.text = "Comment text"
+dto.author = "Author Name"
+dto.status = "Resolved"
+
+child_comment = AsposeSlidesCloud::SlideModernComment.new()
+child_comment.text = "Child comment text"
+child_comment.author = "Author Name"
+child_comment.status = "Active"
+child_comment.text_selection_start = text_selection_start_index
+child_comment.text_selection_length = text_selection_length
+dto.child_comments = [ childComment ]
+response = api.create_comment("MyPresentation.pptx", 3, dto)
+p("The slide has " + response.list.length + " comments")
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.slide_modern_comment import SlideModernComment
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+text_selection_start_index = 1
+text_selection_length = 5
+
+dto = SlideModernComment()
+dto.text = "Comment text"
+dto.author = "Author Name"
+dto.status = "Resolved"
+
+child_comment = SlideModernComment()
+child_comment.text = "Child comment text"
+child_comment.author = "Author Name"
+child_comment.status = "Active"
+child_comment.text_selection_start = text_selection_start_index
+child_comment.text_selection_length = text_selection_length
+dto.child_comments = [ childComment ]
+response = api.create_comment("MyPresentation.pptx", 3, dto)
+print("The slide has " + str(len(response.list)) + " comments")
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const textSelectionStartIndex = 1;
+const textSelectionLength = 5;
+
+const dto = new CloudSdk.SlideModernComment();
+dto.text = "Comment text";
+dto.author = "Author Name";
+dto.status = "Resolved";
+
+const childComment = new CloudSdk.SlideModernComment();
+childComment.text = "Child comment text";
+childComment.author = "Author Name";
+childComment.status = "Active";
+childComment.textSelectionStart = textSelectionStartIndex;
+childComment.textSelectionLength = textSelectionLength;
+dto.childComments= [ childComment ];
+api.createComment("MyPresentation.pptx", 3, dto).then((comments) => {
+    console.log("The slide has " + comments.body.list.length + " comments");
+});
 ```
 
 {{< /tab >}}
@@ -122,6 +246,32 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, 1, nul
 {{< tab tabNum="7" >}}
 
 ```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+textSelectionStartIndex := 1
+textSelectionLength := 5
+
+dto := NewSlideModernComment()
+dto.Text = "Comment text"
+dto.Author = "Author Name"
+dto.Status = "Resolved"
+
+childComment := NewSlideModernComment()
+childComment.Text = "Child comment text"
+childComment.Author = "Author Name"
+childComment.Status = "Active"
+childComment.TextSelectionStart = textSelectionStartIndex
+childComment.TextSelectionLength = textSelectionLength
+childComments := []ISlideCommentBase { childComment }
+dto.ChildComments = childComments
+comments, _, e := c.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The slide has %v comments", len(comments.(ISlideComments).getList()))
 ```
 
 {{< /tab >}}
@@ -131,6 +281,36 @@ SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, 1, nul
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::SlideModernComment;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $text_selection_start_index = 1;
+my $text_selection_length = 5;
+
+my $dto = AsposeSlidesCloud::Object::SlideModernComment->new();
+$dto->{text} = "Comment text";
+$dto->{author} = "Author Name";
+$dto->{status} = "Resolved";
+
+my $childComment = AsposeSlidesCloud::Object::SlideModernComment->new();
+$childComment->{text} = "Child comment text";
+$childComment->{author} = "Author Name";
+$childComment->{status} = "Active";
+$childComment->{text_selection_start} = $text_selection_start_index;
+$childComment->{text_selection_length} = $text_selection_length;
+my @childComments = ( $childComment );
+$dto->{child_comments} = \@childComments;
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 3, 'dto' => $dto);
+my $comments = $api->create_comment(%params);
+print "The slide has " . (scalar @($comments->{list})) . " comments";
+```
 
 {{< /tab >}}
 

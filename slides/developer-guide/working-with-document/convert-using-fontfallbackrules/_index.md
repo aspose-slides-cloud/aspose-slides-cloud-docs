@@ -92,7 +92,9 @@ ImageExportOptions exportOptions = new ImageExportOptions()
     FontFallbackRules = fontRules
 };
             
-Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Png, exportOptions, null, null);
+using Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Png, exportOptions);
+using Stream outFile = File.Create("MyPresentation.zip");
+response.CopyTo(outFile);
 ```
 
 {{< /tab >}}
@@ -100,6 +102,32 @@ Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.P
 {{< tab tabNum="2" >}}
 
 ```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+List<FontFallbackRule> fontRules = new ArrayList<FontFallbackRule>();
+
+FontFallbackRule rule1 = new FontFallbackRule();
+rule1.setRangeStartIndex(c_startUnicodeIndex);
+rule1.setRangeEndIndex(c_endUnicodeIndex);
+List<String> fonts1 = new ArrayList<string>();
+fonts1.add("Vijaya");
+rule1.setFallbackFontList(fonts1);
+fontRules.add(rule1);
+
+FontFallbackRule rule2 = new FontFallbackRule();
+rule2.setRangeStartIndex(c_startUnicodeIndex);
+rule2.setRangeEndIndex(c_endUnicodeIndex);
+List<String> fonts2 = new ArrayList<string>();
+fonts2.add("Segoe UI Emoji");
+fonts2.add("Segoe UI Symbol");
+fonts2.add("Arial");
+rule2.setFallbackFontList(fonts2);
+fontRules.add(rule2);
+
+ImageExportOptions exportOptions = new ImageExportOptions();
+exportOptions.setFontFallbackRules(fontRules);
+            
+File response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Png, exportOptions, null, null, null, null);
+System.out.println("The converted file was saved to " + response.getPath());
 ```
 
 {{< /tab >}}
@@ -107,17 +135,125 @@ Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.P
 {{< tab tabNum="3" >}}
 
 ```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
+use Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
+
+$rule1 = new FontFallbackRule();
+$rule1->setRangeStartIndex($startUnicodeIndex);
+$rule1->setRangeEndIndex($endUnicodeIndex);
+$fonts1 = [ "Vijaya" ];
+$rule1->setFallbackFontList($fonts1);
+
+$rule2 = new FontFallbackRule();
+$rule2->setRangeStartIndex($startUnicodeIndex);
+$rule2->setRangeEndIndex($endUnicodeIndex);
+$fonts2 = [ "Segoe UI Emoji", "Segoe UI Symbol", "Arial" ];
+$rule2->setFallbackFontList($fonts2);
+
+$fontRules = [ $rule1, $rule2 ];
+$exportOptions = new ImageExportOptions();
+$exportOptions->setFontFallbackRules($fontRules);
+            
+$result = $api->DownloadPresentation("MyPresentation.pptx", ExportFormat::PDF, $exportOptions);
+print("The converted file was saved to " . $result->getPathname());
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
+```ruby
+configuration = AsposeSlidesCloud::Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+api = AsposeSlidesCloud::SlidesApi.new(configuration)
+
+rule1 = AsposeSlidesCloud::FontFallbackRule.new
+rule1.range_start_index = start_unicode_index
+rule1.range_end_index = end_unicode_index
+rule1.fallback_font_list = ["Vijaya"]
+
+rule2 = AsposeSlidesCloud::FontFallbackRule.new
+rule2.range_start_index = start_unicode_index
+rule2.range_end_index = end_unicode_index
+rule2.fallback_font_list = ["Segoe UI Emoji", "Segoe UI Symbol", "Arial"]
+
+export_options = AsposeSlidesCloud::ImageExportOptions.new
+export_options.font_fallback_rules([rule1, rule2])
+
+result = api.download_presentation("MyPresentation.pptx", AsposeSlidesCloud::ExportFormat::PNG, export_options)
+File.binwrite("MyPresentation.zip", result)
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.export_format import ExportFormat
+from asposeslidescloud.models.image_export_options import ImageExportOptions
+from asposeslidescloud.models.font_fallback_rule import FontFallbackRule
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+rule1 = FontFallbackRule()
+rule1.range_start_index = start_unicode_index
+rule1.range_end_index = end_unicode_index
+rule1.fallback_font_list = ["Vijaya"]
+
+rule2 = FontFallbackRule()
+rule2.range_start_index = start_unicode_index
+rule2.range_end_index = end_unicode_index
+rule2.fallback_font_list = ["Segoe UI Emoji", "Segoe UI Symbol", "Arial"]
+
+export_options = ImageExportOptions()
+export_options.font_fallback_rules([rule1, rule2])
+
+result = api.download_presentation("MyPresentation.pptx", ExportFormat.PNG, export_options)
+print('The converted file was saved to ' + result)
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const rule1 = new CloudSdk.FontFallbackRule();
+rule1.rangeStartIndex = c_startUnicodeIndex;
+rule1.rangeEndIndex = c_endUnicodeIndex;
+rule1.fallbackFontList = [ "Vijaya" ];
+
+const rule2 = new CloudSdk.FontFallbackRule();
+rule2.rangeStartIndex = c_startUnicodeIndex;
+rule2.rangeEndIndex = c_endUnicodeIndex;
+rule2.fallbackFontList = [ "Segoe UI Emoji, Segoe UI Symbol", "Arial" ];
+
+const exportOptions = new CloudSdk.ImageExportOptions();
+exportOptions.fontFallbackRules = [ rule1, rule2 ];
+api.downloadPresentation("MyPresentation.pptx", "png", exportOptions).then(() => {
+    fs.writeFile("MyPresentation.zip", response.body, (err) => {
+        if (err) throw err;
+    });
+});
 ```
 
 {{< /tab >}}
@@ -125,6 +261,33 @@ Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.P
 {{< tab tabNum="7" >}}
 
 ```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+rule1 := NewFontFallbackRule()
+rule1.RangeStartIndex = c_startUnicodeIndex
+rule1.RangeEndIndex = c_endUnicodeIndex
+fonts1 := []string> { "Vijaya" }
+rule1.FallbackFontList = fonts1
+
+rule2 := NewFontFallbackRule()
+rule2.RangeStartIndex = c_startUnicodeIndex
+rule2.RangeEndIndex = c_endUnicodeIndex
+fonts2 := []string> { "Segoe UI Emoji", "Segoe UI Symbol", "Arial" }
+rule2.FallbackFontList = fonts2
+
+fontRules := []FontFallbackRule { rule1, rule2 }
+
+exportOptions := NewImageExportOptions()
+exportOptions.FontFallbackRules = fontRules
+
+result, _, e := c.SlidesApi.DownloadPresentation("MyPresentation.pptx", "png", exportOptions, null, null, null, null)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The converted file was saved to  %v.", result.Name())
 ```
 
 {{< /tab >}}
@@ -134,6 +297,44 @@ Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.P
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+```perl
+use File::Slurp;
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::FontFallbackRule;
+use AsposeSlidesCloud::Object::ExportOptions;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $rule1 = AsposeSlidesCloud::Object::FontFallbackRule->new();
+$rule1->{range_start_index} = $c_startUnicodeIndex;
+$rule1->{range_end_index} = $c_endUnicodeIndex;
+my @fonts1 = ( "Vijaya" );
+$rule1->{fallback_font_list} = \@fonts1;
+
+my $rule2 = AsposeSlidesCloud::Object::FontFallbackRule->new();
+$rule2->{range_start_index} = $c_startUnicodeIndex;
+$rule2->{range_end_index} = $c_endUnicodeIndex;
+my @fonts2 = ( "Segoe UI Emoji", "Segoe UI Symbol", "Arial" );
+$rule2->{fallback_font_list} = \@fonts2;
+
+my $exportOptions = AsposeSlidesCloud::Object::ImageExportOptions->new();
+my @fontRules := ( $rule1, $rule2 );
+$exportOptions->{font_fallback_rules} = \@fontRules;
+
+my %params = ('name' => 'MyPresentation.pptx', 'format' => 'png', 'options' => $exportoptions);
+my $result = $api->download_presentation(%params);
+my $zip = "MyPresentation.zip";
+open my $fh, '>>', $zip;
+binmode $fh;
+print $fh $result;
+close $fh;
+```
 
 {{< /tab >}}
 
