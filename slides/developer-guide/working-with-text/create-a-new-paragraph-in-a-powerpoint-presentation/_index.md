@@ -30,13 +30,40 @@ This article shows how you can create a new paragraph in PowerPoint presentation
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ## **cURL Example**
-Add a new paragraph to the end of a shape (Text Box) at index 2 on the first slide. The paragraph text must be "Best regards, John" and spacing above the paragraph must be 24 pt. The storage is 'Main'. The folder is 'Data'.
+You can add an empty paragraph or paragraph with portions.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
+```sh
+
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+
 ```
+
+```sh
+
+curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs" -d @"paragraph.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]
+
+```
+
+paragraph.json
+```java
+{
+    "marginLeft": 2,
+    "marginRight" : 2, 
+    "alignment" : "center",
+    "portionList":[
+        {
+            "text" :"portion 1 text"
+        },
+        {
+            "text": "portion 2 text",
+            "fontBold": true
+        }
+    ]
+}
 
 ```
 
@@ -44,8 +71,9 @@ Add a new paragraph to the end of a shape (Text Box) at index 2 on the first sli
 
 {{< tab tabNum="2" >}}
 
-```
-
+```java
+Code: 201
+Returns paragraph info.
 ```
 
 {{< /tab >}}
@@ -61,7 +89,27 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 {{< tab tabNum="1" >}}
 
 ```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+Paragraph dto = new Paragraph()
+{
+    MarginLeft = 2,
+    MarginRight = 2,
+    Alignment = Paragraph.AlignmentEnum.Center,
+    PortionList = new List<Portion>()
+    {
+        new Portion()
+        {
+            Text = "Portion1"
+        },
+        new Portion()
+        {
+            Text = "Portion2",
+            FontBold = Portion.FontBoldEnum.True
+        }
+    }
+};
 
+Paragraph response = api.CreateParagraph("MyPresentation.pptx", 1, 2, dto, null, null, null);
 ```
 
 {{< /tab >}}

@@ -2,7 +2,7 @@
 title: "Create new PowerPoint Presentations"
 type: docs
 url: /create-new-powerpoint-presentations/
-weight: 50
+weight: 60
 ---
 
 - [Creating a New PowerPoint Presentation](/slides/creating-a-new-powerpoint-presentation/)
