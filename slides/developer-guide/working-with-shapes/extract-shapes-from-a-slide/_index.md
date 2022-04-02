@@ -6,27 +6,34 @@ weight: 10
 ---
 
 ## **Introduction**
-This example allows you to extract shapes from a particular slide using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language  .NET, Java, PHP, Ruby, Rails, Python, jQuery and many more.
-## **Resource**
-The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](https://apireference.aspose.cloud/slides/#!/SlidesShapes/SlidesShapes_GetSlidesSlideShapes).
-## **REST Methods References**
-We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](https://apireference.aspose.cloud/slides/) 
-## **cURL Example**
+This article shows how to retrieve all shapes or shapes of the specified type from the slide.
+### **API Information**
+|**API**|**Type**|**Description**|**Swagger Link**|
+| :- | :- | :- | :- |
+|/slides/{slideIndex}/shapes|GET|Read slide shapes info|[GetShapes](https://apireference.aspose.cloud/slides/#/Shapes/GetShapes)|
+
+### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Header**
+**Get Authentication Header**
 
-```java
+```sh
 
-curl -v "https://api.aspose.cloud/oauth2/token" -X POST -d "grant_type=client_credentials&client_id=&client_secret="-H "Content-Type: application/x-www-form-urlencoded"-H "Accept: application/json"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 
 ```
+**Get all shapes**
+```sh
 
-```java
+curl -v "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes" -d "" -H "Authorization: Bearer MyAuthToken"
 
-curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes?from=1&to=2"-X GET -H "Content-Type: application/json"-H "Accept: application/json"-H "Authorization: Bearer -Ou_UHdVStdZldtjaeFUAowQ3x2KLlSHd5ovZfDtZqpgdC6FLlalPmO8VJ58HXp8sgGhLqMqlnzEzIF2fEhEyJ3D7xzaw_c8cAuk3qoag3g7bghMHw_pe_RTxxJ9r04R9YAGFbbAcoU1ddPvrPz0e1FSakagM42Ie2eA8D1MyBVJ1D-RZJrfebPePuOLvR_hOD8Doqk5SBi_j-efODJK_PmGUxj0onOrUUx8Tj_GuUKrG6DcBnpl84_UykdOP87IeHnT2_NZCHQIgOY0vtfW6AUGfP9jO5W1mBS_q3lthTDRMg2LuZ6s0r9MKlwVJ_n7sn3TUCrr8kGmUB3k0mL0rrd5TSKm7yjx8hhjap43PlFhwk-r9g7guWsuFLoeDqPa4JNJ1NFM54qQvgWKCp5oDj4dZfbc7qhfIelNh1gW4VYwfmgz"
+```
+**Get shapes of the specified type**
+```sh
+
+curl -v "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes?shapeType=chart" -d "" -H "Authorization: Bearer MyAuthToken"
 
 ```
 
@@ -34,197 +41,157 @@ curl -v "http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes?f
 
 {{< tab tabNum="2" >}}
 
-```java
-
- {
-
-   "ShapeList":{
-
-      "ShapesLinks":[
-
-         {
-
-            "Uri":{
-
-               "Href":"http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes/1",
-
-               "Relation":"self",
-
-               "LinkType":null,
-
-               "Title":null
-
-            }
-
-         },
-
-         {
-
-            "Uri":{
-
-               "Href":"http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes/2",
-
-               "Relation":"self",
-
-               "LinkType":null,
-
-               "Title":null
-
-            }
-
-         },
-
-         {
-
-            "Uri":{
-
-               "Href":"http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes/3",
-
-               "Relation":"self",
-
-               "LinkType":null,
-
-               "Title":null
-
-            }
-
-         }
-
-      ],
-
-      "SelfUri":{
-
-         "Href":"http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes",
-
-         "Relation":"self",
-
-         "LinkType":null,
-
-         "Title":null
-
-      },
-
-      "AlternateLinks":[
-
-      ],
-
-      "Links":[
-
-         {
-
-            "Href":"http://api.aspose.cloud/v1.1/slides/sample-input.pptx/slides/1/shapes",
-
-            "Relation":"self",
-
-            "LinkType":null,
-
-            "Title":null
-
-         }
-
-      ]
-
-   },
-
-   "Code":200,
-
-   "Status":"OK"
-
-}
-
-```
+The shape info.
 
 {{< /tab >}}
 
 {{< /tabs >}}
 ## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
-
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
-
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "GetSlidesSlideShapes.cs" >}}
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+Shapes allShapes = api.GetShapes("MyPresentation.pptx", 1);
+Shapes charts = api.GetShapes("MyPresentation.pptx", 1, shapeType: ShapeType.Chart);
+Console.WriteLine($"The slide contains {allShapes.ShapesLinks.Count} shapes, including {charts.ShapesLinks.Count} charts");
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "GetSlidesSlideShapes.java" >}}
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+Shapes allShapes = api.getShapes("MyPresentation.pptx", 1);
+Shapes charts = api.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.Chart);
+System.out.println("The slide contains " + allShapes.getShapesLinks().size() + " shapes, including " + charts.getShapesLinks().size() + " charts");
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
 ```php
-<?php 
-   // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\ShapeType;
 
-   include(dirname(__DIR__) . '\CommonUtils.php');
-   use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-   use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-   use Aspose\Slides\Cloud\Sdk\Model;
-   use Aspose\Slides\Cloud\Sdk\Model\Requests;
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $config);
 
-   try {
-      // Create SlidesApi instance
-      $config = new Configuration();
-      $config->setAppSid(CommonUtils::$AppSid);
-      $config->setAppKey(CommonUtils::$AppKey);
-      $slidesApi = new SlidesApi(null, $config);
-
-      $fileName = "test-unprotected.ppt";
-
-      // Upload original document to storage
-      $fileStream = fopen(realpath(__DIR__ . '/../..') . '\resources\\' . $fileName, 'r');
-      $slidesApi->uploadFile($fileName,  $fileStream, CommonUtils::$MyStorage);
-      
-      $request = new Requests\GetSlidesSlidesListRequest($fileName);
-      $result = $slidesApi->getSlidesSlidesList($request);
-      print_r($result);
-
-   } catch (Exception $e) {
-      echo "Something went wrong: ", $e->getMessage(), "\n";
-   }
-?>
+$allShapes = $api->GetShapes("MyPresentation.pptx", 1);
+$charts = $api->GetShapes("MyPresentation.pptx", 1, null, null, null, ShapeType::CHART);
+print("The slide contains " . count($allShapes->getShapesLinks()) . " shapes, including " . count($charts->getShapesLinks()) . " charts");
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "GetSlidesSlideShapes.rb" >}}
+```ruby
+configuration = AsposeSlidesCloud::Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+api = AsposeSlidesCloud::SlidesApi.new(configuration)
+
+all_shapes = api.get_shapes("MyPresentation.pptx", 1)
+charts = api.get_shapes("MyPresentation.pptx", 1, nil, nil, nil, AsposeSlidesCloud::ShapeType::CHART)
+p("The slide contains " + all_shapes.shapes_links.length + " shapes, including " + charts.shapes_links.length + " charts")
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "GetSlidesSlideShapes.py" >}}
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.shape_type import ShapeType
+
+configuration = Configuration()
+configuration.app_sid = 'MyClientId'
+configuration.app_key = 'MyClientSecret'
+api = SlidesApi(configuration)
+
+all_shapes = api.get_shapes("MyPresentation.pptx", 1)
+charts = api.get_shapes("MyPresentation.pptx", 1, None, None, None, ShapeType.CHART)
+print("The slide contains " + str(all_shapes.shapes_links.length) + " shapes, including " + str(charts.shapes_links.length) + " charts")
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "GetSlidesSlideShapes.js" >}}
+```javascript
+const CloudSdk = require("asposeslidescloud");
+const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+api.getShapes("MyPresentation.pptx", 1).then((allShapes) => {
+    api.getShapes("MyPresentation.pptx", 1, null, null, null, "Chart").then((charts) => {
+        console.log("The slide contains " + allShapes.body.shapesLinks.length + " shapes, including " + charts.body.shapesLinks.length + " charts");
+    });
+});
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "GetSlidesSlideShapes.java" >}}
-
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1);
+my $all_shapes = $api->get_shapes(%params);
+
+$params{shape_type} = 'Chart';
+my $charts = $api->get_shapes(%params);
+
+print "The slide contains " . (scalar @{$all_shapes->{shapes_links}}) . " shapes, including " . (scalar @{$charts->{shapes_links}}) . " charts";
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+allShapes, _, e := c.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", nil)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+
+var shapeType string = "Chart"
+charts, _, e := c.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", &shapeType)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+}
+fmt.Printf("The slide contains %v shapes, including %v charts", len(allShapes.getShapesLinks()), len(charts.getShapesLinks()))
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

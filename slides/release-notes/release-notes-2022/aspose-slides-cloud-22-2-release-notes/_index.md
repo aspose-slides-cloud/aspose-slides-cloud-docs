@@ -2,7 +2,7 @@
 title: "Aspose.Slides Cloud 22.2 Release Notes"
 type: docs
 url: /aspose-slides-cloud-22-2-release-notes/
-weight: 10
+weight: 110
 ---
 
 ## **Improvements and Changes**
@@ -30,6 +30,6 @@ Added **ZoomFrame** and **ZoomObject** classes with a number of subclasses. See 
 
 Added **TextFrameFormat** property to **Shape** class to support WordArt. See [documentation](/slides/working-with-word-art/) for more info.
 
-Added **XYSeries** class as a supercalss for **ScatterSeries** and **BubbleSeries** methods.
+Added **XYSeries** class as a supercalss for **ScatterSeries** and **BubbleSeries** classes.
 
 Added **None** to the list of allowed values for **TimeUnitType** enum type.

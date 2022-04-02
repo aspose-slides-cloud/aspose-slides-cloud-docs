@@ -2,7 +2,7 @@
 title: "Aspose.Slides Cloud 21.12 Release Notes"
 type: docs
 url: /aspose-slides-cloud-21-12-release-notes/
-weight: 120
+weight: 10
 ---
 
 ## **Improvements and Changes**
