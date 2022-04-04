@@ -7,34 +7,34 @@ weight: 30
 
 ## **Introduction**
 
-You can use various options with the [conversion](/slides/convert-powerpoint-documents-to-other-file-formats/) features. The options are provided as JSON data in the request body and can be used with all conversion methods - for presentations, slides or shapes.
+You can use various options with the [conversion](/slides/convert-powerpoint-documents-to-other-file-formats/) features. The options are provided as JSON data in the request body and can be used with all conversion methods (for presentations, slides, or shapes).
 
 {{% alert color="primary" %}} 
 
-Value enumerations for some options describe parameter values with names for .NET SDK. The member names can differ for other Aspose.Slides SDKs according to their naming convention.
+Value enumerations for some options describe parameter values with names for .NET SDK. The member names may differ for other Aspose.Slides SDKs based on their naming convention.
 
 {{% /alert %}} 
 
 ## **Common Export Options**
 
-The following options may be used with any file format that a presentation is converted to.
+The following options may be used with any file format that a presentation is converted to:
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|DefaultRegularFont|string|Specifies a default regular font used when any presentation font is not found.|
+|DefaultRegularFont|string|Specifies the default regular font used when a presentation font is not found.|
 |Height|double|Specifies the height of pages or images in an output document.|
 |Width|double|Specifies the width of pages or images in an output document.|
 
 ## **Format Export Options**
 
-The options below are format-specific, so check the tables to see what options are appropriate for your conversion format.
+The options below are format-specific. Check the tables to see what options can be used with the file format in your conversion operation. 
 
 ### **BMP Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 
@@ -49,17 +49,17 @@ The options below are format-specific, so check the tables to see what options a
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 ### **GIF Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 
@@ -74,27 +74,27 @@ The options below are format-specific, so check the tables to see what options a
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 ### **HTML Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|DeletePicturesCroppedAreas|boolean|Specifies whether the cropped parts remain as part of the document or not. If true, the cropped parts will be removed. If false, they will be serialized in the document (which can possible lead to a larger file).|
+|DeletePicturesCroppedAreas|boolean|Specifies whether the cropped parts remain as part of the document or not. When `true`, the cropped parts are removed. When `false`, they are serialized in the document (and this may result in a larger file).|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 |PicturesCompression|PicturesCompressionEnum|Specifies the compression level for pictures.|
-|SaveAsZip|boolean|Specifies whether to save the output document as a zip file or not.|
+|SaveAsZip|boolean|Specifies whether the output document is saved as a zip file or not.|
 |ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |SubDirectoryName|string|Specifies the subdirectory name in the output zip file to store external files.|
-|SvgResponsiveLayout|boolean|Specifies whether to make the layout responsive by excluding the width and height attributes from an SVG container or not.|
+|SvgResponsiveLayout|boolean|Specifies whether the layout is made responsive (by excluding the width and height attributes from an SVG container) or not.|
 
 {{< expand-list title="CommentsPositionEnum" >}}
 |**Value**|**Description**|
@@ -107,10 +107,10 @@ The options below are format-specific, so check the tables to see what options a
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages as it is needed.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 {{< expand-list title="PicturesCompressionEnum" >}}
 |**Value**|**Description**|
@@ -127,15 +127,15 @@ The options below are format-specific, so check the tables to see what options a
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|AnimateTransitions|boolean|Specifies whether to animate slide transitions or not.|
-|AnimateShapes|boolean|Specifies whether to animate shapes or not.|
+|AnimateTransitions|boolean|Specifies whether slide transitions are animated or not.|
+|AnimateShapes|boolean|Specifies whether shapes are animated or not.|
 
 ### **JPG Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 
@@ -150,25 +150,25 @@ The options below are format-specific, so check the tables to see what options a
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 ### **PDF Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|AccessPermissions|AccessPermissionsEnum|Specifies the access permissions that should be granted when the document is opened with user access.|
+|AccessPermissions|AccessPermissionsEnum|Specifies the access permissions that will be granted when the document is opened with user access.|
 |AdditionalCommonFontFamilies|List\<string\>|Specifies an array of user-defined names of font families to be considered common.|
 |ApplyImageTransparent|boolean|Specifies whether the `ImageTransparentColor` option should be applied to images or not.|
 |CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
 |CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments on pages.|
 |Compliance|ComplianceEnum|Specifies a desired conformance level for the generated document.|
-|DrawSlidesFrame|boolean|Specifies whether to enclose each slide with a black frame or not.|
+|DrawSlidesFrame|boolean|Specifies whether each slide is enclosed with a black frame or not.|
 |EmbedFullFonts|boolean|Specifies whether all characters of fonts or only a used subset should be embedded.|
-|EmbedTrueTypeFontsForASCII|boolean|Specifies whether common fonts for ASCII (33..127 code range) text should be embedded or not. Fonts for character codes greater than 127 are always embedded. The list of common fonts includes the base 14 PDF fonts and additional user specified fonts.|
+|EmbedTrueTypeFontsForASCII|boolean|Specifies whether common fonts for ASCII (33..127 code range) text should be embedded or not. Fonts for character codes greater than 127 are always embedded. The list of common fonts includes the base 14 PDF fonts and additional user-specified fonts.|
 |ImageTransparentColor|string|Specifies a transparent color for images.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes on pages.|
@@ -176,7 +176,7 @@ The options below are format-specific, so check the tables to see what options a
 |SaveMetafilesAsPng|boolean|Specifies whether all metafiles used in a presentation should be converted to PNG images or not.|
 |ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
-|SufficientResolution|double|Specifies the resolution of images. Affects the output file size, export time and image quality. The default value is 96.|
+|SufficientResolution|double|Specifies the resolution of images. Affects the output file size, export time, and image quality. The default value is 96.|
 |TextCompression|TextCompressionEnum|Specifies compression type to be used for all text content.|
 
 {{< expand-list title="AccessPermissionsEnum" >}}
@@ -220,10 +220,10 @@ The following values may be used together as a combination of choices.
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 {{< expand-list title="TextCompressionEnum" >}}
 |**Value**|**Description**|
@@ -252,10 +252,10 @@ The following values may be used together as a combination of choices.
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 ### **PPTX Options**
 
@@ -275,10 +275,10 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|DeletePicturesCroppedAreas|boolean|Specifies whether the cropped parts remain as part of the document or not. If true, the cropped parts will be removed. If false, they will be serialized in the document (which can possible lead to a larger file).|
+|DeletePicturesCroppedAreas|boolean|Specifies whether the cropped parts remain as part of the document or not. When `true`, the cropped parts will be removed. When `false`, they are serialized in the document (and this may result in a larger file).|
 |Disable3DText|boolean|Specifies whether the 3D text is disabled in the output SVG image or not.|
 |DisableGradientSplit|boolean|Specifies whether to disable splitting FromCornerX and FromCenter gradients or not.|
-|DisableLineEndCropping|boolean|SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has a workaround for that problem: it crops the end of the line with an arrow, so, the line doesn't overlap the markers. This option specifies whether this behavior should be disabled or not.|
+|DisableLineEndCropping|boolean|SVG 1.1 lacks the ability to define insets for markers. Aspose.Slides SVG writing engine has a workaround for that problem: it crops the end of the line with an arrow so that the line doesn't overlap the markers. This option specifies whether this behavior is disabled or not.|
 |ExternalFontsHandling|ExternalFontsHandlingEnum|Specifies how externally loaded fonts are handled.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
 |MetafileRasterizationDpi|integer|Specifies the lower resolution limit for metafile rasterization.|
@@ -308,21 +308,21 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |Compressed|boolean|Specifies whether the generated SWF document should be compressed or not. The default value is true.|
-|EnableContextMenu|boolean|Specifies whether to enable the context menu. The default value is true.|
+|EnableContextMenu|boolean|Specifies whether the context menu is enabled. The default value is true.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
-|LogoImage|string|Specifies the image that will be displayed as a logo in the top right corner of the viewer. The image data is a Base64 string. The image should be 32x64 pixels in PNG format, otherwise the logo can be displayed improperly.|
-|LogoLink|string|Specifies the full hyperlink address for a logo. Has effect only if `LogoImage` is specified.|
+|LogoImage|string|Specifies the image that will be displayed as a logo at the top-right corner of the viewer. The image data is a Base64 string. The image should be 32x64 pixels in the PNG format. Otherwise, the logo may be displayed improperly.|
+|LogoLink|string|Specifies the full hyperlink address for a logo. Has effect only when `LogoImage` is specified.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 |ShowBottomPane|boolean|Specifies whether to show the bottom pane or not. Can be overridden in flashvars. The default value is true.|
 |ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowFullScreen|boolean|Specifies whether to show the fullscreen button or not. Can be overridden in flashvars. The default value is true.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |ShowLeftPane|boolean|Specifies whether to show the left pane or not. Can be overridden in flashvars. The default value is true.|
-|ShowPageBorder|boolean|Specifies whether a border around pages should be shown or not. The default value is true.|
+|ShowPageBorder|boolean|Specifies whether a border around pages is shown or not. The default value is true.|
 |ShowPageStepper|boolean|Specifies whether to show the page stepper or not. Can be overridden in flashvars. The default value is true.|
 |ShowSearch|boolean|Specifies whether to show the search section or not. Can be overridden in flashvars. The default value is true.|
 |ShowTopPane|boolean|Specifies whether to show the whole top pane or not. Can be overridden in flashvars. The default value is true.|
@@ -340,21 +340,21 @@ The following values may be used together as a combination of choices.
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 ### **TIFF Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments on pages.|
 |Compression|CompressionEnum|Specifies a compression type.|
-|DpiX|integer|Specifies the horizontal resolution, in dots per inch.|
-|DpiY|integer|Specifies the vertical resolution, in dots per inch.|
+|DpiX|integer|Specifies the horizontal resolution in dots per inch.|
+|DpiY|integer|Specifies the vertical resolution in dots per inch.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes on images.|
 |PixelFormat|PixelFormatEnum|Specifies a pixel format for the generated images.|
 |ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
@@ -382,10 +382,10 @@ The following values may be used together as a combination of choices.
 {{< expand-list title="NotesPositionEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
-|BottomFull|Notes should be full displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed in only one page.|
+|BottomFull|Notes should be fully displayed using additional pages when necessary.|
+|BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|{{< /expand-list >}}||
 
 {{< expand-list title="PixelFormatEnum" >}}
 |**Value**|**Description**|
@@ -407,7 +407,7 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|DrawSlidesFrame|boolean|Specifies whether to enclose each slide with a black frame or not.|
+|DrawSlidesFrame|boolean|Specifies whether each slide is enclosed with a black frame or not.|
 |SaveMetafilesAsPng|boolean|Specifies whether all metafiles used in a presentation should be converted to PNG images or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
@@ -451,7 +451,7 @@ PdfOptions.json file:
 
 ## **SDK Source**
 
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+Using an SDK (API client) is the quickest way for a developer to speed up development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 
 ## **SDK Examples**
 
