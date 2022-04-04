@@ -311,23 +311,23 @@ The following values may be used together as a combination of choices.
 |CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
 |CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
 |CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|Compressed|boolean|Specifies whether the generated SWF document should be compressed or not. The default value is true.|
-|EnableContextMenu|boolean|Specifies whether the context menu is enabled. The default value is true.|
+|Compressed|boolean|Specifies whether the generated SWF document should be compressed or not. The default value is `true`.|
+|EnableContextMenu|boolean|Specifies whether the context menu is enabled. The default value is `true`.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
 |LogoImage|string|Specifies the image that will be displayed as a logo at the top-right corner of the viewer. The image data is a Base64 string. The image should be 32x64 pixels in the PNG format. Otherwise, the logo may be displayed improperly.|
 |LogoLink|string|Specifies the full hyperlink address for a logo. Has effect only when `LogoImage` is specified.|
 |NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
-|ShowBottomPane|boolean|Specifies whether to show the bottom pane or not. Can be overridden in flashvars. The default value is true.|
+|ShowBottomPane|boolean|Specifies whether to show the bottom pane or not. Can be overridden in flashvars. The default value is `true`.|
 |ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
-|ShowFullScreen|boolean|Specifies whether to show the fullscreen button or not. Can be overridden in flashvars. The default value is true.|
+|ShowFullScreen|boolean|Specifies whether to show the fullscreen button or not. Can be overridden in flashvars. The default value is `true`.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
-|ShowLeftPane|boolean|Specifies whether to show the left pane or not. Can be overridden in flashvars. The default value is true.|
-|ShowPageBorder|boolean|Specifies whether a border around pages is shown or not. The default value is true.|
-|ShowPageStepper|boolean|Specifies whether to show the page stepper or not. Can be overridden in flashvars. The default value is true.|
-|ShowSearch|boolean|Specifies whether to show the search section or not. Can be overridden in flashvars. The default value is true.|
-|ShowTopPane|boolean|Specifies whether to show the whole top pane or not. Can be overridden in flashvars. The default value is true.|
+|ShowLeftPane|boolean|Specifies whether to show the left pane or not. Can be overridden in flashvars. The default value is `true`.|
+|ShowPageBorder|boolean|Specifies whether a border around pages is shown or not. The default value is `true`.|
+|ShowPageStepper|boolean|Specifies whether to show the page stepper or not. Can be overridden in flashvars. The default value is `true`.|
+|ShowSearch|boolean|Specifies whether to show the search section or not. Can be overridden in flashvars. The default value is `true`.|
+|ShowTopPane|boolean|Specifies whether to show the whole top pane or not. Can be overridden in flashvars. The default value is `true`.|
 |StartOpenLeftPane|boolean|Specifies whether to start with the opened left pane. Can be overridden in flashvars.|
-|ViewerIncluded|boolean|Specifies whether the generated SWF document should include the integrated document viewer or not. The default value is true.|
+|ViewerIncluded|boolean|Specifies whether the generated SWF document should include the integrated document viewer or not. The default value is `true`.|
 
 {{< expand-list title="CommentsPositionEnum" >}}
 |**Value**|**Description**|
