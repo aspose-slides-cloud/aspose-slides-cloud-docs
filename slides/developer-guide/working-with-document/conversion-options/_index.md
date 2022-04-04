@@ -52,7 +52,7 @@ The options below are format-specific. Check the tables to see what options can 
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 ### **GIF Options**
 
@@ -77,7 +77,7 @@ The options below are format-specific. Check the tables to see what options can 
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 ### **HTML Options**
 
@@ -110,7 +110,7 @@ The options below are format-specific. Check the tables to see what options can 
 |BottomFull|Notes should be fully displayed using additional pages as it is needed.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 {{< expand-list title="PicturesCompressionEnum" >}}
 |**Value**|**Description**|
@@ -153,7 +153,7 @@ The options below are format-specific. Check the tables to see what options can 
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 ### **PDF Options**
 
@@ -223,7 +223,7 @@ The following values may be used together as a combination of choices.
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 {{< expand-list title="TextCompressionEnum" >}}
 |**Value**|**Description**|
@@ -255,7 +255,7 @@ The following values may be used together as a combination of choices.
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 ### **PPTX Options**
 
@@ -343,7 +343,7 @@ The following values may be used together as a combination of choices.
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 ### **TIFF Options**
 
@@ -385,7 +385,7 @@ The following values may be used together as a combination of choices.
 |BottomFull|Notes should be fully displayed using additional pages when necessary.|
 |BottomTruncated|Notes should be displayed on a single page.|
 |None|Notes should not be displayed at all. The default value.|
-|{{< /expand-list >}}||
+{{< /expand-list >}}
 
 {{< expand-list title="PixelFormatEnum" >}}
 |**Value**|**Description**|
