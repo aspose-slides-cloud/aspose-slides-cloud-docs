@@ -22,8 +22,7 @@ Convert **MyPresentation.pptx** file to **480x360** PNG images.
 ```java
 curl -X POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Accept: application/json"
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
 **Convert the Presentation**
@@ -31,7 +30,6 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 ```java
 curl -X POST "https://api.aspose.cloud/v3.0/slides/convert/png" \
      -H "authorization: Bearer <access_token>" \
-     -H "accept: multipart/form-data" \
      -F "file=@MyPresentation.pptx" \
      -F "data=@options.json;filename=" \
      -o MyPresentation.zip
