@@ -5,341 +5,675 @@ url: /split-powerpoint-presentations/
 weight: 70
 ---
 
-## **Split**
-
 ## **Introduction**
-The article explains how to split a PowerPoint Presentation and export the resultant splits into various formats. 
-### **API Information**
 
-|**API**|**Type**|**Description**|**Resource Link**|
+The article shows you how to split a PowerPoint presentation. After splitting a presentation, you can get files in the specified format. It can be not only files in presentation formats, but also images.
+
+## **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/split|POST|Splits a file and stores the resultant parts on Storage|[PostSlidesSplit](https://apireference.aspose.cloud/slides/#/Document/PostSlidesSplit)|
+|/slides/{name}/split|POST|Splits a presentation file and stores the output parts on a storage.|[Split](https://apireference.aspose.cloud/slides/#/Document/Split)|
 
+### **Request Parameters**
 
-
-{{< expand-list title="Request Parameters" >}}
-
-| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+|**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|password|POST|string|Optional|Presentation password |
-|folder|POST|string|Optional|The document folder. |
-|storage|POST|string|Optional|The document storage. |
-|format|POST|string|Optional|See a table below for valid formats. Default value is jpeg. |
-|from|POST|int|Optional|The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation. |
-|to|POST|int|Optional|The last slide number for splitting, if is not specified splitting ends at the last slide of the document. |
-|height|POST|int|Optional|The height of slide in created file.  Not affected to html format. |
-|width|POST|int|Optional|The width of slide in created file.  Not affected to html format. |
-|destFolder|POST|string|Optional|Folder on storage where files are going to be uploaded. If not specified then files are uploaded to same folder as presentation. |
-|fontsFolder|PUT|string|Optional|Storage folder containing custom fonts to be used with the presentation. |
+|name|string|path|true|The file name of the presentation.|
+|options|object|body|false|The [format-specific options](/slides/conversion-options/) for the output files.|
+|format|string|query|false|The format for the output files. See the table below for available formats. The default value is `jpeg`.|
+|width|integer|query|false|The width of each slide in the output files. Does not affect the HTML format.|
+|height|integer|query|false|The height of each slide in the output files. Does not affect the HTML format.|
+|from|integer|query|false|The 1-based starting slide number for the splitting. If it is not specified, the splitting starts from the first slide of the presentation.|
+|to|integer|query|false|The 1-based last slide number for the splitting. If it is not specified, the splitting ends at the last slide of the presentation.|
+|destFolder|string|query|false|The storage folder where the output files will be uploaded. If it is not specified, the files will be uploaded to the folder where the presentation is located.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The folder path where the presentation is located.|
+|storage|string|query|false|The name of the storage where the presentation is located. If it is not specified, the default storage is assumed.|
+|fontsFolder|string|query|false|The path to the storage folder containing custom fonts that can be used in the presentation.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-*The `from` and `to` parameters are 1-based indices.*
-*The `from` and `to` parameters cannot be less than 1 or more than the number of slides.*
 
-{{< expand-list title="Available values for format parameter" >}}
+**Available values for the format parameter**
 
-| **Parameter Value** | **Format of the returned Page** | 
+|**Value**|**Description**| 
 | :- | :- |
-|tiff|Tagged Image File Format |
-|jpeg|Joint Photographic Experts Group Image Format |
-|png|Portable Networks Graphic Image Format |
-|bmp|Bitmap Picture |
-|gif|Graphics Interchange Format |
-|svg|Scalable Vector Graphics Format |
-|html|HyperText Markup Language |
-|pdf|Portable Document Format |
-|xps|XML Paper Specification Format |
-|pptx|Powerpoint 2007 2010 file format |
-|odp|OpenDocument Presentation Format |
-|ppt|Powerpoint 1997 2003 file format |
-|pps|Powerpoint 1997 2003 Show|
-|ppsx|PowerPoint Show |
-|pptm|PowerPoint Macro-Enabled Presentation |
-|ppsm|PowerPoint Macro-Enabled Show |
-|potx|PowerPoint Design Templates |
-|potm|PowerPoint Macro-Enabled Design Template |
+|jpeg|JPEG File Interchange Format|
+|png|Portable Network Graphics|
+|gif|Graphics Interchange Format|
+|bmp|Device Independent Bitmap|
+|tiff|Tag Image File Format|
+|html|Hypertext Markup Language|
+|pdf|Portable Document Format|
+|xps|Open XML Paper Specification|
+|pptx|PowerPoint Open XML Presentation|
+|odp|OpenDocument Presentation|
+|otp|OpenDocument Presentation Template|
+|ppt|PowerPoint 97-2003 Presentation|
+|pps|PowerPoint 97-2003 Slide Show|
+|ppsx|PowerPoint Open XML Slide Show|
+|pptm|PowerPoint Open XML Macro-Enabled Presentation|
+|ppsm|PowerPoint Open XML Macro-enabled Slide Show|
+|potx|PowerPoint Open XML Template|
+|pot|PowerPoint 97-2003 Template|
+|potm|PowerPoint Open XML Macro-Enabled Template|
+|svg|Scalable Vector Graphics Format|
+|fodp|OpenDocument Flat XML Presentation|
+|xaml|Extensible Application Markup Language|
 
-{{< /expand-list >}}
+## **Splitting All Slides**
 
-{{< /expand-list >}}
+Split **MyFolder/MyPresentation.pptx** file from a default storage into a set of JPEG images and save them to the same folder.
 
-#### **HTTP GET**
-Not supported.
-
-#### **HTTP POST**
-
-##### **Example 1**
-
-Splits the whole presentation into a set of jpeg images.
-
-```
-POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?folder=test
-```
-
-###### **Response:**
-
-{{< expand-list title="JSON" >}}
-```
-{
-    "slides": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg",
-            "relation": "self",
-            "linkType": "image/jpeg",
-            "title": "Slide 1"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_2.jpeg",
-            "relation": "self",
-            "linkType": "image/jpeg",
-            "title": "Slide 2"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_3.jpeg",
-            "relation": "self",
-            "linkType": "image/jpeg",
-            "title": "Slide 3"
-        }
-    ],
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/test.ppt?folder=test",
-        "relation": "self"
-    }
-}
-```
-{{< /expand-list >}}
-	
-	
-{{< expand-list title="XML" >}}
-```
-<SplitResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <link href="https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx?folder=test" rel="self" />
-    <Slides>
-        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg" rel="self" type="image/jpeg" title="Slide 1" />
-        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_2.jpeg" rel="self" type="image/jpeg" title="Slide 2" />
-        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_3.jpeg" rel="self" type="image/jpeg" title="Slide 3" />
-    </Slides>
-</SplitResult>
-```
-{{< /expand-list >}}
-
-
-###### **.Net SDK Code:**
-``` csharp
-SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-SplitDocumentResult response = api.Split("ShapeTest.pptx", folder: "test");
-foreach (ResourceUri slide in response.Slides)
-{
-    Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/test/ShapeTest_1.jpeg etc.
-}
-```
-
-##### **Example 2**
-Converts 2nd and 3rd slides of the presentation to PNG format and uploads them to "images" folder.
-
-```
-POST https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx/split?from=2&to=3&format=png&destFolder=images
-```
-
-###### **Response:**
-
-{{< expand-list title="JSON" >}}
-```
-{
-    "slides": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png",
-            "relation": "self",
-            "linkType": "image/png",
-            "title": "Slide 2"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png",
-            "relation": "self",
-            "linkType": "image/png",
-            "title": "Slide 3"
-        }
-    ],
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/test.ppt",
-        "relation": "self"
-    }
-}
-```
-{{< /expand-list >}}
-
-{{< expand-list title="XML" >}}
-```
-<SplitResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <link href="https://api.aspose.cloud/v3.0/slides/ShapeTest.pptx" rel="self" />
-    <Slides>
-        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_2.png" rel="self" type="image/png" title="Slide 2" />
-        <Slide href="https://api.aspose.cloud/v3.0/slides/storage/file/images/ShapeTest_3.png" rel="self" type="image/png" title="Slide 3" />
-    </Slides>
-</SplitResult>
-```
-{{< /expand-list >}}
-
-###### **.Net SDK Code:**
-``` csharp
-SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-SplitDocumentResult response = api.Split("ShapeTest.pptx", format: SlideExportFormat.Png, from: 2, to: 3, destFolder: "Images", folder: "test");
-foreach (ResourceUri slide in response.Slides)
-{
-    Console.WriteLine(slide.Href); //https://api.aspose.cloud/v3.0/slides/storage/file/Images/ShapeTest_2.png etc.
-}
-```
-
-#### **HTTP PUT**
-Not supported.
-
-#### **HTTP DELETE**
-Not supported.
-
-### **cURL Example**
-{{% alert color="primary" %}}
-
-By skipping the **to** and **from** parameters in the request URL, the whole document is split page by page into the desired format.
-
-{{% /alert %}}
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Get Authetication Code**
+**Get an Access Token**
 
 ```java
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Split the Presentation**
+
 ```java
-
-curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/source.pptx/split?from=1&to=2&format=png" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NTk3Njc2NjYsImV4cCI6MTU1OTg1NDA2NiwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.ostZtFSAtDFwvFygXzgg9optoSgYcrZWu2K2YPordXS7MRCbpSVV0wBuUPineb__3VdobkasIL5WGavlVTLa4d1R1_MxjZ5Wcv6Uth_lMir5bvngnECv3SREE3e0XHEtZQWy4uh23UmWnqu1UTM60NS-onYRLQ0-eqXYmMSts7yl8oTq_P1gepffW8oVssD6TZvcNqcUIPUCtC5sQXCEy7edlEsHOR611N_772RJZaZ-yd6BDUkBLZGrek9POLQvcM85uGK4uQ53uuzoV_5iYXE73jrYOXHgUIfcX1UDHhoJ4utt06sKH0FtugU5jT6rGqRuEi6LbahI2_63IVE7LQ" --ssl-no-revoke
-
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/split?folder=MyFolder" \
+     -H "authorization: Bearer <access_token>" \
+     -H "Content-Length: 0"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
+```json
 {
-   "slides":[
-      {
-         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_1.png",
-         "relation":"self",
-         "linkType":"image/png",
-         "title":"Slide 1"
-      },
-      {
-         "href":"https://api.aspose.cloud/v3.0/slides/storage/file/source_2.png",
-         "relation":"self",
-         "linkType":"image/png",
-         "title":"Slide 2"
-      }
-   ],
-   "selfUri":{
-      "href":"https://api.aspose.cloud/v3.0/slides/source.pptx",
-      "relation":"self"
-   }
+    "slides": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 1"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_2.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 2"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_3.jpeg",
+            "relation": "self",
+            "linkType": "image/jpeg",
+            "title": "Slide 3"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder",
+        "relation": "self"
+    }
 }
-
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "SplitPresentations.cs" >}}
+``` csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using System;
+
+class Test
+{
+    static void Main(string[] args)
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split all slides in the presentation.
+        var response = slidesApi.Split("MyPresentation.pptx", folder: "MyFolder");
+
+        foreach (var slide in response.Slides)
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+            Console.WriteLine(slide.Href); 
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "SplitPresentations.java" >}}
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split all slides in the presentation.
+        var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
+
+        for (var slide : response.getSlides())
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
 ```php
-<?php 
-    // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
-    include(dirname(__DIR__) . '\CommonUtils.php');
-    use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-    use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-    use Aspose\Slides\Cloud\Sdk\Model;
-    use Aspose\Slides\Cloud\Sdk\Model\Requests;
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-    try {
-        // Create SlidesApi instance
-        $config = new Configuration();
-        $config->setAppSid(CommonUtils::$AppSid);
-        $config->setAppKey(CommonUtils::$AppKey);
-        $slidesApi = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
 
-        $fileName = "test-unprotected.ppt";
+$slidesApi = new SlidesApi(null, $configuration);
 
-        // Upload original document to storage
-        $fileStream = fopen(realpath(__DIR__ . '/../..') . '\resources\\' . $fileName, 'r');
-        $slidesApi->uploadFile($fileName,  $fileStream, CommonUtils::$MyStorage);
+// Split all slides in the presentation.
+$response = $slidesApi->split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder");
 
-        $request = new Requests\PostSlidesSplitRequest($fileName, null, Model\SlideExportFormat::JPEG);
-        $result = $slidesApi->postSlidesSplit($request);
-        print_r($result);
-
-    } catch (Exception $e) {
-        echo "Something went wrong: ", $e->getMessage(), "\n";
-    }
-?>
+foreach ($response->getSlides() as $slide)
+{
+    // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+    echo $slide->getHref(), "\n";
+}
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "SplitPresentations.rb" >}}
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "my_client_id"
+configuration.app_key = "my_client_key"
+
+slides_api = SlidesApi.new(configuration)
+
+# Split all slides in the presentation.
+response = slides_api.split("MyPresentation.pptx", nil, nil, nil, nil, nil, nil, nil, nil, "MyFolder")
+
+for slide in response.slides
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+    puts slide.href
+end
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "SplitPresentations.py" >}}
+```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+# Split all slides in the presentation.
+response = slides_api.split("MyPresentation.pptx", None, None, None, None, None, None, None, None, "MyFolder")
+
+for slide in response.slides:
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+    print(slide.href)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "SplitPresentations.js" >}}
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+
+const cloud = require("asposeslidescloud")
+
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+
+// Split all slides in the presentation.
+slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder").then((response) => {
+    response.body.slides.forEach(slide =>
+        // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+        console.log(slide.href)
+    )
+})
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "SplitPresentations.java" >}}
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split all slides in the presentation.
+        var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
+
+        for (var slide : response.getSlides())
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility;
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+    // Split all slides in the presentation.
+    auto response = slidesApi->split(
+        to_string_t("MyPresentation.pptx"), std::nullptr_t(), string_t(), boost::none, boost::none, boost::none, boost::none, 
+        string_t(), string_t(), to_string_t("MyFolder")).get();
+
+    for (auto slide : response->getSlides())
+    {
+        // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+        std::cout << to_utf8string(slide->getHref()) << std::endl;
+    }
+
+    return 0;
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "my_client_id";
+$config->{app_key} = "my_client_key";
+my $slidesApi = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Split all slides in the presentation.
+my %splitParams = ("name" => "MyPresentation.pptx", "folder" => "MyFolder");
+my $response = $slidesApi->split(%splitParams);
+
+for $slide (@{$response->{slides}}) {
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
+    print $slide->{href}, "\n";
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **Splitting Selected Slides**
+
+Split the 2nd and 3rd slides from **MyFolder/MyPresentation.pptx** file, convert the slides to PNG format, and store them to **MyImages** folder.
+
+**cURL Solution**
+
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Get an Access Token**
+
+```java
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Split the Presentation**
+
+```java
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/split?format=Png&from=2&to=3&destFolder=MyImages&folder=MyFolder" \
+     -H "authorization: Bearer <access_token>" \
+     -H "Content-Length: 0"
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```json
+{
+    "slides": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png",
+            "relation": "self",
+            "linkType": "image/png",
+            "title": "Slide 2"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_3.png",
+            "relation": "self",
+            "linkType": "image/png",
+            "title": "Slide 3"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder",
+        "relation": "self"
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+``` csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+using System;
+
+class Test
+{
+    static void Main(string[] args)
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split the 2nd and 3rd slides and save them to PNG format.
+        var response = slidesApi.Split("MyPresentation.pptx", format: SlideExportFormat.Png, from: 2, to: 3, destFolder: "MyImages", folder: "MyFolder");
+
+        foreach (ResourceUri slide in response.Slides)
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+            Console.WriteLine(slide.Href);
+        }
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideExportFormat;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split the 2nd and 3rd slides and save them to PNG format.
+        var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
+
+        for (var slide : response.getSlides())
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat;
+
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_key");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+// Split the 2nd and 3rd slides and save them to PNG format.
+$response = $slidesApi->split("MyPresentation.pptx", null, SlideExportFormat::PNG, null, null, 2, 3, "MyImages", null, "MyFolder");
+
+foreach ($response->getSlides() as $slide)
+{
+    // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+    echo $slide->getHref(), "\n";
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "my_client_id"
+configuration.app_key = "my_client_key"
+
+slides_api = SlidesApi.new(configuration)
+
+# Split the 2nd and 3rd slides and save them to PNG format.
+response = slides_api.split("MyPresentation.pptx", nil, SlideExportFormat::PNG, nil, nil, 2, 3, "MyImages", nil, "MyFolder")
+
+for slide in response.slides
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+    puts slide.href
+end
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.slide_export_format import SlideExportFormat
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+
+# Split the 2nd and 3rd slides and save them to PNG format.
+response = slides_api.split("MyPresentation.pptx", None, SlideExportFormat.PNG, None, None, 2, 3, "MyImages", None, "MyFolder")
+
+for slide in response.slides:
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+    print(slide.href)
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+
+const cloud = require("asposeslidescloud")
+
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+
+// Split the 2nd and 3rd slides and save them to PNG format.
+slidesApi.split("MyPresentation.pptx", null, "png", null, null, 2, 3, "MyImages", null, "MyFolder").then((response) => {
+    response.body.slides.forEach(slide =>
+        // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+        console.log(slide.href)
+    )
+})
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideExportFormat;
+
+public class Main {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+
+        // Split the 2nd and 3rd slides and save them to PNG format.
+        var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
+
+        for (var slide : response.getSlides())
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace utility;
+using namespace utility::conversions;
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+
+    // Split the 2nd and 3rd slides and save them to PNG format.
+    auto response = slidesApi->split(
+        to_string_t("MyPresentation.pptx"), std::nullptr_t(), to_string_t("png"), boost::none, boost::none, 2, 3, 
+        to_string_t("MyImages"), string_t(), to_string_t("MyFolder")).get();
+
+    for (auto slide : response->getSlides())
+    {
+        // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+        std::cout << to_utf8string(slide->getHref()) << std::endl;
+    }
+
+    return 0;
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "my_client_id";
+$config->{app_key} = "my_client_key";
+my $slidesApi = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Split the 2nd and 3rd slides and save them to PNG format.
+my %splitParams = ("name" => "MyPresentation.pptx", "format" => "png", "from" => 2, "to" => 3, "dest_folder" => "MyImages", "folder" => "MyFolder");
+my $response = $slidesApi->split(%splitParams);
+
+for $slide (@{$response->{slides}}) {
+    # Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
+    print $slide->{href}, "\n";
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## **SDKs**
+
+Using an SDK (API client) is the quickest way for a developer to speed up development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
