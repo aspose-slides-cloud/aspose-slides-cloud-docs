@@ -75,7 +75,7 @@ Split **MyFolder/MyPresentation.pptx** file from a default storage into a set of
 
 ```java
 curl -X POST "https://api.aspose.cloud/connect/token" \
-     -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" \
+     -d "grant_type=client_credentials&client_id=my_client_id&client_secret=my_client_secret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
@@ -136,11 +136,11 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/split?fol
 using Aspose.Slides.Cloud.Sdk;
 using System;
 
-class Test
+class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split all slides in the presentation.
         var response = slidesApi.Split("MyPresentation.pptx", folder: "MyFolder");
@@ -164,9 +164,9 @@ class Test
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split all slides in the presentation.
         var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
@@ -192,7 +192,7 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
 $configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppKey("my_client_secret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
@@ -219,7 +219,7 @@ include AsposeSlidesCloud
 
 configuration = Configuration.new
 configuration.app_sid = "my_client_id"
-configuration.app_key = "my_client_key"
+configuration.app_key = "my_client_secret"
 
 slides_api = SlidesApi.new(configuration)
 
@@ -243,7 +243,7 @@ import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
 # Split all slides in the presentation.
 response = slides_api.split("MyPresentation.pptx", None, None, None, None, None, None, None, None, "MyFolder")
@@ -262,7 +262,7 @@ for slide in response.slides:
 
 const cloud = require("asposeslidescloud")
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
 
 // Split all slides in the presentation.
 slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder").then((response) => {
@@ -283,9 +283,9 @@ slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null,
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split all slides in the presentation.
         var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
@@ -314,7 +314,7 @@ using namespace asposeslidescloud::api;
 
 int main()
 {
-    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_secret"));
 
     // Split all slides in the presentation.
     auto response = slidesApi->split(
@@ -343,7 +343,7 @@ use AsposeSlidesCloud::SlidesApi;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "my_client_id";
-$config->{app_key} = "my_client_key";
+$config->{app_key} = "my_client_secret";
 my $slidesApi = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Split all slides in the presentation.
@@ -382,7 +382,7 @@ Split the 2nd and 3rd slides from **MyFolder/MyPresentation.pptx** file, convert
 
 ```java
 curl -X POST "https://api.aspose.cloud/connect/token" \
-     -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" \
+     -d "grant_type=client_credentials&client_id=my_client_id&client_secret=my_client_secret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
@@ -438,11 +438,11 @@ using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
 using System;
 
-class Test
+class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PNG format.
         var response = slidesApi.Split("MyPresentation.pptx", format: SlideExportFormat.Png, from: 2, to: 3, destFolder: "MyImages", folder: "MyFolder");
@@ -467,9 +467,9 @@ import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.model.SlideExportFormat;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PNG format.
         var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
@@ -496,7 +496,7 @@ use Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat;
 
 $configuration = new Configuration();
 $configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppKey("my_client_secret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
@@ -523,7 +523,7 @@ include AsposeSlidesCloud
 
 configuration = Configuration.new
 configuration.app_sid = "my_client_id"
-configuration.app_key = "my_client_key"
+configuration.app_key = "my_client_secret"
 
 slides_api = SlidesApi.new(configuration)
 
@@ -548,7 +548,7 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.slide_export_format import SlideExportFormat
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
 # Split the 2nd and 3rd slides and save them to PNG format.
 response = slides_api.split("MyPresentation.pptx", None, SlideExportFormat.PNG, None, None, 2, 3, "MyImages", None, "MyFolder")
@@ -567,7 +567,7 @@ for slide in response.slides:
 
 const cloud = require("asposeslidescloud")
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
 
 // Split the 2nd and 3rd slides and save them to PNG format.
 slidesApi.split("MyPresentation.pptx", null, "png", null, null, 2, 3, "MyImages", null, "MyFolder").then((response) => {
@@ -589,9 +589,9 @@ import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.model.SlideExportFormat;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PNG format.
         var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
@@ -620,7 +620,7 @@ using namespace asposeslidescloud::api;
 
 int main()
 {
-    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_secret"));
 
     // Split the 2nd and 3rd slides and save them to PNG format.
     auto response = slidesApi->split(
@@ -649,7 +649,7 @@ use AsposeSlidesCloud::SlidesApi;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "my_client_id";
-$config->{app_key} = "my_client_key";
+$config->{app_key} = "my_client_secret";
 my $slidesApi = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Split the 2nd and 3rd slides and save them to PNG format.
