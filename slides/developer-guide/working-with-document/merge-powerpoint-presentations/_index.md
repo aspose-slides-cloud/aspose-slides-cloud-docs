@@ -5,13 +5,22 @@ url: /merge-powerpoint-presentations/
 weight: 80
 ---
 
-
 ## **Introduction**
-These examples show you how to merge multiple presentation files using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery, and much more.
 
-### **API Information**
+Aspose.Slides Cloud API provides features for merging PowerPoint presentations. You can merge all slides from your presentations, or just the ones you select. If some presentations are protected to open, passwords can be specified for them. You can save the result of a merge in a storage or get the result as a local file.
 
-|**API**|**Type**|**Description**|**Resource Link**|
+The following articles describe methods for merging presentations.
+
+- [Merging Presentations Saved in Storage](/slides/merging-presentations-saved-in-storage/)
+- [Merging Selected Slides into a Specified Presentation in Storage](/slides/merging-selected-slides-into-a-specified-presentation-in-storage/)
+- [Merging Presentations from Local Files and Storage into a Local File](/slides/merging-presentations-from-local-files-and-storage-into-a-local-file/)
+- [Merging Presentations from Local Files and Storage into a File in Storage](/slides/merging-presentations-from-local-files-and-storage-into-a-file-in-storage/)
+
+
+
+## **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/{name}/merge|POST|Merges the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
 |/slides/{name}/merge|PUT|Merges the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
