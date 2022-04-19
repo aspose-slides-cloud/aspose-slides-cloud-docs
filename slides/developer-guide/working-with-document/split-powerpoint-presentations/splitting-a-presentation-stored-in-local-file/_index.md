@@ -68,9 +68,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/split/Pdf?from=2&to=3" \
 
 {{< tab tabNum="2" >}}
 
-```json
-{response-data}
-```
+Zipped output files.
 
 {{< /tab >}}
 
