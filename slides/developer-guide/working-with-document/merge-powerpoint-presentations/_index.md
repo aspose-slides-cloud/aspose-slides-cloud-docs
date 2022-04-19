@@ -18,33 +18,6 @@ The following articles describe methods for merging presentations.
 
 
 
-## **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/merge|POST|Merges the presentation with other presentations specified in the request parameter.|[Merge](https://apireference.aspose.cloud/slides/#/MergeDocument/Merge)|
-|/slides/{name}/merge|PUT|Merges the presentation with other presentations or some of their slides specified in the request parameter.|[OrderedMerge](https://apireference.aspose.cloud/slides/#/MergeDocument/OrderedMerge)|
-|/slides/merge|POST|Merges presentations or some of their slides specified in the request parameter. Returns the result file in the response.|[MergeOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeOnline)|
-|/slides/merge|PUT|Merges presentations or some of their slides specified in the request parameter. Result will be saved in the storage.|[MergeAndSaveOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeAndSaveOnline)|
-
-{{< expand-list title="Request Parameters" >}}
-
-| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
-| :- | :- | :- | :- | :- |
-|folder|POST/PUT|string (query)|Optional|The merging presentation folder.|
-|storage|POST/PUT|string (query)|Optional|The presentations storage.|
-|password|POST/PUT|string (header)|Optional|The merging presentation password.|
-|outPath|PUT|string (query)|Required|A path to save the result.|
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-
-{{< /expand-list >}}
-
-#### **HTTP GET**
-Not supported.
-
-#### **HTTP POST**
-
 ##### **Example 1**
 
 Merge presentation 'genericPptx.pptx' with presentations 'TempSlides\Pres1.pptx' and 'TempSlides\Pres2.pptx'. Using a password to open Pres1.pptx document.
