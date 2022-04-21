@@ -304,6 +304,59 @@ The following values may be used together as a combination of choices.
 |Dpi96|Minimize document size for sharing.|
 {{< /expand-list >}}
 
+### **MPEG4 Options**
+
+|**Name**|**Type**|**Description**|
+| :- | :- | :- |
+|VideoResolutionType|VideoResolutionTypeEnum|Video resolution type.|
+|SlidesTransitionDuration|integer|Slides transition duration.|
+|TransitionType|TransitionTypeEnum|Video transition type.|
+|TransitionDuration|integer|Duration of transition defined in TransitionType property.|
+
+{{< expand-list title="VideoResolutionTypeEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|FullHD|Full high definition (1920x1080).|
+|SD|Standard definition.|
+|HD|High definition (1280x720).|
+|QHD|Quad high definition (3840x2160).|
+{{< /expand-list >}}
+
+{{< expand-list title="TransitionTypeEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|None|None.|
+|Fade|Fade.|
+|Distance|Distance.|
+|Slidedown|Slide down.|
+|Slideright|Slide right.|
+|Slideleft|Slide left.|
+|Slideup|Slide up.|
+|Smoothleft|Smooth left.|
+|Smoothright|Smooth right.|
+|Smoothup|Smooth up.|
+|Smoothdown|Smooth down.|
+|Rectcrop|Recrangle crop.|
+|Circlecrop|Circle crop.|
+|Circleclose|Circle close.|
+|Circleopen|Circle open.|
+|Horzclose|Horizontal close.|
+|Horzopen|Horizontal open.|
+|Vertclose|Vertical close.|
+|Vertopen|Vertical open.|
+|Diagbl|Diagonal bottom-left.|
+|Diagbr|Diagonal bottom-right.|
+|Diagtl|Diagonal top-left.|
+|Diagtr|Diagonal top-right.|
+|Hlslice|Horizontal left slice.|
+|Hrslice|Horizontal right slice.|
+|Vuslice|Vertical up slice.|
+|Vdslice|Verticl down slice.|
+|Dissolve|Dissolve.|
+|Pixelize|Pixelize.|
+|Radial|Radial.|
+{{< /expand-list >}}
+
 ### **SWF Options**
 
 |**Name**|**Type**|**Description**|

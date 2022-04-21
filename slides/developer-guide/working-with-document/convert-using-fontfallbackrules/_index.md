@@ -5,7 +5,7 @@ url: /convert-using-fontfallbackrules/
 weight: 50
 ---
 ## **Introduction**
-Aspose.Slides Cloud allows specifying the rules to apply a fallback font. **FontFallbackRule** represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs.
+Aspose.Slides Cloud allows specifying the rules to apply a fallback font. **FontFallbackRule** represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs. The order of fonts in the list reflects priority.
 ### **API Information**
 FontFallbackRule is a part of ExportOptions and can be applied in any feature that assumed conversion.  For example:
 |**API**|**Type**|**Description**|**Resource**|
@@ -106,16 +106,16 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 List<FontFallbackRule> fontRules = new ArrayList<FontFallbackRule>();
 
 FontFallbackRule rule1 = new FontFallbackRule();
-rule1.setRangeStartIndex(c_startUnicodeIndex);
-rule1.setRangeEndIndex(c_endUnicodeIndex);
+rule1.setRangeStartIndex(0x42B);
+rule1.setRangeEndIndex(0x42B);
 List<String> fonts1 = new ArrayList<string>();
 fonts1.add("Vijaya");
 rule1.setFallbackFontList(fonts1);
 fontRules.add(rule1);
 
 FontFallbackRule rule2 = new FontFallbackRule();
-rule2.setRangeStartIndex(c_startUnicodeIndex);
-rule2.setRangeEndIndex(c_endUnicodeIndex);
+rule2.setRangeStartIndex(0x42E);
+rule2.setRangeEndIndex(0x42E);
 List<String> fonts2 = new ArrayList<string>();
 fonts2.add("Segoe UI Emoji");
 fonts2.add("Segoe UI Symbol");
