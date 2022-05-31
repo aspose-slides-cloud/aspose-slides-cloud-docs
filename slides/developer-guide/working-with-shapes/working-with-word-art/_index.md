@@ -2,7 +2,7 @@
 title: "Working With WordArt"
 type: docs
 url: /working-with-word-art/
-weight: 150
+weight: 160
 ---
 
 ## **Introduction**

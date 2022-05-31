@@ -2,7 +2,7 @@
 title: "Working With Geometry Paths"
 type: docs
 url: /working-with-geometry-paths/
-weight: 130
+weight: 140
 ---
 
 ## **Introduction**
