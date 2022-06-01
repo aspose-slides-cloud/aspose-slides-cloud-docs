@@ -23,7 +23,7 @@ You can manage text within a SmartArt node the same way as it works for sub-shap
 ​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{path}​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|PUT|Update portion properties|[UpdateSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/UpdateSubshapePortion)|
 ​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{path}​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|DELETE|Remove a portion|[DeleteSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapePortion)|
 ### **cURL Example**
-The code example below shows how to update portion in the existing SmartArt object. 
+The code example below shows how to update a text portion in an existing SmartArt object. 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -35,7 +35,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```
 ```sh
-curl -v -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx//slides/1/shapes/1/nodes/1/nodes/1/paragraphs/1/portions/1" -d @"portion.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]
+curl -v -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/nodes/1/nodes/1/paragraphs/1/portions/1" -d @"portion.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]
 
 ```
 portion.json

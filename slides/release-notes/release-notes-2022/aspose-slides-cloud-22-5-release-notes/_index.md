@@ -2,7 +2,7 @@
 title: "Aspose.Slides Cloud 22.5 Release Notes"
 type: docs
 url: /aspose-slides-cloud-22-5-release-notes/
-weight: 90
+weight: 80
 ---
 
 ## **Improvements and Changes**
@@ -20,11 +20,11 @@ weight: 90
 
 ## **Public API changes**
 
+Added **Paragraphs** property to **SmartArtNode** class to enable getting and setting text for SmartArt nodes. Excluded **shapes** from SmartArt node paths. See [documentation](/slides/working-with-smart-art-text/) for more info.
+
 Added **ImageTransformList** property to **PictureFill** class to enable setting image transform effects. Added **ImageTransformEffect** class and subclasses for different kind of of effects.
 
 Added **PictureFillFormat** property to **VideoFrame** class to enable setting poster image for video frames.
-
-Added **Paragraphs** property to **SmartArtNode** class to enable getting and setting text for SmartArt nodes. Excluded **shapes** from SmartArt node paths, e.g. instead of **1/nodes/2/shapes** the path is now **1/nodes**.
 
 Added **SlideIndex** and **ShapeIndex** properties to **ResourceUri** class to simplify retrieveing slide & shape indexes for resources.
 
