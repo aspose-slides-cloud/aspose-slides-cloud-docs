@@ -97,7 +97,16 @@ Console.WriteLine($"The portion with text \"{response.Text}\" has been updated")
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-//Code example will be added soon.
+Portion portion = new Portion();
+portion.setText("New text");
+portion.setFontHeight(24.0);
+portion.setFontBold(Portion.FontBoldEnum.TRUE);
+portion.spacing(3.0);
+SolidFill fillFormat = new SolidFill();
+fillFormat.setColor("#FFFFFF00");
+portion.setFillFormat(fillFormat);
+
+Portion response = api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion, null, null, null);
 
 System.out.println("The portion with text \"" + response.getText() + "\" has been updated");
 ```
