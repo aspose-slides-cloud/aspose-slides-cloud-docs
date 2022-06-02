@@ -2,7 +2,7 @@
 title: "Editing Paragraphs within Grouped Shapes"
 type: docs
 url: /editing-paragraphs-within-grouped-shapes/
-weight: 80
+weight: 90
 ---
 
 

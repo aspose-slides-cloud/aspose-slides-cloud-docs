@@ -2,7 +2,7 @@
 title: "Deleting shapes by Index in a Presentation"
 type: docs
 url: /deleting-shapes-by-index-in-a-presentation/
-weight: 70
+weight: 80
 ---
 
 
