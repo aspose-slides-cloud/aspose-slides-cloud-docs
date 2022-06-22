@@ -41,7 +41,7 @@ Get information about **all placeholders** on the **first** slide in **MyFolder/
 
 **Get an Access Token**
 
-```java
+```sh
 curl -X POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=my_client_id&client_secret=my_client_secret" \
      -H "Content-Type: application/x-www-form-urlencoded"
@@ -49,7 +49,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 **Get Information about Placeholders**
 
-```java
+```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/placeholders?folder=MyFolder" \
      -H "authorization: Bearer <access_token>"
 ```
@@ -363,7 +363,7 @@ Get information about the **first** placeholder on the **second** slide from **M
 
 **Get an Access Token**
 
-```java
+```sh
 curl -X POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=my_client_id&client_secret=my_client_secret" \
      -H "Content-Type: application/x-www-form-urlencoded"
@@ -371,7 +371,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 **Get Information about the Placeholder**
 
-```java
+```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/placeholders/1?storage=MyStorage" \
      -H "authorization: Bearer <access_token>"
 ```
