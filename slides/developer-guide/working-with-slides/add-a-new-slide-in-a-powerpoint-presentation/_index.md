@@ -6,411 +6,333 @@ weight: 40
 ---
 
 ## **Introduction**
-This example allows you to add new slides in a presentation using Aspose.Slides for Cloud API in your applications. You can use our REST API with any language: .NET, Java, PHP, Ruby, Rails, Python, jQuery and much more.
+
+This article shows you how to add new slides in PowerPoint presentations using Aspose.Slides for Cloud API in your applications. A presentation must be already saved to a storage. You can add a new slide at the end of the presentation or at a specified position. When creating a new slide, a layout can be applied immediately.
+
+## **CreateSlide**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides|POST|Create a slide.|[PostSlidesAdd](https://apireference.aspose.cloud/slides/#/Slides/PostSlidesAdd)|
+|/slides/{name}/slides|POST|Creates a new slide.|[CreateSlide](https://apireference.aspose.cloud/slides/#/Slides/CreateSlide)|
 
-{{< expand-list title="Request Parameters" >}}
+#### **Request Parameters**
 
-| **Parameter Name** | **HTTP Method(s)** | **Type** | **Optional/Required** | **Description** |
+|**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|password | GET/POST/DELETE | string | Optional | Presentation password |
-|folder | GET/POST/DELETE | string | Optional | Presentation folder |
-|storage | GET/POST/DELETE | string | Optional | Presentation storage |
-|slides | DELETE | int[] | Optional | Comma separated index list of slides to be deleted. Delete all by default |
-|position | POST | int | Optional | Position of the new slide. Adds a slide to the end by default.  |
-|layoutAlias | POST | string | Optional | Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index |
+|name|string|path|true|The file name of a presentation.|
+|layoutAlias|string|query|false|The alias of a layout slide for a new slide. The alias may be a layout slide type, a layout slide name, or an index.|
+|position|integer|query|false|The 1-based index for the new slide. If the position is not specified, the slide will be added to the end.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
-{{< /expand-list >}}
+### **Examples**
 
-#### **HTTP POST**
-Adds a new slide to the presentation.
+**MyFolder/MyPresentation.pptx** document saved to **MyStorage** is containing two slides. Add a new slide at index **2** into the presentation and use the **third** layout for the new slide.
 
-{{< tabs tabTotal="3" tabID="2" tabName1="Example 1" tabName2="Example 2" tabName3="Example 3">}}
+**cURL Solution**
 
-{{< tab tabNum="1" >}}
-
-##### **Adds new empty slide to the presentation.**
-
-###### **Request**
-```
-POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
-```
-
-###### **Response**
-
-{{< expand-list title="Full Slides response that includes new slide" >}}
-
-{{< tabs tabTotal="2" tabID="3" tabName1="JSON" tabName2="XML" >}}
-
-{{< tab tabNum="1" >}}
-```
-{
-    "slideList": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
-            "relation":"self"
-        }
-    ],
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
-        "relation":"self"
-    }
-}
-```
-{{< /tab >}}
-
-{{< tab tabNum="2" >}}
-```
-<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
-</Slides>
-```
-{{< /tab >}}
-
-{{< /tabs >}}
-
-{{< /expand-list >}}
-
-
-###### **.Net SDK Code:**
-```csharp
-SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-Slides response = api.CreateSlide("myPresentation.pptx");
-foreach (ResourceUriElement slide in response.SlideList)
-{
-    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="2" >}}
-
-##### **Adds a slide to the specified position. If position is not specified then the slide will be added to the end of the slides list.**
-
-###### **Request**
-```
-POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?position=1
-```
-
-###### **Response**
-
-{{< expand-list title="Full Slides response that includes new slide" >}}
-
-{{< tabs tabTotal="2" tabID="4" tabName1="JSON" tabName2="XML" >}}
-
-{{< tab tabNum="1" >}}
-```
-{
-    "slideList": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
-            "relation":"self"
-        }
-    ],
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
-        "relation":"self"
-    }
-}
-```
-{{< /tab >}}
-
-{{< tab tabNum="2" >}}
-```
-<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
-</Slides>
-```
-{{< /tab >}}
-
-{{< /tabs >}}
-
-{{< /expand-list >}}
-
-
-###### **.Net SDK Code:**
-```csharp
-SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-Slides response = api.PostSlidesAdd("myPresentation.pptx", position: 1);
-foreach (ResourceUriElement slide in response.SlideList)
-{
-    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="3" >}}
-
-##### **Adds new empty slide to the presentation with layout TextAndChart.**
-
-###### **Request**
-```
-POST https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?layoutAlias=TextAndChart
-```
-
-###### **Response**
-
-{{< expand-list title="Full Slides response that includes new slide" >}}
-
-{{< tabs tabTotal="2" tabID="6" tabName1="JSON" tabName2="XML" >}}
-
-{{< tab tabNum="1" >}}
-```
-{
-    "slideList": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder",
-            "relation":"self"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder",
-            "relation":"self"
-        }
-    ],
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder",
-        "relation":"self"
-    }
-}
-```
-{{< /tab >}}
-
-{{< tab tabNum="2" >}}
-```
-<Slides xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <link href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/2?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/3?folder=myFolder" rel="self" />
-    <Slide href="https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/4?folder=myFolder" rel="self" />
-</Slides>
-```
-{{< /tab >}}
-
-{{< /tabs >}}
-
-{{< /expand-list >}}
-
-
-###### **.Net SDK Code:**
-```csharp
-SlidesApi api = new SlidesApi("MyAppSid", "MyAppKey");
-Slides response = api.PostSlidesAdd("myPresentation.pptx", "TextAndChart");
-foreach (ResourceUriElement slide in response.SlideList)
-{
-    Console.WriteLine(slide.Uri.Href); //https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1 etc.
-}
-```
-
-{{< /tab >}}
-
-{{< /tabs >}}
-
-## **Resource**
-The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Slides](https://apireference.aspose.cloud/slides/).
-## **REST Methods References**
-We are referring to some common methods in the REST examples to perform general operations. These methods can be found on the following page: [REST API Methods](https://apireference.aspose.cloud/slides/) 
-## **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
+**Get an Access Token**
 
-```java
-
-curl -v "https://api.aspose.cloud/oauth2/token" -X POST -d "grant_type=client_credentials&client_id=XXX&client_secret=XXXX-XX"-H "Content-Type: application/x-www-form-urlencoded"-H "Accept: application/json"
-
+```sh
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=my_client_id&client_secret=my_client_secret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-```java
+**Add the New Slide**
 
-curl -v "http://api.aspose.cloud/v1.1/slides/sample.pptx/slides"-X POST -H "Content-Type: application/json"-H "Accept: application/json" -H "Authorization: Bearer -Ou_UHdVStdZldtjaeFUAowQ3x2KLlSHd5ovZfDtZqpgdC6FLlalPmO8VJ58HXp8sgGhLqMqlnzEzIF2fEhEyJ3D7xzaw_c8cAuk3qoag3g7bghMHw_pe_RTxxJ9r04R9YAGFbbAcoU1ddPvrPz0e1FSakagM42Ie2eA8D1MyBVJ1D-RZJrfebPePuOLvR_hOD8Doqk5SBi_j-efODJK_PmGUxj0onOrUUx8Tj_GuUKrG6DcBnpl84_UykdOP87IeHnT2_NZCHQIgOY0vtfW6AUGfP9jO5W1mBS_q3lthTDRMg2LuZ6s0r9MKlwVJ_n7sn3TUCrr8kGmUB3k0mL0rrd5TSKm7yjx8hhjap43PlFhwk-r9g7guWsuFLoeDqPa4JNJ1NFM54qQvgWKCp5oDj4dZfbc7qhfIelNh1gW4VYwfmgz"
-
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides?layoutAlias=3&position=2&folder=MyFolder&storage=MyStorage" \
+     -H "authorization: Bearer <access_token>" \
+     -H "Content-Length: 0"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
+```json
 {
-   "Slides":{
-      "SlideList":[
-         {
-            "Uri":{
-               "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides/1",
-               "Relation":"self",
-               "LinkType":null,
-               "Title":null
-            }
-         }
-      ],
-      "SelfUri":{
-         "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides",
-         "Relation":"self",
-         "LinkType":null,
-         "Title":null
-      },
-      "AlternateLinks":[
-      ],
-      "Links":[
-         {
-            "Href":"http://api.aspose.cloud/v1.1/slides/sample.pptx/slides",
-            "Relation":"self",
-            "LinkType":null,
-            "Title":null
-         }
-      ]
-   },
-   "Code":200,
-   "Status":"OK"
+    "slideList": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder",
+            "relation": "self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2?folder=MyFolder",
+            "relation": "self"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3?folder=MyFolder",
+            "relation": "self"
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides?folder=MyFolder",
+        "relation": "self"
+    }
 }
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-### **SDK Examples**
-{{< tabs tabTotal="9" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
 {{< tab tabNum="1" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "AddNewSlide.cs" >}}
+```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using System;
+
+class Application
+{
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+
+        // Create a new slide.
+        var response = slidesApi.CreateSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+
+        // Print links to all slides.
+        foreach (var slide in response.SlideList)
+        {
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+            Console.WriteLine(slide.Href);
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-{{< gist "" "17b08f624ccca40e351e7204e318237e" "AddNewSlide.java" >}}
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+
+        // Create a new slide.
+        var response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+
+        // Print links to all slides.
+        for (var slide : response.getSlideList()) {
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
 
 ```php
-<?php 
-    // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
-    include(dirname(__DIR__) . '\CommonUtils.php');
-    use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-    use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-    use Aspose\Slides\Cloud\Sdk\Model;
-    use Aspose\Slides\Cloud\Sdk\Model\Requests;
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-    try {
-        // Create SlidesApi instance
-        $config = new Configuration();
-        $config->setAppSid(CommonUtils::$AppSid);
-        $config->setAppKey(CommonUtils::$AppKey);
-        $slidesApi = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("my_client_id");
+$configuration->setAppKey("my_client_secret");
 
-        $fileName = "test-unprotected.ppt";
-        $index = 2;
-        $notesSlide = new Model\NotesSlide();
-        $notesSlide->setText("New slide");
+$slidesApi = new SlidesApi(null, $configuration);
 
-        // Upload original document to storage
-        $fileStream = fopen(realpath(__DIR__ . '/../..') . '\resources\\' . $fileName, 'r');
-        $slidesApi->uploadFile($fileName,  $fileStream, CommonUtils::$MyStorage);
-        
-        $request = new Requests\PostAddNotesSlideRequest($fileName, $index, $notesSlide);
-        $result = $slidesApi->postAddNotesSlide($request);
-        print_r($result);
+// Create a new slide.
+$response = $slidesApi->createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
 
-    } catch (Exception $e) {
-        echo "Something went wrong: ", $e->getMessage(), "\n";
-    }
-?>
+// Print links to all slides.
+foreach ($response->getSlideList() as $slide) {
+    // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+    echo $slide->getHref(), "\n";
+}
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-{{< gist "" "2cc36b05065a88cb0737424e4f38f68e" "AddNewSlide.rb" >}}
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "my_client_id"
+configuration.app_key = "my_client_secret"
+
+slides_api = SlidesApi.new(configuration)
+
+# Create a new slide.
+response = slides_api.create_slide("MyPresentation.pptx", "3", 2, nil, "MyFolder", "MyStorage")
+
+# Print links to all slides.
+for slide in response.slide_list
+    # Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+    puts slide.href
+end
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-{{< gist "" "88b9472c3f741eae6c606abdd003c791" "AddNewSlide.py" >}}
+```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
+
+# Create a new slide.
+response = slides_api.create_slide("MyPresentation.pptx", "3", 2, None, "MyFolder", "MyStorage")
+
+# Print links to all slides.
+for slide in response.slide_list:
+    # Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+    print(slide.href)
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-{{< gist "" "bc650902bdc45144b1727d329023dcba" "AddNewSlide.js" >}}
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+
+const cloud = require("asposeslidescloud")
+
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+
+// Create a new slide.
+slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage").then((response) => {
+    // Print links to all slides.
+    response.body.slideList.forEach(slide =>
+        // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+        console.log(slide.href)
+    )
+})
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-{{< gist "" "2b52dabd204b301389d1f4234e9bb0d5" "AddNewSlide.java" >}}
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+
+        // Create a new slide.
+        var response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+
+        // Print links to all slides.
+        for (var slide : response.getSlideList()) {
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+            System.out.println(slide.getHref());
+        }
+    }
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = new SlidesApi(L"my_client_id", L"my_client_secret");
+
+    // Create a new slide.
+    auto response = slidesApi->createSlide(L"MyPresentation.pptx", L"3", 2, L"", L"MyFolder", L"MyStorage").get();
+
+    // Print links to all slides.
+    for (auto slide : response->getSlideList()) {
+        // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+        std::wcout << slide->getHref() << std::endl;
+    }
+
+    return 0;
+}
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-{{< gist "" "a41a3c7c75241129b94faf7179d42527" "Coming_Soon.txt" >}}
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "my_client_id";
+$config->{app_key} = "my_client_secret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Create a new slide.
+my %parameters = (name => "MyPresentation.pptx", layout_alias => "3", position => 2, folder => "MyFolder", storage => "MyStorage");
+$response = $slides_api->create_slide(%parameters);
+
+# Print links to all slides.
+for my $slide (@{$response->{slide_list}}) {
+    # Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+    print $slide->{href}, "\n";
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="11" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **SDKs**
+
+Using an SDK (API client) is the quickest way for a developer to speed up development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
