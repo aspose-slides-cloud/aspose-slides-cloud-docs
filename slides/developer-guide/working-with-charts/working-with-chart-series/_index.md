@@ -4,6 +4,3 @@ type: docs
 url: /working-with-chart-series/
 weight: 20
 ---
-- [ADD Chart Series](/slides/add-chart-series/)
-- [DELETE Chart Series](/slides/delete-chart-series/)
-- [UPDATE Chart Series](/slides/update-chart-series/)
