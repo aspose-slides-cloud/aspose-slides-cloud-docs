@@ -86,7 +86,7 @@ int nodeIndex = 2;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portion response = TestUtils.SlidesApi.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex);
+Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex);
 
 Console.WriteLine($"The portion with text \"{response.Text}\" has been updated");
 ```
@@ -136,7 +136,7 @@ $portion->setFillFormat($fillFormat);
 
 $targetNodePath = "1/nodes/1/nodes";
 $slideIndex = 7;
-$response = $this->getApi()->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
+$response = $api->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
 print("The portion with text \"" + response->getText() + "\" has been updated");
 ```
 
@@ -160,7 +160,6 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.slide_comment import SlideComment
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -178,7 +177,7 @@ portion.fill_format = fill_format
 
 target_node_path = "1/nodes/1/nodes"
 slide_index = 7
-response = BaseTest.slides_api.update_subshape_portion("MyPresentation.pptx", slide_index, target_node_path, 2, 1, 1, portion)
+response = api.update_subshape_portion("MyPresentation.pptx", slide_index, target_node_path, 2, 1, 1, portion)
 print("The portion with text \"" + response.text + "\" has been updated")
 ```
 
@@ -202,7 +201,7 @@ const targetNodePath = "1/nodes/1/nodes";
 const slideIndex = 7;
 
 const response = await api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion);
-console.log("The portion with text \"" + comments.body.text + "\" has been updated");
+console.log("The portion with text \"" + response.body.text + "\" has been updated");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -225,8 +224,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 ```perl
 use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
+use AsposeSlidesCloud::SlidesApi;            
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
