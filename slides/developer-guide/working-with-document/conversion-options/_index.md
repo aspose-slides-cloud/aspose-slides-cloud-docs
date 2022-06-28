@@ -312,7 +312,6 @@ The following values may be used together as a combination of choices.
 |SlidesTransitionDuration|integer|Slides transition duration.|
 |TransitionType|TransitionTypeEnum|Video transition type.|
 |TransitionDuration|integer|Duration of transition defined in TransitionType property.|
-|IsAudioGenerated|boolean|true to [generate audio](/slides/convert-presentation-to-video-with-audio) for the video.|
 
 {{< expand-list title="VideoResolutionTypeEnum" >}}
 |**Value**|**Description**|
