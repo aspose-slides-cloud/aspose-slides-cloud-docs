@@ -8,8 +8,6 @@ weight: 60
 ## **Introduction**
 Aspose.Slides Cloud allows you to convert a presentation into a video format. Set **Mpeg4** as a conversion format and specify additional options if needed. Using [VideoExportOptions](/slides/conversion-options/#mpeg4-options) you can set up transition effects, duration, and resolution of the output result.
 
-You can create video with audio using [Speech generation feature](/slides/convert-presentation-to-video-with-audio).
-
 You may want to check out Aspose free <a href="https://products.aspose.app/slides/video" target="_blank">PPT to Video</a> converter, a live implementation of a popular conversion process.
 
 ### **cURL Example**
