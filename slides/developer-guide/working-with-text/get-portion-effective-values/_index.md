@@ -5,7 +5,11 @@ url: /get-portion-effective-values/
 weight: 140
 ---
 ## **Introduction**
-The "effective format values" means that returned values are a result of inheritance. They represent a final result of formatting that might be seen in the PowerPoint or in an exported document. For example if the font height value not defined for the specific portion of text, the value from the default portion format of the parent paragraph will be taken if availiable. If not, the value taken from the presentation theme.
+
+Effective values are format values that are actually applied to the portion. They are either explicitly set in the portion, or implicitly returned as a result of inheritance. They represent the final result of formatting that might be seen in the PowerPoint or in an exported document. For example, if the font height value is not defined for the specific portion of text, the value from the default portion format of the parent paragraph will be taken, if availiable. If not, the value is taken from the presentation theme.
+
+You can also get effective values for [Paragraphs](/slides/get-paragraph-effective-values/).
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
