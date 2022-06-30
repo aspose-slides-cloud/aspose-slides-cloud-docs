@@ -17,7 +17,8 @@ You can also get effective values for [Portions](/slides/get-portion-effective-v
 /{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/effective|GET|Get sub-shape paragraph effective|[GetSubshapeParagraphEffective]()|
 
 ### **cURL Example**
-The code example below shows how to obtain "effective formatting values" from the paragraph.
+
+The code example below shows how to obtain "effective formatting values" from a paragraph.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

@@ -5,13 +5,15 @@ url: /update-chart-series-groups/
 weight: 40
 ---
 ## **Introduction**
-A group of series contains series properties that are common for each series in the group. Series groups generated automatically based on types of series contained in a chart object. Aspose.Cloud allows to obtain such groups and update their properties.
+
+A group of series contains series properties that are common for each series in the group. Series groups are generated automatically based on types of series contained in the chart object. Aspose.Slide Cloud allows to obtain such groups and update their properties.
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 /slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Update chart series group|[UpdateChartSeriesGroup]()
 ### **cURL Example**
-The code example below shows how to update chart series group. 
+The code example below shows how to update a chart series group. 
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

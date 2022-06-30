@@ -5,7 +5,9 @@ url: /get-protection-properties/
 weight: 50
 ---
 ## **Introduction**
-The Aspose.Slides allow you to check if the presentation is password protected. The method can be invoked with or without a password parametr. If the password is not provided some properties in the response are unavaliable. 
+
+Aspose.Slides Cloud allows you to check whether a presentation is password protected. The method can be invoked with or without a password parameter. If the password is not provided some properties in the response are unavaliable. 
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
