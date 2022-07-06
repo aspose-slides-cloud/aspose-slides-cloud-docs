@@ -82,15 +82,15 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo1 = new FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
-        var fileInfo2 = new FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
-        var files = new List<FileInfo> { fileInfo1, fileInfo2 };
+        var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
+        var fileInfo2 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
+        var files = new List<Sdk.FileInfo> { fileInfo1, fileInfo2 };
 
         // Merge the presentations.
-        using var resultStream = slidesApi.MergeOnline(files);
+        using var resultStream = api.MergeOnline(files);
 
         // Save the result to a file.
         using var outputStream = File.Open("MyPresentation.pptx", FileMode.Create);
@@ -441,7 +441,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge
@@ -455,7 +455,6 @@ class Application
         var presentation2 = new PresentationToMerge
         {
             Path = "MyFolder/example2.pptx",
-            Password = "my_password",
             Source = PresentationToMerge.SourceEnum.Storage
         };
 
@@ -464,7 +463,7 @@ class Application
         request.Presentations = new List<PresentationToMerge> { presentation1, presentation2 };
 
         // Merge the presentations.
-        using var resultStream = slidesApi.MergeOnline(null, request, "MyStorage");
+        using var resultStream = api.MergeOnline(null, request);
 
         // Save the result to a file.
         using var outputStream = File.Open("MyPresentation.pptx", FileMode.Create);

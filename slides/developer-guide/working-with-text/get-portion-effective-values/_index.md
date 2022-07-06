@@ -63,10 +63,10 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 int slideIndex = 1;
 int shapeIndex = 1;
-int paragrapIndex = 1;
+int paragraphIndex = 1;
 int portionIndex = 1;
 
-Paragraph response = api.GetPortionEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, portionIndex);
+Portion response = api.GetPortionEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, portionIndex);
 
 Console.WriteLine($"The portion font size is \"{response.FontHeight}\".");
 ```

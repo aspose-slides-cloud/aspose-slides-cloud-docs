@@ -195,26 +195,25 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/merge?outPath=MyFolder/MyPrese
 ```csharp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using Aspose.Slides.Cloud.Sdk;
 using System;
 using System.Collections.Generic;
-using System.IO;
-
-using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
+using System.IO;                                  
 
 class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+	SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo1 = new FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
-        var fileInfo2 = new FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
-        var files = new List<FileInfo> { fileInfo1, fileInfo2 };
+        var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
+        var fileInfo2 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
+        var files = new List<Sdk.FileInfo> { fileInfo1, fileInfo2 };
 
         // Merge the presentations and save the result to the specified path.
-        slidesApi.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MyStorage");
+        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files);
     }
 }
 ```
@@ -500,8 +499,7 @@ request_data.json content:
         },
         {
             "Path": "MyFolder/example2.pptx",
-            "Password": "my_password",
-            "Source": "Storage"
+	    "Source": "Storage"
         }
     ]
 }
@@ -658,7 +656,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_key", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge
@@ -672,7 +670,6 @@ class Application
         var presentation2 = new PresentationToMerge
         {
             Path = "MyFolder/example2.pptx",
-            Password = "my_password",
             Source = PresentationToMerge.SourceEnum.Storage
         };
 
@@ -681,7 +678,7 @@ class Application
         request.Presentations = new List<PresentationToMerge> { presentation1, presentation2 };
 
         // Merge the presentations and save the result to the specified path.
-        slidesApi.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request, "MyStorage");
+        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request);
     }
 }
 ```

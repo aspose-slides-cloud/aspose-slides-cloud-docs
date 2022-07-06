@@ -99,7 +99,7 @@ ZoomFrame dto = new ZoomFrame
     Width = 200,
     Height = 100,
     TargetSlideIndex = 2
-}
+};
 ShapeBase shape = api.CreateShape(fileName, slideIndex, dto);
 Console.WriteLine(((ZoomFrame)shape).TargetSlideIndex);
 ```

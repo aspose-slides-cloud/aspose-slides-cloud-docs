@@ -99,7 +99,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set options for the output TIFF image.
         var tiffOptions = new TiffExportOptions
@@ -110,7 +110,7 @@ class Application
         };
 
         // Extract the third slide and get it in TIFF format.
-        using var tiffStream = slidesApi.DownloadSlide("MyPresentation.pptx", 3, SlideExportFormat.Tiff, tiffOptions, null, null, null, "MyFolder", "MyStorage");
+        using var tiffStream = api.DownloadSlide("MyPresentation.pptx", 3, SlideExportFormat.Tiff, tiffOptions);
         
         // Save the TIFF image to a file.
         using var outputStream = File.OpenWrite("slide_3.tiff");
@@ -457,7 +457,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set options for the output PNG image.
         var pngOptions = new ImageExportOptions
@@ -467,7 +467,7 @@ class Application
         };
 
         // Save the second slide to the PNG image.
-        slidesApi.SaveSlide("MyPresentation.pptx", 2, SlideExportFormat.Png, "MyImages/slide_2.png", pngOptions, folder: "MyFolder", storage: "MyStorage");
+        api.SaveSlide("MyPresentation.pptx", 2, SlideExportFormat.Png, "MyImages/slide_2.png", pngOptions);
     }
 }
 ```
@@ -780,7 +780,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         using var fileStream = File.OpenRead("MyPresentation.pptx");
 
@@ -793,7 +793,7 @@ class Application
         };
 
         // Extract the 5th slide and save it to the PDF document.
-        using var pdfStream = slidesApi.DownloadSlideOnline(fileStream, 5, SlideExportFormat.Pdf, options: pdfOptions);
+        using var pdfStream = api.DownloadSlideOnline(fileStream, 5, SlideExportFormat.Pdf, options: pdfOptions);
 
         // Save the PDF document to a file.
         using var outputStream = File.OpenWrite("slide_5.pdf");
@@ -1161,7 +1161,7 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         using var fileStream = File.OpenRead("MyPresentation.pptx");
 
@@ -1172,7 +1172,7 @@ class Application
         };
 
         // Extract the 4th slide and save it to the SVG file.
-        slidesApi.SaveSlideOnline(fileStream, 4, SlideExportFormat.Svg, "MyImages/slide_4.svg", null, null, null, "MyStorage", "MyFonts", svgOptions);
+        api.SaveSlideOnline(fileStream, 4, SlideExportFormat.Svg, "MyImages/slide_4.svg", null, null, null, null, null, svgOptions);
     }
 }
 ```

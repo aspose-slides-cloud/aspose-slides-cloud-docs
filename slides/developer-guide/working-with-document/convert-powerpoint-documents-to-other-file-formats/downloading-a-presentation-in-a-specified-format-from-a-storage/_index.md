@@ -91,7 +91,7 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Use the Helvetica font if any presentation font is not found.
         var htmlOptions = new HtmlExportOptions { DefaultRegularFont = "Helvetica" };
@@ -100,8 +100,8 @@ class Test
         var slideIndices = new List<int> { 2, 4 };
 
         // Export the presentation to HTML document and download the result.
-        using var htmlStream = slidesApi.DownloadPresentation(
-            "example.pptx", ExportFormat.Html, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices);
+        using var htmlStream = api.DownloadPresentation(
+            "example.pptx", ExportFormat.Html, htmlOptions, slides: slideIndices);
 
         // Save the HTML document to output.html file.
         using Stream outputStream = File.Create("output.html");

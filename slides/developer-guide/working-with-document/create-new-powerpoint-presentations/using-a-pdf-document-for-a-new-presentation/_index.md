@@ -190,12 +190,12 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        using (var pdfStream = File.OpenRead("report.pdf"))
+        using (var pdfStream = File.OpenRead("test.pdf"))
         {
-            var response = slidesApi.ImportFromPdf("summary.pptx", pdfStream, null, "Data", "Main");
-            Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
+            var response = api.ImportFromPdf("summary.pptx", pdfStream);
+            Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/summary.pptx
         }
     }
 }

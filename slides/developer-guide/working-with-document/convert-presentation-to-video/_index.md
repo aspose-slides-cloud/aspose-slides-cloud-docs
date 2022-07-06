@@ -71,7 +71,7 @@ VideoExportOptions videoExportOptions = new VideoExportOptions()
     TransitionDuration = 3
 };
 
-using Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Mpeg4, exportOptions);
+using Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Mpeg4, videoExportOptions);
 using Stream outFile = File.Create("MyPresentation.mp4");
 response.CopyTo(outFile);
 ```

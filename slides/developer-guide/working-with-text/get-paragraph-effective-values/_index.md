@@ -64,7 +64,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 int slideIndex = 1;
 int shapeIndex = 1;
-int paragrapIndex = 1;
+int paragraphIndex = 1;
 
 Paragraph response = api.GetParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
 

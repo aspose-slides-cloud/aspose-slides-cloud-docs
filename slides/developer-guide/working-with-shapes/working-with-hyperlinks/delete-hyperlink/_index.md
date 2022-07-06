@@ -86,7 +86,7 @@ Shape shape = new Shape
     HyperlinkClick = new Hyperlink { IsDisabled = true }
 };
 ShapeBase updatedShape = api.UpdateShape(fileName, slideIndex, shapeIndex, shape);
-Console.WriteLine(updatedShape.HyperlickClick == null); //true
+Console.WriteLine(updatedShape.HyperlinkClick == null); //true
 ```
 
 {{< /tab >}}

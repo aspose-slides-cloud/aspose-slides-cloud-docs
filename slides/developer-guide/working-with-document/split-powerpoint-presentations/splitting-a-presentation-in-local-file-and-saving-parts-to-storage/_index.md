@@ -111,11 +111,11 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Split the first three slides and save them to 480x270 bitmaps in the storage.
         using var presentationStream = File.OpenRead("MyPresentation.pptx");
-        var response = slidesApi.SplitAndSaveOnline(presentationStream, SlideExportFormat.Bmp, "MyImages", 480, 270, 1, 3, null, "MyStorage");
+        var response = api.SplitAndSaveOnline(presentationStream, SlideExportFormat.Bmp, "MyImages", 480, 270, 1, 3);
 
         // Print information about the result.
         foreach (var slide in response.Slides)

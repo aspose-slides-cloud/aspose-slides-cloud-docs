@@ -95,10 +95,10 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 string fileName = "MyPresentation.pptx";
-int slideIndex = 1;
-int shapeIndex = 2;
-int paragraphIndex = 3;
-int portionIndex = 2;
+int slideIndex = 2;
+int shapeIndex = 3;
+int paragraphIndex = 1;
+int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 using Stream mathMl = api.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex);

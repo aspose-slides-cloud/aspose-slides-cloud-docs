@@ -75,15 +75,15 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 List<FontFallbackRule> fontRules = new List<FontFallbackRule>();
 fontRules.Add(new FontFallbackRule()
 {
-    RangeStartIndex = c_startUnicodeIndex,
-    RangeEndIndex = c_endUnicodeIndex,
+    RangeStartIndex = 0x0B80,
+    RangeEndIndex = 0x0BFF,
     FallbackFontList = new List<string>() { "Vijaya" }
 });
 
 fontRules.Add(new FontFallbackRule()
 {
-    RangeStartIndex = c_startUnicodeIndex,
-    RangeEndIndex = c_endUnicodeIndex,
+    RangeStartIndex = 0x0B80,
+    RangeEndIndex = 0x0BFF,
     FallbackFontList = new List<string>() { "Segoe UI Emoji, Segoe UI Symbol", "Arial" }
 });
 

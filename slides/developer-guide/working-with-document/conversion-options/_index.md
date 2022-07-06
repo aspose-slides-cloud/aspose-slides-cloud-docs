@@ -525,7 +525,7 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set options for the output PDF document.
         var pdfOptions = new PdfExportOptions
@@ -537,7 +537,7 @@ class Test
 
         // Convert the presentation to PDF format.
         using var presentationStream = File.OpenRead("MyPresentation.pptx");
-        using var pdfStream = slidesApi.Convert(presentationStream, ExportFormat.Pdf, options: pdfOptions);
+        using var pdfStream = api.Convert(presentationStream, ExportFormat.Pdf, options: pdfOptions);
 
         using var fileStream = File.Create("MyPresentation.pdf");
         pdfStream.CopyTo(fileStream);

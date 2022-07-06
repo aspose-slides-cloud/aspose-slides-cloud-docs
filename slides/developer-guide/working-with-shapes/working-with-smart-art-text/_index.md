@@ -86,7 +86,7 @@ int nodeIndex = 2;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex);
+Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex, portion);
 
 Console.WriteLine($"The portion with text \"{response.Text}\" has been updated");
 ```

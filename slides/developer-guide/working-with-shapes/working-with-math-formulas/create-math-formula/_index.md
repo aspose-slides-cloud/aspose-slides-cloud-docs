@@ -145,7 +145,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 string fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 int shapeIndex = 2;
-int paragraphIndex = 3;
+int paragraphIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Portion dto = new Portion

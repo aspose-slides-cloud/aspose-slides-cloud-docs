@@ -192,10 +192,10 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var response = slidesApi.CreatePresentationFromSource(
-            "Sales.pptx", "Resources/SalesTemplate.potx", null, "Main", null, "Data", "Main");
+        var response = api.CreatePresentationFromSource(
+            "Sales.pptx", "Resources/SalesTemplate.potx", null, null, null, "Data", null);
 
         Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
     }

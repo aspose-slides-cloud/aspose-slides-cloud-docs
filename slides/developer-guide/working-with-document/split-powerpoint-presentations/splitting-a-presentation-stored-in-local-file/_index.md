@@ -91,11 +91,11 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Split the 2nd and 3rd slides and save them to PDF documents.
         using var presentationStream = File.OpenRead("MyPresentation.pptx");
-        using var responseStream = slidesApi.SplitOnline(presentationStream, SlideExportFormat.Pdf, from: 2, to: 3);
+        using var responseStream = api.SplitOnline(presentationStream, SlideExportFormat.Pdf, from: 2, to: 3);
 
         // Save the output stream to a ZIP file.
         using var outputStream = File.Create("output.zip");

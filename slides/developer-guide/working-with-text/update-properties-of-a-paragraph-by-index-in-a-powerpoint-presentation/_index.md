@@ -100,18 +100,15 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientApi", "MyClientSecret");
 
-        var storageName = "Main";
-        var folderName = "Data";
         var fileName = "example.pptx";
         var slideIndex = 1;
         var shapeIndex = 1;
-        var paragraphIndex = 2;
-        var password = "";
+        var paragraphIndex = 1;
         
         // Get a paragraph from the presentation.
-        var paragraph = slidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+        var paragraph = api.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex);
 
         // Change some paragraph settings.
         paragraph.Alignment = Paragraph.AlignmentEnum.Justify;
@@ -119,7 +116,7 @@ class Test
         paragraph.SpaceBefore = -20; // The negative value means it is in points.
 
         // Update the paragraph settings.
-        slidesApi.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+        api.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph);
     }
 }
 ```

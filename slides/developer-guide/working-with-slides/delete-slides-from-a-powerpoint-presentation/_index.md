@@ -97,10 +97,10 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the first slide from the presentation.
-        var response = slidesApi.DeleteSlide("MyPresentation.pptx", 1, null, "MyFolder", "MyStorage");
+        var response = api.DeleteSlide("MyPresentation.pptx", 1, null);
 
         // Print the links of the remaining slides.
         foreach (var slide in response.SlideList)
@@ -420,11 +420,11 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("my_client_id", "my_client_secret");
 
         // Delete the slides from the presentation.
         var slideIndices = new List<int> { 1, 3, 5 };
-        var response = slidesApi.DeleteSlides("MyPresentation.pptx", slideIndices, "my_password");
+        var response = api.DeleteSlides("MyPresentation.pptx", slideIndices);
 
         // Print the links of the remaining slides.
         foreach (var slide in response.SlideList)

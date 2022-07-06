@@ -53,11 +53,11 @@ ChartSeriesGroup seriesGroup = new ChartSeriesGroup()
     Overlap = 10
 };
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
 int seriesGroupIndex = 1;
 
-Chart chart = api.ChartSeriesGroups("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
+Chart chart = api.UpdateChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
 
 Console.WriteLine($"The chart has {chart.SeriesGroups.Count} series groups.");
 ```

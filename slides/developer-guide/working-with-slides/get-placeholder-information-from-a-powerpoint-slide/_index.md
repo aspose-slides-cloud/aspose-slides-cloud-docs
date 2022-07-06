@@ -100,15 +100,15 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+       	SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get information about all placeholders on the first slide.
-        var response = slidesApi.GetPlaceholders("MyPresentation.pptx", 1, null, "MyFolder");
+        var response = api.GetPlaceholders("MyPresentation.pptx", 1);
 
         // Print placeholder links from the response.
         foreach (var resourceUri in response.PlaceholderLinks)
         {
-            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/placeholders/1?folder=MyFolder etc.
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/placeholders/1 etc.
             Console.WriteLine(resourceUri.Href);
         }
     }
@@ -420,10 +420,10 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get information about the placeholder.
-        var response = slidesApi.GetPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage");
+        var response = api.GetPlaceholder("MyPresentation.pptx", 2, 1);
 
         Console.WriteLine(response.ToString());
     }
