@@ -205,7 +205,7 @@ class Application
 {
     static void Main(string[] args)
     {
-	SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
         var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
