@@ -300,7 +300,7 @@ my $properties = $slides_api->get_document_properties(%parameters);
 
 # Print the document properties.
 for my $property (@{$properties->{list}}) {
-    print("$property->{name}: $property->{value}\n")
+    print("$property->{name}: $property->{value}\n");
 }
 ```
 
@@ -427,7 +427,7 @@ public class Application {
         // Read the document property.
         var property = slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder", null);
 
-        //  Print the property value.
+        // Print the property value.
         System.out.println(property.getValue()); // Jhon Smith, for example.
     }
 }
@@ -452,7 +452,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 // Read the document property.
 $property = $slidesApi->getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder");
 
-//  Print the property value.
+// Print the property value.
 print($property->getValue()); // Jhon Smith, for example.
 ```
 
@@ -476,7 +476,7 @@ slides_api = SlidesApi.new(configuration)
 # Read the document property.
 property = slides_api.get_document_property("MyPresentation.pptx", "Author", nil, "MyFolder")
 
-#  Print the property value.
+# Print the property value.
 print property.value # Jhon Smith, for example.
 ```
 
@@ -496,7 +496,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 # Read the document property.
 property = slides_api.get_document_property("MyPresentation.pptx", "Author", None, "MyFolder")
 
-#  Print the property value.
+# Print the property value.
 print(property.value) # Jhon Smith, for example.
 ```
 
@@ -513,7 +513,7 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Read the document property.
 slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder").then((property) => {
-    //  Print the property value.
+    // Print the property value.
     console.log(property.body.value)
 })
 ```
@@ -536,7 +536,7 @@ int main()
     // Read the document property.
     auto property = slidesApi->getDocumentProperty(L"MyPresentation.pptx", L"Author", L"", L"MyFolder").get();
 
-    //  Print the property value.
+    // Print the property value.
     std::wcout << property->getValue(); // Jhon Smith, for example.
 
     std::cin.get();

@@ -293,10 +293,10 @@ property2.value = "My Value"
 new_properties = DocumentProperties.new
 new_properties.list = [property1, property2]
 
-## Add the new document properties to the presentation.
+# Add the new document properties to the presentation.
 all_properties = slides_api.set_document_properties("MyPresentation.pptx", new_properties, nil, "MyFolder")
 
-## Print all document properties.
+# Print all document properties.
 for property in all_properties.list
     puts "#{property.name}: #{property.value}"
 end
@@ -328,10 +328,10 @@ property2.value = "My Value"
 new_properties = DocumentProperties()
 new_properties.list = [property1, property2]
 
-## Add the new document properties to the presentation.
+# Add the new document properties to the presentation.
 all_properties = slides_api.set_document_properties("MyPresentation.pptx", new_properties, None, "MyFolder")
 
-## Print all document properties.
+# Print all document properties.
 for property in all_properties.list:
     print(f"{property.name}: {property.value}")
 ```
@@ -439,13 +439,13 @@ $property2->{value} = "My Value";
 my $new_properties = AsposeSlidesCloud::Object::DocumentProperties->new();
 $new_properties->{list} = [$property1, $property2];
 
-## Add the new document properties to the presentation.
+# Add the new document properties to the presentation.
 my %parameters = (name => "MyPresentation.pptx", properties => $new_properties, folder => "MyFolder");
 my $all_properties = $slides_api->set_document_properties(%parameters);
 
-## Print all document properties.
+# Print all document properties.
 for my $property (@{$all_properties->{list}}) {
-    print("$property->{name}: $property->{value}\n")
+    print("$property->{name}: $property->{value}\n");
 }
 ```
 
