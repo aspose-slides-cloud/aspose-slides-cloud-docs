@@ -237,19 +237,22 @@ const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
+const startUnicodeIndex = 0x0B80;
+const endUnicodeIndex = 0x0BFF;
+
 const rule1 = new CloudSdk.FontFallbackRule();
-rule1.rangeStartIndex = c_startUnicodeIndex;
-rule1.rangeEndIndex = c_endUnicodeIndex;
+rule1.rangeStartIndex = startUnicodeIndex;
+rule1.rangeEndIndex = endUnicodeIndex;
 rule1.fallbackFontList = [ "Vijaya" ];
 
 const rule2 = new CloudSdk.FontFallbackRule();
-rule2.rangeStartIndex = c_startUnicodeIndex;
-rule2.rangeEndIndex = c_endUnicodeIndex;
+rule2.rangeStartIndex = startUnicodeIndex;
+rule2.rangeEndIndex = endUnicodeIndex;
 rule2.fallbackFontList = [ "Segoe UI Emoji, Segoe UI Symbol", "Arial" ];
 
 const exportOptions = new CloudSdk.ImageExportOptions();
 exportOptions.fontFallbackRules = [ rule1, rule2 ];
-api.downloadPresentation("MyPresentation.pptx", "png", exportOptions).then(() => {
+api.downloadPresentation("MyPresentation.pptx", "png", exportOptions).then(response => {
     fs.writeFile("MyPresentation.zip", response.body, (err) => {
         if (err) throw err;
     });

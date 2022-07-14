@@ -270,7 +270,7 @@ api.getSpecialSlideShapes(fileName, slideIndex, CloudSdk.SpecialSlideType.Master
     dto.width = 500;
     dto.height = 200;
     dto.text = "New shape";
-    api.createSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, null, null, dto).then((postResult) => {
+    api.createSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, dto).then((postResult) => {
         console.log(postResult.body.text); //New shape
         dto.text = "Updated shape";
         api.updateSpecialSlideShape(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeCount + 1, dto).then((putResult) => {

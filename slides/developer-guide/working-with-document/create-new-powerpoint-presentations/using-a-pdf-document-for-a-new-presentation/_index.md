@@ -301,7 +301,7 @@ const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
 
-const pdfStream = fs.createReadStream("report.pdf")
+const pdfStream = fs.createReadStream("test.pdf")
 
 slidesApi.importFromPdf("summary.pptx", pdfStream, null, "Data", "Main").then((response) => {
     console.log(response.body.selfUri.href) // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data

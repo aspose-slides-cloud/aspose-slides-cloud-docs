@@ -263,13 +263,13 @@ const paragraphIndex = 3;
 api.getSpecialSlidePortions(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex).then((result) => {
     const portionCount = result.body.items.length;
     var dto = new CloudSdk.Portion();
-    dto.fontBold(CloudSdk.Portion.FontBoldEnum.True);
+    dto.fontBold = CloudSdk.Portion.FontBoldEnum.True;
     dto.text = "New portion";
-    api.createSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, null, dto).then((postResult) => {
+    api.createSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, dto).then((postResult) => {
         console.log(postResult.body.fontBold); //True
         console.log(postResult.body.text); //New portion
         dto = new CloudSdk.Portion();
-        dto.fontHeight(22);
+        dto.fontHeight = 22;
         dto.text = "Updated portion";
         api.updateSpecialSlidePortion(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, paragraphIndex, portionCount + 1, dto).then((putResult) => {
             console.log(postResult.body.fontBold); //True

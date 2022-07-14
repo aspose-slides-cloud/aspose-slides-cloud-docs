@@ -71,7 +71,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
 seriesGroup.setOverlap(10);
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
 int seriesGroupIndex = 1;
 
@@ -96,7 +96,7 @@ $api = new SlidesApi(null, $config);
 $chartSeriesGroup = new ChartSeriesGroup();
 $chartSeriesGroup-> setOverlap(10);
 
-$slideIndex = 1;
+$slideIndex = 3;
 $shapeIndex = 1;
 $seriesGroupIndex = 1;
 
@@ -133,7 +133,7 @@ api = SlidesApi(configuration)
 series_group = ChartSeriesGroup()
 series_group.overlap = 10
 
-slide_index = 1
+slide_index = 3
 shape_index = 1
 series_group_index = 1
 
@@ -148,16 +148,15 @@ print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let seriesGroup = new ChartSeriesGroup();
+let seriesGroup = new CloudSdk.ChartSeriesGroup();
 seriesGroup.overlap = 10;
 
-const slideIndex = 1;
+const slideIndex = 3;
 const shapeIndex = 1;
 const seriesGroupIndex = 1;
 
 const result = await api.updateChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
-chart = result.body as model.Chart;
-console.log("The chart contains \"" + chart.seriesGroups.length + "\" series groups.");
+console.log("The chart contains \"" + result.body.seriesGroups.length + "\" series groups.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

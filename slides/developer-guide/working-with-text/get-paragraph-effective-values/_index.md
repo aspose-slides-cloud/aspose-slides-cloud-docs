@@ -152,7 +152,7 @@ const shapeIndex = 1;
 const paragraphIndex = 1;
 
 const response = await api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
-console.log("The default tab size is \"" + result.body.defaultTabSize + "\".");
+console.log("The default tab size is \"" + response.body.defaultTabSize + "\".");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

@@ -204,8 +204,8 @@ dto.type = CloudSdk.Effect.TypeEnum.Blink;
 dto.shapeIndex = shapeIndex;
 dto.paragraphIndex = paragraphIndex;
 api.createAnimationEffect(fileName, slideIndex, dto).then(() => {
-    api.getSpecialSlideAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
-        console.log(putResult.body.mainSequence.length); //1
+    api.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
+        console.log(result.body.mainSequence.length); //1
     });
 });
 ```

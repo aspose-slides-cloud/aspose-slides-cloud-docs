@@ -94,7 +94,7 @@ Console.WriteLine(portion.HyperlinkMouseOver.TargetSlideIndex); //5
 String fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 int shapeIndex = 2;
-int paragraphIndex = 3;
+int paragraphIndex = 1;
 int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
@@ -124,7 +124,7 @@ $api = new SlidesApi(null, $config);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphIndex = 3;
+$paragraphIndex = 1;
 $portionIndex = 1;
 
 $dto = new Portion();
@@ -159,7 +159,7 @@ api = SlidesApi(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
+paragraph_index = 1
 portion_index = 1
 
 dto = Portion()
@@ -181,7 +181,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
-const paragraphIndex = 3;
+const paragraphIndex = 1;
 const portionIndex = 1;
 
 const dto = new CloudSdk.Portion();
@@ -206,7 +206,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 var shapeIndex int32 = 2
-var paragraphIndex int32 = 3
+var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
 dto := NewPortion()

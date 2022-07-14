@@ -127,7 +127,7 @@ const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const response = await api.getProtectionProperties("MyPresentation.pptx");
-if (result.body.isEncrypted)
+if (response.body.isEncrypted)
     console.log("The presentation is protected.");
 ```
 {{< /tab >}}

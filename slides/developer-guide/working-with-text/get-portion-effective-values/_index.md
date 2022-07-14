@@ -156,7 +156,7 @@ const paragraphIndex = 1;
 const portionIndex = 1;
 
 const response = await api.getPortionEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, portionIndex);
-console.log("The portion font height is \"" + result.body.fontHeight + "\".");
+console.log("The portion font height is \"" + response.body.fontHeight + "\".");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
