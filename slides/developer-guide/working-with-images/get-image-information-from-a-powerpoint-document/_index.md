@@ -7,7 +7,7 @@ weight: 10
 
 ## **Introduction**
 
-The following request method allows you to easily read information about all images contained in a PowerPoint document. You can find out the following image properties: width, height, type, etc.
+The following API method allows you to easily read information about all images contained in a PowerPoint document. You can find out the following image properties: width, height, type, etc.
 
 ## **GetPresentationImages**
 
