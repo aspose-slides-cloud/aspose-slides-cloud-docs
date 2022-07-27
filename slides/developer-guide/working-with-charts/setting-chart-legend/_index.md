@@ -1,33 +1,45 @@
 ---
-title: "Update Chart Series Groups"
+title: "Setting chart legend"
 type: docs
-url: /update-chart-series-groups/
-weight: 40
+url: /setting-chart-legend/
+weight: 60
 ---
 ## **Introduction**
-
-A group of series contains series properties that are common for each series in the group. Series groups are generated automatically based on types of series contained in the chart object. Aspose.Slide Cloud allows to obtain such groups and update their properties.
-
+Aspose.Slides for Cloud allows setting chart legend properties separately.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Update chart series group|[SetChartSeriesGroup]()
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/legend|PUT|Updates chart legend properties|[SetChartLegend]()|
 ### **cURL Example**
-The code example below shows how to update a chart series group. 
+
+The code example below shows how to update some properties of the chart legend.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
+
+**Create Authentication Headers**
 ```sh
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/seriesGroup/1" -d @"seriesGroup.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-seriesGroup.json
+**Update Vertical Axis**
+```sh
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/legend" -d @"legend.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+```
+
+legend.json
 ```json
 {
-	"Overlap": 10
+    "Overlay":true,
+    "FillFormat":{
+        "Type": "Solid",
+        "Color": "#77CEF9"
+    }
 }
+
 ```
+
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
@@ -35,11 +47,14 @@ seriesGroup.json
 ```java
 
 Code: 200
-Returns chart info.
+Returns chart axis info.
 
 ```
 
 {{< /tab >}}
+
+{{< /tabs >}}
+{{< /tabs >}}
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
@@ -48,18 +63,20 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-ChartSeriesGroup seriesGroup = new ChartSeriesGroup()
-{
-    Overlap = 10
-};
 
 int slideIndex = 3;
 int shapeIndex = 1;
-int seriesGroupIndex = 1;
 
-Chart chart = api.SetChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
+Legend legendDto = new Legend();
+legendDto.Overlay = true;
+legendDto.FillFormat = new SolidFill()
+{
+    Color = "#77CEF9"
+};
 
-Console.WriteLine($"The chart has {chart.SeriesGroups.Count} series groups.");
+Legend response = TestUtils.SlidesApi.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
+
+Console.WriteLine("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -68,16 +85,17 @@ Console.WriteLine($"The chart has {chart.SeriesGroups.Count} series groups.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
-seriesGroup.setOverlap(10);
-
 int slideIndex = 3;
 int shapeIndex = 1;
-int seriesGroupIndex = 1;
+Legend legend = new Legend();
+legend.setOverlay(true);
+SolidFill fillFormat = new SolidFill();
+fillFormat.setColor("#77CEF9");
+legend.setFillFormat(fillFormat);
 
-Chart chart = api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, null, null, null);
+Legend response = api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, null, null, null);
 
-System.out.println("The chart has  \"" + chart.getSeriesGroups().size() + "\" series groups.");
+System.out.println("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -86,22 +104,24 @@ System.out.println("The chart has  \"" + chart.getSeriesGroups().size() + "\" se
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$chartSeriesGroup = new ChartSeriesGroup();
-$chartSeriesGroup-> setOverlap(10);
-
 $slideIndex = 3;
 $shapeIndex = 1;
-$seriesGroupIndex = 1;
 
-$chart = $api->setChartSeriesGroup("MyPresentation.pptx", $slideIndex, $shapeIndex, $seriesGroupIndex, $chartSeriesGroup);
-print("The chart has \"" + count($chart->getSeriesGroups()) + "\" sereis groups.");
+$legend = new Legend();
+$legend->setOverlay(true);
+$fillFormat = new SolidFill();
+$fillFormat->setColor("#77CEF9"); 
+$legend->setFillFormat($fillFormat);
+
+$result = $this->getApi()->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
+
+print("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -130,15 +150,17 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-series_group = ChartSeriesGroup()
-series_group.overlap = 10
-
 slide_index = 3
 shape_index = 1
-series_group_index = 1
 
-chart = api.set_chart_series_group("MyPresentation.pptx", slide_index, shape_index, series_group_index, series_group)
-print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
+legend = Legend()
+legend.overlay = True
+fill_format = SolidFill()
+fill_format.color = constant.COLOR
+legend.fill_format = fill_format
+response = BaseTest.slides_api.set_chart_legend("MyPresentation.pptx", slide_index, shape_index, legend)
+
+print("Background color of the chart legend has been changed.")
 ```
 
 {{< /tab >}}
@@ -148,15 +170,18 @@ print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let seriesGroup = new CloudSdk.ChartSeriesGroup();
-seriesGroup.overlap = 10;
-
 const slideIndex = 3;
 const shapeIndex = 1;
-const seriesGroupIndex = 1;
 
-const result = await api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
-console.log("The chart contains \"" + result.body.seriesGroups.length + "\" series groups.");
+const fillFormat = new SolidFill();
+fillFormat.color = "#77CEF9";
+const legend = new Legend();
+legend.overlay = true;
+legend.fillFormat = fillFormat;
+
+let result = await api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend);
+            
+console.log("Background color of the chart legend has been changed.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

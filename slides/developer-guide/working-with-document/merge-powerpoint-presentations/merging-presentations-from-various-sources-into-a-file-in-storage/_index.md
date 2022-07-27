@@ -1,13 +1,13 @@
 ---
-title: "Merging Presentations from Local Files and Storage into a File in Storage"
+title: "Merging Presentations from Various Sources into a File in Storage"
 type: docs
-url: /merging-presentations-from-local-files-and-storage-into-a-file-in-storage/
+url: /merging-presentations-from-various-sources-into-a-file-in-storage/
 weight: 40
 ---
 
 ## **Introduction**
 
-The article shows you how to merge PowerPoint presentations saved to local files and a storage. The final presentation is also saved in the storage. You can specify slide indices to merge. For protected presentations, passwords can be specified to open them. The request method below allows you to merge presentation files stored both locally and in storage, separately or together.
+The article shows you how to merge PowerPoint presentations from different sources: local files, storage, and remote resources. The final presentation is saved in the storage. You can specify slide indices to merge. For protected presentations, passwords can be specified to open them. The request method below allows you to merge presentation files stored in different ways: locally, in storage, and remotely
 
 ## **API Information**
 
@@ -58,128 +58,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/merge?outPath=MyFolder/MyPrese
 {{< tab tabNum="2" >}}
 
 ```json
-{
-    "documentProperties": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/documentProperties",
-        "relation": "self"
-    },
-    "viewProperties": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/viewProperties",
-        "relation": "self"
-    },
-    "slides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/slides",
-        "relation": "self"
-    },
-    "images": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/images",
-        "relation": "self"
-    },
-    "layoutSlides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/layoutSlides",
-        "relation": "self"
-    },
-    "masterSlides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/masterSlides",
-        "relation": "self"
-    },
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx",
-        "relation": "self"
-    },
-    "alternateLinks": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/odp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation",
-            "title": "Download as Odp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/fodp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation",
-            "title": "Download as Fodp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppt",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Ppt"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pdf",
-            "relation": "alternate",
-            "linkType": "application/pdf",
-            "title": "Download as Pdf"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/tiff",
-            "relation": "alternate",
-            "linkType": "image/tiff",
-            "title": "Download as Tiff"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/xps",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-xpsdocument",
-            "title": "Download as Xps"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pps",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Pps"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsx",
-            "relation": "alternate",
-            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-            "title": "Download as Ppsx"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pptm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.presentation.macroEnabled.12",
-            "title": "Download as Pptm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
-            "title": "Download as Ppsm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pot",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Pot"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potx",
-            "relation": "alternate",
-            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.template",
-            "title": "Download as Potx"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.template.macroEnabled.12",
-            "title": "Download as Potm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/otp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation-template",
-            "title": "Download as Otp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/html",
-            "relation": "alternate",
-            "linkType": "text/html",
-            "title": "Download as Html"
-        }
-    ]
-}
+Document with merged presentation info.
 ```
 
 {{< /tab >}}
@@ -462,7 +341,7 @@ my $result_data = $slides_api->merge_and_save_online(%merge_params);
 
 ## **Merging Presentations Saved to Storage**
 
-Example: Merge the first slide from **MyFolder/example1.pptx** presentation with all slides from **MyFolder/example2.pptx** presentation. Use **my_password** string to open the second presentation. Both presentations were saved in **MyStorage** storage. Save the result to **MyFolder/MyPrsentation.pptx** file.
+Example: Merge **local.pptx** saved to local file, **storage.pptx** saved on storage, and **remote presentation**. Save the result to **MyFolder/MyPrsentation.pptx** file.
 
 **cURL Solution**
 
@@ -484,7 +363,8 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/merge?outPath=MyFolder/MyPresentation.pptx&storage=MyStorage" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
-     -d @request_data.json
+     -d @request_data.json \
+     -F "file=@local.pptx"
 ```
 
 request_data.json content:
@@ -493,13 +373,18 @@ request_data.json content:
 {
     "Presentations": [
         {
-            "Path": "MyFolder/example1.pptx",
-            "Slides": [ 1 ],
+            "Path": "local.pptx",
+            "Slides": [1, 2],
+        },
+        {
+            "Path": "storage.pptx",
+            "Password": "my_password",
             "Source": "Storage"
         },
         {
-            "Path": "MyFolder/example2.pptx",
-	    "Source": "Storage"
+            "Path": "https://drive.google.com/uc?export=download&id=remote.pptx",
+            "Slides": [1],
+            "Source": "Url"
         }
     ]
 }
@@ -510,128 +395,7 @@ request_data.json content:
 {{< tab tabNum="2" >}}
 
 ```json
-{
-    "documentProperties": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/documentProperties",
-        "relation": "self"
-    },
-    "viewProperties": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/viewProperties",
-        "relation": "self"
-    },
-    "slides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/slides",
-        "relation": "self"
-    },
-    "images": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/images",
-        "relation": "self"
-    },
-    "layoutSlides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/layoutSlides",
-        "relation": "self"
-    },
-    "masterSlides": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/masterSlides",
-        "relation": "self"
-    },
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx",
-        "relation": "self"
-    },
-    "alternateLinks": [
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/odp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation",
-            "title": "Download as Odp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/fodp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation",
-            "title": "Download as Fodp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppt",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Ppt"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pdf",
-            "relation": "alternate",
-            "linkType": "application/pdf",
-            "title": "Download as Pdf"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/tiff",
-            "relation": "alternate",
-            "linkType": "image/tiff",
-            "title": "Download as Tiff"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/xps",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-xpsdocument",
-            "title": "Download as Xps"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pps",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Pps"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsx",
-            "relation": "alternate",
-            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-            "title": "Download as Ppsx"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pptm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.presentation.macroEnabled.12",
-            "title": "Download as Pptm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/ppsm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
-            "title": "Download as Ppsm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/pot",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint",
-            "title": "Download as Pot"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potx",
-            "relation": "alternate",
-            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.template",
-            "title": "Download as Potx"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/potm",
-            "relation": "alternate",
-            "linkType": "application/vnd.ms-powerpoint.template.macroEnabled.12",
-            "title": "Download as Potm"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/otp",
-            "relation": "alternate",
-            "linkType": "application/vnd.oasis.opendocument.presentation-template",
-            "title": "Download as Otp"
-        },
-        {
-            "href": "https://api.aspose.cloud/v3.0/slides/mergeResult.pptx/html",
-            "relation": "alternate",
-            "linkType": "text/html",
-            "title": "Download as Html"
-        }
-    ]
-}
+Document with merged presentation info.
 ```
 
 {{< /tab >}}
@@ -658,27 +422,39 @@ class Application
     {
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Prepare information for the first presentation to merge.
+        // Collect the presentations to merge.
+        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx") };
+        var files = new List<Sdk.FileInfo> { fileInfo};
+
+        // Prepare information for the second presentation to merge.
         var presentation1 = new PresentationToMerge
         {
-            Path = "MyFolder/example1.pptx",
-            Slides = new List<int> { 1 },
-            Source = PresentationToMerge.SourceEnum.Storage
+            Path = "local.pptx",
+            Slides = new List<int> { 1, 2 }
         };
 
         // Prepare information for the second presentation to merge.
         var presentation2 = new PresentationToMerge
         {
-            Path = "MyFolder/example2.pptx",
+            Path = "storage.pptx",
+            Password = "my_password",
             Source = PresentationToMerge.SourceEnum.Storage
         };
 
-        // Prepare the merge request.
+        // Prepare information for the second presentation to merge.
+        var presentation3 = new PresentationToMerge
+        {
+            Path = "https://drive.google.com/uc?export=download&id=remote.pptx",
+            Slides = new List<int> { 1 },
+            Source = PresentationToMerge.SourceEnum.Url
+        };
+
+         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.Presentations = new List<PresentationToMerge> { presentation1, presentation2 };
+        request.Presentations = new List<PresentationToMerge> { presentation1, presentation2, presentation3 };
 
         // Merge the presentations and save the result to the specified path.
-        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request);
+        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, request);
     }
 }
 ```
@@ -700,24 +476,32 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         var slidesApi = new SlidesApi("my_client_key", "my_client_secret");
 
+        var files = new ArrayList<FileInfo>();
+        files.add(fileInfo);
+
         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge();
-        presentation1.setPath("MyFolder/example1.pptx");
-        presentation1.setSlides(Arrays.asList(1));
-        presentation1.setSource(PresentationToMerge.SourceEnum.STORAGE);
-
-        // Prepare information for the second presentation to merge.
+        presentation1.setPath("local.pptx");
+        presentation1.setSlides(Arrays.asList(1, 2));
+       
+        // Prepare information for the first presentation to merge.
         var presentation2 = new PresentationToMerge();
-        presentation2.setPath("MyFolder/example2.pptx");
+        presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
-        // Prepare the merge request.
+        // Prepare information for the first presentation to merge.
+        var presentation3 = new PresentationToMerge();
+        presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+        presentation3.setSlides(Arrays.asList(1));
+        presentation3.setSource(PresentationToMerge.SourceEnum.URL);
+
+         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.setPresentations(Arrays.asList(presentation1, presentation2));
+        request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
         // Merge the presentations and save the result to the specified path.
-        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request, "MyStorage");
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage");
     }
 }
 ```
@@ -740,24 +524,33 @@ $configuration->setAppKey("my_client_secret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
+// Collect the presentations to merge.
+$file = fopen("local.pptx", 'r');
+$files = [$file];
+
 // Prepare information for the first presentation to merge.
 $presentation1 = new PresentationToMerge();
-$presentation1->setPath("MyFolder/example1.pptx");
-$presentation1->setSlides([1]);
-$presentation1->setSource("Storage");
+$presentation1->setPath("local.pptx");
+$presentation1->setSlides([1, 2]);
 
-// Prepare information for the second presentation to merge.
+// Prepare information for the first presentation to merge.
 $presentation2 = new PresentationToMerge();
-$presentation2->setPath("MyFolder/example2.pptx");
+$presentation2->setPath("storage.pptx");
 $presentation2->setPassword("my_password");
 $presentation2->setSource("Storage");
 
+// Prepare information for the first presentation to merge.
+$presentation3 = new PresentationToMerge();
+$presentation3->setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+$presentation3->setSlides([1]);
+$presentation3->setSource("Url");
+
 // Prepare the merge request.
 $request = new OrderedMergeRequest();
-$request->setPresentations([$presentation1, $presentation2]);
+$request->setPresentations([$presentation1, $presentation2, $presentation3]);
 
 // Merge the presentations and save the result to the specified path.
-$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, $request, "MyStorage");
+$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $request, $request, "MyStorage");
 ```
 
 {{< /tab >}}
@@ -777,24 +570,33 @@ configuration.app_key = "my_client_secret"
 
 slides_api = SlidesApi.new(configuration)
 
+# Collect the presentations to merge.
+file_data = File.binread("local.pptx")
+files = [file_data]
+
 # Prepare information for the first presentation to merge.
 presentation1 = PresentationToMerge.new
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [1]
-presentation1.source = "Storage"
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 
-# Prepare information for the second presentation to merge.
+# Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge.new
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+# Prepare information for the first presentation to merge.
+presentation3 = PresentationToMerge.new
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation1.slides = [1]
+presentation3.source = "Url"
+
 # Prepare the merge request.
 request = OrderedMergeRequest.new
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
 # Merge the presentations and save the result to the specified path.
-slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", nil, request, "MyStorage")
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -811,24 +613,35 @@ from asposeslidescloud.models import *
 
 slides_api = SlidesApi(None, "my_client_key", "my_client_secret")
 
+# Collect the presentations to merge.
+with open("local.pptx", "rb") as file1_stream:
+    file_data = file1_stream.read()
+files = [file_data]
+
 # Prepare information for the first presentation to merge.
 presentation1 = PresentationToMerge()
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [1]
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 presentation1.source = "Storage"
 
-# Prepare information for the second presentation to merge.
+# Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge()
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+# Prepare information for the first presentation to merge.
+presentation3 = PresentationToMerge()
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation3.slides = [1]
+presentation3.source = "Url"
+
 # Prepare the merge request.
 request = OrderedMergeRequest()
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
 # Merge the presentations and save the result to the specified path.
-slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", None, request, "MyStorage")
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -842,24 +655,32 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret")
 
+// Collect the presentations to merge.
+const fileStream = fs.createReadStream("local.pptx")
+const files = [fileStream]
+
 // Prepare information for the first presentation to merge.
 const presentation1 = new cloud.PresentationToMerge()
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [1]
-presentation1.source = "Storage"
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 
-// Prepare information for the second presentation to merge.
+// Prepare information for the first presentation to merge.
 const presentation2 = new cloud.PresentationToMerge()
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+// Prepare information for the first presentation to merge.
+const presentation3 = new cloud.PresentationToMerge()
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation3.source = "Url"
+
 // Prepare the merge request.
 const request = new cloud.OrderedMergeRequest()
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
 // Merge the presentations and save the result to the specified path.
-slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request, "MyStorage").then(() => {
+slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage").then(() => {
 })
 ```
 
@@ -880,24 +701,35 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         var slidesApi = new SlidesApi("my_client_key", "my_client_secret");
 
-        // Prepare information for the first presentation to merge.
+        // Collect the presentations to merge.
+        var fileInfo = new FileInfo();
+        fileInfo.setData(Files.readAllBytes(Paths.get("local.pptx")));
+
+        var files = new ArrayList<FileInfo>();
+        files.add(fileInfo);
+
+         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge();
-        presentation1.setPath("MyFolder/example1.pptx");
-        presentation1.setSlides(Arrays.asList(1));
-        presentation1.setSource(PresentationToMerge.SourceEnum.STORAGE);
+        presentation1.setPath("local.pptx");
+        presentation1.setSlides(Arrays.asList(1, 2));
 
         // Prepare information for the second presentation to merge.
         var presentation2 = new PresentationToMerge();
-        presentation2.setPath("MyFolder/example2.pptx");
+        presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
+        var presentation3 = new PresentationToMerge();
+        presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+        presentation3.setSlides(Arrays.asList(1));
+        presentation3.setSource(PresentationToMerge.SourceEnum.URL);
+
         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.setPresentations(Arrays.asList(presentation1, presentation2));
+        request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
         // Merge the presentations and save the result to the specified path.
-        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", null, request, "MyStorage");
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage");
     }
 }
 ```
@@ -919,24 +751,36 @@ int main()
 {
     auto slidesApi = new SlidesApi(to_string_t("my_client_key"), to_string_t("my_client_secret"));
 
+    // Collect the presentations to merge.
+    auto fileStream = std::make_shared<std::ifstream>("TestData/example1.pptx", std::ios::binary);
+    auto fileContent = std::make_shared<HttpContent>();
+    fileContent->setData(fileStream);
+    auto files = { fileContent };
+
     // Prepare information for the first presentation to merge.
     auto presentation1 = std::make_shared<PresentationToMerge>();
-    presentation1->setPath(to_string_t("MyFolder/example1.pptx"));
-    presentation1->setSlides({ 1 });
-    presentation1->setSource(to_string_t("Storage"));
+    presentation1->setPath(to_string_t("lodal.pptx"));
+    presentation1->setSlides({ 1, 2 });
 
     // Prepare information for the second presentation to merge.
     auto presentation2 = std::make_shared<PresentationToMerge>();
-    presentation2->setPath(to_string_t("MyFolder/example2.pptx"));
+    presentation2->setPath(to_string_t("storage.pptx"));
     presentation2->setPassword(to_string_t("my_password"));
     presentation2->setSource(to_string_t("Storage"));
 
+    // Prepare information for the second presentation to merge.
+    auto presentation3 = std::make_shared<PresentationToMerge>();
+    presentation3->setPath(to_string_t("
+https://drive.google.com/uc?export=download&id=remote.pptx"));
+    presentation3->setSlides({ 1 });
+    presentation3->setSource(to_string_t("Url"));
+
     // Prepare the merge request.
     auto request = std::make_shared<OrderedMergeRequest>();
-    request->setPresentations({ presentation1, presentation2 });
+    request->setPresentations({ presentation1, presentation2, presentation3 });
 
     // Merge the presentations and save the result to the specified path.
-    slidesApi->mergeAndSaveOnline(to_string_t("MyFolder/MyPresentation.pptx"), {}, request, to_string_t("MyStorage")).get();
+    slidesApi->mergeAndSaveOnline(to_string_t("MyFolder/MyPresentation.pptx"), files, request, to_string_t("MyStorage")).get();
 
     return 0;
 }
@@ -960,24 +804,33 @@ $config->{app_key} = "my_client_secret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
+# Collect the presentations to merge.
+my $file_data = read_file("TestData/example1.pptx", { binmode => ":raw" });
+my @files = [$file_data];
+
 # Prepare information for the first presentation to merge.
 my $presentation1 = AsposeSlidesCloud::Object::PresentationToMerge->new();
-$presentation1->{path} = "MyFolder/example1.pptx";
-@{$presentation1->{slides}} = (1);
-$presentation1->{source} = "Storage";
+$presentation1->{path} = "local.pptx";
+@{$presentation1->{slides}} = (1, 2);
 
 # Prepare information for the second presentation to merge.
 my $presentation2 = AsposeSlidesCloud::Object::PresentationToMerge->new();
-$presentation2->{path} = "MyFolder/example2.pptx";
+$presentation2->{path} = "storage.pptx";
 $presentation2->{password} = "my_password";
 $presentation2->{source} = "Storage";
 
+# Prepare information for the second presentation to merge.
+my $presentation3 = AsposeSlidesCloud::Object::PresentationToMerge->new();
+$presentation3->{path} = "https://drive.google.com/uc?export=download&id=remote.pptx";
+@{$presentation3->{slides}} = (1);
+$presentation3->{source} = "Url";
+
 # Prepare the merge request.
 my $request = AsposeSlidesCloud::Object::OrderedMergeRequest->new();
-@{$request->{presentations}} = ($presentation1, $presentation2);
+@{$request->{presentations}} = ($presentation1, $presentation2, $presentation3);
 
 # Merge the presentations and save the result to the specified path.
-my  %mergeParams = (out_path => "MyFolder/MyPresentation.pptx", "request" => $request, "storage" => "MyStorage");
+my  %mergeParams = (out_path => "MyFolder/MyPresentation.pptx", "files" => @files, "request" => $request, "storage" => "MyStorage");
 $slides_api->merge_and_save_online(%mergeParams);
 ```
 
