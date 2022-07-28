@@ -5,7 +5,7 @@ url: /setting-chart-legend/
 weight: 60
 ---
 ## **Introduction**
-Aspose.Slides for Cloud allows setting chart legend properties.
+Aspose.Slides Cloud API allows setting chart legend properties.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |

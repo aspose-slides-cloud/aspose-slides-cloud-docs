@@ -5,7 +5,7 @@ url: /setting-chart-axis/
 weight: 50
 ---
 ## **Introduction**
-Aspose.Slides for Cloud allows setting chart axis properties.
+Aspose.Slides Cloud API allows setting chart axis properties.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
