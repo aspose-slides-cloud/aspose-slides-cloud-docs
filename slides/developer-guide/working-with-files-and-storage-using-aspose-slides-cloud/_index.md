@@ -2,7 +2,7 @@
 title: "Working with Files and Storage using Aspose.Slides Cloud"
 type: docs
 url: /working-with-files-and-storage-using-aspose-slides-cloud/
-weight: 120
+weight: 110
 ---
 
 ## **Introduction**

@@ -2,7 +2,7 @@
 title: "Working with Animations in PowerPoint Slides"
 type: docs
 url: /working-with-animations-in-powerpoint-slides/
-weight: 50
+weight: 40
 ---
 
 ## **Introduction**

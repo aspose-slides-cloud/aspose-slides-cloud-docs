@@ -5,7 +5,7 @@ url: /setting-chart-wall/
 weight: 70
 ---
 ## **Introduction**
-Aspose.Slides for Cloud allows setting wall properties of a 3D chart separately.
+Aspose.Slides for Cloud allows setting wall properties of a 3D chart.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -54,7 +54,7 @@ Returns chart wall info.
 {{< /tab >}}
 
 {{< /tabs >}}
-{{< /tabs >}}
+
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
