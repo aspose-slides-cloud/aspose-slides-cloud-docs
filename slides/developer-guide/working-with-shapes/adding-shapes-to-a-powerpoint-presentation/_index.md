@@ -7,7 +7,7 @@ weight: 25
 
 ## **Introduction**
 
-The following API method allows you to add a shape to a PowerPoint document. You can use this method to add shapes of many types, such as text boxes, charts, WordArt objects, SmartArt objects, pictures, OLE objects, tables, etc. To add the shape to a presentation slide, you should prepare an appropriate data transfer object and pass it to the parameters or specify an index of the shape to be cloned.
+The following API method allows you to add a shape to a PowerPoint document. You can use this method to add shapes of many types, such as text boxes, charts, WordArt objects, SmartArt objects, pictures, OLE objects, tables, etc. To add the shape to a presentation slide, you should prepare an appropriate data transfer object and pass it to the parameters. Alternatively, you can specify an index of the shape to be cloned.
 
 ## **CreateShape**
 
