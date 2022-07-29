@@ -9,9 +9,9 @@ weight: 95
 
 You can use Aspose.Slides Cloud API to add pictures to PowerPoint documents. To add a picture to a presentation slide, you can use a bitmap or vector image. You can crop the image, set some transformation effects (such as an Alpha Bi-Level effect, blur effect, duotone effect, luminance effect, etc.), use stretch or tile fill mode. The code examples in this article use [CreateShape](/slides/adding-shapes-to-a-powerpoint-presentation/) method.
 
-## **Example 1**
+## **Example**
 
-Use **MyImage.png** file to add a **400x300** picture at coordinates **(20, 20)** to the **second** slide in **MyFolder/MyPresentation.pptx** document saved to the default storage. Use the **tile** fill mode for the image.
+Use **MyImage.png** file to add a **400x300** picture at coordinates **(20, 20)** to the **second** slide in **MyFolder/MyPresentation.pptx** document saved to the default storage. Use **tile** fill mode for the image.
 
 MyImage.png:
 
@@ -41,7 +41,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/
 ```
 
 
-{{< expand-list title="request_data.json content" >}}
+request_data.json content:
 
 ```json
 {
@@ -56,8 +56,6 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/
     }
 }
 ```
-
-{{< /expand-list >}}
 
 {{< /tab >}}
 
