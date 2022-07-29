@@ -264,7 +264,7 @@ api.getSpecialSlideParagraphs(fileName, slideIndex, CloudSdk.SpecialSlideType.Ma
     const portion = new CloudSdk.Portion();
     portion.text = "New paragraph";
     dto.portionList = [ portion ];
-    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, null, dto).then((postResult) => {
+    api.createSpecialSlideParagraph(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide, shapeIndex, dto).then((postResult) => {
         console.log(postResult.body.alignment); //Right
         dto = new CloudSdk.Paragraph();
         dto.alignment = "Center";

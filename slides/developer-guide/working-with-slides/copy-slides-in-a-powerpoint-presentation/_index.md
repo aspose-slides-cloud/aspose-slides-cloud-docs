@@ -106,10 +106,10 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        var api = new SlidesApi("my_client_id", "my_client_secret");
 
         // Copy the fourth slide.
-        var response = slidesApi.CopySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage");
+        var response = api.CopySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage");
 
         // Print links to all slides from MyPresentation.pptx.
         foreach (var resourceUri in response.SlideList)

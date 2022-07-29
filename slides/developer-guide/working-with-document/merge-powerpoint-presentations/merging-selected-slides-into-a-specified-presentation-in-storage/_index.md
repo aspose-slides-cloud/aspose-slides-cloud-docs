@@ -219,13 +219,12 @@ class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare information for the second presentation to merge.
         var presentationToMerge = new PresentationToMerge
         {
             Path = "MyResources/example.pptx",
-            Password = "mypassword01",
             Slides = new List<int> { 2, 1 }
         };
 
@@ -236,9 +235,9 @@ class Application
         };
 
         // Merge the presentations.
-        var response = slidesApi.OrderedMerge("MyPresentation.pptx", request, null, "MyFolder");
+        var response = api.OrderedMerge("MyPresentation.pptx", request);
 
-        // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
+        // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx
         Console.WriteLine(response.SelfUri.Href);
     }
 }

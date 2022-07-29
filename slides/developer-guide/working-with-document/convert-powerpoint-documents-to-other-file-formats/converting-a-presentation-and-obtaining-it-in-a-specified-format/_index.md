@@ -116,22 +116,21 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        const string storageName = "Main";
         const string fontFolderName = "MyFonts";
         const string fontFileName = "custom.ttf";
 
         // Create the font folder in the storage.
-        slidesApi.CreateFolder(fontFolderName, storageName);
+        api.CreateFolder(fontFolderName);
 
         // Add the font to the font folder.
         using var fontStream = File.OpenRead(fontFileName);
-        slidesApi.UploadFile($"{fontFolderName}/{fontFileName}", fontStream, storageName);
+        api.UploadFile($"{fontFolderName}/{fontFileName}", fontStream);
 
         // Convert the presentation to PDF format.
         using var fileStream = File.OpenRead("example.pptx");
-        using var responseStream = slidesApi.Convert(fileStream, ExportFormat.Pdf, null, storageName, fontFolderName);
+        using var responseStream = api.Convert(fileStream, ExportFormat.Pdf, null, null, fontFolderName);
 
         // Save the PDF document to a file.
         using var pdfStream = File.Create("output.pdf");

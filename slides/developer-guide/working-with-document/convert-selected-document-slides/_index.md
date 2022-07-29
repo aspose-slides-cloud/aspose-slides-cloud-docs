@@ -62,10 +62,10 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         using var fileStream = File.OpenRead("MyPresentation.pptx");
-        using var resultStream = slidesApi.Convert(fileStream, ExportFormat.Pdf, slides: new List<int> { 2, 4 });
+        using var resultStream = api.Convert(fileStream, ExportFormat.Pdf, slides: new List<int> { 2, 4 });
 
         using var outputStream = File.Create("MyPresentation.pdf");
         resultStream.CopyTo(outputStream);

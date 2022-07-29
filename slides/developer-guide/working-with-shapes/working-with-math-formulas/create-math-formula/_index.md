@@ -145,7 +145,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 string fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 int shapeIndex = 2;
-int paragraphIndex = 3;
+int paragraphIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Portion dto = new Portion
@@ -184,7 +184,7 @@ Console.WriteLine(portion.MathParagraph.MathBlockList.Count); //1
 String fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 int shapeIndex = 2;
-int paragraphIndex = 3;
+int paragraphIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Portion dto = new Portion();
@@ -252,7 +252,7 @@ $api = new SlidesApi(null, $config);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphIndex = 3;
+$paragraphIndex = 1;
 
 $dto = new Portion();
 $math = new MathParagraph();
@@ -320,7 +320,7 @@ api = SlidesApi(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
+paragraph_index = 1
 
 dto = Portion()
 math_paragraph = MathParagraph()
@@ -370,34 +370,34 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
-const paragraphIndex = 3;
+const paragraphIndex = 1;
 
-const dto = new model.Portion();
-const mathParagraph = new model.MathParagraph();
-const blockElement = new model.BlockElement();
-const functionElement = new model.FunctionElement();
-const limitElement = new model.LimitElement();
-const textElement1 = new model.TextElement();
+const dto = new CloudSdk.Portion();
+const mathParagraph = new CloudSdk.MathParagraph();
+const blockElement = new CloudSdk.BlockElement();
+const functionElement = new CloudSdk.FunctionElement();
+const limitElement = new CloudSdk.LimitElement();
+const textElement1 = new CloudSdk.TextElement();
 textElement1.value = "lim";
 limitElement.base = textElement1;
 
-const textElement2 = new model.TextElement();
+const textElement2 = new CloudSdk.TextElement();
 textElement2.value = "x->0";
 limitElement.limit = textElement2;
 functionElement.name = limitElement;
 
-const fractionElement = new model.FractionElement();
-const sinusElement = new model.FunctionElement();
-const textElement3 = new model.TextElement();
+const fractionElement = new CloudSdk.FractionElement();
+const sinusElement = new CloudSdk.FunctionElement();
+const textElement3 = new CloudSdk.TextElement();
 textElement3.value = "sin";
 sinusElement.name = textElement3;
 
-const textElement4 = new model.TextElement();
+const textElement4 = new CloudSdk.TextElement();
 textElement4.value = "x";
 sinusElement.base = textElement4;
 fractionElement.numerator = sinusElement;
 
-const textElement5 = new model.TextElement();
+const textElement5 = new CloudSdk.TextElement();
 textElement5.value = "x";
 fractionElement.denominator = textElement5;
 functionElement.base = fractionElement;
@@ -406,8 +406,8 @@ blockElement.mathElementList = [ functionElement ];
 mathParagraph.mathBlockList = [ blockElement ];
 dto.mathParagraph = mathParagraph;
 
-api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, null, dto).then((postResult) => {
-    console.log(portion.mathParagraph.mathBlockList.length); //1
+api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto).then(result => {
+    console.log(result.body.mathParagraph.mathBlockList.length); //1
 });
 ```
 
@@ -424,7 +424,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 var shapeIndex int32 = 2
-var paragraphIndex int32 = 3
+var paragraphIndex int32 = 1
 
 dto := NewPortion()
 mathParagraph := NewMathParagraph()

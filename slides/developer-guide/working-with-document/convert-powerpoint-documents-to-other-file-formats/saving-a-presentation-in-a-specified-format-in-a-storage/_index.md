@@ -90,7 +90,7 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Slide notes should be added at the bottom of pages.
         var tiffOptions = new TiffExportOptions { NotesPosition = TiffExportOptions.NotesPositionEnum.BottomFull };
@@ -99,7 +99,7 @@ class Test
         var slideIndices = new List<int> { 1, 3 };
 
         // Save the presentation to TIFF file.
-        slidesApi.SavePresentation("example.pptx", ExportFormat.Tiff, "MyImages/output.tiff", tiffOptions, null, "MyFolder", "MyStorage", null, slideIndices);
+        api.SavePresentation("example.pptx", ExportFormat.Tiff, "MyImages/output.tiff", tiffOptions, slides: slideIndices);
     }
 }
 ```

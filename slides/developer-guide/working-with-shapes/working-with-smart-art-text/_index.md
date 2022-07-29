@@ -86,7 +86,7 @@ int nodeIndex = 2;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex);
+Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex, portion);
 
 Console.WriteLine($"The portion with text \"{response.Text}\" has been updated");
 ```
@@ -188,12 +188,12 @@ print("The portion with text \"" + response.text + "\" has been updated")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const portion = new Portion();
+const portion = new CloudSdk.Portion();
 portion.text = "New text";
 portion.fontHeight = 24;
-portion.fontBold = Portion.FontBoldEnum.True;
+portion.fontBold = CloudSdk.Portion.FontBoldEnum.True;
 portion.spacing = 3;
-const fillFormat = new SolidFill();
+const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#FFFFFF00";
 portion.fillFormat = fillFormat;
 

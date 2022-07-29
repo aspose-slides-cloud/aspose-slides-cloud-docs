@@ -86,7 +86,7 @@ Shape shape = new Shape
     HyperlinkClick = new Hyperlink { IsDisabled = true }
 };
 ShapeBase updatedShape = api.UpdateShape(fileName, slideIndex, shapeIndex, shape);
-Console.WriteLine(updatedShape.HyperlickClick == null); //true
+Console.WriteLine(updatedShape.HyperlinkClick == null); //true
 ```
 
 {{< /tab >}}
@@ -184,7 +184,7 @@ const hyperlink = new CloudSdk.Hyperlink();
 hyperlink.isDisabled = true;
 shape.hyperlinkClick = hyperlink;
 return api.updateShape(fileName, slideIndex, shapeIndex, shape).then((result) => {
-    console.log(result.body.hyperlinkClick.isDisabled); //true
+    console.log(result.body.hyperlinkClick == null); //true
 });
 ```
 

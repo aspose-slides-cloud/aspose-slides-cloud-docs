@@ -1,33 +1,34 @@
 ---
-title: "Merging Presentations from Local Files and Storage into a Local File"
+title: "Merging Presentations from Various Sources into a File in Storage"
 type: docs
-url: /merging-presentations-from-local-files-and-storage-into-a-local-file/
-weight: 30
+url: /merging-presentations-from-various-sources-into-a-file-in-storage/
+weight: 40
 ---
 
 ## **Introduction**
 
-The article shows you how to merge PowerPoint presentations saved to local files and a storage. The final presentation will be received as a local file. You can specify slide indices to merge presentations in parts. Passwords can be specified to open protected presentations. The request method below allows you to merge presentation files stored both locally and in storage, separately or together.
+The article shows you how to merge PowerPoint presentations from different sources: local files, storage, and remote resources. The final presentation is saved in the storage. You can specify slide indices to merge. For protected presentations, passwords can be specified to open them. The request method below allows you to merge presentation files stored in different ways: locally, in storage, and remotely
 
 ## **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/merge|POST|Merges presentations or some of their slides. Returns the result file in the response.|[MergeOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeOnline)|
+|/slides/merge|PUT|Merges presentations or some of their slides. Saves the result in the storage.|[MergeAndSaveOnline](https://apireference.aspose.cloud/slides/#/MergeDocument/MergeAndSaveOnline)|
 
 ### **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
 |files|array|formData|false|The array of presentation files to merge.|
+|outPath|string|query|true|The path to the presentation output file in a storage.|
 |request|object|body|false|The information about presentations to merge (paths, passwords, slide indices, etc.).|
-|storage|string|query|false|The name of the storage where the presentations specified in the `request` parameter were saved.|
+|storage|string|query|false|The name of the storage where the final presentation will be saved.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ## **Merging Presentations Saved to Local Files**
 
-Example: Merge **TestData/example1.pptx** and **TestData/example2.pptx** presentations saved to local files and receive the result as a local file.
+Example: Merge **TestData/example1.pptx** and **TestData/example2.pptx** presentations saved to local files and save the result to **MyFolder/MyPresentation.pptx** file in **MyStorage** storage.
 
 **cURL Solution**
 
@@ -46,18 +47,19 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Merge the Presentations**
 
 ```java
-curl -X POST "https://api.aspose.cloud/v3.0/slides/merge" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/merge?outPath=MyFolder/MyPresentation.pptx&storage=MyStorage" \
      -H "authorization: Bearer <access_token>" \
      -F "file1=@TestData/example1.pptx" \
-     -F "file2=@TestData/example2.pptx" \
-     -o MyPresentation.pptx
+     -F "file2=@TestData/example2.pptx"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-Presentation file.
+```json
+Document with merged presentation info.
+```
 
 {{< /tab >}}
 
@@ -72,29 +74,25 @@ Presentation file.
 ```csharp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
-using Aspose.Slides.Cloud.Sdk;
-using System.Collections.Generic;
-using System.IO;
-
 using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
+using Aspose.Slides.Cloud.Sdk;
+using System;
+using System.Collections.Generic;
+using System.IO;                                  
 
 class Application
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo1 = new FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
-        var fileInfo2 = new FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
-        var files = new List<FileInfo> { fileInfo1, fileInfo2 };
+        var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
+        var fileInfo2 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
+        var files = new List<Sdk.FileInfo> { fileInfo1, fileInfo2 };
 
-        // Merge the presentations.
-        using var resultStream = slidesApi.MergeOnline(files);
-
-        // Save the result to a file.
-        using var outputStream = File.Open("MyPresentation.pptx", FileMode.Create);
-        resultStream.CopyTo(outputStream);
+        // Merge the presentations and save the result to the specified path.
+        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files);
     }
 }
 ```
@@ -116,7 +114,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Application {
-    public static void main(String[] args) throws ApiException, IOException {
+    public static void main(String[] args) throws IOException, ApiException {
         var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Collect the presentations to merge.
@@ -129,10 +127,8 @@ public class Application {
         files.add(fileInfo1);
         files.add(fileInfo2);
 
-        // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(files, null, null);
-
-        System.out.println("The output presentation was saved to " + resultFile.getPath());
+        // Merge the presentations and save the result to the specified path.
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MyStorage");
     }
 }
 ```
@@ -158,11 +154,8 @@ $file1 = fopen("TestData/example1.pptx", 'r');
 $file2 = fopen("TestData/example2.pptx", 'r');
 $files = [$file1, $file2];
 
-// Merge the presentations.
-$resultFile = $slidesApi->mergeOnline($files);
-
-// Save the result to a file.
-echo "The output presentation was saved to ", $resultFile->getPathname();
+// Merge the presentations and save the result to the specified path.
+$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $files, null, "MyStorage");
 ```
 
 {{< /tab >}}
@@ -187,11 +180,8 @@ file1_data = File.binread("TestData/example1.pptx")
 file2_data = File.binread("TestData/example2.pptx")
 files = [file1_data, file2_data]
 
-# Merge the presentations.
-result_data = slides_api.merge_online(files)
-
-# Save the result to a file.
-File.binwrite("MyPresentation.pptx", result_data)
+# Merge the presentations and save the result to the specified path.
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, nil, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -214,10 +204,8 @@ with open("TestData/example2.pptx", "rb") as file2_stream:
     file2_data = file2_stream.read()
 files = [file1_data, file2_data]
 
-# Merge the presentations.
-result_file_path = slides_api.merge_online(files)
-
-print("The output presentation was saved to ", result_file_path)
+# Merge the presentations and save the result to the specified path.
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, None, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -237,13 +225,8 @@ const fileStream1 = fs.createReadStream("TestData/example1.pptx")
 const fileStream2 = fs.createReadStream("TestData/example2.pptx")
 const files = [fileStream1, fileStream2]
 
-// Merge the presentations.
-slidesApi.mergeOnline(files).then((response) => {
-
-    // Save the result to a file.
-    fs.writeFile("MyPresentation.pptx", response.body, (error) => {
-        if (error) throw error
-    })
+// Merge the presentations and save the result to the specified path.
+slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MyStorage").then(() => {
 })
 ```
 
@@ -264,7 +247,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Application {
-    public static void main(String[] args) throws ApiException, IOException {
+    public static void main(String[] args) throws IOException, ApiException {
         var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Collect the presentations to merge.
@@ -277,10 +260,8 @@ public class Application {
         files.add(fileInfo1);
         files.add(fileInfo2);
 
-        // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(files, null, null);
-
-        System.out.println("The output presentation was saved to " + resultFile.getPath());
+        // Merge the presentations and save the result to the specified path.
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MyStorage");
     }
 }
 ```
@@ -311,12 +292,8 @@ int main()
     fileContent2->setData(fileStream2);
     auto files = { fileContent1, fileContent2 };
 
-    // Merge the presentations.
-    auto resultContent = slidesApi->mergeOnline(files).get();
-
-    // Save the result to a file.
-    std::ofstream outputStream("MyPresentation.pptx", std::ofstream::binary);
-    resultContent.writeTo(outputStream);
+    // Merge the presentations and save the result to the specified path.
+    slidesApi->mergeAndSaveOnline(to_string_t("MyFolder/MyPresentation.pptx"), files, NULL, to_string_t("MyStorage")).get();
 
     return 0;
 }
@@ -345,12 +322,9 @@ my $file1_data = read_file("TestData/example1.pptx", { binmode => ":raw" });
 my $file2_data = read_file("TestData/example2.pptx", { binmode => ":raw" });
 my @files = [$file1_data, $file2_data];
 
-# Merge the presentations.
-my %merge_params = ("files" => @files);
-my $result_data = $slides_api->merge_online(%merge_params);
-
-# Save the result to a file.
-write_file("MyPresentation.pptx", {binmode => ":raw"}, $result_data);
+# Merge the presentations and save the result to the specified path.
+my %merge_params = ("out_path" => "MyFolder/MyPresentation.pptx", "files" => @files, "storage" => "MyStorage");
+my $result_data = $slides_api->merge_and_save_online(%merge_params);
 ```
 
 {{< /tab >}}
@@ -367,7 +341,7 @@ write_file("MyPresentation.pptx", {binmode => ":raw"}, $result_data);
 
 ## **Merging Presentations Saved to Storage**
 
-Example: Merge the third and second slides from **MyFolder/example1.pptx** presentation with all slides from **MyFolder/example2.pptx** presentation. Use **my_password** string to open the second presentation. Both presentations were saved in **MyStorage** storage.
+Example: Merge **local.pptx** saved to local file, **storage.pptx** saved on storage, and **remote presentation**. Save the result to **MyFolder/MyPrsentation.pptx** file.
 
 **cURL Solution**
 
@@ -386,11 +360,11 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Merge the Presentations**
 
 ```java
-curl -X POST "https://api.aspose.cloud/v3.0/slides/merge?storage=MyStorage" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/merge?outPath=MyFolder/MyPresentation.pptx&storage=MyStorage" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -d @request_data.json \
-     -o MyPresentation.pptx
+     -F "file=@local.pptx"
 ```
 
 request_data.json content:
@@ -399,14 +373,18 @@ request_data.json content:
 {
     "Presentations": [
         {
-            "Path": "MyFolder/example1.pptx",
-            "Slides": [3, 2],
+            "Path": "local.pptx",
+            "Slides": [1, 2],
+        },
+        {
+            "Path": "storage.pptx",
+            "Password": "my_password",
             "Source": "Storage"
         },
         {
-            "Path": "MyFolder/example2.pptx",
-            "Password": "my_password",
-            "Source": "Storage"
+            "Path": "https://drive.google.com/uc?export=download&id=remote.pptx",
+            "Slides": [1],
+            "Source": "Url"
         }
     ]
 }
@@ -416,7 +394,9 @@ request_data.json content:
 
 {{< tab tabNum="2" >}}
 
-The presentation file.
+```json
+Document with merged presentation info.
+```
 
 {{< /tab >}}
 
@@ -435,40 +415,46 @@ using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 class Application
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Prepare information for the first presentation to merge.
+        // Collect the presentations to merge.
+        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx") };
+        var files = new List<Sdk.FileInfo> { fileInfo};
+
+        // Prepare information for the second presentation to merge.
         var presentation1 = new PresentationToMerge
         {
-            Path = "MyFolder/example1.pptx",
-            Slides = new List<int> { 3, 2 },
-            Source = PresentationToMerge.SourceEnum.Storage
+            Path = "local.pptx",
+            Slides = new List<int> { 1, 2 }
         };
 
         // Prepare information for the second presentation to merge.
         var presentation2 = new PresentationToMerge
         {
-            Path = "MyFolder/example2.pptx",
+            Path = "storage.pptx",
             Password = "my_password",
             Source = PresentationToMerge.SourceEnum.Storage
         };
 
-        // Prepare the merge request.
+        // Prepare information for the second presentation to merge.
+        var presentation3 = new PresentationToMerge
+        {
+            Path = "https://drive.google.com/uc?export=download&id=remote.pptx",
+            Slides = new List<int> { 1 },
+            Source = PresentationToMerge.SourceEnum.Url
+        };
+
+         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.Presentations = new List<PresentationToMerge> { presentation1, presentation2 };
+        request.Presentations = new List<PresentationToMerge> { presentation1, presentation2, presentation3 };
 
-        // Merge the presentations.
-        using var resultStream = slidesApi.MergeOnline(null, request, "MyStorage");
-
-        // Save the result to a file.
-        using var outputStream = File.Open("MyPresentation.pptx", FileMode.Create);
-        resultStream.CopyTo(outputStream);
+        // Merge the presentations and save the result to the specified path.
+        api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, request);
     }
 }
 ```
@@ -488,28 +474,34 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        var slidesApi = new SlidesApi("my_client_key", "my_client_secret");
+
+        var files = new ArrayList<FileInfo>();
+        files.add(fileInfo);
 
         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge();
-        presentation1.setPath("MyFolder/example1.pptx");
-        presentation1.setSlides(Arrays.asList(3, 2));
-        presentation1.setSource(PresentationToMerge.SourceEnum.STORAGE);
-
-        // Prepare information for the second presentation to merge.
+        presentation1.setPath("local.pptx");
+        presentation1.setSlides(Arrays.asList(1, 2));
+       
+        // Prepare information for the first presentation to merge.
         var presentation2 = new PresentationToMerge();
-        presentation2.setPath("MyFolder/example2.pptx");
+        presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
-        // Prepare the merge request.
+        // Prepare information for the first presentation to merge.
+        var presentation3 = new PresentationToMerge();
+        presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+        presentation3.setSlides(Arrays.asList(1));
+        presentation3.setSource(PresentationToMerge.SourceEnum.URL);
+
+         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.setPresentations(Arrays.asList(presentation1, presentation2));
+        request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
-        // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(null, request, "MyStorage");
-
-        System.out.println("The output presentation was saved to " + resultFile.getPath());
+        // Merge the presentations and save the result to the specified path.
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage");
     }
 }
 ```
@@ -527,32 +519,38 @@ use Aspose\Slides\Cloud\Sdk\Model\PresentationToMerge;
 use Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
+$configuration->setAppSid("my_client_key");
 $configuration->setAppKey("my_client_secret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
+// Collect the presentations to merge.
+$file = fopen("local.pptx", 'r');
+$files = [$file];
+
 // Prepare information for the first presentation to merge.
 $presentation1 = new PresentationToMerge();
-$presentation1->setPath("MyFolder/example1.pptx");
-$presentation1->setSlides([3, 2]);
-$presentation1->setSource("Storage");
+$presentation1->setPath("local.pptx");
+$presentation1->setSlides([1, 2]);
 
-// Prepare information for the second presentation to merge.
+// Prepare information for the first presentation to merge.
 $presentation2 = new PresentationToMerge();
-$presentation2->setPath("MyFolder/example2.pptx");
+$presentation2->setPath("storage.pptx");
 $presentation2->setPassword("my_password");
 $presentation2->setSource("Storage");
 
+// Prepare information for the first presentation to merge.
+$presentation3 = new PresentationToMerge();
+$presentation3->setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+$presentation3->setSlides([1]);
+$presentation3->setSource("Url");
+
 // Prepare the merge request.
 $request = new OrderedMergeRequest();
-$request->setPresentations([$presentation1, $presentation2]);
+$request->setPresentations([$presentation1, $presentation2, $presentation3]);
 
-// Merge the presentations.
-$resultFile = $slidesApi->mergeOnline(null, $request, "MyStorage");
-
-// Save the result to a file.
-echo "The output presentation was saved to ", $resultFile->getPathname();
+// Merge the presentations and save the result to the specified path.
+$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $request, $request, "MyStorage");
 ```
 
 {{< /tab >}}
@@ -567,32 +565,38 @@ require "aspose_slides_cloud"
 include AsposeSlidesCloud
 
 configuration = Configuration.new
-configuration.app_sid = "my_client_id"
+configuration.app_sid = "my_client_key"
 configuration.app_key = "my_client_secret"
 
 slides_api = SlidesApi.new(configuration)
 
+# Collect the presentations to merge.
+file_data = File.binread("local.pptx")
+files = [file_data]
+
 # Prepare information for the first presentation to merge.
 presentation1 = PresentationToMerge.new
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [3, 2]
-presentation1.source = "Storage"
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 
-# Prepare information for the second presentation to merge.
+# Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge.new
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+# Prepare information for the first presentation to merge.
+presentation3 = PresentationToMerge.new
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation1.slides = [1]
+presentation3.source = "Url"
+
 # Prepare the merge request.
 request = OrderedMergeRequest.new
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
-# Merge the presentations.
-result_data = slides_api.merge_online(nil, request, "MyStorage")
-
-# Save the result to a file.
-File.binwrite("MyPresentation.pptx", result_data)
+# Merge the presentations and save the result to the specified path.
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -607,29 +611,37 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models import *
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
+slides_api = SlidesApi(None, "my_client_key", "my_client_secret")
+
+# Collect the presentations to merge.
+with open("local.pptx", "rb") as file1_stream:
+    file_data = file1_stream.read()
+files = [file_data]
 
 # Prepare information for the first presentation to merge.
 presentation1 = PresentationToMerge()
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [3, 2]
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 presentation1.source = "Storage"
 
-# Prepare information for the second presentation to merge.
+# Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge()
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+# Prepare information for the first presentation to merge.
+presentation3 = PresentationToMerge()
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation3.slides = [1]
+presentation3.source = "Url"
+
 # Prepare the merge request.
 request = OrderedMergeRequest()
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
-# Merge the presentations.
-result_path = slides_api.merge_online(None, request, "MyStorage")
-
-# Save the result to a file.
-print("The output presentation was saved to " + result_path)
+# Merge the presentations and save the result to the specified path.
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -640,33 +652,35 @@ print("The output presentation was saved to " + result_path)
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
 const cloud = require("asposeslidescloud")
-const fs = require("fs")
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret")
+
+// Collect the presentations to merge.
+const fileStream = fs.createReadStream("local.pptx")
+const files = [fileStream]
 
 // Prepare information for the first presentation to merge.
 const presentation1 = new cloud.PresentationToMerge()
-presentation1.path = "MyFolder/example1.pptx"
-presentation1.slides = [3, 2]
-presentation1.source = "Storage"
+presentation1.path = "local.pptx"
+presentation1.slides = [1, 2]
 
-// Prepare information for the second presentation to merge.
+// Prepare information for the first presentation to merge.
 const presentation2 = new cloud.PresentationToMerge()
-presentation2.path = "MyFolder/example2.pptx"
+presentation2.path = "storage.pptx"
 presentation2.password = "my_password"
 presentation2.source = "Storage"
 
+// Prepare information for the first presentation to merge.
+const presentation3 = new cloud.PresentationToMerge()
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
+presentation3.source = "Url"
+
 // Prepare the merge request.
 const request = new cloud.OrderedMergeRequest()
-request.presentations = [presentation1, presentation2]
+request.presentations = [presentation1, presentation2, presentation3]
 
-// Merge the presentations.
-slidesApi.mergeOnline(null, request, "MyStorage").then((response) => {
-
-    // Save the result to a file.
-    fs.writeFile("MyPresentation.pptx", response.body, (error) => {
-        if (error) throw error
-    })
+// Merge the presentations and save the result to the specified path.
+slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage").then(() => {
 })
 ```
 
@@ -685,28 +699,37 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        var slidesApi = new SlidesApi("my_client_key", "my_client_secret");
 
-        // Prepare information for the first presentation to merge.
+        // Collect the presentations to merge.
+        var fileInfo = new FileInfo();
+        fileInfo.setData(Files.readAllBytes(Paths.get("local.pptx")));
+
+        var files = new ArrayList<FileInfo>();
+        files.add(fileInfo);
+
+         // Prepare information for the first presentation to merge.
         var presentation1 = new PresentationToMerge();
-        presentation1.setPath("MyFolder/example1.pptx");
-        presentation1.setSlides(Arrays.asList(3, 2));
-        presentation1.setSource(PresentationToMerge.SourceEnum.STORAGE);
+        presentation1.setPath("local.pptx");
+        presentation1.setSlides(Arrays.asList(1, 2));
 
         // Prepare information for the second presentation to merge.
         var presentation2 = new PresentationToMerge();
-        presentation2.setPath("MyFolder/example2.pptx");
+        presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
+        var presentation3 = new PresentationToMerge();
+        presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
+        presentation3.setSlides(Arrays.asList(1));
+        presentation3.setSource(PresentationToMerge.SourceEnum.URL);
+
         // Prepare the merge request.
         var request = new OrderedMergeRequest();
-        request.setPresentations(Arrays.asList(presentation1, presentation2));
+        request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
-        // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(null, request, "MyStorage");
-
-        System.out.println("The output presentation was saved to " + resultFile.getPath());
+        // Merge the presentations and save the result to the specified path.
+        slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage");
     }
 }
 ```
@@ -726,30 +749,38 @@ using namespace asposeslidescloud::api;
 
 int main()
 {
-    auto slidesApi = new SlidesApi(to_string_t("my_client_id"), to_string_t("my_client_secret"));
+    auto slidesApi = new SlidesApi(to_string_t("my_client_key"), to_string_t("my_client_secret"));
+
+    // Collect the presentations to merge.
+    auto fileStream = std::make_shared<std::ifstream>("TestData/example1.pptx", std::ios::binary);
+    auto fileContent = std::make_shared<HttpContent>();
+    fileContent->setData(fileStream);
+    auto files = { fileContent };
 
     // Prepare information for the first presentation to merge.
     auto presentation1 = std::make_shared<PresentationToMerge>();
-    presentation1->setPath(to_string_t("MyFolder/example1.pptx"));
-    presentation1->setSlides({ 3, 2 });
-    presentation1->setSource(to_string_t("Storage"));
+    presentation1->setPath(to_string_t("lodal.pptx"));
+    presentation1->setSlides({ 1, 2 });
 
     // Prepare information for the second presentation to merge.
     auto presentation2 = std::make_shared<PresentationToMerge>();
-    presentation2->setPath(to_string_t("MyFolder/example2.pptx"));
+    presentation2->setPath(to_string_t("storage.pptx"));
     presentation2->setPassword(to_string_t("my_password"));
     presentation2->setSource(to_string_t("Storage"));
 
+    // Prepare information for the second presentation to merge.
+    auto presentation3 = std::make_shared<PresentationToMerge>();
+    presentation3->setPath(to_string_t("
+https://drive.google.com/uc?export=download&id=remote.pptx"));
+    presentation3->setSlides({ 1 });
+    presentation3->setSource(to_string_t("Url"));
+
     // Prepare the merge request.
     auto request = std::make_shared<OrderedMergeRequest>();
-    request->setPresentations({ presentation1, presentation2 });
+    request->setPresentations({ presentation1, presentation2, presentation3 });
 
-    // Merge the presentations.
-    auto resultContent = slidesApi->mergeOnline({}, request, to_string_t("MyStorage")).get();
-
-    // Save the result to a file.
-    std::ofstream outputStream("MyPresentation.pptx", std::ofstream::binary);
-    resultContent.writeTo(outputStream);
+    // Merge the presentations and save the result to the specified path.
+    slidesApi->mergeAndSaveOnline(to_string_t("MyFolder/MyPresentation.pptx"), files, request, to_string_t("MyStorage")).get();
 
     return 0;
 }
@@ -762,41 +793,45 @@ int main()
 ```perl
 # For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
 
-use File::Slurp;
-
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::PresentationToMerge;
 use AsposeSlidesCloud::Object::OrderedMergeRequest;
 
 my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "my_client_id";
+$config->{app_sid} = "my_client_key";
 $config->{app_key} = "my_client_secret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
+# Collect the presentations to merge.
+my $file_data = read_file("TestData/example1.pptx", { binmode => ":raw" });
+my @files = [$file_data];
+
 # Prepare information for the first presentation to merge.
 my $presentation1 = AsposeSlidesCloud::Object::PresentationToMerge->new();
-$presentation1->{path} = "MyFolder/example1.pptx";
-@{$presentation1->{slides}} = (3, 2);
-$presentation1->{source} = "Storage";
+$presentation1->{path} = "local.pptx";
+@{$presentation1->{slides}} = (1, 2);
 
 # Prepare information for the second presentation to merge.
 my $presentation2 = AsposeSlidesCloud::Object::PresentationToMerge->new();
-$presentation2->{path} = "MyFolder/example2.pptx";
+$presentation2->{path} = "storage.pptx";
 $presentation2->{password} = "my_password";
 $presentation2->{source} = "Storage";
 
+# Prepare information for the second presentation to merge.
+my $presentation3 = AsposeSlidesCloud::Object::PresentationToMerge->new();
+$presentation3->{path} = "https://drive.google.com/uc?export=download&id=remote.pptx";
+@{$presentation3->{slides}} = (1);
+$presentation3->{source} = "Url";
+
 # Prepare the merge request.
 my $request = AsposeSlidesCloud::Object::OrderedMergeRequest->new();
-@{$request->{presentations}} = ($presentation1, $presentation2);
+@{$request->{presentations}} = ($presentation1, $presentation2, $presentation3);
 
-# Merge the presentations.
-my  %mergeParams = ("request" => $request, "storage" => "MyStorage");
-$result_data = $slides_api->merge_online(%mergeParams);
-
-# Save the result to a file.
-write_file("MyPresentation.pptx", {binmode => ":raw"}, $result_data);
+# Merge the presentations and save the result to the specified path.
+my  %mergeParams = (out_path => "MyFolder/MyPresentation.pptx", "files" => @files, "request" => $request, "storage" => "MyStorage");
+$slides_api->merge_and_save_online(%mergeParams);
 ```
 
 {{< /tab >}}

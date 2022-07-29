@@ -123,7 +123,7 @@ const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const file = fs.createReadStream("customfont.pptx");
-api.convert(file, "pdf", null, null, "customFonts").then(() => {
+api.convert(file, "pdf", null, null, "customFonts").then(response => {
     fs.writeFile("customfont.pdf", response.body, (err) => {
         if (err) throw err;
     });

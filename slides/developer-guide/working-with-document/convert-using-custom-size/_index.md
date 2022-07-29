@@ -78,14 +78,14 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set the size for output images.
         var options = new ImageExportOptions { Width = 480, Height = 360 };
 
         // Convert the presentation to the images.
         using var presentationStream = File.OpenRead("MyPresentation.pptx");
-        using var responseStream = slidesApi.Convert(presentationStream, ExportFormat.Png, options: options);
+        using var responseStream = api.Convert(presentationStream, ExportFormat.Png, options: options);
 
         using var outputStream = File.Create("MyPresentation.zip");
         responseStream.CopyTo(outputStream);

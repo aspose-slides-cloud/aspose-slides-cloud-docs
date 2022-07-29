@@ -1,24 +1,18 @@
 ---
-title: "Get Paragraph Effective Values"
+title: "Setting chart legend"
 type: docs
-url: /get-paragraph-effective-values/
-weight: 130
+url: /setting-chart-legend/
+weight: 60
 ---
 ## **Introduction**
-
-Effective values are format values that are actually applied to the paragraph. They are either explicitly set in the paragraph, or implicitly returned as a result of inheritance. They represent the final result of formatting that might be seen in the PowerPoint or in an exported document. For example, if the font height value is not defined for the specific portion of text, the value from the default portion format of the parent paragraph will be taken, if availiable. If not, the value is taken from the presentation theme.
-
-You can also get effective values for [Portions](/slides/get-portion-effective-values/).
-
+Aspose.Slides Cloud API allows setting chart legend properties.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/effective|GET|Get paragraph effective|[GetParagraphEffective]()|
-/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/effective|GET|Get sub-shape paragraph effective|[GetSubshapeParagraphEffective]()|
-
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/legend|PUT|Updates chart legend properties|[SetChartLegend]()|
 ### **cURL Example**
 
-The code example below shows how to obtain "effective formatting values" from a paragraph.
+The code example below shows how to update some properties of the chart legend.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -29,14 +23,21 @@ The code example below shows how to obtain "effective formatting values" from a 
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Get paragraph effective format values**
+**Update Vertical Axis**
 ```sh
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/1/effective" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/legend" -d @"legend.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
 ```
 
-**Get sub-shape paragraph effective format values**
-```sh
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/shapes/2/paragraphs/1/effective" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+legend.json
+```json
+{
+    "Overlay":true,
+    "FillFormat":{
+        "Type": "Solid",
+        "Color": "#77CEF9"
+    }
+}
+
 ```
 
 {{< /tab >}}
@@ -46,13 +47,14 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 ```java
 
 Code: 200
-Returns effective paragraph info.
+Returns chart axis info.
 
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
+
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**
@@ -62,13 +64,19 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
-int paragraphIndex = 1;
 
-Paragraph response = api.GetParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
+Legend legendDto = new Legend();
+legendDto.Overlay = true;
+legendDto.FillFormat = new SolidFill()
+{
+    Color = "#77CEF9"
+};
 
-Console.WriteLine($"The default tab size is \"{response.DefaultTabSize}\".");
+Legend response = TestUtils.SlidesApi.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
+
+Console.WriteLine("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -77,13 +85,17 @@ Console.WriteLine($"The default tab size is \"{response.DefaultTabSize}\".");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
-int paragraphIndex = 1;
+Legend legend = new Legend();
+legend.setOverlay(true);
+SolidFill fillFormat = new SolidFill();
+fillFormat.setColor("#77CEF9");
+legend.setFillFormat(fillFormat);
 
-Paragraph response = api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, null, null, null);
+Legend response = api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, null, null, null);
 
-System.out.println("The default tab size is \"" + response.getDefaultTabSize() + "\".");
+System.out.println("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -98,12 +110,18 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$slideIndex = 1;
+$slideIndex = 3;
 $shapeIndex = 1;
-$paragraphIndex = 1;
 
-$response = $api->getParagraphEffective("MyPresentation.pptx", $slideIndex, $shapeIndex, $paragraphIndex);
-print("The default tab size is \"" + response->getDefaultTabSize() + "\".");
+$legend = new Legend();
+$legend->setOverlay(true);
+$fillFormat = new SolidFill();
+$fillFormat->setColor("#77CEF9"); 
+$legend->setFillFormat($fillFormat);
+
+$result = $this->getApi()->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
+
+print("Background color of the chart legend has been changed.");
 ```
 
 {{< /tab >}}
@@ -132,12 +150,17 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-slide_index = 1
+slide_index = 3
 shape_index = 1
-paragraph_index = 1
 
-response = api.get_paragraph_effective("MyPresentation.pptx", slide_index, shape_index, paragraph_index)
-print("The default tab size is \"" + response.default_tab_size + "\".")
+legend = Legend()
+legend.overlay = True
+fill_format = SolidFill()
+fill_format.color = constant.COLOR
+legend.fill_format = fill_format
+response = BaseTest.slides_api.set_chart_legend("MyPresentation.pptx", slide_index, shape_index, legend)
+
+print("Background color of the chart legend has been changed.")
 ```
 
 {{< /tab >}}
@@ -147,12 +170,18 @@ print("The default tab size is \"" + response.default_tab_size + "\".")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slideIndex = 1;
+const slideIndex = 3;
 const shapeIndex = 1;
-const paragraphIndex = 1;
 
-const response = await api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
-console.log("The default tab size is \"" + response.body.defaultTabSize + "\".");
+const fillFormat = new SolidFill();
+fillFormat.color = "#77CEF9";
+const legend = new Legend();
+legend.overlay = true;
+legend.fillFormat = fillFormat;
+
+let result = await api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend);
+            
+console.log("Background color of the chart legend has been changed.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

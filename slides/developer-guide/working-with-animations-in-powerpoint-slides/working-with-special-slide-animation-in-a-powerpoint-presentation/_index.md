@@ -273,10 +273,10 @@ const slideIndex = 1;
 api.getSpecialSlideAnimation(fileName, slideIndex, CloudSdk.SpecialSlideType.MasterSlide).then((result) => {
     console.log(result.body.mainSequence.length);
     const dto = new CloudSdk.SlideAnimation();
-    const effect1 = CloudSdk.Effect();
+    const effect1 = new CloudSdk.Effect();
     effect1.type = CloudSdk.Effect.TypeEnum.Blink;
     effect1.shapeIndex = 2;
-    const effect2 = CloudSdk.Effect();
+    const effect2 = new CloudSdk.Effect();
     effect2.type = CloudSdk.Effect.TypeEnum.Appear;
     effect2.shapeIndex = 3;
     dto.mainSequence = [ effect1, effect2 ];

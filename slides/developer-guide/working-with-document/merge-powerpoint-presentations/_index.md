@@ -13,5 +13,5 @@ The following articles describe methods for merging presentations.
 
 - [Merging Presentations Saved in Storage](/slides/merging-presentations-saved-in-storage/)
 - [Merging Selected Slides into a Specified Presentation in Storage](/slides/merging-selected-slides-into-a-specified-presentation-in-storage/)
-- [Merging Presentations from Local Files and Storage into a Local File](/slides/merging-presentations-from-local-files-and-storage-into-a-local-file/)
-- [Merging Presentations from Local Files and Storage into a File in Storage](/slides/merging-presentations-from-local-files-and-storage-into-a-file-in-storage/)
+- [Merging Presentations from Various Sources into a Local File](/slides/merging-presentations-from-various-sources-into-a-local-file/)
+- [Merging Presentations from Various Sources into a File in Storage](/slides/merging-presentations-from-various-sources-into-a-file-in-storage/)

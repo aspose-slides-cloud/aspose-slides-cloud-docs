@@ -103,10 +103,10 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Create a new slide.
-        var response = slidesApi.CreateSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+        var response = api.CreateSlide("MyPresentation.pptx", "3", 2);
 
         // Print links to all slides.
         foreach (var slide in response.SlideList)

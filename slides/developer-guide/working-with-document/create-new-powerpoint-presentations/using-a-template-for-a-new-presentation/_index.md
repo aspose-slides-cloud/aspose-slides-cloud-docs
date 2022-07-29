@@ -263,7 +263,7 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         var data = @"
             <staff>
@@ -292,8 +292,8 @@ class Test
                 </person>
             </staff>";
 
-        var response = slidesApi.CreatePresentationFromTemplate(
-            "JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, "Main", null, null, "Data", "Main");
+        var response = api.CreatePresentationFromTemplate(
+            "JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, null, null, null, "Data");
 
         Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=Data
     }

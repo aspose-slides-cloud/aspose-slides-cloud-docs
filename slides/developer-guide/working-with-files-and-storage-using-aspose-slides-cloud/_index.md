@@ -2,7 +2,7 @@
 title: "Working with Files and Storage using Aspose.Slides Cloud"
 type: docs
 url: /working-with-files-and-storage-using-aspose-slides-cloud/
-weight: 120
+weight: 110
 ---
 
 ## **Introduction**
@@ -85,13 +85,12 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var storageName = "Main";
         var filePath = "Data/example.pptx";
         var resultPath = "result.pptx";
 
-        using (var fileStream = slidesApi.DownloadFile(filePath, storageName))
+        using (var fileStream = api.DownloadFile(filePath))
         using (var resultStream = File.OpenWrite(resultPath))
             fileStream.CopyTo(resultStream);
     }
@@ -359,15 +358,14 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var storageName = "Main";
         var filePath = "example.pptx";
         var resultPath = "Data/result.pptx";
 
         using (var fileStream = File.OpenRead(filePath))
         {
-            var response = slidesApi.UploadFile(resultPath, fileStream, storageName);
+            var response = api.UploadFile(resultPath, fileStream);
             Console.WriteLine(response.Uploaded.Count);
         }
     }
@@ -622,13 +620,12 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        var storageName = "Main";
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+        
         var filePath = "Data/example.pptx";
         var copyPath = "Resources/example_copy.pptx";
 
-        slidesApi.CopyFile(filePath, copyPath, storageName, storageName);
+        api.CopyFile(filePath, copyPath);
     }
 }
 ```
@@ -854,13 +851,12 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var storageName = "Main";
         var filePath = "Data/example.pptx";
         var newPath = "Resources/example.pptx";
 
-        slidesApi.MoveFile(filePath, newPath, storageName, storageName);
+        api.MoveFile(filePath, newPath);
     }
 }
 ```
@@ -1084,12 +1080,11 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        var storageName = "Main";
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+                                
         var filePath = "Resources/example.pptx";
 
-        slidesApi.DeleteFile(filePath, storageName);
+        api.DeleteFile(filePath);
     }
 }
 ```

@@ -510,7 +510,7 @@ lightRig.zRotation = 40;
 threeDFormat.lightRig = lightRig;
 
 const camera = new CloudSdk.Camera();
-camera.cameraType = "PerspectiveContrastiveRightFacing";
+camera.cameraType = CloudSdk.Camera.CameraTypeEnum.PerspectiveContrastingRightFacing;
 threeDFormat.camera = camera;
 textFrameFormat.threeDFormat = threeDFormat;
 dto.textFrameFormat = textFrameFormat;

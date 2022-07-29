@@ -385,7 +385,7 @@ innerShadow.shadowColor = "#FFFFFF00";
 effectFormat.innerShadow = innerShadow;
 dto.effectFormat = effectFormat;
 api.updateShape("MyPresentation.pptx", 1, 1, dto).then((result) => {
-    console.log(getResult.body.effectFormat.innerShadow.direction);
+    console.log(result.body.effectFormat.innerShadow.direction);
 });
 ```
 

@@ -1,24 +1,21 @@
 ---
-title: "Get Paragraph Effective Values"
+title: "Setting chart axis"
 type: docs
-url: /get-paragraph-effective-values/
-weight: 130
+url: /setting-chart-axis/
+weight: 50
 ---
 ## **Introduction**
-
-Effective values are format values that are actually applied to the paragraph. They are either explicitly set in the paragraph, or implicitly returned as a result of inheritance. They represent the final result of formatting that might be seen in the PowerPoint or in an exported document. For example, if the font height value is not defined for the specific portion of text, the value from the default portion format of the parent paragraph will be taken, if availiable. If not, the value is taken from the presentation theme.
-
-You can also get effective values for [Portions](/slides/get-portion-effective-values/).
-
+Aspose.Slides Cloud API allows setting chart axis properties.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/effective|GET|Get paragraph effective|[GetParagraphEffective]()|
-/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/effective|GET|Get sub-shape paragraph effective|[GetSubshapeParagraphEffective]()|
-
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/horizontalAxis|PUT|Updates horizontal axis properties|[SetChartAxis]()|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/verticalAxis|PUT|Updates vertical axis properties|[SetChartAxis]()|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/secondaryHorizontalAxis|PUT|Updates secondary horizontal axis properties|[SetChartAxis]()|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/secondaryVerticalAxis|PUT|Updates secondary vertical axis properties|[SetChartAxis]()|
 ### **cURL Example**
 
-The code example below shows how to obtain "effective formatting values" from a paragraph.
+The code example below shows how to update some properties of the horizontal axis.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -29,14 +26,18 @@ The code example below shows how to obtain "effective formatting values" from a 
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Get paragraph effective format values**
+**Update Vertical Axis**
 ```sh
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/1/effective" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/verticalAxis" -d @"axis.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
 ```
 
-**Get sub-shape paragraph effective format values**
-```sh
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/shapes/2/paragraphs/1/effective" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+portion.json
+```json
+{
+    "HasTitle":true,
+    "IsAutomaticMaxValue":false,
+    "MaxValue":10
+}
 ```
 
 {{< /tab >}}
@@ -46,7 +47,7 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 ```java
 
 Code: 200
-Returns effective paragraph info.
+Returns chart axis info.
 
 ```
 
@@ -62,13 +63,17 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
-int paragraphIndex = 1;
 
-Paragraph response = api.GetParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
+Axis axisDto = new Axis();
+axisDto.HasTitle = true;
+axisDto.IsAutomaticMaxValue = false;
+axisDto.MaxValue = 10;
 
-Console.WriteLine($"The default tab size is \"{response.DefaultTabSize}\".");
+Axis response = TestUtils.SlidesApi.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axisDto);
+
+Console.WriteLine($"The maximum value on the axis equals {response.MaxValue}.");
 ```
 
 {{< /tab >}}
@@ -77,13 +82,12 @@ Console.WriteLine($"The default tab size is \"{response.DefaultTabSize}\".");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
-int paragraphIndex = 1;
 
-Paragraph response = api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, null, null, null);
+Axis response = api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VERTICALAXIS, axis, null, null, null);
 
-System.out.println("The default tab size is \"" + response.getDefaultTabSize() + "\".");
+System.out.println("The maximum value on the axis equals" + response.getMaxValue());
 ```
 
 {{< /tab >}}
@@ -98,12 +102,17 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$slideIndex = 1;
+$slideIndex = 3;
 $shapeIndex = 1;
-$paragraphIndex = 1;
 
-$response = $api->getParagraphEffective("MyPresentation.pptx", $slideIndex, $shapeIndex, $paragraphIndex);
-print("The default tab size is \"" + response->getDefaultTabSize() + "\".");
+$axis = new Axis();
+$axis->setHasTitle(true);
+$axis->setIsAutomaticMaxValue(false);
+$axis->setMaxValue(10);
+
+$result = $this->getApi()->setChartAxis("MyPresentation.pptx", $slideIndex, $shapeIndex, "VerticalAxis", $axis);
+
+print("The maximum value on the axis equals \"" + response->getMaxValue() + "\".");
 ```
 
 {{< /tab >}}
@@ -132,12 +141,12 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-slide_index = 1
+slide_index = 3
 shape_index = 1
-paragraph_index = 1
 
-response = api.get_paragraph_effective("MyPresentation.pptx", slide_index, shape_index, paragraph_index)
-print("The default tab size is \"" + response.default_tab_size + "\".")
+response = BaseTest.slides_api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
+
+print("The maximum value on the axis equals \"" + response.max_value + "\".")
 ```
 
 {{< /tab >}}
@@ -147,12 +156,17 @@ print("The default tab size is \"" + response.default_tab_size + "\".")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slideIndex = 1;
+const slideIndex = 3;
 const shapeIndex = 1;
-const paragraphIndex = 1;
 
-const response = await api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex);
-console.log("The default tab size is \"" + response.body.defaultTabSize + "\".");
+const axis = new Axis();
+axis.hasTitle = true;
+axis.isAutomaticMaxValue = false;
+axis.maxValue = 10;
+            
+let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axis)
+            
+console.log("The maximum value on the axis equals \"" + response.body.maxValue + "\".");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

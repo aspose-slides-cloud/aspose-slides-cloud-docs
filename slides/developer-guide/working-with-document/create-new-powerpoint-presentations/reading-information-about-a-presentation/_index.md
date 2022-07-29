@@ -233,10 +233,10 @@ class Test
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var response = slidesApi.GetPresentation("Sales.pptx", null, "Data", "Main");
-        Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
+        var response = api.GetPresentation("Sales.pptx");
+        Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/Sales.pptx
     }
 }
 ```

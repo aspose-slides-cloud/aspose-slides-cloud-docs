@@ -95,10 +95,10 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 string fileName = "MyPresentation.pptx";
-int slideIndex = 1;
-int shapeIndex = 2;
-int paragraphIndex = 3;
-int portionIndex = 2;
+int slideIndex = 2;
+int shapeIndex = 3;
+int paragraphIndex = 1;
+int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 using Stream mathMl = api.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex);
@@ -136,10 +136,10 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
-$paragraphIndex = 3;
-$portionIndex = 2;
+$slideIndex = 2;
+$shapeIndex = 3;
+$paragraphIndex = 1;
+$portionIndex = 1;
 
 $mathMl = $api->downloadPortionAsMathMl(self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex);
 print("The converted file was saved to " . $mathMl->getPathname());
@@ -165,10 +165,10 @@ configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
-paragraph_index = 3
-portion_index = 2
+slide_index = 2
+shape_index = 3
+paragraph_index = 1
+portion_index = 1
 
 mathMl = api.download_portion_as_math_ml(file_name, slide_index, shape_index, paragraph_index, portion_index)
 print('The converted file was saved to ' + mathMl)
@@ -180,13 +180,14 @@ print('The converted file was saved to ' + mathMl)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
-const slideIndex = 1;
-const shapeIndex = 2;
-const paragraphIndex = 3;
-const portionIndex = 2;
+const slideIndex = 2;
+const shapeIndex = 3;
+const paragraphIndex = 1;
+const portionIndex = 1;
 
 api.downloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then((result) => {
     fs.writeFile("equation.xml", result.body, (err) => {
@@ -206,10 +207,10 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-var slideIndex int32 = 1
-var shapeIndex int32 = 2
-var paragraphIndex int32 = 3
-var portionIndex int32 = 2
+var slideIndex int32 = 2
+var shapeIndex int32 = 3
+var paragraphIndex int32 = 1
+var portionIndex int32 = 1
 
 mathMl, _, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "")
 if e != nil {

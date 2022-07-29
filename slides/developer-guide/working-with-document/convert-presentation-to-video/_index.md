@@ -71,7 +71,7 @@ VideoExportOptions videoExportOptions = new VideoExportOptions()
     TransitionDuration = 3
 };
 
-using Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Mpeg4, exportOptions);
+using Stream response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Mpeg4, videoExportOptions);
 using Stream outFile = File.Create("MyPresentation.mp4");
 response.CopyTo(outFile);
 ```
@@ -153,13 +153,13 @@ const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const exportOptions = new VideoExportOptions();
+const exportOptions = new CloudSdk.VideoExportOptions();
 exportOptions.slidesTransitionDuration = 5;
-exportOptions.transitionType = TransitionTypeEnum.Dissolve;
-exportOptions.videoResolutionType = VideoResolutionTypeEnum.SD;
+exportOptions.transitionType = CloudSdk.VideoExportOptions.TransitionTypeEnum.Dissolve;
+exportOptions.videoResolutionType = CloudSdk.VideoExportOptions.VideoResolutionTypeEnum.SD;
 exportOptions.transitionDuration = 3;
 
-api.downloadPresentation("MyPresentation.pptx", "mpeg4", exportOptions).then(() => {
+api.downloadPresentation("MyPresentation.pptx", "mpeg4", exportOptions).then(response => {
     fs.writeFile("MyPresentation.zip", response.body, (err) => {
         if (err) throw err;
     });

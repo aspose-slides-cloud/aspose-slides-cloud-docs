@@ -107,15 +107,15 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Move the third slide to the first position.
-        var response = slidesApi.MoveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage");
+        var response = api.MoveSlide("MyPresentation.pptx", 3, 1);
 
         // Print links to all slides.
         foreach (var resourceUri in response.SlideList)
         {
-            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1 etc.
             Console.WriteLine(resourceUri.Href);
         }
     }
@@ -432,12 +432,12 @@ class Application
 {
     static void Main()
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Swap the first and third slides.
         var slideIndices = new List<int> { 1, 3 };
         var newPositions = new List<int> { 3, 1 };
-        var response = slidesApi.ReorderSlides("MyPresentation.pptx", slideIndices, newPositions, null, "MyFolder", "MyStorage");
+        var response = api.ReorderSlides("MyPresentation.pptx", slideIndices, newPositions);
 
         // Print links to all slides.
         foreach (var resourceUri in response.SlideList)
@@ -463,16 +463,16 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        var api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Swap the first and third slides.
         var slideIndices = Arrays.asList(1, 3);
         var newPositions = Arrays.asList(3, 1);
-        var response = slidesApi.reorderSlides("MyPresentation.pptx", slideIndices, newPositions, null, "MyFolder", "MyStorage");
+        var response = api.reorderSlides("MyPresentation.pptx", slideIndices, newPositions);
 
         // Print links to all slides.
         for (var resourceUri : response.getSlideList()) {
-            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
+            // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1 etc.
             System.out.println(resourceUri.getHref());
         }
     }

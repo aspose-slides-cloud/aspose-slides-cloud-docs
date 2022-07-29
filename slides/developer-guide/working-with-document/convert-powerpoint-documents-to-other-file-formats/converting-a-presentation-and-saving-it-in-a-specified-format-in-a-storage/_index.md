@@ -89,10 +89,10 @@ class Test
 {
     static void Main(string[] args)
     {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         using var fileStream = File.OpenRead("example.pptx");
-        slidesApi.ConvertAndSave(fileStream, ExportFormat.Png, "MyFolder/images", null, "MyStorage");
+        api.ConvertAndSave(fileStream, ExportFormat.Png, "MyFolder/images");
     }
 }
 ```

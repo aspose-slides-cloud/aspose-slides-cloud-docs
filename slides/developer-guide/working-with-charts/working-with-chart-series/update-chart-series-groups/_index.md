@@ -11,7 +11,7 @@ A group of series contains series properties that are common for each series in 
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Update chart series group|[UpdateChartSeriesGroup]()
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Update chart series group|[SetChartSeriesGroup]()
 ### **cURL Example**
 The code example below shows how to update a chart series group. 
 
@@ -53,11 +53,11 @@ ChartSeriesGroup seriesGroup = new ChartSeriesGroup()
     Overlap = 10
 };
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
 int seriesGroupIndex = 1;
 
-Chart chart = api.ChartSeriesGroups("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
+Chart chart = api.SetChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
 
 Console.WriteLine($"The chart has {chart.SeriesGroups.Count} series groups.");
 ```
@@ -71,11 +71,11 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
 seriesGroup.setOverlap(10);
 
-int slideIndex = 1;
+int slideIndex = 3;
 int shapeIndex = 1;
 int seriesGroupIndex = 1;
 
-Chart chart = api.updateChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, null, null, null);
+Chart chart = api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, null, null, null);
 
 System.out.println("The chart has  \"" + chart.getSeriesGroups().size() + "\" series groups.");
 ```
@@ -96,11 +96,11 @@ $api = new SlidesApi(null, $config);
 $chartSeriesGroup = new ChartSeriesGroup();
 $chartSeriesGroup-> setOverlap(10);
 
-$slideIndex = 1;
+$slideIndex = 3;
 $shapeIndex = 1;
 $seriesGroupIndex = 1;
 
-$chart = $api->updateChartSeriesGroup("MyPresentation.pptx", $slideIndex, $shapeIndex, $seriesGroupIndex, $chartSeriesGroup);
+$chart = $api->setChartSeriesGroup("MyPresentation.pptx", $slideIndex, $shapeIndex, $seriesGroupIndex, $chartSeriesGroup);
 print("The chart has \"" + count($chart->getSeriesGroups()) + "\" sereis groups.");
 ```
 
@@ -133,11 +133,11 @@ api = SlidesApi(configuration)
 series_group = ChartSeriesGroup()
 series_group.overlap = 10
 
-slide_index = 1
+slide_index = 3
 shape_index = 1
 series_group_index = 1
 
-chart = api.update_chart_series_group("MyPresentation.pptx", slide_index, shape_index, series_group_index, series_group)
+chart = api.set_chart_series_group("MyPresentation.pptx", slide_index, shape_index, series_group_index, series_group)
 print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
 ```
 
@@ -148,16 +148,15 @@ print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let seriesGroup = new ChartSeriesGroup();
+let seriesGroup = new CloudSdk.ChartSeriesGroup();
 seriesGroup.overlap = 10;
 
-const slideIndex = 1;
+const slideIndex = 3;
 const shapeIndex = 1;
 const seriesGroupIndex = 1;
 
-const result = await api.updateChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
-chart = result.body as model.Chart;
-console.log("The chart contains \"" + chart.seriesGroups.length + "\" series groups.");
+const result = await api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
+console.log("The chart contains \"" + result.body.seriesGroups.length + "\" series groups.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
