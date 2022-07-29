@@ -1,5 +1,5 @@
 ---
-title: "Adding-Shapes-to-a-PowerPoint-Presentation"
+title: "Adding Shapes to a PowerPoint Presentation"
 type: docs
 url: /adding-shapes-to-a-powerpoint-presentation/
 weight: 25
