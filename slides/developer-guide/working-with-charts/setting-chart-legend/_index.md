@@ -173,9 +173,9 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const slideIndex = 3;
 const shapeIndex = 1;
 
-const fillFormat = new SolidFill();
+const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#77CEF9";
-const legend = new Legend();
+const legend = new CloudSdk.Legend();
 legend.overlay = true;
 legend.fillFormat = fillFormat;
 

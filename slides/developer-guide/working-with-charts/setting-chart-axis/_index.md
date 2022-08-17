@@ -159,14 +159,14 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const slideIndex = 3;
 const shapeIndex = 1;
 
-const axis = new Axis();
+const axis = new CloudSdk.Axis();
 axis.hasTitle = true;
 axis.isAutomaticMaxValue = false;
 axis.maxValue = 10;
             
-let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axis)
+let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.AxisType.VerticalAxis, axis)
             
-console.log("The maximum value on the axis equals \"" + response.body.maxValue + "\".");
+console.log("The maximum value on the axis equals \"" + result.body.maxValue + "\".");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

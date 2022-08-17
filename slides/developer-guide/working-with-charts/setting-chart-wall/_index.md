@@ -168,12 +168,12 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const slideIndex = 8;
 const shapeIndex = 2;
 
-const fillFormat = new SolidFill();
+const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#77CEF9";
-const wall = new ChartWall();
+const wall = new CloudSdk.ChartWall();
 wall.fillFormat = fillFormat;
 
-let result = await api.setChartWall("MyPresentation.pptx", slideIndex, shapeIndex, ChartWallType.BackWall, wall);
+let result = await api.setChartWall("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.ChartWallType.BackWall, wall);
             
 console.log("The color of the back wall has been updated.");
 ```

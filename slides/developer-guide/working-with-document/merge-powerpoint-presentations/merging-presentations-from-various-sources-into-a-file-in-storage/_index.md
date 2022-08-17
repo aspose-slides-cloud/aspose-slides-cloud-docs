@@ -652,6 +652,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, reques
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
 const cloud = require("asposeslidescloud")
+const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret")
 
