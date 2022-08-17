@@ -69,7 +69,7 @@ int shapeIndex = 2;
 
 ChartWall wallDto = new ChartWall();
 wallDto.FillFormat = new SolidFill() { Color = "#77CEF9" };
-ChartWall response = TestUtils.SlidesApi.SetChartWall("MyPresentation.pptx", slideIndex, shapeIndex,
+ChartWall response = api.SetChartWall("MyPresentation.pptx", slideIndex, shapeIndex,
                 ChartWallType.BackWall, wallDto);
 
 Console.WriteLine("The color of the back wall has been updated.");

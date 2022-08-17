@@ -74,7 +74,7 @@ legendDto.FillFormat = new SolidFill()
     Color = "#77CEF9"
 };
 
-Legend response = TestUtils.SlidesApi.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
+Legend response = api.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
 
 Console.WriteLine("Background color of the chart legend has been changed.");
 ```

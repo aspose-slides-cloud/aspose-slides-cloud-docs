@@ -423,7 +423,7 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx") };
+        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
         var files = new List<Sdk.FileInfo> { fileInfo};
 
         // Prepare information for the second presentation to merge.

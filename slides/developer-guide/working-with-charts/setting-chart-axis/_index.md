@@ -71,7 +71,7 @@ axisDto.HasTitle = true;
 axisDto.IsAutomaticMaxValue = false;
 axisDto.MaxValue = 10;
 
-Axis response = TestUtils.SlidesApi.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axisDto);
+Axis response = api.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axisDto);
 
 Console.WriteLine($"The maximum value on the axis equals {response.MaxValue}.");
 ```
