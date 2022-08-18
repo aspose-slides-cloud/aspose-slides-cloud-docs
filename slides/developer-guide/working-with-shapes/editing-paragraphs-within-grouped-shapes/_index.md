@@ -8,7 +8,7 @@ weight: 90
 
 ## **Introduction**
 
-This article shows you how to format and edit paragraphs within a grouped shape using Aspose.Slides for Cloud API in your applications. The following method allows you to specify a path to a shape inside a group shape and change properties of a paragraph inside the specified shape.
+This article shows you how to format and edit paragraphs within a grouped shape using Aspose.Slides Cloud API in your applications. The following method allows you to specify a path to a shape inside a group shape and change properties of a paragraph inside the specified shape.
 
 ## **UpdateSubshapeParagraph**
 
