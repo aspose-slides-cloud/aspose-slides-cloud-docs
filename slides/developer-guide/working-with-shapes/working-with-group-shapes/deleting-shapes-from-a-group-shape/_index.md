@@ -2,7 +2,7 @@
 title: "Deleting Shapes from a Group Shape"
 type: docs
 url: /deleting-shapes-from-a-group-shape/
-weight: 50
+weight: 30
 ---
 
 
@@ -34,7 +34,7 @@ This article shows you how to delete shapes from a group shape using Aspose.Slid
 
 {{% alert color="primary" %}} 
 
-For more information about the `path` parameter, see [Adding a Shape to a Group Shape](/slides/adding-a-shape-to-a-group-shape/).
+For more information about the `path` parameter, see [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
 
 {{% /alert %}}
 
