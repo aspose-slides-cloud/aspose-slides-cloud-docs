@@ -78,7 +78,7 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->deleteUnusedMasterSlides(self::fileName, true);
+$result = $api->deleteUnusedMasterSlides("MyPresentation.pptx", true);
 print(count($result->getSlideList()));
 ```
 

@@ -147,14 +147,14 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $rule1 = new FontFallbackRule();
-$rule1->setRangeStartIndex($startUnicodeIndex);
-$rule1->setRangeEndIndex($endUnicodeIndex);
+$rule1->setRangeStartIndex(0x0B80);
+$rule1->setRangeEndIndex(0x0BFF);
 $fonts1 = [ "Vijaya" ];
 $rule1->setFallbackFontList($fonts1);
 
 $rule2 = new FontFallbackRule();
-$rule2->setRangeStartIndex($startUnicodeIndex);
-$rule2->setRangeEndIndex($endUnicodeIndex);
+$rule2->setRangeStartIndex(0x42B);
+$rule2->setRangeEndIndex(0x42E);
 $fonts2 = [ "Segoe UI Emoji", "Segoe UI Symbol", "Arial" ];
 $rule2->setFallbackFontList($fonts2);
 

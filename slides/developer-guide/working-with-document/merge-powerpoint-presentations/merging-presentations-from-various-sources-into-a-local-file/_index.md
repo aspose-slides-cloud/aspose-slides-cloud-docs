@@ -213,6 +213,8 @@ public class Application {
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\PresentationToMerge;
+use Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest;
 
 $configuration = new Configuration();
 $configuration->setAppSid("my_client_id");

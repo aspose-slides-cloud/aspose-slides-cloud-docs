@@ -284,7 +284,7 @@ $series1->setDataPoints([$dataPoint21, $dataPoint22, $dataPoint23, $dataPoint24]
 $dto->setSeries([ $series1, $series2 ]);
 
 $result = $api->CreateShape("MyPresentation.pptx", 1, $dto);
-print(count($result->getSeries()[0]));
+print(count($result->getSeries()));
 ```
 
 {{< /tab >}}

@@ -101,7 +101,7 @@ $shapeIndex = 1;
 $seriesGroupIndex = 1;
 
 $chart = $api->setChartSeriesGroup("MyPresentation.pptx", $slideIndex, $shapeIndex, $seriesGroupIndex, $chartSeriesGroup);
-print("The chart has \"" + count($chart->getSeriesGroups()) + "\" sereis groups.");
+print("The chart has " . count($chart->getSeriesGroups()) . " sereis groups.");
 ```
 
 {{< /tab >}}

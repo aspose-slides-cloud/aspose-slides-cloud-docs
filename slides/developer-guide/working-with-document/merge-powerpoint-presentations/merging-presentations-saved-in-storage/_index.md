@@ -287,7 +287,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 // Prepare request data for presentations to merge.
 $request = new PresentationsMergeRequest();
 $request->setPresentationPaths(["MyResources/example1.pptx", "MyResources/example2.pptx"]);
-$request->setPresentationPasswords(["password1"]);
+$request->setPresentationPasswords(["my_password1"]);
 
 // Merge the presentations.
 $response = $slidesApi->merge("MyPresentation.pptx", $request, "my_password", "MyFolder");

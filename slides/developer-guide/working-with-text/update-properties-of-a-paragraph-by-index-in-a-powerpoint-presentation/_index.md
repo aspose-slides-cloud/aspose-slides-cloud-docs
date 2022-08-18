@@ -141,7 +141,7 @@ public class Main {
         var fileName = "example.pptx";
         var slideIndex = 1;
         var shapeIndex = 1;
-        var paragraphIndex = 2;
+        var paragraphIndex = 1;
         var password = "";
 
         // Get a paragraph from the presentation.
@@ -180,7 +180,7 @@ $folderName = "Data";
 $fileName = "example.pptx";
 $slideIndex = 1;
 $shapeIndex = 1;
-$paragraphIndex = 2;
+$paragraphIndex = 1;
 $password = "";
 
 // Get a paragraph from the presentation.
@@ -222,7 +222,7 @@ folderName = "Data"
 fileName = "example.pptx"
 slideIndex = 1
 shapeIndex = 1
-paragraphIndex = 2
+paragraphIndex = 1
 password = ""
 
 # Get a paragraph from the presentation.
@@ -253,7 +253,7 @@ const folderName = "Data"
 const fileName = "example.pptx"
 const slideIndex = 1
 const shapeIndex = 1
-const paragraphIndex = 2
+const paragraphIndex = 1
 const password = ""
 
 // Get a paragraph from the presentation.
@@ -290,7 +290,7 @@ public class Main {
         var fileName = "example.pptx";
         var slideIndex = 1;
         var shapeIndex = 1;
-        var paragraphIndex = 2;
+        var paragraphIndex = 1;
         var password = "";
 
         // Get a paragraph from the presentation.
@@ -328,7 +328,7 @@ int main()
 	auto fileName = to_string_t("example.pptx");
 	auto slideIndex = 1;
 	auto shapeIndex = 1;
-	auto paragraphIndex = 2;
+	auto paragraphIndex = 1;
 	auto password = to_string_t("");
 
     // Get a paragraph from the presentation.

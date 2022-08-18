@@ -100,6 +100,8 @@ System.out.println("The color of the back wall has been updated.");
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\ChartWall;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -114,7 +116,7 @@ $fillFormat = new SolidFill();
 $fillFormat->setColor("#77CEF9"); 
 $wall->setFillFormat($fillFormat);
 
-$result = $this->getApi()->setChartWall("MyPresentation.pptx", $slideIndex, $shapeIndex, "BackWall", $wall);
+$result = $api->setChartWall("MyPresentation.pptx", $slideIndex, $shapeIndex, "BackWall", $wall);
 
 print("The color of the back wall has been updated.");
 ```

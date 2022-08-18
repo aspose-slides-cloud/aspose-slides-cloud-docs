@@ -137,7 +137,7 @@ $portion->setFillFormat($fillFormat);
 $targetNodePath = "1/nodes/1/nodes";
 $slideIndex = 7;
 $response = $api->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
-print("The portion with text \"" + response->getText() + "\" has been updated");
+print("The portion with text \"" . $response->getText() . "\" has been updated");
 ```
 
 {{< /tab >}}

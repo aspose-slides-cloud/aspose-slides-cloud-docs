@@ -205,7 +205,7 @@ $dto->setTriggerType("OnClick");
 $response = $api->CreateAnimationInteractiveSequenceEffect("MyPresentation.pptx", 1, 1, $dto);
 foreach ($response->getInteractiveSequences()[0]->getEffects() as $effect)
 {
-    print(count($effect->getShapeIndex()));
+    print($effect->getShapeIndex());
 }
 ```
 

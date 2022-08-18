@@ -550,7 +550,7 @@ $request = new OrderedMergeRequest();
 $request->setPresentations([$presentation1, $presentation2, $presentation3]);
 
 // Merge the presentations and save the result to the specified path.
-$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $request, $request, "MyStorage");
+$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $files, $request, "MyStorage");
 ```
 
 {{< /tab >}}

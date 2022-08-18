@@ -266,7 +266,7 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/aspose-slides-cloud-php
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -277,8 +277,8 @@ $configuration->setAppKey("my_client_key");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$response = $slidesApi->getPresentation("Sales.pptx", null, "Data", "Main");
-echo $response->getSelfUri()->getHref(); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
+$response = $slidesApi->getPresentation("Sales.pptx");
+echo $response->getSelfUri()->getHref(); // https://api.aspose.cloud/v3.0/slides/Sales.pptx
 ```
 
 {{< /tab >}}

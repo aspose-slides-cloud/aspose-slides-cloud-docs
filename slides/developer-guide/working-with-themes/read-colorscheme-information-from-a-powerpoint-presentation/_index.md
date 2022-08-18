@@ -98,10 +98,8 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 {{< tab tabNum="3" >}}
 
 ```php
-<?php 
    // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
 
-   include(dirname(__DIR__) . '\CommonUtils.php');
    use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
    use Aspose\Slides\Cloud\Sdk\Api\Configuration;
    use Aspose\Slides\Cloud\Sdk\Model;
@@ -110,8 +108,8 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
    try {
       // Create SlidesApi instance
       $config = new Configuration();
-      $config->setAppSid(CommonUtils::$AppSid);
-      $config->setAppKey(CommonUtils::$AppKey);
+      $config->setAppSid($AppSid);
+      $config->setAppKey($AppKey);
       $slidesApi = new SlidesApi(null, $config);
 
       $fileName = "test-unprotected.ppt";
@@ -119,7 +117,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
       // Upload original document to storage
       $fileStream = fopen(realpath(__DIR__ . '/../..') . '\resources\\' . $fileName, 'r');
-      $slidesApi->uploadFile($fileName,  $fileStream, CommonUtils::$MyStorage);
+      $slidesApi->uploadFile($fileName,  $fileStream, $MyStorage);
       
       $request = new Requests\GetSlidesThemeColorSchemeRequest($fileName, $index);
       $result = $slidesApi->getSlidesThemeColorScheme($request);
@@ -128,7 +126,6 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
    } catch (Exception $e) {
       echo "Something went wrong: ", $e->getMessage(), "\n";
    }
-?>
 ```
 
 {{< /tab >}}

@@ -146,7 +146,7 @@ $dto->setY(20);
 $dto->setWidth(200);
 $dto->setHeight(100);
 $dto->setTargetSlideIndex(2);
-$shape = $api()->createShape($fileName, $slideIndex, $dto);
+$shape = $api->createShape($fileName, $slideIndex, $dto);
 print($shape->getTargetSlideIndex());
 ```
 

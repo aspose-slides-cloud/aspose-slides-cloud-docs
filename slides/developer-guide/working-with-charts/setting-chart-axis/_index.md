@@ -96,6 +96,7 @@ System.out.println("The maximum value on the axis equals" + response.getMaxValue
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Axis;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -110,9 +111,9 @@ $axis->setHasTitle(true);
 $axis->setIsAutomaticMaxValue(false);
 $axis->setMaxValue(10);
 
-$result = $this->getApi()->setChartAxis("MyPresentation.pptx", $slideIndex, $shapeIndex, "VerticalAxis", $axis);
+$result = $api->setChartAxis("MyPresentation.pptx", $slideIndex, $shapeIndex, "VerticalAxis", $axis);
 
-print("The maximum value on the axis equals \"" + response->getMaxValue() + "\".");
+print("The maximum value on the axis equals \"" . $result->getMaxValue() . "\".");
 ```
 
 {{< /tab >}}

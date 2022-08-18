@@ -220,8 +220,8 @@ $line4->setY(0);
 $end = new ClosePathSegment();
 $path->setPathData([ $start, $line1, $line1, $line3, $line4, $end ]);
 $dto->setPaths([ $path ]);
-$shape = $this->getApi()->setShapeGeometryPath($fileName, $slideIndex, $shapeIndex, $dto);
-print($shape->getWith());
+$shape = $api->setShapeGeometryPath($fileName, $slideIndex, $shapeIndex, $dto);
+print($shape->getWidth());
 ```
 
 {{< /tab >}}

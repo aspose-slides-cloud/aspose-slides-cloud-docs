@@ -104,6 +104,8 @@ System.out.println("Background color of the chart legend has been changed.");
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Legend;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -119,7 +121,7 @@ $fillFormat = new SolidFill();
 $fillFormat->setColor("#77CEF9"); 
 $legend->setFillFormat($fillFormat);
 
-$result = $this->getApi()->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
+$result = $api->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
 
 print("Background color of the chart legend has been changed.");
 ```
