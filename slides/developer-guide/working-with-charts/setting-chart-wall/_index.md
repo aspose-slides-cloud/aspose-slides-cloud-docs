@@ -155,7 +155,7 @@ wall = ChartWall()
         fill_format.color = constant.COLOR
         wall.fill_format = fill_format
 
-response = BaseTest.slides_api.set_chart_wall("MyPresentation.pptx", slide_index, shape_index, "Backwall", wall)
+response = api.set_chart_wall("MyPresentation.pptx", slide_index, shape_index, "Backwall", wall)
 
 print("The color of the back wall has been updated.")
 ```

@@ -145,7 +145,7 @@ api = SlidesApi(configuration)
 slide_index = 3
 shape_index = 1
 
-response = BaseTest.slides_api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
+response = api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
 
 print("The maximum value on the axis equals \"" + response.max_value + "\".")
 ```
