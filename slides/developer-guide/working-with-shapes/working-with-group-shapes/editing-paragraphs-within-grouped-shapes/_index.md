@@ -2,7 +2,7 @@
 title: "Editing Paragraphs within Grouped Shapes"
 type: docs
 url: /editing-paragraphs-within-grouped-shapes/
-weight: 40
+weight: 50
 ---
 
 
@@ -24,7 +24,7 @@ This article shows you how to format and edit paragraphs within a grouped shape 
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide containing the group shape.|
-|path|string|path|true|The path to the group shape, relative to the slide.|
+|path|string|path|true|The path to the shape group, relative to the slide.|
 |shapeIndex|integer|path|true|The 1-based index of the shape contained in the group shape.|
 |paragraphIndex|integer|path|true|The 1-based index of the paragraph to update.|
 |dto|object|body|true|The DTO containing the paragraph properties.|
