@@ -2,7 +2,7 @@
 title: "Adding a Shape to a Group Shape"
 type: docs
 url: /adding-a-shape-to-a-group-shape/
-weight: 40
+weight: 20
 ---
 
 
@@ -36,11 +36,9 @@ This article shows you how to create a shape and immediately add it to a shape g
 
 {{% alert color="primary" %}} 
 
-A shape group can consist of both shapes and other groups (subgroups). For example, a presentation contains a single shape representing a shape group containing a shape, and a shape subgroup containing two shapes, and so on. Therefore, you have to specify the `path` to a group of shapes in order to add a new shape to it.
+For more information about the `path` parameter, see [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
 
-![Paths to shape groups](Paths.svg "Paths to shape groups")
-
-{{% /alert %}} 
+{{% /alert %}}
 
 ### **Examples**
 
