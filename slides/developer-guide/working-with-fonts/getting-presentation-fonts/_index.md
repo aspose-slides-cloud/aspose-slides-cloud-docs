@@ -5,7 +5,7 @@ url: /getting-presentation-fonts/
 weight: 20
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows you getting list of fonts used in the presentation. The list can be obtained from the presentation located in the storage or the presentation uploaded in the request. 
+Aspose.Slides Cloud API allows getting list of fonts used in the presentation. The list can be obtained from the presentation located in the storage or the presentation uploaded in the request body.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -13,7 +13,8 @@ Aspose.Slides Cloud API allows you getting list of fonts used in the presentatio
 /slides/fonts|Get|Returns presentation fonts info.|[GetFontsOnline](https://apireference.aspose.cloud/slides/fonts)|
 ### **cURL Example**
 
-The code examples below show how to obtain presentation fonts data both, from the request and the storage. 
+The code examples below show how to obtain fonts information from presentations in the storage, and in request body.
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -50,8 +51,11 @@ Returns presentation fonts info.
 {{< /tabs >}}
 
 ## **SDK Source**
+
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+
 ## **SDK Examples**
+
 **Storage**
 
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
@@ -185,6 +189,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tabs >}}
 
 **Request**
+
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 

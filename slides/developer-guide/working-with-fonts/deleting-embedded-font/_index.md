@@ -5,7 +5,7 @@ url: /deleting-embedded-font/
 weight: 40
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows you deleting an embedded font from the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request.
+Aspose.Slides Cloud API allows deleting an embedded font from the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -13,7 +13,7 @@ Aspose.Slides Cloud API allows you deleting an embedded font from the presentati
 /slides/fonts/embedded/{fontName}|DELETE|Removes specified embedded font and returns presentation.|[DeleteEmbeddedFontOnline]()|
 ### **cURL Example**
 
-The code examples below show how to delete embedded font both, in presentation from the request or the storage. 
+The code examples below show how to delete an embedded font from a presentation in the storage, and in request body.
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -57,9 +57,13 @@ Document without specified embedded font.
 {{< /tabs >}}
 
 ## **SDK Source**
+
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+
 ## **SDK Examples**
+
 **Storage**
+
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 

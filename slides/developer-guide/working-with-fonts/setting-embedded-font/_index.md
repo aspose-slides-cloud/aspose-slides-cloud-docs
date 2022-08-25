@@ -5,7 +5,7 @@ url: /setting-embedded-font/
 weight: 30
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows you embeding a font used in the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request.
+Aspose.Slides Cloud API allows embeding a font used in the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -13,7 +13,8 @@ Aspose.Slides Cloud API allows you embeding a font used in the presentation. The
 /slides/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation.|[SetEmbeddedFontOnline]()|
 ### **cURL Example**
 
-The code examples below show how to embedded font both, in presentation from the request or the storage. 
+The code examples below show how to embed fonts in a presentation in the storage, and in request body.
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -46,7 +47,9 @@ Code: 200
 Returns presentation fonts info.
 
 ```
+
 **Request**
+
 ```sh
 
 Document with embedded font.
@@ -57,9 +60,13 @@ Document with embedded font.
 {{< /tabs >}}
 
 ## **SDK Source**
+
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+
 ## **SDK Examples**
+
 **Storage**
+
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 

@@ -6,7 +6,7 @@ weight: 170
 ---
 ## **Introduction**
 
-Aspose.Slides for Cloud allows you importing shapes from the SVG file.
+Aspose.Slides Cloud API allows importing shapes from an SVG file. This feature creates a separate shape for each shape of the SVG image. You need a different [method](/slides/adding-a-picture-to-a-presentation-slide/) to import an SVG file as a single picture.
 
 ## **API Information**
 
