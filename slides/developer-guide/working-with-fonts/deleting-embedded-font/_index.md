@@ -10,7 +10,7 @@ Aspose.Slides Cloud API allows deleting an embedded font from the presentation. 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 /slides/{name}/fonts/embedded/{fontName}|DELETE| Removes specified embedded font and returns presentation fonts info.|[DeleteEmbeddedFont]()|
-/slides/fonts/embedded/{fontName}|DELETE|Removes specified embedded font and returns presentation.|[DeleteEmbeddedFontOnline]()|
+/slides/fonts/embedded/{fontName}/delete|POST|Removes specified embedded font and returns presentation.|[DeleteEmbeddedFontOnline]()|
 ### **cURL Example**
 
 The code examples below show how to delete an embedded font from a presentation in the storage, and in request body.
@@ -30,7 +30,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/e
 
 **Request**
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri/delete" \
 -H "Authorization: Bearer [Access Token]" \
 -F "file=@TestData/MyPresentation.pptx"
 ```
