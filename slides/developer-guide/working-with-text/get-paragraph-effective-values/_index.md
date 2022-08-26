@@ -103,7 +103,7 @@ $shapeIndex = 1;
 $paragraphIndex = 1;
 
 $response = $api->getParagraphEffective("MyPresentation.pptx", $slideIndex, $shapeIndex, $paragraphIndex);
-print("The default tab size is \"" + response->getDefaultTabSize() + "\".");
+print("The default tab size is \"" . $response->getDefaultTabSize() . "\".");
 ```
 
 {{< /tab >}}

@@ -186,7 +186,7 @@ $api = new SlidesApi(null, $config);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphs = api->GetSpecialSlideParagraphs($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex);
+$paragraphs = $api->GetSpecialSlideParagraphs($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex);
 $paragraphCount = count($paragraphs->getParagraphLinks());
 
 $dto = new Paragraph();
@@ -194,7 +194,7 @@ $dto->setAlignment("Right");
 $portion = new Portion();
 $portion->setText("New paragraph");
 $dto->setPortionList([ $portion ]);
-$paragraph = $api->CreateSpecialSlideParagraph($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, null, $dto);
+$paragraph = $api->CreateSpecialSlideParagraph($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, $dto);
 print($paragraph->getAlignment()); //Right
 
 $dto->setAlignment("Center");

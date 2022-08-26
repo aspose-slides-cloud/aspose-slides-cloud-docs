@@ -189,7 +189,7 @@ $api = new SlidesApi(null, $config);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$shapes = api->GetSpecialSlideShapes($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE);
+$shapes = $api->GetSpecialSlideShapes($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE);
 $shapeCount = count($shapes->getShapesLinks());
 
 $dto = new Shape();
@@ -199,7 +199,7 @@ $dto->setWidth(500);
 $dto->setHeight(200);
 $dto->setShapeType("Rectangle");
 $dto->setText("New shape");
-$shape = $api->CreateSpecialSlideShape($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, null, null, $dto);
+$shape = $api->CreateSpecialSlideShape($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $dto);
 print($shape->getText()); //New shape
 
 $dto->setText("Updated shape");

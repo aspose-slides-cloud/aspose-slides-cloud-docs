@@ -95,14 +95,21 @@ System.out.println("The converted file was saved to " + response.getPath());
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+use Aspose\Slides\Cloud\Sdk\Model\VideoExportOptions;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-//The example will be completed shortly.
 
+$exportOptions = new VideoExportOptions();
+$exportOptions->setSlidesTransitionDuration(5);
+$exportOptions->setVideoResolutionType("SD");
+$exportOptions->setTransitionType("Dissolve");
+$exportOptions->setTransitionDuration(3);
+
+$result = $api->downloadPresentation("MyPresentation.pptx", ExportFormat::MPEG4, $exportOptions);
 print("The converted file was saved to " . $result->getPathname());
 ```
 

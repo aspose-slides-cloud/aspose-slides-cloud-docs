@@ -141,8 +141,8 @@ $hyperlink = new Hyperlink();
 $hyperlink->setActionType("Hyperlink");
 $hyperlink->setExternalUrl("https://docs.aspose.cloud/slides");
 $shape->setHyperlinkClick($hyperlink);
-$updatedShape = $api->updateShape(self::fileName, $slideIndex, $shapeIndex, $shape);
-print(count($updatedShape->getHyperlinkClick()->getExternalUrl())); //https://docs.aspose.cloud/slides
+$updatedShape = $api->updateShape($fileName, $slideIndex, $shapeIndex, $shape);
+print($updatedShape->getHyperlinkClick()->getExternalUrl()); //https://docs.aspose.cloud/slides
 ```
 
 {{< /tab >}}

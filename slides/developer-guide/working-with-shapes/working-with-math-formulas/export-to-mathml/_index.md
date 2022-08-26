@@ -141,7 +141,7 @@ $shapeIndex = 3;
 $paragraphIndex = 1;
 $portionIndex = 1;
 
-$mathMl = $api->downloadPortionAsMathMl(self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex);
+$mathMl = $api->downloadPortionAsMathMl($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex);
 print("The converted file was saved to " . $mathMl->getPathname());
 ```
 

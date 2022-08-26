@@ -120,7 +120,7 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shape from the group shape.
-        var remainingShapes = slidesApi.DeleteSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder");
+        var remainingShapes = slidesApi.DeleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
 
         // Print resource references for the remaining shapes.
         foreach (var shape in remainingShapes.ShapesLinks)
@@ -146,7 +146,7 @@ public class Application {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shape from the group shape.
-        var remainingShapes = slidesApi.deleteSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder", null);
+        var remainingShapes = slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
 
         // Print resource references for the remaining shapes.
         for (var shape : remainingShapes.getShapesLinks())
@@ -174,7 +174,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Delete the shape from the group shape.
-$remainingShapes = $slidesApi->deleteSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder");
+$remainingShapes = $slidesApi->deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
 
 // Print resource references for the remaining shapes.
 foreach ($remainingShapes->getShapesLinks() as $shape)
@@ -201,7 +201,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 # Delete the shape from the group shape.
-remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 2, "1/shapes", 3, nil, "MyFolder")
+remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 1, "4/shapes", 2, nil, "MyFolder")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links
@@ -222,7 +222,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Delete the shape from the group shape.
-remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 2, "1/shapes", 3, None, "MyFolder")
+remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 1, "4/shapes", 2, None, "MyFolder")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links:
@@ -241,7 +241,7 @@ const cloud = require("asposeslidescloud")
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Delete the shape from the group shape.
-slidesApi.deleteSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder").then((remainingShapes) => {
     remainingShapes.body.shapesLinks.forEach(shape =>
         // Print resource references for the remaining shapes.
         console.log(shape.href)
@@ -265,7 +265,7 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Delete the shape from the group shape.
-    auto remainingShapes = slidesApi->deleteSubshape(L"MyPresentation.pptx", 2, L"1/shapes", 3, L"", L"MyFolder").get();
+    auto remainingShapes = slidesApi->deleteSubshape(L"MyPresentation.pptx", 1, L"4/shapes", 2, L"", L"MyFolder").get();
 
     // Print resource references for the remaining shapes.
     for (auto shape : remainingShapes->getShapesLinks()) {
@@ -293,7 +293,7 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Delete the shape from the group shape.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, path => "1/shapes", shape_index => 3, folder => "MyFolder");
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", shape_index => 2, folder => "MyFolder");
 my $remaining_shapes = $slides_api->delete_subshape(%parameters);
 
 # Print resource references for the remaining shapes.
@@ -420,8 +420,8 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shapes from the group shape.
-        var shapeIndices = new List<int> { 1, 3 };
-        var remainingShapes = slidesApi.DeleteSubshapes("MyPresentation.pptx", 2, "1/shapes", shapeIndices, null, "MyFolder");
+        var shapeIndices = new List<int> { 1, 2 };
+        var remainingShapes = slidesApi.DeleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder");
 
         // Print resource references for the remaining shapes.
         foreach (var shape in remainingShapes.ShapesLinks)
@@ -449,8 +449,8 @@ public class Application {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shapes from the group shape.
-        var shapeIndices = Arrays.asList(1, 3);
-        var remainingShapes = slidesApi.deleteSubshapes("MyPresentation.pptx", 2, "1/shapes", shapeIndices, null, "MyFolder", null);
+        var shapeIndices = Arrays.asList(1, 2);
+        var remainingShapes = slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder", null);
 
         // Print resource references for the remaining shapes.
         for (var shape : remainingShapes.getShapesLinks()) {
@@ -477,7 +477,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Delete the shapes from the group shape.
-$remainingShapes = $slidesApi->deleteSubshapes("MyPresentation.pptx", 2, "1/shapes", [1, 3], null, "MyFolder");
+$remainingShapes = $slidesApi->deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], null, "MyFolder");
 
 // Print resource references for the remaining shapes.
 foreach ($remainingShapes->getShapesLinks() as $shape) {
@@ -503,7 +503,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 # Delete the shapes from the group shape.
-remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 2, "1/shapes", [1, 3], nil, "MyFolder")
+remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], nil, "MyFolder")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links
@@ -524,7 +524,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Delete the shapes from the group shape.
-remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 2, "1/shapes", [1, 3], None, "MyFolder")
+remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], None, "MyFolder")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links:
@@ -543,7 +543,7 @@ const cloud = require("asposeslidescloud")
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Delete the shapes from the group shape.
-slidesApi.deleteSubshapes("MyPresentation.pptx", 2, "1/shapes", [1, 3], null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], null, "MyFolder").then((remainingShapes) => {
     remainingShapes.body.shapesLinks.forEach(shape =>
         // Print resource references for the remaining shapes.
         console.log(shape.href)
@@ -567,7 +567,7 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Delete the shapes from the group shape.
-    auto remainingShapes = slidesApi->deleteSubshapes(L"MyPresentation.pptx", 2, L"1/shapes", {1, 3}, L"", L"MyFolder").get();
+    auto remainingShapes = slidesApi->deleteSubshapes(L"MyPresentation.pptx", 1, L"4/shapes", {1, 2}, L"", L"MyFolder").get();
 
     // Print resource references for the remaining shapes.
     for (auto shape : remainingShapes->getShapesLinks()) {

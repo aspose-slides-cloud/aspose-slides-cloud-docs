@@ -105,7 +105,7 @@ $paragraphIndex = 1;
 $portionIndex = 1;
 
 $response = $api->getPortionEffective("MyPresentation.pptx", $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex);
-print("The portion font size is \"" + response->getFontHeight() + "\".");
+print("The portion font size is \"" . $response->getFontHeight() . "\".");
 ```
 
 {{< /tab >}}

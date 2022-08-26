@@ -287,7 +287,7 @@ $block->setMathElementList([ $function ]);
 $math->setMathBlockList([ $block ]);
 $dto->setMathParagraph($math);
 
-$portion = $api->CreatePortion($fileName, $slideIndex, $shapeIndex, $paragraphIndex, null, $dto);
+$portion = $api->CreatePortion($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $dto);
 print(count($portion->getMathParagraph()->getMathBlockList())); //1
 ```
 

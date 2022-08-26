@@ -145,10 +145,10 @@ $dto = new Effect();
 $dto->setType("Blink");
 $dto->setShapeIndex($shapeIndex);
 $dto->setParagraphIndex($paragraphIndex);
-$animation = api->CreateAnimationEffect($fileName, $slideIndex, $dto);
+$animation = $api->createAnimationEffect($fileName, $slideIndex, $dto);
 
-$animation = $api->GetAnimation($fileName, $slideIndex, $shapeIndex, $paragraphIndex);
-print($animation->getMainSequence()); //1
+$animation = $api->getAnimation($fileName, $slideIndex, $shapeIndex, $paragraphIndex);
+print(count($animation->getMainSequence())); //1
 ```
 
 {{< /tab >}}

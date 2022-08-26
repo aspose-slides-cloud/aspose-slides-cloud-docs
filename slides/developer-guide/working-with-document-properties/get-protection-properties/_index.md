@@ -83,8 +83,8 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$response = $api->getParagraphEffective("MyPresentation.pptx");
-if ($resposne->getIsEncrypted())
+$response = $api->getProtectionProperties("MyPresentation.pptx");
+if ($response->getIsEncrypted())
     print("The presentation is protected.");
 ```
 

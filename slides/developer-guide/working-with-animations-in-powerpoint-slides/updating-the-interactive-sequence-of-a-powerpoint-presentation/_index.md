@@ -221,12 +221,12 @@ $effect->setSubtype("Bottom");
 $effect->setPresetClassType("Entrance");
 $effect->setShapeIndex(4);
 $effect->setTriggerType("OnClick");
-$dto->setEffects([ effect ]);
+$dto->setEffects([ $effect ]);
 
 $response = $api->CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, $dto);
 foreach ($response->getInteractiveSequences() as $sequence)
 {
-    print(count($sequence->getTriggerShapeIndex()));
+    print($sequence->getTriggerShapeIndex());
 }
 ```
 

@@ -69,7 +69,7 @@ int shapeIndex = 2;
 
 ChartWall wallDto = new ChartWall();
 wallDto.FillFormat = new SolidFill() { Color = "#77CEF9" };
-ChartWall response = TestUtils.SlidesApi.SetChartWall("MyPresentation.pptx", slideIndex, shapeIndex,
+ChartWall response = api.SetChartWall("MyPresentation.pptx", slideIndex, shapeIndex,
                 ChartWallType.BackWall, wallDto);
 
 Console.WriteLine("The color of the back wall has been updated.");
@@ -100,6 +100,8 @@ System.out.println("The color of the back wall has been updated.");
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\ChartWall;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -114,7 +116,7 @@ $fillFormat = new SolidFill();
 $fillFormat->setColor("#77CEF9"); 
 $wall->setFillFormat($fillFormat);
 
-$result = $this->getApi()->setChartWall("MyPresentation.pptx", $slideIndex, $shapeIndex, "BackWall", $wall);
+$result = $api->setChartWall("MyPresentation.pptx", $slideIndex, $shapeIndex, "BackWall", $wall);
 
 print("The color of the back wall has been updated.");
 ```
@@ -153,7 +155,7 @@ wall = ChartWall()
         fill_format.color = constant.COLOR
         wall.fill_format = fill_format
 
-response = BaseTest.slides_api.set_chart_wall("MyPresentation.pptx", slide_index, shape_index, "Backwall", wall)
+response = api.set_chart_wall("MyPresentation.pptx", slide_index, shape_index, "Backwall", wall)
 
 print("The color of the back wall has been updated.")
 ```
@@ -168,12 +170,12 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const slideIndex = 8;
 const shapeIndex = 2;
 
-const fillFormat = new SolidFill();
+const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#77CEF9";
-const wall = new ChartWall();
+const wall = new CloudSdk.ChartWall();
 wall.fillFormat = fillFormat;
 
-let result = await api.setChartWall("MyPresentation.pptx", slideIndex, shapeIndex, ChartWallType.BackWall, wall);
+let result = await api.setChartWall("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.ChartWallType.BackWall, wall);
             
 console.log("The color of the back wall has been updated.");
 ```

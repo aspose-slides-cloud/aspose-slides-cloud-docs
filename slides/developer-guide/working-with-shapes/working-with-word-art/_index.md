@@ -315,7 +315,7 @@ $lightRig->setZRotation(40);
 $threeDFormat->setLightRig($lightRig);
 
 $camera = new Camera();
-$camera->setCameraType("PerspectiveContrastiveRightFacing");
+$camera->setCameraType("PerspectiveContrastingRightFacing");
 $threeDFormat->setCamera($camera);
 $textFrameFormat->setThreeDFormat($threeDFormat);
 $dto->setTextFrameFormat($textFrameFormat);

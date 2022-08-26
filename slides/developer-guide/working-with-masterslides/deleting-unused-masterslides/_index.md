@@ -52,7 +52,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-MasterSlides result = TestUtils.SlidesApi.DeleteUnusedMasterSlides("MyPresentation.pptx", true);
+MasterSlides result = api.DeleteUnusedMasterSlides("MyPresentation.pptx", true);
 Console.WriteLine(result.SlideList.Count);
 ```
 
@@ -78,7 +78,7 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-$result = $api->deleteUnusedMasterSlides(self::fileName, true);
+$result = $api->deleteUnusedMasterSlides("MyPresentation.pptx", true);
 print(count($result->getSlideList()));
 ```
 

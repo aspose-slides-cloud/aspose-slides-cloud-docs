@@ -1,18 +1,21 @@
 ---
-title: "Setting chart legend"
+title: "Import Shapes From SVG"
 type: docs
-url: /setting-chart-legend/
-weight: 60
+url: /import-shapes-from-svg/
+weight: 170
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows setting chart legend properties.
-### **API Information**
+
+Aspose.Slides Cloud API allows importing shapes from an SVG file. This feature creates a separate shape for each shape of the SVG image. You need a different [method](/slides/adding-a-picture-to-a-presentation-slide/) to import an SVG file as a single picture.
+
+## **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/legend|PUT|Updates chart legend properties|[SetChartLegend]()|
-### **cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/fromSvg|POST|Imports shapes from SVG file.|[ImportShapesFromSvg](https://apireference.aspose.cloud/slides/#/Shapes/ImportShapesFromSvg)|
 
-The code example below shows how to update some properties of the chart legend.
+### **cURL Example**
+The code example below shows how to import shapes by indexes from the SVG file and place the result in the specified area on the target slide.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -23,21 +26,11 @@ The code example below shows how to update some properties of the chart legend.
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Update Vertical Axis**
+**Import shapes from SVG**
 ```sh
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/legend" -d @"legend.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
-```
-
-legend.json
-```json
-{
-    "Overlay":true,
-    "FillFormat":{
-        "Type": "Solid",
-        "Color": "#77CEF9"
-    }
-}
-
+curl -v -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/5/shapes/fromSvg?x=50&y=50&width=300&height=300&shapes=1,3,5"\
+-H "Authorization: Bearer [Access Token]"\
+-F "file=@TestData/shapes.svg" \
 ```
 
 {{< /tab >}}
@@ -47,13 +40,13 @@ legend.json
 ```java
 
 Code: 200
-Returns chart legend info.
+Returns shapes info.
 
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
+
 
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
@@ -64,19 +57,13 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 3;
-int shapeIndex = 1;
+int slideIndex = 5;
 
-Legend legendDto = new Legend();
-legendDto.Overlay = true;
-legendDto.FillFormat = new SolidFill()
-{
-    Color = "#77CEF9"
-};
+Stream file = File.OpenRead("shapes.svg");
 
-Legend response = api.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
+Shapes response = api.ImportShapesFromSvg("MyPresentation.pptx", slideIndex, file, 50, 50, 300, 300, new List<int> { 1, 3, 5 });
 
-Console.WriteLine("Background color of the chart legend has been changed.");
+Console.WriteLine("The slide contains " + response.ShapesLinks.Count + " shapes.");
 ```
 
 {{< /tab >}}
@@ -85,17 +72,12 @@ Console.WriteLine("Background color of the chart legend has been changed.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 3;
-int shapeIndex = 1;
-Legend legend = new Legend();
-legend.setOverlay(true);
-SolidFill fillFormat = new SolidFill();
-fillFormat.setColor("#77CEF9");
-legend.setFillFormat(fillFormat);
+int slideIndex = 5;
+byte[] file = Files.readAllBytes("shapes.svg");
 
-Legend response = api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, null, null, null);
+Shapes response = api.importShapesFromSvg("MyPresentation.pptx", slideIndex, file, 50, 50, 300, 300, Arrays.asList(1,3,5), null, null, null);
 
-System.out.println("Background color of the chart legend has been changed.");
+System.out.println("The slide contains " + response.getShapesLinks().size() + " shapes.");
 ```
 
 {{< /tab >}}
@@ -104,26 +86,19 @@ System.out.println("Background color of the chart legend has been changed.");
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\Legend;
-use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
+use Aspose\Slides\Cloud\Sdk\Model\Shapes;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$slideIndex = 3;
-$shapeIndex = 1;
+$slideIndex = 5;
+$file = fopen("shapes.svg", 'r');
 
-$legend = new Legend();
-$legend->setOverlay(true);
-$fillFormat = new SolidFill();
-$fillFormat->setColor("#77CEF9"); 
-$legend->setFillFormat($fillFormat);
+$result = $api->importShapesFromSvg("MyPresentation.pptx", $slideIndex, $file, 50, 50, 300, 300, [1,2,3]);
 
-$result = $api->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
-
-print("Background color of the chart legend has been changed.");
+print("The slide contains " + count($result->getShapesLinks()) + " shapes.");
 ```
 
 {{< /tab >}}
@@ -152,17 +127,14 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-slide_index = 3
-shape_index = 1
+slide_index = 5
 
-legend = Legend()
-legend.overlay = True
-fill_format = SolidFill()
-fill_format.color = constant.COLOR
-legend.fill_format = fill_format
-response = api.set_chart_legend("MyPresentation.pptx", slide_index, shape_index, legend)
+with open("shapes.svg", 'rb') as f:
+    source = f.read()
 
-print("Background color of the chart legend has been changed.")
+response = api.import_shapes_from_svg("MyPresentation.pptx", slide_index, source, 50, 50, 300, 300, [1, 3, 5])
+
+print("The slide contains " +  len(response.shapes_links) + " shapes.")
 ```
 
 {{< /tab >}}
@@ -172,18 +144,12 @@ print("Background color of the chart legend has been changed.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slideIndex = 3;
-const shapeIndex = 1;
+const slideIndex = 5;
 
-const fillFormat = new CloudSdk.SolidFill();
-fillFormat.color = "#77CEF9";
-const legend = new CloudSdk.Legend();
-legend.overlay = true;
-legend.fillFormat = fillFormat;
-
-let result = await api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend);
+const stream = fs.createReadStream("shapes.svg")
+let result = await api.importShapesFromSvg("MyPresentation.pptx", slideIndex, stream, 50, 50, 300, 300, [1, 3, 5]);
             
-console.log("Background color of the chart legend has been changed.");
+console.log("The slide contains " +  response.body.shapesLinks.length + " shapes.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -194,7 +160,23 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+fileName := "MyPresentation.pptx"
+var slideIndex int32 = 5
+var x int32 = 50
+var y int32 = 50
+var width int32 = 300
+var height int32 = 300
+
+document, e := ioutil.ReadFile("shapes.svg")
+shapes := []int32{1, 3, 5}
+
+response, _, e := api.ImportShapesFromSvg(fileName, slideIndex, document, &x, &y, &width, &height, shapes, "", "", "")
+if e != nil {
+	t.Errorf("Error: %v.", e)
+	return
+}
+
+ fmt.Printf("The slide contains " + len(response.GetShapesLinks()) + " shapes.")
 ```
 
 {{< /tab >}}

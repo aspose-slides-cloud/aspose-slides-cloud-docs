@@ -200,7 +200,7 @@ $api = new SlidesApi(null, $config);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $animation = $api->GetSpecialSlideAnimation($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE);
-print($animation->getMainSequence());
+print(count($animation->getMainSequence()));
 
 $dto = new SlideAnimation();
 $effect1 = new Effect();
@@ -211,11 +211,11 @@ $effect2->setType("Appear");
 $effect2->setShapeIndex(3);
 $dto->setMainSequence([ $effect1, $effect2 ]);
 
-$animation = api->SetSpecialSlideAnimation($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $dto);
-print($animation->getMainSequence()); //2
+$animation = $api->SetSpecialSlideAnimation($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $dto);
+print(count($animation->getMainSequence())); //2
 
-$animation = api->DeleteSpecialSlideAnimation($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE);
-print($animation->getMainSequence()); //0
+$animation = $api->DeleteSpecialSlideAnimation($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE);
+print(count($animation->getMainSequence())); //0
 ```
 
 {{< /tab >}}

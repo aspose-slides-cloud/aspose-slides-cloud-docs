@@ -71,7 +71,7 @@ axisDto.HasTitle = true;
 axisDto.IsAutomaticMaxValue = false;
 axisDto.MaxValue = 10;
 
-Axis response = TestUtils.SlidesApi.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axisDto);
+Axis response = api.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axisDto);
 
 Console.WriteLine($"The maximum value on the axis equals {response.MaxValue}.");
 ```
@@ -96,6 +96,7 @@ System.out.println("The maximum value on the axis equals" + response.getMaxValue
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Axis;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -110,9 +111,9 @@ $axis->setHasTitle(true);
 $axis->setIsAutomaticMaxValue(false);
 $axis->setMaxValue(10);
 
-$result = $this->getApi()->setChartAxis("MyPresentation.pptx", $slideIndex, $shapeIndex, "VerticalAxis", $axis);
+$result = $api->setChartAxis("MyPresentation.pptx", $slideIndex, $shapeIndex, "VerticalAxis", $axis);
 
-print("The maximum value on the axis equals \"" + response->getMaxValue() + "\".");
+print("The maximum value on the axis equals \"" . $result->getMaxValue() . "\".");
 ```
 
 {{< /tab >}}
@@ -144,7 +145,7 @@ api = SlidesApi(configuration)
 slide_index = 3
 shape_index = 1
 
-response = BaseTest.slides_api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
+response = api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
 
 print("The maximum value on the axis equals \"" + response.max_value + "\".")
 ```
@@ -159,14 +160,14 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const slideIndex = 3;
 const shapeIndex = 1;
 
-const axis = new Axis();
+const axis = new CloudSdk.Axis();
 axis.hasTitle = true;
 axis.isAutomaticMaxValue = false;
 axis.maxValue = 10;
             
-let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VerticalAxis, axis)
+let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.AxisType.VerticalAxis, axis)
             
-console.log("The maximum value on the axis equals \"" + response.body.maxValue + "\".");
+console.log("The maximum value on the axis equals \"" + result.body.maxValue + "\".");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

@@ -182,13 +182,13 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
 $paragraphIndex = 3;
-$portions = api->GetSpecialSlidePortion($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, $paragraphIndex);
-$portionCount = count($portion->getItems());
+$portions = $api->GetSpecialSlidePortions($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, $paragraphIndex);
+$portionCount = count($portions->getItems());
 
 $dto = new Portion();
 $dto->setFontBold("True");
 $dto->setText("New portion");
-$portion = $api->CreateSpecialSlidePortion($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, $paragraphIndex, null, $dto);
+$portion = $api->CreateSpecialSlidePortion($fileName, $slideIndex, SpecialSlideType::MASTER_SLIDE, $shapeIndex, $paragraphIndex, $dto);
 print($portion->getFontBold()); //True
 print($portion->getText()); //New portion
 

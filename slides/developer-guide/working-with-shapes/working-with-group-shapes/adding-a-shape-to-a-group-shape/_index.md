@@ -186,8 +186,8 @@ class Application
             Height = 100
         };
 
-        // Create the shape and add it to the shape group that has an index of 3.
-        var shape = slidesApi.CreateSubshape("MyPresentation.pptx", 1, "3/shapes", square, folder: "MyFolder");
+        // Create the shape and add it to the shape group that has an index of 4.
+        var shape = slidesApi.CreateSubshape("MyPresentation.pptx", 1, "4/shapes", square, folder: "MyFolder");
 
         // Print the resource reference to the shape.
         Console.WriteLine(shape.SelfUri.Href);
@@ -218,8 +218,8 @@ public class Application {
         square.setWidth(100.0);
         square.setHeight(100.0);
 
-        // Create the shape and add it to the shape group that has an index of 3.
-        var shape = slidesApi.createSubshape("MyPresentation.pptx", 1, "3/shapes", square, null, null, null, "MyFolder", null);
+        // Create the shape and add it to the shape group that has an index of 4.
+        var shape = slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder", null);
 
         // Print the resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());
@@ -252,8 +252,8 @@ $square->setY(20);
 $square->setWidth(100);
 $square->setHeight(100);
 
-// Create the shape and add it to the shape group that has an index of 3.
-$shape = $slidesApi->createSubshape("MyPresentation.pptx", 1, "3/shapes", $square, null, null, null, "MyFolder");
+// Create the shape and add it to the shape group that has an index of 4.
+$shape = $slidesApi->createSubshape("MyPresentation.pptx", 1, "4/shapes", $square, null, null, null, "MyFolder");
 
 // Print the resource reference to the shape.
 print($shape->getSelfUri()->getHref());
@@ -284,8 +284,8 @@ square.y = 20
 square.width = 100
 square.height = 100
 
-# Create the shape and add it to the shape group that has an index of 3.
-shape = slides_api.create_subshape("MyPresentation.pptx", 1, "3/shapes", square, nil, nil, nil, "MyFolder")
+# Create the shape and add it to the shape group that has an index of 4.
+shape = slides_api.create_subshape("MyPresentation.pptx", 1, "4/shapes", square, nil, nil, nil, "MyFolder")
 
 # Print the resource reference to the shape.
 print shape.self_uri.href
@@ -313,8 +313,8 @@ square.y = 20
 square.width = 100
 square.height = 100
 
-# Create the shape and add it to the shape group that has an index of 3.
-shape = slides_api.create_subshape("MyPresentation.pptx", 1, "3/shapes", square, None, None, None, "MyFolder")
+# Create the shape and add it to the shape group that has an index of 4.
+shape = slides_api.create_subshape("MyPresentation.pptx", 1, "4/shapes", square, None, None, None, "MyFolder")
 
 # Print the resource reference to the shape.
 print(shape.self_uri.href)
@@ -339,8 +339,8 @@ square.y = 20
 square.width = 100
 square.height = 100
 
-// Create the shape and add it to the shape group that has an index of 3.
-slidesApi.createSubshape("MyPresentation.pptx", 1, "3/shapes", square, null, null, null, "MyFolder").then((shape) => {
+// Create the shape and add it to the shape group that has an index of 4.
+slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder").then((shape) => {
     // Print the resource reference to the shape.
     console.log(shape.body.selfUri.href)
 })
@@ -369,8 +369,8 @@ int main()
     square->setWidth(100);
     square->setHeight(100);
 
-    // Create the shape and add it to the shape group that has an index of 3.
-    auto shape = slidesApi->createSubshape(L"MyPresentation.pptx", 1, L"3/shapes", square, boost::none, boost::none, L"", L"MyFolder").get();
+    // Create the shape and add it to the shape group that has an index of 4.
+    auto shape = slidesApi->createSubshape(L"MyPresentation.pptx", 1, L"4/shapes", square, boost::none, boost::none, L"", L"MyFolder").get();
 
     // Print the resource reference to the shape.
     std::wcout << shape->getSelfUri()->getHref();
@@ -406,8 +406,8 @@ $square->{y} = 20;
 $square->{width} = 100;
 $square->{height} = 100;
 
-# Create the shape and add it to the shape group that has an index of 3.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "3/shapes", dto => $square, folder => "MyFolder");
+# Create the shape and add it to the shape group that has an index of 4.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", dto => $square, folder => "MyFolder");
 my $shape = $slides_api->create_subshape(%parameters);
 
 # Print the resource reference to the shape.

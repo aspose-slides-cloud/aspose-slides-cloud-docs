@@ -130,8 +130,8 @@ $shape = new Shape();
 $hyperlink = new Hyperlink();
 $hyperlink->setIsDisabled(true);
 $shape->setHyperlinkClick($hyperlink);
-$updatedShape = $api->updateShape(self::fileName, $slideIndex, $shapeIndex, $shape);
-print(count($updatedShape->getHyperlinkClick()->getIsDisabled() == null)); //true
+$updatedShape = $api->updateShape($fileName, $slideIndex, $shapeIndex, $shape);
+print($updatedShape->getHyperlinkClick() == null); //true
 ```
 
 {{< /tab >}}

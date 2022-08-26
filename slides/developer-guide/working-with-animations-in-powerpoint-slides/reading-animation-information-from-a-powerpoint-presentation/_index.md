@@ -180,7 +180,7 @@ $api = new SlidesApi(null, $config);
 $result = $api->GetAnimation("MyPresentation.pptx", 1);
 foreach ($result->getMainSequence() as $effect)
 {
-    print(count($effect->getType()));
+    print($effect->getType());
 }
 ```
 

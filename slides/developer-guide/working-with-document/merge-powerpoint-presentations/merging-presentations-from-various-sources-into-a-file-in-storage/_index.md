@@ -423,7 +423,7 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx") };
+        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
         var files = new List<Sdk.FileInfo> { fileInfo};
 
         // Prepare information for the second presentation to merge.
@@ -550,7 +550,7 @@ $request = new OrderedMergeRequest();
 $request->setPresentations([$presentation1, $presentation2, $presentation3]);
 
 // Merge the presentations and save the result to the specified path.
-$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $request, $request, "MyStorage");
+$slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $files, $request, "MyStorage");
 ```
 
 {{< /tab >}}
@@ -652,6 +652,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, reques
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
 const cloud = require("asposeslidescloud")
+const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret")
 

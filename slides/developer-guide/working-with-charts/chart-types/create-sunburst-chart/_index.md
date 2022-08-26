@@ -247,7 +247,7 @@ use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartTitle;
-use Aspose\Slides\Cloud\Sdk\Model\ChartCaterory;
+use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
 
@@ -304,7 +304,7 @@ $series->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
 $dto->setSeries([ $series ]);
 
 $result = $api->CreateShape("MyPresentation.pptx", 1, $dto);
-print(count($result->getSeries()[0]));
+print(count($result->getSeries()));
 ```
 
 {{< /tab >}}
