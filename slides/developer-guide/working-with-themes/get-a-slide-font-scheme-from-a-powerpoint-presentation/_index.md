@@ -7,7 +7,7 @@ weight: 10
 
 ## **Introduction**
 
-Aspose.Slides Cloud allows you to read information about a font scheme of a slide from a PowerPoint presentation. You can use the following method to know major (heading) font and minor (body) font that have been set for Latin and East Asian text.
+Aspose.Slides Cloud allows you to read information about a font scheme of a slide from a PowerPoint presentation. You can use the following method to find out major (heading) font and minor (body) font that have been set for Latin and East Asian text.
 
 ## **GetFontScheme**
 
