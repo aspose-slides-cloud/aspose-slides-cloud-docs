@@ -7,7 +7,7 @@ weight: 20
 
 ## **Introduction**
 
-With Aspose.Slides Cloud, you can easily read information about a format scheme specified to slide elements in a PowerPoint presentation. The API method below allows you to get the following data specifying a slide's major appearance defined in a design theme:
+With Aspose.Slides Cloud, you can easily read information about a format scheme specified for slide elements in a PowerPoint presentation. The API method below allows you to get the following data specifying a slide's major appearance defined in a design theme:
 - background styles
 - effect styles (shadow, reflection, glow, etc.)
 - fill styles
