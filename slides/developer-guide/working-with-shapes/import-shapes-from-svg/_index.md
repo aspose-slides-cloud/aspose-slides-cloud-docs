@@ -98,7 +98,7 @@ $file = fopen("shapes.svg", 'r');
 
 $result = $api->importShapesFromSvg("MyPresentation.pptx", $slideIndex, $file, 50, 50, 300, 300, [1,2,3]);
 
-print("The slide contains " + count($result->getShapesLinks()) + " shapes.");
+print("The slide contains " . count($result->getShapesLinks()) . " shapes.");
 ```
 
 {{< /tab >}}
@@ -142,12 +142,13 @@ print("The slide contains " +  len(response.shapes_links) + " shapes.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const slideIndex = 5;
 
-const stream = fs.createReadStream("shapes.svg")
-let result = await api.importShapesFromSvg("MyPresentation.pptx", slideIndex, stream, 50, 50, 300, 300, [1, 3, 5]);
+const stream = fs.createReadStream("shapes.svg");
+let response = await api.importShapesFromSvg("MyPresentation.pptx", slideIndex, stream, 50, 50, 300, 300, [1, 3, 5]);
             
 console.log("The slide contains " +  response.body.shapesLinks.length + " shapes.");
 ```

@@ -95,7 +95,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->getFonts("MyPresentation.pptx");
 
-print("Count of fonts used in the presentation: " + count($result->getList()));
+print("Count of fonts used in the presentation: " . count($result->getList()));
 ```
 
 {{< /tab >}}
@@ -136,7 +136,7 @@ print("Count of fonts used in the presentation: " +  len(response.list))
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.getFonts("MyPresentation.pptx");
+let response = await api.getFonts("MyPresentation.pptx");
             
 console.log("Count of fonts used in the presentation: " +  response.body.list.length);
 ```
@@ -228,9 +228,9 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $file = fopen("MyPresentation.pptx", 'r');
-$result = $api->getFontsOnline("$file);
+$result = $api->getFontsOnline($file);
 
-print("Count of fonts used in the presentation: " + count($result->getList()));
+print("Count of fonts used in the presentation: " . count($result->getList()));
 ```
 
 {{< /tab >}}
@@ -272,10 +272,11 @@ print("Count of fonts used in the presentation: " +  len(response.list))
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const stream = fs.createReadStream("MyPresentation.pptx")
-let result = await api.getFontsOnline(stream);
+const stream = fs.createReadStream("MyPresentation.pptx");
+let response = await api.getFontsOnline(stream);
             
 console.log("Count of fonts used in the presentation: " +  response.body.list.length);
 ```

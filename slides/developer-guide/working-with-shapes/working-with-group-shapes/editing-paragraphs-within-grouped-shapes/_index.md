@@ -61,7 +61,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Update the Paragraph**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes/2/paragraphs/5?folder=MyFolder" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2/paragraphs/1?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @ParagraphProperties.json
@@ -93,7 +93,7 @@ ParagraphProperties.json content:
             "fontHeight": "NaN",
             "languageId": "en-US",
             "selfUri": {
-                "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes/2/paragraphs/5/portions/1?folder=MyFolder",
+                "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2/paragraphs/1/portions/1?folder=MyFolder",
                 "relation": "self",
                 "slideIndex": 1,
                 "shapeIndex": 2
@@ -106,7 +106,7 @@ ParagraphProperties.json content:
         "fontHeight": "NaN"
     },
     "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes/2/paragraphs/5?folder=MyFolder",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2/paragraphs/1?folder=MyFolder",
         "relation": "self",
         "slideIndex": 1,
         "shapeIndex": 2
@@ -146,8 +146,8 @@ class Application
             }
         };
 
-        // Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-        var updatedParagraph = slidesApi.UpdateSubshapeParagraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, paragraph, null, "MyFolder");
+        // Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+        var updatedParagraph = slidesApi.UpdateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, null, "MyFolder");
 
         // Check if italic style has been applied to the paragraph.
         Console.WriteLine("Italic style: " + updatedParagraph.DefaultPortionFormat.FontItalic);
@@ -175,8 +175,8 @@ public class Application {
         paragraph.setDefaultPortionFormat(new PortionFormat());
         paragraph.getDefaultPortionFormat().setFontItalic(PortionFormat.FontItalicEnum.TRUE);
 
-        // Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-        var updatedParagraph = slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, paragraph, null, "MyFolder", null);
+        // Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+        var updatedParagraph = slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, null, "MyFolder", null);
 
         // Check if italic style has been applied to the paragraph.
         System.out.println("Italic style: " + updatedParagraph.getDefaultPortionFormat().getFontItalic());
@@ -207,8 +207,8 @@ $paragraph = new Paragraph();
 $paragraph->setDefaultPortionFormat(new PortionFormat());
 $paragraph->getDefaultPortionFormat()->setFontItalic("True");
 
-// Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-$updatedParagraph = $slidesApi->updateSubshapeParagraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, $paragraph, null, "MyFolder");
+// Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+$updatedParagraph = $slidesApi->updateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, $paragraph, null, "MyFolder");
 
 // Check if italic style has been applied to the paragraph.
 echo "Italic style: ", $updatedParagraph->getDefaultPortionFormat()->getFontItalic();
@@ -236,8 +236,8 @@ paragraph = Paragraph.new
 paragraph.default_portion_format = PortionFormat.new
 paragraph.default_portion_format.font_italic = "True"
 
-# Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-updated_paragraph = slides_api.update_subshape_paragraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, paragraph, nil, "MyFolder")
+# Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+updated_paragraph = slides_api.update_subshape_paragraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, nil, "MyFolder")
 
 # Check if italic style has been applied to the paragraph.
 print "Italic style: " + updated_paragraph.default_portion_format.font_italic
@@ -261,8 +261,8 @@ paragraph = Paragraph()
 paragraph.default_portion_format = PortionFormat()
 paragraph.default_portion_format.font_italic = "True"
 
-# Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-updated_paragraph = slides_api.update_subshape_paragraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, paragraph, None, "MyFolder")
+# Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+updated_paragraph = slides_api.update_subshape_paragraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, None, "MyFolder")
 
 # Check if italic style has been applied to the paragraph.
 print("Italic style: " + updated_paragraph.default_portion_format.font_italic)
@@ -284,8 +284,8 @@ var paragraph = new cloud.Paragraph()
 paragraph.defaultPortionFormat = new cloud.PortionFormat()
 paragraph.defaultPortionFormat.fontItalic = "True"
 
-// Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "3/shapes", 2, 5, paragraph, null, "MyFolder").then((updatedParagraph) => {
+// Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, null, "MyFolder").then((updatedParagraph) => {
     // Check if italic style has been applied to the paragraph.
     console.log("Italic style: " + updatedParagraph.body.defaultPortionFormat.fontItalic)
 })
@@ -311,8 +311,8 @@ int main()
     paragraph->setDefaultPortionFormat(std::make_shared<PortionFormat>());
     paragraph->getDefaultPortionFormat()->setFontItalic(L"True");
 
-    // Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-    auto updatedParagraph = slidesApi->updateSubshapeParagraph(L"MyPresentation.pptx", 1, L"3/shapes", 2, 5, paragraph, L"", L"MyFolder").get();
+    // Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+    auto updatedParagraph = slidesApi->updateSubshapeParagraph(L"MyPresentation.pptx", 1, L"4/shapes", 2, 1, paragraph, L"", L"MyFolder").get();
 
     // Check if italic style has been applied to the paragraph.
     std::wcout << "Italic style: " << updatedParagraph->getDefaultPortionFormat()->getFontItalic();
@@ -344,9 +344,9 @@ my $paragraph =  AsposeSlidesCloud::Object::Paragraph->new();
 $paragraph->{default_portion_format} =  AsposeSlidesCloud::Object::PortionFormat->new();
 $paragraph->{default_portion_format}->{font_italic} = "True";
 
-# Update the 5th paragraph in the 2nd shape within the 3th group shape on the 1st slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "3/shapes", 
-                  shape_index => 2, paragraph_index => 5, dto => $paragraph, folder => "MyFolder");
+# Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", 
+                  shape_index => 2, paragraph_index => 1, dto => $paragraph, folder => "MyFolder");
 my $updated_paragraph = $slides_api->update_subshape_paragraph(%parameters);
 
 # Check if italic style has been applied to the paragraph.

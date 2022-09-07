@@ -120,10 +120,10 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $configuration);
 
 $portion = new Portion();
 $portion->setText("New text");
@@ -137,7 +137,7 @@ $portion->setFillFormat($fillFormat);
 $targetNodePath = "1/nodes/1/nodes";
 $slideIndex = 7;
 $response = $api->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
-print("The portion with text \"" + response->getText() + "\" has been updated");
+print("The portion with text \"" . $response->getText() . "\" has been updated");
 ```
 
 {{< /tab >}}

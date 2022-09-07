@@ -60,7 +60,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Hide the Shape**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes/2?folder=MyFolder" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @ShapeProperties.json
@@ -85,7 +85,7 @@ ShapeProperties.json content:
     "type": "Shape",
     "text": "",
     "paragraphs": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes/2/paragraphs?folder=MyFolder",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2/paragraphs?folder=MyFolder",
         "relation": "self",
         "slideIndex": 1,
         "shapeIndex": 2
@@ -177,7 +177,7 @@ class Application
 
         var fileName = "MyPresentation.pptx";
         var slideIndex = 1;
-        var shapesPath = "3/shapes";
+        var shapesPath = "4/shapes";
         var shapeIndex = 2;
         var folderPath = "MyFolder";
 
@@ -212,7 +212,7 @@ public class Application {
 
         var fileName = "MyPresentation.pptx";
         var slideIndex = 1;
-        var shapesPath = "3/shapes";
+        var shapesPath = "4/shapes";
         var shapeIndex = 2;
         var folderPath = "MyFolder";
 
@@ -249,7 +249,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$shapesPath = "3/shapes";
+$shapesPath = "4/shapes";
 $shapeIndex = 2;
 $folderPath = "MyFolder";
 
@@ -285,7 +285,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shapes_path = "3/shapes"
+shapes_path = "4/shapes"
 shape_index = 2
 folder_path = "MyFolder"
 
@@ -316,7 +316,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shapes_path = "3/shapes"
+shapes_path = "4/shapes"
 shape_index = 2
 folder_path = "MyFolder"
 
@@ -346,7 +346,7 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 const fileName = "MyPresentation.pptx"
 const slideIndex = 1
-const shapesPath = "3/shapes"
+const shapesPath = "4/shapes"
 const shapeIndex = 2
 const folderPath = "MyFolder"
 
@@ -380,7 +380,7 @@ int main()
 
     auto fileName = L"MyPresentation.pptx";
     auto slideIndex = 1;
-    auto shapesPath = L"3/shapes";
+    auto shapesPath = L"4/shapes";
     auto shapeIndex = 2;
     auto folderPath = L"MyFolder";
 
@@ -416,7 +416,7 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "3/shapes", shape_index => 2, folder => "MyFolder");
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", shape_index => 2, folder => "MyFolder");
 
 # Get the shape from the group shape.
 my $shape = $slides_api->get_subshape(%parameters);

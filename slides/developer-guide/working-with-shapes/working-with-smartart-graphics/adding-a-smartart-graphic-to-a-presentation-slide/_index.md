@@ -297,11 +297,11 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\SmartArt;
 use Aspose\Slides\Cloud\Sdk\Model\SmartArtNode;
 
-$configuration = new Configuration();
-$configuration->setAppSid("MyClientId");
-$configuration->setAppKey("MyClientSecret");
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
 
-$slidesApi = new SlidesApi(null, $configuration);
+$slidesApi = new SlidesApi(null, $config);
 
 // Prepare data for the SmartArt shape.
 $graphicData = new SmartArt();
