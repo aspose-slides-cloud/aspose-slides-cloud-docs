@@ -267,13 +267,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete all document properties.
-        var currentProperties = slidesApi.deleteDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder", null);
+        DocumentProperties currentProperties = slidesApi.deleteDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder", null);
 
         // Print the current document properties.
-        for (var property : currentProperties.getList()) {
+        for (DocumentProperty property : currentProperties.getList()) {
             System.out.printf("%s: %s%n", property.getName(), property.getValue());
         }
     }
@@ -691,13 +691,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the document property.
-        var currentProperties = slidesApi.deleteDocumentProperty("MyPresentation.pptx", "MyProperty", null, "MyFolder", null);
+        DocumentProperties currentProperties = slidesApi.deleteDocumentProperty("MyPresentation.pptx", "MyProperty", null, "MyFolder", null);
 
         // Print the current document properties.
-        for (var property : currentProperties.getList()) {
+        for (DocumentProperty property : currentProperties.getList()) {
             System.out.printf("%s: %s%n", property.getName(), property.getValue());
         }
     }

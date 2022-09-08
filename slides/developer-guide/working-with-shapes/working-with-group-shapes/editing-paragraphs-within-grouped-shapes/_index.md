@@ -168,15 +168,15 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare the paragraph options.
-        var paragraph = new Paragraph();
+        Paragraph paragraph = new Paragraph();
         paragraph.setDefaultPortionFormat(new PortionFormat());
         paragraph.getDefaultPortionFormat().setFontItalic(PortionFormat.FontItalicEnum.TRUE);
 
         // Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
-        var updatedParagraph = slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, null, "MyFolder", null);
+        Paragraph updatedParagraph = slidesApi.updateSubshapeParagraph("MyPresentation.pptx", 1, "4/shapes", 2, 1, paragraph, null, "MyFolder", null);
 
         // Check if italic style has been applied to the paragraph.
         System.out.println("Italic style: " + updatedParagraph.getDefaultPortionFormat().getFontItalic());

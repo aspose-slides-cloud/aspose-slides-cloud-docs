@@ -130,13 +130,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Create a new slide.
-        var response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+        Slides response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
 
         // Print links to all slides.
-        for (var slide : response.getSlideList()) {
+        for (ResourceUri slide : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(slide.getHref());
         }
@@ -252,13 +252,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Create a new slide.
-        var response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
+        Slides response = slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage");
 
         // Print links to all slides.
-        for (var slide : response.getSlideList()) {
+        for (ResourceUri slide : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(slide.getHref());
         }

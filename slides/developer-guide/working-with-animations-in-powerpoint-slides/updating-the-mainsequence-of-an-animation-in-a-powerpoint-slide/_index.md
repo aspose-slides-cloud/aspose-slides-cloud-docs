@@ -178,7 +178,7 @@ newEffect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
 SlideAnimation response = api.createAnimationInteractiveSequenceEffect("myPresentation.pptx", 1, 1, newEffect, null, null, null);
 for (Effect effect : response.getInteractiveSequences().get(0).getEffects()) {
-    System.out.println(sequence.getShapeIndex());
+    System.out.println(effect.getShapeIndex());
 }
 ```
 

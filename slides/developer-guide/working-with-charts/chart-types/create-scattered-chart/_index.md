@@ -162,11 +162,11 @@ Console.WriteLine(chart.Series.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart dto = new Chart();
-dto.setChartType(Chart.ChartTypeEnum.SCATTERWITHSMOOTHLINES;
-dto.setX(100);
-dto.setY(100);
-dto.setWidth(400);
-dto.setHeight(400);
+dto.setChartType(Chart.ChartTypeEnum.SCATTERWITHSMOOTHLINES);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setWidth(400.0);
+dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
 title.setHasTitle(true);
@@ -177,13 +177,13 @@ List<Series> seriesList = new ArrayList<Series>();
 ScatterSeries series1 = new ScatterSeries();
 List<ScatterChartDataPoint> dataPoints1 = new ArrayList<ScatterChartDataPoint>();
 ScatterChartDataPoint dataPoint11 = new ScatterChartDataPoint();
-dataPoint11.setXvalue(1);
-dataPoint11.setYvalue(3);
+dataPoint11.setXvalue(1.0);
+dataPoint11.setYvalue(3.0);
 dataPoints1.add(dataPoint11);
 
 ScatterChartDataPoint dataPoint12 = new ScatterChartDataPoint();
-dataPoint12.setXvalue(2);
-dataPoint12.setYvalue(10);
+dataPoint12.setXvalue(2.0);
+dataPoint12.setYvalue(10.0);
 dataPoints1.add(dataPoint12);
 series1.setDataPoints(dataPoints1);
 seriesList.add(series1);
@@ -191,30 +191,30 @@ seriesList.add(series1);
 ScatterSeries series2 = new ScatterSeries();
 List<ScatterChartDataPoint> dataPoints2 = new ArrayList<ScatterChartDataPoint>();
 ScatterChartDataPoint dataPoint21 = new ScatterChartDataPoint();
-dataPoint21.setXvalue(5);
-dataPoint21.setYvalue(2);
+dataPoint21.setXvalue(5.0);
+dataPoint21.setYvalue(2.0);
 dataPoints2.add(dataPoint21);
 
 ScatterChartDataPoint dataPoint22 = new ScatterChartDataPoint();
-dataPoint22.setXvalue(3);
-dataPoint22.setYvalue(1);
+dataPoint22.setXvalue(3.0);
+dataPoint22.setYvalue(1.0);
 dataPoints2.add(dataPoint22);
 
 ScatterChartDataPoint dataPoint23 = new ScatterChartDataPoint();
-dataPoint23.setXvalue(2);
-dataPoint23.setYvalue(2);
+dataPoint23.setXvalue(2.0);
+dataPoint23.setYvalue(2.0);
 dataPoints2.add(dataPoint23);
 
 ScatterChartDataPoint dataPoint24 = new ScatterChartDataPoint();
-dataPoint24.setXvalue(5);
-dataPoint24.setYvalue(1);
+dataPoint24.setXvalue(5.0);
+dataPoint24.setYvalue(1.0);
 dataPoints2.add(dataPoint24);
 series2.setDataPoints(dataPoints2);
 seriesList.add(series2);
 dto.setSeries(seriesList);
 
 Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
-System.out.println(chart.getSeries().get(0).size());
+System.out.println(chart.getSeries().size());
 ```
 
 {{< /tab >}}

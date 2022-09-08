@@ -63,7 +63,7 @@ Console.WriteLine(result.SlideList.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 MasterSlides result = (MasterSlides) api.deleteUnusedMasterSlides("MyPresentation.pptx", true, null, null, null);
-Console.WriteLine(result.getSlideList().size());
+System.out.println(result.getSlideList().size());
 ```
 
 {{< /tab >}}

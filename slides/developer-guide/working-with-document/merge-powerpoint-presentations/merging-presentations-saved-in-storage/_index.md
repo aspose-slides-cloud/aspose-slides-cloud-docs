@@ -251,15 +251,15 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Prepare request data for presentations to merge.
-        var request = new PresentationsMergeRequest();
+        PresentationsMergeRequest request = new PresentationsMergeRequest();
         request.setPresentationPaths(Arrays.asList("MyResources/example1.pptx", "MyResources/example2.pptx"));
         request.setPresentationPasswords(Arrays.asList("password1"));
 
         // Merge the presentations.
-        var response = slidesApi.merge("MyPresentation.pptx", request, "my_password", "MyFolder", null);
+        Document response = slidesApi.merge("MyPresentation.pptx", request, "my_password", "MyFolder", null);
 
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
         System.out.println(response.getSelfUri().getHref());

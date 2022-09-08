@@ -111,10 +111,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all shapes from the second slide.
-        var shapes = slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage", null);
+        Shapes shapes = slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage", null);
 
         // Print the number of shapes.
         System.out.println("The second slide contains " + shapes.getShapesLinks().size() + " shapes.");

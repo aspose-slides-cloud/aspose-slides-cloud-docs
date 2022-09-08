@@ -106,6 +106,12 @@ SolidFill fillFormat = new SolidFill();
 fillFormat.setColor("#FFFFFF00");
 portion.setFillFormat(fillFormat);
 
+String targetNodePath = "1/nodes/1/nodes";
+int slideIndex = 7;
+int nodeIndex = 2;
+int paragraphIndex = 1;
+int portionIndex = 1;
+
 Portion response = api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion, null, null, null);
 
 System.out.println("The portion with text \"" + response.getText() + "\" has been updated");

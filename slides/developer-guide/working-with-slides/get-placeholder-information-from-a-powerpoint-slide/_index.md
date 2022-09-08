@@ -127,13 +127,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Get information about all placeholders on the first slide.
-        var response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder", null);
+        Placeholders response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print placeholder links from the response.
-        for (var resourceUri : response.getPlaceholderLinks()) {
+        for (ResourceUri resourceUri : response.getPlaceholderLinks()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/placeholders/1?folder=MyFolder etc.
             System.out.println(resourceUri.getHref());
         }
@@ -249,10 +249,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Get information about all placeholders on the first slide.
-        var response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder", null);
+        Placeholders response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print placeholder links from the response.
         for (var resourceUri : response.getPlaceholderLinks()) {
@@ -442,10 +442,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Get information about the placeholder.
-        var response = slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage");
+        Placeholder response = slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage");
 
         System.out.println(response.toString());
     }
@@ -545,10 +545,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Get information about the placeholder.
-        var response = slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage");
+        Placeholder response = slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage");
 
         System.out.println(response.toString());
     }

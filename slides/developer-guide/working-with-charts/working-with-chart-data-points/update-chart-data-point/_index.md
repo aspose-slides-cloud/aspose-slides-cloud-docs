@@ -84,10 +84,10 @@ Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
-dto.setXValue(25);
-dto.setYValue(9);
+dto.setXvalue(25.0);
+dto.setYvalue(9.0);
 Chart chart = (Chart)api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto, null, null, null);
-System.out.println(chart.getSeries().get(0).getDataPoints().size());
+System.out.println(((ScatterSeries)chart.getSeries().get(0)).getDataPoints().size());
 ```
 
 {{< /tab >}}

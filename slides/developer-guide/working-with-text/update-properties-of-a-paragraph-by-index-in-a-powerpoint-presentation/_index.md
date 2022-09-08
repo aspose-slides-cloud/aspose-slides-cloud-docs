@@ -134,18 +134,18 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var folderName = "Data";
-        var fileName = "example.pptx";
-        var slideIndex = 1;
-        var shapeIndex = 1;
-        var paragraphIndex = 1;
-        var password = "";
+        String storageName = "Main";
+        String folderName = "Data";
+        String fileName = "example.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int paragraphIndex = 1;
+        String password = "";
 
         // Get a paragraph from the presentation.
-        var paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
 
         // Change some paragraph settings.
         paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);
@@ -283,18 +283,18 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var folderName = "Data";
-        var fileName = "example.pptx";
-        var slideIndex = 1;
-        var shapeIndex = 1;
-        var paragraphIndex = 1;
-        var password = "";
+        String storageName = "Main";
+        String folderName = "Data";
+        String fileName = "example.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int paragraphIndex = 1;
+        String password = "";
 
         // Get a paragraph from the presentation.
-        var paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
 
         // Change some paragraph settings.
         paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);

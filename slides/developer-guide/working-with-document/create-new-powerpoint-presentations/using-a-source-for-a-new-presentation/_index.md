@@ -214,9 +214,9 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var response = slidesApi.createPresentationFromSource(
+        Document response = slidesApi.createPresentationFromSource(
             "Sales.pptx", "Resources/SalesTemplate.potx", null, "Main", null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
@@ -314,9 +314,9 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var response = slidesApi.createPresentationFromSource(
+        Document response = slidesApi.createPresentationFromSource(
             "Sales.pptx", "Resources/SalesTemplate.potx", null, "Main", null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data

@@ -208,14 +208,14 @@ import java.util.Base64;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare the image data.
-        var imageData = Files.readAllBytes(Paths.get("MyImage.png"));
-        var imageBase64String = Base64.getEncoder().encodeToString(imageData);
+        byte[] imageData = Files.readAllBytes(Paths.get("MyImage.png"));
+        String imageBase64String = Base64.getEncoder().encodeToString(imageData);
 
         // Prepare the DTO for the new picture.
-        var pictureFrame = new PictureFrame();
+        PictureFrame pictureFrame = new PictureFrame();
         pictureFrame.setX(20.0);
         pictureFrame.setY(20.0);
         pictureFrame.setWidth(400.0);
@@ -225,7 +225,7 @@ public class Application {
         pictureFrame.getPictureFillFormat().setPictureFillMode(PictureFill.PictureFillModeEnum.TILE);
 
         // Add the picture to the second slide.
-        var pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null);
+        ShapeBase pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null);
 
         // Print a reference to the picture frame.
         System.out.println(pictureInfo.getSelfUri().getHref());

@@ -73,7 +73,7 @@ Console.WriteLine("The slide contains " + response.ShapesLinks.Count + " shapes.
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 int slideIndex = 5;
-byte[] file = Files.readAllBytes("shapes.svg");
+byte[] file = Files.readAllBytes(Paths.get("shapes.svg"));
 
 Shapes response = api.importShapesFromSvg("MyPresentation.pptx", slideIndex, file, 50, 50, 300, 300, Arrays.asList(1,3,5), null, null, null);
 

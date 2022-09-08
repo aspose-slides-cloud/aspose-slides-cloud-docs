@@ -132,16 +132,16 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output TIFF image.
-        var tiffOptions = new TiffExportOptions();
+        TiffExportOptions tiffOptions = new TiffExportOptions();
         tiffOptions.setPixelFormat(TiffExportOptions.PixelFormatEnum.FORMAT24BPPRGB);
         tiffOptions.setWidth(540);
         tiffOptions.setHeight(380);
 
         // Extract the third slide and get it in TIFF format.
-        var tiffFile = slidesApi.downloadSlide("MyPresentation.pptx", 3, SlideExportFormat.TIFF, tiffOptions, null, null, null, "MyFolder", "MyStorage", null);
+        File tiffFile = slidesApi.downloadSlide("MyPresentation.pptx", 3, SlideExportFormat.TIFF, tiffOptions, null, null, null, "MyFolder", "MyStorage", null);
 
         System.out.println("The TIFF image was saved to " + tiffFile.getPath());
     }
@@ -274,16 +274,16 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output TIFF image.
-        var tiffOptions = new TiffExportOptions();
+        TiffExportOptions tiffOptions = new TiffExportOptions();
         tiffOptions.setPixelFormat(TiffExportOptions.PixelFormatEnum.FORMAT24BPPRGB);
         tiffOptions.setWidth(540);
         tiffOptions.setHeight(380);
 
         // Extract the third slide and get it in TIFF format.
-        var tiffFile = slidesApi.downloadSlide("MyPresentation.pptx", 3, SlideExportFormat.TIFF, tiffOptions, null, null, null, "MyFolder", "MyStorage", null);
+        File tiffFile = slidesApi.downloadSlide("MyPresentation.pptx", 3, SlideExportFormat.TIFF, tiffOptions, null, null, null, "MyFolder", "MyStorage", null);
 
         System.out.println("The TIFF image was saved to " + tiffFile.getPath());
     }
@@ -485,10 +485,10 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output PNG image.
-        var pngOptions = new ImageExportOptions();
+        ImageExportOptions pngOptions = new ImageExportOptions();
         pngOptions.setNotesPosition(ImageExportOptions.NotesPositionEnum.BOTTOMTRUNCATED);
         pngOptions.setCommentsPosition(ImageExportOptions.CommentsPositionEnum.RIGHT);
 
@@ -607,10 +607,10 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output PNG image.
-        var pngOptions = new ImageExportOptions();
+        ImageExportOptions pngOptions = new ImageExportOptions();
         pngOptions.setNotesPosition(ImageExportOptions.NotesPositionEnum.BOTTOMTRUNCATED);
         pngOptions.setCommentsPosition(ImageExportOptions.CommentsPositionEnum.RIGHT);
 
@@ -819,18 +819,18 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
-        var fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        byte[] fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
 
         // Set the options for the output PDF document.
-        var pdfOptions = new PdfExportOptions();
+        PdfExportOptions pdfOptions = new PdfExportOptions();
         pdfOptions.setCompliance(PdfExportOptions.ComplianceEnum.PDFA1B);
         pdfOptions.setEmbedFullFonts(true);
         pdfOptions.setJpegQuality(90);
 
         // Extract the 5th slide and save it to the PDF document.
-        var pdfFile = slidesApi.downloadSlideOnline(fileData, 5, SlideExportFormat.PDF, null, null, null, null, null, pdfOptions);
+        File pdfFile = slidesApi.downloadSlideOnline(fileData, 5, SlideExportFormat.PDF, null, null, null, null, null, pdfOptions);
 
         System.out.println("The PDF document was saved to " + pdfFile.getPath());
     }
@@ -974,18 +974,18 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
-        var fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        byte[] fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
 
         // Set the options for the output PDF document.
-        var pdfOptions = new PdfExportOptions();
+        PdfExportOptions pdfOptions = new PdfExportOptions();
         pdfOptions.setCompliance(PdfExportOptions.ComplianceEnum.PDFA1B);
         pdfOptions.setEmbedFullFonts(true);
         pdfOptions.setJpegQuality(90);
 
         // Extract the 5th slide and save it to the PDF document.
-        var pdfFile = slidesApi.downloadSlideOnline(fileData, 5, SlideExportFormat.PDF, null, null, null, null, null, pdfOptions);
+        File pdfFile = slidesApi.downloadSlideOnline(fileData, 5, SlideExportFormat.PDF, null, null, null, null, null, pdfOptions);
 
         System.out.println("The PDF document was saved to " + pdfFile.getPath());
     }
@@ -1194,12 +1194,12 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
-        var fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        byte[] fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
 
         // Set the options for the output SVG file.
-        var svgOptions = new SvgExportOptions();
+        SvgExportOptions svgOptions = new SvgExportOptions();
         svgOptions.setExternalFontsHandling(SvgExportOptions.ExternalFontsHandlingEnum.EMBED);
 
         // Extract the 4th slide and save it to the SVG file.
@@ -1326,12 +1326,12 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
-        var fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        byte[] fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
 
         // Set the options for the output SVG file.
-        var svgOptions = new SvgExportOptions();
+        SvgExportOptions svgOptions = new SvgExportOptions();
         svgOptions.setExternalFontsHandling(SvgExportOptions.ExternalFontsHandlingEnum.EMBED);
 
         // Extract the 4th slide and save it to the SVG file.

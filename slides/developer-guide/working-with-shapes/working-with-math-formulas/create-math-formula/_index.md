@@ -225,7 +225,7 @@ mathBlocks.add(blockElement);
 mathParagraph.setMathBlockList(mathBlocks);
 dto.setMathParagraph(mathParagraph);
 
-Portion portion = api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, null, dto);
+Portion portion = api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, null, null, null, null);
 System.out.println(portion.getMathParagraph().getMathBlockList().size()); //1
 ```
 

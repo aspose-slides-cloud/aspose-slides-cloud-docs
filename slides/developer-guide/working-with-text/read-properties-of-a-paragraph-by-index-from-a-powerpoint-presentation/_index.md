@@ -143,26 +143,26 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var fileName = "example.pptx";
-        var storageName = "Main";
-        var folderName = "Data";
-        var slideIndex = 1;
-        var shapeIndex = 2;
-        var paragraphIndex = 3;
-        var password = "";
+        String fileName = "example.pptx";
+        String storageName = "Main";
+        String folderName = "Data";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int paragraphIndex = 3;
+        String password = "";
 
         try {
             // The path to the presentation file in the storage.
-            var filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
+            String filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
 
             // Upload the presentation to the storage.
-            var fileData = Files.readAllBytes(new File(fileName).toPath());
+            byte[] fileData = Files.readAllBytes(new File(fileName).toPath());
             slidesApi.uploadFile(filePath, fileData, storageName);
 
             // Get properties of the specified paragraph.
-            var paragraph = slidesApi.getParagraph(
+            Paragraph paragraph = slidesApi.getParagraph(
                 fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
 
             // Display some paragraph properties.
@@ -329,26 +329,26 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var fileName = "example.pptx";
-        var storageName = "Main";
-        var folderName = "Data";
-        var slideIndex = 1;
-        var shapeIndex = 2;
-        var paragraphIndex = 3;
-        var password = "";
+        String fileName = "example.pptx";
+        String storageName = "Main";
+        String folderName = "Data";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int paragraphIndex = 3;
+        String password = "";
 
         try {
             // The path to the presentation file in the storage.
-            var filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
+            String filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
 
             // Upload the presentation to the storage.
-            var fileData = Files.readAllBytes(new File(fileName).toPath());
+            byte[] fileData = Files.readAllBytes(new File(fileName).toPath());
             slidesApi.uploadFile(filePath, fileData, storageName);
 
             // Get properties of the specified paragraph.
-            var paragraph = slidesApi.getParagraph(
+            Paragraph paragraph = slidesApi.getParagraph(
                 fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
 
             // Display some paragraph properties.

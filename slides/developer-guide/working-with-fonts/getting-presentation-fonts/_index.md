@@ -75,7 +75,7 @@ Console.WriteLine("Count of fonts used in the presentation: " + response.List.Co
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Shapes response = api.getFonts("MyPresentation.pptx", null, null, null);
+FontsData response = api.getFonts("MyPresentation.pptx", null, null, null);
 
 System.out.println("Count of fonts used in the presentation: " + response.getList().size());
 ```
@@ -208,7 +208,7 @@ Console.WriteLine("Count of fonts used in the presentation: " + response.List.Co
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes("MyPresentation.pptx");
+byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
 FontsData response = api.getFontsOnline(file, null);
 
 System.out.println("Count of fonts used in the presentation: " + response.getList().size());

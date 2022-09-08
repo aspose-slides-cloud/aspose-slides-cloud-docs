@@ -115,7 +115,7 @@ Effect dto = new Effect();
 dto.setType(Effect.TypeEnum.BLINK);
 dto.setShapeIndex(shapeIndex);
 dto.setParagraphIndex(paragraphIndex);
-animation = api.createAnimationEffect(fileName, slideIndex, dto, null, null, null);
+api.createAnimationEffect(fileName, slideIndex, dto, null, null, null);
 
 SlideAnimation animation = api.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex, null, null, null);
 System.out.println(animation.getMainSequence().size()); //1

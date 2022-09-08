@@ -85,6 +85,11 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 int slideIndex = 3;
 int shapeIndex = 1;
 
+Axis axis = new Axis();
+axis.setHasTitle(true);
+axis.setIsAutomaticMaxValue(false);
+axis.setMaxValue(10.0);
+
 Axis response = api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, AxisType.VERTICALAXIS, axis, null, null, null);
 
 System.out.println("The maximum value on the axis equals" + response.getMaxValue());

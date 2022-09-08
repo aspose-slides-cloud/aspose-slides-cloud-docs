@@ -144,13 +144,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all document properties from the presentation.
-        var properties = slidesApi.getDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder", null);
+        DocumentProperties properties = slidesApi.getDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder", null);
 
         // Print the document properties.
-        for (var property : properties.getList()) {
+        for (DocumentProperty property : properties.getList()) {
             System.out.printf("%s: %s%n", property.getName(), property.getValue());
         }
     }
@@ -422,10 +422,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the document property.
-        var property = slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder", null);
+        DocumentProperty property = slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder", null);
 
         // Print the property value.
         System.out.println(property.getValue()); // Jhon Smith, for example.

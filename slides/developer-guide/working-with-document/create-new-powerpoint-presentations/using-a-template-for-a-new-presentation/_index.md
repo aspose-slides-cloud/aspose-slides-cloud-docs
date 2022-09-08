@@ -312,9 +312,9 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var data =
+        String data =
             "<staff>" +
                 "<person>" +
                     "<name>John Doe</name>" +
@@ -341,7 +341,7 @@ public class Main {
                 "</person>" +
             "</staff>";
 
-        var response = slidesApi.createPresentationFromTemplate(
+        Document response = slidesApi.createPresentationFromTemplate(
             "JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, "Main", null, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=Data
@@ -548,9 +548,9 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var data =
+        String data =
             "<staff>" +
                 "<person>" +
                     "<name>John Doe</name>" +
@@ -577,7 +577,7 @@ public class Main {
                 "</person>" +
             "</staff>";
 
-        var response = slidesApi.createPresentationFromTemplate(
+        Document response = slidesApi.createPresentationFromTemplate(
             "JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, "Main", null, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=Data

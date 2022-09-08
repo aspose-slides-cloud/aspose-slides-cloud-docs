@@ -133,13 +133,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Copy the fourth slide.
-        var response = slidesApi.copySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage");
+        Slides response = slidesApi.copySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage");
 
         // Print links to all slides from MyPresentation.pptx.
-        for (var resourceUri : response.getSlideList()) {
+        for (ResourceUri resourceUri : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(resourceUri.getHref());
         }

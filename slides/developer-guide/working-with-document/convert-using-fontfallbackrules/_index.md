@@ -108,7 +108,7 @@ List<FontFallbackRule> fontRules = new ArrayList<FontFallbackRule>();
 FontFallbackRule rule1 = new FontFallbackRule();
 rule1.setRangeStartIndex(0x42B);
 rule1.setRangeEndIndex(0x42B);
-List<String> fonts1 = new ArrayList<string>();
+List<String> fonts1 = new ArrayList<String>();
 fonts1.add("Vijaya");
 rule1.setFallbackFontList(fonts1);
 fontRules.add(rule1);
@@ -116,7 +116,7 @@ fontRules.add(rule1);
 FontFallbackRule rule2 = new FontFallbackRule();
 rule2.setRangeStartIndex(0x42E);
 rule2.setRangeEndIndex(0x42E);
-List<String> fonts2 = new ArrayList<string>();
+List<String> fonts2 = new ArrayList<String>();
 fonts2.add("Segoe UI Emoji");
 fonts2.add("Segoe UI Symbol");
 fonts2.add("Arial");
@@ -126,7 +126,7 @@ fontRules.add(rule2);
 ImageExportOptions exportOptions = new ImageExportOptions();
 exportOptions.setFontFallbackRules(fontRules);
             
-File response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Png, exportOptions, null, null, null, null);
+File response = api.downloadPresentation("MyPresentation.pptx", ExportFormat.PNG, exportOptions, null, null, null, null, null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 

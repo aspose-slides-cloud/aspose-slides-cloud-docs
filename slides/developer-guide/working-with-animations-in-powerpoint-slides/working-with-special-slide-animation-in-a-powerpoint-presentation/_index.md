@@ -160,7 +160,7 @@ String fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-SlideAnimation animation = api.getSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null, null);
+SlideAnimation animation = api.getSpecialSlideAnimation(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null, null, null);
 System.out.println(animation.getMainSequence().size());
 
 SlideAnimation dto = new SlideAnimation();

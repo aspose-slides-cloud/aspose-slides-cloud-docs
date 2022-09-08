@@ -119,14 +119,14 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Slide notes should be added at the bottom of pages.
-        var tiffOptions = new TiffExportOptions();
+        TiffExportOptions tiffOptions = new TiffExportOptions();
         tiffOptions.setNotesPosition(TiffExportOptions.NotesPositionEnum.BOTTOMFULL);
 
         // The TIFF file should only contain the slides with indexes 1 and 3.
-        var slideIndices = Arrays.asList(1, 3);
+        ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
 
         // Save the presentation to TIFF file.
         slidesApi.savePresentation("example.pptx", ExportFormat.TIFF, "MyImages/output.tiff", tiffOptions, null, "MyFolder", "MyStorage", null, slideIndices);
@@ -255,14 +255,14 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Slide notes should be added at the bottom of pages.
-        var tiffOptions = new TiffExportOptions();
+        TiffExportOptions tiffOptions = new TiffExportOptions();
         tiffOptions.setNotesPosition(TiffExportOptions.NotesPositionEnum.BOTTOMFULL);
 
         // The TIFF file should only contain the slides with indexes 1 and 3.
-        var slideIndices = Arrays.asList(1, 3);
+        ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
 
         // Save the presentation to TIFF file.
         slidesApi.savePresentation("example.pptx", ExportFormat.TIFF, "MyImages/output.tiff", tiffOptions, null, "MyFolder", "MyStorage", null, slideIndices);

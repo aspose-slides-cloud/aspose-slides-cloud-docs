@@ -110,16 +110,16 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException, ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Set the size for output images.
-        var options = new ImageExportOptions();
+        ImageExportOptions options = new ImageExportOptions();
         options.setWidth(480);
         options.setHeight(360);
 
         // Convert the presentation to the images.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var outputFile = slidesApi.convert(presentationData, ExportFormat.PNG, null, null, null, null, options);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File outputFile = slidesApi.convert(presentationData, ExportFormat.PNG, null, null, null, null, options);
 
         System.out.println("The file with images was saved to: " + outputFile.toPath());
     }

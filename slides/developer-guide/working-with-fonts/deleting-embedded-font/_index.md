@@ -214,8 +214,8 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes("MyPresentation.pptx");
-api.deleteEmbeddedFontOnline(file, "Arial");
+byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+api.deleteEmbeddedFontOnline(file, "Arial", null);
 
 System.out.println("Arial has been removed from the embedded fonts.");
 ```

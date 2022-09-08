@@ -206,10 +206,10 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Shape dto = new Shape();
 dto.setShapeType(GeometryShape.ShapeTypeEnum.RECTANGLE);
-dto.setX(100);
-dto.setY(100);
-dto.setHeight(100);
-dto.setWidth(200);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setHeight(100.0);
+dto.setWidth(200.0);
 dto.setText("Sample text");
 
 TextFrameFormat textFrameFormat = new TextFrameFormat();
@@ -224,23 +224,23 @@ threeDFormat.setBevelBottom(bevelBottom);
 
 ShapeBevel bevelTop = new ShapeBevel();
 bevelTop.setBevelType(ShapeBevel.BevelTypeEnum.CIRCLE);
-bevelTop.setHeight(4);
-bevelTop.setWidth(4);
+bevelTop.setHeight(4.0);
+bevelTop.setWidth(4.0);
 threeDFormat.setBevelTop(bevelTop);
 
 threeDFormat.setExtrusionColor("#FF008000");
-threeDFormat.setExtrusionHeight(6);
+threeDFormat.setExtrusionHeight(6.0);
 threeDFormat.setContourColor("#FF25353D");
 threeDFormat.setContourWidth(1.5);
-threeDFormat.setDepth(3);
+threeDFormat.setDepth(3.0);
 threeDFormat.setMaterial(ThreeDFormat.MaterialEnum.PLASTIC);
 
 LightRig lightRig = new LightRig();
 lightRig.setLightType(LightRig.LightTypeEnum.BALANCED);
 lightRig.setDirection(LightRig.DirectionEnum.TOP);
-lightRig.setXRotation(0);
-lightRig.setYRotation(0);
-lightRig.setZRotation(40);
+lightRig.setXrotation(0.0);
+lightRig.setYrotation(0.0);
+lightRig.setZrotation(40.0);
 threeDFormat.setLightRig(lightRig);
 
 Camera camera = new Camera();

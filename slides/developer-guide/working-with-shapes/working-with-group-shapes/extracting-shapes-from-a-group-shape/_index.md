@@ -181,10 +181,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
-        var shape = slidesApi.getSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.getSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
 
         // Print a resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());

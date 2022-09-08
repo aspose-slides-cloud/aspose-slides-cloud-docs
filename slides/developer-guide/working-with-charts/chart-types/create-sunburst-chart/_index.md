@@ -167,11 +167,11 @@ Console.WriteLine(chart.Series.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart dto = new Chart();
-dto.setChartType(Chart.ChartTypeEnum.SUNBURST;
-dto.setX(100);
-dto.setY(100);
-dto.setWidth(400);
-dto.setHeight(400);
+dto.setChartType(Chart.ChartTypeEnum.SUNBURST);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setWidth(400.0);
+dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
 title.setHasTitle(true);
@@ -215,19 +215,19 @@ List<Series> seriesList = new ArrayList<Series>();
 OneValueSeries series = new OneValueSeries();
 List<OneValueChartDataPoint> dataPoints = new ArrayList<OneValueChartDataPoint>();
 OneValueChartDataPoint dataPoint1 = new OneValueChartDataPoint();
-dataPoint1.setValue(40);
+dataPoint1.setValue(40.0);
 dataPoints.add(dataPoint1);
 
 OneValueChartDataPoint dataPoint2 = new OneValueChartDataPoint();
-dataPoint2.setValue(50);
+dataPoint2.setValue(50.0);
 dataPoints.add(dataPoint2);
 
 OneValueChartDataPoint dataPoint3 = new OneValueChartDataPoint();
-dataPoint3.setValue(70);
+dataPoint3.setValue(70.0);
 dataPoints.add(dataPoint3);
 
 OneValueChartDataPoint dataPoint4 = new OneValueChartDataPoint();
-dataPoint4.setValue(60);
+dataPoint4.setValue(60.0);
 dataPoints.add(dataPoint4);
 
 series.setDataPoints(dataPoints);
@@ -235,7 +235,7 @@ seriesList.add(series);
 dto.setSeries(seriesList);
 
 Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
-System.out.println(chart.getSeries().get(0).size());
+System.out.println(chart.getSeries().size());
 ```
 
 {{< /tab >}}

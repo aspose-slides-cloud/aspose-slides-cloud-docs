@@ -156,7 +156,7 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         final String storageName = "Main";
         final String fontFolderName = "MyFonts";
@@ -166,12 +166,12 @@ public class Main {
         slidesApi.createFolder(fontFolderName, storageName);
 
         // Add the font to the font folder.
-        var fontData = Files.readAllBytes(Paths.get("custom.ttf"));
+        byte[] fontData = Files.readAllBytes(Paths.get("custom.ttf"));
         slidesApi.uploadFile(fontFolderName + "/" + fontFileName, fontData, storageName);
 
         // Convert the presentation to PDF format.
-        var fileData = Files.readAllBytes(Paths.get("example.pptx"));
-        var response = slidesApi.convert(fileData, ExportFormat.PDF, null, storageName, fontFolderName, null, null);
+        byte[] fileData = Files.readAllBytes(Paths.get("example.pptx"));
+        File response = slidesApi.convert(fileData, ExportFormat.PDF, null, storageName, fontFolderName, null, null);
 
         System.out.println("The PDF file was saved to " + response.getPath());
     }
@@ -330,7 +330,7 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         final String storageName = "Main";
         final String fontFolderName = "MyFonts";
@@ -340,12 +340,12 @@ public class Main {
         slidesApi.createFolder(fontFolderName, storageName);
 
         // Add the font to the font folder.
-        var fontData = Files.readAllBytes(Paths.get("custom.ttf"));
+        byte[] fontData = Files.readAllBytes(Paths.get("custom.ttf"));
         slidesApi.uploadFile(fontFolderName + "/" + fontFileName, fontData, storageName);
 
         // Convert the presentation to PDF format.
-        var fileData = Files.readAllBytes(Paths.get("example.pptx"));
-        var response = slidesApi.convert(fileData, ExportFormat.PDF, null, storageName, fontFolderName, null, null);
+        byte[] fileData = Files.readAllBytes(Paths.get("example.pptx"));
+        File response = slidesApi.convert(fileData, ExportFormat.PDF, null, storageName, fontFolderName, null, null);
 
         System.out.println("The PDF file was saved to " + response.getPath());
     }

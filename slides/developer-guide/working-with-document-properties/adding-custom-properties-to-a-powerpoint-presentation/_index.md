@@ -200,25 +200,25 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Create the new document properties.
-        var property1 = new DocumentProperty();
+        DocumentProperty property1 = new DocumentProperty();
         property1.setName("ProcessedByOffice");
         property1.setValue("Scotland Team");
-        var property2 = new DocumentProperty();
+        DocumentProperty property2 = new DocumentProperty();
         property2.setName("MyProperty");
         property2.setValue("My Value");
 
         // Prepare a collection of the properties.
-        var newProperties = new DocumentProperties();
+        DocumentProperties newProperties = new DocumentProperties();
         newProperties.setList(Arrays.asList(property1, property2));
 
         // Add the new document properties to the presentation.
-        var allProperties = slidesApi.setDocumentProperties("MyPresentation.pptx", newProperties, null, "MyFolder", null);
+        DocumentProperties allProperties = slidesApi.setDocumentProperties("MyPresentation.pptx", newProperties, null, "MyFolder", null);
 
         // Print all document properties.
-        for (var property : allProperties.getList()) {
+        for (DocumentProperty property : allProperties.getList()) {
             System.out.printf("%s: %s%n", property.getName(), property.getValue());
         }
     }

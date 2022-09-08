@@ -218,8 +218,8 @@ Console.WriteLine("Font Calibri has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes("MyPresentation.pptx");
-api.setEmbeddedFontOnline(file, "Calibri", false);
+byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+api.setEmbeddedFontOnline(file, "Calibri", false, null);
 
 System.out.println("Font Calibri has been embedded.");
 ```

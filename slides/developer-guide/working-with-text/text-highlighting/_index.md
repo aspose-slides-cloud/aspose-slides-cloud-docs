@@ -70,7 +70,7 @@ Console.WriteLine(result.Text);
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Shape result = api.highlightShapeText("MyPresentation.pptx", 2, 1, "important", "00FF0000", null, null, null, null);
+Shape result = api.highlightShapeText("MyPresentation.pptx", 2, 1, "important", "00FF0000", null, null, null, null, null);
 System.out.println(result.getText());
 ```
 

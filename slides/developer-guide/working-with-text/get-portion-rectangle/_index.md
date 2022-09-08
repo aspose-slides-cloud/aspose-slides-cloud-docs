@@ -68,10 +68,10 @@ Console.WriteLine($"height: {response.Height}");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 TextBounds response = api.getPortionRectangle("MyPresentation.pptx", 1, 2, 1, 1, null, null, null);
-Console.WriteLine("x: " + response.getX());
-Console.WriteLine("y: " + response.getY());
-Console.WriteLine("width: " + response.getWidth());
-Console.WriteLine("height: " + response.getHeight());
+System.out.println("x: " + response.getX());
+System.out.println("y: " + response.getY());
+System.out.println("width: " + response.getWidth());
+System.out.println("height: " + response.getHeight());
 ```
 
 {{< /tab >}}

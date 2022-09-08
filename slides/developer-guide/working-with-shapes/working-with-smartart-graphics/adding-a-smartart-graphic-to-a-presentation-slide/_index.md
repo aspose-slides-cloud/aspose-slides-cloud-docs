@@ -257,10 +257,10 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare data for the SmartArt shape.
-        var graphicData = new SmartArt();
+        SmartArt graphicData = new SmartArt();
         graphicData.setX(20.0);
         graphicData.setY(20.0);
         graphicData.setWidth(200.0);
@@ -268,16 +268,16 @@ public class Application {
         graphicData.setLayout(SmartArt.LayoutEnum.GEAR);
         graphicData.setQuickStyle(SmartArt.QuickStyleEnum.INTENCEEFFECT);
         graphicData.setColorStyle(SmartArt.ColorStyleEnum.COLORFULACCENTCOLORS);
-        var firstNode = new SmartArtNode();
+        SmartArtNode firstNode = new SmartArtNode();
         firstNode.setText("Development");
-        var secondNode = new SmartArtNode();
+        SmartArtNode secondNode = new SmartArtNode();
         secondNode.setText("Analysis");
-        var thirdNode = new SmartArtNode();
+        SmartArtNode thirdNode = new SmartArtNode();
         thirdNode.setText("Sales");
         graphicData.setNodes(Arrays.asList(firstNode, secondNode, thirdNode));
 
         // Create the SmartArt shape.
-        var shape = slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder", null);
 
         // Print a resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());

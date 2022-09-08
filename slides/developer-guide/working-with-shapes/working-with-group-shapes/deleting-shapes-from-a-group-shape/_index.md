@@ -143,13 +143,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shape from the group shape.
-        var remainingShapes = slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
+        Shapes remainingShapes = slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
 
         // Print resource references for the remaining shapes.
-        for (var shape : remainingShapes.getShapesLinks())
+        for (ResourceUri shape : remainingShapes.getShapesLinks())
         {
             System.out.println(shape.getHref());
         }
@@ -446,14 +446,14 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shapes from the group shape.
-        var shapeIndices = Arrays.asList(1, 2);
-        var remainingShapes = slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder", null);
+        ArrayList shapeIndices = new ArrayList(Arrays.asList(1, 2));
+        Shapes remainingShapes = slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder", null);
 
         // Print resource references for the remaining shapes.
-        for (var shape : remainingShapes.getShapesLinks()) {
+        for (ResourceUri shape : remainingShapes.getShapesLinks()) {
             System.out.println(shape.getHref());
         }
     }

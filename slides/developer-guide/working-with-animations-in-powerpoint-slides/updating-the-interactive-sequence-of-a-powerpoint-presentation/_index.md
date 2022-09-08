@@ -173,11 +173,6 @@ foreach (InteractiveSequence sequence in response.InteractiveSequences)
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, sequence);
-foreach (InteractiveSequence sequence in response.InteractiveSequences)
-{
-    Console.WriteLine(sequence.TriggerShapeIndex); //should display 1
-}
 
 InteractiveSequence dto = new InteractiveSequence();
 dto.setTriggerShapeIndex(1);

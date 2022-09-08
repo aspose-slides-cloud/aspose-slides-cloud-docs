@@ -144,14 +144,14 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws IOException, ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the first three slides and save them to 480x270 bitmaps in the storage.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
 
         // Print information about the result.
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/sourcePresentation_1.bmp, etc.
             System.out.println(slide.getHref());
@@ -282,14 +282,14 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the first three slides and save them to 480x270 bitmaps in the storage.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
 
         // Print information about the result.
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/sourcePresentation_1.bmp, etc.
             System.out.println(slide.getHref());

@@ -208,10 +208,10 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare data for the new shape.
-        var square = new Shape();
+        Shape square = new Shape();
         square.setShapeType(GeometryShape.ShapeTypeEnum.RECTANGLE);
         square.setX(20.0);
         square.setY(20.0);
@@ -219,7 +219,7 @@ public class Application {
         square.setHeight(100.0);
 
         // Create the shape and add it to the shape group that has an index of 4.
-        var shape = slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder", null);
 
         // Print the resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());

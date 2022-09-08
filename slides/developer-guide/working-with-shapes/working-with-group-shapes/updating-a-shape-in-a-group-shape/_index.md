@@ -208,22 +208,22 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var fileName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var shapesPath = "4/shapes";
-        var shapeIndex = 2;
-        var folderPath = "MyFolder";
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        String shapesPath = "4/shapes";
+        int shapeIndex = 2;
+        String folderPath = "MyFolder";
 
         // Get the shape from the group shape.
-        var shape = slidesApi.getSubshape(fileName, slideIndex, shapesPath, shapeIndex, null, folderPath, null);
+        ShapeBase shape = slidesApi.getSubshape(fileName, slideIndex, shapesPath, shapeIndex, null, folderPath, null);
 
         // Change the shape properties.
         shape.setHidden(true);
 
         // Update the shape properties.
-        var updatedShape = slidesApi.updateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape, null, folderPath, null);
+        ShapeBase updatedShape = slidesApi.updateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape, null, folderPath, null);
 
         // Check if the shape is hidden.
         System.out.println("The shape is hidden: " + updatedShape.isHidden());

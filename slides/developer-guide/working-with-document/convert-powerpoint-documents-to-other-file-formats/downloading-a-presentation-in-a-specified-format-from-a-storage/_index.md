@@ -125,17 +125,17 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Use the Helvetica font if any presentation font is not found.
-        var htmlOptions = new HtmlExportOptions();
+        HtmlExportOptions htmlOptions = new HtmlExportOptions();
         htmlOptions.setDefaultRegularFont("Helvetica");
 
         // The HTML document should only contain the slides with indexes 2 and 4.
-        var slideIndices = Arrays.asList(2, 4);
+        ArrayList slideIndices = new ArrayList(Arrays.asList(2, 4));
 
         // Export the presentation to HTML document and download the result.
-        var response = slidesApi.downloadPresentation(
+        File response = slidesApi.downloadPresentation(
             "example.pptx", ExportFormat.HTML, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices);
 
         System.out.println("The HTML document was saved to " + response.getPath());

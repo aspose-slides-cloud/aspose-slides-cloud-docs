@@ -134,13 +134,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Move the third slide to the first position.
-        var response = slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage");
+        Slides response = slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage");
 
         // Print links to all slides.
-        for (var resourceUri : response.getSlideList()) {
+        for (ResourceUri resourceUri : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(resourceUri.getHref());
         }
@@ -256,13 +256,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Move the third slide to the first position.
-        var response = slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage");
+        Slides response = slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage");
 
         // Print links to all slides.
-        for (var resourceUri : response.getSlideList()) {
+        for (ResourceUri resourceUri : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(resourceUri.getHref());
         }
@@ -463,15 +463,15 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var api = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Swap the first and third slides.
-        var slideIndices = Arrays.asList(1, 3);
-        var newPositions = Arrays.asList(3, 1);
-        var response = api.reorderSlides("MyPresentation.pptx", slideIndices, newPositions);
+        ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
+        ArrayList newPositions = new ArrayList(Arrays.asList(3, 1));
+        Slides response = api.reorderSlides("MyPresentation.pptx", slideIndices, newPositions, null, null, null);
 
         // Print links to all slides.
-        for (var resourceUri : response.getSlideList()) {
+        for (ResourceUri resourceUri : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1 etc.
             System.out.println(resourceUri.getHref());
         }
@@ -589,15 +589,15 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Swap the first and third slides.
-        var slideIndices = Arrays.asList(1, 3);
-        var newPositions = Arrays.asList(3, 1);
-        var response = slidesApi.reorderSlides("MyPresentation.pptx", slideIndices, newPositions, null, "MyFolder", "MyStorage");
+        ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
+        ArrayList newPositions = new ArrayList(Arrays.asList(3, 1));
+        Slides response = slidesApi.reorderSlides("MyPresentation.pptx", slideIndices, newPositions, null, "MyFolder", "MyStorage");
 
         // Print links to all slides.
-        for (var resourceUri : response.getSlideList()) {
+        for (ResourceUri resourceUri : response.getSlideList()) {
             // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
             System.out.println(resourceUri.getHref());
         }

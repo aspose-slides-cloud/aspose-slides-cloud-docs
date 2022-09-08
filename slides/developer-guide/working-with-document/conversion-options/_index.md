@@ -562,17 +562,17 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException, ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Set options for the output PDF document.
-        var pdfOptions = new PdfExportOptions();
+        PdfExportOptions pdfOptions = new PdfExportOptions();
         pdfOptions.setDrawSlidesFrame(true);
         pdfOptions.setJpegQuality(90);
         pdfOptions.setCompliance(PdfExportOptions.ComplianceEnum.PDFUA);
 
         // Convert the presentation to PDF format.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var pdfFile = slidesApi.convert(presentationData, ExportFormat.PDF, null, null, null, null, pdfOptions);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File pdfFile = slidesApi.convert(presentationData, ExportFormat.PDF, null, null, null, null, pdfOptions);
 
         System.out.println("The converted document was saved to: " + pdfFile.toPath());
     }

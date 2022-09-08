@@ -124,10 +124,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the font scheme from the first slide.
-        var fontScheme = slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
+        FontScheme fontScheme = slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print the font scheme name.
         System.out.println(fontScheme.getName());

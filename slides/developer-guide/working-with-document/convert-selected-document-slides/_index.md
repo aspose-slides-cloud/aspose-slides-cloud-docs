@@ -91,10 +91,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var response = slidesApi.convert(fileData, ExportFormat.PDF, null, null, null, Arrays.asList(2, 4), null);
+        byte[] fileData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File response = slidesApi.convert(fileData, ExportFormat.PDF, null, null, null, Arrays.asList(2, 4), null);
 
         System.out.println("The converted file was saved to " + response.getPath());
     }

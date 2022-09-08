@@ -121,11 +121,11 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws IOException, ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PDF documents.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
 
         System.out.println("The output ZIP file was saved to " + responseFile.getPath());
     }
@@ -242,11 +242,11 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PDF documents.
-        var presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
+        byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
 
         System.out.println("The output ZIP file was saved to " + responseFile.getPath());
     }

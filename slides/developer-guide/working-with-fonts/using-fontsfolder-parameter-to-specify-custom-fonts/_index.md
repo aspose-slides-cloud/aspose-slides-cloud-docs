@@ -62,9 +62,8 @@ response.CopyTo(File.Create("myPresentation.pdf"));
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.createFolder(fontsFolder);
 byte[] file = Files.readAllBytes(Paths.get("customfont.pptx"));
-File response = api.convert(file, ExportFormat.PDF, null, null, "customFonts");
+File response = api.convert(file, ExportFormat.PDF, null, null, "customFonts", null, null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 

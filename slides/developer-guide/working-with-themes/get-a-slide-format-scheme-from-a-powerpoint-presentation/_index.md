@@ -289,13 +289,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the format scheme for the second slide.
-        var formatScheme = slidesApi.getFormatScheme("MyPresentation.pptx", 2, null, "MyFolder", null);
+        FormatScheme formatScheme = slidesApi.getFormatScheme("MyPresentation.pptx", 2, null, "MyFolder", null);
 
         // Print the number of background styles from the format scheme.
-        var backgroundStyles = formatScheme.getBackgroundStyles().size();
+        int backgroundStyles = formatScheme.getBackgroundStyles().size();
         System.out.println("The number of background styles: " + backgroundStyles);
     }
 }
