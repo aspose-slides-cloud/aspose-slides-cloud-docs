@@ -1,19 +1,20 @@
 ---
-title: "Deleting Embedded Font"
+title: "Setting Embedded Font From Request"
 type: docs
-url: /deleting-embedded-font/
-weight: 50
+url: /setting-embedded-font-from-request/
+weight: 40
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows deleting an embedded font from the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
+Aspose.Slides Cloud API allows embedding a font used in a presentation. The font can be provided in the request body if needed. The feature can be applied to presentations located in the storage or presentations uploaded in the request body along with the font file.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded/{fontName}|DELETE| Removes specified embedded font and returns presentation fonts info.|[DeleteEmbeddedFont]()|
-/slides/fonts/embedded/{fontName}/delete|POST|Removes specified embedded font and returns presentation.|[DeleteEmbeddedFontOnline]()|
+/slides/{name}/fonts/embedded|POST|Embeds font from request and returns presentation fonts info.|[SetEmbeddedFontFromRequest]()|
+/slides/fonts/embedded|POST|Embeds font from request and returns presentation.|[SetEmbeddedFontFromRequestOnline]()|
 ### **cURL Example**
 
-The code examples below show how to delete an embedded font from a presentation in the storage, and in request body.
+The code examples below show how to embed fonts in a presentation located in the storage, and in the request body.
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -25,14 +26,18 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 **Storage**
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/arial" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded" \
+-H "Authorization: Bearer [Access Token]" \
+-F "file=@TestData/calibri.ttf" \ 
 ```
 
 **Request**
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Arial/delete" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded" \
 -H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx"
+-F "file=@TestData/MyPresentation.pptx" \
+-F "file=@TestData/calibri.ttf" \
+-o "MyPresentation.pptx" \
 ```
 
 {{< /tab >}}
@@ -46,10 +51,12 @@ Code: 200
 Returns presentation fonts info.
 
 ```
+
 **Request**
+
 ```sh
 
-Document without specified embedded font.
+Document with embedded font.
 
 ```
 {{< /tab >}}
@@ -70,9 +77,10 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.DeleteEmbeddedFont("MyPresentation.pptx", "Arial");
+Stream fontFile = File.OpenRead("calibri.ttf");
+FontsData response = api.SetEmbeddedFontFromRequest(fontFile, "MyPresentation.pptx", false);
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 ```
 
 {{< /tab >}}
@@ -81,9 +89,10 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.deleteEmbeddedFont("MyPresentation.pptx", "Arial", null, null, null);
+byte[] file = Files.readAllBytes(Paths.get("Calibri.pptx"));
+FontsData response = api.setEmbeddedFontFromRequest(file, "MyPresentation.pptx", false, null, null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Font " + response.getList().get(2).getFontName() + " has been embedded.");
 ```
 
 {{< /tab >}}
@@ -99,9 +108,10 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->deleteEmbeddedFont("MyPresentation.pptx", "Arial");
+$file = fopen("calibri.ttf", 'r');
+$reslut = $api->setEmbeddedFontFromRequest($file, "MyPresentation.pptx", false);
 
-print("Arial has been removed from the embedded fonts.");
+print("Font " . $result->getList()[2]->getFontName() . " has been embedded.");
 ```
 
 {{< /tab >}}
@@ -113,7 +123,10 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+folder_name = "TempSlidesSDK"
+source = File.binread("calibri.ttf")
+response = api.set_embedded_font_from_request(source, "MyPresentation.pptx", false)
+print "Font " + response.list[2].font_name + " has been embedded."      
 ```
 
 {{< /tab >}}
@@ -130,9 +143,12 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.delete_embedded_font("MyPresentation.pptx", "Arial")
+with open("calibri.ttf", 'rb') as f:
+    source = f.read()
 
-print("Arial has been removed from the embedded fonts.")
+response = api.set_embedded_font_from_request(source, "MyPresentation.pptx", False)
+
+print("Font " + response.list[2].font_name + " has been embedded.")
 ```
 
 {{< /tab >}}
@@ -140,11 +156,12 @@ print("Arial has been removed from the embedded fonts.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.deleteEmbeddedFont("MyPresentation.pptx", "Arial");
-            
-console.log("Arial has been removed from the embedded fonts.");
+const stream = fs.createReadStream("calibri.ttf");
+let result = await api.setEmbeddedFontFromRequest(stream, "MyPresentation.pptx", false);
+console.log("Font " + result.body.list[2].fontName + " has been embedded.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -155,15 +172,15 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-fileName := "MyPresentation.pptx"
-fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFont(fileName, fontName, "", "", "")
+document, e := ioutil.ReadFile("calibri.ttf")
+var onlyUsed bool = false
+response, _, e := api.SetEmbeddedFontFromRequest(document, "MyPresentation.pptx", &onlyUsed, "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Font " + response.GetList()[2].GetFontName() + " has been embedded.")
 ```
 
 {{< /tab >}}
@@ -203,9 +220,10 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Stream file = File.OpenRead("MyPresentation.pptx");
-api.DeleteEmbeddedFontOnline(file, "Arial");
+Stream fontFile = File.OpenRead("calibri.ttf");
+Stream response = api.SetEmbeddedFontFromRequestOnline(file, fontFile, false);
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Font Calibri has been embedded.");
 ```
 
 {{< /tab >}}
@@ -215,9 +233,10 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-api.deleteEmbeddedFontOnline(file, "Arial", null);
+byte[] fontFile = Files.readAllBytes(Paths.get("Calibri.pptx"));
+File response = api.setEmbeddedFontFromRequestOnline(file, fontFile, false, null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Font Calibri has been embedded.");
 ```
 
 {{< /tab >}}
@@ -233,10 +252,11 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$file = fopen("MyPresentation.pptx", 'r');
-$api->deleteEmbeddedFontOnline($file, "Arial");
+$file = fopen("MyPresentataion.pptx", 'r');
+$fontFile = fopen("calibri.ttf", 'r');
+$result = $api->setEmbeddedFontFromRequestOnline($file, $fontFile, false);
 
-print("Arial has been removed from the embedded fonts.");
+print("Font Calibri has been embedded.");
 ```
 
 {{< /tab >}}
@@ -248,7 +268,11 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+folder_name = "TempSlidesSDK"
+source = File.binread("MyPresentation.pptx")
+fontSource = File.binread("calibri.ttf")
+response = api.set_embedded_font_from_request_online(source, fontSource, false)
+print "Font Calibri has been embedded."      
 ```
 
 {{< /tab >}}
@@ -268,9 +292,12 @@ api = SlidesApi(configuration)
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
 
-api.delete_embedded_font_online(source, "Arial")
+with open("calibri.ttf", 'rb') as f:
+    fontsource = f.read()
 
-print("Arial has been removed from the embedded fonts.")
+response = api.set_embedded_font_from_request_online(source, fontsource, False)
+
+print("Font Calibri has been embedded.")
 ```
 
 {{< /tab >}}
@@ -282,9 +309,9 @@ const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const stream = fs.createReadStream("MyPresentation.pptx");
-let result = await api.deleteEmbeddedFontOnline(stream, "Arial");
-            
-console.log("Arial has been removed from the embedded fonts.");
+const fontStream = fs.createReadStream("calibri.ttf");
+let reponse = await api.setEmbeddedFontFromRequestOnline(stream, fontStream, false);
+console.log("Font Calibri has been embedded.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -296,14 +323,15 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
-fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFontOnline(document, fontName, "")
+fontFile, e := ioutil.ReadFile("calibri.ttf")
+var onlyUsed bool = false
+response, _, e := api.SetEmbeddedFontFromRequestOnline(document, fontFile, &onlyUsed, "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Font Calibri has been embedded.")
 ```
 
 {{< /tab >}}

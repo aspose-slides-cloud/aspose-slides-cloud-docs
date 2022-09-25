@@ -2,7 +2,7 @@
 title: "Adding a SmartArt Graphic to a Presentation Slide"
 type: docs
 url: /adding-a-smartart-graphic-to-a-presentation-slide/
-weight: 30
+weight: 10
 ---
 
 ## **Introduction**

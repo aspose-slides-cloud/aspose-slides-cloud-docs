@@ -2,7 +2,7 @@
 title: "Working With SmartArt Text"
 type: docs
 url: /working-with-smart-art-text/
-weight: 70
+weight: 40
 ---
 ## **Introduction**
 You can manage text within a SmartArt node the same way as it works for sub-shapes. Instead of the path to the sub-shape, the path to the sub-node must be specified.

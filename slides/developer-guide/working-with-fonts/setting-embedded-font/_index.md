@@ -288,9 +288,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const stream = fs.createReadStream("MyPresentation.pptx");
 let response = await api.setEmbeddedFontOnline(stream, "Calibri", false);
 
-fs.writeFile("UpdatedPresentation.pptx", response.body, (err) => {
-    if (err) throw err;
-});
+console.log("Font Calibri has been embedded.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
