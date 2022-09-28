@@ -7,7 +7,7 @@ weight: 20
 
 ## **Introduction**
 
-This article shows you how to add a new node to the SmartArt graphic using Aspose.Slides Cloud in your applications. The node can be added on any level of the SmartArt object. To specify parent node for the new node, use "subNode" parameter (e.g., "1", "1/nodes/2") or leave it empty if the new node is a root node.
+This article shows you how to add a new node to SmartArt graphic using Aspose.Slides Cloud in your applications. The node can be added on any level of the SmartArt object. To specify parent node for the new node, use "subNode" parameter (e.g., "1", "1/nodes/2") or leave it empty if the new node is a root node.
 The method uses a smartArtIndex parameter, which targets a specific SmartArt object among objects of the same type. Let's say the slide contains ten shapes of various types and only two SmartArt objects among them, the indexes of the SmartArt objects will be 1 and 2 respectively. 
 
 ### **API Information**
