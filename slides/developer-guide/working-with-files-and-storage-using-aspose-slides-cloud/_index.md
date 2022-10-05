@@ -113,14 +113,14 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var resultPath = "result.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String resultPath = "result.pptx";
 
         // Note: The file data will be stored to a temporary file.
-        var file = slidesApi.downloadFile(filePath, storageName, null);
+        File file = slidesApi.downloadFile(filePath, storageName, null);
 
         Files.copy(file.toPath(), Paths.get(resultPath));
     }
@@ -226,14 +226,14 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var resultPath = "result.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String resultPath = "result.pptx";
 
         // Note: The file data will be stored to a temporary file.
-        var file = slidesApi.downloadFile(filePath, storageName, null);
+        File file = slidesApi.downloadFile(filePath, storageName, null);
 
         Files.copy(file.toPath(), Paths.get(resultPath));
     }
@@ -388,14 +388,14 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "example.pptx";
-        var resultPath = "Data/result.pptx";
+        String storageName = "Main";
+        String filePath = "example.pptx";
+        String resultPath = "Data/result.pptx";
 
-        var fileData = Files.readAllBytes(Paths.get(filePath));
-        var response = slidesApi.uploadFile(resultPath, fileData, storageName);
+        byte[] fileData = Files.readAllBytes(Paths.get(filePath));
+        FilesUploadResult response = slidesApi.uploadFile(resultPath, fileData, storageName);
 
         System.out.println(response.getUploaded().size());
     }
@@ -497,14 +497,14 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "example.pptx";
-        var resultPath = "Data/result.pptx";
+        String storageName = "Main";
+        String filePath = "example.pptx";
+        String resultPath = "Data/result.pptx";
 
-        var fileData = Files.readAllBytes(Paths.get(filePath));
-        var response = slidesApi.uploadFile(resultPath, fileData, storageName);
+        byte[] fileData = Files.readAllBytes(Paths.get(filePath));
+        FilesUploadResult response = slidesApi.uploadFile(resultPath, fileData, storageName);
 
         System.out.println(response.getUploaded().size());
     }
@@ -642,11 +642,11 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var copyPath = "Resources/example_copy.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String copyPath = "Resources/example_copy.pptx";
 
         slidesApi.copyFile(filePath, copyPath, storageName, storageName, null);
     }
@@ -736,11 +736,11 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var copyPath = "Resources/example_copy.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String copyPath = "Resources/example_copy.pptx";
 
         slidesApi.copyFile(filePath, copyPath, storageName, storageName, null);
     }
@@ -873,11 +873,11 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var newPath = "Resources/example.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String newPath = "Resources/example.pptx";
 
         slidesApi.moveFile(filePath, newPath, storageName, storageName, null);
     }
@@ -967,11 +967,11 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Data/example.pptx";
-        var newPath = "Resources/example.pptx";
+        String storageName = "Main";
+        String filePath = "Data/example.pptx";
+        String newPath = "Resources/example.pptx";
 
         slidesApi.moveFile(filePath, newPath, storageName, storageName, null);
     }
@@ -1101,10 +1101,10 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Resources/example.pptx";
+        String storageName = "Main";
+        String filePath = "Resources/example.pptx";
 
         slidesApi.deleteFile(filePath, storageName, null);
     }
@@ -1191,10 +1191,10 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var storageName = "Main";
-        var filePath = "Resources/example.pptx";
+        String storageName = "Main";
+        String filePath = "Resources/example.pptx";
 
         slidesApi.deleteFile(filePath, storageName, null);
     }

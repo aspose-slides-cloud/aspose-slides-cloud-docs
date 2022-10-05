@@ -176,17 +176,17 @@ import com.aspose.slides.model.ShapeType;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all shapes from the first slide.
-        var allShapes = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, null);
+        Shapes allShapes = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, null);
 
         // Get all charts from the first slide.
-        var charts = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.CHART);
+        Shapes charts = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.CHART);
 
         // Print information about the shapes and charts.
-        var shapeCount = allShapes.getShapesLinks().size();
-        var chartCount = charts.getShapesLinks().size();
+        int shapeCount = allShapes.getShapesLinks().size();
+        int chartCount = charts.getShapesLinks().size();
         System.out.println("The slide contains " +shapeCount + " shapes, including " + chartCount + " charts.");
     }
 }

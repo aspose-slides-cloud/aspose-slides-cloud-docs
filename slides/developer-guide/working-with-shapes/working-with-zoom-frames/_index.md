@@ -114,10 +114,10 @@ int slideIndex = 3;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 ZoomFrame dto = new ZoomFrame();
-dto.setX(20);
-dto.setY(20);
-dto.setWidth(200);
-dto.setHeight(100);
+dto.setX(20.0);
+dto.setY(20.0);
+dto.setWidth(200.0);
+dto.setHeight(100.0);
 dto.setTargetSlideIndex(2);
 ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null);
 System.out.println(((ZoomFrame)shape).getTargetSlideIndex());

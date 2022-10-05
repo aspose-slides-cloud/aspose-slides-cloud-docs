@@ -70,7 +70,7 @@ result.CopyTo(outFile);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.replacePresentationText(file, "banana", "orange", true, null);
+File response = api.replacePresentationTextOnline(file, "banana", "orange", true, null);
 System.out.println("The updated file was saved to " + response.getPath());
 ```
 

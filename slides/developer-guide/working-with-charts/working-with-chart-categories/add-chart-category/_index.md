@@ -93,15 +93,15 @@ ChartCategory dto = new ChartCategory();
 dto.setValue("NewCategory");
 List<OneValueChartDataPoint> dataPoints = new ArrayList<OneValueChartDataPoint>();
 OneValueChartDataPoint dataPoint1 = new OneValueChartDataPoint();
-dataPoint1.setValue(40);
+dataPoint1.setValue(40.0);
 dataPoints.add(dataPoint1);
 
 OneValueChartDataPoint dataPoint2 = new OneValueChartDataPoint();
-dataPoint2.setValue(50);
+dataPoint2.setValue(50.0);
 dataPoints.add(dataPoint2);
 
 OneValueChartDataPoint dataPoint3 = new OneValueChartDataPoint();
-dataPoint3.setValue(14);
+dataPoint3.setValue(14.0);
 dataPoints.add(dataPoint3);
 dto.setDataPoints(dataPoints);
 

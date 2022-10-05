@@ -114,7 +114,7 @@ hyperlink.setActionType(Hyperlink.ActionTypeEnum.HYPERLINK);
 hyperlink.setExternalUrl("https://docs.aspose.cloud/slides");
 shape.setHyperlinkClick(hyperlink);
 Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null);
-System.out.println(updatedShape.getHyperlinkClick().getExternalUrl().size()); //https://docs.aspose.cloud/slides
+System.out.println(updatedShape.getHyperlinkClick().getExternalUrl()); //https://docs.aspose.cloud/slides
 ```
 
 {{< /tab >}}

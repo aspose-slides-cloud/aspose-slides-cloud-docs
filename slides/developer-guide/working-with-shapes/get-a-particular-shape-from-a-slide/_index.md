@@ -173,10 +173,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get the second shape from the third slide.
-        var shape = slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder", null);
 
         // Print the resource URI, position and size of the shape.
         System.out.printf("Resource reference: %s\n", shape.getSelfUri().getHref());

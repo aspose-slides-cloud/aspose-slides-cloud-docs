@@ -105,10 +105,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get information about presentation slides.
-        var slidesInfo = slidesApi.getSlides("MyPresentation.pptx", "MyPassword", "MyFolder", null);
+        Slides slidesInfo = slidesApi.getSlides("MyPresentation.pptx", "MyPassword", "MyFolder", null);
 
         // Print the number of slides.
         System.out.println(slidesInfo.getSlideList().size());

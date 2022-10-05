@@ -158,7 +158,7 @@ foreach (Effect effect in response.MainSequence)
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, null);
+SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, null, null, null);
 for (Effect effect : response.getMainSequence()) {
     System.out.println(effect.getType());
 }

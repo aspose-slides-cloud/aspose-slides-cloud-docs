@@ -115,7 +115,7 @@ childComment.setTextSelectionLength(textSelectionLength);
 
 childComments.add(childComment);
 dto.setChildComments(childComments);
-SlideComments response = api.CreateComment("MyPresentation.pptx", 3, dto, null, null, null);
+SlideComments response = api.createComment("MyPresentation.pptx", 3, dto, null, null, null, null);
 System.out.println("The slide has " + response.getList().size() + " comments");
 ```
 

@@ -166,38 +166,39 @@ import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Collect the presentations to merge.
-        var fileInfo = new FileInfo();
+        FileInfo fileInfo = new FileInfo();
         fileInfo.setData(Files.readAllBytes(Paths.get("local.pptx")));
+        fileInfo.setName("local.pptx");
 
-        var files = new ArrayList<FileInfo>();
+        List<FileInfo> files = new ArrayList<FileInfo>();
         files.add(fileInfo);
 
         // Prepare information for the first presentation to merge.
-        var presentation1 = new PresentationToMerge();
+        PresentationToMerge presentation1 = new PresentationToMerge();
         presentation1.setPath("local.pptx");
         presentation1.setSlides(Arrays.asList(1, 2));
        
         // Prepare information for the first presentation to merge.
-        var presentation2 = new PresentationToMerge();
+        PresentationToMerge presentation2 = new PresentationToMerge();
         presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
         // Prepare information for the first presentation to merge.
-        var presentation3 = new PresentationToMerge();
+        PresentationToMerge presentation3 = new PresentationToMerge();
         presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
         presentation3.setSlides(Arrays.asList(1));
         presentation3.setSource(PresentationToMerge.SourceEnum.URL);
 
          // Prepare the merge request.
-        var request = new OrderedMergeRequest();
+        OrderedMergeRequest request = new OrderedMergeRequest();
         request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
         // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(files, request, null);
+        File resultFile = slidesApi.mergeOnline(files, request, null);
 
         System.out.println("The output presentation was saved to " + resultFile.getPath());
     }
@@ -412,37 +413,37 @@ import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Collect the presentations to merge.
-        var fileInfo = new FileInfo();
+        FileInfo fileInfo = new FileInfo();
         fileInfo.setData(Files.readAllBytes(Paths.get("local.pptx")));
 
-        var files = new ArrayList<FileInfo>();
+        List<FileInfo> files = new ArrayList<FileInfo>();
         files.add(fileInfo);
 
          // Prepare information for the first presentation to merge.
-        var presentation1 = new PresentationToMerge();
+        PresentationToMerge presentation1 = new PresentationToMerge();
         presentation1.setPath("local.pptx");
         presentation1.setSlides(Arrays.asList(1, 2));
 
         // Prepare information for the second presentation to merge.
-        var presentation2 = new PresentationToMerge();
+        PresentationToMerge presentation2 = new PresentationToMerge();
         presentation2.setPath("storage.pptx");
         presentation2.setPassword("my_password");
         presentation2.setSource(PresentationToMerge.SourceEnum.STORAGE);
 
-        var presentation3 = new PresentationToMerge();
+        PresentationToMerge presentation3 = new PresentationToMerge();
         presentation3.setPath("https://drive.google.com/uc?export=download&id=remote.pptx");
         presentation3.setSlides(Arrays.asList(1));
         presentation3.setSource(PresentationToMerge.SourceEnum.URL);
 
         // Prepare the merge request.
-        var request = new OrderedMergeRequest();
+        OrderedMergeRequest request = new OrderedMergeRequest();
         request.setPresentations(Arrays.asList(presentation1, presentation2, presentation3));
 
         // Merge the presentations.
-        var resultFile = slidesApi.mergeOnline(files, request, null);
+        File resultFile = slidesApi.mergeOnline(files, request, null);
 
         System.out.println("The output presentation was saved to " + resultFile.getPath());
     }

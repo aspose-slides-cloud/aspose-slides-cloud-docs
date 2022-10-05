@@ -160,8 +160,8 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-        var shape = slidesApi.GetSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder");
+        // Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+        var shape = slidesApi.GetSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
 
         // Print a resource reference to the shape.
         Console.WriteLine(shape.SelfUri.Href);
@@ -181,10 +181,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-        var shape = slidesApi.getSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder", null);
+        // Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+        ShapeBase shape = slidesApi.getSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
 
         // Print a resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());
@@ -208,8 +208,8 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-$shape = $slidesApi->getSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder");
+// Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+$shape = $slidesApi->getSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
 
 // Print a resource reference to the shape.
 echo $shape->getSelfUri()->getHref();
@@ -232,8 +232,8 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-shape = slides_api.get_subshape("MyPresentation.pptx", 2, "1/shapes", 3, nil, "MyFolder")
+# Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+shape = slides_api.get_subshape("MyPresentation.pptx", 1, "4/shapes", 2, nil, "MyFolder")
 
 # Print a resource reference to the shape.
 print shape.self_uri.href
@@ -251,8 +251,8 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-shape = slides_api.get_subshape("MyPresentation.pptx", 2, "1/shapes", 3, None, "MyFolder")
+# Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+shape = slides_api.get_subshape("MyPresentation.pptx", 1, "4/shapes", 2, None, "MyFolder")
 
 # Print a resource reference to the shape.
 print(shape.self_uri.href)
@@ -269,8 +269,8 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-slidesApi.getSubshape("MyPresentation.pptx", 2, "1/shapes", 3, null, "MyFolder").then((shape) => {
+// Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+slidesApi.getSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder").then((shape) => {
     // Print a resource reference to the shape.
     console.log(shape.body.selfUri.href)
 })
@@ -291,8 +291,8 @@ int main()
 {
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
-    // Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-    auto shape = slidesApi->getSubshape(L"MyPresentation.pptx", 2, L"1/shapes", 3, L"", L"MyFolder").get();
+    // Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+    auto shape = slidesApi->getSubshape(L"MyPresentation.pptx", 1, L"4/shapes", 2, L"", L"MyFolder").get();
 
     // Print a resource reference to the shape.
     std::wcout << shape->getSelfUri()->getHref();
@@ -317,8 +317,8 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Extract the 3rd shape from the group shape at index 1 placed on the 2nd slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, path => "1/shapes", shape_index => 3, folder => "MyFolder");
+# Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", shape_index => 2, folder => "MyFolder");
 my $shape = $slides_api->get_subshape(%parameters);
 
 # Print a resource reference to the shape.

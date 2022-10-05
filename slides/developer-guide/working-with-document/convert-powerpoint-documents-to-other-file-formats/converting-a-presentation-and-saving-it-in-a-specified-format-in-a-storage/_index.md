@@ -114,9 +114,9 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var fileData = Files.readAllBytes(Paths.get("example.pptx"));
+        byte[] fileData = Files.readAllBytes(Paths.get("example.pptx"));
         slidesApi.convertAndSave(fileData, ExportFormat.PNG, "MyFolder/images", null, "MyStorage", null, null, null);
     }
 }

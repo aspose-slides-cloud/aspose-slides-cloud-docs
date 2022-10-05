@@ -93,7 +93,7 @@ Console.WriteLine(result.SlideList.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 LayoutSlides result = api.deleteUnusedLayoutSlides("MyPresentation.pptx", null, null, null);
-Console.WriteLine(result.getSlideList().size());
+System.out.println(result.getSlideList().size());
 ```
 
 {{< /tab >}}

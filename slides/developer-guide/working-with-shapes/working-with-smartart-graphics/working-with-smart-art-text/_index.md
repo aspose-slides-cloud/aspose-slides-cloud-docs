@@ -2,7 +2,7 @@
 title: "Working With SmartArt Text"
 type: docs
 url: /working-with-smart-art-text/
-weight: 70
+weight: 40
 ---
 ## **Introduction**
 You can manage text within a SmartArt node the same way as it works for sub-shapes. Instead of the path to the sub-shape, the path to the sub-node must be specified.
@@ -106,6 +106,12 @@ SolidFill fillFormat = new SolidFill();
 fillFormat.setColor("#FFFFFF00");
 portion.setFillFormat(fillFormat);
 
+String targetNodePath = "1/nodes/1/nodes";
+int slideIndex = 7;
+int nodeIndex = 2;
+int paragraphIndex = 1;
+int portionIndex = 1;
+
 Portion response = api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion, null, null, null);
 
 System.out.println("The portion with text \"" + response.getText() + "\" has been updated");
@@ -120,10 +126,10 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
+$api = new SlidesApi(null, $configuration);
 
 $portion = new Portion();
 $portion->setText("New text");
@@ -137,7 +143,7 @@ $portion->setFillFormat($fillFormat);
 $targetNodePath = "1/nodes/1/nodes";
 $slideIndex = 7;
 $response = $api->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
-print("The portion with text \"" + response->getText() + "\" has been updated");
+print("The portion with text \"" . $response->getText() . "\" has been updated");
 ```
 
 {{< /tab >}}

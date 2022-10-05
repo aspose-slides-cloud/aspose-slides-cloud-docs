@@ -115,10 +115,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get the background of the first slide.
-        var slideBackground = slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder", null);
+        SlideBackground slideBackground = slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         System.out.println(slideBackground.getType()); // Solid, for example
     }
@@ -218,10 +218,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get the background of the first slide.
-        var slideBackground = slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder", null);
+        slideBackground slideBackground = slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         System.out.println(slideBackground.getType()); // Solid, for example
     }
@@ -459,22 +459,22 @@ import java.util.Base64;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var imageData = Files.readAllBytes(Paths.get("MyImage.png"));
-        var imageBase64String = new String(Base64.getEncoder().encode(imageData));
+        byte[] imageData = Files.readAllBytes(Paths.get("MyImage.png"));
+        String imageBase64String = new String(Base64.getEncoder().encode(imageData));
 
         // Prepare the background fill format.
-        var pictureFill = new PictureFill();
+        PictureFill pictureFill = new PictureFill();
         pictureFill.setBase64Data(imageBase64String);
         pictureFill.setPictureFillMode(PictureFill.PictureFillModeEnum.TILE);
 
         // Prepare the background DTO.
-        var newBackground = new SlideBackground();
+        SlideBackground newBackground = new SlideBackground();
         newBackground.setFillFormat(pictureFill);
 
         // Set the new background for the second slide.
-        var currentBackground = slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder", null);
+        SlideBackground currentBackground = slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder", null);
 
         // Check the type of the current background.
         System.out.println(currentBackground.getType()); // Picture
@@ -638,22 +638,22 @@ import java.util.Base64;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var imageData = Files.readAllBytes(Paths.get("MyImage.png"));
-        var imageBase64String = new String(Base64.getEncoder().encode(imageData));
+        byte[] imageData = Files.readAllBytes(Paths.get("MyImage.png"));
+        String imageBase64String = new String(Base64.getEncoder().encode(imageData));
 
         // Prepare the background fill format.
-        var pictureFill = new PictureFill();
+        PictureFill pictureFill = new PictureFill();
         pictureFill.setBase64Data(imageBase64String);
         pictureFill.setPictureFillMode(PictureFill.PictureFillModeEnum.TILE);
 
         // Prepare the background DTO.
-        var newBackground = new SlideBackground();
+        SlideBackground newBackground = new SlideBackground();
         newBackground.setFillFormat(pictureFill);
 
         // Set the new background for the second slide.
-        var currentBackground = slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder", null);
+        SlideBackground currentBackground = slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder", null);
 
         // Check the type of the current background.
         System.out.println(currentBackground.getType()); // Picture
@@ -824,10 +824,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete a background from the second slide.
-        var currentBackground = slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder", null);
+        SlideBackground currentBackground = slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder", null);
 
         // Check the type of the current background.
         System.out.println(currentBackground.getType()); // NoFill
@@ -932,10 +932,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete a background from the second slide.
-        var currentBackground = slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder", null);
+        SlideBackground currentBackground = slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder", null);
 
         // Check the type of the current background.
         System.out.println(currentBackground.getType()); // NoFill

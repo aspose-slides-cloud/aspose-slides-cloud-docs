@@ -107,10 +107,10 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Retrieve the second image in GIF format.
-        var imageFile = slidesApi.downloadImage("MyPresentation.pptx", 2, ImageExportFormat.GIF, null, "MyFolder", null);
+        File imageFile = slidesApi.downloadImage("MyPresentation.pptx", 2, ImageExportFormat.GIF, null, "MyFolder", null);
 
         System.out.println("The second image was saved to " + imageFile.getPath());
     }

@@ -164,13 +164,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information about the images placed on the first slide.
-        var imagesInfo = slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder", null);
+        Images imagesInfo = slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print information about the images.
-        for (var imageInfo : imagesInfo.getList()) {
+        for (Image imageInfo : imagesInfo.getList()) {
             System.out.printf("%sx%s, %s\n", imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getContentType());
         }
     }

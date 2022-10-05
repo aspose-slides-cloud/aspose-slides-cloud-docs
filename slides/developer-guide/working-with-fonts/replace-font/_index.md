@@ -1,19 +1,21 @@
 ---
-title: "Deleting Embedded Font"
+title: "Replace Font"
 type: docs
-url: /deleting-embedded-font/
-weight: 50
+url: /replace-font/
+weight: 60
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows deleting an embedded font from the presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
+Aspose.Slides Cloud API allows replacing a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body. Optionaly the new font can be embedded.
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded/{fontName}|DELETE| Removes specified embedded font and returns presentation fonts info.|[DeleteEmbeddedFont]()|
-/slides/fonts/embedded/{fontName}/delete|POST|Removes specified embedded font and returns presentation.|[DeleteEmbeddedFontOnline]()|
+/slides/{name}/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation fonts info.|[ReplaceFont]()|
+/slides/fonts/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation.|[ReplaceFontOnline]()|
 ### **cURL Example**
 
-The code examples below show how to delete an embedded font from a presentation in the storage, and in request body.
+The code examples below show how to replace a font in the presentation in the storage, and the request body.
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -25,14 +27,14 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 **Storage**
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/arial" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/Calibri/replace/Times%20New%20Roman?embed=true" -H "Authorization: Bearer [Access Token]"
 ```
 
 **Request**
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Arial/delete" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/Calibri/replace/Times%20New%20Roman?embed=true" \
 -H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx"
+-F "file=@MyPresentation.pptx"
 ```
 
 {{< /tab >}}
@@ -46,10 +48,12 @@ Code: 200
 Returns presentation fonts info.
 
 ```
+
 **Request**
+
 ```sh
 
-Document without specified embedded font.
+Document with embedded font.
 
 ```
 {{< /tab >}}
@@ -70,9 +74,9 @@ The Aspose for Cloud SDKs can be downloaded from the following page: [Available 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.DeleteEmbeddedFont("MyPresentation.pptx", "Arial");
+FontsData response = api.ReplaceFont("MyPresentation.pptx", "Calibri", "Times New Roman",  true);
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -81,9 +85,9 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.deleteEmbeddedFont("MyPresentation.pptx", "Arial", null, null, null);
+FontsData response = api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true, null, null, null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -99,9 +103,9 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->deleteEmbeddedFont("MyPresentation.pptx", "Arial");
+$result = $api->replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true);
 
-print("Arial has been removed from the embedded fonts.");
+print("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -112,8 +116,8 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-
-#Code example will be added soon.
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times%20New%20Roman", true)
+print "Font Calibri has been replaced with Times New Roman."
 ```
 
 {{< /tab >}}
@@ -130,9 +134,9 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.delete_embedded_font("MyPresentation.pptx", "Arial")
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", true)
 
-print("Arial has been removed from the embedded fonts.")
+print("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
@@ -142,9 +146,9 @@ print("Arial has been removed from the embedded fonts.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.deleteEmbeddedFont("MyPresentation.pptx", "Arial");
+let result = await api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true);
             
-console.log("Arial has been removed from the embedded fonts.");
+console.log("Font Calibri has been replaced with Times New Roman.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -156,14 +160,16 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFont(fileName, fontName, "", "", "")
+fontName := "Calibri"
+targetFontName := "Times New Roman"
+var embed bool = true
+response, _, e := api.ReplaceFont(fileName, fontName, targetFontName, &embed, "", "", "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
@@ -201,11 +207,10 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-
 Stream file = File.OpenRead("MyPresentation.pptx");
-api.DeleteEmbeddedFontOnline(file, "Arial");
+Stream response = api.ReplaceFontOnline(file, "Calibri", "Times New Roman",  true);
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -213,11 +218,10 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-api.deleteEmbeddedFontOnline(file, "Arial", null);
+File response = api.replaceFontOnline(file, "Calibri", "Times New Roman", true, null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -232,11 +236,10 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-
 $file = fopen("MyPresentation.pptx", 'r');
-$api->deleteEmbeddedFontOnline($file, "Arial");
+$result = $api->replaceFontOnline($file, "Calibri", "Times New Roman", true);
 
-print("Arial has been removed from the embedded fonts.");
+print("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -247,8 +250,9 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-
-#Code example will be added soon.
+source = File.binread("MyPresentation.pptx") 
+response = api.replace_font_onlne(source, "Calibri", "Times%20New%20Roman", true)
+print "Font Calibri has been replaced with Times New Roman."
 ```
 
 {{< /tab >}}
@@ -267,10 +271,9 @@ api = SlidesApi(configuration)
 
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
+response = api.replace_font_online(source, "Calibri", "Times New Roman", true)
 
-api.delete_embedded_font_online(source, "Arial")
-
-print("Arial has been removed from the embedded fonts.")
+print("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
@@ -278,13 +281,12 @@ print("Arial has been removed from the embedded fonts.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const stream = fs.createReadStream("MyPresentation.pptx");
-let result = await api.deleteEmbeddedFontOnline(stream, "Arial");
+let result = await api.replaceFontOnline(stream, "Calibri", "Times New Roman", true);
             
-console.log("Arial has been removed from the embedded fonts.");
+console.log("Font Calibri has been replaced with Times New Roman.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -295,15 +297,19 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
+fileName := "MyPresentation.pptx"
+fontName := "Calibri"
+targetFontName := "Times New Roman"
+var embed bool = true
+
 document, e := ioutil.ReadFile("MyPresentation.pptx")
-fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFontOnline(document, fontName, "")
+response, _, e := api.ReplaceFont(document, fontName, targetFontName, &embed, "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}

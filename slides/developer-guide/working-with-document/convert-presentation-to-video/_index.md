@@ -81,9 +81,13 @@ response.CopyTo(outFile);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-//The example will be completed shortly.
-            
-File response = api.DownloadPresentation("MyPresentation.pptx", ExportFormat.Mpeg4, exportOptions, null, null, null, null);
+VideoExportOptions exportOptions = new VideoExportOptions();
+exportOptions.setSlidesTransitionDuration(5);
+exportOptions.setVideoResolutionType(VideoExportOptions.VideoResolutionTypeEnum.SD);
+exportOptions.setTransitionType(VideoExportOptions.TransitionTypeEnum.DISSOLVE);
+exportOptions.setTransitionDuration(3);
+
+File response = api.downloadPresentation("MyPresentation.pptx", ExportFormat.MPEG4, exportOptions, null, null, null, null, null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 

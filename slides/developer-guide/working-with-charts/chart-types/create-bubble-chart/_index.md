@@ -162,11 +162,11 @@ Console.WriteLine(chart.Series.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart dto = new Chart();
-dto.setChartType(Chart.ChartTypeEnum.BUBBLE;
-dto.setX(100);
-dto.setY(100);
-dto.setWidth(400);
-dto.setHeight(400);
+dto.setChartType(Chart.ChartTypeEnum.BUBBLE);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setWidth(400.0);
+dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
 title.setHasTitle(true);
@@ -177,15 +177,15 @@ List<Series> seriesList = new ArrayList<Series>();
 BubbleSeries series1 = new BubbleSeries();
 List<BubbleChartDataPoint> dataPoints1 = new ArrayList<BubbleChartDataPoint>();
 BubbleChartDataPoint dataPoint11 = new BubbleChartDataPoint();
-dataPoint11.setXvalue(1);
-dataPoint11.setYvalue(3);
-dataPoint11.setBubbleSize(2);
+dataPoint11.setXvalue(1.0);
+dataPoint11.setYvalue(3.0);
+dataPoint11.setBubbleSize(2.0);
 dataPoints1.add(dataPoint11);
 
 BubbleChartDataPoint dataPoint12 = new BubbleChartDataPoint();
-dataPoint12.setXvalue(2);
-dataPoint12.setYvalue(10);
-dataPoint12.setBubbleSize(12);
+dataPoint12.setXvalue(2.0);
+dataPoint12.setYvalue(10.0);
+dataPoint12.setBubbleSize(12.0);
 dataPoints1.add(dataPoint12);
 series1.setDataPoints(dataPoints1);
 seriesList.add(series1);
@@ -193,34 +193,34 @@ seriesList.add(series1);
 BubbleSeries series2 = new BubbleSeries();
 List<BubbleChartDataPoint> dataPoints2 = new ArrayList<BubbleChartDataPoint>();
 BubbleChartDataPoint dataPoint21 = new BubbleChartDataPoint();
-dataPoint21.setXvalue(5);
-dataPoint21.setYvalue(2);
-dataPoint21.setBubbleSize(4);
+dataPoint21.setXvalue(5.0);
+dataPoint21.setYvalue(2.0);
+dataPoint21.setBubbleSize(4.0);
 dataPoints2.add(dataPoint21);
 
 BubbleChartDataPoint dataPoint22 = new BubbleChartDataPoint();
-dataPoint22.setXvalue(3);
-dataPoint22.setYvalue(1);
-dataPoint22.setBubbleSize(8);
+dataPoint22.setXvalue(3.0);
+dataPoint22.setYvalue(1.0);
+dataPoint22.setBubbleSize(8.0);
 dataPoints2.add(dataPoint22);
 
 BubbleChartDataPoint dataPoint23 = new BubbleChartDataPoint();
-dataPoint23.setXvalue(2);
-dataPoint23.setYvalue(2);
-dataPoint23.setBubbleSize(1);
+dataPoint23.setXvalue(2.0);
+dataPoint23.setYvalue(2.0);
+dataPoint23.setBubbleSize(1.0);
 dataPoints2.add(dataPoint23);
 
 BubbleChartDataPoint dataPoint24 = new BubbleChartDataPoint();
-dataPoint24.setXvalue(5);
-dataPoint24.setYvalue(1);
-dataPoint24.setBubbleSize(6);
+dataPoint24.setXvalue(5.0);
+dataPoint24.setYvalue(1.0);
+dataPoint24.setBubbleSize(6.0);
 dataPoints2.add(dataPoint24);
 series2.setDataPoints(dataPoints2);
 seriesList.add(series2);
 dto.setSeries(seriesList);
 
 Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
-System.out.println(chart.getSeries().get(0).size());
+System.out.println(chart.getSeries().size());
 ```
 
 {{< /tab >}}

@@ -370,9 +370,9 @@ import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var response = slidesApi.createPresentation("Sales.pptx", null, null, null, "Data", "Main");
+        Document response = slidesApi.createPresentation("Sales.pptx", null, null, null, "Data", "Main");
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
     }
 }

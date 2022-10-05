@@ -217,10 +217,10 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var pdfData = Files.readAllBytes(Paths.get("report.pdf"));
-        var response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
+        byte[] pdfData = Files.readAllBytes(Paths.get("report.pdf"));
+        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
     }
@@ -324,10 +324,10 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var pdfData = Files.readAllBytes(Paths.get("report.pdf"));
-        var response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
+        byte[] pdfData = Files.readAllBytes(Paths.get("report.pdf"));
+        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
     }

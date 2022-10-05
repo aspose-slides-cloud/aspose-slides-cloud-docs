@@ -104,7 +104,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->setEmbeddedFont("MyPresentation.pptx", "Calibri", false);
 
-print("Font " + $result->getList()[2]->getFontName() + " has been embedded.");
+print("Font " . $result->getList()[2]->getFontName() . " has been embedded.");
 ```
 
 {{< /tab >}}
@@ -218,8 +218,8 @@ Console.WriteLine("Font Calibri has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes("MyPresentation.pptx");
-api.setEmbeddedFontOnline(file, "Calibri", false);
+byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+api.setEmbeddedFontOnline(file, "Calibri", false, null);
 
 System.out.println("Font Calibri has been embedded.");
 ```
@@ -282,12 +282,13 @@ print("Font Calibri has been embedded.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const stream = fs.createReadStream("MyPresentation.pptx")
-let result = await api.setEmbeddedFontOnline(stream, "Calibri", false);
-            
-console.log("Count of fonts used in the presentation: " +  response.body.list.length);
+const stream = fs.createReadStream("MyPresentation.pptx");
+let response = await api.setEmbeddedFontOnline(stream, "Calibri", false);
+
+console.log("Font Calibri has been embedded.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

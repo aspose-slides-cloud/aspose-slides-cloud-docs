@@ -38,11 +38,15 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides
 
 ```
 
-series.json file:
-```javascript
+datapoint.json file:
+```json
 {
     "xValue": 25,
-    "yValue": 9
+    "yValue": 9,
+    "fillFormat {
+        "type": "Solid",
+        "color": "#77CEF9"
+    }
 }
 ```
 
@@ -73,6 +77,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
 dto.XValue = 25;
 dto.YValue = 9;
+dto.FillFormat = new SolidFill(){ Color = "#77CEF9" },
 Chart chart = api.UpdateChartDataPoint("myPresentaion.pptx", 3, 2, 1, 3, dto);
 Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```
@@ -84,10 +89,14 @@ Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
-dto.setXValue(25);
-dto.setYValue(9);
+dto.setXvalue(25.0);
+dto.setYvalue(9.0);
+SolidFill fillFormat = new SolidFill();
+fillFormat.setColor("#77CEF9");
+dto.setFillFormat(fillFormat);
+
 Chart chart = (Chart)api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto, null, null, null);
-System.out.println(chart.getSeries().get(0).getDataPoints().size());
+System.out.println(((ScatterSeries)chart.getSeries().get(0)).getDataPoints().size());
 ```
 
 {{< /tab >}}
@@ -107,6 +116,10 @@ $api = new SlidesApi(null, $config);
 $dto = new ScatterChartDataPoint();
 $dto->setXValue(25);
 $dto->setYValue(9);
+$fillFormat = new SolidFill();
+$fillFormat->setColor("#77CEF9");
+$dto->setFillFormat($fillFormat);
+        
 $result = $api->UpdateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, $dto);
 print(count($result->getSeries()[0]->getDataPoints()));
 ```
@@ -130,7 +143,9 @@ configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
-
+fill_format = SolidFill()
+fill_format.color = "#77CEF9"
+dto.fill_format = fill_format
 dto = ScatterChartDataPoint()
 dto.x_value = 25
 dto.x_value = 9
@@ -149,6 +164,9 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const dto = new CloudSdk.ScatterChartDataPoint();
 dto.xValue = 25;
 dto.yValue = 9;
+const fillFormat = new SolidFill();
+fillFormat.color = "#77CEF9";
+dto.fillFormat = fillFormat;
 api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto).then((result) => {
     console.log(result.body.series[0].dataPoints.length);
 });
@@ -167,6 +185,9 @@ api := asposeslidescloud.NewAPIClient(cfg)
 dto := NewScatterChartDataPoint()
 dto.XValue = 25
 dto.YValue = 9
+fillFormat := slidescloud.NewSolidFill()
+fillFormat.SetColor("#77CEF9")
+dto.SetFillFormat(fillFormat)
 result, _, e := c.SlidesApi.UpdateChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)

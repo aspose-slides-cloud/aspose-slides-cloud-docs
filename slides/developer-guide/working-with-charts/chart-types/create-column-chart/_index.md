@@ -174,11 +174,11 @@ Console.WriteLine(chart.Categories.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart dto = new Chart();
-dto.setChartType(Chart.ChartTypeEnum.CLUSTEREDCOLUMN;
-dto.setX(100);
-dto.setY(100);
-dto.setWidth(400);
-dto.setHeight(400);
+dto.setChartType(Chart.ChartTypeEnum.CLUSTEREDCOLUMN);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setWidth(400.0);
+dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
 title.setHasTitle(true);
@@ -201,15 +201,15 @@ List<Series> seriesList = new ArrayList<Series>();
 OneValueSeries series1 = new OneValueSeries();
 List<OneValueChartDataPoint> dataPoints1 = new ArrayList<OneValueChartDataPoint>();
 OneValueChartDataPoint dataPoint11 = new OneValueChartDataPoint();
-dataPoint11.setValue(20);
+dataPoint11.setValue(20.0);
 dataPoints1.add(dataPoint11);
 
 OneValueChartDataPoint dataPoint12 = new OneValueChartDataPoint();
-dataPoint12.setValue(50);
+dataPoint12.setValue(50.0);
 dataPoints1.add(dataPoint12);
 
 OneValueChartDataPoint dataPoint13 = new OneValueChartDataPoint();
-dataPoint13.setValue(30);
+dataPoint13.setValue(30.0);
 dataPoints1.add(dataPoint13);
 series1.setDataPoints(dataPoints1);
 seriesList.add(series1);
@@ -217,15 +217,15 @@ seriesList.add(series1);
 OneValueSeries series2 = new OneValueSeries();
 List<OneValueChartDataPoint> dataPoints2 = new ArrayList<OneValueChartDataPoint>();
 OneValueChartDataPoint dataPoint21 = new OneValueChartDataPoint();
-dataPoint21.setValue(30);
+dataPoint21.setValue(30.0);
 dataPoints2.add(dataPoint21);
 
 OneValueChartDataPoint dataPoint22 = new OneValueChartDataPoint();
-dataPoint22.setValue(10);
+dataPoint22.setValue(10.0);
 dataPoints2.add(dataPoint22);
 
 OneValueChartDataPoint dataPoint23 = new OneValueChartDataPoint();
-dataPoint23.setValue(60);
+dataPoint23.setValue(60.0);
 dataPoints2.add(dataPoint23);
 series2.setDataPoints(dataPoints2);
 seriesList.add(series2);

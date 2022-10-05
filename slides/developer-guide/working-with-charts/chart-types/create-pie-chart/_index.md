@@ -151,10 +151,10 @@ Console.WriteLine(chart.Categories.Count);
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart dto = new Chart();
 dto.setChartType(Chart.ChartTypeEnum.PIE);
-dto.setX(100);
-dto.setY(100);
-dto.setWidth(400);
-dto.setHeight(400);
+dto.setX(100.0);
+dto.setY(100.0);
+dto.setWidth(400.0);
+dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
 title.setHasTitle(true);
@@ -178,15 +178,15 @@ OneValueSeries series = new OneValueSeries();
 series.setIsColorVaried(true);
 List<OneValueChartDataPoint> dataPoints = new ArrayList<OneValueChartDataPoint>();
 OneValueChartDataPoint dataPoint1 = new OneValueChartDataPoint();
-dataPoint1.setValue(20);
+dataPoint1.setValue(20.0);
 dataPoints.add(dataPoint1);
 
 OneValueChartDataPoint dataPoint2 = new OneValueChartDataPoint();
-dataPoint2.setValue(50);
+dataPoint2.setValue(50.0);
 dataPoints.add(dataPoint2);
 
 OneValueChartDataPoint dataPoint3 = new OneValueChartDataPoint();
-dataPoint3.setValue(30);
+dataPoint3.setValue(30.0);
 dataPoints.add(dataPoint3);
 
 series.setDataPoints(dataPoints);

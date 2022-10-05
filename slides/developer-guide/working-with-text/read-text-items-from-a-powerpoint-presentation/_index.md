@@ -149,13 +149,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all text items from the presentation.
-        var textItems = slidesApi.getPresentationTextItems("MyPresentation.pptx", true, null, "MyFolder", null);
+        TextItems textItems = slidesApi.getPresentationTextItems("MyPresentation.pptx", true, null, "MyFolder", null);
 
         // Print the texts.
-        for (var textItem : textItems.getItems()) {
+        for (TextItem textItem : textItems.getItems()) {
             System.out.println(textItem.getText());
         }
     }
@@ -466,13 +466,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all text items from the second slide, except empty ones.
-        var textItems = slidesApi.getSlideTextItems("MyPresentation.pptx", 2, null, null, "MyFolder", null);
+        TextItems textItems = slidesApi.getSlideTextItems("MyPresentation.pptx", 2, null, null, "MyFolder", null);
 
         // Print the texts.
-        for (var textItem : textItems.getItems()) {
+        for (TextItem textItem : textItems.getItems()) {
             System.out.println(textItem.getText());
         }
     }

@@ -72,7 +72,7 @@ Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 Chart chart = (Chart)api.deleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, null, null, null);
-System.out.println(chart.getSeries().get(0).getDataPoints().size());
+System.out.println(((ScatterSeries)chart.getSeries().get(0)).getDataPoints().size());
 ```
 
 {{< /tab >}}

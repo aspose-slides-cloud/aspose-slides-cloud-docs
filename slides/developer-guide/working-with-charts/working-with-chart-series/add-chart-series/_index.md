@@ -95,11 +95,11 @@ dataPoint1.setValue(5.5);
 dataPoints.add(dataPoint1);
 
 OneValueChartDataPoint dataPoint2 = new OneValueChartDataPoint();
-dataPoint2.setValue(76);
+dataPoint2.setValue(76.0);
 dataPoints.add(dataPoint2);
 
 OneValueChartDataPoint dataPoint3 = new OneValueChartDataPoint();
-dataPoint3.setValue(27);
+dataPoint3.setValue(27.0);
 dataPoints.add(dataPoint3);
 dto.setDataPoints(dataPoints);
 

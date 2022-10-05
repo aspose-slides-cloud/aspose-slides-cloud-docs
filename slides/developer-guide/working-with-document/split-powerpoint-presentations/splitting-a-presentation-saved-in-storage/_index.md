@@ -139,12 +139,12 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split all slides in the presentation.
-        var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
+        SplitDocumentResult response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
 
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
             System.out.println(slide.getHref());
@@ -258,12 +258,12 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split all slides in the presentation.
-        var response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
+        SplitDocumentResult response = slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder", null, null);
 
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
             System.out.println(slide.getHref());
@@ -442,12 +442,12 @@ import com.aspose.slides.model.SlideExportFormat;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PNG format.
-        var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
+        SplitDocumentResult response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
 
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
             System.out.println(slide.getHref());
@@ -564,12 +564,12 @@ import com.aspose.slides.model.SlideExportFormat;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Split the 2nd and 3rd slides and save them to PNG format.
-        var response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
+        SplitDocumentResult response = slidesApi.split("MyPresentation.pptx", null, SlideExportFormat.PNG, null, null, 2, 3, "MyImages", null, "MyFolder", null, null);
 
-        for (var slide : response.getSlides())
+        for (ResourceUri slide : response.getSlides())
         {
             // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
             System.out.println(slide.getHref());

@@ -66,7 +66,7 @@ if (protectionProperties.IsEncrypted.Value)
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-ProtectionProperties response = api.getProtectionProperties("MyPresentation.pptx", null, null, null);
+ProtectionProperties protectionProperties = api.getProtectionProperties("MyPresentation.pptx", null, null, null);
 if (protectionProperties.isIsEncrypted())
     System.out.println("The presentation is protected.");
 ```

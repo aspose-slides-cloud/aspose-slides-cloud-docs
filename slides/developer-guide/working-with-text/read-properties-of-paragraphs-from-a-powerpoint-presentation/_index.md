@@ -132,22 +132,22 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var fileName = "example.pptx";
-        var folderName = "Data";
-        var storageName = "Main";
-        var filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
-        var slideIndex = 1;
-        var shapeIndex = 3;
+        String fileName = "example.pptx";
+        String folderName = "Data";
+        String storageName = "Main";
+        String filePath = Paths.get(folderName, fileName).toString().replace('\\', '/');
+        int slideIndex = 1;
+        int shapeIndex = 3;
         String password = null;
 
         try {
-            var fileData = Files.readAllBytes(new File(fileName).toPath());
+            byte[] fileData = Files.readAllBytes(new File(fileName).toPath());
             slidesApi.uploadFile(filePath, fileData, storageName);
 
-            var paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
-            var paragraphCount = paragraphs.getParagraphLinks().size();
+            Paragraphs paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
+            int paragraphCount = paragraphs.getParagraphLinks().size();
             System.out.println(paragraphCount);
         } catch (Exception e) {
             e.printStackTrace();

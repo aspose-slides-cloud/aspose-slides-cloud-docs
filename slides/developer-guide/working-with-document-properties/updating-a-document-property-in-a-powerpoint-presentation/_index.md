@@ -139,15 +139,15 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Create the document property.
-        var property = new DocumentProperty();
+        DocumentProperty property = new DocumentProperty();
         property.setName("Author");
         property.setValue("H.G. Wells");
 
         // Update the property in the presentation.
-        var currentProperty = slidesApi.setDocumentProperty("MyPresentation.pptx", "Author", property, null, "MyFolder", null);
+        DocumentProperty currentProperty = slidesApi.setDocumentProperty("MyPresentation.pptx", "Author", property, null, "MyFolder", null);
 
         // Print data of the document property.
         System.out.printf("%s: %s%n", currentProperty.getName(), currentProperty.getValue());

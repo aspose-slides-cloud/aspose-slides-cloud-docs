@@ -258,20 +258,20 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Prepare information for the second presentation to merge.
-        var presentationToMerge = new PresentationToMerge();
+        PresentationToMerge presentationToMerge = new PresentationToMerge();
         presentationToMerge.setPath("MyResources/example.pptx");
         presentationToMerge.setPassword("mypassword01");
         presentationToMerge.setSlides(Arrays.asList(2, 1));
 
         // Prepare request data for the presentations to merge.
-        var request = new OrderedMergeRequest();
+        OrderedMergeRequest request = new OrderedMergeRequest();
         request.setPresentations(Arrays.asList(presentationToMerge));
 
         // Merge the presentations.
-        var response = slidesApi.orderedMerge("MyPresentation.pptx", request, null, "MyFolder", null);
+        Document response = slidesApi.orderedMerge("MyPresentation.pptx", request, null, "MyFolder", null);
 
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
         System.out.println(response.getSelfUri().getHref());
@@ -423,20 +423,20 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("my_client_id", "my_client_secret");
+        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Prepare information for the second presentation to merge.
-        var presentationToMerge = new PresentationToMerge();
+        PresentationToMerge presentationToMerge = new PresentationToMerge();
         presentationToMerge.setPath("MyResources/example.pptx");
         presentationToMerge.setPassword("mypassword01");
         presentationToMerge.setSlides(Arrays.asList(2, 1));
 
         // Prepare request data for the presentations to merge.
-        var request = new OrderedMergeRequest();
+        OrderedMergeRequest request = new OrderedMergeRequest();
         request.setPresentations(Arrays.asList(presentationToMerge));
 
         // Merge the presentations.
-        var response = slidesApi.orderedMerge("MyPresentation.pptx", request, null, "MyFolder", null);
+        Document response = slidesApi.orderedMerge("MyPresentation.pptx", request, null, "MyFolder", null);
 
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
         System.out.println(response.getSelfUri().getHref());

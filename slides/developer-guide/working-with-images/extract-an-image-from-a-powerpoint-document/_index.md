@@ -99,10 +99,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Retrieve the second image from the presentation.
-        var imageFile = slidesApi.downloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder", null);
+        File imageFile = slidesApi.downloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder", null);
 
         System.out.println("The image was saved to " + imageFile.getPath());
     }
