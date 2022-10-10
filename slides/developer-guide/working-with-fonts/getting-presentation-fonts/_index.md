@@ -6,14 +6,18 @@ weight: 20
 ---
 ## **Introduction**
 Aspose.Slides Cloud API allows getting list of fonts used in the presentation. The list can be obtained from the presentation located in the storage or the presentation uploaded in the request body.
+
+## **GetFonts**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 /slides/{name}/fonts|Get|Returns presentation fonts info.|[GetFonts](https://apireference.aspose.cloud/slides/fonts)|
-/slides/fonts|Get|Returns presentation fonts info.|[GetFontsOnline](https://apireference.aspose.cloud/slides/fonts)|
-### **cURL Example**
 
-The code examples below show how to obtain fonts information from presentations in the storage, and in request body.
+### **Examples**
+
+**cURL Example**
+
+The code examples below show how to obtain fonts information from presentations in the storage.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -24,16 +28,8 @@ The code examples below show how to obtain fonts information from presentations 
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Storage**
 ```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts" -H "Authorization: Bearer [Access Token]"
-```
-
-**Request**
-```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/fonts" \
--H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx"
 ```
 
 {{< /tab >}}
@@ -50,15 +46,10 @@ Returns presentation fonts info.
 
 {{< /tabs >}}
 
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+**SDK Examples**
 
-## **SDK Examples**
-
-**Storage**
-
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
 ```csharp
@@ -188,9 +179,49 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 {{< /tabs >}}
 
-**Request**
+## **GetFontsOnline**
+### **API Information**
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+/slides/fonts|Get|Returns presentation fonts info.|[GetFontsOnline](https://apireference.aspose.cloud/slides/fonts)|
 
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+## **Examples**
+**cURL Example**
+
+The code examples below show how to obtain fonts information from presentations in request body.
+
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Create Authentication Headers**
+```sh
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+```
+
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/fonts" \
+-H "Authorization: Bearer [Access Token]" \
+-F "file=@TestData/MyPresentation.pptx"
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```sh
+
+Code: 200
+Returns presentation fonts info.
+
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+**SDK Examples**
+
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
 ```csharp
@@ -327,3 +358,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **SDK Source**
+
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)

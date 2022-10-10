@@ -6,14 +6,17 @@ weight: 40
 ---
 ## **Introduction**
 Aspose.Slides Cloud API allows embedding a font used in a presentation. The font can be provided in the request body if needed. The feature can be applied to presentations located in the storage or presentations uploaded in the request body along with the font file.
+
+## **SetEmbeddedFontFromRequest**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 /slides/{name}/fonts/embedded|POST|Embeds font from request and returns presentation fonts info.|[SetEmbeddedFontFromRequest]()|
-/slides/fonts/embedded|POST|Embeds font from request and returns presentation.|[SetEmbeddedFontFromRequestOnline]()|
-### **cURL Example**
 
-The code examples below show how to embed fonts in a presentation located in the storage, and in the request body.
+### **Examples**
+**cURL Example**
+
+The code examples below show how to embed fonts in a presentation located in the storage.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -24,54 +27,30 @@ The code examples below show how to embed fonts in a presentation located in the
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Storage**
 ```sh
 curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded" \
 -H "Authorization: Bearer [Access Token]" \
 -F "file=@TestData/calibri.ttf" \ 
 ```
 
-**Request**
-```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded" \
--H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx" \
--F "file=@TestData/calibri.ttf" \
--o "MyPresentation.pptx" \
-```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-**Storage**
 ```sh
 
 Code: 200
 Returns presentation fonts info.
 
 ```
-
-**Request**
-
-```sh
-
-Document with embedded font.
-
-```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+**SDK Examples**
 
-## **SDK Examples**
-
-**Storage**
-
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
 ```csharp
@@ -211,9 +190,52 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 {{< /tabs >}}
 
-**Request**
 
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+## **SetEmbeddedFontFromRequestOnline**
+### **API Information**
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+/slides/fonts/embedded|POST|Embeds font from request and returns presentation.|[SetEmbeddedFontFromRequestOnline]()|
+
+### **Examples**
+**cURL Example**
+
+The code examples below show how to embed fonts in a presentation located in the request body.
+
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Create Authentication Headers**
+```sh
+curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+```
+
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded" \
+-H "Authorization: Bearer [Access Token]" \
+-F "file=@TestData/MyPresentation.pptx" \
+-F "file=@TestData/calibri.ttf" \
+-o "MyPresentation.pptx" \
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```sh
+
+Document with embedded font.
+
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+
+**SDK Examples**
+
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
 ```csharp
@@ -361,3 +383,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **SDK Source**
+
+The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)

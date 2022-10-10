@@ -9,7 +9,8 @@ weight: 10
 Aspose.Slides for Cloud allows you to optionally specify fontsFolder Parameter for methods that convert presentations or their parts to other formats. The fontsFolder parameter allows you to specify the location at Aspose Cloud Storage where custom font files are uploaded.
 ## **Resource**
 The following Aspose.Slides for Cloud REST API resource has been used in the examples: [Presentation](https://apireference.aspose.cloud/slides/#!/SlidesDocument/SlidesDocument_PostSlidesSplit).
-## **cURL Example**
+## **Examples**
+**cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -44,8 +45,8 @@ curl -v "http://api.aspose.cloud/v3.0/slides/convert?format=pdf&fontsFolder=font
 
 {{< /tabs >}}
 
-## **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName9="Swift" >}}
+**SDK Examples**
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName9="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
