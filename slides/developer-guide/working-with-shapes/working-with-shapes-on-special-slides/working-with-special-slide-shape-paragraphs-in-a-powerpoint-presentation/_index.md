@@ -236,7 +236,7 @@ dto.alignment = "Right"
 portion = Portion()
 portion.text = "New paragraph"
 dto.portion_list = [ portion ]
-paragraph = api.create_special_slide_paragraph(file_name, slide_index, 'masterSlide', shape_index, None, dto)
+paragraph = api.create_special_slide_paragraph(file_name, slide_index, 'masterSlide', shape_index, dto)
 print(paragraph.alignment) #Right
 
 dto.alignment = "Center"

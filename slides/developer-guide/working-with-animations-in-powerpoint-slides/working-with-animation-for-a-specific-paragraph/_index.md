@@ -184,7 +184,7 @@ dto.paragraph_index = paragraph_index
 animation = api.create_animation_effect(file_name, slide_index, dto)
 
 animation = api.get_animation(file_name, slide_index, shape_index, paragraph_index)
-print(len(animation.main_sequence)) //1
+print(f"{ len(animation.main_sequence) }") #1
 ```
 
 {{< /tab >}}

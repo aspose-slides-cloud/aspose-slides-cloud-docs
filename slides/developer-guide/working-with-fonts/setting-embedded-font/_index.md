@@ -64,7 +64,7 @@ Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false, null, null, null);
+FontsData response = api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false, null, null, null, null);
 
 System.out.println("Font " + response.getList().get(2).getFontName() + " has been embedded.");
 ```
@@ -240,7 +240,7 @@ Console.WriteLine("Font Calibri has been embedded.");
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-api.setEmbeddedFontOnline(file, "Calibri", false, null);
+api.setEmbeddedFontOnline(file, "Calibri", false, null, null);
 
 System.out.println("Font Calibri has been embedded.");
 ```

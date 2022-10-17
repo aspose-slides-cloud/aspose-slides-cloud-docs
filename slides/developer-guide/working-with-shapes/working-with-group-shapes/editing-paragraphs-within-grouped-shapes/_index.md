@@ -252,7 +252,8 @@ print "Italic style: " + updated_paragraph.default_portion_format.font_italic
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.paragraph import Paragraph
+from asposeslidescloud.models.portion_format import PortionFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

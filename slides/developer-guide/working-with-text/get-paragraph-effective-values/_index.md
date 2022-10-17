@@ -137,7 +137,7 @@ shape_index = 1
 paragraph_index = 1
 
 response = api.get_paragraph_effective("MyPresentation.pptx", slide_index, shape_index, paragraph_index)
-print("The default tab size is \"" + response.default_tab_size + "\".")
+print(f"The default tab size is \"{ response.default_tab_size }\".")
 ```
 
 {{< /tab >}}

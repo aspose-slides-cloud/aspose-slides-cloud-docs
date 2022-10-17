@@ -166,6 +166,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.portion import Portion
+from asposeslidescloud.models.solid_fill import SolidFill
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'

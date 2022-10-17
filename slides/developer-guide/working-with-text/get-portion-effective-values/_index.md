@@ -140,7 +140,7 @@ paragraph_index = 1
 portion_index = 1
 
 response = api.get_portion_effective("MyPresentation.pptx", slide_index, shape_index, paragraph_index, portion_index)
-print("The portion font height is \"" + response.font_height + "\".")
+print(f"The portion font height is \"{ response.font_height }\".")
 ```
 
 {{< /tab >}}

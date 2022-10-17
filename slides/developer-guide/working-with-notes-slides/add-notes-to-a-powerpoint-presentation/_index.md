@@ -138,14 +138,14 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare notes for the slide.
-        var notesSlide = new NotesSlide();
+        NotesSlide notesSlide = new NotesSlide();
         notesSlide.setText("Start with our company.");
 
         // Create the notes for the second slide.
-        var currentNotesSlide = slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder", null);
+        NotesSlide currentNotesSlide = slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder", null);
 
         // Print the resource reference for the notes slide.
         System.out.println(currentNotesSlide.getSelfUri().getHref());

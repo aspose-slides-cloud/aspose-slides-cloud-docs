@@ -218,7 +218,8 @@ File.binwrite("slide_3.tiff", tiff_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.slide_export_format import SlideExportFormat
+from asposeslidescloud.models.tiff_export_options import TiffExportOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
@@ -561,7 +562,8 @@ slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImage
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.slide_export_format import SlideExportFormat
+from asposeslidescloud.models.image_export_options import ImageExportOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
@@ -911,7 +913,8 @@ File.binwrite("slide_5.pdf", pdf_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.slide_export_format import SlideExportFormat
+from asposeslidescloud.models.pdf_export_options import PdfExportOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
@@ -1273,7 +1276,8 @@ slides_api.save_slide_online(file_data, 4, SlideExportFormat::SVG, "MyImages/sli
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.slide_export_format import SlideExportFormat
+from asposeslidescloud.models.svg_export_options import SvgExportOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 

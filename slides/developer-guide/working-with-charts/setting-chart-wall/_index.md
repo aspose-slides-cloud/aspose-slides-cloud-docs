@@ -141,6 +141,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.chart_wall import ChartWall
+from asposeslidescloud.models.solid_fill import SolidFill
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -151,9 +153,9 @@ slide_index = 8
 shape_index = 2
 
 wall = ChartWall()
-        fill_format = SolidFill()
-        fill_format.color = constant.COLOR
-        wall.fill_format = fill_format
+fill_format = SolidFill()
+fill_format.color = "#77CEF9"
+wall.fill_format = fill_format
 
 response = api.set_chart_wall("MyPresentation.pptx", slide_index, shape_index, "Backwall", wall)
 

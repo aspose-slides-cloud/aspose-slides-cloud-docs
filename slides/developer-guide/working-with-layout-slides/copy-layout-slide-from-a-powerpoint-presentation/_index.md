@@ -129,10 +129,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Copy the third layout slide.
-        var layoutSlide = slidesApi.copyLayoutSlide("MyPresentation.pptx", "MyTemplates/SalesTemplate.pptx", 3, null, null, null, "MyFolder", null);
+        LayoutSlide layoutSlide = slidesApi.copyLayoutSlide("MyPresentation.pptx", "MyTemplates/SalesTemplate.pptx", 3, null, null, null, "MyFolder", null);
 
         // Print the layout slide name.
         System.out.println(layoutSlide.getName());

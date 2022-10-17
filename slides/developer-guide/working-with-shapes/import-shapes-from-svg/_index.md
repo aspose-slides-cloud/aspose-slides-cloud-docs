@@ -75,7 +75,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 int slideIndex = 5;
 byte[] file = Files.readAllBytes(Paths.get("shapes.svg"));
 
-Shapes response = api.importShapesFromSvg("MyPresentation.pptx", slideIndex, file, 50, 50, 300, 300, Arrays.asList(1,3,5), null, null, null);
+Shapes response = api.importShapesFromSvg("MyPresentation.pptx", slideIndex, file, 50, 50, 300, 300, Arrays.asList(1,3,5), null, null, null, null);
 
 System.out.println("The slide contains " + response.getShapesLinks().size() + " shapes.");
 ```
@@ -134,7 +134,7 @@ with open("shapes.svg", 'rb') as f:
 
 response = api.import_shapes_from_svg("MyPresentation.pptx", slide_index, source, 50, 50, 300, 300, [1, 3, 5])
 
-print("The slide contains " +  len(response.shapes_links) + " shapes.")
+print(f"The slide contains { len(response.shapes_links) } shapes.")
 ```
 
 {{< /tab >}}

@@ -113,7 +113,7 @@ api = SlidesApi(configuration)
 with open("MyPresentation.pptx", 'rb') as f:
     input_file = f.read()
 
-result = api.replace_presentation_text(input_file, "banana", "orange", True)
+result = api.replace_presentation_text_online(input_file, "banana", "orange", True)
 print('The updated file was saved to ' + result)
 ```
 

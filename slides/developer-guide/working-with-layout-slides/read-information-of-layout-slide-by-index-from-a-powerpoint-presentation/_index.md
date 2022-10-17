@@ -119,10 +119,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information of the second layout slide.
-        var layoutSlide = slidesApi.getLayoutSlide("MyPresentation.pptx", 2, null, "MyFolder", null);
+        LayoutSlide layoutSlide = slidesApi.getLayoutSlide("MyPresentation.pptx", 2, null, "MyFolder", null);
 
         // Print the layout slide name.
         System.out.println((layoutSlide.getName()));

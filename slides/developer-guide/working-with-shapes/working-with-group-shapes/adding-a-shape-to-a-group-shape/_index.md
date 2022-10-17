@@ -301,7 +301,7 @@ print shape.self_uri.href
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.shape import Shape
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

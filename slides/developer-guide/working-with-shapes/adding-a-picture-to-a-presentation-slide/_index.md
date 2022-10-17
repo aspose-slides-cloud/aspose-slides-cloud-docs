@@ -322,7 +322,8 @@ import asposeslidescloud
 import base64
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.picture_frame import PictureFrame
+from asposeslidescloud.models.picture_fill import PictureFill
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

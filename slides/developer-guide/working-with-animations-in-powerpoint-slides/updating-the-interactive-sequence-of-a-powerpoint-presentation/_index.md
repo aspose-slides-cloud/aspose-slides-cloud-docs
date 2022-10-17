@@ -255,7 +255,7 @@ effect.trigger_type = "OnClick"
 dto.effects = [ effect ]
 
 result = api.create_animation_interactive_sequence("MyPresentation.pptx", 1, dto)
-for sequence in result.intercative_sequences:
+for sequence in result.interactive_sequences:
     print(sequence.trigger_shape_index)
 ```
 

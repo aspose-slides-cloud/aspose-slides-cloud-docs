@@ -88,8 +88,8 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract slide notes from the second slide as a PDF document.
-        using var pdfStream = slidesApi.DownloadNotesSlide("MyPresentation.pptx", 2, NotesSlideExportFormat.Pdf, folder: "MyFolder");
+        // Extract slide notes from the first slide as a PDF document.
+        using var pdfStream = slidesApi.DownloadNotesSlide("MyPresentation.pptx", 1, NotesSlideExportFormat.Pdf, folder: "MyFolder");
 
         // Save the PDF document to a file.
         using var fileStream = File.OpenWrite("SlideNotes2.pdf");
@@ -105,16 +105,17 @@ class Application
 ```java
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
+import java.nio.file.Files;
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract slide notes from the second slide as a PDF document.
-        var pdfFile = slidesApi.downloadNotesSlide("MyPresentation.pptx", 2, NotesSlideExportFormat.PDF, null, null, null, "MyFolder", null, null);
+        // Extract slide notes from the first slide as a PDF document.
+        File pdfFile = slidesApi.downloadNotesSlide("MyPresentation.pptx", 1, NotesSlideExportFormat.PDF, null, null, null, "MyFolder", null, null);
 
         System.out.println("The PDF document was saved to " + pdfFile.getPath());
     }
@@ -138,8 +139,8 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Extract slide notes from the second slide as a PDF document.
-$pdfFile = $slidesApi->downloadNotesSlide("MyPresentation.pptx", 2, NotesSlideExportFormat::PDF, null, null, null, "MyFolder");
+// Extract slide notes from the first slide as a PDF document.
+$pdfFile = $slidesApi->downloadNotesSlide("MyPresentation.pptx", 1, NotesSlideExportFormat::PDF, null, null, null, "MyFolder");
 
 echo "The PDF document was saved to ", $pdfFile->getPathname();
 ```
@@ -161,8 +162,8 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Extract slide notes from the second slide as a PDF document.
-pdf_data = slides_api.download_notes_slide("MyPresentation.pptx", 2, NotesSlideExportFormat::PDF, nil, nil, nil, "MyFolder")
+# Extract slide notes from the first slide as a PDF document.
+pdf_data = slides_api.download_notes_slide("MyPresentation.pptx", 1, NotesSlideExportFormat::PDF, nil, nil, nil, "MyFolder")
 
 # Save the PDF document to a file.
 File.binwrite("SlideNotes2.pdf", pdf_data)
@@ -178,12 +179,12 @@ File.binwrite("SlideNotes2.pdf", pdf_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.notes_slide_export_format import NotesSlideExportFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Extract slide notes from the second slide as a PDF document.
-pdf_file_path = slides_api.download_notes_slide("MyPresentation.pptx", 2, NotesSlideExportFormat.PDF, None, None, None, "MyFolder")
+# Extract slide notes from the first slide as a PDF document.
+pdf_file_path = slides_api.download_notes_slide("MyPresentation.pptx", 1, NotesSlideExportFormat.PDF, None, None, None, "MyFolder")
 
 print("The PDF document was saved to", pdf_file_path)
 ```
@@ -200,8 +201,8 @@ const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Extract slide notes from the second slide as a PDF document.
-slidesApi.downloadNotesSlide("MyPresentation.pptx", 2, "Pdf", null, null, null, "MyFolder").then((pdfFile) => {
+// Extract slide notes from the first slide as a PDF document.
+slidesApi.downloadNotesSlide("MyPresentation.pptx", 1, "Pdf", null, null, null, "MyFolder").then((pdfFile) => {
     // Save the PDF document to a file.
     fs.writeFile("SlideNotes2.pdf", pdfFile.body, (error) => {
         if (error) throw error
@@ -224,8 +225,8 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Extract slide notes from the second slide as a PDF document.
-    auto pdfContent = slidesApi->downloadNotesSlide(L"MyPresentation.pptx", 2, L"Pdf", NULL, NULL, L"", L"MyFolder").get();
+    // Extract slide notes from the first slide as a PDF document.
+    auto pdfContent = slidesApi->downloadNotesSlide(L"MyPresentation.pptx", 1, L"Pdf", NULL, NULL, L"", L"MyFolder").get();
 
     // Save the PDF document to a file.
     std::ofstream fileStream("SlideNotes2.pdf", std::ofstream::binary);
@@ -253,8 +254,8 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Extract slide notes from the second slide as a PDF document.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, format => "Pdf", folder => "MyFolder");
+# Extract slide notes from the first slide as a PDF document.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, format => "Pdf", folder => "MyFolder");
 my $pdf_data = $slides_api->download_notes_slide(%parameters);
 
 # Save the PDF document to a file.
@@ -351,9 +352,9 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract slide notes from the second slide as an XPS document.
+        // Extract slide notes from the first slide as an XPS document.
         using var pptStream = File.OpenRead("MyPresentation.pptx");
-        using var xpsStream = slidesApi.DownloadNotesSlideOnline(pptStream, 2, NotesSlideExportFormat.Xps);
+        using var xpsStream = slidesApi.DownloadNotesSlideOnline(pptStream, 1, NotesSlideExportFormat.Xps);
 
         // Save the XPS document to a file.
         using var fileStream = File.OpenWrite("SlideNotes2.xps");
@@ -379,11 +380,11 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Extract slide notes from the second slide as an XPS document.
-        var pptData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var xpsFile = slidesApi.downloadNotesSlideOnline(pptData, 2, NotesSlideExportFormat.XPS, null, null, null, null);
+        // Extract slide notes from the first slide as an XPS document.
+        byte[] pptData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File xpsFile = slidesApi.downloadNotesSlideOnline(pptData, 1, NotesSlideExportFormat.XPS, null, null, null, null);
 
         System.out.println("The XPS document was saved to " + xpsFile.getPath());
     }
@@ -407,9 +408,9 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Extract slide notes from the second slide as an XPS document.
+// Extract slide notes from the first slide as an XPS document.
 $pptStream = fopen("MyPresentation.pptx", 'r');
-$xpsFile = $slidesApi->downloadNotesSlideOnline($pptStream, 2, NotesSlideExportFormat::XPS);
+$xpsFile = $slidesApi->downloadNotesSlideOnline($pptStream, 1, NotesSlideExportFormat::XPS);
 
 echo "The XPS document was saved to ", $xpsFile->getPathname();
 ```
@@ -431,9 +432,9 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Extract slide notes from the second slide as an XPS document.
+# Extract slide notes from the first slide as an XPS document.
 ppt_data = File.binread("MyPresentation.pptx")
-xps_data = slides_api.download_notes_slide_online(ppt_data, 2, NotesSlideExportFormat::XPS)
+xps_data = slides_api.download_notes_slide_online(ppt_data, 1, NotesSlideExportFormat::XPS)
 
 # Save the XPS document to a file.
 File.binwrite("SlideNotes2.xps", xps_data)
@@ -449,13 +450,13 @@ File.binwrite("SlideNotes2.xps", xps_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.notes_slide_export_format import NotesSlideExportFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Extract slide notes from the second slide as an XPS document.
+# Extract slide notes from the first slide as an XPS document.
 with open("MyPresentation.pptx", "rb") as ppt_stream:
-    xps_file_path = slides_api.download_notes_slide_online(ppt_stream, 2, NotesSlideExportFormat.XPS)
+    xps_file_path = slides_api.download_notes_slide_online(ppt_stream, 1, NotesSlideExportFormat.XPS)
 
 print("The XPS document was saved to", xps_file_path)
 ```
@@ -472,9 +473,9 @@ const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Extract slide notes from the second slide as an XPS document.
+// Extract slide notes from the first slide as an XPS document.
 const pptStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.downloadNotesSlideOnline(pptStream, 2, "Xps").then((xpsFile) => {
+slidesApi.downloadNotesSlideOnline(pptStream, 1, "Xps").then((xpsFile) => {
     // Save the XPS document to a file.
     fs.writeFile("SlideNotes2.xps", xpsFile.body, (error) => {
         if (error) throw error
@@ -502,8 +503,8 @@ int main()
     auto pptContent = std::make_shared<HttpContent>();
     pptContent->setData(pptStream);
 
-    // Extract slide notes from the second slide as an XPS document.
-    auto xpsContent = slidesApi->downloadNotesSlideOnline(pptContent, 2, L"Xps").get();
+    // Extract slide notes from the first slide as an XPS document.
+    auto xpsContent = slidesApi->downloadNotesSlideOnline(pptContent, 1, L"Xps").get();
 
     // Save the XPS document to a file.
     std::ofstream fileStream("SlideNotes2.xps", std::ofstream::binary);
@@ -531,9 +532,9 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Extract slide notes from the second slide as an XPS document.
+# Extract slide notes from the first slide as an XPS document.
 my $ppt_data = read_file("MyPresentation.pptx", { binmode => ":raw" });
-my %parameters = (document => $ppt_data, slide_index => 2, format => "Xps");
+my %parameters = (document => $ppt_data, slide_index => 1, format => "Xps");
 my $xps_data = $slides_api->download_notes_slide_online(%parameters);
 
 # Save the XPS document to a file.

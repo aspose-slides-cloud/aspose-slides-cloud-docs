@@ -600,7 +600,7 @@ request = OrderedMergeRequest.new
 request.presentations = [presentation1, presentation2, presentation3]
 
 # Merge the presentations and save the result to the specified path.
-slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, request, "MyStorage")
 ```
 
 {{< /tab >}}
@@ -613,7 +613,8 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, reques
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
+from asposeslidescloud.models.presentation_to_merge import PresentationToMerge
 
 slides_api = SlidesApi(None, "my_client_key", "my_client_secret")
 
@@ -645,7 +646,7 @@ request = OrderedMergeRequest()
 request.presentations = [presentation1, presentation2, presentation3]
 
 # Merge the presentations and save the result to the specified path.
-slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", request, request, "MyStorage")
+slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, request, "MyStorage")
 ```
 
 {{< /tab >}}

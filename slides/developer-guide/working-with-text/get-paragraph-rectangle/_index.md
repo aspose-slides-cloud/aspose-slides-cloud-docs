@@ -126,10 +126,10 @@ configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
 response = api.get_paragraph_rectangle("MyPresentation.pptx", 1, 2, 1)
-print("x: " + response.x)
-print("y: " + response.y)
-print("width: " + response.width)
-print("height: " + response.height)
+print(f"x: { response.x }")
+print(f"y: { response.y }")
+print(f"width: { response.width }")
+print(f"height: { response.height }")
 ```
 
 {{< /tab >}}

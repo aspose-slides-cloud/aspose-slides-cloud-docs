@@ -212,17 +212,17 @@ configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
 rule1 = FontFallbackRule()
-rule1.range_start_index = start_unicode_index
-rule1.range_end_index = end_unicode_index
+rule1.range_start_index = 0x0B80
+rule1.range_end_index = 0x0BFF
 rule1.fallback_font_list = ["Vijaya"]
 
 rule2 = FontFallbackRule()
-rule2.range_start_index = start_unicode_index
-rule2.range_end_index = end_unicode_index
+rule2.range_start_index = 0x0B80
+rule2.range_end_index = 0x0BFF
 rule2.fallback_font_list = ["Segoe UI Emoji", "Segoe UI Symbol", "Arial"]
 
 export_options = ImageExportOptions()
-export_options.font_fallback_rules([rule1, rule2])
+export_options.font_fallback_rules = [rule1, rule2]
 
 result = api.download_presentation("MyPresentation.pptx", ExportFormat.PNG, export_options)
 print('The converted file was saved to ' + result)

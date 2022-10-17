@@ -317,7 +317,7 @@ data_point11.y_value = 3
 data_point12 = ScatterChartDataPoint()
 data_point12.x_value = 2
 data_point12.y_value = 10
-series1.data_points = [ data_point11, data_point12 ])
+series1.data_points = [ data_point11, data_point12 ]
 
 series2 = ScatterSeries()
 data_point21 = ScatterChartDataPoint()
@@ -332,11 +332,11 @@ data_point23.y_value = 2
 data_point24 = ScatterChartDataPoint()
 data_point24.x_value = 5
 data_point24.y_value = 1
-series2.data_points = [ data_point21, data_point22, data_point23, data_point24 ])
+series2.data_points = [ data_point21, data_point22, data_point23, data_point24 ]
 dto.series = [ series1, series2 ]
 
 result = api.create_shape("MyPresentation.pptx", 1, dto)
-print(len(result.series[0]))
+print(str(len(result.series)))
 ```
 
 {{< /tab >}}

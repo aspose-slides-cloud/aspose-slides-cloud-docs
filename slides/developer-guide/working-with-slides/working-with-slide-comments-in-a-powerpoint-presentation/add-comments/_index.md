@@ -173,7 +173,7 @@ dto.author = "Author Name"
 child_comment = SlideComment()
 child_comment.text = "Child comment text"
 child_comment.author = "Author Name"
-dto.child_comments = [ childComment ]
+dto.child_comments = [ child_comment ]
 response = api.create_comment("MyPresentation.pptx", 3, dto)
 print("The slide has " + str(len(response.list)) + " comments")
 ```

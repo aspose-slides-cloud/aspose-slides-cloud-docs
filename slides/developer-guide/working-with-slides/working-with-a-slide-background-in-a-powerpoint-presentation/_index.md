@@ -567,7 +567,8 @@ import asposeslidescloud
 import base64
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.picture_fill import PictureFill
+from asposeslidescloud.models.slide_background import SlideBackground
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
@@ -899,7 +900,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 current_background = slides_api.delete_background("MyPresentation.pptx", 2, None, "MyFolder")
 
 # Check the type of the current background.
-print(current_background.type) # NoFill
+print(f"{current_background.type}") # NoFill
 ```
 
 {{< /tab >}}

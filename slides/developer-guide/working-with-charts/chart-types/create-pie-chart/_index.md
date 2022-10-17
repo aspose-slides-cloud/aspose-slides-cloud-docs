@@ -294,14 +294,14 @@ category3.value = 'Third'
 dto.categories = [ category1, category2, category3 ]
 
 series = OneValueSeries()
-series.is_color_varied = true
+series.is_color_varied = True
 data_point1 = OneValueChartDataPoint()
 data_point1.value = 20
 data_point2 = OneValueChartDataPoint()
 data_point2.value = 50
 data_point3 = OneValueChartDataPoint()
 data_point3.value = 30
-series.data_points = [ data_point1, data_point2, data_point3 ])
+series.data_points = [ data_point1, data_point2, data_point3 ]
 dto.series = [ series ]
 
 result = api.create_shape("MyPresentation.pptx", 1, dto)

@@ -131,10 +131,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read a theme from the third slide.
-        var slideTheme = slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder", null);
+        Theme slideTheme = slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder", null);
 
         // Print resource references to color scheme, font scheme and format scheme.
         System.out.println(slideTheme.getColorScheme().getHref());

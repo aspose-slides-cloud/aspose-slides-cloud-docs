@@ -167,7 +167,7 @@ hyperlink = Hyperlink()
 hyperlink.action_type = "JumpLastSlide"
 dto.hyperlink_mouse_over = hyperlink
 portion = api.update_portion(file_name, slide_index, shape_index, paragraph_index, portion_index, dto)
-print(portion.hyperlink_mouse_over.target_slide_index) //5
+print(f"{portion.hyperlink_mouse_over.target_slide_index}") #5
 ```
 
 {{< /tab >}}
