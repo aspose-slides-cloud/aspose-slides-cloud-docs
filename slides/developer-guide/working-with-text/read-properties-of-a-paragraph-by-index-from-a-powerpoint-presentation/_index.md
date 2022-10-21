@@ -25,6 +25,7 @@ This article shows you how you can read options of a paragraph by index from a P
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder where the presentation file is located.|
 |storage|string|query|false|The storage where the presentation file is located.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -163,7 +164,7 @@ public class Main {
 
             // Get properties of the specified paragraph.
             Paragraph paragraph = slidesApi.getParagraph(
-                fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+                fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName, null);
 
             // Display some paragraph properties.
             System.out.println("Text alignment: " + paragraph.getAlignment());

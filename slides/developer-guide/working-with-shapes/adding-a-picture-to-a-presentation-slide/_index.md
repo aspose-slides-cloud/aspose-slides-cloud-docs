@@ -225,7 +225,7 @@ public class Application {
         pictureFrame.getPictureFillFormat().setPictureFillMode(PictureFill.PictureFillModeEnum.TILE);
 
         // Add the picture to the second slide.
-        ShapeBase pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null);
+        ShapeBase pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null, null);
 
         // Print a reference to the picture frame.
         System.out.println(pictureInfo.getSelfUri().getHref());

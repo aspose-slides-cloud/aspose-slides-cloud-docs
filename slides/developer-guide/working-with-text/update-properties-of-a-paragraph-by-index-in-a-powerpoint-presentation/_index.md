@@ -145,7 +145,7 @@ public class Main {
         String password = "";
 
         // Get a paragraph from the presentation.
-        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName, null);
 
         // Change some paragraph settings.
         paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);
@@ -153,7 +153,7 @@ public class Main {
         paragraph.setSpaceBefore(-20.0); // The negative value means it is in points.
 
         // Update the paragraph settings.
-        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName, null);
     }
 }
 ```
@@ -294,7 +294,7 @@ public class Main {
         String password = "";
 
         // Get a paragraph from the presentation.
-        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName);
+        Paragraph paragraph = slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName, null);
 
         // Change some paragraph settings.
         paragraph.setAlignment(Paragraph.AlignmentEnum.JUSTIFY);
@@ -302,7 +302,7 @@ public class Main {
         paragraph.setSpaceBefore(-20.0); // The negative value means it is in points.
 
         // Update the paragraph settings.
-        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName);
+        slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName, null);
     }
 }
 ```

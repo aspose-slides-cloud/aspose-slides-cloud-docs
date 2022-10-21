@@ -103,7 +103,7 @@ Shape shape = new Shape();
 Hyperlink hyperlink = new Hyperlink();
 hyperlink.setIsDisabled(true);
 shape.setHyperlinkClick(hyperlink);
-Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null);
+Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null, null);
 System.out.println(updatedShape.getHyperlinkClick() == null); //true
 ```
 

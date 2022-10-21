@@ -102,7 +102,7 @@ Portion dto = new Portion();
 Hyperlink hyperlink = new Hyperlink();
 hyperlink.setActionType(Hyperlink.ActionTypeEnum.JUMPLASTSLIDE);
 dto.setHyperlinkMouseOver(hyperlink);
-Portion portion = api.updatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, null, null, null);
+Portion portion = api.updatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, null, null, null, null);
 System.out.println(portion.getHyperlinkMouseOver().getTargetSlideIndex()); //5
 ```
 

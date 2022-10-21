@@ -249,7 +249,7 @@ threeDFormat.setCamera(camera);
 textFrameFormat.setThreeDFormat(threeDFormat);
 dto.setTextFrameFormat(textFrameFormat);
 
-ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null);
+ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null, null);
 System.out.println(((Shape)shape).getText());
 ```
 
@@ -578,7 +578,7 @@ threeDFormat.camera = camera
 textFrameFormat.threeDFormat = threeDFormat
 dto.textFrameFormat = textFrameFormat
 
-shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "")
+shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 }

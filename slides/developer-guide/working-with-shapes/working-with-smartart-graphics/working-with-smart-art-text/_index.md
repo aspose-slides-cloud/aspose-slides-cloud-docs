@@ -5,23 +5,23 @@ url: /working-with-smart-art-text/
 weight: 40
 ---
 ## **Introduction**
-You can manage text within a SmartArt node the same way as it works for sub-shapes. Instead of the path to the sub-shape, the path to the sub-node must be specified.
+You can manage text within a SmartArt node the same way as it works for sub-shapes. Instead of the path to the sub-shape, the path to the sub-node must be specified. The sub-node path is a string that contains node index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/nodes/1").
 
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|GET|Read shape paragraphs info| [GetSubshapeParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/GetSubshapeParagraphs)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|POST|Creates new paragraph|[CreateSubshapeParagraph](https://apireference.aspose.cloud/slides/#/Shapes/CreateSubshapeParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|DELETE|Remove a range of paragraps|[DeleteSubshapeParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapeParagraphs)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}|GET|Read shape paragraph info|[GetSubshapeParagraph](https://apireference.aspose.cloud/slides/#/Shapes/GetSubshapeParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}|PUT|Update paragraph properties|[UpdateSubshapeParagraph](https://apireference.aspose.cloud/slides/#/Shapes/UpdateSubshapeParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}|DELETE|Remove a paragraph|[DeleteSubshapeParagraph](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapeParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions|GET|Read paragraph portions info|[GetSubshapePortions](https://apireference.aspose.cloud/slides/#/Shapes/GetSubshapePortions)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions|POST|Creates new portion|[CreateSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/CreateSubshapePortion)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions|DELETE| Remove a range of portions|[DeleteSubshapePortions](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapePortions)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}|GET|Read paragraph portion info|[GetSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/GetSubshapePortion)|
-​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{path}​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|PUT|Update portion properties|[UpdateSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/UpdateSubshapePortion)|
-​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{path}​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|DELETE|Remove a portion|[DeleteSubshapePortion](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapePortion)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs|GET|Read shape paragraphs info| [GetParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraphs)|
+/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|POST|Creates new paragraph|[CreateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/CreateParagraph)|
+/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|DELETE|Remove a range of paragraps|[DeleteParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraphs)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|GET|Read shape paragraph info|[GetParagraph](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraph)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|PUT|Update paragraph properties|[UpdateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/UpdateParagraph)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|DELETE|Remove a paragraph|[DeleteParagraph](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraph)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|GET|Read paragraph portions info|[GetPortions](https://apireference.aspose.cloud/slides/#/Shapes/GetPortions)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|POST|Creates new portion|[CreatePortion](https://apireference.aspose.cloud/slides/#/Shapes/CreatePortion)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|DELETE| Remove a range of portions|[DeletePortions](https://apireference.aspose.cloud/slides/#/Shapes/DeletePortions)|
+/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}|GET|Read paragraph portion info|[GetPortion](https://apireference.aspose.cloud/slides/#/Shapes/GetPortion)|
+​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|PUT|Update portion properties|[UpdatePortion](https://apireference.aspose.cloud/slides/#/Shapes/UpdatePortion)|
+​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|DELETE|Remove a portion|[DeletePortion](https://apireference.aspose.cloud/slides/#/Shapes/DeletePortion)|
 ### **cURL Example**
 The code example below shows how to update a text portion in an existing SmartArt object. 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
@@ -35,7 +35,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 **Update the portion**
 ```sh
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/nodes/1/nodes/1/paragraphs/1/portions/1" -d @"portion.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/1/portions/1?subshape=1/nodes/1" -d @"portion.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
 ```
 
 portion.json
@@ -80,13 +80,13 @@ Portion portion = new Portion()
     FillFormat = new SolidFill() { Color = "#FFFFFF00" }
 };
 
-string targetNodePath = "1/nodes/1/nodes";
+string subNodePath = "1/nodes/2";
 int slideIndex = 7;
-int nodeIndex = 2;
+int nodeIndex = 1;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portion response = api.UpdateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, nodeIndex, paragraphIndex, portionIndex, portion);
+Portion response = api.UpdatePortion("MyPresentation.pptx", slideIndex, nodeIndex, paragraphIndex, portionIndex, portion, subShape: subNodePath);
 
 Console.WriteLine($"The portion with text \"{response.Text}\" has been updated");
 ```
@@ -106,13 +106,13 @@ SolidFill fillFormat = new SolidFill();
 fillFormat.setColor("#FFFFFF00");
 portion.setFillFormat(fillFormat);
 
-String targetNodePath = "1/nodes/1/nodes";
+String subNodePath = "1/nodes/2";
 int slideIndex = 7;
-int nodeIndex = 2;
+int nodeIndex = 1;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portion response = api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion, null, null, null);
+Portion response = api.updatePortion("MyPresentation.pptx", slideIndex, 1, 1, 1, portion, null, null, null, subNodePath);
 
 System.out.println("The portion with text \"" + response.getText() + "\" has been updated");
 ```
@@ -140,9 +140,9 @@ $fillFormat = new SolidFill();
 $fillFormat->setColor("#FFFFFF00");
 $portion->setFillFormat($fillFormat);
 
-$targetNodePath = "1/nodes/1/nodes";
+$subNodePath = "1/nodes/2";
 $slideIndex = 7;
-$response = $api->updateSubshapePortion("MyPresentation.pptx", $slideIndex, $targetNodePath, 2, 1, 1, $portion);
+$response = $api->updatePortion("MyPresentation.pptx", $slideIndex, 1, 1, 1, $portion, null, null, null, $subNodePath);
 print("The portion with text \"" . $response->getText() . "\" has been updated");
 ```
 
@@ -183,9 +183,9 @@ fill_format = SolidFill()
 fill_format.color = "#FFFFFF00"
 portion.fill_format = fill_format
 
-target_node_path = "1/nodes/1/nodes"
+sub_node = "1/nodes/2"
 slide_index = 7
-response = api.update_subshape_portion("MyPresentation.pptx", slide_index, target_node_path, 2, 1, 1, portion)
+response = api.update_portion("MyPresentation.pptx", slide_index, 1, 1, 1, portion, None, None, None, sub_node)
 print("The portion with text \"" + response.text + "\" has been updated")
 ```
 
@@ -205,10 +205,10 @@ const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#FFFFFF00";
 portion.fillFormat = fillFormat;
 
-const targetNodePath = "1/nodes/1/nodes";
+const subNodePath = "1/nodes/2";
 const slideIndex = 7;
 
-const response = await api.updateSubshapePortion("MyPresentation.pptx", slideIndex, targetNodePath, 2, 1, 1, portion);
+const response = await api.updatePortion("MyPresentation.pptx", slideIndex, 1, 1, 1, portion, null, null, null, subNodePath);
 console.log("The portion with text \"" + response.body.text + "\" has been updated");
 ```
 {{< /tab >}}

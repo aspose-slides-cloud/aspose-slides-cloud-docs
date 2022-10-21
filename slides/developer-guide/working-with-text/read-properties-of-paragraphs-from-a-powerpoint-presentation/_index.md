@@ -24,6 +24,7 @@ This article shows how you can read the formatting properties of paragraphs from
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder where the presentation file is located.|
 |storage|string|query|false|The storage where the presentation file is located.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -146,7 +147,7 @@ public class Main {
             byte[] fileData = Files.readAllBytes(new File(fileName).toPath());
             slidesApi.uploadFile(filePath, fileData, storageName);
 
-            Paragraphs paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
+            Paragraphs paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName, null);
             int paragraphCount = paragraphs.getParagraphLinks().size();
             System.out.println(paragraphCount);
         } catch (Exception e) {
@@ -307,7 +308,7 @@ public class Main {
             var fileData = Files.readAllBytes(new File(fileName).toPath());
             slidesApi.uploadFile(filePath, fileData, storageName);
 
-            var paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName);
+            var paragraphs = slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName, null);
             var paragraphCount = paragraphs.getParagraphLinks().size();
             System.out.println(paragraphCount);
         } catch (Exception e) {

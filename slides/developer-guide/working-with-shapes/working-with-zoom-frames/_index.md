@@ -119,7 +119,7 @@ dto.setY(20.0);
 dto.setWidth(200.0);
 dto.setHeight(100.0);
 dto.setTargetSlideIndex(2);
-ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null);
+ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null, null);
 System.out.println(((ZoomFrame)shape).getTargetSlideIndex());
 ```
 

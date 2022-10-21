@@ -27,6 +27,7 @@ This article shows you how to get a particular shape from a PowerPoint document 
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -176,7 +177,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get the second shape from the third slide.
-        ShapeBase shape = slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder", null, null);
 
         // Print the resource URI, position and size of the shape.
         System.out.printf("Resource reference: %s\n", shape.getSelfUri().getHref());
