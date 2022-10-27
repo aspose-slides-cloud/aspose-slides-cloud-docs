@@ -1,11 +1,11 @@
 ---
 title: "Working with Slide Show Properties"
 type: docs
-url: /working-with-sldies-show-properties/
+url: /working-with-slide-show-properties/
 weight: 70
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows reading and updating slide show properties of the presentation. 
+Aspose.Slides Cloud API allows reading and updating slide show properties of a presentation. 
 
 ## **GetSlideShowProperties**
 ### **API Information**
