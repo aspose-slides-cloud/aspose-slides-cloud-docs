@@ -8,31 +8,7 @@ weight: 50
 
 ## **Introduction**
 
-This article shows you how to format and edit paragraphs within a grouped shape using Aspose.Slides Cloud API in your applications. The following method allows you to specify a path to a shape inside a group shape and change properties of a paragraph inside the specified shape. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/shapes/1").
-
-## **UpdateParagraph**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|PUT|Updates properties of a paragraph in a shape.|[UpdateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/UpdateParagraph)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide containing the group shape.|
-|shapeIndex|integer|path|true|The 1-based index of the shape contained in the group shape.|
-|paragraphIndex|integer|path|true|The 1-based index of the paragraph to update.|
-|dto|object|body|true|The DTO containing the paragraph properties.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+This article shows you how to format and edit paragraphs within a grouped shape using Aspose.Slides Cloud API in your applications. **UpdateParagraph** method has an optional **subShape** parameter that allows to specify path to the sub-shape that contains the target pararaph. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1").
 
 ### **Examples**
 

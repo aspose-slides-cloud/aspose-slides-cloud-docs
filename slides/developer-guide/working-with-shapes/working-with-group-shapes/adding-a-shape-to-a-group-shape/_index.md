@@ -8,32 +8,8 @@ weight: 20
 
 ## **Introduction**
 
-This article shows you how to create a shape and immediately add it to a shape group in a PowerPoint presentation using Aspose.Slides for Cloud API in your applications. The following method allows you to specify a path to the shape group where the new shape will be added. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/shapes/1").
+This article shows you how to create a shape and immediately add it to a shape group in a PowerPoint presentation using Aspose.Slides for Cloud API in your applications. **CreateShape** method has an optional **subShape** parameter that allows to specify path to the shape that will be the parent for the new shape. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1").
 You should pass a data transfer object for the new shape to the method parameters or specify an index of the shape that you want to clone.
-
-## **CreateShape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes|POST|Creates a new shape.|[CreateShape](https://apireference.aspose.cloud/slides/#/Shapes/CreateShape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide with the shape group.|
-|dto|object|body|false|The data transfer object for the new shape.|
-|shapeToClone|integer|query|false|The 1-based index of the shape to be cloned.|
-|position|integer|query|false|The 1-based index of the new shape in the group. By default, the shape is added to the end.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ### **Examples**
 

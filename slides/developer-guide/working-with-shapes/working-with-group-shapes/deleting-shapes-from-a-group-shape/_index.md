@@ -8,29 +8,7 @@ weight: 40
 
 ## **Introduction**
 
-This article shows you how to delete shapes from a group shape using Aspose.Slides Cloud API in your applications. The following methods allow you to specify a path to a group shape or subgroup from which you want to delete one or more shapes. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/shapes/1").
-
-## **DeleteShape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}|DELETE|Deletes a shape.|[DeleteShape](https://apireference.aspose.cloud/slides/#/Shapes/DeleteShape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide with the group shape.|
-|shapeIndex|integer|path|true|The 1-based index of the shape to delete.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+This article shows you how to delete shapes from a group shape using Aspose.Slides Cloud API in your applications. **DeleteShape** method has an optional **subShape** parameter that allows to specify path to the sub-shape to be deleted. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1").
 
 ### **Examples**
 

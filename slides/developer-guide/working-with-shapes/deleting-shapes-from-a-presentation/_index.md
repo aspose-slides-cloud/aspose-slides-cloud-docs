@@ -28,7 +28,7 @@ With Aspose.Slides Cloud, you can easily delete shapes from a PowerPoint present
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2")
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 

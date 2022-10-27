@@ -8,30 +8,7 @@ weight: 30
 
 ## **Introduction**
 
-This article shows you how to update shape properties inside a group shape using Aspose.Slides Cloud API in your applications. The following method allows you to specify a path to a shape group, a shape index, and transfer shape properties to update. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/shapes/1"). The shape properties that need to be updated depend on the shape type.
-
-## **UpdateShape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{{shapeIndex}|PUT|Updates shape properties.|[UpdateShape](https://apireference.aspose.cloud/slides/#/Shapes/UpdateShape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide containing the group shape.|
-|shapeIndex|integer|path|true|The 1-based index of the shape to update.|
-|dto|object|body|true|The transfer object with new data for the shape.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+This article shows you how to update shape properties inside a group shape using Aspose.Slides Cloud API in your applications. **UpdateShape** method has an optional **subShape** parameter that allows to specify path to the sub-shape to be updated. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1"). The shape properties that need to be updated depend on the shape type.
 
 ### **Examples**
 

@@ -8,29 +8,9 @@ weight: 10
 
 ## **Introduction**
 
-A group shape is a container for other shapes. This article shows you how to extract a shape from the group shape using Aspose.Slides Cloud API in your applications. The following method allows you to specify a path to the shape group and index of the shape to retrieve. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/shapes/1"). The returned object and shape data depend on the shape type.
+A group shape is a container for other shapes. This article shows you how to extract a shape from the group shape using Aspose.Slides Cloud API in your applications.
 
-## **GetShape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}|GET|Extracts a shape.|[GetShape](https://apireference.aspose.cloud/slides/#/Shapes/GetShape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide containing the group shape.|
-|shapeIndex|integer|path|true|The 1-based index of the shape to extract.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+**GetShape** method has an optional **subShape** parameter that allows to specify path to the sub-shape to be retrieved. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1"). The returned object and shape data depend on the shape type.
 
 {{% alert color="primary" %}} 
 
