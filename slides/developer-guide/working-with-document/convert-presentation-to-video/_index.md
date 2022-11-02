@@ -143,13 +143,18 @@ import asposeslidescloud
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.export_format import ExportFormat
+from asposeslidescloud.models.video_export_options import VideoExportOptions
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-#The example will be completed shortly.
+export_options = VideoExportOptions()
+export_options.slides_transition_duration = 5
+export_options.video_resolution_type = 'SD'
+export_options.transition_type = 'Dissolve'
+export_options.transition_duration = 3
 
 result = api.download_presentation("MyPresentation.pptx", ExportFormat.MPEG4, export_options)
 print('The converted file was saved to ' + result)

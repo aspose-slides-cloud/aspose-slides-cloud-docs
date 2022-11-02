@@ -358,7 +358,8 @@ print response.self_uri.href
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
+from asposeslidescloud.models.presentation_to_merge import PresentationToMerge
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 

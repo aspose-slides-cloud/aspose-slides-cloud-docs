@@ -8,37 +8,8 @@ weight: 20
 
 ## **Introduction**
 
-This article shows you how to create a shape and immediately add it to a shape group in a PowerPoint presentation using Aspose.Slides for Cloud API in your applications. The following method allows you to specify a path to the shape group where the new shape will be added. You should pass a data transfer object for the new shape to the method parameters or specify an index of the shape that you want to clone.
-
-## **CreateSubshape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{path}|POST|Creates a new shape and adds it to a shape group.|[CreateSubshape](https://apireference.aspose.cloud/slides/#/Shapes/CreateSubshape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide with the shape group.|
-|path|string|path|true|The path to the shape group, relative to the slide.|
-|dto|object|body|false|The data transfer object for the new shape.|
-|shapeToClone|integer|query|false|The 1-based index of the shape to be cloned.|
-|position|integer|query|false|The 1-based index of the new shape in the group. By default, the shape is added to the end.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-
-{{% alert color="primary" %}} 
-
-For more information about the `path` parameter, see [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
-
-{{% /alert %}}
+This article shows you how to create a shape and immediately add it to a shape group in a PowerPoint presentation using Aspose.Slides for Cloud API in your applications. **CreateShape** method has an optional **subShape** parameter that allows to specify path to the shape that will be the parent for the new shape. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1").
+You should pass a data transfer object for the new shape to the method parameters or specify an index of the shape that you want to clone.
 
 ### **Examples**
 
@@ -61,7 +32,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Add the Shape to the Group**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/3/shapes?folder=MyFolder" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes?folder=MyFolder&subshape=4" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @RequestData.json
@@ -187,7 +158,7 @@ class Application
         };
 
         // Create the shape and add it to the shape group that has an index of 4.
-        var shape = slidesApi.CreateSubshape("MyPresentation.pptx", 1, "4/shapes", square, folder: "MyFolder");
+        var shape = slidesApi.CreateShape("MyPresentation.pptx", 1, square, folder: "MyFolder", subShape: "4");
 
         // Print the resource reference to the shape.
         Console.WriteLine(shape.SelfUri.Href);
@@ -219,7 +190,7 @@ public class Application {
         square.setHeight(100.0);
 
         // Create the shape and add it to the shape group that has an index of 4.
-        ShapeBase shape = slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.createShape("MyPresentation.pptx", 1, square, null, null, null, "MyFolder", null, "4");
 
         // Print the resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());
@@ -253,7 +224,7 @@ $square->setWidth(100);
 $square->setHeight(100);
 
 // Create the shape and add it to the shape group that has an index of 4.
-$shape = $slidesApi->createSubshape("MyPresentation.pptx", 1, "4/shapes", $square, null, null, null, "MyFolder");
+$shape = $slidesApi->createShape("MyPresentation.pptx", 1, $square, null, null, null, "MyFolder", null, "4");
 
 // Print the resource reference to the shape.
 print($shape->getSelfUri()->getHref());
@@ -285,7 +256,7 @@ square.width = 100
 square.height = 100
 
 # Create the shape and add it to the shape group that has an index of 4.
-shape = slides_api.create_subshape("MyPresentation.pptx", 1, "4/shapes", square, nil, nil, nil, "MyFolder")
+shape = slides_api.create_shape("MyPresentation.pptx", 1, square, nil, nil, nil, "MyFolder", nil, "4")
 
 # Print the resource reference to the shape.
 print shape.self_uri.href
@@ -301,7 +272,7 @@ print shape.self_uri.href
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.shape import Shape
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
@@ -314,7 +285,7 @@ square.width = 100
 square.height = 100
 
 # Create the shape and add it to the shape group that has an index of 4.
-shape = slides_api.create_subshape("MyPresentation.pptx", 1, "4/shapes", square, None, None, None, "MyFolder")
+shape = slides_api.create_shape("MyPresentation.pptx", 1, square, None, None, None, "MyFolder", None, "4")
 
 # Print the resource reference to the shape.
 print(shape.self_uri.href)
@@ -340,7 +311,7 @@ square.width = 100
 square.height = 100
 
 // Create the shape and add it to the shape group that has an index of 4.
-slidesApi.createSubshape("MyPresentation.pptx", 1, "4/shapes", square, null, null, null, "MyFolder").then((shape) => {
+slidesApi.createShape("MyPresentation.pptx", 1, square, null, null, null, "MyFolder", null, "4").then((shape) => {
     // Print the resource reference to the shape.
     console.log(shape.body.selfUri.href)
 })
@@ -370,7 +341,7 @@ int main()
     square->setHeight(100);
 
     // Create the shape and add it to the shape group that has an index of 4.
-    auto shape = slidesApi->createSubshape(L"MyPresentation.pptx", 1, L"4/shapes", square, boost::none, boost::none, L"", L"MyFolder").get();
+    auto shape = slidesApi->createShape(L"MyPresentation.pptx", 1, square, boost::none, boost::none, L"", L"MyFolder", L"", L"4").get();
 
     // Print the resource reference to the shape.
     std::wcout << shape->getSelfUri()->getHref();
@@ -407,8 +378,8 @@ $square->{width} = 100;
 $square->{height} = 100;
 
 # Create the shape and add it to the shape group that has an index of 4.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", dto => $square, folder => "MyFolder");
-my $shape = $slides_api->create_subshape(%parameters);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, dto => $square, folder => "MyFolder", sub_shape=>"4");
+my $shape = $slides_api->create_shape(%parameters);
 
 # Print the resource reference to the shape.
 print($shape->{self_uri}->{href});

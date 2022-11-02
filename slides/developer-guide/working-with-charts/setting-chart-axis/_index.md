@@ -141,6 +141,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.axis import Axis
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -150,9 +151,14 @@ api = SlidesApi(configuration)
 slide_index = 3
 shape_index = 1
 
+axis = Axis()
+axis.has_title = True
+axis.is_automatic_max_value = False
+axis.max_value = 10
+
 response = api.set_chart_axis("MyPresentation.pptx", slide_index, shape_index, "VerticalAxis", axis)
 
-print("The maximum value on the axis equals \"" + response.max_value + "\".")
+print(f"The maximum value on the axis equals \"{ response.max_value }\".")
 ```
 
 {{< /tab >}}

@@ -103,7 +103,7 @@ Shape shape = new Shape();
 Hyperlink hyperlink = new Hyperlink();
 hyperlink.setIsDisabled(true);
 shape.setHyperlinkClick(hyperlink);
-Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null);
+Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null, null);
 System.out.println(updatedShape.getHyperlinkClick() == null); //true
 ```
 
@@ -164,7 +164,7 @@ hyperlink = Hyperlink()
 hyperlink.is_disabled = True
 shape.hyperlink_click = hyperlink
 updated_shape = api.update_shape(file_name, slide_index, shape_index, shape)
-print(len(updated_shape.hyperlink_click == None)) #True
+print(updated_shape.hyperlink_click == None) #True
 ```
 
 {{< /tab >}}

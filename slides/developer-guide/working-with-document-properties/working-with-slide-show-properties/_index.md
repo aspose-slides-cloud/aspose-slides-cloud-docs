@@ -1,22 +1,22 @@
 ---
-title: "Setting Embedded Font"
+title: "Working with Slide Show Properties"
 type: docs
-url: /setting-embedded-font/
-weight: 30
+url: /working-with-slide-show-properties/
+weight: 70
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows embedding a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
+Aspose.Slides Cloud API allows reading and updating slide show properties of a presentation. 
 
-## **SetEmbeddedFont**
+## **GetSlideShowProperties**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation fonts info.|[SetEmbeddedFont]()
+/slides/{name}/slideShowProperties|GET|Read presentation slide show properties.|[GetSlideShowProperties]()|
 
 ### **Examples**
 **cURL Example**
 
-The code examples below show how to embed fonts in a presentation in the storage.
+The code examples below shows how to retrieve slide show properties from the presentation. 
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -28,7 +28,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/calibri" -H "Authorization: Bearer [Access Token]"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" -H "Authorization: Bearer [Access Token]"
 ```
 
 {{< /tab >}}
@@ -38,7 +38,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/emb
 ```sh
 
 Code: 200
-Returns presentation fonts info.
+Returns slide show properties data.
 
 ```
 {{< /tab >}}
@@ -53,9 +53,10 @@ Returns presentation fonts info.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.SetEmbeddedFont("MyPresentation.pptx", "Calibri", false);
+SlideShowProperties response = TestUtils.SlidesApi.GetSlideShowProperties("MyPresentation.pptx")
 
-Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
+if (response.ShowAnimation)
+	Console.WriteLine("Animation enabled.");
 ```
 
 {{< /tab >}}
@@ -64,9 +65,10 @@ Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false, null, null, null, null);
+SlideShowProperties response = api.getSlideShowProperties("MyPresentation.pptx", null, null, null);
 
-System.out.println("Font " + response.getList().get(2).getFontName() + " has been embedded.");
+if (response.isShowAnimation())
+	System.out.println("Animation enabled.");
 ```
 
 {{< /tab >}}
@@ -75,16 +77,17 @@ System.out.println("Font " + response.getList().get(2).getFontName() + " has bee
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\FontsData;
+use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->setEmbeddedFont("MyPresentation.pptx", "Calibri", false);
+$result = $api->getSlideShowProperties("MyPresentation.pptx");
 
-print("Font " . $result->getList()[2]->getFontName() . " has been embedded.");
+if ($response->getShowAnimation())
+	print("Animation enabled.");
 ```
 
 {{< /tab >}}
@@ -96,7 +99,11 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+response = api.get_slide_show_properties("MyPresentation.pptx")
+
+if response.show_animation
+	print "Animation enabled."
+end
 ```
 
 {{< /tab >}}
@@ -113,9 +120,9 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.set_embedded_font("MyPresentation.pptx", "Calibri", False)
-
-print("Font " + response.list[2].font_name + " has been embedded.")
+response = api.get_slide_show_properties("MyPresentation.pptx")
+if response.show_animation:
+	print("Animation enabled.")
 ```
 
 {{< /tab >}}
@@ -125,9 +132,10 @@ print("Font " + response.list[2].font_name + " has been embedded.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false);
-            
-console.log("Font " + result.body.list[2].fontName + " has been embedded.");
+let result = await api.getSlideShowProperties("MyPresentation.pptx");
+
+if ((response.body as model.SlideShowProperties).showAnimation)
+	console.log("Animation enabled.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -139,15 +147,15 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-fontName := "Calibri"
-var onlyUsed bool = false
-response, _, e := api.SetEmbeddedFont(fileName, fontName, &onlyUsed, "", "", "")
+response, _, e := api.GetSlideShowProperties(fileName, "", "", "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Font " + response.GetList()[2].GetFontName() + " has been embedded.")
+if response.GetShowAnimation() {
+	fmt.Printf("Animation enabled.")
+}
 ```
 
 {{< /tab >}}
@@ -179,16 +187,17 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tabs >}}
 
 
-## **SetEmbeddedFontOnline**
+## **SetSlideShowProperties**
+
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation.|[SetEmbeddedFontOnline]()|
+/slides/{name}/slideShowProperties|PUT|Update presentation slide show properties.|[SetSlideShowProperties]()|
 
 ### **Examples**
 **cURL Example**
 
-The code examples below show how to embed fonts in a presentation in the request body.
+The code examples below shows how to set slide show properties of the presentation.
 
 {{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
@@ -200,10 +209,22 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" \
 -H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx"
+-H "Content-Type: application/json" \
+-d @request_data.json
 ```
+
+request_data.json content:
+
+```json
+{
+  "Loop": false,
+  "useTimings": false,
+  "slideShowType": "PresentedBySpeaker"
+}
+```
+
 
 {{< /tab >}}
 
@@ -212,12 +233,14 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri" \
 
 ```sh
 
-Document with embedded font.
+Code: 200
+Returns slide show properties data.
 
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
+
 
 **SDK Examples**
 
@@ -227,10 +250,16 @@ Document with embedded font.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Stream file = File.OpenRead("MyPresentation.pptx");
-api.SetEmbeddedFontOnline(file, "Calibri", false);
+SlideShowProperties properties = new SlideShowProperties()
+{
+	Loop = true,
+	UseTimings = true,
+	SlideShowType = SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker
+};
 
-Console.WriteLine("Font Calibri has been embedded.");
+SlideShowProperties response = TestUtils.SlidesApi.SetSlideShowProperties("MyPresentation.pptx", dto)
+
+Console.WriteLine("Slide show properties were successfully set.");
 ```
 
 {{< /tab >}}
@@ -239,10 +268,14 @@ Console.WriteLine("Font Calibri has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-api.setEmbeddedFontOnline(file, "Calibri", false, null, null);
+SlideShowProperties dto = new SlideShowProperties();
+dto.setLoop(true);
+dto.setUseTimings(true);
+dto.slideShowType(SlideShowProperties.SlideShowTypeEnum.PRESENTEDBYSPEAKER);
 
-System.out.println("Font Calibri has been embedded.");
+SlideShowProperties response = api.setSlideShowProperties("MyPresentation.pptx", dto, null, null, null);
+
+System.out.println("Slide show properties were successfully set.");
 ```
 
 {{< /tab >}}
@@ -251,17 +284,21 @@ System.out.println("Font Calibri has been embedded.");
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\FontsData;
+use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$file = fopen("MyPresentation.pptx", 'r');
-$api->setEmbeddedFontOnline($file, "Calibri", false);
+$dto = new SlideShowProperties();
+$dto->setLoop(true);
+$dto->setUseTimings(true);
+$dto->setSlideShowType('PresentedBySpeaker');
 
-print("Font Calibri has been embedded.");
+$result = $api->setSlideShowProperties("MyPresentation.pptx", $dto);
+
+print("Slide show properties were successfully set.");
 ```
 
 {{< /tab >}}
@@ -273,7 +310,13 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+dto = AsposeSlidesCloud::SlideShowProperties.new
+dto.loop = true
+dto.slide_show_type = "PresentedBySpeaker"
+      
+response = api.set_slide_show_properties("MyPresentation.pptx", dto)
+
+print "Slide show properties were successfully set."
 ```
 
 {{< /tab >}}
@@ -290,12 +333,14 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-with open("MyPresentation.pptx", 'rb') as f:
-    source = f.read()
+dto = SlideShowProperties()
+dto.loop = True
+dto.use_timings = True
+dto.slide_show_type = "PresentedBySpeaker"
+        
+response = api.set_slide_show_properties("MyPresentation.pptx", dto)
 
-api.set_embedded_font_online(source, "Calibri", False)
-
-print("Font Calibri has been embedded.")
+print("Slide show properties were successfully set.")
 ```
 
 {{< /tab >}}
@@ -303,13 +348,16 @@ print("Font Calibri has been embedded.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const stream = fs.createReadStream("MyPresentation.pptx");
-let response = await api.setEmbeddedFontOnline(stream, "Calibri", false);
+const dto = new model.SlideShowProperties();
+dto.loop = true;
+dto.useTimings = true;
+dto.slideShowType = model.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
+            
+let result = await api.setSlideShowProperties("MyPresentation.pptx", dto);
 
-console.log("Font Calibri has been embedded.");
+console.log("Slide show properties were successfully set.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -320,16 +368,21 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-document, e := ioutil.ReadFile("MyPresentation.pptx")
-fontName := "Calibri"
-var onlyUsed bool = false
-_, _, e = api.SetEmbeddedFontOnline(document, fontName, &onlyUsed, "")
+fileName := "MyPresentation.pptx"
+dto := slidescloud.NewSlideShowProperties()
+dto.SetLoop(true)
+dto.SetUseTimings(true)
+dto.SetSlideShowType("PresentedBySpeaker")
+
+
+response, _, e := api.setSlideShowProperties(fileName, dto, "", "", "")
 if e != nil {
 	t.Errorf("Error: %v.", e)
 	return
 }
 
-fmt.Printf("Font Calibri has been embedded.")
+fmt.Printf("Slide show properties were successfully set.")
+
 ```
 
 {{< /tab >}}
@@ -359,7 +412,6 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tab >}}
 
 {{< /tabs >}}
-
 
 ## **SDK Source**
 

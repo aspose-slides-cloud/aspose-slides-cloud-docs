@@ -231,10 +231,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Replace the specified text, ignoring case.
-        var result = slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder", null);
+        DocumentReplaceResult result = slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder", null);
 
         System.out.println("Replaced " + result.getMatches() + " matches.");
     }
@@ -697,10 +697,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Replace the specified text on the second slide.
-        var result = slidesApi.replaceSlideText("MyPresentation.pptx", 2, "banana", "orange", null, null, "MyFolder", null);
+        SlideReplaceResult result = slidesApi.replaceSlideText("MyPresentation.pptx", 2, "banana", "orange", null, null, "MyFolder", null);
 
         System.out.println("Replaced " + result.getMatches() + " matches.");
     }

@@ -225,7 +225,7 @@ public class Application {
         pictureFrame.getPictureFillFormat().setPictureFillMode(PictureFill.PictureFillModeEnum.TILE);
 
         // Add the picture to the second slide.
-        ShapeBase pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null);
+        ShapeBase pictureInfo = slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder", null, null);
 
         // Print a reference to the picture frame.
         System.out.println(pictureInfo.getSelfUri().getHref());
@@ -322,7 +322,8 @@ import asposeslidescloud
 import base64
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.picture_frame import PictureFrame
+from asposeslidescloud.models.picture_fill import PictureFill
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

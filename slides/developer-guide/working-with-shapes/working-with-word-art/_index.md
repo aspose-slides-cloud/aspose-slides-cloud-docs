@@ -249,7 +249,7 @@ threeDFormat.setCamera(camera);
 textFrameFormat.setThreeDFormat(threeDFormat);
 dto.setTextFrameFormat(textFrameFormat);
 
-ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null);
+ShapeBase shape = api.createShape(fileName, slideIndex, dto, null, null, null, null, null, null);
 System.out.println(((Shape)shape).getText());
 ```
 
@@ -377,7 +377,7 @@ light_rig.z_rotation = 40
 three_d_format.light_rig = light_rig
 
 camera = AsposeSlidesCloud::Camera().new
-camera.camera_type = "PerspectiveContrastiveRightFacing"
+camera.camera_type = "PerspectiveContrastingRightFacing"
 three_d_format.camera = camera
 text_frame_format.three_d_format = three_d_format
 dto.text_frame_format = text_frame_format
@@ -395,7 +395,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.zoom_frame import Shape
+from asposeslidescloud.models.shape import Shape
 from asposeslidescloud.models.text_frame_format import TextFrameFormat
 from asposeslidescloud.models.three_d_format import ThreeDFormat
 from asposeslidescloud.models.shape_bevel import ShapeBevel
@@ -450,7 +450,7 @@ light_rig.z_rotation = 40
 three_d_format.light_rig = light_rig
 
 camera = Camera()
-camera.camera_type = "PerspectiveContrastiveRightFacing"
+camera.camera_type = "PerspectiveContrastingRightFacing"
 three_d_format.camera = camera
 text_frame_format.three_d_format = three_d_format
 dto.text_frame_format = text_frame_format
@@ -573,12 +573,12 @@ lightRig.ZRotation = 40
 threeDFormat.LightRig = lightRig
 
 camera := NewCamera()
-camera.CameraType = "PerspectiveContrastiveRightFacing"
+camera.CameraType = "PerspectiveContrastingRightFacing"
 threeDFormat.camera = camera
 textFrameFormat.threeDFormat = threeDFormat
 dto.textFrameFormat = textFrameFormat
 
-shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "")
+shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 }

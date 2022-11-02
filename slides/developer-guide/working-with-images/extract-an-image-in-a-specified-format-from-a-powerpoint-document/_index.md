@@ -174,7 +174,7 @@ File.binwrite("SecondImage.gif", image_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.image_export_format import ImageExportFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

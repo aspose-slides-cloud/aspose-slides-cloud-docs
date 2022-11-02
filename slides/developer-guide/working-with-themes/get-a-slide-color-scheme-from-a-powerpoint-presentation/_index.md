@@ -125,10 +125,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the color scheme applied to the first slide.
-        var colorScheme = slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
+        ColorScheme colorScheme = slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print a hyperlink color.
         System.out.println("Hyperlink color: " + colorScheme.getHyperlink());

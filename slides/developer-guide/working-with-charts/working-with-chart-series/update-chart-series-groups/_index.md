@@ -124,6 +124,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.chart_series_group import ChartSeriesGroup
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -138,7 +139,7 @@ shape_index = 1
 series_group_index = 1
 
 chart = api.set_chart_series_group("MyPresentation.pptx", slide_index, shape_index, series_group_index, series_group)
-print("The chart contains \"" + len(chart.series_groups) + "\" series groups.")
+print(f"The chart contains { len(chart.series_groups) } series groups.")
 ```
 
 {{< /tab >}}

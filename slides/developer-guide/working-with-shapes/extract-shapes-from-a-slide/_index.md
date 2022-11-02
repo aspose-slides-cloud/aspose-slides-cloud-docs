@@ -27,6 +27,7 @@ The following API method allows you to retrieve all shapes or shapes of a specif
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
 |shapeType|string|query|false|The type of shapes to retrieve. Available values: Shape, Chart, Table, PictureFrame, VideoFrame, AudioFrame, SmartArt, OleObjectFrame, GroupShape, GraphicalObject, Connector, SmartArtShape, ZoomFrame, SectionZoomFrame, SummaryZoomFrame, SummaryZoomSection.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -179,7 +180,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all shapes from the first slide.
-        Shapes allShapes = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, null);
+        Shapes allShapes = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, null, null);
 
         // Get all charts from the first slide.
         Shapes charts = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.CHART);

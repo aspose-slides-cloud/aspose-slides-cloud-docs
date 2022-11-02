@@ -109,7 +109,7 @@ configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
-result = api.delete_chart_categories("MyPresentation.pptx", 3, 1, 2)
+result = api.delete_chart_category("MyPresentation.pptx", 3, 1, 2)
 print(len(result.categories))
 ```
 

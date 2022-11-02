@@ -146,6 +146,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.legend import Legend
+from asposeslidescloud.models.solid_fill import SolidFill
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -158,7 +160,7 @@ shape_index = 1
 legend = Legend()
 legend.overlay = True
 fill_format = SolidFill()
-fill_format.color = constant.COLOR
+fill_format.color = "#77CEF9"
 legend.fill_format = fill_format
 response = api.set_chart_legend("MyPresentation.pptx", slide_index, shape_index, legend)
 

@@ -358,7 +358,7 @@ category3.parent_categories = [ "Stem1" ]
 category4 = ChartCategory()
 category4.value = "Stem2"
 category4.level = 1
-chart.categories = [ category1, category2, category3, category4 ]
+dto.categories = [ category1, category2, category3, category4 ]
 
 series = OneValueSeries()
 data_point1 = OneValueChartDataPoint()
@@ -369,11 +369,11 @@ data_point3 = OneValueChartDataPoint()
 data_point3.value = 70
 data_point4 = OneValueChartDataPoint()
 data_point4.value = 60
-series.data_points = [ data_point1, data_point2, data_point3, data_point4 ])
+series.data_points = [ data_point1, data_point2, data_point3, data_point4 ]
 dto.series = [ series ]
 
 result = api.create_shape("MyPresentation.pptx", 1, dto)
-print(len(result.series[0]))
+print(str(len(result.series)))
 ```
 
 {{< /tab >}}

@@ -137,10 +137,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the notes slide for the first slide.
-        var notesSlide = slidesApi.getNotesSlide("MyPresentation.pptx", 1, null, "MyFolder", null);
+        NotesSlide notesSlide = slidesApi.getNotesSlide("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         // Print the speaker notes.
         System.out.println("Speaker notes: " + notesSlide.getText());
@@ -408,11 +408,11 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read the notes slide for the first slide.
-        var documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var notesSlide = slidesApi.getNotesSlideOnline(documentData, 1, null);
+        byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        NotesSlide notesSlide = slidesApi.getNotesSlideOnline(documentData, 1, null);
 
         // Print the speaker notes.
         System.out.println("Speaker notes: " + notesSlide.getText());

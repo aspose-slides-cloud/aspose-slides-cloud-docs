@@ -100,7 +100,7 @@ $subNodePath = "2";
 $nodeIndex = 1;
 $response = $api->deleteSmartArtNode("MyPresentation.pptx", $slideIndex, $smartArtIndex, $nodeIndex, $subNodePath);
         
-print("Root node contains " + count($response->getNodes()[0]->getNodes()) + " sub-nodes.");
+print("Root node contains " . count($response->getNodes()[0]->getNodes()) . " sub-nodes.");
 ```
 
 {{< /tab >}}
@@ -140,7 +140,7 @@ sub_node_path = "2"
 node_index = 1
 response = api.delete_smart_art_node("MyPresentation.pptx", slide_index, smart_art_index, node_index, sub_node_path)
 
-print("Root node contains " + len(response.nodes[0].nodes) + " sub-nodes.")
+print(f"Root node contains { len(response.nodes[0].nodes) } sub-nodes.")
 ```
 
 {{< /tab >}}

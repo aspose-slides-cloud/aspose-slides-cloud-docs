@@ -233,16 +233,16 @@ portion_count = len(portions.items)
 dto = Portion()
 dto.font_bold = "True"
 dto.text = "New portion"
-portion = api.create_special_slide_portion(file_name, slide_index, 'masterSlide', shape_index, paragraph_index, None, dto)
+portion = api.create_special_slide_portion(file_name, slide_index, 'masterSlide', shape_index, paragraph_index, dto)
 print(portion.font_bold) #True
 print(portion.text) #New portion
 
 dto = Portion()
-dto.font_alignment = 22
+dto.font_height = 22
 dto.text = "Updated portion"
 portion = api.update_special_slide_portion(file_name, slide_index, 'masterSlide', shape_index, paragraph_index, portion_count + 1, dto)
 print(portion.font_bold) #True
-print(portion.font_alignment) #22.0
+print(portion.font_height) #22.0
 print(portion.text) #Updated portion
 
 api.delete_special_slide_portion(file_name, slide_index, 'masterSlide', shape_index, paragraph_index, portion_count + 1)

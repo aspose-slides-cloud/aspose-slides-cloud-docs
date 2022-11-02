@@ -331,7 +331,7 @@ data_point12 = BubbleChartDataPoint()
 data_point12.x_value = 2
 data_point12.y_value = 10
 data_point12.bubble_size = 12
-series1.data_points = [ data_point11, data_point12 ])
+series1.data_points = [ data_point11, data_point12 ]
 
 series2 = BubbleSeries()
 data_point21 = BubbleChartDataPoint()
@@ -350,11 +350,11 @@ data_point24 = BubbleChartDataPoint()
 data_point24.x_value = 5
 data_point24.y_value = 1
 data_point24.bubble_size = 6
-series2.data_points = [ data_point21, data_point22, data_point23, data_point24 ])
+series2.data_points = [ data_point21, data_point22, data_point23, data_point24 ]
 dto.series = [ series1, series2 ]
 
 result = api.create_shape("MyPresentation.pptx", 1, dto)
-print(len(result.series[0]))
+print(str(len(result.series)))
 ```
 
 {{< /tab >}}

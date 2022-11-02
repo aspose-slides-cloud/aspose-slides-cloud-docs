@@ -8,35 +8,7 @@ weight: 40
 
 ## **Introduction**
 
-This article shows you how to delete shapes from a group shape using Aspose.Slides Cloud API in your applications. The following methods allow you to specify a path to a group shape or subgroup from which you want to delete one or more shapes.
-
-## **DeleteSubshape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}|DELETE|Deletes a shape from a group shape.|[DeleteSubshape](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide with the group shape.|
-|path|string|path|true|The path to the shape group, relative to the slide.|
-|shapeIndex|integer|path|true|The 1-based index of the shape to delete.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-
-{{% alert color="primary" %}} 
-
-For more information about the `path` parameter, see [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
-
-{{% /alert %}}
+This article shows you how to delete shapes from a group shape using Aspose.Slides Cloud API in your applications. **DeleteShape** method has an optional **subShape** parameter that allows to specify path to the sub-shape to be deleted. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1").
 
 ### **Examples**
 
@@ -59,7 +31,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Delete the Shape**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/shapes/3?folder=MyFolder" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1?folder=MyFolder&subShape=3" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -120,7 +92,7 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shape from the group shape.
-        var remainingShapes = slidesApi.DeleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
+        var remainingShapes = slidesApi.DeleteShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "1");
 
         // Print resource references for the remaining shapes.
         foreach (var shape in remainingShapes.ShapesLinks)
@@ -146,7 +118,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Delete the shape from the group shape.
-        Shapes remainingShapes = slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder", null);
+        Shapes remainingShapes = slidesApi.deleteShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "1");
 
         // Print resource references for the remaining shapes.
         for (ResourceUri shape : remainingShapes.getShapesLinks())
@@ -174,7 +146,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Delete the shape from the group shape.
-$remainingShapes = $slidesApi->deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder");
+$remainingShapes = $slidesApi->deleteShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "1");
 
 // Print resource references for the remaining shapes.
 foreach ($remainingShapes->getShapesLinks() as $shape)
@@ -201,7 +173,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 # Delete the shape from the group shape.
-remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 1, "4/shapes", 2, nil, "MyFolder")
+remaining_shapes = slides_api.delete_shape("MyPresentation.pptx", 1, 4, nil, "MyFolder", nil, "1")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links
@@ -222,7 +194,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Delete the shape from the group shape.
-remaining_shapes = slides_api.delete_subshape("MyPresentation.pptx", 1, "4/shapes", 2, None, "MyFolder")
+remaining_shapes = slides_api.delete_shape("MyPresentation.pptx", 1, 4, None, "MyFolder", None, "1")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links:
@@ -241,7 +213,7 @@ const cloud = require("asposeslidescloud")
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Delete the shape from the group shape.
-slidesApi.deleteSubshape("MyPresentation.pptx", 1, "4/shapes", 2, null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "1").then((remainingShapes) => {
     remainingShapes.body.shapesLinks.forEach(shape =>
         // Print resource references for the remaining shapes.
         console.log(shape.href)
@@ -265,7 +237,7 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Delete the shape from the group shape.
-    auto remainingShapes = slidesApi->deleteSubshape(L"MyPresentation.pptx", 1, L"4/shapes", 2, L"", L"MyFolder").get();
+    auto remainingShapes = slidesApi->deleteShape(L"MyPresentation.pptx", 1, 4, L"", L"MyFolder", L"", L"1").get();
 
     // Print resource references for the remaining shapes.
     for (auto shape : remainingShapes->getShapesLinks()) {
@@ -293,8 +265,8 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Delete the shape from the group shape.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", shape_index => 2, folder => "MyFolder");
-my $remaining_shapes = $slides_api->delete_subshape(%parameters);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, shape_index => 4, folder => "MyFolder", sub_shape=> "1");
+my $remaining_shapes = $slides_api->delete_shape(%parameters);
 
 # Print resource references for the remaining shapes.
 for $shape (@{$remaining_shapes->{shapes_links}}) {
@@ -314,13 +286,13 @@ for $shape (@{$remaining_shapes->{shapes_links}}) {
 
 {{< /tabs >}}
 
-## **DeleteSubshapes**
+## **DeleteShapes**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{path}|DELETE|Deletes shapes from a group shape.|[DeleteSubshapes](https://apireference.aspose.cloud/slides/#/Shapes/DeleteSubshapes)|
+|/slides/{name}/slides/{slideIndex}/shapes|DELETE|Deletes shapes.|[DeleteShapes](https://apireference.aspose.cloud/slides/#/Shapes/DeleteShapes)|
 
 **Request Parameters**
 
@@ -328,19 +300,13 @@ for $shape (@{$remaining_shapes->{shapes_links}}) {
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide with the group shape.|
-|path|string|path|true|The path to the group shape, relative to the slide.|
 |shapes|string|query|false|The indices of the shapes to be deleted. Delete all by default.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-
-{{% alert color="primary" %}} 
-
-For more information about the `path` parameter, see [Adding a Shape to a Group Shape](/slides/adding-a-shape-to-a-group-shape/).
-
-{{% /alert %}}
 
 ### **Examples**
 
@@ -363,7 +329,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Delete the Shapes**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/shapes?shapes=1,3&folder=MyFolder" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes?subShape=1&shapes=1,3&folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -421,7 +387,7 @@ class Application
 
         // Delete the shapes from the group shape.
         var shapeIndices = new List<int> { 1, 2 };
-        var remainingShapes = slidesApi.DeleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder");
+        var remainingShapes = slidesApi.DeleteShapes("MyPresentation.pptx", 1, shapeIndices, null, "MyFolder", null, "4");
 
         // Print resource references for the remaining shapes.
         foreach (var shape in remainingShapes.ShapesLinks)
@@ -450,7 +416,7 @@ public class Application {
 
         // Delete the shapes from the group shape.
         ArrayList shapeIndices = new ArrayList(Arrays.asList(1, 2));
-        Shapes remainingShapes = slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", shapeIndices, null, "MyFolder", null);
+        Shapes remainingShapes = slidesApi.deleteShapes("MyPresentation.pptx", 1, shapeIndices, null, "MyFolder", null, "4");
 
         // Print resource references for the remaining shapes.
         for (ResourceUri shape : remainingShapes.getShapesLinks()) {
@@ -477,7 +443,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Delete the shapes from the group shape.
-$remainingShapes = $slidesApi->deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], null, "MyFolder");
+$remainingShapes = $slidesApi->deleteShapes("MyPresentation.pptx", 1, [1, 2], null, "MyFolder", null, "4");
 
 // Print resource references for the remaining shapes.
 foreach ($remainingShapes->getShapesLinks() as $shape) {
@@ -503,7 +469,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 # Delete the shapes from the group shape.
-remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], nil, "MyFolder")
+remaining_shapes = slides_api.delete_shapes("MyPresentation.pptx", 1, [1, 2], nil, "MyFolder", nil, "4")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links
@@ -524,7 +490,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Delete the shapes from the group shape.
-remaining_shapes = slides_api.delete_subshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], None, "MyFolder")
+remaining_shapes = slides_api.delete_shapes("MyPresentation.pptx", 1, [1, 2], None, "MyFolder", None, "4")
 
 # Print resource references for the remaining shapes.
 for shape in remaining_shapes.shapes_links:
@@ -543,7 +509,7 @@ const cloud = require("asposeslidescloud")
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Delete the shapes from the group shape.
-slidesApi.deleteSubshapes("MyPresentation.pptx", 1, "4/shapes", [1, 2], null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteShapes("MyPresentation.pptx", 1, [1, 2], null, "MyFolder", null, "4").then((remainingShapes) => {
     remainingShapes.body.shapesLinks.forEach(shape =>
         // Print resource references for the remaining shapes.
         console.log(shape.href)
@@ -567,7 +533,7 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Delete the shapes from the group shape.
-    auto remainingShapes = slidesApi->deleteSubshapes(L"MyPresentation.pptx", 1, L"4/shapes", {1, 2}, L"", L"MyFolder").get();
+    auto remainingShapes = slidesApi->deleteShapes(L"MyPresentation.pptx", 1, {1, 2}, L"", L"MyFolder", L"", L"4").get();
 
     // Print resource references for the remaining shapes.
     for (auto shape : remainingShapes->getShapesLinks()) {
@@ -596,8 +562,8 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Delete the shapes from the group shape.
 my @shape_indices = (1, 3);
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, path => "1/shapes", shapes => \@shape_indices, folder => "MyFolder");
-my $remaining_shapes = $slides_api->delete_subshapes(%parameters);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 2, shapes => \@shape_indices, folder => "MyFolder", sub_shape=>"4");
+my $remaining_shapes = $slides_api->delete_shapes(%parameters);
 
 # Print resource references for the remaining shapes.
 for $shape (@{$remaining_shapes->{shapes_links}}) {

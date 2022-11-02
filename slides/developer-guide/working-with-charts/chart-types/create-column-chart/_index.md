@@ -347,7 +347,7 @@ data_point12 = OneValueChartDataPoint()
 data_point12.value = 50
 data_point13 = OneValueChartDataPoint()
 data_point13.value = 30
-series1.data_points = [ data_point11, data_point12, data_point13 ])
+series1.data_points = [ data_point11, data_point12, data_point13 ]
 
 series2 = OneValueSeries()
 data_point21 = OneValueChartDataPoint()
@@ -356,7 +356,7 @@ data_point22 = OneValueChartDataPoint()
 data_point22.value = 10
 data_point23 = OneValueChartDataPoint()
 data_point23.value = 60
-series2.data_points = [ data_point21, data_point22, data_point23 ])
+series2.data_points = [ data_point21, data_point22, data_point23 ]
 dto.series = [ series1, series2 ]
 
 result = api.create_shape("MyPresentation.pptx", 1, dto)

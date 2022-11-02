@@ -72,11 +72,12 @@ Console.WriteLine("Root node contains " + response.Nodes[0].Nodes.Count + " sub-
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 int slideIndex = 7;
+int smartArtIndex = 1;
 String newSubNodeText = "New sub-node";
 String subNodePath = "1";
 int position = 1;
 
-SmartArt response = api.createSmartArtNode("MyPresentation.pptx", slideIndex, c_smartArtIndex, subNodePath, newSubNodeText,
+SmartArt response = api.createSmartArtNode("MyPresentation.pptx", slideIndex, smartArtIndex, subNodePath, newSubNodeText,
                 position, null, null, null);
 
 System.out.println("Root node contains " + response.getNodes().get(0).getNodes().size() + " sub-nodes.");
@@ -96,12 +97,13 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $slideIndex = 7;
+$smartArtIndex = 1;
 $subNodePath = "1";
 $newSubNodeText = "New sub-node";
 $position = 1;
 $response = $api->createSmartArtNode("MyPresentation.pptx", $slideIndex, $smartArtIndex, $subNodePath, $newSubNodeText, $position);
         
-print("Root node contains " + count($response->getNodes()[0]->getNodes()) + " sub-nodes.");
+print("Root node contains " . count($response->getNodes()[0]->getNodes()) . " sub-nodes.");
 ```
 
 {{< /tab >}}
@@ -143,7 +145,7 @@ new_sub_node_text = "New sub-node"
 position = 1
 response = api.create_smart_art_node("MyPresentation.pptx", slide_index, smart_art_index, sub_node_path, new_sub_node_text, position)
 
-print("Root node contains " + len(response.nodes[0].nodes) + " sub-nodes.")
+print(f"Root node contains { len(response.nodes[0].nodes) } sub-nodes.")
 ```
 
 {{< /tab >}}

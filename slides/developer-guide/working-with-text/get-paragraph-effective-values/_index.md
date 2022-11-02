@@ -81,7 +81,7 @@ int slideIndex = 1;
 int shapeIndex = 1;
 int paragraphIndex = 1;
 
-Paragraph response = api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, null, null, null);
+Paragraph response = api.getParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
 
 System.out.println("The default tab size is \"" + response.getDefaultTabSize() + "\".");
 ```
@@ -137,7 +137,7 @@ shape_index = 1
 paragraph_index = 1
 
 response = api.get_paragraph_effective("MyPresentation.pptx", slide_index, shape_index, paragraph_index)
-print("The default tab size is \"" + response.default_tab_size + "\".")
+print(f"The default tab size is \"{ response.default_tab_size }\".")
 ```
 
 {{< /tab >}}

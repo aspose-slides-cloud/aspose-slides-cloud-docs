@@ -312,7 +312,8 @@ end
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models.document_properties import DocumentProperties
+from asposeslidescloud.models.document_property import DocumentProperty
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 

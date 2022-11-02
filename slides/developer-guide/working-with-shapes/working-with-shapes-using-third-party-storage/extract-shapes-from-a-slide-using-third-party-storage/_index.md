@@ -114,7 +114,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all shapes from the second slide.
-        Shapes shapes = slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage", null);
+        Shapes shapes = slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage", null, null);
 
         // Print the number of shapes.
         System.out.println("The second slide contains " + shapes.getShapesLinks().size() + " shapes.");

@@ -117,7 +117,7 @@ api = SlidesApi(configuration)
 
 response = api.get_fonts("MyPresentation.pptx")
 
-print("Count of fonts used in the presentation: " +  len(response.list))
+print(f"Count of fonts used in the presentation: { len(response.list) }")
 ```
 
 {{< /tab >}}
@@ -295,7 +295,7 @@ with open("MyPresentation.pptx", 'rb') as f:
 
 response = api.get_fonts_online(source)
 
-print("Count of fonts used in the presentation: " +  len(response.list))
+print(f"Count of fonts used in the presentation: { len(response.list) }")
 ```
 
 {{< /tab >}}

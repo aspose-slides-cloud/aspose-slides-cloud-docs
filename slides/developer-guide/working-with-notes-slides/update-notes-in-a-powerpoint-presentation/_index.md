@@ -116,8 +116,8 @@ class Application
             Text = "Tell about our company."
         };
 
-        // Update the notes for the second slide.
-        var currentNotesSlide = slidesApi.UpdateNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder");
+        // Update the notes for the first slide.
+        var currentNotesSlide = slidesApi.UpdateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder");
 
         // Print the resource reference for the notes slide.
         Console.WriteLine(currentNotesSlide.SelfUri.Href);
@@ -138,14 +138,14 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare notes for the slide.
-        var notesSlide = new NotesSlide();
+        NotesSlide notesSlide = new NotesSlide();
         notesSlide.setText("Tell about our company.");
 
-        // Update the notes for the second slide.
-        var currentNotesSlide = slidesApi.updateNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder", null);
+        // Update the notes for the first slide.
+        NotesSlide currentNotesSlide = slidesApi.updateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder", null);
 
         // Print the resource reference for the notes slide.
         System.out.println(currentNotesSlide.getSelfUri().getHref());
@@ -174,8 +174,8 @@ $slidesApi = new SlidesApi(null, $configuration);
 $notesSlide = new NotesSlide();
 $notesSlide->setText("Tell about our company.");
 
-// Update the notes for the second slide.
-$currentNotesSlide = $slidesApi->updateNotesSlide("MyPresentation.pptx", 2, $notesSlide, null, "MyFolder");
+// Update the notes for the first slide.
+$currentNotesSlide = $slidesApi->updateNotesSlide("MyPresentation.pptx", 1, $notesSlide, null, "MyFolder");
 
 // Print the resource reference for the notes slide.
 echo $currentNotesSlide->getSelfUri()->getHref();
@@ -202,8 +202,8 @@ slides_api = SlidesApi.new(configuration)
 notes_slide = NotesSlide.new
 notes_slide.text = "Tell about our company."
 
-# Update the notes for the second slide.
-current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 2, notes_slide, nil, "MyFolder")
+# Update the notes for the first slide.
+current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 1, notes_slide, nil, "MyFolder")
 
 # Print the resource reference for the notes slide.
 print current_notes_slide.self_uri.href
@@ -227,8 +227,8 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 notes_slide = NotesSlide()
 notes_slide.text = "Tell about our company."
 
-# Update the notes for the second slide.
-current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 2, notes_slide, None, "MyFolder")
+# Update the notes for the first slide.
+current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 1, notes_slide, None, "MyFolder")
 
 # Print the resource reference for the notes slide.
 print(current_notes_slide.self_uri.href)
@@ -249,8 +249,8 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 const notesSlide = new cloud.NotesSlide()
 notesSlide.text = "Tell about our company."
 
-// Update the notes for the second slide.
-slidesApi.updateNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder").then((currentNotesSlide) => {
+// Update the notes for the first slide.
+slidesApi.updateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder").then((currentNotesSlide) => {
     // Print the resource reference for the notes slide.
     console.log(currentNotesSlide.body.selfUri.href)
 })
@@ -275,8 +275,8 @@ int main()
     auto notesSlide = std::make_shared<NotesSlide>();
     notesSlide->setText(L"Tell about our company.");
 
-    // Update the notes for the second slide.
-    auto currentNotesSlide = slidesApi->updateNotesSlide(L"MyPresentation.pptx", 2, notesSlide, L"", L"MyFolder").get();
+    // Update the notes for the first slide.
+    auto currentNotesSlide = slidesApi->updateNotesSlide(L"MyPresentation.pptx", 1, notesSlide, L"", L"MyFolder").get();
 
     // Print the resource reference for the notes slide.
     std::wcout << currentNotesSlide->getSelfUri()->getHref();
@@ -306,8 +306,8 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 my $notes_slide = AsposeSlidesCloud::Object::NotesSlide->new();
 $notes_slide->{text} = "Tell about our company.";
 
-# Update the notes for the second slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, dto => $notes_slide, folder => "MyFolder");
+# Update the notes for the first slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, dto => $notes_slide, folder => "MyFolder");
 my $current_notes_slide = $slides_api->update_notes_slide(%parameters);
 
 # Print the resource reference for the notes slide.

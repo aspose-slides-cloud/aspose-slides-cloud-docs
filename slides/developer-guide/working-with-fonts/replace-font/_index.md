@@ -64,7 +64,7 @@ Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true, null, null, null);
+FontsData response = api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true, null, null, null, null);
 
 System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
@@ -113,7 +113,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", true)
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", True)
 
 print("Font Calibri has been replaced with Times New Roman.")
 ```
@@ -241,7 +241,7 @@ Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.replaceFontOnline(file, "Calibri", "Times New Roman", true, null);
+File response = api.replaceFontOnline(file, "Calibri", "Times New Roman", true, null, null);
 
 System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
@@ -293,7 +293,7 @@ api = SlidesApi(configuration)
 
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
-response = api.replace_font_online(source, "Calibri", "Times New Roman", true)
+response = api.replace_font_online(source, "Calibri", "Times New Roman", True)
 
 print("Font Calibri has been replaced with Times New Roman.")
 ```
@@ -303,6 +303,7 @@ print("Font Calibri has been replaced with Times New Roman.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const stream = fs.createReadStream("MyPresentation.pptx");

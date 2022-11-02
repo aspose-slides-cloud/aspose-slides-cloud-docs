@@ -313,7 +313,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_key")
 
-response = slides_api.get_presentation("Sales.pptx", None, "Data", "Main")
+response = slides_api.get_presentation("Sales.pptx")
 print(response.self_uri.href) # https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
 ```
 

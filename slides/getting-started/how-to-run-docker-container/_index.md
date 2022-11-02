@@ -112,13 +112,27 @@ SlidesApi api = new SlidesApi(config);
 ... // My API requests
 ```
 
-### Use Google Cloud Storage
+### Using Cloud Storages
 
-Instead of storing files in a host computer's folder, you can use Google Cloud storage with your docker container. To use Google Cloud storage, specify path to the credentials file and the bucket name in GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_STORAGE_BUCKET enviromnent variables.
+Instead of storing files in a host computer's folder, you can use a third-party Cloud storage with your docker container.
+
+#### Use Google Cloud Storage
+
+To use Google Cloud storage, specify path to the credentials file and the bucket name in GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_STORAGE_BUCKET enviromnent variables.
 
 ```JAVA
 docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" \
 -e "GOOGLE_APPLICATION_CREDENTIALS=/creds/myCreds.json" -e "GOOGLE_STORAGE_BUCKET=myBucket" \
 -v "/home/user/google-cloud-creds:/creds" \
+aspose/slides-cloud
+```
+
+#### Use AWS S3
+
+To use AWS S3, specify credentials and the bucket name in AWSS3_ACCESS_KEY, AWSS3_SECRET_KEY, AWSS3_REGION and AWSS3_BUCKET environment variables.
+
+```JAVA
+docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" \
+-e "AWSS3_ACCESS_KEY=myS3AccessKey" -e "AWSS3_SECRET_KEY=myS3SecretKey" -e "AWSS3_REGION=us-east-2" -e "AWSS3_BUCKET=myBucket" \
 aspose/slides-cloud
 ```

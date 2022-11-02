@@ -113,7 +113,7 @@ Hyperlink hyperlink = new Hyperlink();
 hyperlink.setActionType(Hyperlink.ActionTypeEnum.HYPERLINK);
 hyperlink.setExternalUrl("https://docs.aspose.cloud/slides");
 shape.setHyperlinkClick(hyperlink);
-Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null);
+Shape updatedShape = (Shape)api.updateShape(fileName, slideIndex, shapeIndex, shape, null, null, null, null);
 System.out.println(updatedShape.getHyperlinkClick().getExternalUrl()); //https://docs.aspose.cloud/slides
 ```
 

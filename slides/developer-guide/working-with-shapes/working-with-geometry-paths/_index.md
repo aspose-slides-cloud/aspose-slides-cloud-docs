@@ -272,7 +272,7 @@ line4.y = 0
 end = ClosePathSegment()
 path.path_data = [ start, line1, line2, line3, line4, end ]
 dto.paths = [ path ]
-shape = BaseTest.slides_api.set_shape_geometry_path(file_name, slide_index, shape_index, dto)
+shape = api.set_shape_geometry_path(file_name, slide_index, shape_index, dto)
 print(shape.width)
 ```
 

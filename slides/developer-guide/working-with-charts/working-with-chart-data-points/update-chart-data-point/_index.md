@@ -77,7 +77,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 ScatterChartDataPoint dto = new ScatterChartDataPoint();
 dto.XValue = 25;
 dto.YValue = 9;
-dto.FillFormat = new SolidFill(){ Color = "#77CEF9" },
+dto.FillFormat = new SolidFill(){ Color = "#77CEF9" };
 Chart chart = api.UpdateChartDataPoint("myPresentaion.pptx", 3, 2, 1, 3, dto);
 Console.WriteLine(((ScatterSeries)chart.Series[0]).DataPoints.Count);
 ```
@@ -107,6 +107,7 @@ System.out.println(((ScatterSeries)chart.getSeries().get(0)).getDataPoints().siz
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ScatterChartDataPoint;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -138,15 +139,17 @@ import asposeslidescloud
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.scatter_chart_data_point import ScatterChartDataPoint
+from asposeslidescloud.models.solid_fill import SolidFill
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
+
+dto = ScatterChartDataPoint()
 fill_format = SolidFill()
 fill_format.color = "#77CEF9"
 dto.fill_format = fill_format
-dto = ScatterChartDataPoint()
 dto.x_value = 25
 dto.x_value = 9
 result = api.update_chart_data_point("MyPresentation.pptx", 3, 2, 1, 3, dto)
@@ -164,7 +167,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const dto = new CloudSdk.ScatterChartDataPoint();
 dto.xValue = 25;
 dto.yValue = 9;
-const fillFormat = new SolidFill();
+const fillFormat = new CloudSdk.SolidFill();
 fillFormat.color = "#77CEF9";
 dto.fillFormat = fillFormat;
 api.updateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto).then((result) => {

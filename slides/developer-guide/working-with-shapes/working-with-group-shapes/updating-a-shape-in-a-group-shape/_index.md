@@ -8,36 +8,7 @@ weight: 30
 
 ## **Introduction**
 
-This article shows you how to update shape properties inside a group shape using Aspose.Slides Cloud API in your applications. The following method allows you to specify a path to a shape group, a shape index, and transfer shape properties to update. The shape properties that need to be updated depend on the shape type.
-
-## **UpdateSubshape**
-
-### **API Information**
-
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}|PUT|Updates shape properties inside a shape group.|[UpdateSubshape](https://apireference.aspose.cloud/slides/#/Shapes/UpdateSubshape)|
-
-**Request Parameters**
-
-|**Name**|**Type**|**Location**|**Required**|**Description**|
-| :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the slide containing the group shape.|
-|path|string|path|true|The path to the shape group, relative to the slide.|
-|shapeIndex|integer|path|true|The 1-based index of the shape to update.|
-|dto|object|body|true|The transfer object with new data for the shape.|
-|password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
-
-*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
-
-{{% alert color="primary" %}} 
-
-For more information about the `path` parameter, see [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
-
-{{% /alert %}}
+This article shows you how to update shape properties inside a group shape using Aspose.Slides Cloud API in your applications. **UpdateShape** method has an optional **subShape** parameter that allows to specify path to the sub-shape to be updated. The sub-shape path is a string that contains shape index (e.g., "1") or a path in case of more than one level of grouping (e.g. "1/shapes/1"). The shape properties that need to be updated depend on the shape type.
 
 ### **Examples**
 
@@ -60,7 +31,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Hide the Shape**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4/shapes/2?folder=MyFolder" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/4?subShape=2&folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @ShapeProperties.json
@@ -153,7 +124,7 @@ ShapeProperties.json content:
 
 {{% alert color="primary" %}} 
 
-The code examples below also use the `GetSubshape` method described in [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
+The code examples below also use the `GetShape` method described in [Extracting Shapes from a Group Shape](/slides/extracting-shapes-from-a-group-shape/).
 
 {{% /alert %}}
 
@@ -177,18 +148,18 @@ class Application
 
         var fileName = "MyPresentation.pptx";
         var slideIndex = 1;
-        var shapesPath = "4/shapes";
-        var shapeIndex = 2;
+        var subShape = "2";
+        var shapeIndex = 4;
         var folderPath = "MyFolder";
 
         // Get the shape from the group shape.
-        var shape = slidesApi.GetSubshape(fileName, slideIndex, shapesPath, shapeIndex, null, folderPath);
+        var shape = slidesApi.GetShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape);
 
         // Change the shape properties.
         shape.Hidden = true;
 
         // Update the shape properties.
-        var updatedShape = slidesApi.UpdateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape, null, folderPath);
+        var updatedShape = slidesApi.UpdateShape(fileName, slideIndex, shapeIndex, shape, null, folderPath, null, subShape);
 
         // Check if the shape is hidden.
         Console.WriteLine("The shape is hidden: " + updatedShape.Hidden);
@@ -212,18 +183,18 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        String shapesPath = "4/shapes";
-        int shapeIndex = 2;
+        String subShape = "2"
+        int shapeIndex = 4;
         String folderPath = "MyFolder";
 
         // Get the shape from the group shape.
-        ShapeBase shape = slidesApi.getSubshape(fileName, slideIndex, shapesPath, shapeIndex, null, folderPath, null);
+        ShapeBase shape = slidesApi.getShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape);
 
         // Change the shape properties.
         shape.setHidden(true);
 
         // Update the shape properties.
-        ShapeBase updatedShape = slidesApi.updateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape, null, folderPath, null);
+        ShapeBase updatedShape = slidesApi.updateShape(fileName, slideIndex, shapeIndex, shape, null, folderPath, null, subShape);
 
         // Check if the shape is hidden.
         System.out.println("The shape is hidden: " + updatedShape.isHidden());
@@ -249,18 +220,18 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$shapesPath = "4/shapes";
-$shapeIndex = 2;
+$subShape = "2";
+$shapeIndex = 4;
 $folderPath = "MyFolder";
 
 // Get the shape from the group shape.
-$shape = $slidesApi->getSubshape($fileName, $slideIndex, $shapesPath, $shapeIndex, null, $folderPath);
+$shape = $slidesApi->getShape($fileName, $slideIndex, $shapeIndex, null, $folderPath, null, $subShape);
 
 // Change the shape properties.
 $shape->setHidden(true);
 
 // Update the shape properties.
-$updatedShape = $slidesApi->updateSubshape($fileName, $slideIndex, $shapesPath, $shapeIndex, $shape, null, $folderPath);
+$updatedShape = $slidesApi->updateShape($fileName, $slideIndex, $shapeIndex, $shape, null, $folderPath, null, $subShape);
 
 // Check if the shape is hidden.
 echo "The shape is hidden: ", $updatedShape->getHidden();
@@ -285,18 +256,18 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shapes_path = "4/shapes"
-shape_index = 2
+sub_shape = "2"
+shape_index = 4
 folder_path = "MyFolder"
 
 # Get the shape from the group shape.
-shape = slides_api.get_subshape(file_name, slide_index, shapes_path, shape_index, nil, folder_path)
+shape = slides_api.get_shape(file_name, slide_index, shape_index, nil, folder_path, nil, sub_shape)
 
 # Change the shape properties.
 shape.hidden = true
 
 # Update the shape properties.
-updated_shape = slides_api.update_subshape(file_name, slide_index, shapes_path, shape_index, shape, nil, folder_path)
+updated_shape = slides_api.update_shape(file_name, slide_index, shape_index, shape, nil, folder_path, nil, sub_shape)
 
 # Check if the shape is hidden.
 print "The shape is hidden: #{updated_shape.hidden}"
@@ -316,18 +287,18 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shapes_path = "4/shapes"
-shape_index = 2
+sub_shape = "2"
+shape_index = 4
 folder_path = "MyFolder"
 
 # Get the shape from the group shape.
-shape = slides_api.get_subshape(file_name, slide_index, shapes_path, shape_index, None, folder_path)
+shape = slides_api.get_shape(file_name, slide_index, shape_index, None, folder_path, None, sub_shape)
 
 # Change the shape properties.
 shape.hidden = True
 
 # Update the shape properties.
-updated_shape = slides_api.update_subshape(file_name, slide_index, shapes_path, shape_index, shape, None, folder_path)
+updated_shape = slides_api.update_shape(file_name, slide_index, shape_index, shape, None, folder_path, None, sub_shape)
 
 # Check if the shape is hidden.
 print(f"The shape is hidden: {updated_shape.hidden}")
@@ -346,17 +317,17 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 const fileName = "MyPresentation.pptx"
 const slideIndex = 1
-const shapesPath = "4/shapes"
-const shapeIndex = 2
+const subShape = "2"
+const shapeIndex = 5
 const folderPath = "MyFolder"
 
 // Get the shape from the group shape.
-slidesApi.getSubshape(fileName, slideIndex, shapesPath, shapeIndex, null, folderPath).then((shape) => {
+slidesApi.getShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape).then((shape) => {
     // Change the shape properties.
     shape.body.hidden = true
 
     // Update the shape properties.
-    slidesApi.updateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape.body, null, folderPath).then((updatedShape) => {
+    slidesApi.updateShape(fileName, slideIndex, shapeIndex, shape.body, null, folderPath, null, subShape).then((updatedShape) => {
         // Check if the shape is hidden.
         console.log("The shape is hidden: " + updatedShape.body.hidden)
     })
@@ -380,18 +351,18 @@ int main()
 
     auto fileName = L"MyPresentation.pptx";
     auto slideIndex = 1;
-    auto shapesPath = L"4/shapes";
-    auto shapeIndex = 2;
+    auto subShape = L"2";
+    auto shapeIndex = 4;
     auto folderPath = L"MyFolder";
 
     // Get the shape from the group shape.
-    auto shape = slidesApi->getSubshape(fileName, slideIndex, shapesPath, shapeIndex, L"", folderPath).get();
+    auto shape = slidesApi->getShape(fileName, slideIndex, shapeIndex, L"", folderPath, L"", subShape).get();
 
     // Change the shape properties.
     shape->setHidden(true);
 
     // Update the shape properties.
-    auto updatedShape = slidesApi->updateSubshape(fileName, slideIndex, shapesPath, shapeIndex, shape, L"", folderPath).get();
+    auto updatedShape = slidesApi->updateShape(fileName, slideIndex, shapeIndex, shape, L"", folderPath, L"", sibShape).get();
 
     // Check if the shape is hidden.
     std::wcout << "The shape is hidden: " << updatedShape->getHidden();
@@ -416,17 +387,17 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, path => "4/shapes", shape_index => 2, folder => "MyFolder");
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, shape_index => 4, folder => "MyFolder", sub_shape="2");
 
 # Get the shape from the group shape.
-my $shape = $slides_api->get_subshape(%parameters);
+my $shape = $slides_api->get_shape(%parameters);
 
 # Change the shape properties.
 $shape->{hidden} = 1;
 
 # Update the shape properties.
 $parameters{dto} = $shape;
-my $updated_shape = $slides_api->update_subshape(%parameters);
+my $updated_shape = $slides_api->update_shape(%parameters);
 
 # Check if the shape is hidden.
 print "The shape is hidden: " . $updated_shape->{hidden};

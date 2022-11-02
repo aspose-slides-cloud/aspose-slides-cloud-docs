@@ -241,7 +241,7 @@ dto.y = 100
 dto.width = 500
 dto.height = 200
 dto.text = "New shape"
-shape = api.create_special_slide_shape(file_name, slide_index, 'masterSlide', None, None, dto)
+shape = api.create_special_slide_shape(file_name, slide_index, 'masterSlide', dto)
 print(shape.text) #New shape
 
 dto.text = "Updated shape"

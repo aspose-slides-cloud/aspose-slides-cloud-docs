@@ -225,7 +225,7 @@ mathBlocks.add(blockElement);
 mathParagraph.setMathBlockList(mathBlocks);
 dto.setMathParagraph(mathParagraph);
 
-Portion portion = api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, null, null, null, null);
+Portion portion = api.createPortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, null, null, null, null, null);
 System.out.println(portion.getMathParagraph().getMathBlockList().size()); //1
 ```
 
@@ -355,7 +355,7 @@ math_block.math_element_list = [ function_element ]
 math_paragraph.math_block_list = [ math_block ]
 dto.math_paragraph = math_paragraph
 
-portion = api.create_portion(file_name, slide_index, shape_index, paragraph_index, None, dto)
+portion = api.create_portion(file_name, slide_index, shape_index, paragraph_index, dto)
 print(len(portion.math_paragraph.math_block_list)) #1
 ```
 

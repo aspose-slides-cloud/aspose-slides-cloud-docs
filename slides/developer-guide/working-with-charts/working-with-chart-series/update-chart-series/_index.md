@@ -164,7 +164,7 @@ data_point2 = OneValueChartDataPoint()
 data_point2.value = 76
 data_point3 = OneValueChartDataPoint()
 data_point3.value = 27
-dto.data_points = [ data_point1, data_point2, data_point3 ])
+dto.data_points = [ data_point1, data_point2, data_point3 ]
 
 result = api.update_chart_series("MyPresentation.pptx", 3, 1, 2, dto)
 print(len(result.series))

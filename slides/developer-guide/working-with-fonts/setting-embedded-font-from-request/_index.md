@@ -69,7 +69,7 @@ Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("Calibri.pptx"));
-FontsData response = api.setEmbeddedFontFromRequest(file, "MyPresentation.pptx", false, null, null);
+FontsData response = api.setEmbeddedFontFromRequest(file, "MyPresentation.pptx", false, null, null, null);
 
 System.out.println("Font " + response.getList().get(2).getFontName() + " has been embedded.");
 ```
@@ -88,7 +88,7 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $file = fopen("calibri.ttf", 'r');
-$reslut = $api->setEmbeddedFontFromRequest($file, "MyPresentation.pptx", false);
+$result = $api->setEmbeddedFontFromRequest($file, "MyPresentation.pptx", false);
 
 print("Font " . $result->getList()[2]->getFontName() . " has been embedded.");
 ```

@@ -131,13 +131,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-        var layoutSlides = slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder", null);
+        LayoutSlides layoutSlides = slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder", null);
 
         // Print titles of the layout slides.
-        for (var slide : layoutSlides.getSlideList()) {
+        for (ResourceUri slide : layoutSlides.getSlideList()) {
             System.out.println(slide.getTitle());
         }
     }

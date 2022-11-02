@@ -25,6 +25,7 @@ This article shows how you can remove a range of paragraphs in PowerPoint presen
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder where the presentation file is located.|
 |storage|string|query|false|The storage where the presentation file is located.|
+|subShape|string|query|false|Sub-shape path (e.g. "3", "3/shapes/2)
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
