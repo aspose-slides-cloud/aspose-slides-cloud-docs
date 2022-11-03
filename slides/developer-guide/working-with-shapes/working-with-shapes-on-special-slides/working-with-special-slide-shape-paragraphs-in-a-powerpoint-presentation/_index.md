@@ -147,7 +147,7 @@ int slideIndex = 1;
 int shapeIndex = 2;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Paragraphs paragraphs = api.getSpecialSlideParagraphs(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, null, null, null);
+Paragraphs paragraphs = api.getSpecialSlideParagraphs(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, null, null, null, null);
 int paragraphCount = paragraphs.getParagraphLinks().size();
 
 Paragraph dto = new Paragraph();
@@ -157,14 +157,14 @@ Portion portion = new Portion();
 portion.setText("New paragraph");
 portions.add(portion);
 dto.setPortionList(portions);
-Paragraph paragraph = api.createSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, dto, null, null, null, null);
+Paragraph paragraph = api.createSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, dto, null, null, null, null, null);
 System.out.println(paragraph.getAlignment()); //Right
 
 dto.setAlignment(Paragraph.AlignmentEnum.CENTER);
-paragraph = api.updateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, dto, null, null, null);
+paragraph = api.updateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, dto, null, null, null, null);
 System.out.println(paragraph.getAlignment()); //Center
 
-api.deleteSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, null, null, null);
+api.deleteSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, null, null, null, null);
 ```
 
 {{< /tab >}}

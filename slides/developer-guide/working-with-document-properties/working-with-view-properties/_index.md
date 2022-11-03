@@ -86,7 +86,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->getViewProperties("MyPresentation.pptx");
 
-if ($response->getShowComments() == 'True')
+if ($result->getShowComments() == 'True')
 	print("Comments enabled.");
 ```
 
@@ -290,6 +290,7 @@ if (response.getShowComments() == ViewProperties.ShowCommentsEnum.FALSE)
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
+use Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -304,7 +305,7 @@ $dto->setSlideViewProperties($slideViewProperties);
 
 $result = $api->setViewProperties("MyPresentation.pptx", $dto);
 
-if ($response->getShowComments() == 'False')
+if ($result->getShowComments() == 'False')
 	print("Comments disabled.");
 ```
 
@@ -336,6 +337,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.view_properties import ViewProperties
+from asposeslidescloud.models.common_slide_view_properties import CommonSlideViewProperties
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'

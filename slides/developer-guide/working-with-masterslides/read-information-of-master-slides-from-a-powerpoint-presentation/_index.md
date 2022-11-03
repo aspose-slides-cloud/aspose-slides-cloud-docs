@@ -121,13 +121,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information of master slides from the document MyFolder/MyPresentation.pptx.
-        var masterSlides = slidesApi.getMasterSlides("MyPresentation.pptx", null, "MyFolder", null);
+        MasterSlides masterSlides = slidesApi.getMasterSlides("MyPresentation.pptx", null, "MyFolder", null);
 
         // Print titles of the master slides.
-        for (var slide : masterSlides.getSlideList()) {
+        for (ResourceUri slide : masterSlides.getSlideList()) {
             System.out.println(slide.getTitle());
         }
     }

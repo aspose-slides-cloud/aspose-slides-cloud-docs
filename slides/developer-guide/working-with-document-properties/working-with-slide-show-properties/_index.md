@@ -86,7 +86,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->getSlideShowProperties("MyPresentation.pptx");
 
-if ($response->getShowAnimation())
+if ($result->getShowAnimation())
 	print("Animation enabled.");
 ```
 
@@ -327,6 +327,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.slide_show_properties import SlideShowProperties
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'

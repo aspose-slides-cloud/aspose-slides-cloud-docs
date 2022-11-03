@@ -152,7 +152,7 @@ String fileName = "MyPresentation.pptx";
 int slideIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Shapes shapes = api.getSpecialSlideShapes(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null);
+Shapes shapes = api.getSpecialSlideShapes(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, null, null, null, null);
 int shapeCount = shapes.getShapesLinks().size();
 
 Shape dto = new Shape();
@@ -162,14 +162,14 @@ dto.setWidth(500.0);
 dto.setHeight(200.0);
 dto.setShapeType(GeometryShape.ShapeTypeEnum.RECTANGLE);
 dto.setText("New shape");
-Shape shape = (Shape)api.createSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, dto, null, null, null, null, null);
+Shape shape = (Shape)api.createSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, dto, null, null, null, null, null, null);
 System.out.println(shape.getText()); //New shape
 
 dto.setText("Updated shape");
-shape = (Shape)api.updateSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeCount + 1, dto, null, null, null);
+shape = (Shape)api.updateSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeCount + 1, dto, null, null, null, null);
 System.out.println(shape.getText()); //Updated shape
 
-api.deleteSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeCount + 1, null, null, null);
+api.deleteSpecialSlideShape(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeCount + 1, null, null, null, null);
 ```
 
 {{< /tab >}}

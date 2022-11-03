@@ -183,7 +183,7 @@ public class Application {
         Shapes allShapes = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, null, null);
 
         // Get all charts from the first slide.
-        Shapes charts = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.CHART);
+        Shapes charts = slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, ShapeType.CHART, null);
 
         // Print information about the shapes and charts.
         int shapeCount = allShapes.getShapesLinks().size();

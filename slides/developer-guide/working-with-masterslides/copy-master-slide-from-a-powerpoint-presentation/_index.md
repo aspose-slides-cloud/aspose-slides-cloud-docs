@@ -147,15 +147,15 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Copy the first master slide from MyTemplates/MainTemplate.pptx to MyFolder/MyPresentation.pptx and apply the master slide to all slides.
-        var masterSlide = slidesApi.copyMasterSlide("MyPresentation.pptx", "MyTemplates/MainTemplate.pptx", 1, null, null, true, null, "MyFolder", null);
+        MasterSlide masterSlide = slidesApi.copyMasterSlide("MyPresentation.pptx", "MyTemplates/MainTemplate.pptx", 1, null, null, true, null, "MyFolder", null);
 
         System.out.println("Master slide name: " + masterSlide.getName());
 
         System.out.println("\r\nTitles of the layout slides:");
-        for (var layoutSlide : masterSlide.getLayoutSlides()) {
+        for (ResourceUri layoutSlide : masterSlide.getLayoutSlides()) {
             System.out.println("\t" + layoutSlide.getTitle());
         }
     }

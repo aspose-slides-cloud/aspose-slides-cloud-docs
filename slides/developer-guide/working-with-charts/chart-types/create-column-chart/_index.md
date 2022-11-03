@@ -231,7 +231,7 @@ series2.setDataPoints(dataPoints2);
 seriesList.add(series2);
 dto.setSeries(seriesList);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
+Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null, null);
 System.out.println(chart.getCategories().size());
 ```
 

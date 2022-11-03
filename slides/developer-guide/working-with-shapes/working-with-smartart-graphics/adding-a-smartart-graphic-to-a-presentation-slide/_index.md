@@ -277,7 +277,7 @@ public class Application {
         graphicData.setNodes(Arrays.asList(firstNode, secondNode, thirdNode));
 
         // Create the SmartArt shape.
-        ShapeBase shape = slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder", null);
+        ShapeBase shape = slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder", null, null);
 
         // Print a resource reference to the shape.
         System.out.println(shape.getSelfUri().getHref());

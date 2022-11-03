@@ -143,24 +143,24 @@ int shapeIndex = 2;
 int paragraphIndex = 3;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Portions portions = api.getSpecialSlidePortions(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, null, null, null);
+Portions portions = api.getSpecialSlidePortions(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, null, null, null, null);
 int portionCount = portions.getItems().size();
 
 Portion dto = new Portion();
 dto.setFontBold(Portion.FontBoldEnum.TRUE);
 dto.setText("New portion");
-Portion portion = api.createSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, dto, null, null, null, null);
+Portion portion = api.createSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, dto, null, null, null, null, null);
 System.out.println(portion.getFontBold()); //True
 System.out.println(portion.getText()); //New portion
 
 dto.setFontHeight(22.0);
 dto.setText("Updated portion");
-portion = api.updateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, portionCount + 1, dto, null, null, null);
+portion = api.updateSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, portionCount + 1, dto, null, null, null, null);
 System.out.println(portion.getFontBold()); //True
 System.out.println(portion.getFontHeight()); //22.0
 System.out.println(portion.getText()); //Updated portion
 
-api.deleteSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, portionCount + 1, null, null, null);
+api.deleteSpecialSlidePortion(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphIndex, portionCount + 1, null, null, null, null);
 ```
 
 {{< /tab >}}

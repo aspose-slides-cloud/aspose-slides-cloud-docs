@@ -275,7 +275,7 @@ lightRig.setLightType(LightRig.LightTypeEnum.THREEPT);
 lightRig.setDirection(LightRig.DirectionEnum.TOP);
 threeDFormat.setLightRig(lightRig);
 dto.setThreeDFormat(threeDFormat);
-ShapeBase shape = api.updateShape("MyPresentation.pptx", 1, 1, dto, null, null, null);
+ShapeBase shape = api.updateShape("MyPresentation.pptx", 1, 1, dto, null, null, null, null);
 System.out.println(shape.getThreeDFormat().getDepth());
 ```
 
