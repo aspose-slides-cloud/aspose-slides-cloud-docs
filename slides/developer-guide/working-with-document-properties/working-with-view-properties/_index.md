@@ -131,9 +131,9 @@ if response.show_comments == 'true':
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.getVewProperties("MyPresentation.pptx");
+let response = await api.getViewProperties("MyPresentation.pptx");
 
-if ((response.body as model.ViewProperties).showComments === model.ViewProperties.ShowCommentsEnum.True)
+if (response.body.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.True)
 	console.log("Comments enabled.");
 ```
 {{< /tab >}}
@@ -359,16 +359,16 @@ if response.show_comments == 'false':
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slideViewPropDto = new model.CommonSlideViewProperties();
+const slideViewPropDto = new CloudSdk.CommonSlideViewProperties();
 slideViewPropDto.scale = 50;
 
-const dto = new model.ViewProperties();
-dto.showComments = model.ViewProperties.ShowCommentsEnum.False;
+const dto = new CloudSdk.ViewProperties();
+dto.showComments = CloudSdk.ViewProperties.ShowCommentsEnum.False;
 dto.slideViewProperties = slideViewPropDto;
 
-let result = await api.setViewProperties("MyPresentation.pptx", dto);
+let response = await api.setViewProperties("MyPresentation.pptx", dto);
 
-if ((response.body as model.ViewProperties).showComments === model.ViewProperties.ShowCommentsEnum.False)
+if (response.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.False)
 	console.log("Comments disabled.");
 ```
 {{< /tab >}}

@@ -132,9 +132,9 @@ if response.show_animation:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.getSlideShowProperties("MyPresentation.pptx");
+let response = await api.getSlideShowProperties("MyPresentation.pptx");
 
-if ((response.body as model.SlideShowProperties).showAnimation)
+if (response.body.showAnimation)
 	console.log("Animation enabled.");
 ```
 {{< /tab >}}
@@ -350,10 +350,10 @@ print("Slide show properties were successfully set.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.SlideShowProperties();
+const dto = new CloudSdk.SlideShowProperties();
 dto.loop = true;
 dto.useTimings = true;
-dto.slideShowType = model.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
+dto.slideShowType = CloudSdk.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
             
 let result = await api.setSlideShowProperties("MyPresentation.pptx", dto);
 
