@@ -53,7 +53,7 @@ Returns view properties data.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-ViewProperties response = TestUtils.SlidesApi.GetViewProperties("MyPresentation.pptx")
+ViewProperties response = api.GetViewProperties("MyPresentation.pptx");
 
 if (response.ShowComments == ViewProperties.ShowCommentsEnum.True)
 	Console.WriteLine("Comments enabled.");
@@ -259,7 +259,7 @@ ViewProperties dto = new ViewProperties()
 	}
 };
 
-ViewProperties response = TestUtils.SlidesApi.SetViewProperties("MyPresentation.pptx", dto)
+ViewProperties response = api.SetViewProperties("MyPresentation.pptx", dto);
 
 if (response.ShowComments == ViewProperties.ShowCommentsEnum.False)
 	Console.WriteLine("Comments disabled.");

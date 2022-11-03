@@ -53,9 +53,9 @@ Returns slide show properties data.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-SlideShowProperties response = TestUtils.SlidesApi.GetSlideShowProperties("MyPresentation.pptx")
+SlideShowProperties response = api.GetSlideShowProperties("MyPresentation.pptx");
 
-if (response.ShowAnimation)
+if (response.ShowAnimation == true)
 	Console.WriteLine("Animation enabled.");
 ```
 
@@ -257,7 +257,7 @@ SlideShowProperties properties = new SlideShowProperties()
 	SlideShowType = SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker
 };
 
-SlideShowProperties response = TestUtils.SlidesApi.SetSlideShowProperties("MyPresentation.pptx", dto)
+SlideShowProperties response = api.SetSlideShowProperties("MyPresentation.pptx", properties);
 
 Console.WriteLine("Slide show properties were successfully set.");
 ```
