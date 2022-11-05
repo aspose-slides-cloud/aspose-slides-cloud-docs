@@ -212,9 +212,10 @@ var shapeIndex int32 = 3
 var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
-mathMl, _, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "")
+mathMl, _, e := api.SlidesApi.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 fmt.Printf("The converted file was saved to  %v.", mathMl.Name())
 ```

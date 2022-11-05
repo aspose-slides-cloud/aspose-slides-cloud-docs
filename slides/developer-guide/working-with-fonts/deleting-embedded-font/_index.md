@@ -139,10 +139,10 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
 fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFont(fileName, fontName, "", "", "")
+_, _, e := api.SlidesApi.DeleteEmbeddedFont(fileName, fontName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Arial has been removed from the embedded fonts.")
@@ -279,10 +279,10 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
 fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFontOnline(document, fontName, "")
+_, _, e = api.SlidesApi.DeleteEmbeddedFontOnline(document, fontName, "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Arial has been removed from the embedded fonts.")
@@ -461,10 +461,10 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
 fontName := "Arial"
-_, _, e = api.DeleteEmbeddedFontOnline(document, fontName, "")
+_, _, e = api.SlidesApi.DeleteEmbeddedFontOnline(document, fontName, "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Arial has been removed from the embedded fonts.")

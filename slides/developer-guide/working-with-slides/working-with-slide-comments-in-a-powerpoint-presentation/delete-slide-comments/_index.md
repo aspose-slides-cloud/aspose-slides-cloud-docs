@@ -123,7 +123,7 @@ cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
-_, e := c.SlidesApi.DeleteSlideComments("MyPresentation.pptx", 1, "Author Name", "", "", "")
+_, _, e := api.SlidesApi.DeleteSlideComments("MyPresentation.pptx", 1, "Author Name", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

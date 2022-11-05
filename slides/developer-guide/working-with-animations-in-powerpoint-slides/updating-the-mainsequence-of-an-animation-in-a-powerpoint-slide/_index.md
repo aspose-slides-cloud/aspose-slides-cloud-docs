@@ -267,7 +267,7 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-effect := NewEffect()
+effect := asposeslidescloud.NewEffect()
 effect.Type_ = "Fly"
 effect.Subtype = "Bottom"
 effect.PresetClassType = "Entrance"
@@ -278,8 +278,8 @@ animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequenceEffect("MyPre
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    for i, sequence := range animation.getInteractiveSequences() {
-        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.getTriggerShapeIndex())
+    for i, sequence := range animation.GetInteractiveSequences() {
+        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.GetTriggerShapeIndex())
     }
 }
 ```

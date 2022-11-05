@@ -192,11 +192,16 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//The example will be completed shortly.
+exportOptions := asposeslidescloud.NewVideoExportOptions()
+exportOptions.SlidesTransitionDuration = 5
+exportOptions.VideoResolutionType = "SD"
+exportOptions.TransitionType = "Dissolve"
+exportOptions.TransitionDuration = 3
 
-result, _, e := c.SlidesApi.DownloadPresentation("MyPresentation.pptx", "mpeg4", exportOptions, null, null, null, null)
+result, _, e := api.SlidesApi.DownloadPresentation("MyPresentation.pptx", "mpeg4", exportOptions, "", "", "", "", nil)
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 fmt.Printf("The converted file was saved to  %v.", result.Name())
 ```

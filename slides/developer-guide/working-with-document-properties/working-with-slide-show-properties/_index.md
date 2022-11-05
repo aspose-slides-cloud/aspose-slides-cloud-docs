@@ -147,14 +147,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-response, _, e := api.GetSlideShowProperties(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetSlideShowProperties(fileName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowAnimation() {
-	fmt.Printf("Animation enabled.")
+    fmt.Printf("Animation enabled.")
 }
 ```
 
@@ -370,16 +370,16 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-dto := slidescloud.NewSlideShowProperties()
+dto := asposeslidescloud.NewSlideShowProperties()
 dto.SetLoop(true)
 dto.SetUseTimings(true)
 dto.SetSlideShowType("PresentedBySpeaker")
 
 
-response, _, e := api.setSlideShowProperties(fileName, dto, "", "", "")
+_, _, e := api.SlidesApi.SetSlideShowProperties(fileName, dto, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Slide show properties were successfully set.")

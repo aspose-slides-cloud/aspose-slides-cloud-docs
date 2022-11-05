@@ -141,10 +141,10 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 fontName := "Calibri"
 var onlyUsed bool = false
-response, _, e := api.SetEmbeddedFont(fileName, fontName, &onlyUsed, "", "", "")
+response, _, e := api.SlidesApi.SetEmbeddedFont(fileName, fontName, &onlyUsed, "", "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Font " + response.GetList()[2].GetFontName() + " has been embedded.")
@@ -323,10 +323,10 @@ api := asposeslidescloud.NewAPIClient(cfg)
 document, e := ioutil.ReadFile("MyPresentation.pptx")
 fontName := "Calibri"
 var onlyUsed bool = false
-_, _, e = api.SetEmbeddedFontOnline(document, fontName, &onlyUsed, "")
+_, _, e = api.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Font Calibri has been embedded.")

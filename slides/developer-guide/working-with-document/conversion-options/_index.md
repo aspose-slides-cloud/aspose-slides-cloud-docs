@@ -714,15 +714,16 @@ if e != nil {
 }
 
 // Set options for the output PDF document.
-pdfOptions := NewPdfExportOptions()
+pdfOptions := asposeslidescloud.NewPdfExportOptions()
 pdfOptions.DrawSlidesFrame = true
 pdfOptions.JpegQuality = 90
 pdfOptions.Compliance = "PdfUa"
 
 // Convert the presentation to PDF format.
-result, _, e := c.SlidesApi.Convert(source, "pdf", "", "", "", nil, pdfOptions)
+result, _, e := api.SlidesApi.Convert(source, "pdf", "", "", "", nil, pdfOptions)
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("The converted document was saved to  %v.", result.Name())

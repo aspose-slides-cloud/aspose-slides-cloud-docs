@@ -216,16 +216,15 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-var slideIndex int32 = 1
-var shapeIndex int32 = 2
+var slideIndex int32 = 3
 
-dto := NewZoomFrame()
+dto := asposeslidescloud.NewZoomFrame()
 dto.X = 0
 dto.Y = 0
 dto.Width = 200
 dto.Height = 100
 dto.TargetSlideIndex = 2
-shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "")
+shape, _, e := api.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 }

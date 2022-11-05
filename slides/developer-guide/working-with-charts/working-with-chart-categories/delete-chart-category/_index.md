@@ -135,11 +135,11 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.CreateChartCategory("MyPresentation.pptx", 3, 1, 2, "", "", "")
+result, _, e := api.SlidesApi.DeleteChartCategory("MyPresentation.pptx", 3, 1, 2, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getCategories()))
+    fmt.Printf("%v series.", len(result.(asposeslidescloud.IChart).GetCategories()))
 }
 ```
 

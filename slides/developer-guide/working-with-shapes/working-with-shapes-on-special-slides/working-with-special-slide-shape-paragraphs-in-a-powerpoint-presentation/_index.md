@@ -290,35 +290,35 @@ fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 var shapeIndex int32 = 2
 
-paragraphs, _, e := c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "masterSlide", shapeIndex, "", "", "")
+paragraphs, _, e := api.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "masterSlide", shapeIndex, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-paragraphCount := len(portions.getParagraphLinks())
+paragraphCount := len(paragraphs.GetParagraphLinks())
 
-dto := NewParagraph()
+dto := asposeslidescloud.NewParagraph()
 dto.Alignment = "Right"
-portion := NewPortion()
+portion := asposeslidescloud.NewPortion()
 portion.Text = "New paragraph"
-dto.PortionList = []IPotrion { portion }
-paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "")
+dto.PortionList = []asposeslidescloud.IPortion { portion }
+paragraph, _, e := api.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getAlignment()) //Right
+fmt.Printf("Error: %v.", paragraph.GetAlignment()) //Right
 
-dto = NewParagraph()
+dto = asposeslidescloud.NewParagraph()
 dto.Alignment = "Center"
-paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, dto, "", "", "")
+paragraph, _, e = api.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, int32(paragraphCount + 1), dto, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getAlignment()) //Center
+fmt.Printf("Error: %v.", paragraph.GetAlignment()) //Center
 
-_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, "", "", "")
+_, _, e = api.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, int32(paragraphCount + 1), "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

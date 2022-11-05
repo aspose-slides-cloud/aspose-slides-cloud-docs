@@ -146,14 +146,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-response, _, e := api.GetViewProperties(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetViewProperties(fileName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowComments() == "True" {
-	fmt.Printf("Comments enabled.")
+    fmt.Printf("Comments enabled.")
 }
 ```
 
@@ -384,20 +384,20 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-dto := slidescloud.NewViewProperties()
+dto := asposeslidescloud.NewViewProperties()
 dto.SetShowComments("False")
-slideViewProperties := slidescloud.NewCommonSlideViewProperties()
+slideViewProperties := asposeslidescloud.NewCommonSlideViewProperties()
 slideViewProperties.SetScale(50)
 dto.SetSlideViewProperties(slideViewProperties)
 
-response, _, e := api.setViewProperties(fileName, dto, "", "", "")
+response, _, e := api.SlidesApi.SetViewProperties(fileName, dto, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowComments() == "False" {
-	fmt.Printf("Comments disabled.")
+    fmt.Printf("Comments disabled.")
 }
 ```
 

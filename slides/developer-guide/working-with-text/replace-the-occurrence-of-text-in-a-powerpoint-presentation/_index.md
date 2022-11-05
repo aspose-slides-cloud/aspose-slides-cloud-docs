@@ -387,12 +387,12 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 // Replace the specified text, ignoring case.
 var ignoreCase bool = true
-result, _, e := c.SlidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", &ignoreCase, "", "MyFolder", "")
+result, _, e := api.SlidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", &ignoreCase, "", "MyFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Replaced %v matches.", len(result.getMatches()))
+fmt.Printf("Replaced %v matches.", result.GetMatches())
 ```
 
 {{< /tab >}}

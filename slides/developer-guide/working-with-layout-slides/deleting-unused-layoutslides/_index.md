@@ -167,12 +167,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.DeleteUnusedLayoutSlides("MyPresentation.pptx", "", "", "")
+result, _, e := api.SlidesApi.DeleteUnusedLayoutSlides("MyPresentation.pptx", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf(len(result.(ILayoutSlides).getSlideList()))
+fmt.Printf("%v", len(result.(asposeslidescloud.ILayoutSlides).GetSlideList()))
 ```
 
 {{< /tab >}}

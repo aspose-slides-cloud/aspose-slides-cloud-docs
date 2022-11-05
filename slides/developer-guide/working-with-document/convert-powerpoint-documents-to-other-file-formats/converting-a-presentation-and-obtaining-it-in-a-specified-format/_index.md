@@ -430,7 +430,7 @@ fontFolderName := "customFonts"
 fontFileName := "custom.ttf"
 
 // Create the font folder in the storage.
-_, e := c.SlidesApi.CreateFolder(fontFolderName, storageName)
+_, e := api.SlidesApi.CreateFolder(fontFolderName, storageName)
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -443,7 +443,7 @@ if e != nil {
 }
 
 // Add the font to the font folder.
-_, e = c.SlidesApi.UploadFile(fontFolderName + "/" + fontFileName, fontData, storageName)
+_, _, e = api.SlidesApi.UploadFile(fontFolderName + "/" + fontFileName, fontData, storageName)
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -456,7 +456,7 @@ if e != nil {
 }
 
 // Convert the presentation to PDF format.
-response, _, e := c.SlidesApi.Convert(fileData, "pdf", "", storageName, fontFolderName, nil, nil)
+response, _, e := api.SlidesApi.Convert(fileData, "pdf", "", storageName, fontFolderName, nil, nil)
 if e != nil {
     fmt.Printf("Error: %v.", e)
 }

@@ -348,43 +348,43 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewChart()
+dto := asposeslidescloud.NewChart()
 dto.ChartType = "Pie"
 dto.X = 100
 dto.Y = 100
 dto.Width = 400
 dto.Height = 400
 
-title := NewChartTitle()
+title := asposeslidescloud.NewChartTitle()
 title.HasTitle = true
 title.Text = "Pie Chart"
 dto.Title = title
 
-category1 := NewChartCategory()
+category1 := asposeslidescloud.NewChartCategory()
 category1.Value = "First"
-category2 := NewChartCategory()
+category2 := asposeslidescloud.NewChartCategory()
 category2.Value = "Second"
-category3 := NewChartCategory()
+category3 := asposeslidescloud.NewChartCategory()
 category3.Value = "Third"
-dto.Categories = []IChartCategory { category1, category2, category3 }
+dto.Categories = []asposeslidescloud.IChartCategory { category1, category2, category3 }
 
-series := NewOneValueSeries()
-dataPoint1 := NewOneValueChartDataPoint()
+series := asposeslidescloud.NewOneValueSeries()
+dataPoint1 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint1.Value = 20
 
-dataPoint2 := NewOneValueChartDataPoint()
+dataPoint2 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint2.Value = 50
 
-dataPoint3 := NewOneValueChartDataPoint()
+dataPoint3 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint3.Value = 30
-series.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
-dto.Series = []ISeries { series }
+series.DataPoints = []asposeslidescloud.IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
+dto.Series = []asposeslidescloud.ISeries { series }
 
-result, _, e := c.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "")
+result, _, e := api.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v categories.", len(result.(IChart).getCategories())) //3
+    fmt.Printf("%v categories.", len(result.(asposeslidescloud.IChart).GetCategories())) //3
 }
 ```
 

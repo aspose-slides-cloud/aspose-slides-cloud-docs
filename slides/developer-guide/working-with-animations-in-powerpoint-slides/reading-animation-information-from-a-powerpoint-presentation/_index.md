@@ -228,12 +228,12 @@ cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
-animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, "masterSlide", nil, "", "", "")
+animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, nil, nil, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    for i, effect := range animation.getMainSequence() {
-        fmt.Printf("Effect %v: %v.", i + 1, effect.getType())
+    for i, effect := range animation.GetMainSequence() {
+        fmt.Printf("Effect %v: %v.", i + 1, effect.GetType())
     }
 }
 ```

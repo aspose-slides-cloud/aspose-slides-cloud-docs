@@ -405,54 +405,54 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewChart()
+dto := asposeslidescloud.NewChart()
 dto.ChartType = "ClusteredColumn"
 dto.X = 100
 dto.Y = 100
 dto.Width = 400
 dto.Height = 400
 
-title := NewChartTitle()
+title := asposeslidescloud.NewChartTitle()
 title.HasTitle = true
 title.Text = "Column Chart"
 dto.Title = title
 
-category1 := NewChartCategory()
+category1 := asposeslidescloud.NewChartCategory()
 category1.Value = "Category1"
-category2 := NewChartCategory()
+category2 := asposeslidescloud.NewChartCategory()
 category2.Value = "Category2"
-category3 := NewChartCategory()
+category3 := asposeslidescloud.NewChartCategory()
 category3.Value = "Category3"
-dto.Categories = []IChartCategory { category1, category2, category3 }
+dto.Categories = []asposeslidescloud.IChartCategory { category1, category2, category3 }
 
-series1 := NewOneValueSeries()
-dataPoint11 := NewOneValueChartDataPoint()
+series1 := asposeslidescloud.NewOneValueSeries()
+dataPoint11 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint11.Value = 20
 
-dataPoint12 := NewOneValueChartDataPoint()
+dataPoint12 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint12.Value = 50
 
-dataPoint13 := NewOneValueChartDataPoint()
+dataPoint13 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint13.Value = 30
-series1.DataPoints = []IOneValueChartDataPoint { dataPoint11, dataPoint12, dataPoint13 }
+series1.DataPoints = []asposeslidescloud.IOneValueChartDataPoint { dataPoint11, dataPoint12, dataPoint13 }
 
-series2 := NewOneValueSeries()
-dataPoint21 := NewOneValueChartDataPoint()
+series2 := asposeslidescloud.NewOneValueSeries()
+dataPoint21 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint21.Value = 30
 
-dataPoint22 := NewOneValueChartDataPoint()
+dataPoint22 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint22.Value = 10
 
-dataPoint23 := NewOneValueChartDataPoint()
+dataPoint23 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint23.Value = 60
-series2.DataPoints = []IOneValueChartDataPoint { dataPoint21, dataPoint22, dataPoint23 }
-dto.Series = []ISeries { series1, series2 }
+series2.DataPoints = []asposeslidescloud.IOneValueChartDataPoint { dataPoint21, dataPoint22, dataPoint23 }
+dto.Series = []asposeslidescloud.ISeries { series1, series2 }
 
-result, _, e := c.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "")
+result, _, e := api.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v categories.", len(result.(IChart).getCategories())) //3
+    fmt.Printf("%v categories.", len(result.(asposeslidescloud.IChart).GetCategories())) //3
 }
 ```
 

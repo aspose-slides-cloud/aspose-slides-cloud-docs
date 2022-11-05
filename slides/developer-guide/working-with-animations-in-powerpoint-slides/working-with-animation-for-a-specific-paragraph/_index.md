@@ -220,7 +220,7 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewEffect()
+dto := asposeslidescloud.NewEffect()
 dto.Type_ = "Blink"
 dto.ShapeIndex = 2
 dto.ParagraphIndex = 1
@@ -229,11 +229,13 @@ if e != nil {
     fmt.Printf("Error: %v.", e)
 }
 
-animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, 2, 1, "", "MyStorageFolder", "")
+var shapeIndex int32 = 2
+var paragraphIndex int32 = 1
+animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, &shapeIndex, &paragraphIndex, "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v effects.", len(animation.getMainSequence()))
+    fmt.Printf("%v effects.", len(animation.GetMainSequence()))
 }
 ```
 

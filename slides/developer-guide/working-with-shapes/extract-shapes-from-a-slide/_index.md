@@ -377,21 +377,22 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 // Get all shapes from the first slide.
-allShapes, _, e := c.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", nil)
+allShapes, _, e := api.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 
 // Get all charts from the first slide.
-var shapeType string = "Chart"
-charts, _, e := c.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", &shapeType)
+charts, _, e := api.SlidesApi.GetShapes("MyPresentation.pptx", 1, "", "", "", "Chart", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 
 // Print information about the shapes and charts.
-shapeCount = len(allShapes.getShapesLinks())
-chartCount = len(charts.getShapesLinks())
+shapeCount := len(allShapes.GetShapesLinks())
+chartCount := len(charts.GetShapesLinks())
 fmt.Printf("The slide contains %v shapes, including %v charts", shapeCount, chartCount)
 ```
 

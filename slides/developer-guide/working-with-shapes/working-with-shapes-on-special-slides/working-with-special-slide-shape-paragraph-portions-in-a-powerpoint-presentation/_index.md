@@ -296,37 +296,37 @@ var slideIndex int32 = 1
 var shapeIndex int32 = 2
 var paragraphIndex int32 = 3
 
-portions, _, e := c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, "", "", "")
+portions, _, e := api.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-portionCount := len(portions.getItems())
+portionCount := len(portions.GetItems())
 
-dto := NewPortion()
+dto := asposeslidescloud.NewPortion()
 dto.Text = "New portion"
 dto.FontBold = "True"
-portion, _, e := c.SlidesApi.CreateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, dto, nil, "", "", "")
+portion, _, e := api.SlidesApi.CreateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, dto, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getFontBold()) //True
-fmt.Printf("Error: %v.", portion.getText()) //New portion
+fmt.Printf("Error: %v.", portion.GetFontBold()) //True
+fmt.Printf("Error: %v.", portion.GetText()) //New portion
 
-dto = NewPortion()
+dto = asposeslidescloud.NewPortion()
 dto.Text = "Updated portion"
 dto.FontHeight = 22
-portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, portionCount + 1, dto, "", "", "")
+portion, _, e = api.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, int32(portionCount + 1), dto, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getFontBold()) //True
-fmt.Printf("Error: %v.", portion.getFontHeight()) //22.0
-fmt.Printf("Error: %v.", portion.getText()) //Updated portion
+fmt.Printf("Error: %v.", portion.GetFontBold()) //True
+fmt.Printf("Error: %v.", portion.GetFontHeight()) //22.0
+fmt.Printf("Error: %v.", portion.GetText()) //Updated portion
 
-_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, portionCount + 1, "", "", "")
+_, _, e = api.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "masterSlide", shapeIndex, paragraphIndex, int32(portionCount + 1), "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

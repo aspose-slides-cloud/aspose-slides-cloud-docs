@@ -299,34 +299,34 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-animation, _, e := api.SlidesApi.GetSpecialSlideAnimation("MyPresentation.pptx", 1, "MasterSlide", nil, "", "MyStorageFolder", "")
+animation, _, e := api.SlidesApi.GetSpecialSlideAnimation("MyPresentation.pptx", 1, "MasterSlide", nil, nil, "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v effects.", len(animation.getMainSequence()))
+    fmt.Printf("%v effects.", len(animation.GetMainSequence()))
 }
 
-dto := NewSlideAnimation()
-effect1 := NewEffect()
+dto := asposeslidescloud.NewSlideAnimation()
+effect1 := asposeslidescloud.NewEffect()
 effect1.Type_ = "Blink"
 effect1.ShapeIndex = 2
-effect2 := NewEffect()
+effect2 := asposeslidescloud.NewEffect()
 effect2.Type_ = "Appear"
 effect2.ShapeIndex = 3
-dto.MainSequence = []IEffect { effect1, effect2 }
+dto.MainSequence = []asposeslidescloud.IEffect { effect1, effect2 }
 
 animation, _, e = api.SlidesApi.SetSpecialSlideAnimation("MyPresentation.pptx", 1, "MasterSlide", dto, "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v effects.", len(animation.getMainSequence())) //2
+    fmt.Printf("%v effects.", len(animation.GetMainSequence())) //2
 }
 
 animation, _, e = api.SlidesApi.DeleteSpecialSlideAnimation("MyPresentation.pptx", 1, "MasterSlide", "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v effects.", len(animation.getMainSequence())) //0
+    fmt.Printf("%v effects.", len(animation.GetMainSequence())) //0
 }
 ```
 

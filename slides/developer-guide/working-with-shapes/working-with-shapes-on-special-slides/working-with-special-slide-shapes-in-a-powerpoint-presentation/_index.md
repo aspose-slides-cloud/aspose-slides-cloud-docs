@@ -294,36 +294,36 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 
-shapes, _, e := c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "masterSlide", "", "", "")
+shapes, _, e := api.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "masterSlide", "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-shapeCount := len(shapes.getShapesLinks())
+shapeCount := len(shapes.GetShapesLinks())
 
-dto := NewShape()
+dto := asposeslidescloud.NewShape()
 dto.ShapeType = "Rectangle"
 dto.X = 100
 dto.Y = 100
 dto.Width = 500
 dto.Height = 200
 dto.Text = "New shape"
-shape, _, e := c.SlidesApi.CreateSpecialSlideShape(fileName, slideIndex, "masterSlide", dto, nil, "", "", "")
+shape, _, e := api.SlidesApi.CreateSpecialSlideShape(fileName, slideIndex, "masterSlide", dto, nil, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getText()) //New shape
+fmt.Printf("Error: %v.", shape.(asposeslidescloud.IShape).GetText()) //New shape
 
 dto.Text = "Updated shape"
-shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "masterSlide", shapeCount + 1, dto, "", "", "")
+shape, _, e = api.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "masterSlide", int32(shapeCount + 1), dto, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getAlignment()) //Updated shape
+fmt.Printf("Error: %v.", shape.(asposeslidescloud.IShape).GetText()) //Updated shape
 
-_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "masterSlide", shapeCount + 1, "", "", "")
+_, _, e = api.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "masterSlide", int32(shapeCount + 1), "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

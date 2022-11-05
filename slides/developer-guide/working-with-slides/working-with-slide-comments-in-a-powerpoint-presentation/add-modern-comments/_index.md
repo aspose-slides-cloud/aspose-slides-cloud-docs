@@ -250,28 +250,28 @@ cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
-textSelectionStartIndex := 1
-textSelectionLength := 5
+var textSelectionStartIndex int32 = 1
+var textSelectionLength int32 = 5
 
-dto := NewSlideModernComment()
+dto := asposeslidescloud.NewSlideModernComment()
 dto.Text = "Comment text"
 dto.Author = "Author Name"
 dto.Status = "Resolved"
 
-childComment := NewSlideModernComment()
+childComment := asposeslidescloud.NewSlideModernComment()
 childComment.Text = "Child comment text"
 childComment.Author = "Author Name"
 childComment.Status = "Active"
 childComment.TextSelectionStart = textSelectionStartIndex
 childComment.TextSelectionLength = textSelectionLength
-childComments := []ISlideCommentBase { childComment }
+childComments := []asposeslidescloud.ISlideCommentBase { childComment }
 dto.ChildComments = childComments
-comments, _, e := c.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, "", "", "")
+comments, _, e := api.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, nil, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("The slide has %v comments", len(comments.(ISlideComments).getList()))
+fmt.Printf("The slide has %v comments", len(comments.GetList()))
 ```
 
 {{< /tab >}}

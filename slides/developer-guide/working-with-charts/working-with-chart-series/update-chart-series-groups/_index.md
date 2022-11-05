@@ -168,7 +168,19 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+seriesGroup := asposeslidescloud.NewChartSeriesGroup()
+seriesGroup.Overlap = 10
+
+var slideIndex int32 = 3
+var shapeIndex int32 = 1
+var seriesGroupIndex int32 = 1
+
+result, _, e := api.SlidesApi.SetChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}            
+fmt.Printf("The chart contains \"%v\" series groups.", len(result.GetSeriesGroups()))
 ```
 
 {{< /tab >}}

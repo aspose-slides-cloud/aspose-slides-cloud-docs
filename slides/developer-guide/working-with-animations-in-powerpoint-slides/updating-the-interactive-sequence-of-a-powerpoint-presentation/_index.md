@@ -292,23 +292,23 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewInteractiveSequence()
+dto := asposeslidescloud.NewInteractiveSequence()
 dto.TriggerShapeIndex = 1
 
-effect := NewEffect()
+effect := asposeslidescloud.NewEffect()
 effect.Type_ = "Fly"
 effect.Subtype = "Bottom"
 effect.PresetClassType = "Entrance"
 effect.ShapeIndex = 4
 effect.TriggerType = "OnClick"
-dto.Effects = []IEffect { effect }
+dto.Effects = []asposeslidescloud.IEffect { effect }
 
 animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, dto, "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    for i, sequence := range animation.getInteractiveSequences() {
-        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.getTriggerShapeIndex())
+    for i, sequence := range animation.GetInteractiveSequences() {
+        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.GetTriggerShapeIndex())
     }
 }
 ```

@@ -163,7 +163,16 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+var slideIndex int32 = 1
+var shapeIndex int32 = 1
+var paragraphIndex int32 = 1
+
+response, _, e := api.SlidesApi.GetParagraphEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, "", "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The default tab size is \"%v\"", response.GetDefaultTabSize())
 ```
 
 {{< /tab >}}

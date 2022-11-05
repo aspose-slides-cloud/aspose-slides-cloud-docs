@@ -142,10 +142,10 @@ fileName := "MyPresentation.pptx"
 fontName := "Calibri"
 targetFontName := "Times New Roman"
 var embed bool = true
-response, _, e := api.ReplaceFont(fileName, fontName, targetFontName, &embed, "", "", "")
+_, _, e := api.SlidesApi.ReplaceFont(fileName, fontName, targetFontName, &embed, "", "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Errorf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Font Calibri has been replaced with Times New Roman.")
@@ -320,16 +320,15 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-fileName := "MyPresentation.pptx"
 fontName := "Calibri"
 targetFontName := "Times New Roman"
 var embed bool = true
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
-response, _, e := api.ReplaceFont(document, fontName, targetFontName, &embed, "")
+_, _, e = api.SlidesApi.ReplaceFontOnline(document, fontName, targetFontName, &embed, "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Font Calibri has been replaced with Times New Roman.")

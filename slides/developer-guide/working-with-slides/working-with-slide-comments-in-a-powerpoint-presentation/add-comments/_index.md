@@ -207,20 +207,20 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewSlideComment()
+dto := asposeslidescloud.NewSlideComment()
 dto.Text = "Comment text"
 dto.Author = "Author Name"
-childComment := NewSlideComment()
+childComment := asposeslidescloud.NewSlideComment()
 childComment.Text = "Child comment text"
 childComment.Author = "Author Name"
-childComments := []ISlideCommentBase { childComment }
+childComments := []asposeslidescloud.ISlideCommentBase { childComment }
 dto.ChildComments = childComments
-comments, _, e := c.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, "", "", "")
+comments, _, e := api.SlidesApi.CreateComment("MyPresentation.pptx", 3, dto, nil, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("The slide has %v comments", len(comments.(ISlideComments).getList()))
+fmt.Printf("The slide has %v comments", len(comments.GetList()))
 ```
 
 {{< /tab >}}

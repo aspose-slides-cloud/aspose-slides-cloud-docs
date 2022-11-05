@@ -135,11 +135,11 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.DeleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, "", "", "")
+result, _, e := api.SlidesApi.DeleteChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getSeries()[0].(IScatterSeries).getDataPoints()))
+    fmt.Printf("%v series.", len(result.(asposeslidescloud.IChart).GetSeries()[0].(asposeslidescloud.IScatterSeries).GetDataPoints()))
 }
 ```
 

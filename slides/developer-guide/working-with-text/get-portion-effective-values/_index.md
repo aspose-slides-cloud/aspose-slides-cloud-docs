@@ -167,7 +167,18 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+
+var slideIndex int32 = 1
+var shapeIndex int32 = 1
+var paragraphIndex int32 = 1
+var portionIndex int32 = 1
+
+response, _, e := api.SlidesApi.GetPortionEffective("MyPresentation.pptx", slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The portion font height is \"%v\"", response.GetFontHeight())
 ```
 
 {{< /tab >}}

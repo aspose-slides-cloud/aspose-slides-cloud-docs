@@ -251,7 +251,7 @@ cfg.AppKey = "my_client_key"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 // Set the size for output images.
-options := NewImageExportOptions()
+options := asposeslidescloud.NewImageExportOptions()
 options.Width = 480
 options.Height = 360
 
@@ -262,9 +262,10 @@ if e != nil {
 }
 
 // Convert the presentation to the images.
-result, _, e := c.SlidesApi.Convert(source, "png", "", "", "", nil, options)
+result, _, e := api.SlidesApi.Convert(source, "png", "", "", "", nil, options)
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("The file with images was saved to  %v.", result.Name())
