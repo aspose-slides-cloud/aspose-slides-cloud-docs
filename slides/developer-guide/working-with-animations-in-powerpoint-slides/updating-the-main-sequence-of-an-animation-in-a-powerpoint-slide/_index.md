@@ -1,5 +1,5 @@
 ---
-title: "Updating the Main Sequence of an animation in a PowerPoint Slide"
+title: "Updating the Main Sequence of an Animation in a PowerPoint Slide"
 type: docs
 url: /updating-the-main-sequence-of-an-animation-in-a-powerpoint-slide/
 weight: 30
