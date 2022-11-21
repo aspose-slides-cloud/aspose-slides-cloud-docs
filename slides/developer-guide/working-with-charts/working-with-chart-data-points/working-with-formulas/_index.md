@@ -71,10 +71,7 @@ chart.json file:
             "dataPoints": [
                 { "value": 40 },
                 { "value": 50 },
-                { 
-					"value": 0, 
-					"value_formula": "SUM(B2:B3)"
-				}
+                { "value_formula": "SUM(B2:B3)" }
             ]
 		}
     ]              
@@ -141,7 +138,7 @@ ShapeBase dto = new Chart
 			{
 				new OneValueChartDataPoint { Value = 40 },
 				new OneValueChartDataPoint { Value = 50 },
-				new OneValueChartDataPoint { Value = 70, ValueFormula = "SUM(B2:B3)" }
+				new OneValueChartDataPoint { ValueFormula = "SUM(B2:B3)" }
 			}
 		}
 	}
@@ -201,7 +198,6 @@ OneValueChartDataPoint dataPoint12 = new OneValueChartDataPoint();
 dataPoint12.setValue(50.0);
 dataPoints1.add(dataPoint12);
 OneValueChartDataPoint dataPoint13 = new OneValueChartDataPoint();
-dataPoint13.setValue(70.0);
 dataPoint13.setValueFormula("SUM(B2:B3)");
 dataPoints1.add(dataPoint13);
 series1.setDataPoints(dataPoints1);
@@ -263,7 +259,6 @@ $dataPoint11->setValue(40);
 $dataPoint12 = new OneValueChartDataPoint();
 $dataPoint12->setValue(50);
 $dataPoint13 = new OneValueChartDataPoint();
-$dataPoint13->setValue(0);
 $dataPoint13->setValueFormula("SUM(B2:B3)");
 $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
 $dto->setSeries([ $series1 ]);
@@ -316,7 +311,7 @@ point11.value = 40
 point12 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point12.value = 50
 point13 = AsposeSlidesCloud::OneValueChartDataPoint.new
-point13.value = 70
+point13.value_formula = "SUM(B2:B3)"
 series1.data_points = [point11, point12, point13]
 chart.series = [ series1 ]
 result = api.create_shape("MyPresentation.ppx", 1, chart)
@@ -373,7 +368,7 @@ point11.value = 40
 point12 = OneValueChartDataPoint()
 point12.value = 50
 point13 = OneValueChartDataPoint()
-point13.value = 70
+point13.value_formula = "SUM(B2:B3)"
 series1.data_points = [point11, point12, point13]
 chart.series = [series1]
         
@@ -413,7 +408,7 @@ dataSourceForValues1.worksheetIndex = 0;
 dataSourceForValues1.columnIndex = 1;
 dataSourceForValues1.rowIndex = 1;
 series1.dataSourceForValues = dataSourceForValues1;
-series1.dataPoints = [{value: 40}, {value: 50}, {value: 70}];      
+series1.dataPoints = [{value: 40}, {value: 50}, {valueFormula: "SUM(B2:B3)"}];      
 chart.series = [series1];
                 
 let result = await api.createShape("MyPresentation.pptx", 1, chart);
@@ -463,7 +458,7 @@ point11.Value = 40
 point12 := slidescloud.NewOneValueChartDataPoint()
 point12.Value = 50
 point13 := slidescloud.NewOneValueChartDataPoint()
-point13.Value = 70
+point13.ValueFormula = "SUM(B2:B3)"
 series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
 chart.Series = []slidescloud.ISeries{series1}
 
@@ -534,7 +529,7 @@ $point11->{value} = 40;
 my $point12 = AsposeSlidesCloud::Object::OneValueChartDataPoint->new();
 $point12->{value} = 50;
 my $point13 = AsposeSlidesCloud::Object::OneValueChartDataPoint->new();
-$point13->{value} = 70;
+$point13->{value_formula} = "SUM(B2:B3)";
 my @points1 = ( $point11, $point12, $point13 );
 $series1->{data_points} = \@points1;
 my @series = ( $series1 );
