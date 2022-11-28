@@ -5,10 +5,10 @@ url: /setting-chart-data-source/
 weight: 80
 ---
 ## **Introduction**
-By default, the Slides.Cloud automatically places chart data in the Excel workbook. If needed, the data source is specified manually. Two options are available for storing data: Workbook and Literals.
+By default, Slides.Cloud places chart data in an Excel workbook. You can explicity specify the data source for your chart data. Two options are available: Workbook and Literals.
 Storing data in the workbook means specifying the address of the first cell of the data range. Let's say we want to store the series of four data points in the workbook cells B2:B5. In this case, "B2" is the first cell of the data range. Cell addresses are represented as row and column indexes, thus “B2” is row 1 and column 1 accordingly.
-The Literals means storing values as is in the chart's cache. 
-Data source can be specified for: series name, values, x-values, y-values, bubble sizes and categories.
+Literals means storing values as is in the chart cache.
+Data source can be specified for series name, values, x-values, y-values, bubble sizes and categories.
 
 ## **Workbook**
 ### **API Information**

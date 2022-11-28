@@ -5,8 +5,9 @@ url: /working-with-formulas/
 weight: 40
 ---
 ## **Introduction**
-Chart value can be calculated based on the formula in the case when an Excel workbook is used as a data source. 
-Formulas can be specified for: values, x-values, y-values, and bubble sizes.
+Chart data point value can be calculated based on a formula.
+Formulas can be specified for values, x-values, y-values, and bubble sizes.
+You can use formulas in the case when an Excel workbook is used as the data source.
 
 ## **Formulas**
 ### **API Information**
