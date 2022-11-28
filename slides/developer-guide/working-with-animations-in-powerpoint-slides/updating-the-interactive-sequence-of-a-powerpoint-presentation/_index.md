@@ -1,169 +1,162 @@
 ---
-title: "Updating the interactive sequence of a PowerPoint Presentation"
+title: "Updating the Interactive Sequence of a PowerPoint Presentation"
 type: docs
 url: /updating-the-interactive-sequence-of-a-powerpoint-presentation/
 weight: 20
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud allows you to update information from a Power Point Presentation. 
+
+The interactive sequence represents animations that are triggered by click a specified shape. The following method allows you to update the interactive sequence in a PowerPoint presentation.
+
+## **CreateAnimationInteractiveSequence**
+
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{slide-index}/animation/interactiveSequences|GET|Get Animation Information from a PowerPoint Slide|[PostSlideAnimationInteractiveSequence](https://apireference.aspose.cloud/slides/#/Animation/PostSlideAnimationInteractiveSequence)|
-### **cURL Example**
+|/slides/{name}/slides/{slideIndex}/animation/interactiveSequences|POST|Updates the interactive sequence of a presentation slide.|[CreateAnimationInteractiveSequence](https://apireference.aspose.cloud/slides/#/Animation/CreateAnimationInteractiveSequence)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a presentation slide.|
+|sequence|object|body|true|The collection of shape effects.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+**MyFolder/MyPresentation.pptx** document contains four shapes. Add the **fly** effect from **below** for the **fourth** shape by clicking on the **first** shape.
+
+**cURL Solution**
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Request Token**
+**Get an Access Token**
 
-```java
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=xxxxx&client_secret=xxxx-xxx" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+```sh
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-```java
+**Add the Shape Effect**
 
-curl -v -X POST "https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/animation/interactiveSequences" -H "Content-Type:application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjEwNjM0NTAsImV4cCI6MTU2MTE0OTg1MCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.XURcZFFwPs__A4GHgzncfsCI5_F6R0NIWrTbdGcQqTKBV24jqbQYwe7POYMU8QT3_CKQ9zrlCX47Gtzx3XZ-1LyZAx3v6e6__r7HG9DsVCrzGXxzcIaYBwo9XohkfO5At9XcmXMqw1YoZvWskHUjhIAXzlg6Kt-k1hIPCL-0A1A0WkbdtWOJtWpTEVnIR2kBfXkUcNHLREq3S4JVshLmnjdPF6YViBM5AkV91diC33yj2Fwz-j572SjgwEuHkKNRLTngwsnu9DFEtfiN6bCCPBhulq6XG4DuqLrAtxyodD0Et5Y0YegUHUWOvf4-ZFbUd1ZHzU_rQ06dXzP6SDzMjg" --ssl-no-revoke -d {"effects": [{"type": "Fly", "subtype": "Bottom", "presetClassType": "Entrance", "shapeIndex": 5, "triggerType": "OnClick"} ], "triggerShapeIndex": 1 }
+```sh
+curl POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/interactiveSequences?folder=MyFolder" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @InteractiveSequence.json
+```
 
+InteractiveSequence.json content:
+
+```json
+{
+  "Effects": [
+    {
+      "Type": "Fly",
+      "Subtype": "Bottom",
+      "PresetClassType": "Entrance",
+      "ShapeIndex": 4,
+      "TriggerType": "OnClick"
+    }
+  ],
+  "TriggerShapeIndex": 1
+}
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
+**Response Example**
 
+```json
 {
-
-   "mainSequence":[
-
-      {
-
-         "type":"Appear",
-
-         "subtype":"None",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":1,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      },
-
-      {
-
-         "type":"Bounce",
-
-         "subtype":"None",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":2,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      },
-
-      {
-
-         "type":"Fly",
-
-         "subtype":"Bottom",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":3,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      }
-
-   ],
-
-   "interactiveSequences":[
-
-      {
-
-         "effects":[
-
-            {
-
-               "type":"Fly",
-
-               "subtype":"Bottom",
-
-               "presetClassType":"Entrance",
-
-               "shapeIndex":5,
-
-               "triggerType":"OnClick",
-
-               "triggerDelayTime":0.0
-
-            }
-
-         ],
-
-         "triggerShapeIndex":1
-
-      }
-
-   ],
-
-   "selfUri":{
-
-      "href":"https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/animation",
-
-      "relation":"self"
-
-   }
-
+    "mainSequence": [],
+    "interactiveSequences": [
+        {
+            "effects": [
+                {
+                    "type": "Fly",
+                    "subtype": "Bottom",
+                    "presetClassType": "Entrance",
+                    "shapeIndex": 4,
+                    "triggerType": "OnClick",
+                    "duration": 0.5,
+                    "triggerDelayTime": 0.0
+                }
+            ],
+            "triggerShapeIndex": 1
+        }
+    ],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation?folder=MyFolder",
+        "relation": "self",
+        "slideIndex": 1
+    }
 }
-
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-InteractiveSequence newSequence = new InteractiveSequence
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+using System;
+using System.Collections.Generic;
+
+class Application
 {
-    TriggerShapeIndex = 1,
-    Effects = new List<Effect>
+    static void Main()
     {
-        new Effect
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Prepare the shape effect.
+        var newSequence = new InteractiveSequence
         {
-            Type = Effect.TypeEnum.Fly,
-            Subtype = Effect.SubtypeEnum.Bottom,
-            PresetClassType = Effect.PresetClassTypeEnum.Entrance,
-            ShapeIndex = 4,
-            TriggerType = Effect.TriggerTypeEnum.OnClick
+            TriggerShapeIndex = 1,
+            Effects = new List<Effect>
+            {
+                new Effect
+                {
+                    Type = Effect.TypeEnum.Fly,
+                    Subtype = Effect.SubtypeEnum.Bottom,
+                    PresetClassType = Effect.PresetClassTypeEnum.Entrance,
+                    ShapeIndex = 4,
+                    TriggerType = Effect.TriggerTypeEnum.OnClick
+                }
+            }
+        };
+
+        // Add the shape effect into the interactive sequence for the first slide.
+        var slideAnimation = slidesApi.CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, newSequence, null, "MyFolder");
+
+        // Print indices of trigger shapes.
+        foreach (var sequence in slideAnimation.InteractiveSequences)
+        {
+            Console.WriteLine(sequence.TriggerShapeIndex);
         }
     }
-};
-SlideAnimation response = api.CreateAnimationInteractiveSequence("myPresentation.pptx", 1, newSequence);
-foreach (InteractiveSequence sequence in response.InteractiveSequences)
-{
-    Console.WriteLine(sequence.TriggerShapeIndex); //should display 1
 }
 ```
 
@@ -172,24 +165,43 @@ foreach (InteractiveSequence sequence in response.InteractiveSequences)
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
-InteractiveSequence dto = new InteractiveSequence();
-dto.setTriggerShapeIndex(1);
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Effect;
+import com.aspose.slides.model.InteractiveSequence;
 
-List<Effect> effects = new ArrayList<Effect>();
-Effect effect = new Effect();
-effect.setType(Effect.TypeEnum.FLY);
-effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
-effect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
-effect.setShapeIndex(4);
-effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
-effects.add(effect);
-dto.setEffects(effects);
+import java.util.ArrayList;
+import java.util.List;
 
-SlideAnimation response = api.createAnimationInteractiveSequence("myPresentation.pptx", 1, dto, null, null, null);
-for (InteractiveSequence sequence : response.getInteractiveSequences()) {
-    System.out.println(sequence.getTriggerShapeIndex());
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Prepare the shape effect.
+        var effect = new Effect();
+        effect.setType(Effect.TypeEnum.FLY);
+        effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
+        effect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
+        effect.setShapeIndex(4);
+        effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
+
+        var effects = new ArrayList<>();
+        effects.add(effect);
+
+        var newSequence = new InteractiveSequence();
+        newSequence.setTriggerShapeIndex(1);
+        newSequence.setEffects(effects);
+
+        // Add the shape effect into the interactive sequence for the first slide.
+        var slideAnimation = slidesApi.createAnimationInteractiveSequence("MyPresentation.pptx", 1, newSequence, null, "MyFolder", null);
+
+        // Print indices of trigger shapes.
+        for (var sequence : slideAnimation.getInteractiveSequences()) {
+            System.out.println(sequence.getTriggerShapeIndex());
+        }
+    }
 }
 ```
 
@@ -198,29 +210,36 @@ for (InteractiveSequence sequence : response.getInteractiveSequences()) {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence;
 use Aspose\Slides\Cloud\Sdk\Model\Effect;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
-$dto = new InteractiveSequence();
-$dto->setTriggerShapeIndex(1);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
+$slidesApi = new SlidesApi(null, $configuration);
+
+// Prepare the shape effect.
 $effect = new Effect();
 $effect->setType("Fly");
 $effect->setSubtype("Bottom");
 $effect->setPresetClassType("Entrance");
 $effect->setShapeIndex(4);
 $effect->setTriggerType("OnClick");
-$dto->setEffects([ $effect ]);
 
-$response = $api->CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, $dto);
-foreach ($response->getInteractiveSequences() as $sequence)
-{
+$newSequence = new InteractiveSequence();
+$newSequence->setTriggerShapeIndex(1);
+$newSequence->setEffects([ $effect ]);
+
+// Add the shape effect into the interactive sequence for the first slide.
+$slideAnimation = $slidesApi->createAnimationInteractiveSequence("MyPresentation.pptx", 1, $newSequence, null, "MyFolder");
+
+// Print indices of trigger shapes.
+foreach ($slideAnimation->getInteractiveSequences() as $sequence) {
     print($sequence->getTriggerShapeIndex());
 }
 ```
@@ -229,33 +248,72 @@ foreach ($response->getInteractiveSequences() as $sequence)
 
 {{< tab tabNum="4" >}}
 
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+# Prepare the shape effect.
+effect = Effect.new
+effect.type = "Fly"
+effect.subtype = "Bottom"
+effect.preset_class_type = "Entrance"
+effect.shape_index = 4
+effect.trigger_type = "OnClick"
+
+new_sequence = InteractiveSequence.new
+new_sequence.trigger_shape_index = 1
+new_sequence.effects = [effect]
+
+# Add the shape effect into the interactive sequence for the first slide.
+slide_animation = slides_api.create_animation_interactive_sequence("MyPresentation.pptx", 1, new_sequence, nil, "MyFolder")
+
+# Print indices of trigger shapes.
+for sequence in slide_animation.interactive_sequences
+    puts sequence.trigger_shape_index
+end
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
-from asposeslidescloud.configuration import Configuration
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.interactive_sequence import InteractiveSequence
 from asposeslidescloud.models.effect import Effect
+from asposeslidescloud.models.interactive_sequence import InteractiveSequence
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
-dto = InteractiveSequence()
-dto.trigger_shape_index = 1
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
+# Prepare the shape effect.
 effect = Effect()
 effect.type = "Fly"
 effect.subtype = "Bottom"
 effect.preset_class_type = "Entrance"
 effect.shape_index = 4
 effect.trigger_type = "OnClick"
-dto.effects = [ effect ]
 
-result = api.create_animation_interactive_sequence("MyPresentation.pptx", 1, dto)
-for sequence in result.interactive_sequences:
+new_sequence = InteractiveSequence()
+new_sequence.trigger_shape_index = 1
+new_sequence.effects = [effect]
+
+# Add the shape effect into the interactive sequence for the first slide.
+slide_animation = slides_api.create_animation_interactive_sequence("MyPresentation.pptx", 1, new_sequence, None, "MyFolder")
+
+# Print indices of trigger shapes.
+for sequence in slide_animation.interactive_sequences:
     print(sequence.trigger_shape_index)
 ```
 
@@ -263,22 +321,31 @@ for sequence in result.interactive_sequences:
 
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const dto = new CloudSdk.InteractiveSequence();
-dto.triggerShapeIndex = 1;
+const cloud = require("asposeslidescloud");
 
-const effect = new CloudSdk.Effect();
-effect.type = CloudSdk.Effect.TypeEnum.Fly;
-effect.subtype = CloudSdk.Effect.SubtypeEnum.Bottom;
-effect.presetClassType = CloudSdk.Effect.PresetClassTypeEnum.Entrance;
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
+
+// Prepare the shape effect.
+const effect = new cloud.Effect();
+effect.type = cloud.Effect.TypeEnum.Fly;
+effect.subtype = cloud.Effect.SubtypeEnum.Bottom;
+effect.presetClassType = cloud.Effect.PresetClassTypeEnum.Entrance;
 effect.shapeIndex = 4;
-effect.triggerType = CloudSdk.Effect.TriggerTypeEnum.OnClick;
-dto.effects = [ effect ];
-api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, dto).then((result) => {
-    result.body.interactiveSequences.forEach((sequence) => { console.log(sequence.triggerShapeIndex); });
+effect.triggerType = cloud.Effect.TriggerTypeEnum.OnClick;
+
+const newSequence = new cloud.InteractiveSequence();
+newSequence.triggerShapeIndex = 1;
+newSequence.effects = [effect];
+
+// Add the shape effect into the interactive sequence for the first slide.
+slidesApi.createAnimationInteractiveSequence("MyPresentation.pptx", 1, newSequence, null, "MyFolder").then(slideAnimation => {
+    // Print indices of trigger shapes.
+    slideAnimation.body.interactiveSequences.forEach(sequence => {
+        console.log(sequence.triggerShapeIndex);
+    });
 });
 ```
 
@@ -286,7 +353,91 @@ api.createAnimationInteractiveSequence("MyPresentation.pptx", 1, dto).then((resu
 
 {{< tab tabNum="7" >}}
 
-```go
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    // Prepare the shape effect.
+    auto effect = std::make_shared<Effect>();
+    effect->setType(L"Fly");
+    effect->setSubtype(L"Bottom");
+    effect->setPresetClassType(L"Entrance");
+    effect->setShapeIndex(4);
+    effect->setTriggerType(L"OnClick");
+
+    auto newSequence = std::make_shared<InteractiveSequence>();
+    newSequence->setTriggerShapeIndex(1);
+    newSequence->setEffects({ effect });
+
+    // Add the shape effect into the interactive sequence for the first slide.
+    auto slideAnimation = slidesApi->createAnimationInteractiveSequence(L"MyPresentation.pptx", 1, newSequence, L"", L"MyFolder").get();
+
+    // Print indices of trigger shapes.
+    for (auto sequence : slideAnimation->getInteractiveSequences()) {
+        std::wcout << sequence->getTriggerShapeIndex() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::Effect;
+use AsposeSlidesCloud::Object::InteractiveSequence;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Prepare the shape effect.
+my $effect = AsposeSlidesCloud::Object::Effect->new();
+$effect->{type} = "Fly";
+$effect->{subtype} = "Bottom";
+$effect->{preset_class_type} = "Entrance";
+$effect->{shape_index} = 4;
+$effect->{trigger_type} = "OnClick";
+
+my @effects = ($effect);
+
+my $new_sequence = AsposeSlidesCloud::Object::InteractiveSequence->new();
+$new_sequence->{trigger_shape_index} = 1;
+$new_sequence->{effects} = \@effects;
+
+# Add the shape effect into the interactive sequence for the first slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, sequence => $new_sequence, folder => "MyFolder");
+my $slide_animation = $slides_api->create_animation_interactive_sequence(%parameters);
+
+# Print indices of trigger shapes.
+for my $sequence (@{$slide_animation->{interactive_sequences}}) {
+    print($sequence->{trigger_shape_index}. "\n");
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
 cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
@@ -309,24 +460,11 @@ if e != nil {
 } else {
     for i, sequence := range animation.GetInteractiveSequences() {
         fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.GetTriggerShapeIndex())
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="9" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
-### **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.

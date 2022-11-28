@@ -6,149 +6,124 @@ weight: 10
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud allows you to read information from a Power Point Presentation. 
+
+Text, images, shapes, tables, SmartArt graphics, and other objects can be animated in PowerPoint presentations. With Aspose.Slides Cloud, you can read their animation information. Effects can make an object appear, disappear, or move. The following method allows you to specify a slide, shape, or text paragraph to get their animation data. 
+
+## **GetAnimation**
+
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/animation|GET|Get Animation Information from a PowerPoint Slide|[GetSlideAnimation](https://apireference.aspose.cloud/slides/#/Animation/GetSlideAnimation)|
-### **cURL Example**
+|/slides/{name}/slides/{slideIndex}/animation|GET|Reads animation information from a PowerPoint object.|[GetAnimation](https://apireference.aspose.cloud/slides/#/Animation/GetAnimation)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|query|false|The 1-based index of a shape. If specified, only effects related to that shape are returned.|
+|paragraphIndex|integer|query|false|The 1-based index of a text paragraph.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+Read animations from the **first** slide contained in **MyFolder/MyPresentation.pptx** document saved in the default storage.
+
+**cURL Solution**
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Request Token**
+**Get an Access Token**
 
-```java
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=xxxx&client_secret=xxx-xx" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+```sh
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-```java
+**Get Slide Animations**
 
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/animation" -H "Content-Type:application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjEwNjM0NTAsImV4cCI6MTU2MTE0OTg1MCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.XURcZFFwPs__A4GHgzncfsCI5_F6R0NIWrTbdGcQqTKBV24jqbQYwe7POYMU8QT3_CKQ9zrlCX47Gtzx3XZ-1LyZAx3v6e6__r7HG9DsVCrzGXxzcIaYBwo9XohkfO5At9XcmXMqw1YoZvWskHUjhIAXzlg6Kt-k1hIPCL-0A1A0WkbdtWOJtWpTEVnIR2kBfXkUcNHLREq3S4JVshLmnjdPF6YViBM5AkV91diC33yj2Fwz-j572SjgwEuHkKNRLTngwsnu9DFEtfiN6bCCPBhulq6XG4DuqLrAtxyodD0Et5Y0YegUHUWOvf4-ZFbUd1ZHzU_rQ06dXzP6SDzMjg" --ssl-no-revoke
-
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation?folder=MyFolder" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
+**Response Example**
 
+```json
 {
-
-   "mainSequence":[
-
-      {
-
-         "type":"Appear",
-
-         "subtype":"None",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":1,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      },
-
-      {
-
-         "type":"Bounce",
-
-         "subtype":"None",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":2,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      },
-
-      {
-
-         "type":"Fly",
-
-         "subtype":"Bottom",
-
-         "presetClassType":"Entrance",
-
-         "shapeIndex":3,
-
-         "triggerType":"OnClick",
-
-         "triggerDelayTime":0.0
-
-      }
-
-   ],
-
-   "interactiveSequences":[
-
-      {
-
-         "effects":[
-
-            {
-
-               "type":"Fly",
-
-               "subtype":"Bottom",
-
-               "presetClassType":"Entrance",
-
-               "shapeIndex":5,
-
-               "triggerType":"OnClick",
-
-               "triggerDelayTime":0.0
-
-            }
-
-         ],
-
-         "triggerShapeIndex":1
-
-      }
-
-   ],
-
-   "selfUri":{
-
-      "href":"https://api.aspose.cloud/v3.0/slides/animation.pptx/slides/1/animation",
-
-      "relation":"self"
-
-   }
-
+    "mainSequence": [
+        {
+            "type": "Fade",
+            "subtype": "None",
+            "presetClassType": "Entrance",
+            "shapeIndex": 1,
+            "triggerType": "OnClick",
+            "duration": 0.5,
+            "triggerDelayTime": 0.0
+        },
+        {
+            "type": "Split",
+            "subtype": "VerticalIn",
+            "presetClassType": "Entrance",
+            "shapeIndex": 2,
+            "triggerType": "OnClick",
+            "duration": 1.0,
+            "triggerDelayTime": 0.0
+        }
+    ],
+    "interactiveSequences": [],
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation?folder=MyFolder",
+        "relation": "self",
+        "slideIndex": 1
+    }
 }
-
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.GetAnimation("myPresentation.pptx", 1);
-foreach (Effect effect in response.MainSequence)
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using System;
+
+class Application
 {
-    Console.WriteLine(effect.Type);
+    static void Main()
+    {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Get all animations from the first slide.
+        var slideAnimation = slidesApi.GetAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder");
+
+        // Print effect types of the animations.
+        foreach (var effect in slideAnimation.MainSequence)
+        {
+            Console.WriteLine(effect.Type);
+        }
+    }
 }
 ```
 
@@ -157,10 +132,23 @@ foreach (Effect effect in response.MainSequence)
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideAnimation response = api.getAnimation("myPresentation.pptx", 1, null, null, null, null, null);
-for (Effect effect : response.getMainSequence()) {
-    System.out.println(effect.getType());
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Get all animations from the first slide.
+        var slideAnimation = slidesApi.getAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder", null);
+
+        // Print effect types of the animations.
+        for (var effect : slideAnimation.getMainSequence()) {
+            System.out.println(effect.getType());
+        }
+    }
 }
 ```
 
@@ -169,18 +157,23 @@ for (Effect effect : response.getMainSequence()) {
 {{< tab tabNum="3" >}}
 
 ```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$result = $api->GetAnimation("MyPresentation.pptx", 1);
-foreach ($result->getMainSequence() as $effect)
-{
-    print($effect->getType());
+$slidesApi = new SlidesApi(null, $configuration);
+
+// Get all animations from the first slide.
+$slideAnimation = $slidesApi->getAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder");
+
+// Print effect types of the animations.
+foreach ($slideAnimation->getMainSequence() as $effect) {
+    echo $effect->getType(), PHP_EOL;
 }
 ```
 
@@ -188,21 +181,46 @@ foreach ($result->getMainSequence() as $effect)
 
 {{< tab tabNum="4" >}}
 
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+# Get all animations from the first slide.
+slide_animation = slides_api.get_animation("MyPresentation.pptx", 1, nil, nil, nil, "MyFolder")
+
+# Print effect types of the animations.
+for effect in slide_animation.main_sequence
+    puts effect.type
+end
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
 ```python
-from asposeslidescloud.configuration import Configuration
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
 from asposeslidescloud.apis.slides_api import SlidesApi
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-result = api.get_animation("MyPresentation.pptx", 1)
-for effect in result.main_sequence:
+# Get all animations from the first slide.
+slide_animation = slides_api.get_animation("MyPresentation.pptx", 1, None, None, None, "MyFolder")
+
+# Print effect types of the animations.
+for effect in slide_animation.main_sequence:
     print(effect.type)
 ```
 
@@ -210,12 +228,19 @@ for effect in result.main_sequence:
 
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-api.getAnimation("MyPresentation.pptx", 1).then((result) => {
-    result.body.mainSequence.forEach((effect) => { console.log(effect.type); });
+const cloud = require("asposeslidescloud");
+
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
+
+// Get all animations from the first slide.
+slidesApi.getAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder").then(slideAnimation => {
+    // Print effect types of the animations.
+    slideAnimation.body.mainSequence.forEach(effect => {
+        console.log(effect.type);
+    });
 });
 ```
 
@@ -223,24 +248,54 @@ api.getAnimation("MyPresentation.pptx", 1).then((result) => {
 
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
-animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, nil, nil, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-} else {
-    for i, effect := range animation.GetMainSequence() {
-        fmt.Printf("Effect %v: %v.", i + 1, effect.GetType())
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    // Get all animations from the first slide.
+    auto slideAnimation = slidesApi->getAnimation(L"MyPresentation.pptx", 1, boost::none, boost::none, L"", L"MyFolder").get();
+
+    // Print effect types of the animations.
+    for (auto effect : slideAnimation->getMainSequence()) {
+        std::wcout << effect->getType() << std::endl;
     }
+
+    return 0;
 }
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
+
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Get all animations from the first slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
+my $slide_animation = $slides_api->get_animation(%parameters);
+
+# Print effect types of the animations.
+for my $effect (@{$slide_animation->{main_sequence}}) {
+    print($effect->{type} . "\n");
+}
+```
 
 {{< /tab >}}
 
@@ -250,8 +305,28 @@ if e != nil {
 
 {{< tab tabNum="10" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+// Get all animations from the first slide.
+animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, nil, nil, "", "MyFolder", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    // Print effect types of the animations.
+    for i, effect := range animation.getMainSequence() {
+        fmt.Println(effect.getType())
+    }
+}
+```
+
 {{< /tab >}}
 
 {{< /tabs >}}
-### **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
