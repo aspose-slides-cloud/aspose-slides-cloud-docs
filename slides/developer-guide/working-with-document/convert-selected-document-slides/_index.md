@@ -279,9 +279,10 @@ if e != nil {
     return
 }
 
-result, _, e := c.SlidesApi.Convert(source, "pdf", nil, nil, nil, []int32 { 2, 4 }, nil)
+result, _, e := api.SlidesApi.Convert(source, "pdf", "", "", "", []int32 { 2, 4 }, nil)
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 fmt.Printf("The converted file was saved to  %v.", result.Name())
 ```

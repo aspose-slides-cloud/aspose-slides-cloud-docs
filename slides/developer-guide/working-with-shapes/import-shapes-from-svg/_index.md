@@ -171,13 +171,13 @@ var height int32 = 300
 document, e := ioutil.ReadFile("shapes.svg")
 shapes := []int32{1, 3, 5}
 
-response, _, e := api.ImportShapesFromSvg(fileName, slideIndex, document, &x, &y, &width, &height, shapes, "", "", "")
+response, _, e := api.SlidesApi.ImportShapesFromSvg(fileName, slideIndex, document, &x, &y, &width, &height, shapes, nil, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
- fmt.Printf("The slide contains " + len(response.GetShapesLinks()) + " shapes.")
+fmt.Printf("The slide contains %v shapes.", len(response.GetShapesLinks()))
 ```
 
 {{< /tab >}}

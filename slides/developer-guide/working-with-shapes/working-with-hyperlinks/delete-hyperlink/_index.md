@@ -202,16 +202,16 @@ fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 var shapeIndex int32 = 2
 
-shape := NewShape()
-hyperlink := NewHyperlink()
+shape := asposeslidescloud.NewShape()
+hyperlink := asposeslidescloud.NewHyperlink()
 hyperlink.IsDisabled = true
 shape.HyperlinkClick = hyperlink
-updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, "password", folderName, "")
+updatedShape, _, e := api.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, shape, "password", "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
-fmt.Printf("Hyperlink is empty: %v.", updatedShape.getHyperlinkClick() == nil)
+fmt.Printf("Hyperlink is empty: %v.", updatedShape.GetHyperlinkClick() == nil)
 ```
 
 {{< /tab >}}

@@ -172,13 +172,13 @@ var smartArtIndex int32 = 1
 subNodePath := "2"
 var nodeIndex int32 = 1
 
-response, _, e := api.DeleteSmartArtNode("MyPresentation.pptx", slideIndex, smartArtIndex, nodeIndex, subNodePath, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
+response, _, e := api.SlidesApi.DeleteSmartArtNode("MyPresentation.pptx", slideIndex, smartArtIndex, nodeIndex, subNodePath, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
 
-fmt.Printf("Root node contains " + len(response.GetNodes()[0].GetNodes()) + " sub-nodes.")
+fmt.Printf("Root node contains %v sub-nodes.", len(response.GetNodes()[0].GetNodes()))
 ```
 
 {{< /tab >}}

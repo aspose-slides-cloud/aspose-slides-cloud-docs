@@ -196,7 +196,22 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+var slideIndex int32 = 3
+var shapeIndex int32 = 1
+
+fillFormat := asposeslidescloud.NewSolidFill()
+fillFormat.Color = "#77CEF9"
+legend := asposeslidescloud.NewLegend()
+legend.Overlay = true
+legend.FillFormat = fillFormat
+
+_, _, e := api.SlidesApi.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}            
+fmt.Printf("Background color of the chart legend has been changed.")
+
 ```
 
 {{< /tab >}}

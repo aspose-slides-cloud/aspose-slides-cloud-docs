@@ -139,7 +139,14 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+response, _, e := api.SlidesApi.GetProtectionProperties("MyPresentation.pptx", "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+if response.GetIsEncrypted() {
+    fmt.Printf("The presentation is protected.")
+}
 ```
 
 {{< /tab >}}

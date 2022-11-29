@@ -220,7 +220,24 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+portion := asposeslidescloud.NewPortion()
+portion.Text = "New text"
+portion.FontHeight = 24
+portion.FontBold = "True"
+portion.Spacing = 3
+fillFormat := asposeslidescloud.NewSolidFill()
+fillFormat.Color = "#FFFFFF00"
+portion.FillFormat = fillFormat
+
+subNodePath := "1/nodes/2"
+var slideIndex int32 = 7
+
+response, _, e := api.SlidesApi.UpdatePortion("MyPresentation.pptx", slideIndex, 1, 1, 1, portion, "", "", "", subNodePath)
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}            
+fmt.Printf("The portion with text \"%v\" has been updated", response.GetText())
 ```
 
 {{< /tab >}}

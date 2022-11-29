@@ -137,12 +137,13 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-result, _, e := c.SlidesApi.DeleteUnusedMasterSlides("MyPresentation.pptx", "true", "", "")
+var ignorePreserveField bool = true
+result, _, e := api.SlidesApi.DeleteUnusedMasterSlides("MyPresentation.pptx", &ignorePreserveField, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf(len(result.(MasterSlides).getSlideList()))
+fmt.Printf("%v", len(result.(asposeslidescloud.IMasterSlides).GetSlideList()))
 ```
 
 {{< /tab >}}

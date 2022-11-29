@@ -438,6 +438,29 @@ for my $sequence (@{$slide_animation->{interactive_sequences}}) {
 
 {{< tab tabNum="10" >}}
 
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+dto := asposeslidescloud.NewInteractiveSequence()
+dto.TriggerShapeIndex = 1
+
+effect := asposeslidescloud.NewEffect()
+effect.Type_ = "Fly"
+effect.Subtype = "Bottom"
+effect.PresetClassType = "Entrance"
+effect.ShapeIndex = 4
+effect.TriggerType = "OnClick"
+dto.Effects = []asposeslidescloud.IEffect { effect }
+
+animation, _, e := api.SlidesApi.CreateAnimationInteractiveSequence("MyPresentation.pptx", 1, dto, "", "MyStorageFolder", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+} else {
+    for i, sequence := range animation.GetInteractiveSequences() {
+        fmt.Printf("Sequence %v, trigger shape index: %v.", i + 1, sequence.GetTriggerShapeIndex())
+
 {{< /tab >}}
 
 {{< /tabs >}}

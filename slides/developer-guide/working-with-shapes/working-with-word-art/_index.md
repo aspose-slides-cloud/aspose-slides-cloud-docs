@@ -533,7 +533,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 
-dto := NewShape()
+dto := asposeslidescloud.NewShape()
 dto.ShapeType = "Rectangle"
 dto.X = 100
 dto.Y = 100
@@ -541,17 +541,17 @@ dto.Height = 100
 dto.Width = 200
 dto.Text = "Sample text"
 
-textFrameFormat := NewTextFrameFormat()
+textFrameFormat := asposeslidescloud.NewTextFrameFormat()
 textFrameFormat.Transform = "ArchUpPour"
 
-threeDFormat := NewThreeDFormat()
-bevelBottom := NewShapeBevel()
+threeDFormat := asposeslidescloud.NewThreeDFormat()
+bevelBottom := asposeslidescloud.NewShapeBevel()
 bevelBottom.BevelType = "Circle"
 bevelBottom.Height = 3.5
 bevelBottom.Width = 3.5
 threeDFormat.BevelBottom = bevelBottom
 
-bevelTop := NewShapeBevel()
+bevelTop := asposeslidescloud.NewShapeBevel()
 bevelTop.BevelType = "Circle"
 bevelTop.Height = 4
 bevelTop.Width = 4
@@ -564,7 +564,7 @@ threeDFormat.ContourWidth = 1.5
 threeDFormat.Depth = 3
 threeDFormat.Material = "Plastic"
 
-lightRig := NewLightRig()
+lightRig := asposeslidescloud.NewLightRig()
 lightRig.LightType = "Balanced"
 lightRig.Direction = "Top"
 lightRig.XRotation = 0
@@ -572,13 +572,13 @@ lightRig.YRotation = 0
 lightRig.ZRotation = 40
 threeDFormat.LightRig = lightRig
 
-camera := NewCamera()
+camera := asposeslidescloud.NewCamera()
 camera.CameraType = "PerspectiveContrastingRightFacing"
-threeDFormat.camera = camera
-textFrameFormat.threeDFormat = threeDFormat
-dto.textFrameFormat = textFrameFormat
+threeDFormat.Camera = camera
+textFrameFormat.ThreeDFormat = threeDFormat
+dto.TextFrameFormat = textFrameFormat
 
-shape, _, e := api.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "", "")
+shape, _, e := api.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, "", "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 }

@@ -424,7 +424,7 @@ public class Application {
 
         // Delete the first and third shapes from the first slide.
         ArrayList shapeIndices = new ArrayList(Arrays.asList( 1, 3 ));
-        Shapes remainingShapes = slidesApi.deleteShapes("MyPresentation.pptx", 1, shapeIndices, null, "MyFolder", null);
+        Shapes remainingShapes = slidesApi.deleteShapes("MyPresentation.pptx", 1, shapeIndices, null, "MyFolder", null, null);
 
         // Print resource references for the remaining shapes.
         for (ResourceUri shape : remainingShapes.getShapesLinks()) {

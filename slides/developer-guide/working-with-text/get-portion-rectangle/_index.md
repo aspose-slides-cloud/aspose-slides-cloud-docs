@@ -156,12 +156,12 @@ cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
-response, _, e := c.SlidesApi.GetPortionRectangle("MyPresentation.pptx", 1, 2, 1, 1, "", "", "")
+response, _, e := api.SlidesApi.GetPortionRectangle("MyPresentation.pptx", 1, 2, 1, 1, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("x: %v\ny: %v\nwidth: %v\nheight: %v\n", response.(ITextBounds).getX(), response.(ITextBounds).getY(), response.(ITextBounds).getWidth(), response.(ITextBounds).getHeight())
+fmt.Printf("x: %v\ny: %v\nwidth: %v\nheight: %v\n", response.(asposeslidescloud.ITextBounds).GetX(), response.(asposeslidescloud.ITextBounds).GetY(), response.(asposeslidescloud.ITextBounds).GetWidth(), response.(asposeslidescloud.ITextBounds).GetHeight())
 ```
 
 {{< /tab >}}

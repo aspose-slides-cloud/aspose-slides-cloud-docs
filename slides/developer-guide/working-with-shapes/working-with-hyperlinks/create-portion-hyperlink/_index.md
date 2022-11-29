@@ -209,16 +209,16 @@ var shapeIndex int32 = 2
 var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
-dto := NewPortion()
-hyperlink := NewHyperlink()
+dto := asposeslidescloud.NewPortion()
+hyperlink := asposeslidescloud.NewHyperlink()
 hyperlink.ActionType = "JumpLastSlide"
-shape.HyperlinkMouseOver = hyperlink
-portion, _, e := c.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, "", "", "")
+dto.HyperlinkMouseOver = hyperlink
+portion, _, e := api.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, "", "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
-fmt.Printf("Hyperlink Type: %v.", portion.getHyperlinkMouseOver().getActionType())
+fmt.Printf("Hyperlink Type: %v.", portion.GetHyperlinkMouseOver().GetActionType())
 ```
 
 {{< /tab >}}

@@ -53,7 +53,7 @@ Returns view properties data.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-ViewProperties response = TestUtils.SlidesApi.GetViewProperties("MyPresentation.pptx")
+ViewProperties response = api.GetViewProperties("MyPresentation.pptx");
 
 if (response.ShowComments == ViewProperties.ShowCommentsEnum.True)
 	Console.WriteLine("Comments enabled.");
@@ -86,7 +86,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->getViewProperties("MyPresentation.pptx");
 
-if ($response->getShowComments() == 'True')
+if ($result->getShowComments() == 'True')
 	print("Comments enabled.");
 ```
 
@@ -131,9 +131,9 @@ if response.show_comments == 'true':
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.getVewProperties("MyPresentation.pptx");
+let response = await api.getViewProperties("MyPresentation.pptx");
 
-if ((response.body as model.ViewProperties).showComments === model.ViewProperties.ShowCommentsEnum.True)
+if (response.body.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.True)
 	console.log("Comments enabled.");
 ```
 {{< /tab >}}
@@ -146,14 +146,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-response, _, e := api.GetViewProperties(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetViewProperties(fileName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowComments() == "True" {
-	fmt.Printf("Comments enabled.")
+    fmt.Printf("Comments enabled.")
 }
 ```
 
@@ -259,7 +259,7 @@ ViewProperties dto = new ViewProperties()
 	}
 };
 
-ViewProperties response = TestUtils.SlidesApi.SetViewProperties("MyPresentation.pptx", dto)
+ViewProperties response = api.SetViewProperties("MyPresentation.pptx", dto);
 
 if (response.ShowComments == ViewProperties.ShowCommentsEnum.False)
 	Console.WriteLine("Comments disabled.");
@@ -290,6 +290,7 @@ if (response.getShowComments() == ViewProperties.ShowCommentsEnum.FALSE)
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
+use Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -304,7 +305,7 @@ $dto->setSlideViewProperties($slideViewProperties);
 
 $result = $api->setViewProperties("MyPresentation.pptx", $dto);
 
-if ($response->getShowComments() == 'False')
+if ($result->getShowComments() == 'False')
 	print("Comments disabled.");
 ```
 
@@ -336,6 +337,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.view_properties import ViewProperties
+from asposeslidescloud.models.common_slide_view_properties import CommonSlideViewProperties
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -359,16 +362,16 @@ if response.show_comments == 'false':
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slideViewPropDto = new model.CommonSlideViewProperties();
+const slideViewPropDto = new CloudSdk.CommonSlideViewProperties();
 slideViewPropDto.scale = 50;
 
-const dto = new model.ViewProperties();
-dto.showComments = model.ViewProperties.ShowCommentsEnum.False;
+const dto = new CloudSdk.ViewProperties();
+dto.showComments = CloudSdk.ViewProperties.ShowCommentsEnum.False;
 dto.slideViewProperties = slideViewPropDto;
 
-let result = await api.setViewProperties("MyPresentation.pptx", dto);
+let response = await api.setViewProperties("MyPresentation.pptx", dto);
 
-if ((response.body as model.ViewProperties).showComments === model.ViewProperties.ShowCommentsEnum.False)
+if (response.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.False)
 	console.log("Comments disabled.");
 ```
 {{< /tab >}}
@@ -381,20 +384,20 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-dto := slidescloud.NewViewProperties()
+dto := asposeslidescloud.NewViewProperties()
 dto.SetShowComments("False")
-slideViewProperties := slidescloud.NewCommonSlideViewProperties()
+slideViewProperties := asposeslidescloud.NewCommonSlideViewProperties()
 slideViewProperties.SetScale(50)
 dto.SetSlideViewProperties(slideViewProperties)
 
-response, _, e := api.setViewProperties(fileName, dto, "", "", "")
+response, _, e := api.SlidesApi.SetViewProperties(fileName, dto, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowComments() == "False" {
-	fmt.Printf("Comments disabled.")
+    fmt.Printf("Comments disabled.")
 }
 ```
 

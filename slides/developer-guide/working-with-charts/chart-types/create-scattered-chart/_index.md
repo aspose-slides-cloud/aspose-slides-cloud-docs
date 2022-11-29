@@ -213,7 +213,7 @@ series2.setDataPoints(dataPoints2);
 seriesList.add(series2);
 dto.setSeries(seriesList);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
+Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null, null);
 System.out.println(chart.getSeries().size());
 ```
 
@@ -379,51 +379,51 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewChart()
+dto := asposeslidescloud.NewChart()
 dto.ChartType = "ScatterWithSmoothLines"
 dto.X = 100
 dto.Y = 100
 dto.Width = 400
 dto.Height = 400
 
-title := NewChartTitle()
+title := asposeslidescloud.NewChartTitle()
 title.HasTitle = true
 title.Text = "Scattered Chart"
 dto.Title = title
 
-series1 := NewScatterSeries()
-dataPoint11 := NewScatterChartDataPoint()
+series1 := asposeslidescloud.NewScatterSeries()
+dataPoint11 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint11.XValue = 1
 dataPoint11.YValue = 3
 
-dataPoint12 := NewScatterChartDataPoint()
+dataPoint12 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint12.XValue = 2
 dataPoint12.YValue = 10
-series1.DataPoints = []IScatterChartDataPoint { dataPoint11, dataPoint12 }
+series1.DataPoints = []asposeslidescloud.IScatterChartDataPoint { dataPoint11, dataPoint12 }
 
-series2 := NewScatterSeries()
-dataPoint21 := NewScatterChartDataPoint()
+series2 := asposeslidescloud.NewScatterSeries()
+dataPoint21 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint21.XValue = 5
 dataPoint21.YValue = 2
 
-dataPoint22 := NewScatterChartDataPoint()
+dataPoint22 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint22.XValue = 3
 dataPoint22.YValue = 1
 
-dataPoint23 := NewScatterChartDataPoint()
+dataPoint23 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint23.XValue = 2
 dataPoint23.YValue = 2
 
-dataPoint24 := NewScatterChartDataPoint()
+dataPoint24 := asposeslidescloud.NewScatterChartDataPoint()
 dataPoint24.XValue = 5
 dataPoint24.YValue = 1
-series2.DataPoints = []IScatterChartDataPoint { dataPoint21, dataPoint22, dataPoint23, dataPoint24 }
-dto.Series = []ISeries { series1, series2 }
-result, _, e := c.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "")
+series2.DataPoints = []asposeslidescloud.IScatterChartDataPoint { dataPoint21, dataPoint22, dataPoint23, dataPoint24 }
+dto.Series = []asposeslidescloud.ISeries { series1, series2 }
+result, _, e := api.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v points in the 1st series.", len(result.(IChart).getSeries()[0].(IScatterSeries).getDataPoints())) //2
+    fmt.Printf("%v points in the 1st series.", len(result.(asposeslidescloud.IChart).GetSeries()[0].(asposeslidescloud.IScatterSeries).GetDataPoints())) //2
 }
 ```
 

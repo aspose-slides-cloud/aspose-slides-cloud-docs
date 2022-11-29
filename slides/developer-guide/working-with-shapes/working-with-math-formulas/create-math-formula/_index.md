@@ -426,45 +426,45 @@ var slideIndex int32 = 1
 var shapeIndex int32 = 2
 var paragraphIndex int32 = 1
 
-dto := NewPortion()
-mathParagraph := NewMathParagraph()
-blockElement := NewBlockElement()
-functionElement := NewFunctionElement()
-limitElement := NewLimitElement()
-text1 := NewTextElement()
+dto := asposeslidescloud.NewPortion()
+mathParagraph := asposeslidescloud.NewMathParagraph()
+blockElement := asposeslidescloud.NewBlockElement()
+functionElement := asposeslidescloud.NewFunctionElement()
+limitElement := asposeslidescloud.NewLimitElement()
+text1 := asposeslidescloud.NewTextElement()
 text1.Value = "lim"
 limitElement.Base = text1
 
-text2 := NewTextElement()
+text2 := asposeslidescloud.NewTextElement()
 text2.Value = "x->0"
 limitElement.Limit = text2
 functionElement.Name = limitElement
 
-fractionElement := NewFractionElement()
-sinusElement := NewFunctionElement()
-text3 := NewTextElement()
+fractionElement := asposeslidescloud.NewFractionElement()
+sinusElement := asposeslidescloud.NewFunctionElement()
+text3 := asposeslidescloud.NewTextElement()
 text3.Value = "sin"
 sinusElement.Name = text3
 
-text4 := NewTextElement()
+text4 := asposeslidescloud.NewTextElement()
 text4.Value = "x"
 sinusElement.Base = text4
 fractionElement.Numerator = sinusElement
 
-text5 := NewTextElement()
+text5 := asposeslidescloud.NewTextElement()
 text5.Value = "x"
 fractionElement.Denominator = text5
 functionElement.Base = fractionElement
-blockElement.MathElementList = []IMathElement { functionElement }
-mathParagraph.MathBlockList = []IBlockElement { blockElement }
+blockElement.MathElementList = []asposeslidescloud.IMathElement { functionElement }
+mathParagraph.MathBlockList = []asposeslidescloud.IBlockElement { blockElement }
 dto.MathParagraph = mathParagraph
 
-portion, _, e := c.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, nil, "", "", "")
+portion, _, e := api.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Math Block Count: %v.", len(portion.getMathParagraph().getMathBlockList())) //1
+fmt.Printf("Math Block Count: %v.", len(portion.GetMathParagraph().GetMathBlockList())) //1
 ```
 
 {{< /tab >}}

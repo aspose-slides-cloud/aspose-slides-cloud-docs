@@ -194,23 +194,23 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewOneValueSeries(()
+dto := asposeslidescloud.NewOneValueSeries()
 
-dataPoint1 := NewOneValueChartDataPoint()
+dataPoint1 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint1.Value = 20
 
-dataPoint2 := NewOneValueChartDataPoint()
+dataPoint2 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint2.Value = 50
 
-dataPoint3 := NewOneValueChartDataPoint()
+dataPoint3 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint3.Value = 30
-dto.DataPoints = []IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
+dto.DataPoints = []asposeslidescloud.IOneValueChartDataPoint { dataPoint1, dataPoint2, dataPoint3 }
 
-result, _, e := c.SlidesApi.CreateChartSeries("MyPresentation.pptx", 3, 1, dto, "", "", "")
+result, _, e := api.SlidesApi.CreateChartSeries("MyPresentation.pptx", 3, 1, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getSeries()))
+    fmt.Printf("%v series.", len(result.(asposeslidescloud.IChart).GetSeries()))
 }
 ```
 

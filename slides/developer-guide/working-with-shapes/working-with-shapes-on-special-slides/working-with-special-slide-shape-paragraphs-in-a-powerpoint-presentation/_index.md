@@ -147,7 +147,7 @@ int slideIndex = 1;
 int shapeIndex = 2;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Paragraphs paragraphs = api.getSpecialSlideParagraphs(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, null, null, null);
+Paragraphs paragraphs = api.getSpecialSlideParagraphs(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, null, null, null, null);
 int paragraphCount = paragraphs.getParagraphLinks().size();
 
 Paragraph dto = new Paragraph();
@@ -157,14 +157,14 @@ Portion portion = new Portion();
 portion.setText("New paragraph");
 portions.add(portion);
 dto.setPortionList(portions);
-Paragraph paragraph = api.createSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, dto, null, null, null, null);
+Paragraph paragraph = api.createSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, dto, null, null, null, null, null);
 System.out.println(paragraph.getAlignment()); //Right
 
 dto.setAlignment(Paragraph.AlignmentEnum.CENTER);
-paragraph = api.updateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, dto, null, null, null);
+paragraph = api.updateSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, dto, null, null, null, null);
 System.out.println(paragraph.getAlignment()); //Center
 
-api.deleteSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, null, null, null);
+api.deleteSpecialSlideParagraph(fileName, slideIndex, SpecialSlideType.MASTERSLIDE, shapeIndex, paragraphCount + 1, null, null, null, null);
 ```
 
 {{< /tab >}}
@@ -290,35 +290,35 @@ fileName := "MyPresentation.pptx"
 var slideIndex int32 = 1
 var shapeIndex int32 = 2
 
-paragraphs, _, e := c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "masterSlide", shapeIndex, "", "", "")
+paragraphs, _, e := api.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "masterSlide", shapeIndex, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-paragraphCount := len(portions.getParagraphLinks())
+paragraphCount := len(paragraphs.GetParagraphLinks())
 
-dto := NewParagraph()
+dto := asposeslidescloud.NewParagraph()
 dto.Alignment = "Right"
-portion := NewPortion()
+portion := asposeslidescloud.NewPortion()
 portion.Text = "New paragraph"
-dto.PortionList = []IPotrion { portion }
-paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "")
+dto.PortionList = []asposeslidescloud.IPortion { portion }
+paragraph, _, e := api.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, dto, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getAlignment()) //Right
+fmt.Printf("Error: %v.", paragraph.GetAlignment()) //Right
 
-dto = NewParagraph()
+dto = asposeslidescloud.NewParagraph()
 dto.Alignment = "Center"
-paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, dto, "", "", "")
+paragraph, _, e = api.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, int32(paragraphCount + 1), dto, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("Error: %v.", portion.getAlignment()) //Center
+fmt.Printf("Error: %v.", paragraph.GetAlignment()) //Center
 
-_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, paragraphCount + 1, "", "", "")
+_, _, e = api.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "masterSlide", shapeIndex, int32(paragraphCount + 1), "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

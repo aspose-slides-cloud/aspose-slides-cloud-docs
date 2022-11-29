@@ -189,7 +189,20 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-//Code example will be added soon.
+var slideIndex int32 = 3
+var shapeIndex int32 = 1
+
+axis := asposeslidescloud.NewAxis()
+axis.HasTitle = true
+axis.IsAutomaticMaxValue = false
+axis.MaxValue = 10
+
+result, _, e := api.SlidesApi.SetChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, "VerticalAxis", axis, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("The maximum value on the axis equals \"%v\".", result.GetMaxValue())
 ```
 
 {{< /tab >}}

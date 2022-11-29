@@ -219,7 +219,7 @@ series2.setDataPoints(dataPoints2);
 seriesList.add(series2);
 dto.setSeries(seriesList);
 
-Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null);
+Chart chart = (Chart)api.createShape("MyPresentation.pptx", 1, dto, null, null, null, null, null, null);
 System.out.println(chart.getSeries().size());
 ```
 
@@ -397,57 +397,57 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewChart()
+dto := asposeslidescloud.NewChart()
 dto.ChartType = "Bubble"
 dto.X = 100
 dto.Y = 100
 dto.Width = 400
 dto.Height = 400
 
-title := NewChartTitle()
+title := asposeslidescloud.NewChartTitle()
 title.HasTitle = true
 title.Text = "Bubble Chart"
 dto.Title = title
 
-series1 := NewBubbleSeries()
-dataPoint11 := NewBubbleChartDataPoint()
+series1 := asposeslidescloud.NewBubbleSeries()
+dataPoint11 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint11.XValue = 1
 dataPoint11.YValue = 3
 dataPoint11.BubbleSize = 2
 
-dataPoint12 := NewBubbleChartDataPoint()
+dataPoint12 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint12.XValue = 2
 dataPoint12.YValue = 10
 dataPoint12.BubbleSize = 12
-series1.DataPoints = []IBubbleChartDataPoint { dataPoint11, dataPoint12 }
+series1.DataPoints = []asposeslidescloud.IBubbleChartDataPoint { dataPoint11, dataPoint12 }
 
-series2 := NewBubbleSeries()
-dataPoint21 := NewBubbleChartDataPoint()
+series2 := asposeslidescloud.NewBubbleSeries()
+dataPoint21 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint21.XValue = 5
 dataPoint21.YValue = 2
 dataPoint21.BubbleSize = 4
 
-dataPoint22 := NewBubbleChartDataPoint()
+dataPoint22 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint22.XValue = 3
 dataPoint22.YValue = 1
 dataPoint22.BubbleSize = 8
 
-dataPoint23 := NewBubbleChartDataPoint()
+dataPoint23 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint23.XValue = 2
 dataPoint23.YValue = 2
 dataPoint23.BubbleSize = 1
 
-dataPoint24 := NewBubbleChartDataPoint()
+dataPoint24 := asposeslidescloud.NewBubbleChartDataPoint()
 dataPoint24.XValue = 5
 dataPoint24.YValue = 1
 dataPoint24.BubbleSize = 1
-series2.DataPoints = []IBubbleChartDataPoint { dataPoint21, dataPoint22, dataPoint23, dataPoint24 }
-dto.Series = []ISeries { series1, series2 }
-result, _, e := c.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "")
+series2.DataPoints = []asposeslidescloud.IBubbleChartDataPoint { dataPoint21, dataPoint22, dataPoint23, dataPoint24 }
+dto.Series = []asposeslidescloud.ISeries { series1, series2 }
+result, _, e := api.SlidesApi.CreateShape("MyPresentation.pptx", 1, dto, nil, nil, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v points in the 1st series.", len(result.(IChart).getSeries()[0].(IBubbleSeries).getDataPoints())) //2
+    fmt.Printf("%v points in the 1st series.", len(result.(asposeslidescloud.IChart).GetSeries()[0].(asposeslidescloud.IBubbleSeries).GetDataPoints())) //2
 }
 ```
 

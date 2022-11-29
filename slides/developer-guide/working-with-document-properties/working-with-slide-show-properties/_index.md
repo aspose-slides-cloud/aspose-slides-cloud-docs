@@ -53,9 +53,9 @@ Returns slide show properties data.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-SlideShowProperties response = TestUtils.SlidesApi.GetSlideShowProperties("MyPresentation.pptx")
+SlideShowProperties response = api.GetSlideShowProperties("MyPresentation.pptx");
 
-if (response.ShowAnimation)
+if (response.ShowAnimation == true)
 	Console.WriteLine("Animation enabled.");
 ```
 
@@ -86,7 +86,7 @@ $api = new SlidesApi(null, $config);
 
 $result = $api->getSlideShowProperties("MyPresentation.pptx");
 
-if ($response->getShowAnimation())
+if ($result->getShowAnimation())
 	print("Animation enabled.");
 ```
 
@@ -132,9 +132,9 @@ if response.show_animation:
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.getSlideShowProperties("MyPresentation.pptx");
+let response = await api.getSlideShowProperties("MyPresentation.pptx");
 
-if ((response.body as model.SlideShowProperties).showAnimation)
+if (response.body.showAnimation)
 	console.log("Animation enabled.");
 ```
 {{< /tab >}}
@@ -147,14 +147,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-response, _, e := api.GetSlideShowProperties(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetSlideShowProperties(fileName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 if response.GetShowAnimation() {
-	fmt.Printf("Animation enabled.")
+    fmt.Printf("Animation enabled.")
 }
 ```
 
@@ -257,7 +257,7 @@ SlideShowProperties properties = new SlideShowProperties()
 	SlideShowType = SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker
 };
 
-SlideShowProperties response = TestUtils.SlidesApi.SetSlideShowProperties("MyPresentation.pptx", dto)
+SlideShowProperties response = api.SetSlideShowProperties("MyPresentation.pptx", properties);
 
 Console.WriteLine("Slide show properties were successfully set.");
 ```
@@ -327,6 +327,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.slide_show_properties import SlideShowProperties
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -350,10 +351,10 @@ print("Slide show properties were successfully set.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new model.SlideShowProperties();
+const dto = new CloudSdk.SlideShowProperties();
 dto.loop = true;
 dto.useTimings = true;
-dto.slideShowType = model.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
+dto.slideShowType = CloudSdk.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
             
 let result = await api.setSlideShowProperties("MyPresentation.pptx", dto);
 
@@ -369,16 +370,16 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-dto := slidescloud.NewSlideShowProperties()
+dto := asposeslidescloud.NewSlideShowProperties()
 dto.SetLoop(true)
 dto.SetUseTimings(true)
 dto.SetSlideShowType("PresentedBySpeaker")
 
 
-response, _, e := api.setSlideShowProperties(fileName, dto, "", "", "")
+_, _, e := api.SlidesApi.SetSlideShowProperties(fileName, dto, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
 fmt.Printf("Slide show properties were successfully set.")

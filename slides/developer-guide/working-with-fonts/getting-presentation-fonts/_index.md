@@ -142,13 +142,13 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
 
-response, _, e := api.GetFonts(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetFonts(fileName, "", "", "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
-fmt.Printf("Count of fonts used in the presentation: " + len(response.GetList()))
+fmt.Printf("Count of fonts used in the presentation: %v", len(response.GetList()))
 ```
 
 {{< /tab >}}
@@ -322,13 +322,13 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
 
-response, _, e := api.GetFontsOnline(document, "")
+response, _, e := api.SlidesApi.GetFontsOnline(document, "")
 if e != nil {
-	t.Errorf("Error: %v.", e)
-	return
+    fmt.Printf("Error: %v.", e)
+    return
 }
 
-fmt.Printf("Count of fonts used in the presentation: " + len(response.GetList()))
+fmt.Printf("Count of fonts used in the presentation: %v", len(response.GetList()))
 ```
 
 {{< /tab >}}

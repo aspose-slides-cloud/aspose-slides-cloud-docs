@@ -136,12 +136,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-comments, _, e := c.SlidesApi.GetSlideComments("MyPresentation.pptx", 1, "", "", "")
+comments, _, e := api.SlidesApi.GetSlideComments("MyPresentation.pptx", 1, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-fmt.Printf("The slide has %v comments", len(comments.(ISlideComments).getList()))
+fmt.Printf("The slide has %v comments", len(comments.(asposeslidescloud.ISlideComments).GetList()))
 ```
 
 {{< /tab >}}

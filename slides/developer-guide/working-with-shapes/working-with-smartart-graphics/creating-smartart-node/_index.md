@@ -179,14 +179,14 @@ newSubNodeText := "New sub-node"
 subNodePath := "1"
 var position int32 = 1
 
-response, _, e := api.CreateSmartArtNode("MyPresentation.pptx", slideIndex, smartArtIndex, subNodePath, newSubNodeText,
+response, _, e := api.SlidesApi.CreateSmartArtNode("MyPresentation.pptx", slideIndex, smartArtIndex, subNodePath, newSubNodeText,
 		&position, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
 
-fmt.Printf("Root node contains " + len(response.GetNodes()[0].GetNodes()) + " sub-nodes.")
+fmt.Printf("Root node contains %v subnodes", len(response.GetNodes()[0].GetNodes()))
 ```
 
 {{< /tab >}}

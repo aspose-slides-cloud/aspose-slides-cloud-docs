@@ -275,7 +275,7 @@ lightRig.setLightType(LightRig.LightTypeEnum.THREEPT);
 lightRig.setDirection(LightRig.DirectionEnum.TOP);
 threeDFormat.setLightRig(lightRig);
 dto.setThreeDFormat(threeDFormat);
-ShapeBase shape = api.updateShape("MyPresentation.pptx", 1, 1, dto, null, null, null);
+ShapeBase shape = api.updateShape("MyPresentation.pptx", 1, 1, dto, null, null, null, null);
 System.out.println(shape.getThreeDFormat().getDepth());
 ```
 
@@ -399,30 +399,30 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewShape()
-threeDFormat := NewThreeDFormat()
+dto := asposeslidescloud.NewShape()
+threeDFormat := asposeslidescloud.NewThreeDFormat()
 threeDFormat.Depth = 4
 
-bevelTop := NewShapeBevel()
+bevelTop := asposeslidescloud.NewShapeBevel()
 bevelTop.BevelType = "Circle"
 bevelTop.Height = 6
 bevelTop.Width = 6
 threeDFormat.BevelTop = bevelTop
 
-camera := NewCamera()
+camera := asposeslidescloud.NewCamera()
 camera.CameraType = "OrthographicFront"
 threeDFormat.Camera = camera
 
-lightRig := NewLightRig()
+lightRig := asposeslidescloud.NewLightRig()
 lightRig.LightType = "ThreePt"
 lightRig.Direction = "Top"
 threeDFormat.LightRig = lightRig
 dto.ThreeDFormat = threeDFormat
-result, _, e := api.UpdateShape(fileName, slideIndex, shapeIndex, dto, "password", folderName, "")
+_, _, e := api.SlidesApi.UpdateShape("MyPresentation.pptx", 1, 1, dto, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("Depth value: %v.", dto.getThreeDFormat().getDepth())
+    fmt.Printf("Depth value: %v.", dto.GetThreeDFormat().GetDepth())
 }
 ```
 

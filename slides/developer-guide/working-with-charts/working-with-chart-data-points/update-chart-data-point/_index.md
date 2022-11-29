@@ -185,17 +185,17 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := NewScatterChartDataPoint()
+dto := asposeslidescloud.NewScatterChartDataPoint()
 dto.XValue = 25
 dto.YValue = 9
-fillFormat := slidescloud.NewSolidFill()
+fillFormat := asposeslidescloud.NewSolidFill()
 fillFormat.SetColor("#77CEF9")
 dto.SetFillFormat(fillFormat)
-result, _, e := c.SlidesApi.UpdateChartDataPoint("MyPresentation.pptx", 3, 2, 1, dto, "", "", "")
+result, _, e := api.SlidesApi.UpdateChartDataPoint("MyPresentation.pptx", 3, 2, 1, 3, dto, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
-    fmt.Printf("%v series.", len(result.(IChart).getSeries()[0].(IScatterSeries).getDataPoints()))
+    fmt.Printf("%v series.", len(result.GetSeries()[0].(asposeslidescloud.IScatterSeries).GetDataPoints()))
 }
 ```
 

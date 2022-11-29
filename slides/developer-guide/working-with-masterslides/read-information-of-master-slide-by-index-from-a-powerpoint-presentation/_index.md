@@ -110,8 +110,8 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-        var masterSlide = slidesApi.GetMasterSlide("MyPresentation.pptx", 2, null, "MyFolder");
+        // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+        var masterSlide = slidesApi.GetMasterSlide("MyPresentation.pptx", 1, null, "MyFolder");
 
         Console.WriteLine($"Master slide name: {masterSlide.Name}");
 
@@ -136,15 +136,15 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-        var masterSlide = slidesApi.getMasterSlide("MyPresentation.pptx", 2, null, "MyFolder", null);
+        // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+        MasterSlide masterSlide = slidesApi.getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder", null);
 
         System.out.println("Master slide name: " + masterSlide.getName());
 
         System.out.println("\r\nTitles of the layout slides:");
-        for (var layoutSlide : masterSlide.getLayoutSlides()) {
+        for (ResourceUri layoutSlide : masterSlide.getLayoutSlides()) {
             System.out.println("\t" + layoutSlide.getTitle());
         }
     }
@@ -167,8 +167,8 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-$masterSlide = $slidesApi->getMasterSlide("MyPresentation.pptx", 2, null, "MyFolder");
+// Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+$masterSlide = $slidesApi->getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder");
 
 echo "Master slide name: ", $masterSlide->getName(), PHP_EOL;
 
@@ -195,8 +195,8 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-master_slide = slides_api.get_master_slide("MyPresentation.pptx", 2, nil, "MyFolder")
+# Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+master_slide = slides_api.get_master_slide("MyPresentation.pptx", 1, nil, "MyFolder")
 
 puts "Master slide name: #{master_slide.name}"
 
@@ -219,8 +219,8 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-master_slide = slides_api.get_master_slide("MyPresentation.pptx", 2, None, "MyFolder")
+# Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+master_slide = slides_api.get_master_slide("MyPresentation.pptx", 1, None, "MyFolder")
 
 print(f"Master slide name: {master_slide.name}\n")
 
@@ -240,8 +240,8 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-slidesApi.getMasterSlide("MyPresentation.pptx", 2, null, "MyFolder").then(masterSlide => {
+// Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+slidesApi.getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder").then(masterSlide => {
     console.log("Master slide name: ", masterSlide.body.name);
 
     console.log("\nTitles of the layout slides:");
@@ -266,8 +266,8 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-    auto masterSlide = slidesApi->getMasterSlide(L"MyPresentation.pptx", 2, L"", L"MyFolder").get();
+    // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+    auto masterSlide = slidesApi->getMasterSlide(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
 
     std::wcout << "Master slide name: " << masterSlide->getName() << std::endl;
 

@@ -183,7 +183,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        String subShape = "2"
+        String subShape = "2";
         int shapeIndex = 4;
         String folderPath = "MyFolder";
 

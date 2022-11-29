@@ -325,15 +325,16 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
+var withEmpty bool = true
 // Get all text items from the presentation.
-textItems, _, e := c.SlidesApi.GetPresentationTextItems("MyPresentation.pptx", true, "", "MyFolder", "")
+textItems, _, e := api.SlidesApi.GetPresentationTextItems("MyPresentation.pptx", &withEmpty, "", "MyFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
 // Print the number of the text items.
-fmt.Printf("Found %v items.", len(textItems.getItems()))
+fmt.Printf("Found %v items.", len(textItems.GetItems()))
 ```
 
 {{< /tab >}}
@@ -643,14 +644,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 // Get all text items from the second slide, except empty ones.
-textItems, _, e := c.SlidesApi.GetSlideTextItems("MyPresentation.pptx", 1, nil, "", "MyFolder", "")
+textItems, _, e := api.SlidesApi.GetSlideTextItems("MyPresentation.pptx", 1, nil, "", "MyFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
 // Print the number of the text items.
-fmt.Printf("Found %v items.", len(textItems.getItems()))
+fmt.Printf("Found %v items.", len(textItems.GetItems()))
 ```
 
 {{< /tab >}}

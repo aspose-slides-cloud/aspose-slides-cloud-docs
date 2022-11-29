@@ -269,26 +269,27 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-rule1 := NewFontFallbackRule()
-rule1.RangeStartIndex = c_startUnicodeIndex
-rule1.RangeEndIndex = c_endUnicodeIndex
-fonts1 := []string> { "Vijaya" }
+rule1 := asposeslidescloud.NewFontFallbackRule()
+rule1.RangeStartIndex = 0x0B80
+rule1.RangeEndIndex = 0x0BFF
+fonts1 := []string { "Vijaya" }
 rule1.FallbackFontList = fonts1
 
-rule2 := NewFontFallbackRule()
-rule2.RangeStartIndex = c_startUnicodeIndex
-rule2.RangeEndIndex = c_endUnicodeIndex
-fonts2 := []string> { "Segoe UI Emoji", "Segoe UI Symbol", "Arial" }
+rule2 := asposeslidescloud.NewFontFallbackRule()
+rule2.RangeStartIndex = 0x0B80
+rule2.RangeEndIndex = 0x0BFF
+fonts2 := []string { "Segoe UI Emoji", "Segoe UI Symbol", "Arial" }
 rule2.FallbackFontList = fonts2
 
-fontRules := []FontFallbackRule { rule1, rule2 }
+fontRules := []asposeslidescloud.IFontFallbackRule { rule1, rule2 }
 
-exportOptions := NewImageExportOptions()
+exportOptions := asposeslidescloud.NewImageExportOptions()
 exportOptions.FontFallbackRules = fontRules
 
-result, _, e := c.SlidesApi.DownloadPresentation("MyPresentation.pptx", "png", exportOptions, null, null, null, null)
+result, _, e := api.SlidesApi.DownloadPresentation("MyPresentation.pptx", "png", exportOptions, "", "", "", "", nil)
 if e != nil {
     fmt.Printf("Error: %v.", e)
+    return
 }
 fmt.Printf("The converted file was saved to  %v.", result.Name())
 ```
