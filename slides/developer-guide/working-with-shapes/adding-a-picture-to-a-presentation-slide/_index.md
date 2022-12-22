@@ -284,18 +284,18 @@ require "base64"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Prepare the image data.
 image_data = File.binread("MyImage.png")
 image_base64_string = Base64.encode64(image_data)
 
 # Prepare the DTO for the new picture.
-picture_frame = PictureFrame.new
+picture_frame = AsposeSlidesCloud::PictureFrame.new
 picture_frame.x = 20
 picture_frame.y = 20
 picture_frame.width = 400

@@ -117,7 +117,7 @@ sub_node_path = "2"
 node_index = 1
 response = api.delete_smart_art_node("MyPresentation.pptx", slide_index, smart_art_index, node_index, sub_node_path)
 
-print "Root node contains " + response.nodes[0].nodes.length + " sub-nodes."
+print "Root node contains #{ response.nodes[0].nodes.length } sub-nodes."
 ```
 
 {{< /tab >}}

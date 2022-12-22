@@ -241,14 +241,14 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Prepare data for the new shape.
-square = Shape.new
+square = AsposeSlidesCloud::Shape.new
 square.shape_type = "Rectangle"
 square.x = 20
 square.y = 20

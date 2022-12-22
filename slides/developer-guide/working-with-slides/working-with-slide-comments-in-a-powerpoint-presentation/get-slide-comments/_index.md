@@ -92,7 +92,7 @@ configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 comments = api.get_slide_comments("MyPresentation.pptx", 1)
-p("The slide has " + comments.list.length + " comments")
+p("The slide has #{ comments.list.length } comments")
 ```
 
 {{< /tab >}}

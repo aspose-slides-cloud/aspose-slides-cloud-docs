@@ -181,11 +181,11 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "my_client_id"
 configuration.app_key = "my_client_secret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Create a new slide.
 response = slides_api.create_slide("MyPresentation.pptx", "3", 2, nil, "MyFolder", "MyStorage")

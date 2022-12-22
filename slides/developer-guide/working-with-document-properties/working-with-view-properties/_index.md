@@ -101,8 +101,9 @@ api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 response = api.get_view_properties("MyPresentation.pptx")
 
-if 	response.show_comments === 'True'
-	print "Comments enabled."
+if response.show_comments === 'True'
+    print "Comments enabled."
+end
 ```
 
 {{< /tab >}}
@@ -325,8 +326,9 @@ dto.slide_view_properties.scale = 50
       
 response = api.set_view_properties("MyPresentation.pptx", dto)
 
-if 	response.show_comments === 'False'
-	print "Comments disabled."
+if response.show_comments === 'False'
+    print "Comments disabled."
+end
 ```
 
 {{< /tab >}}

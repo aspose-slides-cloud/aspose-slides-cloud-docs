@@ -296,7 +296,7 @@ configuration.app_key = "my_client_key"
 
 slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = slides_api.get_presentation("Sales.pptx", nil, "Data", "Main")
+response = slides_api.get_presentation("Sales.pptx")
 print response.self_uri.href # https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
 ```
 

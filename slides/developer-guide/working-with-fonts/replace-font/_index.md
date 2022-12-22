@@ -95,7 +95,7 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-response = api.replace_font("MyPresentation.pptx", "Calibri", "Times%20New%20Roman", true)
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", true)
 print "Font Calibri has been replaced with Times New Roman."
 ```
 
@@ -273,7 +273,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 source = File.binread("MyPresentation.pptx") 
-response = api.replace_font_onlne(source, "Calibri", "Times%20New%20Roman", true)
+response = api.replace_font_online(source, "Calibri", "Times New Roman", true)
 print "Font Calibri has been replaced with Times New Roman."
 ```
 

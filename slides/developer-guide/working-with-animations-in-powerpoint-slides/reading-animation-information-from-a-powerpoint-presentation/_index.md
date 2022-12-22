@@ -139,13 +139,13 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Get all animations from the first slide.
-        var slideAnimation = slidesApi.getAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder", null);
+        SlideAnimation slideAnimation = slidesApi.getAnimation("MyPresentation.pptx", 1, null, null, null, "MyFolder", null);
 
         // Print effect types of the animations.
-        for (var effect : slideAnimation.getMainSequence()) {
+        for (Effect effect : slideAnimation.getMainSequence()) {
             System.out.println(effect.getType());
         }
     }
@@ -317,8 +317,8 @@ if e != nil {
     fmt.Printf("Error: %v.", e)
 } else {
     // Print effect types of the animations.
-    for i, effect := range animation.getMainSequence() {
-        fmt.Println(effect.getType())
+    for _, effect := range animation.GetMainSequence() {
+        fmt.Println(effect.GetType())
     }
 }
 ```

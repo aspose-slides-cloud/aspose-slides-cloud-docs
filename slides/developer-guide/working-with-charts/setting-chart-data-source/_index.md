@@ -215,7 +215,7 @@ category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-.setValue("Category3");
+category3.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -420,7 +420,7 @@ point23 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point23.value = 90
 series2.data_points = [point21, point22, point23]
 chart.series = [ series1, series2 ]
-result = api.create_shape("MyPresentation.ppx", 1, chart)
+result = api.create_shape("MyPresentation.pptx", 1, chart)
 
 print "Chart has been created."
 ```
@@ -562,70 +562,70 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-chart := slidescloud.NewChart()
+chart := asposeslidescloud.NewChart()
 chart.ChartType = "ClusteredColumn"
 chart.Width = 400
 chart.Height = 300
 
-dataSourceForCategories := slidescloud.NewWorkbook()
+dataSourceForCategories := asposeslidescloud.NewWorkbook()
 dataSourceForCategories.WorksheetIndex = 0
 dataSourceForCategories.ColumnIndex = 0
 dataSourceForCategories.RowIndex = 1
 chart.DataSourceForCategories = dataSourceForCategories
-category1 := slidescloud.NewChartCategory()
+category1 := asposeslidescloud.NewChartCategory()
 category1.Value = "Category1"
-category2 := slidescloud.NewChartCategory()
+category2 := asposeslidescloud.NewChartCategory()
 category2.Value = "Category2"
-category3 := slidescloud.NewChartCategory()
+category3 := asposeslidescloud.NewChartCategory()
 category3.Value = "Category3"
-chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+chart.Categories = []asposeslidescloud.IChartCategory{category1, category2, category3}
 
-series1 := slidescloud.NewOneValueSeries()
-dataSourceForSeries1Name := slidescloud.NewWorkbook()
+series1 := asposeslidescloud.NewOneValueSeries()
+dataSourceForSeries1Name := asposeslidescloud.NewWorkbook()
 dataSourceForSeries1Name.WorksheetIndex = 0
 dataSourceForSeries1Name.ColumnIndex = 1
 dataSourceForSeries1Name.RowIndex = 0
 series1.DataSourceForSeriesName = dataSourceForSeries1Name
 series1.Name = "Series1"
-dataSourceForSeries1Values := slidescloud.NewWorkbook()
+dataSourceForSeries1Values := asposeslidescloud.NewWorkbook()
 dataSourceForSeries1Values.WorksheetIndex = 0
 dataSourceForSeries1Values.ColumnIndex = 1
 dataSourceForSeries1Values.RowIndex = 1
 series1.DataSourceForValues = dataSourceForSeries1Values
-point11 := slidescloud.NewOneValueChartDataPoint()
+point11 := asposeslidescloud.NewOneValueChartDataPoint()
 point11.Value = 40
-point12 := slidescloud.NewOneValueChartDataPoint()
+point12 := asposeslidescloud.NewOneValueChartDataPoint()
 point12.Value = 50
-point13 := slidescloud.NewOneValueChartDataPoint()
+point13 := asposeslidescloud.NewOneValueChartDataPoint()
 point13.Value = 70
-series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+series1.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point11, point12, point13}
 
-series2 := slidescloud.NewOneValueSeries()
-dataSourceForSeries2Name := slidescloud.NewWorkbook()
+series2 := asposeslidescloud.NewOneValueSeries()
+dataSourceForSeries2Name := asposeslidescloud.NewWorkbook()
 dataSourceForSeries2Name.WorksheetIndex = 0
 dataSourceForSeries2Name.ColumnIndex = 2
 dataSourceForSeries2Name.RowIndex = 0
 series2.DataSourceForSeriesName = dataSourceForSeries2Name
 series2.Name = "Series2"
-dataSourceForSeries2Values := slidescloud.NewWorkbook()
+dataSourceForSeries2Values := asposeslidescloud.NewWorkbook()
 dataSourceForSeries2Values.WorksheetIndex = 0
 dataSourceForSeries2Values.ColumnIndex = 2
 dataSourceForSeries2Values.RowIndex = 1
 series2.DataSourceForValues = dataSourceForSeries2Values
-point21 := slidescloud.NewOneValueChartDataPoint()
+point21 := asposeslidescloud.NewOneValueChartDataPoint()
 point21.Value = 55
-point22 := slidescloud.NewOneValueChartDataPoint()
+point22 := asposeslidescloud.NewOneValueChartDataPoint()
 point22.Value = 35
-point23 := slidescloud.NewOneValueChartDataPoint()
+point23 := asposeslidescloud.NewOneValueChartDataPoint()
 point23.Value = 90
-series2.DataPoints = []slidescloud.IOneValueChartDataPoint{point21, point22, point23}
-chart.Series = []slidescloud.ISeries{series1, series2}
+series2.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point21, point22, point23}
+chart.Series = []asposeslidescloud.ISeries{series1, series2}
 
 fileName := "MyPresentation.pptx"
-result, _, e := api.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
+_, _, e := api.SlidesApi.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
 	
 if e != nil {
-	t.Errorf("Error: %v.", e)
+	fmt.Printf("Error: %v.", e)
 	return
 }
 
@@ -829,7 +829,7 @@ ShapeBase dto = new Chart
 	ChartType = Chart.ChartTypeEnum.ClusteredColumn,
 	Width = 400,
 	Height = 300,
-	DataSourceForCategories = new Literls(),
+	DataSourceForCategories = new Literals(),
 	Categories = new List<ChartCategory>
 	{
 		new ChartCategory { Value = "Category1" },
@@ -841,8 +841,8 @@ ShapeBase dto = new Chart
 		new OneValueSeries
 		{
 			Name = "Series1",
-			DataSourceForSeriesName = new Literls(),
-			DataSourceForValues = new Literls(),
+			DataSourceForSeriesName = new Literals(),
+			DataSourceForValues = new Literals(),
 			DataPoints = new List<OneValueChartDataPoint>
 			{
 				new OneValueChartDataPoint { Value = 40 },
@@ -853,8 +853,8 @@ ShapeBase dto = new Chart
 		new OneValueSeries
 		{
 			Name = "Series2",
-			DataSourceForSeriesName = new Literls(),
-			DataSourceForValues = new Literls(),
+			DataSourceForSeriesName = new Literals(),
+			DataSourceForValues = new Literals(),
 			DataPoints = new List<OneValueChartDataPoint>
 			{
 				new OneValueChartDataPoint { Value = 55 },
@@ -881,14 +881,14 @@ dto.setChartType(Chart.ChartTypeEnum.CLUSTEREDCOLUMN);
 dto.setWidth(400.0);
 dto.setHeight(300.0);
 
-Workbook dataSourceForCategories = new Literals();
+Literals dataSourceForCategories = new Literals();
 dto.setDataSourceForCategories(dataSourceForCategories);
 ChartCategory category1 = new ChartCategory();
 category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-.setValue("Category3");
+category3.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -897,9 +897,9 @@ dto.setCategories(categories);
 
 List<Series> seriesList = new ArrayList<Series>();
 OneValueSeries series1 = new OneValueSeries();
-Workbook dataSourceForSeries1Name = new Literals();
+Literals dataSourceForSeries1Name = new Literals();
 series1.setDataSourceForSeriesName(dataSourceForSeries1Name);
-Workbook dataSourceForSeries1Values = new Literals();
+Literals dataSourceForSeries1Values = new Literals();
 series1.setDataSourceForSeriesName(dataSourceForSeries1Values);
 series1.setName("Series1");
 List<OneValueChartDataPoint> dataPoints1 = new ArrayList<OneValueChartDataPoint>();
@@ -916,9 +916,9 @@ series1.setDataPoints(dataPoints1);
 seriesList.add(series1);
 
 OneValueSeries series2 = new OneValueSeries();
-Workbook dataSourceForSeries2Name = new Literals();
+Literals dataSourceForSeries2Name = new Literals();
 series2.setDataSourceForSeriesName(dataSourceForSeries2Name);
-Workbook dataSourceForSeries2Values = new Literals();
+Literals dataSourceForSeries2Values = new Literals();
 series2.setDataSourceForSeriesName(dataSourceForSeries2Values);
 series2.setName("Series2");
 List<OneValueChartDataPoint> dataPoints2 = new ArrayList<OneValueChartDataPoint>();
@@ -1051,7 +1051,7 @@ point23 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point23.value = 90
 series2.data_points = [point21, point22, point23]
 chart.series = [ series1, series2 ]
-result = api.create_shape("MyPresentation.ppx", 1, chart)
+result = api.create_shape("MyPresentation.pptx", 1, chart)
 
 print "Chart has been created."
 ```
@@ -1163,55 +1163,55 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-chart := slidescloud.NewChart()
+chart := asposeslidescloud.NewChart()
 chart.ChartType = "ClusteredColumn"
 chart.Width = 400
 chart.Height = 300
 
-dataSourceForCategories := slidescloud.NewLiterals()
+dataSourceForCategories := asposeslidescloud.NewLiterals()
 chart.DataSourceForCategories = dataSourceForCategories
-category1 := slidescloud.NewChartCategory()
+category1 := asposeslidescloud.NewChartCategory()
 category1.Value = "Category1"
-category2 := slidescloud.NewChartCategory()
+category2 := asposeslidescloud.NewChartCategory()
 category2.Value = "Category2"
-category3 := slidescloud.NewChartCategory()
+category3 := asposeslidescloud.NewChartCategory()
 category3.Value = "Category3"
-chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+chart.Categories = []asposeslidescloud.IChartCategory{category1, category2, category3}
 
-series1 := slidescloud.NewOneValueSeries()
-dataSourceForSeries1Name := slidescloud.NewLiterals()
+series1 := asposeslidescloud.NewOneValueSeries()
+dataSourceForSeries1Name := asposeslidescloud.NewLiterals()
 series1.DataSourceForSeriesName = dataSourceForSeries1Name
 series1.Name = "Series1"
-dataSourceForSeries1Values := slidescloud.NewLiterals()
+dataSourceForSeries1Values := asposeslidescloud.NewLiterals()
 series1.DataSourceForValues = dataSourceForSeries1Values
-point11 := slidescloud.NewOneValueChartDataPoint()
+point11 := asposeslidescloud.NewOneValueChartDataPoint()
 point11.Value = 40
-point12 := slidescloud.NewOneValueChartDataPoint()
+point12 := asposeslidescloud.NewOneValueChartDataPoint()
 point12.Value = 50
-point13 := slidescloud.NewOneValueChartDataPoint()
+point13 := asposeslidescloud.NewOneValueChartDataPoint()
 point13.Value = 70
-series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+series1.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point11, point12, point13}
 
-series2 := slidescloud.NewOneValueSeries()
-dataSourceForSeries2Name := slidescloud.NewLiterals()
+series2 := asposeslidescloud.NewOneValueSeries()
+dataSourceForSeries2Name := asposeslidescloud.NewLiterals()
 series2.DataSourceForSeriesName = dataSourceForSeries2Name
 series2.Name = "Series2"
-dataSourceForSeries2Values := slidescloud.NewLiterals()
+dataSourceForSeries2Values := asposeslidescloud.NewLiterals()
 series2.DataSourceForValues = dataSourceForSeries2Values
-point21 := slidescloud.NewOneValueChartDataPoint()
+point21 := asposeslidescloud.NewOneValueChartDataPoint()
 point21.Value = 55
-point22 := slidescloud.NewOneValueChartDataPoint()
+point22 := asposeslidescloud.NewOneValueChartDataPoint()
 point22.Value = 35
-point23 := slidescloud.NewOneValueChartDataPoint()
+point23 := asposeslidescloud.NewOneValueChartDataPoint()
 point23.Value = 90
-series2.DataPoints = []slidescloud.IOneValueChartDataPoint{point21, point22, point23}
-chart.Series = []slidescloud.ISeries{series1, series2}
+series2.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point21, point22, point23}
+chart.Series = []asposeslidescloud.ISeries{series1, series2}
 
 fileName := "MyPresentation.pptx"
-result, _, e := api.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
+_, _, e := api.SlidesApi.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
 	
 if e != nil {
-	t.Errorf("Error: %v.", e)
+	fmt.Printf("Error: %v.", e)
 	return
 }
 

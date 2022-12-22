@@ -174,11 +174,11 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Copy the third layout slide.
 layout_slide = slides_api.copy_layout_slide("MyPresentation.pptx", "MyTemplates/SalesTemplate.pptx", 3, nil, nil, nil, "MyFolder")

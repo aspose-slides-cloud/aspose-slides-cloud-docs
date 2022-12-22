@@ -171,7 +171,7 @@ category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-.setValue("Category3");
+category3.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -315,7 +315,7 @@ point13 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point13.value_formula = "SUM(B2:B3)"
 series1.data_points = [point11, point12, point13]
 chart.series = [ series1 ]
-result = api.create_shape("MyPresentation.ppx", 1, chart)
+result = api.create_shape("MyPresentation.pptx", 1, chart)
 
 print "Third data point value is: " + result.series[0].data_points[2].value
 ```
@@ -424,55 +424,55 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-chart := slidescloud.NewChart()
+chart := asposeslidescloud.NewChart()
 chart.ChartType = "ClusteredColumn"
 chart.Width = 400
 chart.Height = 300
 
-dataSourceForCategories := slidescloud.NewWorkbook()
+dataSourceForCategories := asposeslidescloud.NewWorkbook()
 dataSourceForCategories.WorksheetIndex = 0
 dataSourceForCategories.ColumnIndex = 0
 dataSourceForCategories.RowIndex = 1
 chart.DataSourceForCategories = dataSourceForCategories
-category1 := slidescloud.NewChartCategory()
+category1 := asposeslidescloud.NewChartCategory()
 category1.Value = "Category1"
-category2 := slidescloud.NewChartCategory()
+category2 := asposeslidescloud.NewChartCategory()
 category2.Value = "Category2"
-category3 := slidescloud.NewChartCategory()
+category3 := asposeslidescloud.NewChartCategory()
 category3.Value = "Category3"
-chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+chart.Categories = []asposeslidescloud.IChartCategory{category1, category2, category3}
 
-series1 := slidescloud.NewOneValueSeries()
-dataSourceForSeries1Name := slidescloud.NewWorkbook()
+series1 := asposeslidescloud.NewOneValueSeries()
+dataSourceForSeries1Name := asposeslidescloud.NewWorkbook()
 dataSourceForSeries1Name.WorksheetIndex = 0
 dataSourceForSeries1Name.ColumnIndex = 1
 dataSourceForSeries1Name.RowIndex = 0
 series1.DataSourceForSeriesName = dataSourceForSeries1Name
 series1.Name = "Series1"
-dataSourceForSeries1Values := slidescloud.NewWorkbook()
+dataSourceForSeries1Values := asposeslidescloud.NewWorkbook()
 dataSourceForSeries1Values.WorksheetIndex = 0
 dataSourceForSeries1Values.ColumnIndex = 1
 dataSourceForSeries1Values.RowIndex = 1
 series1.DataSourceForValues = dataSourceForSeries1Values
-point11 := slidescloud.NewOneValueChartDataPoint()
+point11 := asposeslidescloud.NewOneValueChartDataPoint()
 point11.Value = 40
-point12 := slidescloud.NewOneValueChartDataPoint()
+point12 := asposeslidescloud.NewOneValueChartDataPoint()
 point12.Value = 50
-point13 := slidescloud.NewOneValueChartDataPoint()
+point13 := asposeslidescloud.NewOneValueChartDataPoint()
 point13.ValueFormula = "SUM(B2:B3)"
-series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
-chart.Series = []slidescloud.ISeries{series1}
+series1.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point11, point12, point13}
+chart.Series = []asposeslidescloud.ISeries{series1}
 
 fileName := "MyPresentation.pptx"
-result, _, e := api.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
+result, _, e := api.SlidesApi.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
 	
 if e != nil {
-	t.Errorf("Error: %v.", e)
+	fmt.Printf("Error: %v.", e)
 	return
 }
 
-dataPoint := result.(slidescloud.IChart).GetSeries()[0].(slidescloud.IOneValueSeries).GetDataPoints()[2]
-fmt.Printf("Third data point value is: " + dataPoint.GetValue())
+dataPoint := result.(asposeslidescloud.IChart).GetSeries()[0].(asposeslidescloud.IOneValueSeries).GetDataPoints()[2]
+fmt.Printf("Third data point value is: %v", dataPoint.GetValue())
 ```
 
 {{< /tab >}}

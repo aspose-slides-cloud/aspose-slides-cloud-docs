@@ -121,7 +121,7 @@ position = 1
 new_node_text = "New-sub-node"
 response = api.create_smart_art_node("MyPresentation.pptx", slide_index, smart_art_index, sub_node_path, new_node_text, position)
 
-print "Root node contains " + response.nodes[0].nodes.length + " sub-nodes."
+print "Root node contains #{ response.nodes[0].nodes.length } sub-nodes."
 ```
 
 {{< /tab >}}

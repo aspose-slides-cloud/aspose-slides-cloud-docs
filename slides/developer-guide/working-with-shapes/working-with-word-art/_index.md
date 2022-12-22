@@ -337,7 +337,7 @@ api = AsposeSlidesCloud::SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 
-dto = AsposeSlidesCloud::Shape().new
+dto = AsposeSlidesCloud::Shape.new
 dto.shape_type = "Rectangle"
 dto.x = 100
 dto.y = 100
@@ -345,17 +345,17 @@ dto.height = 100
 dto.width = 200
 dto.text = "Sample text"
 
-text_frame_format = AsposeSlidesCloud::TextFrameFormat().new
+text_frame_format = AsposeSlidesCloud::TextFrameFormat.new
 text_frame_format.transform = "ArchUpPour"
 
-three_d_format = AsposeSlidesCloud::ThreeDFormat().new
-bevel_bottom = AsposeSlidesCloud::ShapeBevel().new
+three_d_format = AsposeSlidesCloud::ThreeDFormat.new
+bevel_bottom = AsposeSlidesCloud::ShapeBevel.new
 bevel_bottom.bevel_type = "Circle"
 bevel_bottom.height = 3.5
 bevel_bottom.width = 3.5
 three_d_format.bevel_bottom = bevel_bottom
 
-bevel_top = AsposeSlidesCloud::ShapeBevel().new
+bevel_top = AsposeSlidesCloud::ShapeBevel.new
 bevel_top.bevel_type = "Circle"
 bevel_top.height = 4
 bevel_top.width = 4
@@ -368,7 +368,7 @@ three_d_format.contour_width = 1.5
 three_d_format.depth = 3
 three_d_format.material = "Plastic"
 
-light_rig = AsposeSlidesCloud::LightRig().new
+light_rig = AsposeSlidesCloud::LightRig.new
 light_rig.light_type = "Balanced"
 light_rig.direction = "Top"
 light_rig.x_rotation = 0
@@ -376,7 +376,7 @@ light_rig.y_rotation = 0
 light_rig.z_rotation = 40
 three_d_format.light_rig = light_rig
 
-camera = AsposeSlidesCloud::Camera().new
+camera = AsposeSlidesCloud::Camera.new
 camera.camera_type = "PerspectiveContrastingRightFacing"
 three_d_format.camera = camera
 text_frame_format.three_d_format = three_d_format

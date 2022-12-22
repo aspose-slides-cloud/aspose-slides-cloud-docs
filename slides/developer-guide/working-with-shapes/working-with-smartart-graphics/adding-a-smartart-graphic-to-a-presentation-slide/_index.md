@@ -338,14 +338,14 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Prepare data for the SmartArt shape.
-graphic_data = SmartArt.new
+graphic_data = AsposeSlidesCloud::SmartArt.new
 graphic_data.x = 20
 graphic_data.y = 20
 graphic_data.width = 200
@@ -353,11 +353,11 @@ graphic_data.height = 200
 graphic_data.layout = "Gear"
 graphic_data.quick_style = "IntenceEffect"
 graphic_data.color_style = "ColorfulAccentColors"
-first_node = SmartArtNode.new
+first_node = AsposeSlidesCloud::SmartArtNode.new
 first_node.text = "Development"
-second_node = SmartArtNode.new
+second_node = AsposeSlidesCloud::SmartArtNode.new
 second_node.text = "Analysis"
-third_node = SmartArtNode.new
+third_node = AsposeSlidesCloud::SmartArtNode.new
 third_node.text = "Sales"
 graphic_data.nodes = [first_node, second_node, third_node]
 

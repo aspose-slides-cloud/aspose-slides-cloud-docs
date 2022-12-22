@@ -200,11 +200,11 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Copy the first master slide from MyTemplates/MainTemplate.pptx to MyFolder/MyPresentation.pptx and apply the master slide to all slides.
 master_slide = slides_api.copy_master_slide("MyPresentation.pptx", "MyTemplates/MainTemplate.pptx", 1, nil, nil, true, nil, "MyFolder")
