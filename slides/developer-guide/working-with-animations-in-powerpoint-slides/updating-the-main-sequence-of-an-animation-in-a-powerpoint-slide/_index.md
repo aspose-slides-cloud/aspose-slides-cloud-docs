@@ -153,20 +153,20 @@ import com.aspose.slides.model.Effect;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare parameters for the effect.
-        var wipeEffect = new Effect();
+        Effect wipeEffect = new Effect();
         wipeEffect.setType(Effect.TypeEnum.WIPE);
         wipeEffect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
         wipeEffect.setShapeIndex(2);
         wipeEffect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
         // Add the effect to the main animation sequence.
-        var slideAnimation = slidesApi.createAnimationEffect("MyPresentation.pptx", 1, wipeEffect, null, "MyFolder", null);
+        SlideAnimation slideAnimation = slidesApi.createAnimationEffect("MyPresentation.pptx", 1, wipeEffect, null, "MyFolder", null);
 
         // Print all effect types from the main sequence.
-        for (var effect : slideAnimation.getMainSequence()) {
+        for (Effect effect : slideAnimation.getMainSequence()) {
             System.out.println(String.format("The shape at index %d has the %s effect.", effect.getShapeIndex(), effect.getType()));
         }
     }

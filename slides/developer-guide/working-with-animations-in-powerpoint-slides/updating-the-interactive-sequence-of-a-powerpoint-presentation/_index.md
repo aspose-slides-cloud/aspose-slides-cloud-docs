@@ -177,28 +177,28 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare the shape effect.
-        var effect = new Effect();
+        Effect effect = new Effect();
         effect.setType(Effect.TypeEnum.FLY);
         effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
         effect.setPresetClassType(Effect.PresetClassTypeEnum.ENTRANCE);
         effect.setShapeIndex(4);
         effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
-        var effects = new ArrayList<>();
+        List<Effect> effects = new ArrayList<Effect>();
         effects.add(effect);
 
-        var newSequence = new InteractiveSequence();
+        InteractiveSequence newSequence = new InteractiveSequence();
         newSequence.setTriggerShapeIndex(1);
         newSequence.setEffects(effects);
 
         // Add the shape effect into the interactive sequence for the first slide.
-        var slideAnimation = slidesApi.createAnimationInteractiveSequence("MyPresentation.pptx", 1, newSequence, null, "MyFolder", null);
+        SlideAnimation slideAnimation = slidesApi.createAnimationInteractiveSequence("MyPresentation.pptx", 1, newSequence, null, "MyFolder", null);
 
         // Print indices of trigger shapes.
-        for (var sequence : slideAnimation.getInteractiveSequences()) {
+        for (InteractiveSequence sequence : slideAnimation.getInteractiveSequences()) {
             System.out.println(sequence.getTriggerShapeIndex());
         }
     }

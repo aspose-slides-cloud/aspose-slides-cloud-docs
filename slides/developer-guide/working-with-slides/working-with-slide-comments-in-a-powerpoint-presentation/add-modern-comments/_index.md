@@ -175,9 +175,9 @@ child_comment.author = "Author Name"
 child_comment.status = "Active"
 child_comment.text_selection_start = text_selection_start_index
 child_comment.text_selection_length = text_selection_length
-dto.child_comments = [ childComment ]
+dto.child_comments = [ child_comment ]
 response = api.create_comment("MyPresentation.pptx", 3, dto)
-p("The slide has " + response.list.length + " comments")
+p("The slide has #{ response.list.length } comments")
 ```
 
 {{< /tab >}}

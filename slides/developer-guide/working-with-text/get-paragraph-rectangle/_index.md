@@ -104,10 +104,10 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 response = api.get_paragraph_rectangle("MyPresentation.pptx", 1, 2, 1)
-p("x: " + response.x)
-p("y: " + response.y)
-p("width: " + response.width)
-p("height: " + response.height)
+p("x: #{ response.x }")
+p("y: #{ response.y }")
+p("width: #{ response.width }")
+p("height: #{ response.height }")
 ```
 
 {{< /tab >}}

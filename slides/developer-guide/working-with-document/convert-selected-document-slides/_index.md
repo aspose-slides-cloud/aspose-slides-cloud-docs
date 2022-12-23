@@ -135,11 +135,11 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "my_client_id"
 configuration.app_key = "my_client_key"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 file_data = File.binread("MyPresentation.pptx")
 pdf_data = slides_api.convert(file_data, ExportFormat::PDF, nil, nil, nil, [2, 4])

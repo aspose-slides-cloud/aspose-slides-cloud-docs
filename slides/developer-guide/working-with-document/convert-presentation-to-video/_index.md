@@ -106,7 +106,6 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-
 $exportOptions = new VideoExportOptions();
 $exportOptions->setSlidesTransitionDuration(5);
 $exportOptions->setVideoResolutionType("SD");
@@ -127,7 +126,11 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#The example will be completed shortly.
+export_options = AsposeSlidesCloud::VideoExportOptions.new
+export_options.slides_transition_duration = 5
+export_options.video_resolution_type = "SD"
+export_options.transition_type = "Dissolve"
+export_options.transition_duration = 3
 
 result = api.download_presentation("MyPresentation.pptx", AsposeSlidesCloud::ExportFormat::MPEG4, export_options)
 File.binwrite("MyPresentation.zip", result)

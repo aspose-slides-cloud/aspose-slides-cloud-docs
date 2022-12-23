@@ -621,14 +621,14 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "my_client_id"
 configuration.app_key = "my_client_key"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Set options for the output PDF document.
-pdf_options = PdfExportOptions.new
+pdf_options = AsposeSlidesCloud::PdfExportOptions.new
 pdf_options.draw_slides_frame = true
 pdf_options.jpeg_quality = 90
 pdf_options.compliance = "PDFUA"

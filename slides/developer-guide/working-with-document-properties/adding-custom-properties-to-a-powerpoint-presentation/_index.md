@@ -275,22 +275,22 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Create the new document properties.
-property1 = DocumentProperty.new
+property1 = AsposeSlidesCloud::DocumentProperty.new
 property1.name = "ProcessedByOffice"
 property1.value = "Scotland Team"
-property2 = DocumentProperty.new
+property2 = AsposeSlidesCloud::DocumentProperty.new
 property2.name = "MyProperty"
 property2.value = "My Value"
 
 # Prepare a collection of the properties.
-new_properties = DocumentProperties.new
+new_properties = AsposeSlidesCloud::DocumentProperties.new
 new_properties.list = [property1, property2]
 
 # Add the new document properties to the presentation.

@@ -192,14 +192,14 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Prepare notes for the slide.
-notes_slide = NotesSlide.new
+notes_slide = AsposeSlidesCloud::NotesSlide.new
 notes_slide.text = "Start with our company."
 
 # Create the notes for the second slide.

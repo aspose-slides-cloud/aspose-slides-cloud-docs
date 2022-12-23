@@ -582,6 +582,7 @@ files = [file_data]
 presentation1 = PresentationToMerge.new
 presentation1.path = "local.pptx"
 presentation1.slides = [1, 2]
+presentation1.source = "Storage"
 
 # Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge.new
