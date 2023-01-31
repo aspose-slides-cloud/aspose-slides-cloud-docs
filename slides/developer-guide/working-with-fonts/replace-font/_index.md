@@ -11,7 +11,7 @@ Aspose.Slides Cloud API allows replacing a font used in a presentation. The feat
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation fonts info.|[ReplaceFont]()|
+/slides/{name}/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation fonts info.|[ReplaceFont](https://apireference.aspose.cloud/slides/#/Fonts/ReplaceFont)|
 
 ### **Examples**
 **cURL Example**
@@ -185,7 +185,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation.|[ReplaceFontOnline]()|
+/slides/fonts/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation.|[ReplaceFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/ReplaceFontOnline)|
 
 ### **Examples**
 **cURL Example**

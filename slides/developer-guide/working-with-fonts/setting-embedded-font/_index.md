@@ -11,7 +11,7 @@ Aspose.Slides Cloud API allows embedding a font used in a presentation. The feat
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation fonts info.|[SetEmbeddedFont]()
+/slides/{name}/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation fonts info.|[SetEmbeddedFont](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFont)|
 
 ### **Examples**
 **cURL Example**
@@ -183,7 +183,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation.|[SetEmbeddedFontOnline]()|
+/slides/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation.|[SetEmbeddedFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontOnline)|
 
 ### **Examples**
 **cURL Example**

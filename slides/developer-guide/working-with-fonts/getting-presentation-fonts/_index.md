@@ -11,7 +11,7 @@ Aspose.Slides Cloud API allows getting list of fonts used in the presentation. T
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts|Get|Returns presentation fonts info.|[GetFonts](https://apireference.aspose.cloud/slides/fonts)|
+/slides/{name}/fonts|Get|Returns presentation fonts info.|[GetFonts](https://apireference.aspose.cloud/slides/#/Fonts/GetFonts)|
 
 ### **Examples**
 
@@ -183,7 +183,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts|Get|Returns presentation fonts info.|[GetFontsOnline](https://apireference.aspose.cloud/slides/fonts)|
+/slides/fonts|Get|Returns presentation fonts info.|[GetFontsOnline](https://apireference.aspose.cloud/slides/#/Fonts/GetFontsOnline)|
 
 ## **Examples**
 **cURL Example**
