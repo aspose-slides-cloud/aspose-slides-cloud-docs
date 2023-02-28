@@ -20,7 +20,7 @@ weight: 110
 
 ## **Public API changes**
 
-New **DownloadShapeFromDto** method allows to convert charts and other shapes from DTO to SVG and other formats without creating and storing presentation files. See [documentation](/slides/working-with-shapes/download-shape-from-a-data-transfer-object/) for more info.
+New **DownloadShapeFromDto** method allows to convert charts and other shapes from DTO to SVG and other formats without creating and storing presentation files. See [documentation](/slides/download-shape-from-a-data-transfer-object/) for more info.
 
 Added **SoundBase64** property to **Hyperlink** class to support getting and setting hyperlink sounds.
 

@@ -4,7 +4,9 @@ type: docs
 url: /download-shape-from-a-data-transfer-object/
 weight: 180
 ---
-The Aspose.Slides.Cloud RestAPI allows you to create a shape from the provided data transfer object and get an image of this shape.
+Aspose.Slides.Cloud RestAPI allows you to create a shape from a data transfer object and get an image of that shape.
+The shape can be a chart, a table, a SmartArt figure or any other shape type supported by PowerPoint.
+You don't have to explicitly create a presentation to perform this action.
 
 ## **API Information**
 |**API**|**Type**|**Description**|**Resource**|
@@ -32,9 +34,9 @@ curl  -v "https://api.aspose.cloud/v3.0/slides/shape/png" -d @"shape.json" -H "C
 shape.json file:
 ```javascript
 {
-	shapeType: "Rectangle",
-	width: 400,
-	height: 200,
+    shapeType: "Rectangle",
+    width: 400,
+    height: 200,
     text: "Shape text"
 }
 ```
