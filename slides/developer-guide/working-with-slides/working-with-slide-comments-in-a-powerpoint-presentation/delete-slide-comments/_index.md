@@ -146,7 +146,7 @@ my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1, 'author' => "Author Name");
+my %params = (name => 'MyPresentation.pptx', slide_index => 1, author => "Author Name");
 $api->delete_slide_comments(%params);
 ```
 

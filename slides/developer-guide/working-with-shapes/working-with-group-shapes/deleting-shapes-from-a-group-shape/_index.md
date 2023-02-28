@@ -561,8 +561,8 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Delete the shapes from the group shape.
-my @shape_indices = (1, 3);
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, shapes => \@shape_indices, folder => "MyFolder", sub_shape=>"4");
+my @shape_indices = (1, 2);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, shapes => \@shape_indices, folder => "MyFolder", sub_shape=>"4");
 my $remaining_shapes = $slides_api->delete_shapes(%parameters);
 
 # Print resource references for the remaining shapes.

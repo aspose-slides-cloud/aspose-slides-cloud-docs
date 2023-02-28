@@ -5,9 +5,8 @@ url: /working-with-formulas/
 weight: 40
 ---
 ## **Introduction**
-Chart data point value can be calculated based on a formula.
-Formulas can be specified for values, x-values, y-values, and bubble sizes.
-You can use formulas in the case when an Excel workbook is used as the data source.
+Chart value can be calculated based on the formula in the case when an Excel workbook is used as a data source. 
+Formulas can be specified for: values, x-values, y-values, and bubble sizes.
 
 ## **Formulas**
 ### **API Information**
@@ -44,9 +43,9 @@ chart.json file:
     "height": 400,
 	"dataSourceForCategories" : {
 		"type": "workbook",
-		"woksheetIndex": 0,
-		"columnIndex": 0,
-		"rowIndex": 1
+		"woksheetIndex": 1,
+		"columnIndex": 1,
+		"rowIndex": 2
 	},
     "categories": [
         { "Value": "Category1" },
@@ -58,16 +57,16 @@ chart.json file:
             "dataPointType": "OneValue",
 			"dataSourecForSeriesName" : {
 				"type": "workbook",
-				"woksheetIndex": 0,
-				"columnIndex": 1,
-				"rowIndex": 0
+				"woksheetIndex": 1,
+				"columnIndex": 2,
+				"rowIndex": 1
 			},
 			"name": "Series1",
 			"dataSourceForValues" : {
 				"type": "workbook",
-				"woksheetIndex": 0,
-				"columnIndex": 1,
-				"rowIndex": 1
+				"woksheetIndex": 1,
+				"columnIndex": 2,
+				"rowIndex": 2
 			},
             "dataPoints": [
                 { "value": 40 },
@@ -108,9 +107,9 @@ ShapeBase dto = new Chart
 	Height = 300,
 	DataSourceForCategories = new Workbook()
 	{
-		WorksheetIndex = 0,
-		ColumnIndex = 0,
-		RowIndex = 1
+		WorksheetIndex = 1,
+		ColumnIndex = 1,
+		RowIndex = 2
 	},
 	Categories = new List<ChartCategory>
 	{
@@ -125,15 +124,15 @@ ShapeBase dto = new Chart
 			Name = "Series1",
 			DataSourceForSeriesName = new Workbook()
 			{
-				WorksheetIndex = 0,
-				ColumnIndex = 1,
-				RowIndex = 0
+				WorksheetIndex = 1,
+				ColumnIndex = 2,
+				RowIndex = 1
 			},
 			DataSourceForValues = new Workbook()
 			{
-				WorksheetIndex = 0,
-				ColumnIndex = 1,
-				RowIndex = 1
+				WorksheetIndex = 1,
+				ColumnIndex = 2,
+				RowIndex = 2
 			},
 			DataPoints = new List<OneValueChartDataPoint>
 			{
@@ -162,16 +161,16 @@ dto.setWidth(400.0);
 dto.setHeight(300.0);
 
 Workbook dataSourceForCategories = new Workbook();
-dataSourceForCategories.setWorksheetIndex(0);
-dataSourceForCategories.setColumnIndex(0);
-dataSourceForCategories.setRowIndex(1);
+dataSourceForCategories.setWorksheetIndex(1);
+dataSourceForCategories.setColumnIndex(1);
+dataSourceForCategories.setRowIndex(2);
 dto.setDataSourceForCategories(dataSourceForCategories);
 ChartCategory category1 = new ChartCategory();
 category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-category3.setValue("Category3");
+.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -181,14 +180,14 @@ dto.setCategories(categories);
 List<Series> seriesList = new ArrayList<Series>();
 OneValueSeries series1 = new OneValueSeries();
 Workbook dataSourceForSeries1Name = new Workbook();
-dataSourceForSeries1Name.setWorksheetIndex(0);
-dataSourceForSeries1Name.setColumnIndex(1);
-dataSourceForSeries1Name.setRowIndex(0);
+dataSourceForSeries1Name.setWorksheetIndex(1);
+dataSourceForSeries1Name.setColumnIndex(2);
+dataSourceForSeries1Name.setRowIndex(1);
 series1.setDataSourceForSeriesName(dataSourceForSeries1Name);
 Workbook dataSourceForSeries1Values = new Workbook();
-dataSourceForSeries1Values.setWorksheetIndex(0);
-dataSourceForSeries1Values.setColumnIndex(1);
-dataSourceForSeries1Values.setRowIndex(1);
+dataSourceForSeries1Values.setWorksheetIndex(1);
+dataSourceForSeries1Values.setColumnIndex(2);
+dataSourceForSeries1Values.setRowIndex(2);
 series1.setDataSourceForSeriesName(dataSourceForSeries1Values);
 series1.setName("Series1");
 List<OneValueChartDataPoint> dataPoints1 = new ArrayList<OneValueChartDataPoint>();
@@ -232,9 +231,9 @@ $dto->setWidth(400);
 $dto->setHeight(300);
 
 $categoryDataSource = new Workbook();
-$categoryDataSource->setWorksheetIndex(0);
-$categoryDataSource->setColumnIndex(0);
-$categoryDataSource->setRowIndex(1);
+$categoryDataSource->setWorksheetIndex(1);
+$categoryDataSource->setColumnIndex(1);
+$categoryDataSource->setRowIndex(2);
 $dto->setDataSourceForCategories($categoryDataSource);
 $category1 = new ChartCategory();
 $category1->setValue("Category 1");
@@ -246,14 +245,14 @@ $dto->setCategories([ $category1, $category2, $category3 ]);
 
 $series1 = new OneValueSeries();
 $series1NameDataSource = new Workbook();
-$series1NameDataSource->setWorksheetIndex(0);
-$series1NameDataSource->setColumnIndex(1);
-$series1NameDataSource->setRowIndex(0);
+$series1NameDataSource->setWorksheetIndex(1);
+$series1NameDataSource->setColumnIndex(2);
+$series1NameDataSource->setRowIndex(1);
 $series1->setDataSourceForSeriesName($series1NameDataSource);
 $values1DataSource = new Workbook();
-$values1DataSource->setWorksheetIndex(0);
-$values1DataSource->setColumnIndex(1);
-$values1DataSource->setRowIndex(1);
+$values1DataSource->setWorksheetIndex(1);
+$values1DataSource->setColumnIndex(2);
+$values1DataSource->setRowIndex(2);
 $series1->setDataSourceForValues($values1DataSource);
 $dataPoint11 = new OneValueChartDataPoint();
 $dataPoint11->setValue(40);
@@ -265,7 +264,7 @@ $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
 $dto->setSeries([ $series1 ]);
 $result = $api->createShape("MyPresentation.pptx", 1, $dto);
 $dataPoint = $result->getSeries()[0]->getDataPoints()[2];
-print("Third data point value is: " + $dataPoint->getValue());
+print("Third data point value is: " . $dataPoint->getValue());
 ```
 
 {{< /tab >}}
@@ -283,9 +282,9 @@ chart.width = 400
 chart.height = 300
 
 data_source_for_categories = AsposeSlidesCloud::Workbook.new
-data_source_for_categories.worksheet_index = 0
-data_source_for_categories.column_index = 0
-data_source_for_categories.row_index = 1
+data_source_for_categories.worksheet_index = 1
+data_source_for_categories.column_index = 1
+data_source_for_categories.row_index = 2
 chart.data_source_for_categories = data_source_for_categories
 category1 = AsposeSlidesCloud::ChartCategory.new
 category1.value = "Category1"
@@ -297,15 +296,15 @@ chart.categories = [category1, category2, category3]
 
 series1 = AsposeSlidesCloud::OneValueSeries.new
 data_source_for_series1_name = AsposeSlidesCloud::Workbook.new
-data_source_for_series1_name.worksheet_index = 0
-data_source_for_series1_name.column_index = 1
-data_source_for_series1_name.row_index = 0
+data_source_for_series1_name.worksheet_index = 1
+data_source_for_series1_name.column_index = 2
+data_source_for_series1_name.row_index = 1
 series1.data_source_for_series_name = data_source_for_series1_name    
 series1.name = "Series1"
 data_source_for_series1_values =  AsposeSlidesCloud::Workbook.new
-data_source_for_series1_values.worksheet_index = 0
-data_source_for_series1_values.column_index = 1
-data_source_for_series1_values.row_index = 1
+data_source_for_series1_values.worksheet_index = 1
+data_source_for_series1_values.column_index = 2
+data_source_for_series1_values.row_index = 2
 series1.data_source_for_values = data_source_for_series1_values
 point11 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point11.value = 40
@@ -315,9 +314,9 @@ point13 = AsposeSlidesCloud::OneValueChartDataPoint.new
 point13.value_formula = "SUM(B2:B3)"
 series1.data_points = [point11, point12, point13]
 chart.series = [ series1 ]
-result = api.create_shape("MyPresentation.pptx", 1, chart)
+result = api.create_shape("MyPresentation.ppx", 1, chart)
 
-print "Third data point value is: " + result.series[0].data_points[2].value
+puts "Third data point value is: #{result.series[0].data_points[2].value}"
 ```
 
 {{< /tab >}}
@@ -328,6 +327,11 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.chart import Chart
+from asposeslidescloud.models.workbook import Workbook
+from asposeslidescloud.models.chart_category import ChartCategory
+from asposeslidescloud.models.one_value_series import OneValueSeries
+from asposeslidescloud.models.one_value_chart_data_point import OneValueChartDataPoint
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -340,9 +344,9 @@ chart.width = 400
 chart.height = 300
 
 categories_data_source = Workbook()
-categories_data_source.worksheet_index = 0
-categories_data_source.row_index = 1
-categories_data_source.column_index = 0
+categories_data_source.worksheet_index = 1
+categories_data_source.row_index = 2
+categories_data_source.column_index = 1
 chart.data_source_for_categories = categories_data_source
 category1 = ChartCategory()
 category1.value = "Category1"
@@ -354,15 +358,15 @@ chart.categories = [category1, category2, category3]
 
 series1 = OneValueSeries()
 series1_name_data_source = Workbook()
-series1_name_data_source.worksheet_index = 0
-series1_name_data_source.column_index = 1
-series1_name_data_source.row_index = 0
+series1_name_data_source.worksheet_index = 1
+series1_name_data_source.column_index = 2
+series1_name_data_source.row_index = 1
 series1.data_source_for_series_name = series1_name_data_source
 series1.name = "Series1"
 series1_values_data_source = Workbook()
-series1_values_data_source.worksheet_index = 0
-series1_values_data_source.column_index = 1
-series1_values_data_source.row_index = 1
+series1_values_data_source.worksheet_index = 1
+series1_values_data_source.column_index = 2
+series1_values_data_source.row_index = 2
 series1.data_source_for_values = series1_values_data_source
 point11 = OneValueChartDataPoint()
 point11.value = 40
@@ -375,7 +379,7 @@ chart.series = [series1]
         
 result = api.create_shape("MyPresentation.pptx", 1, chart)
 
-print("Third data point value is: " + result.series[0].data_points[2].value)
+print(f"Third data point value is: {result.series[0].data_points[2].value}")
 ```
 
 {{< /tab >}}
@@ -385,35 +389,35 @@ print("Third data point value is: " + result.series[0].data_points[2].value)
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const chart = new model.Chart();
-chart.chartType = model.Chart.ChartTypeEnum.ClusteredColumn;
+const chart = new CloudSdk.Chart();
+chart.chartType = CloudSdk.Chart.ChartTypeEnum.ClusteredColumn;
 chart.width = 400;
 chart.height = 300;
 
-const dataSourceForCategories = new model.Workbook();
-dataSourceForCategories.worksheetIndex = 0;
-dataSourceForCategories.columnIndex = 0;
-dataSourceForCategories.rowIndex = 1;
+const dataSourceForCategories = new CloudSdk.Workbook();
+dataSourceForCategories.worksheetIndex = 1;
+dataSourceForCategories.columnIndex = 1;
+dataSourceForCategories.rowIndex = 2;
 chart.dataSourceForCategories = dataSourceForCategories;
 chart.categories = [{value: "Category1"}, {value: "Category2"}, {value: "Category3"}];
 
-const series1 = new model.OneValueSeries();
-const dataSourceForSeriesName1 = new model.Workbook();
-dataSourceForSeriesName1.worksheetIndex = 0;
-dataSourceForSeriesName1.columnIndex = 1;
-dataSourceForSeriesName1.rowIndex = 0;
+const series1 = new CloudSdk.OneValueSeries();
+const dataSourceForSeriesName1 = new CloudSdk.Workbook();
+dataSourceForSeriesName1.worksheetIndex = 1;
+dataSourceForSeriesName1.columnIndex = 2;
+dataSourceForSeriesName1.rowIndex = 1;
 series1.dataSourceForSeriesName = dataSourceForSeriesName1;
 series1.name = "Series1";
-const dataSourceForValues1 = new model.Workbook();
-dataSourceForValues1.worksheetIndex = 0;
-dataSourceForValues1.columnIndex = 1;
-dataSourceForValues1.rowIndex = 1;
+const dataSourceForValues1 = new CloudSdk.Workbook();
+dataSourceForValues1.worksheetIndex = 1;
+dataSourceForValues1.columnIndex = 2;
+dataSourceForValues1.rowIndex = 2;
 series1.dataSourceForValues = dataSourceForValues1;
-series1.dataPoints = [{value: 40}, {value: 50}, {valueFormula: "SUM(B2:B3)"}];      
+series1.dataPoints = [{value: 40}, {value: 50}, {type: "OneValue", valueFormula: "SUM(B2:B3)"}];      
 chart.series = [series1];
                 
 let result = await api.createShape("MyPresentation.pptx", 1, chart);
-console.log("Third data point value is: " + series.dataPoints[2].value);
+console.log("Third data point value is: " + result.body.series[0].dataPoints[2].value);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -424,55 +428,55 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-chart := asposeslidescloud.NewChart()
+chart := slidescloud.NewChart()
 chart.ChartType = "ClusteredColumn"
 chart.Width = 400
 chart.Height = 300
 
 dataSourceForCategories := asposeslidescloud.NewWorkbook()
-dataSourceForCategories.WorksheetIndex = 0
-dataSourceForCategories.ColumnIndex = 0
-dataSourceForCategories.RowIndex = 1
+dataSourceForCategories.WorksheetIndex = 1
+dataSourceForCategories.ColumnIndex = 1
+dataSourceForCategories.RowIndex = 2
 chart.DataSourceForCategories = dataSourceForCategories
-category1 := asposeslidescloud.NewChartCategory()
+category1 := slidescloud.NewChartCategory()
 category1.Value = "Category1"
-category2 := asposeslidescloud.NewChartCategory()
+category2 := slidescloud.NewChartCategory()
 category2.Value = "Category2"
-category3 := asposeslidescloud.NewChartCategory()
+category3 := slidescloud.NewChartCategory()
 category3.Value = "Category3"
-chart.Categories = []asposeslidescloud.IChartCategory{category1, category2, category3}
+chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
 
 series1 := asposeslidescloud.NewOneValueSeries()
 dataSourceForSeries1Name := asposeslidescloud.NewWorkbook()
-dataSourceForSeries1Name.WorksheetIndex = 0
-dataSourceForSeries1Name.ColumnIndex = 1
-dataSourceForSeries1Name.RowIndex = 0
+dataSourceForSeries1Name.WorksheetIndex = 1
+dataSourceForSeries1Name.ColumnIndex = 2
+dataSourceForSeries1Name.RowIndex = 1
 series1.DataSourceForSeriesName = dataSourceForSeries1Name
 series1.Name = "Series1"
 dataSourceForSeries1Values := asposeslidescloud.NewWorkbook()
-dataSourceForSeries1Values.WorksheetIndex = 0
-dataSourceForSeries1Values.ColumnIndex = 1
-dataSourceForSeries1Values.RowIndex = 1
+dataSourceForSeries1Values.WorksheetIndex = 1
+dataSourceForSeries1Values.ColumnIndex = 2
+dataSourceForSeries1Values.RowIndex = 2
 series1.DataSourceForValues = dataSourceForSeries1Values
-point11 := asposeslidescloud.NewOneValueChartDataPoint()
+point11 := slidescloud.NewOneValueChartDataPoint()
 point11.Value = 40
-point12 := asposeslidescloud.NewOneValueChartDataPoint()
+point12 := slidescloud.NewOneValueChartDataPoint()
 point12.Value = 50
-point13 := asposeslidescloud.NewOneValueChartDataPoint()
+point13 := slidescloud.NewOneValueChartDataPoint()
 point13.ValueFormula = "SUM(B2:B3)"
-series1.DataPoints = []asposeslidescloud.IOneValueChartDataPoint{point11, point12, point13}
-chart.Series = []asposeslidescloud.ISeries{series1}
+series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+chart.Series = []slidescloud.ISeries{series1}
 
 fileName := "MyPresentation.pptx"
-result, _, e := api.SlidesApi.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
+result, _, e := api.CreateShape(fileName, 1, chart, nil, nil, "", "", "", "")
 	
 if e != nil {
-	fmt.Printf("Error: %v.", e)
+	t.Errorf("Error: %v.", e)
 	return
 }
 
-dataPoint := result.(asposeslidescloud.IChart).GetSeries()[0].(asposeslidescloud.IOneValueSeries).GetDataPoints()[2]
-fmt.Printf("Third data point value is: %v", dataPoint.GetValue())
+dataPoint := result.(slidescloud.IChart).GetSeries()[0].(slidescloud.IOneValueSeries).GetDataPoints()[2]
+fmt.Printf("Third data point value is: " + dataPoint.GetValue())
 ```
 
 {{< /tab >}}
@@ -501,9 +505,9 @@ $dto->{width} = 400;
 $dto->{height} = 300;
 
 my $data_source_for_categories = AsposeSlidesCloud::Object::Workbook->new();
-$data_source_for_categories->{worksheet_index} = 0;
-$data_source_for_categories->{column_index} = 0;
-$data_source_for_categories->{row_index} = 1;
+$data_source_for_categories->{worksheet_index} = 1;
+$data_source_for_categories->{column_index} = 1;
+$data_source_for_categories->{row_index} = 2;
 $dto->{data_source_for_categories} = $data_source_for_categories;
 my $category1 = AsposeSlidesCloud::Object::ChartCategory->new();
 $category1->{value} = "Category1";
@@ -515,15 +519,15 @@ my @categories = ( $category1, $category2, $category3 );
 
 my $series1 = AsposeSlidesCloud::Object::OneValueSeries->new();
 my $data_source_for_series1_name = AsposeSlidesCloud::Object::Workbook->new();
-$data_source_for_series1_name->{worksheet_index} = 0;
-$data_source_for_series1_name->{column_index} = 1;
-$data_source_for_series1_name->{row_index} = 0;
+$data_source_for_series1_name->{worksheet_index} = 1;
+$data_source_for_series1_name->{column_index} = 2;
+$data_source_for_series1_name->{row_index} = 1;
 $series1->{data_source_for_series_name} = $data_source_for_series1_name;
 $series1->{name} = "Series1";
 my $data_source_for_series1_values = AsposeSlidesCloud::Object::Workbook->new();
-$data_source_for_series1_values->{worksheet_index} = 0;
-$data_source_for_series1_values->{column_index} = 1;
-$data_source_for_series1_values->{row_index} = 1;
+$data_source_for_series1_values->{worksheet_index} = 1;
+$data_source_for_series1_values->{column_index} = 2;
+$data_source_for_series1_values->{row_index} = 2;
 $series1->{data_source_for_values} = $data_source_for_series1_values;
 my $point11 = AsposeSlidesCloud::Object::OneValueChartDataPoint->new();
 $point11->{value} = 40;
@@ -536,7 +540,7 @@ $series1->{data_points} = \@points1;
 my @series = ( $series1 );
 $dto->{series} = \@series;
 $dto->{categories} = \@categories;
-my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1, 'dto' => $dto);
+my %params = (name => 'MyPresentation.pptx', slide_index => 1, dto => $dto);
 my $chart = $api->create_shape(%params);
 print "Third data point value is: " + $chart->{series}[0]{data_points}[2]->{value};
 ```
