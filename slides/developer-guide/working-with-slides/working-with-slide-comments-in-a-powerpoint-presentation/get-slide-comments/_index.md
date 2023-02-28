@@ -92,7 +92,7 @@ configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 comments = api.get_slide_comments("MyPresentation.pptx", 1)
-p("The slide has " + comments.list.length + " comments")
+p("The slide has #{ comments.list.length } comments")
 ```
 
 {{< /tab >}}
@@ -161,9 +161,9 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = (name => 'MyPresentation.pptx', slide_index => 1);
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1);
 my $comments = $api->get_slide_comments(%params);
-print "The slide has " . (scalar @{$comments->{list}}) . " comments";
+print "The slide has " . (scalar @($comments->{list})) . " comments";
 ```
 
 {{< /tab >}}

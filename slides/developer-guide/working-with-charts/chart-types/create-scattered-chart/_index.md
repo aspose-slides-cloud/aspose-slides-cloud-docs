@@ -268,7 +268,7 @@ $dataPoint23->setXValue(2);
 $dataPoint24 = new ScatterChartDataPoint();
 $dataPoint24->setXValue(5);
 $dataPoint24->setXValue(1);
-$series2->setDataPoints([$dataPoint21, $dataPoint22, $dataPoint23, $dataPoint24]);
+$series1->setDataPoints([$dataPoint21, $dataPoint22, $dataPoint23, $dataPoint24]);
 $dto->setSeries([ $series1, $series2 ]);
 
 $result = $api->CreateShape("MyPresentation.pptx", 1, $dto);

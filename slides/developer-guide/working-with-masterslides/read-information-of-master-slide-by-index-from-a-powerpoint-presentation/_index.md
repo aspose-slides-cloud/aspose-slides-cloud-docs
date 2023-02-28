@@ -297,7 +297,7 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
+my %parameters = (name => "MyPresentation.pptx", slide_index => 2, folder => "MyFolder");
 my $master_slide = $slides_api->get_master_slide(%parameters);
 
 print("Master slide name: $master_slide->{name}\n");

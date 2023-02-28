@@ -175,9 +175,9 @@ child_comment.author = "Author Name"
 child_comment.status = "Active"
 child_comment.text_selection_start = text_selection_start_index
 child_comment.text_selection_length = text_selection_length
-dto.child_comments = [ childComment ]
+dto.child_comments = [ child_comment ]
 response = api.create_comment("MyPresentation.pptx", 3, dto)
-p("The slide has " + response.list.length + " comments")
+p("The slide has #{ response.list.length } comments")
 ```
 
 {{< /tab >}}
@@ -307,9 +307,9 @@ $childComment->{text_selection_start} = $text_selection_start_index;
 $childComment->{text_selection_length} = $text_selection_length;
 my @childComments = ( $childComment );
 $dto->{child_comments} = \@childComments;
-my %params = (name => 'MyPresentation.pptx', slide_index => 3, dto => $dto);
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 3, 'dto' => $dto);
 my $comments = $api->create_comment(%params);
-print "The slide has " . (scalar @{$comments->{list}}) . " comments";
+print "The slide has " . (scalar @($comments->{list})) . " comments";
 ```
 
 {{< /tab >}}

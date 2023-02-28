@@ -280,6 +280,7 @@ files = [file_data]
 presentation1 = PresentationToMerge.new
 presentation1.path = "local.pptx"
 presentation1.slides = [1, 2]
+presentation1.source = "Storage"
 
 # Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge.new
@@ -519,7 +520,6 @@ use File::Slurp;
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::OrderedMergeRequest;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "my_client_id";

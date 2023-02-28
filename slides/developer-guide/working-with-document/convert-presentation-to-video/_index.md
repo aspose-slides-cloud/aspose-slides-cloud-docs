@@ -106,7 +106,6 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-
 $exportOptions = new VideoExportOptions();
 $exportOptions->setSlidesTransitionDuration(5);
 $exportOptions->setVideoResolutionType("SD");
@@ -127,7 +126,11 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#The example will be completed shortly.
+export_options = AsposeSlidesCloud::VideoExportOptions.new
+export_options.slides_transition_duration = 5
+export_options.video_resolution_type = "SD"
+export_options.transition_type = "Dissolve"
+export_options.transition_duration = 3
 
 result = api.download_presentation("MyPresentation.pptx", AsposeSlidesCloud::ExportFormat::MPEG4, export_options)
 File.binwrite("MyPresentation.zip", result)
@@ -219,19 +222,9 @@ use File::Slurp;
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::VideoExportOptions;
+use AsposeSlidesCloud::Object::ExportOptions;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-
-my $exportOptions = AsposeSlidesCloud::Object::VideoExportOptions->new();
-my @fontRules = ( $rule1, $rule2 );
-$exportOptions->{slides_transition_duration} = 5;
-$exportOptions->{video_resolution_type} = "SD";
-$exportOptions->{transition_type} = "Dissolve";
-$exportOptions->{transition_duration} = 3;
+#The example will be completed shortly.
 
 my %params = ('name' => 'MyPresentation.pptx', 'format' => 'mpeg4', 'options' => $exportoptions);
 my $result = $api->download_presentation(%params);

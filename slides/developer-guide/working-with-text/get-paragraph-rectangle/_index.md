@@ -104,10 +104,10 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 response = api.get_paragraph_rectangle("MyPresentation.pptx", 1, 2, 1)
-p("x: " + response.x)
-p("y: " + response.y)
-p("width: " + response.width)
-p("height: " + response.height)
+p("x: #{ response.x }")
+p("y: #{ response.y }")
+p("width: #{ response.width }")
+p("height: #{ response.height }")
 ```
 
 {{< /tab >}}
@@ -180,7 +180,7 @@ my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-my %params = (name => 'MyPresentation.pptx', slide_index => 1, shape_index => 2, paragraph_index => 1);
+my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1, 'shape_index' => 2, 'paragraph_index' => 1);
 my $response = $api->get_paragraph_rectangle(%params);
 print "X: $response->{x}\nY: $response->{y}\nWidth: $response->{width}\nHeight: $response->{height}\n";
 ```

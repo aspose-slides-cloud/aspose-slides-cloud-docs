@@ -177,17 +177,17 @@ configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 rule1 = AsposeSlidesCloud::FontFallbackRule.new
-rule1.range_start_index = start_unicode_index
-rule1.range_end_index = end_unicode_index
+rule1.range_start_index = 0x0B80
+rule1.range_end_index = 0x0BFF
 rule1.fallback_font_list = ["Vijaya"]
 
 rule2 = AsposeSlidesCloud::FontFallbackRule.new
-rule2.range_start_index = start_unicode_index
-rule2.range_end_index = end_unicode_index
+rule2.range_start_index = 0x0B80
+rule2.range_end_index = 0x0BFF
 rule2.fallback_font_list = ["Segoe UI Emoji", "Segoe UI Symbol", "Arial"]
 
 export_options = AsposeSlidesCloud::ImageExportOptions.new
-export_options.font_fallback_rules([rule1, rule2])
+export_options.font_fallback_rules = [rule1, rule2]
 
 result = api.download_presentation("MyPresentation.pptx", AsposeSlidesCloud::ExportFormat::PNG, export_options)
 File.binwrite("MyPresentation.zip", result)
@@ -308,7 +308,7 @@ use File::Slurp;
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::FontFallbackRule;
-use AsposeSlidesCloud::Object::ImageExportOptions;
+use AsposeSlidesCloud::Object::ExportOptions;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
@@ -328,7 +328,7 @@ my @fonts2 = ( "Segoe UI Emoji", "Segoe UI Symbol", "Arial" );
 $rule2->{fallback_font_list} = \@fonts2;
 
 my $exportOptions = AsposeSlidesCloud::Object::ImageExportOptions->new();
-my @fontRules = ( $rule1, $rule2 );
+my @fontRules := ( $rule1, $rule2 );
 $exportOptions->{font_fallback_rules} = \@fontRules;
 
 my %params = ('name' => 'MyPresentation.pptx', 'format' => 'png', 'options' => $exportoptions);

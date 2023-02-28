@@ -320,10 +320,10 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 # Collect the presentations to merge.
 my $file1_data = read_file("TestData/example1.pptx", { binmode => ":raw" });
 my $file2_data = read_file("TestData/example2.pptx", { binmode => ":raw" });
-my @files = ($file1_data, $file2_data);
+my @files = [$file1_data, $file2_data];
 
 # Merge the presentations and save the result to the specified path.
-my %merge_params = ("out_path" => "MyFolder/MyPresentation.pptx", "files" => \@files, "storage" => "MyStorage");
+my %merge_params = ("out_path" => "MyFolder/MyPresentation.pptx", "files" => @files, "storage" => "MyStorage");
 my $result_data = $slides_api->merge_and_save_online(%merge_params);
 ```
 
@@ -582,6 +582,7 @@ files = [file_data]
 presentation1 = PresentationToMerge.new
 presentation1.path = "local.pptx"
 presentation1.slides = [1, 2]
+presentation1.source = "Storage"
 
 # Prepare information for the first presentation to merge.
 presentation2 = PresentationToMerge.new
@@ -686,7 +687,7 @@ const request = new cloud.OrderedMergeRequest()
 request.presentations = [presentation1, presentation2, presentation3]
 
 // Merge the presentations and save the result to the specified path.
-slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, request, "MyStorage").then(() => {
+slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", request, request, "MyStorage").then(() => {
 })
 ```
 
@@ -837,7 +838,7 @@ my $request = AsposeSlidesCloud::Object::OrderedMergeRequest->new();
 @{$request->{presentations}} = ($presentation1, $presentation2, $presentation3);
 
 # Merge the presentations and save the result to the specified path.
-my  %mergeParams = ("out_path" => "MyFolder/MyPresentation.pptx", "files" => @files, "request" => $request, "storage" => "MyStorage");
+my  %mergeParams = (out_path => "MyFolder/MyPresentation.pptx", "files" => @files, "request" => $request, "storage" => "MyStorage");
 $slides_api->merge_and_save_online(%mergeParams);
 ```
 
