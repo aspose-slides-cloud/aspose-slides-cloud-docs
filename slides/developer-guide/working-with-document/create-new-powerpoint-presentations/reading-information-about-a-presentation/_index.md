@@ -328,7 +328,7 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
 
-slidesApi.getPresentation("Sales.pptx", null, "Data", "Main").then((response) => {
+slidesApi.getPresentation("Sales.pptx").then((response) => {
     console.log(response.body.selfUri.href) // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
 })
 ```
@@ -347,7 +347,7 @@ public class Main {
     public static void main(String[] args) throws ApiException {
         var slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
-        var response = slidesApi.getPresentation("Sales.pptx", null, "Data", "Main");
+        var response = slidesApi.getPresentation("Sales.pptx", null, null, null);
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
     }
 }
@@ -369,8 +369,7 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
 
-    auto response = slidesApi->getPresentation(
-        to_string_t("Sales.pptx"), utility::string_t(), to_string_t("Data"), to_string_t("Main")).get();
+    auto response = slidesApi->getPresentation(L"Sales.pptx").get();
 
     std::cout << to_utf8string(response->getSelfUri()->getHref()); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
 

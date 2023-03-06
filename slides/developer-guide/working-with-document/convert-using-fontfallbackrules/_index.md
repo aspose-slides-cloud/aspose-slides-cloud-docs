@@ -308,7 +308,7 @@ use File::Slurp;
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::FontFallbackRule;
-use AsposeSlidesCloud::Object::ExportOptions;
+use AsposeSlidesCloud::Object::ImageExportOptions;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
@@ -328,13 +328,13 @@ my @fonts2 = ( "Segoe UI Emoji", "Segoe UI Symbol", "Arial" );
 $rule2->{fallback_font_list} = \@fonts2;
 
 my $exportOptions = AsposeSlidesCloud::Object::ImageExportOptions->new();
-my @fontRules := ( $rule1, $rule2 );
+my @fontRules = ( $rule1, $rule2 );
 $exportOptions->{font_fallback_rules} = \@fontRules;
 
 my %params = ('name' => 'MyPresentation.pptx', 'format' => 'png', 'options' => $exportoptions);
 my $result = $api->download_presentation(%params);
 my $zip = "MyPresentation.zip";
-open my $fh, '>>', $zip;
+open my $fh, '>', $zip;
 binmode $fh;
 print $fh $result;
 close $fh;

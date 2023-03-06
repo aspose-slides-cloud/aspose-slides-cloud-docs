@@ -165,7 +165,7 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = ('name' => "MyPresentation.pptx");
+my %params = (name => "MyPresentation.pptx");
 $api->compress_embedded_fonts(%params);
 ```
 
@@ -241,7 +241,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 using Stream input = File.OpenRead("MyPresentation.pptx");
 using Stream output = api.CompressEmbeddedFontsOnline(input);
-using Stream pdfStream = File.Create("output.pptx");
+using Stream outputFile = File.Create("output.pptx");
 output.CopyTo(outputFile);
 ```
 
@@ -252,7 +252,7 @@ output.CopyTo(outputFile);
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.compressEmbeddedFontsOnline(file);
+File response = api.compressEmbeddedFontsOnline(file, null);
 System.out.println("The compressed file has been saved to " + response.getPath());
 ```
 
@@ -284,7 +284,7 @@ configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 input_data = File.binread("MyPresentation.pptx")
-output_data = slides_api.compress_embedded_fonts_online(input_data)
+output_data = api.compress_embedded_fonts_online(input_data)
 File.binwrite("output.pptx", output_data)
 ```
 
@@ -337,7 +337,7 @@ if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-response, _, e := api.SlidesApi.CompressEmbeddedFontsOnline(document)
+response, _, e := api.SlidesApi.CompressEmbeddedFontsOnline(document, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -377,7 +377,7 @@ my $input_file = read_file("MyPresentation.pptx", { binmode => ':raw' });
 my %params = ('document' => $input_file);
 my $result = $api->compress_embedded_fonts_online(%params);
 my $output_name = "output.pptx";
-open my $fh, '>>', $output_name;
+open my $fh, '>', $output_name;
 binmode $fh;
 print $fh $result;
 close $fh;
