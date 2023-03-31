@@ -280,7 +280,7 @@ $dataPoint24 = new BubbleChartDataPoint();
 $dataPoint24->setXValue(5);
 $dataPoint24->setXValue(1);
 $dataPoint24->setBubbleSize(6);
-$series1->setDataPoints([$dataPoint21, $dataPoint22, $dataPoint23, $dataPoint24]);
+$series2->setDataPoints([$dataPoint21, $dataPoint22, $dataPoint23, $dataPoint24]);
 $dto->setSeries([ $series1, $series2 ]);
 
 $result = $api->CreateShape("MyPresentation.pptx", 1, $dto);

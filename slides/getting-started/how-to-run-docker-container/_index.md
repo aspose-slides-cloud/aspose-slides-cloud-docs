@@ -136,3 +136,11 @@ docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=pri
 -e "AWSS3_ACCESS_KEY=myS3AccessKey" -e "AWSS3_SECRET_KEY=myS3SecretKey" -e "AWSS3_REGION=us-east-2" -e "AWSS3_BUCKET=myBucket" \
 aspose/slides-cloud
 ```
+
+To use an AWS S3 endpoint, specify its URL in AWSS3_ENDPOINT environment variable.
+
+```JAVA
+docker run -p 8088:80 -e "LicensePublicKey=public_key" -e "LicensePrivateKey=private_key" \
+-e "AWSS3_ACCESS_KEY=myS3AccessKey" -e "AWSS3_SECRET_KEY=myS3SecretKey" -e "AWSS3_ENDPOINT=http://min.io:9000" -e "AWSS3_BUCKET=myBucket" \
+aspose/slides-cloud
+```

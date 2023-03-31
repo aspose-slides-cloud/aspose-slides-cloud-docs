@@ -309,7 +309,7 @@ my @childComments = ( $childComment );
 $dto->{child_comments} = \@childComments;
 my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 3, 'dto' => $dto);
 my $comments = $api->create_comment(%params);
-print "The slide has " . (scalar @($comments->{list})) . " comments";
+print "The slide has " . (scalar @{$comments->{list}}) . " comments";
 ```
 
 {{< /tab >}}

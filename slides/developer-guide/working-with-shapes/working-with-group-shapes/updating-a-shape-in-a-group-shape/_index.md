@@ -318,7 +318,7 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 const fileName = "MyPresentation.pptx"
 const slideIndex = 1
 const subShape = "2"
-const shapeIndex = 5
+const shapeIndex = 4
 const folderPath = "MyFolder"
 
 // Get the shape from the group shape.
@@ -387,7 +387,7 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, shape_index => 4, folder => "MyFolder", sub_shape="2");
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, shape_index => 4, folder => "MyFolder", sub_shape => "2");
 
 # Get the shape from the group shape.
 my $shape = $slides_api->get_shape(%parameters);

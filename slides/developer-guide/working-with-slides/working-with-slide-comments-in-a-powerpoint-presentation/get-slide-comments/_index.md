@@ -163,7 +163,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1);
 my $comments = $api->get_slide_comments(%params);
-print "The slide has " . (scalar @($comments->{list})) . " comments";
+print "The slide has " . (scalar @{$comments->{list}}) . " comments";
 ```
 
 {{< /tab >}}

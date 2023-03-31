@@ -64,10 +64,10 @@ var dto = new Shape
     Height = 200,
     Text = "New shape"
 };
-using Stream stream = api.DownloadShapeFromDto(ShapeExportFormat.Png, dto);
+using Stream response = api.DownloadShapeFromDto(ShapeExportFormat.Png, dto);
 // Save the PNG document to a file.
-using var pngStream = File.Create("output.png");
-responseStream.CopyTo(pngStream);
+using var outputFile = File.Create("output.png");
+response.CopyTo(outputFile);
 ```
 
 {{< /tab >}}
@@ -89,7 +89,9 @@ System.out.println("The PNG file was saved to " + result.getPath());
 {{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\Shape;
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Model\Shape;
+
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
@@ -120,7 +122,7 @@ shape.height = 200
 shape.text = "Shape text"
 
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-response = AsposeSlidesCloud::SpecUtils.api.download_shape_from_dto(AsposeSlidesCloud::ShapeExportFormat::PNG, shape)
+response = api.download_shape_from_dto(AsposeSlidesCloud::ShapeExportFormat::PNG, shape)
 # Save the PNG document to a file.
 File.binwrite("output.png", response)
 ```
@@ -133,6 +135,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.shape import Shape
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -158,13 +161,13 @@ const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-const dto = new model.Shape();
-dto.shapeType = ShapeTypeEnum.Rectangle;
+const dto = new CloudSdk.Shape();
+dto.shapeType = CloudSdk.GeometryShape.ShapeTypeEnum.Rectangle;
 dto.width = 400;
 dto.height = 200;
 dto.text = "Shape text";
 
-const response = await api.downloadShapeFromDto(ShapeExportFormat.Png, dto);
+const response = await api.downloadShapeFromDto(CloudSdk.ShapeExportFormat.Png, dto);
 fs.writeFile("shape.png", response.body, (error) => {
                 if (error) throw error
             });
@@ -177,17 +180,18 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-shape := slidescloud.NewShape()
+shape := asposeslidescloud.NewShape()
 shape.SetShapeType("Rectangle")
 shape.SetWidth(400)
 shape.SetHeight(200)
 shape.SetText("Shape text")
 
-result, _, e := api.DownloadShapeFromDto("png", shape)
+result, _, e := api.SlidesApi.DownloadShapeFromDto("png", shape)
 if e != nil {
-    t.Errorf("Error: %v.", e)
+    fmt.Printf("Error: %v.", e)
     return
 }
+fmt.Printf("The converted file was saved to  %v.", result.Name())
 ```
 
 {{< /tab >}}
@@ -200,6 +204,7 @@ if e != nil {
 ```perl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::Shape;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
