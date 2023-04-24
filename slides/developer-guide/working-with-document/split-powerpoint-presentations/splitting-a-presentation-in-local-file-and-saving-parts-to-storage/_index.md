@@ -148,7 +148,7 @@ public class Application {
 
         // Split the first three slides and save them to 480x270 bitmaps in the storage.
         byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
+        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null, null);
 
         // Print information about the result.
         for (ResourceUri slide : response.getSlides())
@@ -286,7 +286,7 @@ public class Application {
 
         // Split the first three slides and save them to 480x270 bitmaps in the storage.
         byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null);
+        SplitDocumentResult response = slidesApi.splitAndSaveOnline(presentationData, SlideExportFormat.BMP, "MyImages", 480, 270, 1, 3, null, "MyStorage", null, null);
 
         // Print information about the result.
         for (ResourceUri slide : response.getSlides())

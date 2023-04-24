@@ -125,7 +125,7 @@ public class Application {
 
         // Split the 2nd and 3rd slides and save them to PDF documents.
         byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
+        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null, null);
 
         System.out.println("The output ZIP file was saved to " + responseFile.getPath());
     }
@@ -246,7 +246,7 @@ public class Application {
 
         // Split the 2nd and 3rd slides and save them to PDF documents.
         byte[] presentationData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null);
+        File responseFile = slidesApi.splitOnline(presentationData, SlideExportFormat.PDF, null, null, 2, 3, null, null, null, null);
 
         System.out.println("The output ZIP file was saved to " + responseFile.getPath());
     }
