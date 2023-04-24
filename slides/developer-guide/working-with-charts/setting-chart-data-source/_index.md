@@ -215,7 +215,7 @@ category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-.setValue("Category3");
+category3.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -834,7 +834,7 @@ ShapeBase dto = new Chart
 	ChartType = Chart.ChartTypeEnum.ClusteredColumn,
 	Width = 400,
 	Height = 300,
-	DataSourceForCategories = new Literls(),
+	DataSourceForCategories = new Literals(),
 	Categories = new List<ChartCategory>
 	{
 		new ChartCategory { Value = "Category1" },
@@ -846,8 +846,8 @@ ShapeBase dto = new Chart
 		new OneValueSeries
 		{
 			Name = "Series1",
-			DataSourceForSeriesName = new Literls(),
-			DataSourceForValues = new Literls(),
+			DataSourceForSeriesName = new Literals(),
+			DataSourceForValues = new Literals(),
 			DataPoints = new List<OneValueChartDataPoint>
 			{
 				new OneValueChartDataPoint { Value = 40 },
@@ -858,8 +858,8 @@ ShapeBase dto = new Chart
 		new OneValueSeries
 		{
 			Name = "Series2",
-			DataSourceForSeriesName = new Literls(),
-			DataSourceForValues = new Literls(),
+			DataSourceForSeriesName = new Literals(),
+			DataSourceForValues = new Literals(),
 			DataPoints = new List<OneValueChartDataPoint>
 			{
 				new OneValueChartDataPoint { Value = 55 },
@@ -886,14 +886,14 @@ dto.setChartType(Chart.ChartTypeEnum.CLUSTEREDCOLUMN);
 dto.setWidth(400.0);
 dto.setHeight(300.0);
 
-Workbook dataSourceForCategories = new Literals();
+Literals dataSourceForCategories = new Literals();
 dto.setDataSourceForCategories(dataSourceForCategories);
 ChartCategory category1 = new ChartCategory();
 category1.setValue("Category1");
 ChartCategory category2 = new ChartCategory();
 category2.setValue("Category2");
 ChartCategory category3 = new ChartCategory();
-.setValue("Category3");
+category3.setValue("Category3");
 List<ChartCategory> categories = new ArrayList<ChartCategory>();
 categories.add(category1);
 categories.add(category2);
@@ -902,9 +902,9 @@ dto.setCategories(categories);
 
 List<Series> seriesList = new ArrayList<Series>();
 OneValueSeries series1 = new OneValueSeries();
-Workbook dataSourceForSeries1Name = new Literals();
+Literals dataSourceForSeries1Name = new Literals();
 series1.setDataSourceForSeriesName(dataSourceForSeries1Name);
-Workbook dataSourceForSeries1Values = new Literals();
+Literals dataSourceForSeries1Values = new Literals();
 series1.setDataSourceForSeriesName(dataSourceForSeries1Values);
 series1.setName("Series1");
 List<OneValueChartDataPoint> dataPoints1 = new ArrayList<OneValueChartDataPoint>();
@@ -921,9 +921,9 @@ series1.setDataPoints(dataPoints1);
 seriesList.add(series1);
 
 OneValueSeries series2 = new OneValueSeries();
-Workbook dataSourceForSeries2Name = new Literals();
+Literals dataSourceForSeries2Name = new Literals();
 series2.setDataSourceForSeriesName(dataSourceForSeries2Name);
-Workbook dataSourceForSeries2Values = new Literals();
+Literals dataSourceForSeries2Values = new Literals();
 series2.setDataSourceForSeriesName(dataSourceForSeries2Values);
 series2.setName("Series2");
 List<OneValueChartDataPoint> dataPoints2 = new ArrayList<OneValueChartDataPoint>();
