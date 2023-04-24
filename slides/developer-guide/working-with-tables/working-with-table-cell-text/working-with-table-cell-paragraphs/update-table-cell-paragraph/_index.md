@@ -5,7 +5,7 @@ url: /update-table-cell-paragraph/
 weight: 40
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows updating text paragraphs within table cell.
+Aspose.Slides.Cloud API allows updating text paragraphs within a table cell.
 ## **UpdateTableCellParagraph**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|

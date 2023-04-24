@@ -5,7 +5,7 @@ url: /split-table-cell/
 weight: 50
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API provides different options for splitting table cells. There are four of them: by width, by height, by col span and by row span. Last two optoptions applied for splitting merged cell. The methods accept a value argument. In the case of splitting by width or height, you have to specify desired cell width or height accordingly. In the case of splitting by span, the col span or row span value has to be provided.
+Aspose.Slides.Cloud API provides different options for splitting table cells. There are four of them: by width, by height, by col span and by row span. Last two options can be applied for merged cells. The methods accept a mandatory **value** argument. In the case of splitting by width or height, you have to specify desired cell width or height accordingly. In the case of splitting by span, the col span or row span value has to be provided.
 ## **SplitTableCell**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|

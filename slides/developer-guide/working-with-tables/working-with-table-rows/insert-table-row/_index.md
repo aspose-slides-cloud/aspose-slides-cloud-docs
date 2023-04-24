@@ -5,7 +5,7 @@ url: /insert-table-row/
 weight: 10
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows adding new rows to a table. The new table row can be inserted in the specified position. If the position value is not provided, the row is appended.
+Aspose.Slides.Cloud API allows adding new rows to a table. You can insert a row at the specified position, or append it to the end of the table.
 ## **InsertTableRow**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
@@ -14,7 +14,7 @@ Aspose.Slides.Cloud API allows adding new rows to a table. The new table row can
 ### **Examples**
 **cURL Example**
 
-The code example below shows how to append a new table row to the table.
+The code example below shows how to append a new row to the table.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

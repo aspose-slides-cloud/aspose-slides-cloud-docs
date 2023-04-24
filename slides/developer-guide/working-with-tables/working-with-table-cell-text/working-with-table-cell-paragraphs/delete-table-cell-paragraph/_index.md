@@ -5,7 +5,7 @@ url: /delete-table-cell-paragraph/
 weight: 50
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows deleting text paragraphs within table cell.
+Aspose.Slides.Cloud API allows deleting text paragraphs within a table cell.
 ## **DeleteTableCellParagraph**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|

@@ -5,7 +5,7 @@ url: /create-table-cell-paragraph/
 weight: 30
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows creating text paragraphs within table cell.
+Aspose.Slides.Cloud API allows creating text paragraphs within a table cell.
 ## **CreateTableCellParagraph**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|

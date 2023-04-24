@@ -5,7 +5,7 @@ url: /delete-table-row/
 weight: 30
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows deleting table rows. If the "withAttachedRows" parameter is set, rows that have common merged cells with the target row will be deleted either. 
+Aspose.Slides.Cloud API allows deleting table rows. If the optional "withAttachedRows" parameter is set, rows that have common merged cells with the target row will be deleted as well. 
 ## **DeleteTableRow**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
@@ -14,7 +14,7 @@ Aspose.Slides.Cloud API allows deleting table rows. If the "withAttachedRows" pa
 ### **Examples**
 **cURL Example**
 
-Assume that we have a table with four rows and intend to delete the second row. The second and the third row have a common merged cell.  Since the "withAttachedRows" parameter is set, the third row will be removed as well.
+Assume that we have a table with four rows and intend to delete the second row. The second and the third row have a common merged cell. Since the "withAttachedRows" parameter is set, the third row will be removed as well.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 

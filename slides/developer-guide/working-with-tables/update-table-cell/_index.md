@@ -14,8 +14,7 @@ Aspose.Slides.Cloud API allows updating various properties of a table cell.
 ### **Examples**
 **cURL Example**
 
-The code example below shows how to update text within table cell. The first cell in the second row will be updated. If you want to update text properties on paragraph or portion level, use the [appropriate methods](../working-with-table-cell-text/_index.md)
-
+The code example below shows how to update text within table cell. The first cell in the second row will be updated. If you want to update text properties on paragraph or portion level, use the [corresponding methods](/slides/working-with-table-cell-text/).
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
