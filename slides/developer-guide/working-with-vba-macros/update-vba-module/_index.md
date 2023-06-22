@@ -1,20 +1,20 @@
 ---
-title: "Create VBA Module"
+title: "Update VBA Module"
 type: docs
-url: /create-vba-module/
-weight: 10
+url: /update-vba-module/
+weight: 50
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows to create VBA modules and add global references if needed. 
-## **CreateVbaModule**
+Aspose.Slides.Cloud API allows to update VBA modules and add global references if needed. The module name can't be updated.
+## **UpdateVbaModule**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/modules|POST|Returns VBA module info|[CreateVbaModule](#)
+/slides/{name}/vbaProject/modules|PUT|Returns VBA module info|[UpdateVbaModule](#)
 ### **Examples**
 **cURL Example**
 
-The code example below shows how to create VBA module and add two global references.
+The code example below shows how to update VBA module with index 1 and add two global references.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -25,13 +25,12 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject/modules" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"vbaModule.json"
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"vbaModule.json"
 ```
 
 vbaModule.json
 ```json
 {
-    "name": "Module1",
     "sourceCode": "Sub Test() MsgBox \"Test\" End Sub",
     "references": [
         {
@@ -51,7 +50,7 @@ vbaModule.json
 {{< tab tabNum="2" >}}
 ```sh
 
-Code: 201
+Code: 200
 Returns VBA module info.
 
 ```
@@ -69,7 +68,6 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 VbaModule dto = new VbaModule()
 {
-    Name = "Module1",
     SourceCode = @"Sub Test() MsgBox ""Test"" End Sub",
     References = new List<VbaReference>()
     {
@@ -86,9 +84,9 @@ VbaModule dto = new VbaModule()
     }
 };
 
-VbaModule response = api.CreateVbaModule("MyPresentation.pptx", dto);
+VbaModule response = api.UpdateVbaModule("MyPresentation.pptx", 1, dto);
 
-Console.WriteLine($"\"{response.Name} has been created \n{response.SelfUri.Href}");
+Console.WriteLine($"\"{response.Name} has been updated \n{response.SelfUri.Href}");
 ```
 
 {{< /tab >}}
@@ -98,7 +96,6 @@ Console.WriteLine($"\"{response.Name} has been created \n{response.SelfUri.Href}
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 VbaModule dto = new VbaModule();
-dto.setName("Module1");
 dto.setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
 VbaReference reference0 = new VbaReference();
 reference0.setName("stdole");
@@ -110,8 +107,8 @@ List<VbaReference> references = new ArrayList<VbaReference>();
 references.add(reference0);
 references.add(reference1);
 dto.setReferences(references);
-VbaModule response = (VbaProject)api.createVbaModule("MyPresentation.pptx", dto, null, null, null);
-String s = String.format("\"%s\" has been created \n%s", response.getName(), response.getSelfUri().getHref());
+VbaModule response = (VbaProject)api.updateVbaModule("MyPresentation.pptx", 1, dto, null, null, null);
+String s = String.format("\"%s\" has been updated \n%s", response.getName(), response.getSelfUri().getHref());
 System.out.println(s);
 ```
 {{< /tab >}}
@@ -127,7 +124,6 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $vbaModule = new VbaModule();
-$vbaModule->setName("Module1");
 $vbaModule->setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
 
 $reference0 = new VbaReference();
@@ -138,8 +134,8 @@ $reference1->setName("Office");
 $reference1->setLibId("*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 $vbaModule->setReferences([$reference0, $reference1]);
 
-$result = $api->createVbaModule("MyPresentation.pptx", $vbaModule);
-echo "\"" . $result->getName() . "\" has been created\n" . $result->getSelfUri()->getHref();
+$result = $api->updateVbaModule("MyPresentation.pptx", 1, $vbaModule);
+echo "\"" . $result->getName() . "\" has been updated\n" . $result->getSelfUri()->getHref();
 ```
 
 {{< /tab >}}
@@ -152,7 +148,6 @@ configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 dto = AsposeSlidesCloud::VbaModule.new
-dto.name = "Module1"
 dto.source_code = "Sub Test() MsgBox ""Test"" End Sub"
         
 reference0 = AsposeSlidesCloud::VbaReference.new
@@ -163,8 +158,8 @@ reference1.name = "Office"
 reference1.lib_id = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
 dto.references = [reference0, reference1]
 
-response = api.create_vba_module("MyPresentation.pptx", dto)
-puts "'#{response.name}' has been created \n #{response.self_uri.href}"
+response = api.update_vba_module("MyPresentation.pptx", 1, dto)
+puts "'#{response.name}' has been updated \n #{response.self_uri.href}"
 ```
 
 {{< /tab >}}
@@ -182,7 +177,6 @@ configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
 dto = VbaModule()
-dto.name = "Module1"
 dto.source_code = "Sub Test() MsgBox ""Test"" End Sub"
 reference0 = VbaReference()
 reference0.name = "stdole"
@@ -191,8 +185,8 @@ reference1 = VbaReference()
 reference1.name = "Office"
 reference1.lib_id = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
 dto.references = [reference0, reference1]
-response = api.create_vba_module("MyPresentation.pptx", dto)
-print("\"" + response.name + "\" has been created\n" + response.self_uri.href)
+response = api.update_vba_module("MyPresentation.pptx", 1, dto)
+print("\"" + response.name + "\" has been updated\n" + response.self_uri.href)
 ```
 
 {{< /tab >}}
@@ -203,7 +197,6 @@ const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const dto = new model.VbaModule();
-dto.name = "Module1";
 dto.sourceCode = "Sub Test() MsgBox \"Test\" End Sub";
 dto.references = [
     {
@@ -215,9 +208,9 @@ dto.references = [
         libId: "*\\\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\OFFICE14\\\\MSO.DLL#Microsoft Office 14.0 Object Library"
     }
 ];
-const response = await api.createVbaModule("MyPresentation.pptx", dto).then((response) => {
+const response = await api.updateVbaModule("MyPresentation.pptx", 1, dto).then((response) => {
 const vbaModule = (response.body as model.VbaModule);
-console.log("\"" + vbaModule.name + "\" has been created\n" + vbaModule.selfUri.href);
+console.log("\"" + vbaModule.name + "\" has been updated\n" + vbaModule.selfUri.href);
 });
 ```
 {{< /tab >}}
@@ -231,7 +224,6 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
 dto := slidescloud.NewVbaModule()
-dto.Name = "Module1"
 dto.SourceCode = "Sub Test() MsgBox \"Test\" End Sub"
 reference0 := slidescloud.NewVbaReference()
 reference0.Name = "stdole"
@@ -241,12 +233,12 @@ reference1.Name = "Office"
 reference1.LibId = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
 dto.References = []slidescloud.IVbaReference{reference0, reference1}
 
-response, _, e := api.CreateVbaModule(fileName, dto, "", "", "")
+response, _, e := api.UpdateVbaModule(fileName, 1, dto,"", "", "")
 if e != nil {
     t.Errorf("Error: %v.", e)
     return
 }
-result := fmt.Sprintf("\"%v\", has been created \n%v", response.GetName(), response.GetSelfUri().GetHref())
+result := fmt.Sprintf("\"%v\", has been updated \n%v", response.GetName(), response.GetSelfUri().GetHref())
 fmt.Println(result)
 ```
 
@@ -267,7 +259,6 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $dto = AsposeSlidesCloud::Object::VbaModule->new();
-$dto->{name} = "Module1";
 $dto->{source_code} = "Sub Test() MsgBox \"Test\" End Sub";
 my $reference_0 = AsposeSlidesCloud::Object::VbaReference->new();
 $reference_0->{name} = "stdole";
@@ -278,10 +269,10 @@ $reference_1->{lib_id} = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\P
 my @references = ($reference_0, $reference_1);
 $dto->{references} = \@references;
 
-my %params = ('name' => 'MyPresentation.pptx', 'dto' => $dto);
-my $response = $api->create_vba_module(%params);
+my %params = ('name' => 'MyPresentation.pptx', 'dto' => $dto, "module_index" = 1);
+my $response = $api->update_vba_module(%params);
 
-print STDERR "'".$response->{name}."' has been created\n".$response->{self_uri}->{href};
+print STDERR "'".$response->{name}."' has been updated\n".$response->{self_uri}->{href};
 ```
 
 {{< /tab >}}

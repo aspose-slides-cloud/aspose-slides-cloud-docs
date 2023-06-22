@@ -1,20 +1,20 @@
 ---
-title: "Delete VBA Module"
+title: "Get VBA Module"
 type: docs
-url: /delete-vba-module/
-weight: 20
+url: /get-vba-module/
+weight: 30
 ---
 ## **Introduction**
-Aspose.Slides.Cloud API allows to delete VBA modules. 
-## **DeleteVbaModule**
+Aspose.Slides.Cloud API allows to retrieve VBA module info. 
+## **GetVbaModule**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/{moduleName}|DELETE|Returns VBA project info|[DeleteVbaModule](#)
+/slides/{name}/vbaProject/{moduleName}|GET|Returns VBA module info|[GetVbaModule](#)
 ### **Examples**
 **cURL Example**
 
-The code example below shows how to delete VBA module with index 1.
+The code example below shows how to retrieve VBA module with index 1.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -25,7 +25,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
 ```
 
 {{< /tab >}}
@@ -34,7 +34,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProj
 ```sh
 
 Code: 200
-Returns VBA project info.
+Returns VBA module info.
 
 ```
 {{< /tab >}}
@@ -48,8 +48,8 @@ Returns VBA project info.
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = api.DeleteVbaModule("MyPresentation.pptx", 1);
-Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), and {response.References.Count} references");
+VbaModule response = api.GetVbaModule("MyPresentation.pptx", 1);
+Console.WriteLine($"Module: {response.Name}\n{response.SourceCode}");
 ```
 
 {{< /tab >}}
@@ -57,8 +57,9 @@ Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), an
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = (VbaProject)api.deleteVbaModule("MyPresentation.pptx", 1, null, null, null);
-System.out.println("VBA project contains: " + response.getModules().size() + " module(s), and " + response.getReferences().size() + " references");
+VbaModule response = (VbaModule)api.getVbaModule("MyPresentation.pptx", 1, null, null, null);
+String s = String.format("Module: \"%s\"\n%s", response.getName(), response.getSourceCode());
+System.out.println(s);
 ```
 {{< /tab >}}
 {{< tab tabNum="3" >}}
@@ -72,8 +73,8 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->deleteVbaModule("MyPresentation.pptx", 1);
-echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
+$result = $api->getVbaModule("MyPresentation.pptx", 1);
+echo "Module: " . $result->getName() . "\n" . $result->getSourceCode();
 ```
 
 {{< /tab >}}
@@ -85,8 +86,8 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.delete_vba_module("MyPresentation.pptx", 1)
-puts "VBA project contains: #{response.modules.length} module(s), and #{response.references.length} references"
+response = api.get_vba_module("MyPresentation.pptx", 1)
+puts "#{response.name} \n#{response.source_code}"
 ```
 
 {{< /tab >}}
@@ -103,8 +104,8 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.delete_vba_module("MyPresentation.pptx", 1)
-print("VBA project contains: " + str(len(response.modules)) + " module(s), and " + str(len(response.references)) + " references")
+response = api.get_vba_module("MyPresentation.pptx", 1)
+print("Module: " + response.name + "\n" + response.source_code)
 ```
 
 {{< /tab >}}
@@ -114,9 +115,9 @@ print("VBA project contains: " + str(len(response.modules)) + " module(s), and "
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.deleteVbaModule("MyPresentation.pptx", 1).then((response) => {
-const vbaProject = (response.body as model.VbaProject);
-console.log("VBA project contains: " + vbaProject.modules.length + " module(s), and " + vbaProject.references.length + " references");
+const response = await api.getVbaModule("MyPresentation.pptx", 1).then((response) => {
+const vbaModule = (response.body as model.VbaModule);
+console.log("Module: " + vbaModule.name + "\n" + vbaModule.sourceCode);
 });
 ```
 {{< /tab >}}
@@ -128,12 +129,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-response, _, e := api.DeleteVbaModule(fileName, 1, "", "", "")
+response, _, e := api.GetVbaModule(fileName, 1, "", "", "")
 if e != nil {
     t.Errorf("Error: %v.", e)
     return
 }
-result := fmt.Sprintf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
+result := fmt.Sprintf("Module: %v \n %v", response.GetName(), response.GetSourceCode())
 fmt.Println(result)
 ```
 
@@ -154,10 +155,8 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = ('name' => 'MyPresentation.pptx', 'module_index' => 1);
-my $response = $api->delete_vba_module(%params);
-my $modules_count = scalar @{$response->{modules}};
-my $references_count = scalar @{$response->{references}};
-print STDERR "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
+my $response = $api->get_vba_module(%params);
+print STDERR "Module: ".$response->{name}."\n".$response->{source_code};
 ```
 
 {{< /tab >}}
