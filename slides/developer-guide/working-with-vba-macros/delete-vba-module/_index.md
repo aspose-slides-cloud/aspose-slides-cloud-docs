@@ -10,7 +10,7 @@ Aspose.Slides.Cloud API allows to delete VBA modules.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/{moduleName}|DELETE|Returns VBA project info|[DeleteVbaModule](#)
+/slides/{name}/vbaProject/modules/{moduleIndex}|DELETE|Returns VBA project info|[DeleteVbaModule](#)
 ### **Examples**
 **cURL Example**
 

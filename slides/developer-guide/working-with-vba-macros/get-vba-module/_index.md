@@ -10,7 +10,7 @@ Aspose.Slides.Cloud API allows to retrieve VBA module info.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/{moduleName}|GET|Returns VBA module info|[GetVbaModule](#)
+/slides/{name}/vbaProject/modules/{moduleIndex}|GET|Returns VBA module info|[GetVbaModule](#)
 ### **Examples**
 **cURL Example**
 

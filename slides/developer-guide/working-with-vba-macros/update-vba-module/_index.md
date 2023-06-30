@@ -10,7 +10,7 @@ Aspose.Slides.Cloud API allows to update VBA modules and add global references i
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/modules|PUT|Returns VBA module info|[UpdateVbaModule](#)
+/slides/{name}/vbaProject/modules/{moduleIndex}|PUT|Returns VBA module info|[UpdateVbaModule](#)
 ### **Examples**
 **cURL Example**
 
