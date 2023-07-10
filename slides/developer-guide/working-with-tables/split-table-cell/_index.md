@@ -58,7 +58,7 @@ int rowIndex = 1;
 int cellIndex = 1;
 int cellWidth = 10;
 
-Table response = api.SplitTableCell("MyPresentation.pptx", TableCellSplitType.SplitByWidth, cellWidth, slideIndex, shapeIndex, rowIndex, cellIndex);
+Table response = api.SplitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, TableCellSplitType.SplitByWidth, cellWidth);
 
 Console.WriteLine("Cells count in the row: " + response.Rows[0].Cells.Count);
 ```
@@ -73,9 +73,9 @@ int slideIndex = 9;
 int shapeIndex = 1;
 int rowIndex = 1;
 int cellIndex = 1;
-int cellWidth = 10;
+double cellWidth = 10.0;
 
-Table response = api.splitTableCell("MyPresentation.pptx", TableCellSplitType.SPLITBYWIDTH, cellWidth, slideIndex, shapeIndex, rowIndex, cellIndex, null, null, null);
+Table response = api.splitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, TableCellSplitType.SPLITBYWIDTH, cellWidth, null, null, null);
 
 System.out.println("Cells count in the row: " + response.getRows().get(0).getCells().size());
 ```
@@ -97,9 +97,9 @@ $rowIndex = 1;
 $cellIndex = 1;
 $cellWidth = 10;
 
-$result = $api->splitTableCell("MyPresentation.pptx", 'SplitByWidth', $cellWidth, $slideIndex, $shapeIndex, $rowIndex, $cellIndex);
+$result = $api->splitTableCell("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, 'SplitByWidth', $cellWidth);
 
-print("Cells count in the row: " . count($response->getRows()[0]->getCells()));
+print("Cells count in the row: " . count($result->getRows()[0]->getCells()));
 ```
 
 {{< /tab >}}
@@ -117,9 +117,8 @@ row_index = 1
 cell_index = 1
 cell_width = 10
 
-result = api.split_table_cell("MyPresentation.pptx", "SplitByWidth", cell_width, slide_index, shape_index, row_index, cell_index)
-print "Cells count in the row: " + result.rows[0].cells.length
-
+result = api.split_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, "SplitByWidth", cell_width)
+puts "Cells count in the row: #{result.rows[0].cells.length}"
 ```
 
 {{< /tab >}}
@@ -140,9 +139,10 @@ slide_index = 9
 shape_index = 1
 row_index = 1
 slides_index = 1
+cell_index = 1
 cell_width = 10
 
-response = api.split_table_cell("MyPresentation.pptx", 'splitByWidth', cell_width, slide_index, shape_index, row_index, cell_index)
+response = api.split_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, 'splitByWidth', cell_width)
 
 print(f"Cells count in the row: { len(response.rows[0].cells) }")
 ```
@@ -160,9 +160,9 @@ let rowIndex = 1;
 let cellIndex = 1;
 let cellWidth = 10;
 
-const result = await api.splitTableCell("MyPresentation.pptx", TableCellSplitType.SplitByWidth, cellWidth, slideIndex, shapeIndex, rowIndex, cellIndex);
+const result = await api.splitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, CloudSdk.TableCellSplitType.SplitByWidth, cellWidth);
             
-console.log("Cells count in the row: " + (result.body as model.Table).rows[0].cells.length);
+console.log("Cells count in the row: " + result.body.rows[0].cells.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -180,7 +180,7 @@ var rowIndex int32 = 1
 var cellIndex int32 = 1
 var cellWidth int32 = 10
 
-result, _, e := api.SplitTableCell(fileName, "SplitByWidth", float64(cellWidth), slideIndex, shapeIndex, rowIndex, cellIndex, "", "", "")
+result, _, e := api.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByWidth", float64(cellWidth), "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -208,7 +208,6 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'split_type' => 'SplitByWidth',
 'value' => 10,
 'slide_index' => 9,
@@ -218,7 +217,7 @@ my %params = (
 
 my $response = $api->split_table_cell(%params);
 
-print "Cells count in the row: scalar @{$response->{rows}[0]{cells}} \n"
+print "Cells count in the row: scalar @{$response->{rows}[0]{cells}} \n";
 ```
 
 {{< /tab >}}

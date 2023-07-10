@@ -53,7 +53,7 @@ int slideIndex = 9;
 int shapeIndex = 1;
 int rowIndex = 1;
 int cellIndex = 1;
-int paragraphIndex = 1
+int paragraphIndex = 1;
 
 Portions response = api.GetTableCellPortions("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex);
 Console.WriteLine("Portions count: " + response.Items.Count);
@@ -93,7 +93,7 @@ $cellIndex = 1;
 $paragraphIndex = 1;
 
 $result = $api->getTableCellPortions("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex);
-print("Portions count: " . count($response->getItems());
+print("Portions count: " . count($result->getItems()));
 ```
 
 {{< /tab >}}
@@ -112,8 +112,7 @@ cell_index = 1
 paragraph_index = 1
 
 result = api.get_table_cell_portions("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index)
-print "Portions count: " + result.items.length
-
+puts "Portions count: #{result.items.length}"
 ```
 
 {{< /tab >}}
@@ -154,7 +153,7 @@ let cellIndex = 1;
 let paragraphIndex = 1;
 
 const result = await api.getTableCellPortions("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex);  
-console.log("Portions count:" + (result.body as model.Portions).items.length);
+console.log("Portions count:" + result.body.items.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -172,7 +171,7 @@ var rowIndex int32 = 1
 var cellIndex int32 = 1
 var paragraphIndex int32 = 1
 
-result, _, e := api.GetTableCellPortions(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
+result, _, e := api.SlidesApi.GetTableCellPortions(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -199,8 +198,7 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -208,7 +206,7 @@ my %params = (
 'paragraph_index' => 1);
 
 my $response = $api->get_table_cell_portions(%params);
-print "Portions count: scalar @{$response->{items}} \n"
+print "Portions count: scalar @{$response->{items}} \n";
 ```
 
 {{< /tab >}}

@@ -96,7 +96,7 @@ $paragraphIndex = 1;
 $portionIndex = 1;
 
 $result = $api->deleteTableCellPortion("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex);
-print("Portions count: " . count($response->getItems()));
+print("Portions count: " . count($result->getItems()));
 ```
 
 {{< /tab >}}
@@ -116,7 +116,7 @@ paragraph_index = 1
 portion_index = 1   
 
 result = api.delete_table_cell_portion("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index)
-print "Portions count: " + result.items.length
+puts "Portions count: #{result.items.length}"
 
 ```
 
@@ -160,7 +160,7 @@ let paragraphIndex = 1;
 let portionIndex = 1;
 
 const result = await api.deleteTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex);  
-console.log("Portions count:" + (result.body as model.Portions).items.length);
+console.log("Portions count:" + result.body.items.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -179,7 +179,7 @@ var cellIndex int32 = 1
 var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
-result, _, e := api.DeleteTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, "", "", "")
+result, _, e := api.SlidesApi.DeleteTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -206,8 +206,7 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -216,7 +215,7 @@ my %params = (
 'portion_index' => 1);
 
 my $response = $api->delete_table_cell_portion(%params);
-print "Portions count: scalar @{$response->{items}} \n"
+print "Portions count: scalar @{$response->{items}} \n";
 ```
 
 {{< /tab >}}

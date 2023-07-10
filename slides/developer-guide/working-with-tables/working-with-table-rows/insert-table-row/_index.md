@@ -75,16 +75,16 @@ int shapeIndex = 1;
 TableRow dto = new TableRow()
 {
     MinimalHeight = 30,
-    Cells = new List<TableCell>()
+    Cells = new List<TableCell>
     {
-        new (){Text = "Cell 1"},
-        new (){Text = "Cell 2"},
-        new (){Text = "Cell 3"},
-        new (){Text = "Cell 4"}
+        new TableCell {Text = "Cell 1"},
+        new TableCell {Text = "Cell 2"},
+        new TableCell {Text = "Cell 3"},
+        new TableCell {Text = "Cell 4"}
     }
 };
 
-TableRow response = api.InsertTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex);
+TableRow response = api.CreateTableRow("MyPresentation.pptx", slideIndex, shapeIndex, dto);
 
 Console.WriteLine("The row has been added");
 ```
@@ -108,9 +108,9 @@ cell0.setText("Cell 4");
 
 TableRow dto = new TableRow();
 dto.setMinimalHeight(30.0);
-dto.setCells(new ArrayList(Arrays.asList(cell0, cell1, cell2, cell3)))
+dto.setCells(new ArrayList(Arrays.asList(cell0, cell1, cell2, cell3)));
 
-TableRow response = api.insertTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex, null, null, null, null);
+TableRow response = api.createTableRow("MyPresentation.pptx", slideIndex, shapeIndex, dto, null, null, null, null);
 
 System.out.println("The row has been added");
 ```
@@ -121,6 +121,7 @@ System.out.println("The row has been added");
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\TableRow;
+use Aspose\Slides\Cloud\Sdk\Model\TableCell;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -142,7 +143,7 @@ $dto = new TableRow();
 $dto->setMinimalHeight(30);
 $dto->setCells([$cell0, $cell1, $cell2, $cell3]);
 
-$result = $api->insertTableRow("MyPresentation.pptx", $dto, $slideIndex, $shapeIndex);
+$result = $api->createTableRow("MyPresentation.pptx", $slideIndex, $shapeIndex, $dto);
 
 print("The row has been added");
 ```
@@ -171,7 +172,7 @@ dto = AsposeSlidesCloud::TableRow.new
 dto.minimal_height = 30
 dto.cells = [cell0, cell1, cell2, cell3]
 
-result = api.insert_table_row("MyPresentation.pptx", dto, slide_index, shape_index)
+result = api.create_table_row("MyPresentation.pptx", slide_index, shape_index, dto)
 print "The row has been added"
 
 ```
@@ -184,6 +185,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.table_row import TableRow
+from asposeslidescloud.models.table_cell import TableCell
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -204,7 +207,7 @@ dto = TableRow()
 dto.minimal_height = 30
 dto.cells = [cell_0, cell_1, cell_2, cell_3]
 
-response = api.insert_table_row("MyPresentation.pptx", dto, slide_index, shape_index)
+response = api.create_table_row("MyPresentation.pptx", slide_index, shape_index, dto)
 
 print(f"The row has been added")
 ```
@@ -219,20 +222,20 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 let slideIndex = 9;
 let shapeIndex = 1;
 
-let cell0 = new TableCell();
+let cell0 = new CloudSdk.TableCell();
 cell0.text = "Cell 1";
-let cell1 = new TableCell();
+let cell1 = new CloudSdk.TableCell();
 cell1.text = "Cell 2";
-let cell2 = new TableCell();
+let cell2 = new CloudSdk.TableCell();
 cell2.text = "Cell 3";
-let cell3 = new TableCell();
+let cell3 = new CloudSdk.TableCell();
 cell3.text = "Cell 4";
             
-let dto = new TableRow();
+let dto = new CloudSdk.TableRow();
 dto.minimalHeight = 30;
 dto.cells = [cell0, cell1, cell2, cell3];
 
-const result = await api.insertTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex);
+const result = await api.createTableRow("MyPresentation.pptx", slideIndex, shapeIndex, dto);
             
 console.log("The row has been added");
 ```
@@ -248,27 +251,27 @@ api := asposeslidescloud.NewAPIClient(cfg)
 fileName := "MyPresentation.pptx"
 var slideIndex int32 = 9
 var shapeIndex int32 = 1
-cell0 := slidescloud.NewTableCell()
+cell0 := asposeslidescloud.NewTableCell()
 cell0.Text = "Cell 1"
-cell1 := slidescloud.NewTableCell()
+cell1 := asposeslidescloud.NewTableCell()
 cell1.Text = "Cell 2"
-cell2 := slidescloud.NewTableCell()
+cell2 := asposeslidescloud.NewTableCell()
 cell2.Text = "Cell 3"
-cell3 := slidescloud.NewTableCell()
+cell3 := asposeslidescloud.NewTableCell()
 cell3.Text = "Cell 4"
 
-dto := slidescloud.NewTableRow()
+dto := asposeslidescloud.NewTableRow()
 dto.MinimalHeight = 30
-dto.Cells = []slidescloud.ITableCell{cell0, cell1, cell2, cell3}
+dto.Cells = []asposeslidescloud.ITableCell{cell0, cell1, cell2, cell3}
 
-result, _, e := api.InsertTableRow(fileName, dto, slideIndex, shapeIndex, nil, "", "", "")
+result, _, e := api.SlidesApi.CreateTableRow(fileName, slideIndex, shapeIndex, dto, nil, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-fmt.Printf("The row has been added")
+fmt.Printf("The row has been added: %v cells.", len(result.GetCells()))
 ```
 
 {{< /tab >}}
@@ -303,14 +306,13 @@ $dto->{minimal_height} = 30;
 $dto->{cells} = \@cells;
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'dto' => $dto);
 
-my $response = $api->insert_table_row(%params);
-print "The row has been added \n"
+my $response = $api->create_table_row(%params);
+print "The row has been added \n";
 ```
 
 {{< /tab >}}

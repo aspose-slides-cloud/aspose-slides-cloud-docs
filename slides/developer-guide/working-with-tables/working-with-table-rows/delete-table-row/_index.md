@@ -90,10 +90,9 @@ $shapeIndex = 1;
 $rowIndex = 2;
 $withAttachedRows = true;
         
-
 $result = $api->deleteTableRow("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows);
 
-print("Table rows count: " . count($response->getRows()));
+print("Table rows count: " . count($result->getRows()));
 ```
 
 {{< /tab >}}
@@ -111,8 +110,7 @@ row_index = 2
 with_attached_rows = true
 
 result = api.delete_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, with_attached_rows)
-print "Table rows count: " + result.rows.length
-
+puts "Table rows count: #{result.rows.length}"
 ```
 
 {{< /tab >}}
@@ -135,7 +133,7 @@ row_index = 2
 with_attached_table_rows = True
 
 response = api.delete_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, with_attached_table_rows)
-print(f"Table rows count: " {len(response.rows)}")
+print(f"Table rows count: { len(response.rows) }")
 ```
 
 {{< /tab >}}
@@ -151,7 +149,7 @@ let rowIndex = 2;
 let withAttachedRows = true;
 
 const result = await api.deleteTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, withAttachedRows);         
-console.log("Table rows count: " + (result.body as model.Table).rows.length;
+console.log("Table rows count: " + result.body.rows.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -168,7 +166,7 @@ var shapeIndex int32 = 1
 var rowIndex int32 = 2
 var withAttachedRows bool = true
 
-result, _, e := api.DeleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, &withAttachedRows, "", "", "")
+result, _, e := api.SlidesApi.DeleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, &withAttachedRows, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -196,15 +194,14 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 2,
 'with_attached_rows' => 'true');
 
 my $response = $api->delete_table_row(%params);
-print "Table rows count: scalar @{$response->{rows}} \n"
+print "Table rows count: scalar @{$response->{rows}} \n";
 ```
 
 {{< /tab >}}

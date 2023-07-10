@@ -48,7 +48,7 @@ Returns VBA project info.
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = api.DeleteVbaModule("MyPresentation.pptx", 1);
+VbaProject response = api.DeleteVbaModule("MyPresentation.pptm", 1);
 Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), and {response.References.Count} references");
 ```
 
@@ -57,7 +57,7 @@ Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), an
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = (VbaProject)api.deleteVbaModule("MyPresentation.pptx", 1, null, null, null);
+VbaProject response = (VbaProject)api.deleteVbaModule("MyPresentation.pptm", 1, null, null, null);
 System.out.println("VBA project contains: " + response.getModules().size() + " module(s), and " + response.getReferences().size() + " references");
 ```
 {{< /tab >}}
@@ -72,7 +72,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->deleteVbaModule("MyPresentation.pptx", 1);
+$result = $api->deleteVbaModule("MyPresentation.pptm", 1);
 echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
 ```
 
@@ -85,7 +85,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.delete_vba_module("MyPresentation.pptx", 1)
+response = api.delete_vba_module("MyPresentation.pptm", 1)
 puts "VBA project contains: #{response.modules.length} module(s), and #{response.references.length} references"
 ```
 
@@ -103,7 +103,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.delete_vba_module("MyPresentation.pptx", 1)
+response = api.delete_vba_module("MyPresentation.pptm", 1)
 print("VBA project contains: " + str(len(response.modules)) + " module(s), and " + str(len(response.references)) + " references")
 ```
 
@@ -114,8 +114,8 @@ print("VBA project contains: " + str(len(response.modules)) + " module(s), and "
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.deleteVbaModule("MyPresentation.pptx", 1).then((response) => {
-const vbaProject = (response.body as model.VbaProject);
+const response = await api.deleteVbaModule("MyPresentation.pptm", 1).then((response) => {
+const vbaProject = response.body;
 console.log("VBA project contains: " + vbaProject.modules.length + " module(s), and " + vbaProject.references.length + " references");
 });
 ```
@@ -128,13 +128,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-response, _, e := api.DeleteVbaModule(fileName, 1, "", "", "")
+response, _, e := api.SlidesApi.DeleteVbaModule("MyPresentation.pptm", 1, "", "", "")
 if e != nil {
-    t.Errorf("Error: %v.", e)
+    fmt.Printf("Error: %v.", e)
     return
 }
-result := fmt.Sprintf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
-fmt.Println(result)
+fmt.Printf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
 ```
 
 {{< /tab >}}
@@ -153,11 +152,11 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = ('name' => 'MyPresentation.pptx', 'module_index' => 1);
+my %params = ('name' => 'MyPresentation.pptm', 'module_index' => 1);
 my $response = $api->delete_vba_module(%params);
 my $modules_count = scalar @{$response->{modules}};
 my $references_count = scalar @{$response->{references}};
-print STDERR "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
+print "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
 ```
 
 {{< /tab >}}

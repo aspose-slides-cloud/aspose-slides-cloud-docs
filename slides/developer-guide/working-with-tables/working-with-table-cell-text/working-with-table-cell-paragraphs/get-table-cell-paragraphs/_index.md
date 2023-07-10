@@ -91,7 +91,7 @@ $cellIndex = 1;
 
 $result = $api->getTableCellParagraphs("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex);
 
-print("Paragraphs count: " . count($response->getParagraphLinks()));
+print("Paragraphs count: " . count($result->getParagraphLinks()));
 ```
 
 {{< /tab >}}
@@ -109,8 +109,7 @@ row_index = 1
 cell_index = 1
 
 result = api.get_table_cell_paragraphs("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index)
-print "Paragraphs count: " + result.paragraph_links.length
-
+puts "Paragraphs count: #{result.paragraph_links.length}"
 ```
 
 {{< /tab >}}
@@ -151,7 +150,7 @@ let cellIndex = 1;
 
 const result = await api.getTableCellParagraphs("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex);
             
-console.log("Paragraphs count: " + (result.body as model.Paragraphs).pragraphLinks.length);
+console.log("Paragraphs count: " + result.body.paragraphLinks.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -168,7 +167,7 @@ var shapeIndex int32 = 1
 var rowIndex int32 = 1
 var cellIndex int32 = 1
 
-result, _, e := api.getTableCellParagraphs(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "", "", "")
+result, _, e := api.SlidesApi.GetTableCellParagraphs(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -196,14 +195,13 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
 'cell_index' => 1);
 
 my $response = $api->get_table_cell_paragraphs(%params);
-print "Paragraphs count: scalar @{$response->{paragraph_links}} \n"
+print "Paragraphs count: scalar @{$response->{paragraph_links}} \n";
 ```
 
 {{< /tab >}}
