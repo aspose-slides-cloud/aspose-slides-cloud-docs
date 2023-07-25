@@ -1,7 +1,7 @@
 ---
-title: "Replace the Occurrence of Text in a PowerPoint Presentation"
+title: "Replace the Occurrence of Text"
 type: docs
-url: /replace-the-occurrence-of-text-in-a-powerpoint-presentation/
+url: /replace-the-occurrence-of-text/
 weight: 80
 ---
 

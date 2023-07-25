@@ -1,7 +1,7 @@
 ---
-title: "Read Properties of a Paragraph by Index from a PowerPoint Presentation"
+title: "Read Properties of a Paragraph by Index"
 type: docs
-url: /read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/
+url: /read-properties-of-a-paragraph-by-index/
 weight: 40
 ---
 

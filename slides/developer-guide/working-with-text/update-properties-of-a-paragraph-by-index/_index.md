@@ -1,7 +1,7 @@
 ---
-title: "Update Properties of a Paragraph by Index in a PowerPoint Presentation"
+title: "Update Properties of a Paragraph by Index"
 type: docs
-url: /update-properties-of-a-paragraph-by-index-in-a-powerpoint-presentation/
+url: /update-properties-of-a-paragraph-by-index/
 weight: 50
 ---
 
