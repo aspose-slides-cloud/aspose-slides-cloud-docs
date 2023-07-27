@@ -2,7 +2,7 @@
 title: "Text Highlighting"
 type: docs
 url: /text-highlighting/
-weight: 100
+weight: 110
 ---
 
 ## **Introduction**

@@ -2,7 +2,7 @@
 title: "Get Portion Effective Values"
 type: docs
 url: /get-portion-effective-values/
-weight: 140
+weight: 150
 ---
 ## **Introduction**
 
