@@ -81,7 +81,7 @@ Update the second paragraph in the first shape on the first slide. Set text alig
 
 {{% alert color="primary" %}}
 
-The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/) method.
+The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index/) method.
 
 {{% /alert %}}
 
