@@ -81,7 +81,7 @@ int rowIndex = 1;
 int cellIndex = 1;
 int paragraphIndex = 1;
 Portion dto = new Portion();
-dto.setText("Portion 1")
+dto.setText("Portion 1");
 
 Portion response = api.createTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, null, null, null);
 System.out.println("The portion has been created.");
@@ -141,6 +141,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.portion import Portion
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -171,7 +172,7 @@ let shapeIndex = 1;
 let rowIndex = 1;
 let cellIndex = 1;
 let paragraphIndex = 1;
-let dto = new Portion();
+let dto = new CloudSdk.Portion();
 dto.text = "Portion 1";
 
 const result = await api.createTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);  
@@ -192,17 +193,17 @@ var shapeIndex int32 = 1
 var rowIndex int32 = 1
 var cellIndex int32 = 1
 var paragraphIndex int32 = 1
-dto := slidescloud.NewPortion()
+dto := asposeslidescloud.NewPortion()
 dto.SetText("Portion 1")
 
-result, _, e := api.CreateTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, "", "", "")
+result, _, e := api.SlidesApi.CreateTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-fmt.Printf("The portion has been created.")
+fmt.Printf("The portion has been created %v.", result.GetText())
 ```
 
 {{< /tab >}}
@@ -226,8 +227,7 @@ my $dto = AsposeSlidesCloud::Object::Portion->new();
 $dto->{text} = "Portion 1";
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -236,7 +236,7 @@ my %params = (
 'dto' => $dto);
 
 my $response = $api->create_table_cell_portion(%params);
-print "The portion has been created. \n"
+print "The portion has been created. \n";
 ```
 
 {{< /tab >}}

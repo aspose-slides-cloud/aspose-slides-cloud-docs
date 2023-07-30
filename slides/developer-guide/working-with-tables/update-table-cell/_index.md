@@ -62,7 +62,7 @@ int rowIndex = 2;
 int cellIndex = 1;
 TableCell dto = new TableCell(){Text = "Test text"};
 
-TableCell response = api.UpdateTableCell("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex, cellIndex, cellIndex);
+TableCell response = api.UpdateTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, dto);
 
 Console.WriteLine("Cell text has been updated: " + response.Text);
 ```
@@ -81,7 +81,7 @@ int cellIndex = 1;
 TableCell dto = new TableCell();
 dto.setText("Test text");
 
-TableCell response = api.updateTableCell("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex, cellIndex, null, null, null);
+TableCell response = api.updateTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, dto, null, null, null);
 
 System.out.println("Cell text has been updated: " + response.getText());
 ```
@@ -106,9 +106,9 @@ $cellIndex = 1;
 $dto = new TableCell();
 $dto->setText("Test text");
 
-$result = $api->updateTableCell("MyPresentation.pptx", $dto, $slideIndex, $shapeIndex, $rowIndex, $cellIndex);
+$result = $api->updateTableCell("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto);
 
-print("Cell text has been updated: " . $response->getText());
+print("Cell text has been updated: " . $result->getText());
 ```
 
 {{< /tab >}}
@@ -128,7 +128,7 @@ cell_index = 1
 dto = AsposeSlidesCloud::TableCell.new
 dto.text = "Test text"
 
-result = api.update_table_cell("MyPresentation.pptx", dto, slide_index, shape_index, row_index, cell_index)
+result = api.update_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, dto)
 print "Cell text has been updated: " + result.text
 
 ```
@@ -141,6 +141,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.table_cell import TableCell
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -155,7 +156,7 @@ cell_index = 1
 dto = TableCell()
 dto.text = "Test text"
 
-response = api.update_table_cell("MyPresentation.pptx", dto, slide_index, shape_index, row_index, cell_index)
+response = api.update_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, dto)
 
 print(f"Cell text has been updated: { response.text }")
 ```
@@ -171,12 +172,12 @@ let slideIndex = 9;
 let shapeIndex = 1;
 let rowIndex = 2;
 let cellIndex = 1;
-let dto = new TableCell();
+let dto = new CloudSdk.TableCell();
 dto.text = "Test text";
 
-const result = await api.updateTableCell("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex, cellIndex);
+const result = await api.updateTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, dto);
             
-console.log("Cell text has been updated: " + (result.body as model.TableCell).text);
+console.log("Cell text has been updated: " + result.body.text);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -192,10 +193,10 @@ var slideIndex int32 = 9
 var shapeIndex int32 = 1
 var rowIndex int32 = 2
 var cellIndex int32 = 1
-dto := slidescloud.NewTableCell()
+dto := asposeslidescloud.NewTableCell()
 dto.Text = "Test text"
 
-result, _, e := api.UpdateTableCell(fileName, dto, slideIndex, shapeIndex, rowIndex, cellIndex, "", "", "")
+result, _, e := api.SlidesApi.UpdateTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, dto, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -227,7 +228,6 @@ $dto->{text} = "Test text";
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 2,
@@ -235,7 +235,7 @@ my %params = (
 'dto' => $dto);
 
 my $response = $api->update_table_cell(%params);
-print "Cell text has been updated: $response->{text} \n"
+print "Cell text has been updated: $response->{text} \n";
 ```
 
 {{< /tab >}}

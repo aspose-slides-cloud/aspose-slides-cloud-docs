@@ -1,7 +1,7 @@
 ---
-title: "Replace Text in a PowerPoint Presentation Not Using the Storage"
+title: "Replace Text Not Using the Storage"
 type: docs
-url: /replace-text-in-a-powerpoint-presentation-not-using-the-storage/
+url: /replace-text-not-using-the-storage/
 weight: 90
 ---
 

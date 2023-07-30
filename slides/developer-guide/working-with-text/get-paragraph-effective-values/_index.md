@@ -2,7 +2,7 @@
 title: "Get Paragraph Effective Values"
 type: docs
 url: /get-paragraph-effective-values/
-weight: 130
+weight: 140
 ---
 ## **Introduction**
 

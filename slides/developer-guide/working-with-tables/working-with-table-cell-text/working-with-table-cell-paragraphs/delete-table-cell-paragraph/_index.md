@@ -96,7 +96,7 @@ $paragraphIndex = 1;
 
 $result = $api->deleteTableCellParagraph("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex);
 
-print("Paragraphs count: " . count($response->getParagraphLinks()));
+print("Paragraphs count: " . count($result->getParagraphLinks()));
 ```
 
 {{< /tab >}}
@@ -115,7 +115,7 @@ cell_index = 1
 paragraph_index = 1
 
 result = api.delete_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index)
-print "Paragraphs count: " + result.paragraph_links.length
+puts "Paragraphs count: #{result.paragraph_links.length}"
 
 ```
 
@@ -159,7 +159,7 @@ let paragraphIndex = 1;
 
 const result = await api.deleteTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex);
             
-console.log("Paragraphs count: " + (result.body as model.Paragraphs).paragraphLinks.length);
+console.log("Paragraphs count: " + result.body.paragraphLinks.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -177,7 +177,7 @@ var rowIndex int32 = 1
 var cellIndex int32 = 1
 var paragraphIndex int32 = 1
 
-result, _, e := api.DeleteTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
+result, _, e := api.SlidesApi.DeleteTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -205,7 +205,6 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -213,7 +212,7 @@ my %params = (
 'paragraph_index' => 1);
 
 my $response = $api->delete_table_cell_paragraph(%params);
-print "Paragraphs count: scalar @{$response->{paragraph_links}} \n"
+print "Paragraphs count: scalar @{$response->{paragraph_links}} \n";
 ```
 
 {{< /tab >}}

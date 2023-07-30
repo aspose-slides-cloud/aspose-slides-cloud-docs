@@ -71,10 +71,10 @@ int paragraphIndex = 1;
 
 Paragraph dto = new Paragraph()
 {
-    PortionList = new List<Portion>()
+    PortionList = new List<Portion>
     {
-        new (){Text = "Portion 1"},
-        new (){Text = "Portion 2"},
+        new Portion {Text = "Portion 1"},
+        new Portion {Text = "Portion 2"}
     }
 };
 
@@ -112,6 +112,7 @@ System.out.println("The paragraph has been updated.");
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
+use Aspose\Slides\Cloud\Sdk\Model\Portion;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
@@ -170,6 +171,8 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.paragraph import Paragraph
+from asposeslidescloud.models.portion import Portion
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -206,13 +209,13 @@ let rowIndex = 1;
 let cellIndex = 1;
 let paragraphIndex = 1;
             
-let portion0 = new Portion();
-portion0.text = "Portion 1";
-let portion1 = new Portion();
-portion1.text = "Portion 2";
+let portion1 = new CloudSdk.Portion();
+portion1.text = "Portion 1";
+let portion2 = new CloudSdk.Portion();
+portion2.text = "Portion 2";
             
-let dto = new Paragraph();
-dto.portionList = [portion0, portion1];
+let dto = new CloudSdk.Paragraph();
+dto.portionList = [portion1, portion2];
 
 const result = await api.updateTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);
             
@@ -233,21 +236,21 @@ var shapeIndex int32 = 1
 var rowIndex int32 = 1
 var cellIndex int32 = 1
 var paragraphIndex int32 = 1
-portion0 := slidescloud.NewPortion()
+portion0 := asposeslidescloud.NewPortion()
 portion0.SetText("Portion 1")
-portion1 := slidescloud.NewPortion()
+portion1 := asposeslidescloud.NewPortion()
 portion1.SetText("Portion 2")
-dto := slidescloud.NewParagraph()
-dto.SetPortionList([]slidescloud.IPortion{portion0, portion1})
+dto := asposeslidescloud.NewParagraph()
+dto.SetPortionList([]asposeslidescloud.IPortion{portion0, portion1})
 
-result, _, e := api.UpdateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex,  dto, "", "", "")
+result, _, e := api.SlidesApi.UpdateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex,  dto, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-fmt.Printf("The paragraph has been updated.")
+fmt.Printf("The paragraph has been updated^ %v portions.", len(result.GetPortionList()))
 ```
 
 {{< /tab >}}
@@ -278,8 +281,7 @@ my $dto = AsposeSlidesCloud::Object::Paragraph->new();
 $dto->{portion_list} = \@portions;
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -288,7 +290,7 @@ my %params = (
 'dto' => $dto);
 
 my $response = $api->update_table_cell_paragraph(%params);
-print "The paragraph has been updated. \n"
+print "The paragraph has been updated. \n";
 ```
 
 {{< /tab >}}

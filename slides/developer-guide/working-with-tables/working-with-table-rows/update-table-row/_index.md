@@ -64,7 +64,7 @@ TableRow dto = new TableRow()
     MinimalHeight = 30
 };
 
-TableRow response = api.UpdateTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex);
+TableRow response = api.UpdateTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, dto);
 
 Console.WriteLine("The new row's minimal height: " + response.MinimalHeight);
 ```
@@ -82,7 +82,7 @@ int rowIndex = 1;
 TableRow dto = new TableRow();
 dto.setMinimalHeight(30.0);
 
-TableRow response = api.updateTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex, null, null, null);
+TableRow response = api.updateTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, dto, null, null, null);
 
 System.out.println("The new row's minimal height: " + response.getMinimalHeight());
 ```
@@ -106,7 +106,7 @@ $rowIndex = 1;
 $dto = new TableRow();
 $dto->setMinimalHeight(30);
 
-$result = $api->updateTableRow("MyPresentation.pptx", $dto, $slideIndex, $shapeIndex, $rowIndex);
+$result = $api->updateTableRow("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $dto);
 
 print("The new row's minimal height: " . $result->getMinimalHeight());
 ```
@@ -127,9 +127,8 @@ row_index = 1
 dto = AsposeSlidesCloud::TableRow.new
 dto.minimal_height = 30
 
-result = api.update_table_row("MyPresentation.pptx", dto, slide_index, shape_index, row_index)
-print "The new row's minimal height: " + result.minimal_height
-
+result = api.update_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, dto)
+puts "The new row's minimal height: #{result.minimal_height}"
 ```
 
 {{< /tab >}}
@@ -140,6 +139,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.table_row import TableRow
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -152,7 +152,7 @@ row_index = 1
 dto = TableRow()
 dto.minimal_height = 30
 
-response = api.update_table_row("MyPresentation.pptx", dto, slide_index, shape_index, row_index)
+response = api.update_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, dto)
 
 print(f"The new row's minimal height: {response.minimal_height}")
 ```
@@ -168,12 +168,12 @@ let slideIndex = 9;
 let shapeIndex = 1;
 let rowIndex = 1;
             
-let dto = new TableRow();
+let dto = new CloudSdk.TableRow();
 dto.minimalHeight = 30;
 
-const result = await api.updateTableRow("MyPresentation.pptx", dto, slideIndex, shapeIndex, rowIndex);
+const result = await api.updateTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, dto);
             
-console.log("The new row's minimal height: " + (result.body as model.TableRow).minimalHeight);
+console.log("The new row's minimal height: " + result.body.minimalHeight);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -189,10 +189,10 @@ var slideIndex int32 = 9
 var shapeIndex int32 = 1
 var rowIndex int32 = 1
 
-dto := slidescloud.NewTableRow()
+dto := asposeslidescloud.NewTableRow()
 dto.MinimalHeight = 30
 
-result, _, e := api.UpdateTableRow(fileName, dto, slideIndex, shapeIndex, rowIndex, "", "", "")
+result, _, e := api.SlidesApi.UpdateTableRow(fileName, slideIndex, shapeIndex, rowIndex, dto, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -223,15 +223,14 @@ my $dto = AsposeSlidesCloud::Object::TableRow->new();
 $dto->{minimal_height} = 30;
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
 'dto' => $dto);
 
 my $response = $api->update_table_row(%params);
-print "The new row's minimal height: $response->{minimal_height} \n"
+print "The new row's minimal height: $response->{minimal_height} \n";
 ```
 
 {{< /tab >}}

@@ -25,7 +25,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
 ```
 
 {{< /tab >}}
@@ -48,7 +48,7 @@ Returns VBA project info.
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = api.GetVbaProject("MyPresentation.pptx");
+VbaProject response = api.GetVbaProject("MyPresentation.pptm");
 Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), and {response.References.Count} references");
 ```
 
@@ -57,7 +57,7 @@ Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), an
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = (VbaProject)api.getVbaProject("MyPresentation.pptx", null, null, null);
+VbaProject response = (VbaProject)api.getVbaProject("MyPresentation.pptm", null, null, null);
 System.out.println("VBA project contains: " + response.getModules().size() + " module(s), and " + response.getReferences().size() + " references");
 ```
 {{< /tab >}}
@@ -72,7 +72,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->getVbaProject("MyPresentation.pptx");
+$result = $api->getVbaProject("MyPresentation.pptm");
 echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
 ```
 
@@ -85,7 +85,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_vba_project("MyPresentation.pptx")
+response = api.get_vba_project("MyPresentation.pptm")
 puts "VBA project contains: #{response.modules.length} module(s), and #{response.references.length} references"
 ```
 
@@ -103,7 +103,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.get_vba_project("MyPresentation.pptx")
+response = api.get_vba_project("MyPresentation.pptm")
 print("VBA project contains: " + str(len(response.modules)) + " module(s), and " + str(len(response.references)) + " references")
 ```
 
@@ -114,8 +114,8 @@ print("VBA project contains: " + str(len(response.modules)) + " module(s), and "
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.getVbaProject("MyPresentation.pptx").then((response) => {
-const vbaProject = (response.body as model.VbaProject);
+const response = await api.getVbaProject("MyPresentation.pptm").then((response) => {
+const vbaProject = response.body;
 console.log("VBA project contains: " + vbaProject.modules.length + " module(s), and " + vbaProject.references.length + " references");
 });
 ```
@@ -128,13 +128,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-response, _, e := api.GetVbaProject(fileName, "", "", "")
+response, _, e := api.SlidesApi.GetVbaProject("MyPresentation.pptm", "", "", "")
 if e != nil {
-    t.Errorf("Error: %v.", e)
+    fmt.Printf("Error: %v.", e)
     return
 }
-result := fmt.Sprintf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
-fmt.Println(result)
+fmt.Printf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
 ```
 
 {{< /tab >}}
@@ -153,11 +152,11 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = ('name' => 'MyPresentation.pptx');
+my %params = ('name' => 'MyPresentation.pptm');
 my $response = $api->get_vba_project(%params);
 my $modules_count = scalar @{$response->{modules}};
 my $references_count = scalar @{$response->{references}};
-print STDERR "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
+print "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
 ```
 
 {{< /tab >}}

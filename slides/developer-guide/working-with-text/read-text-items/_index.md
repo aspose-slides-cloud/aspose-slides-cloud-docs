@@ -1,7 +1,7 @@
 ---
-title: "Read Text Items from a PowerPoint Presentation"
+title: "Read Text Items"
 type: docs
-url: /read-text-items-from-a-powerpoint-presentation/
+url: /read-text-items/
 weight: 70
 ---
 

@@ -56,7 +56,7 @@ int cellIndex = 1;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portions response = api.GetTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex);
+Portion response = api.GetTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex);
 Console.WriteLine("Portion text: " + response.Text);
 ```
 
@@ -73,7 +73,7 @@ int cellIndex = 1;
 int paragraphIndex = 1;
 int portionIndex = 1;
 
-Portions response = api.getTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, null, null, null);
+Portion response = api.getTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, null, null, null);
 System.out.println("Portion text: " + response.getText());
 ```
 {{< /tab >}}
@@ -96,7 +96,7 @@ $paragraphIndex = 1;
 $portionIndex = 1;
 
 $result = $api->getTableCellPortion("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex);
-print("Portion text: " . $response->getText());
+print("Portion text: " . $result->getText());
 ```
 
 {{< /tab >}}
@@ -160,7 +160,7 @@ let paragraphIndex = 1;
 let portionIndex = 1;
 
 const result = await api.getTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex);  
-console.log("Portion text:" + (result.body as model.Portion).text);
+console.log("Portion text:" + result.body.text);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -179,7 +179,7 @@ var cellIndex int32 = 1
 var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
-result, _, e := api.GetTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, "", "", "")
+result, _, e := api.SlidesApi.GetTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, portionIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -206,8 +206,7 @@ $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
-'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
+'name' => "MyPresentation.pptx",
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -216,7 +215,7 @@ my %params = (
 'portion_index' => 1);
 
 my $response = $api->get_table_cell_portion(%params);
-print "Portion text: $response->{text} \n"
+print "Portion text: $response->{text} \n";
 ```
 
 {{< /tab >}}

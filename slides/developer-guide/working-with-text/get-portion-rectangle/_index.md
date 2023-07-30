@@ -2,7 +2,7 @@
 title: "Get Portion Rectangle"
 type: docs
 url: /get-portion-rectangle/
-weight: 120
+weight: 130
 ---
 ## **Introduction**
 

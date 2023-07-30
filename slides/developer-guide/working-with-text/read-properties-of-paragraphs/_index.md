@@ -1,7 +1,7 @@
 ---
-title: "Read Properties of Paragraphs from a PowerPoint Presentation"
+title: "Read Properties of Paragraphs"
 type: docs
-url: /read-properties-of-paragraphs-from-a-powerpoint-presentation/
+url: /read-properties-of-paragraphs/
 weight: 10
 ---
 

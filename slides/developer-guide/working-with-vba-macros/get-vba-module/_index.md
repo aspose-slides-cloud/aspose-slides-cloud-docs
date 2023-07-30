@@ -25,7 +25,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
 ```
 
 {{< /tab >}}
@@ -48,7 +48,7 @@ Returns VBA module info.
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaModule response = api.GetVbaModule("MyPresentation.pptx", 1);
+VbaModule response = api.GetVbaModule("MyPresentation.pptm", 1);
 Console.WriteLine($"Module: {response.Name}\n{response.SourceCode}");
 ```
 
@@ -57,7 +57,7 @@ Console.WriteLine($"Module: {response.Name}\n{response.SourceCode}");
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaModule response = (VbaModule)api.getVbaModule("MyPresentation.pptx", 1, null, null, null);
+VbaModule response = (VbaModule)api.getVbaModule("MyPresentation.pptm", 1, null, null, null);
 String s = String.format("Module: \"%s\"\n%s", response.getName(), response.getSourceCode());
 System.out.println(s);
 ```
@@ -73,7 +73,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->getVbaModule("MyPresentation.pptx", 1);
+$result = $api->getVbaModule("MyPresentation.pptm", 1);
 echo "Module: " . $result->getName() . "\n" . $result->getSourceCode();
 ```
 
@@ -86,7 +86,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_vba_module("MyPresentation.pptx", 1)
+response = api.get_vba_module("MyPresentation.pptm", 1)
 puts "#{response.name} \n#{response.source_code}"
 ```
 
@@ -104,7 +104,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.get_vba_module("MyPresentation.pptx", 1)
+response = api.get_vba_module("MyPresentation.pptm", 1)
 print("Module: " + response.name + "\n" + response.source_code)
 ```
 
@@ -115,8 +115,8 @@ print("Module: " + response.name + "\n" + response.source_code)
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.getVbaModule("MyPresentation.pptx", 1).then((response) => {
-const vbaModule = (response.body as model.VbaModule);
+const response = await api.getVbaModule("MyPresentation.pptm", 1).then((response) => {
+const vbaModule = response.body;
 console.log("Module: " + vbaModule.name + "\n" + vbaModule.sourceCode);
 });
 ```
@@ -129,13 +129,12 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-response, _, e := api.GetVbaModule(fileName, 1, "", "", "")
+response, _, e := api.SlidesApi.GetVbaModule("MyPresentation.pptm", 1, "", "", "")
 if e != nil {
-    t.Errorf("Error: %v.", e)
+    fmt.Printf("Error: %v.", e)
     return
 }
-result := fmt.Sprintf("Module: %v \n %v", response.GetName(), response.GetSourceCode())
-fmt.Println(result)
+fmt.Printf("Module: %v \n %v", response.GetName(), response.GetSourceCode())
 ```
 
 {{< /tab >}}
@@ -154,9 +153,9 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = ('name' => 'MyPresentation.pptx', 'module_index' => 1);
+my %params = ('name' => 'MyPresentation.pptm', 'module_index' => 1);
 my $response = $api->get_vba_module(%params);
-print STDERR "Module: ".$response->{name}."\n".$response->{source_code};
+print "Module: ".$response->{name}."\n".$response->{source_code};
 ```
 
 {{< /tab >}}

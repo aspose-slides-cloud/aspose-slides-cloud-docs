@@ -1,7 +1,7 @@
 ---
-title: "Remove a Paragraph by Index from a PowerPoint Presentation"
+title: "Remove a Paragraph by Index"
 type: docs
-url: /remove-a-paragraph-by-index-from-a-powerpoint-presentation/
+url: /remove-a-paragraph-by-index/
 weight: 60
 ---
 

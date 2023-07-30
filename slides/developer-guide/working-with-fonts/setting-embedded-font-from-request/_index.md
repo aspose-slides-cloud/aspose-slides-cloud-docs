@@ -102,7 +102,6 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-folder_name = "TempSlidesSDK"
 source = File.binread("calibri.ttf")
 response = api.set_embedded_font_from_request(source, "MyPresentation.pptx", false)
 print "Font " + response.list[2].font_name + " has been embedded."      
@@ -290,7 +289,6 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-folder_name = "TempSlidesSDK"
 source = File.binread("MyPresentation.pptx")
 fontSource = File.binread("calibri.ttf")
 response = api.set_embedded_font_from_request_online(source, fontSource, false)

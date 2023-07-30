@@ -95,7 +95,7 @@ $paragraphIndex = 1;
 
 $result = $api->getTableCellParagraph("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex);
 
-print("Paragraph's portions count: " . count($response->getPortionList()));
+print("Paragraph's portions count: " . count($result->getPortionList()));
 ```
 
 {{< /tab >}}
@@ -114,8 +114,7 @@ cell_index = 1
 paragraph_index = 1
 
 result = api.get_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index)
-print "Paragraph's portions count: " + result.portion_list.length
-
+puts "Paragraph's portions count: #{result.portion_list.length}"
 ```
 
 {{< /tab >}}
@@ -158,7 +157,7 @@ let paragraphIndex = 1;
 
 const result = await api.getTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex);
             
-console.log("Paragraph's portions count: " + (result.body as model.Paragraph).portionList.length);
+console.log("Paragraph's portions count: " + result.body.portionList.length);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -176,7 +175,7 @@ var rowIndex int32 = 1
 var cellIndex int32 = 1
 var paragraphIndex int32 = 1
 
-result, _, e := api.getTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
+result, _, e := api.SlidesApi.GetTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -204,7 +203,6 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'slide_index' => 9,
 'shape_index' => 1,
 'row_index' => 1,
@@ -212,7 +210,7 @@ my %params = (
 'paragraph_index' => 1);
 
 my $response = $api->get_table_cell_paragraph(%params);
-print "Paragraph's portions count: scalar @{$response->{portion_list}} \n"
+print "Paragraph's portions count: scalar @{$response->{portion_list}} \n";
 ```
 
 {{< /tab >}}

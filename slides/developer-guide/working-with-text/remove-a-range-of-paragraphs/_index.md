@@ -1,7 +1,7 @@
 ---
-title: "Remove a Range of Paragraphs from a PowerPoint Presentation"
+title: "Remove a Range of Paragraphs"
 type: docs
-url: /remove-a-range-of-paragraphs-from-a-powerpoint-presentation/
+url: /remove-a-range-of-paragraphs/
 weight: 30
 ---
 

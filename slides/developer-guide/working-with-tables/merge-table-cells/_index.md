@@ -70,7 +70,7 @@ var dto = new TableCellMergeOptions()
     LastCellIndex = 2,
     AllowSplitting = true
 };
-Table response = api.MergeTableCells("MyPresentation.pptx", dto, slideIndex, shapeIndex);
+Table response = api.MergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto);
 
 Console.WriteLine("Cell col span is: " + response.Rows[0].Cells[0].ColSpan);
 Console.WriteLine("Cell row span is: " + response.Rows[0].Cells[0].RowSpan);
@@ -91,7 +91,7 @@ dto.lastRowIndex(2);
 dto.lastCellIndex(2);
 dto.setAllowSplitting(true);
 
-Table response = api.mergeTableCells("MyPresentation.pptx", dto, slideIndex, shapeIndex, null, null, null);
+Table response = api.mergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto, null, null, null);
 
 System.out.println("Cell col span is: " + response.getRows().get(0).getCells().get(0).getColSpan());
 System.out.println("Cell row span is: " + response.getRows().get(0).getCells().get(0).getRowSpan());
@@ -118,10 +118,10 @@ $dto->setLastRowIndex(2);
 $dto->setLastCellIndex(2);
 $dto->setAllowSplitting(true);
 
-$result = $api->mergeTableCells("MyPresentation.pptx", $dto, $slideIndex, $shapeIndex);
+$result = $api->mergeTableCells("MyPresentation.pptx", $slideIndex, $shapeIndex, $dto);
 
-print("Cell col span is: " . $response->getRows()[0]->getCells()[0]->getColSpan());
-print("Cell row span is: " . $response->getRows()[0]->getCells()[0]->getRowSpan());
+print("Cell col span is: " . $result->getRows()[0]->getCells()[0]->getColSpan());
+print("Cell row span is: " . $result->getRows()[0]->getCells()[0]->getRowSpan());
 ```
 
 {{< /tab >}}
@@ -142,10 +142,9 @@ dto.last_row_index = 2
 dto.last_cell_index = 2
 dto.allow_splitting = true
 
-result = api.merge_table_cells("MyPresentation.pptx", dto, slide_index, shape_index)
-print "Cell col span is: " + result.rows[0].cells[0].col_span
-print "Cell row span is: " + result.rows[0].cells[0].row_span
-
+result = api.merge_table_cells("MyPresentation.pptx", slide_index, shape_index, dto)
+puts "Cell col span is: #{result.rows[0].cells[0].col_span}"
+puts "Cell row span is: #{result.rows[0].cells[0].row_span}"
 ```
 
 {{< /tab >}}
@@ -156,6 +155,7 @@ import asposeslidescloud
 
 from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.models.table_cell_merge_options import TableCellMergeOptions
 
 configuration = Configuration()
 configuration.app_sid = 'MyClientId'
@@ -170,7 +170,7 @@ dto.first_cell_index = 1
 dto.last_row_index = 2
 dto.last_cell_index = 2
 
-response = api.merge_table_cells("MyPresentation.pptx", dto, slide_index, shape_index)
+response = api.merge_table_cells("MyPresentation.pptx", slide_index, shape_index, dto)
 
 print(f"Cell col span is: { response.rows[0].cells[0].col_span }")
 print(f"Cell row span is: { response.rows[0].cells[0].row_span }")
@@ -185,17 +185,17 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 let slideIndex = 9;
 let shapeIndex = 1;
-let dto = new TableCellMergeOptions()
+let dto = new CloudSdk.TableCellMergeOptions();
 dto.firstRowIndex = 1;
 dto.firstCellIndex = 1;
 dto.lastRowIndex = 2;
 dto.lastCellIndex = 2;
 dto.allowSplitting = true;
 
-const result = await api.mergeTableCells("MyPresentation.pptx", dto, slideIndex, shapeIndex);
+const result = await api.mergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto);
             
-console.log("Cell col span is: " + (result.body as model.Table).rows[0].cells[0].colSpan);
-console.log("Cell row span is: " + (result.body as model.Table).rows[0].cells[0].rowSpan);
+console.log("Cell col span is: " + result.body.rows[0].cells[0].colSpan);
+console.log("Cell row span is: " + result.body.rows[0].cells[0].rowSpan);
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -210,13 +210,13 @@ fileName := "MyPresentation.pptx"
 var slideIndex int32 = 9
 var shapeIndex int32 = 1
 
-dto := slidescloud.NewTableCellMergeOptions()
+dto := asposeslidescloud.NewTableCellMergeOptions()
 dto.FirstRowIndex = 1
 dto.FirstCellIndex = 1
 dto.LastRowIndex = 2
 dto.LastCellIndex = 2
 
-result, _, e := api.MergeTableCells(fileName, dto, slideIndex, shapeIndex, "", "", "")
+result, _, e := api.SlidesApi.MergeTableCells(fileName, slideIndex, shapeIndex, dto, "", "", "")
 
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -253,15 +253,14 @@ $dto->{allow_splitting} = 'true';
 
 my %params = (
 'name' => "MyPresentation.pptx", 
-'folder' => "TempSlidesSDK", 
 'slide_index' => 9,
 'shape_index' => 1, 
 'table_cell_merge_options' => $dto);
 
 my $response = $api->merge_table_cells(%params);
 
-print "Cell col span is: $response->{rows}[0]{cells}[0]->col_span \n"
-print "Cell row span is: $response->{rows}[0]{cells}[0]->row_span \n"
+print "Cell col span is: $response->{rows}[0]{cells}[0]->col_span \n";
+print "Cell row span is: $response->{rows}[0]{cells}[0]->row_span \n";
 ```
 
 {{< /tab >}}

@@ -1,7 +1,7 @@
 ---
-title: "Create a New Paragraph in a PowerPoint Presentation"
+title: "Create a New Paragraph"
 type: docs
-url: /create-a-new-paragraph-in-a-powerpoint-presentation/
+url: /create-a-new-paragraph/
 weight: 20
 ---
 

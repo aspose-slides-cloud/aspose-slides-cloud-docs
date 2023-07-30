@@ -1,7 +1,7 @@
 ---
-title: "Update Properties of a Paragraph by Index in a PowerPoint Presentation"
+title: "Update Properties of a Paragraph by Index"
 type: docs
-url: /update-properties-of-a-paragraph-by-index-in-a-powerpoint-presentation/
+url: /update-properties-of-a-paragraph-by-index/
 weight: 50
 ---
 
@@ -81,7 +81,7 @@ Update the second paragraph in the first shape on the first slide. Set text alig
 
 {{% alert color="primary" %}}
 
-The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/) method.
+The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index/) method.
 
 {{% /alert %}}
 
@@ -257,15 +257,16 @@ const paragraphIndex = 1
 const password = ""
 
 // Get a paragraph from the presentation.
-slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then((paragraph) => {
+slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then((getResponse) => {
+    const paragraph = getResponse.body;
     // Change some paragraph settings.
     paragraph.alignment = "Justify"
     paragraph.marginLeft = 30
     paragraph.spaceBefore = -20 // The negative value means it is in points.
 
     // Update the paragraph settings.
-    slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName).then((response) => {
-        console.log(JSON.stringify(response))
+    slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName).then((updateResponse) => {
+        console.log(updateResponse.body);
     })
 })
 ```
