@@ -223,7 +223,7 @@ class Application
 
         // Replace the "banana" for "orange", in orange color.
         PortionFormat portionFormat = new PortionFormat { FontColor = "#FFFFA500" };
-        slidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", portionFormat, null, null, "MyFolder");
+        slidesApi.ReplaceTextFormatting("MyPresentation.pptx", "banana", "orange", portionFormat, null, null, "MyFolder");
     }
 }
 ```
@@ -265,13 +265,13 @@ $configuration = new Configuration();
 $configuration->setAppSid("MyClientId");
 $configuration->setAppKey("MyClientSecret");
 
-$slidesApi = new SlidesApi(null, $configuration);
+$api = new SlidesApi(null, $configuration);
 
 // Replace the "banana" for "orange", in orange color.
 $portionFormat = new PortionFormat();
 $portionFormat->setFontColor("#FFFFA500");
 
-$this->getApi()->replaceTextFormatting("MyPresentation.pptx", "banana", "orange", $portionFormat, false, null, "MyFolder");
+$api->replaceTextFormatting("MyPresentation.pptx", "banana", "orange", $portionFormat, false, null, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -382,7 +382,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Replace the "banana" for "orange", in orange color.
 my $portion_format = AsposeSlidesCloud::Object::PortionFormat->new();
-$portion_format->{font_color} = L"#FFFFA500";
+$portion_format->{font_color} = "#FFFFA500";
 
 my %parameters = (name => "MyPresentation.pptx", old_value => "banana", new_value => "orange", portion_format => $portion_format, folder => "MyFolder");
 $slides_api->replace_text_formatting(%parameters);
@@ -406,9 +406,9 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 // Replace the "banana" for "orange", in orange color.
 portionFormat := asposeslidescloud.NewPortionFormat()
-portionFormat.FontColor = color
+portionFormat.FontColor = "#FFFFA500"
 
-_, _, e := api.SlidesApi.ReplaceTextFormatting("MyPresentation.pptx", "banana", "orange", portionFormat, nil, "MyFolder", "")
+_, _, e := api.SlidesApi.ReplaceTextFormatting("MyPresentation.pptx", "banana", "orange", portionFormat, nil, "MyFolder", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -496,7 +496,7 @@ The updated presentation.
 PortionFormat portionFormat = new PortionFormat { FontColor = "#FFFFA500" };
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 using Stream file = File.OpenRead("MyPresentation.pptx");
-using Stream result = api.ReplaceTextFormatting(file, "banana", "orange", portionFormat);
+using Stream result = api.ReplaceTextFormattingOnline(file, "banana", "orange", portionFormat);
 using Stream outFile = File.OpenWrite("UpdatedPresentation.pptx");
 result.CopyTo(outFile);
 ```
@@ -585,7 +585,7 @@ portion_format.font_color = "#FFFFA500"
 with open("MyPresentation.pptx", 'rb') as f:
     input_file = f.read()
 
-result = api.replace_text_formatting_online(input_file, "banana", "orange", portion_format)
+result = slides_api.replace_text_formatting_online(input_file, "banana", "orange", portion_format)
 print('The updated file was saved to ' + result)
 ```
 
@@ -597,6 +597,7 @@ print('The updated file was saved to ' + result)
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
 const cloud = require("asposeslidescloud")
+const fs = require('fs');
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
@@ -657,10 +658,10 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Replace the "banana" for "orange", in orange color.
 my $portion_format = AsposeSlidesCloud::Object::PortionFormat->new();
-$portion_format->{font_color} = L"#FFFFA500";
+$portion_format->{font_color} = "#FFFFA500";
 
 my $source = read_file("MyPresentation.pptx", { binmode => ':raw' });
-my %parameters = (name => $source, old_value => "banana", new_value => "orange", portion_format => $portion_format);
+my %parameters = (document => $source, old_value => "banana", new_value => "orange", portion_format => $portion_format);
 my $result = $slides_api->replace_text_formatting_online(%parameters);
 my $out_path = "UpdatedPresentation.pptx";
 open my $fh, '>>', $out_path;
@@ -687,14 +688,14 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 // Replace the "banana" for "orange", in orange color.
 portionFormat := asposeslidescloud.NewPortionFormat()
-portionFormat.FontColor = color
+portionFormat.FontColor = "#FFFFA500"
 
-source, e := ioutil.ReadFile(localTestFile)
+source, e := ioutil.ReadFile("MyPresentation.pptx")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-response, _, e := api.SlidesApi.ReplaceTextFormattingOnline("MyPresentation.pptx", "banana", "orange", portionFormat, nil, "MyFolder", "")
+response, _, e := api.SlidesApi.ReplaceTextFormattingOnline(source, "banana", "orange", portionFormat, nil, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

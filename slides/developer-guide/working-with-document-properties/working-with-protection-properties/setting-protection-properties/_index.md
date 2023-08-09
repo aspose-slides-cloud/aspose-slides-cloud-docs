@@ -129,14 +129,14 @@ import com.aspose.slides.model.ProtectionProperties;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare the protection properties for the presentation.
-        var properties = new ProtectionProperties();
+        ProtectionProperties properties = new ProtectionProperties();
         properties.setReadPassword("MyPassword");
         properties.setReadOnlyRecommended(true);
 
-        var response = slidesApi.setProtection("MyPresentation.pptx", properties, null, null, null);
+        ProtectionProperties response = slidesApi.setProtection("MyPresentation.pptx", properties, null, null, null);
 
         // Check if the presentation has been encrypted.
         System.out.println(response.isIsEncrypted());
@@ -396,14 +396,14 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Prepare the protection properties for the presentation.
-        var properties = new ProtectionProperties();
+        ProtectionProperties properties = new ProtectionProperties();
         properties.setWritePassword("MyPassword");
 
-        var documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var resultFile = slidesApi.setProtectionOnline(documentData, properties, null);
+        byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File resultFile = slidesApi.setProtectionOnline(documentData, properties, null);
 
         System.out.println("The protected presentation was saved to " + resultFile.getPath());
     }

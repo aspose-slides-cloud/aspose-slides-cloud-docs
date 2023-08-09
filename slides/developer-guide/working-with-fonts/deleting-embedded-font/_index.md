@@ -27,7 +27,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/arial" -H "Authorization: Bearer [Access Token]"
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/calibri%20light" -H "Authorization: Bearer [Access Token]"
 ```
 
 {{< /tab >}}
@@ -52,9 +52,9 @@ Returns presentation fonts info.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.DeleteEmbeddedFont("MyPresentation.pptx", "Arial");
+FontsData response = api.DeleteEmbeddedFont("MyPresentation.pptx", "Calibri Light");
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -63,9 +63,9 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-FontsData response = api.deleteEmbeddedFont("MyPresentation.pptx", "Arial", null, null, null);
+FontsData response = api.deleteEmbeddedFont("MyPresentation.pptx", "Calibri Light", null, null, null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -81,9 +81,9 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$result = $api->deleteEmbeddedFont("MyPresentation.pptx", "Arial");
+$result = $api->deleteEmbeddedFont("MyPresentation.pptx", "Calibri Light");
 
-print("Arial has been removed from the embedded fonts.");
+print("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -112,9 +112,9 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-response = api.delete_embedded_font("MyPresentation.pptx", "Arial")
+response = api.delete_embedded_font("MyPresentation.pptx", "Calibri Light")
 
-print("Arial has been removed from the embedded fonts.")
+print("Calibri Light has been removed from the embedded fonts.")
 ```
 
 {{< /tab >}}
@@ -124,9 +124,9 @@ print("Arial has been removed from the embedded fonts.")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let result = await api.deleteEmbeddedFont("MyPresentation.pptx", "Arial");
+let result = await api.deleteEmbeddedFont("MyPresentation.pptx", "Calibri Light");
             
-console.log("Arial has been removed from the embedded fonts.");
+console.log("Calibri Light has been removed from the embedded fonts.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -138,14 +138,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-fontName := "Arial"
+fontName := "Calibri Light"
 _, _, e := api.SlidesApi.DeleteEmbeddedFont(fileName, fontName, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Calibri Light has been removed from the embedded fonts.")
 ```
 
 {{< /tab >}}
@@ -198,7 +198,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Arial/delete" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri%20Light/delete" \
 -H "Authorization: Bearer [Access Token]" \
 -F "file=@TestData/MyPresentation.pptx"
 ```
@@ -226,9 +226,9 @@ Document without specified embedded font.
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Stream file = File.OpenRead("MyPresentation.pptx");
-api.DeleteEmbeddedFontOnline(file, "Arial");
+api.DeleteEmbeddedFontOnline(file, "Calibri Light");
 
-Console.WriteLine("Arial has been removed from the embedded fonts.");
+Console.WriteLine("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -238,9 +238,9 @@ Console.WriteLine("Arial has been removed from the embedded fonts.");
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-api.deleteEmbeddedFontOnline(file, "Arial", null);
+api.deleteEmbeddedFontOnline(file, "Calibri Light", null);
 
-System.out.println("Arial has been removed from the embedded fonts.");
+System.out.println("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -257,9 +257,9 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $file = fopen("MyPresentation.pptx", 'r');
-$api->deleteEmbeddedFontOnline($file, "Arial");
+$api->deleteEmbeddedFontOnline($file, "Calibri Light");
 
-print("Arial has been removed from the embedded fonts.");
+print("Calibri Light has been removed from the embedded fonts.");
 ```
 
 {{< /tab >}}
@@ -291,9 +291,9 @@ api = SlidesApi(configuration)
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
 
-api.delete_embedded_font_online(source, "Arial")
+api.delete_embedded_font_online(source, "Calibri Light")
 
-print("Arial has been removed from the embedded fonts.")
+print("Calibri Light has been removed from the embedded fonts.")
 ```
 
 {{< /tab >}}
@@ -305,9 +305,9 @@ const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const stream = fs.createReadStream("MyPresentation.pptx");
-let result = await api.deleteEmbeddedFontOnline(stream, "Arial");
+let result = await api.deleteEmbeddedFontOnline(stream, "Calibri Light");
             
-console.log("Arial has been removed from the embedded fonts.");
+console.log("Calibri Light has been removed from the embedded fonts.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -319,14 +319,14 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
-fontName := "Arial"
+fontName := "Calibri Light"
 _, _, e = api.SlidesApi.DeleteEmbeddedFontOnline(document, fontName, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-fmt.Printf("Arial has been removed from the embedded fonts.")
+fmt.Printf("Calibri Light has been removed from the embedded fonts.")
 ```
 
 {{< /tab >}}
