@@ -1,7 +1,7 @@
 ---
-title: "Working with Shapes on a Special Slide in a PowerPoint Presentation"
+title: "Working with Shapes on a Special Slide"
 type: docs
-url: /working-with-shapes-on-a-special-slide-in-a-powerpoint-presentation/
+url: /working-with-shapes-on-a-special-slide/
 weight: 10
 ---
 
