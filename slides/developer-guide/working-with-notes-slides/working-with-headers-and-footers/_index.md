@@ -1,13 +1,13 @@
 ---
-title: "Working with Headers and Footers"
+title: "Working with Notes Slide Headers and Footers"
 type: docs
-url: /working-with-headers-and-footers/
+url: /working-with-notes-slide-headers-and-footers/
 weight: 50
 ---
 
 ## **Introduction**
 
-When talking about headers and footers within Notes slides, we are referring to the minor elements located at the upper and lower regions of your Notes slides. These elements typically encompass a text header, date, text footer, and slide number. This article shows methods to manage headers and footers within Notes slides.
+When talking about headers and footers within a Notes slide context, we are referring to the minor elements located at the upper and lower regions of your Notes slides. These elements typically encompass a text header, date, text footer, and slide number. This article shows methods to manage headers and footers within Notes slides.
 
 ## **API Information**
 
