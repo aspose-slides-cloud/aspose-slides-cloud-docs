@@ -112,9 +112,9 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var protectionProperties = slidesApi.deleteProtection("MyPresentation.pptx", "MyPassword", null, null);
+        ProtectionProperties protectionProperties = slidesApi.deleteProtection("MyPresentation.pptx", "MyPassword", null, null);
 
         // Check if the presentation has been decrypted.
         System.out.println(protectionProperties.isIsEncrypted());
@@ -329,10 +329,10 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        var resultFile = slidesApi.deleteProtectionOnline(documentData, "MyPassword");
+        byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+        File resultFile = slidesApi.deleteProtectionOnline(documentData, "MyPassword");
 
         System.out.println("The unprotected presentation was saved to " + resultFile.getPath());
     }
