@@ -6,45 +6,57 @@ weight: 50
 ---
 
 ## **Introduction**
-You can get or set animation effects related to a specific paragraph.
 
-### **cURL Example**
+With Aspose.Slides Cloud API, you have the capability to access and manipulate animation effects that are associated with a particular paragraph. For instance, you can retrieve the existing animation settings for a specific paragraph to know how it currently appears in your presentation.
+
+Additionally, you can set or adjust these animation effects. For example, you might want to apply a "Fade In" effect to a specific paragraph to make it smoothly appear during your presentation. By doing so, you are able to customize and enhance the visual impact of your slides, ensuring that your message is conveyed in the most engaging and effective manner possible.
+
+{{% alert color="primary" %}} 
+The following examples use the Aspose.Slides Cloud API described in [Reading Animation Information from a PowerPoint Presentation](https://docs.aspose.cloud/slides/reading-animation-information-from-a-powerpoint-presentation/) and [Updating the Main Sequence of an Animation in a PowerPoint Slide](https://docs.aspose.cloud/slides/updating-the-main-sequence-of-an-animation-in-a-powerpoint-slide/).
+{{% /alert %}} 
+
+## **Examples**
+
+Add the **Blink** animation effect to the **1st** paragraph of the **2nd** shape on the **1st** slide in **MyPresentation.pptx** document. Read information about the animation effect.
+
+**cURL Solution**
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Request Token**
+**Get an Access Token**
 
-```java
-
-curl -X POST "https://api.aspose.cloud/connect/token" -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+```sh
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Add Animation effect to the 1st paragraph of the 2nd shape**
+**Add the Animation Effect**
 
-```java
-
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/mainSequence" -d "@animation.json" -H "Content-Type: text/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjAwMTkxMzEsImV4cCI6MTU2MDEwNTUzMSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.PiLqxtzZkOgEOWLVqJS_kx7lSpBRXloM123sMdCq2flAFv4nkyhXYAHV-3CsDgLCCxKsmfMuB-Ptd1UAOUnTSoe5G7jhF2gdvKhJu1cq7VK7FQko3YSn-z14UAHvrscLrKz0gp3Ikoh1I9m8xkrqMH92dg4yIP95bvIlBRh1HeSvZXKmg-WobbA9tkQFCPzFQwpKo65v4xqg9eXBMkosdi5IvP5XyHqKx2o-5r-64ut9LHv2MGchU72zn3Iz0bL-4luEeNWSKF5Nk-nU82EsxwfVNFzNGaH6J4NrwwRk2HhnOEOEXsuj-pfr1EnMDjvEkoKvY4D6ZZsEoP5lxQr2jw"
-
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/mainSequence" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @ParagraphEffect.json
 ```
 
-**Get Animation effects for the 1st paragraph of the 2nd shape**
-
-```java
-
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation?shapeIndex=2&paragraphIndex=1" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjAwMTkxMzEsImV4cCI6MTU2MDEwNTUzMSwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.PiLqxtzZkOgEOWLVqJS_kx7lSpBRXloM123sMdCq2flAFv4nkyhXYAHV-3CsDgLCCxKsmfMuB-Ptd1UAOUnTSoe5G7jhF2gdvKhJu1cq7VK7FQko3YSn-z14UAHvrscLrKz0gp3Ikoh1I9m8xkrqMH92dg4yIP95bvIlBRh1HeSvZXKmg-WobbA9tkQFCPzFQwpKo65v4xqg9eXBMkosdi5IvP5XyHqKx2o-5r-64ut9LHv2MGchU72zn3Iz0bL-4luEeNWSKF5Nk-nU82EsxwfVNFzNGaH6J4NrwwRk2HhnOEOEXsuj-pfr1EnMDjvEkoKvY4D6ZZsEoP5lxQr2jw"
-
-```
-
-**animation.json example**
+ParagraphEffect.json content:
 
 ```javascript
 {
     "type": "Blink",
-    "shapeIndex": 2
+    "shapeIndex": 2,
     "paragraphIndex": 1
 }
+```
+
+**Get the Animation Effect**
+
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation?shapeIndex=2&paragraphIndex=1" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
@@ -61,12 +73,15 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/a
             "shapeIndex": 2,
             "paragraphIndex": 1,
             "triggerType": "OnClick",
+            "duration": 1.0,
             "triggerDelayTime": 0.0
         }
     ],
+    "interactiveSequences": [],
     "selfUri": {
         "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation",
-        "relation": "self"
+        "relation": "self",
+        "slideIndex": 1
     }
 }
 ```
@@ -74,30 +89,32 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/a
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDKs**
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
-### **SDK Examples**
+
+**SDK Solutions**
+
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
-string fileName = "MyPresentation.pptx";
-int slideIndex = 1;
-int shapeIndex = 2;
-int paragraphIndex = 1;
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Effect dto = new Effect
+var fileName = "MyPresentation.pptx";
+var slideIndex = 1;
+var shapeIndex = 2;
+var paragraphIndex = 1;
+
+var paragraphEffect = new Effect
 {
     Type = Effect.TypeEnum.Blink,
     ShapeIndex = shapeIndex,
     ParagraphIndex = paragraphIndex
 };
-api.CreateAnimationEffect(fileName, slideIndex, dto);
 
-SlideAnimation animation = api.GetAnimation(fileName, slideIndex, shapeIndex, paragraphIndex);
-Console.WriteLine(animation.MainSequence.Count); //1
+slidesApi.CreateAnimationEffect(fileName, slideIndex, paragraphEffect);
+
+SlideAnimation animation = slidesApi.GetAnimation(fileName, slideIndex, shapeIndex, paragraphIndex);
+Console.WriteLine(animation.MainSequence.Count); // 1
 ```
 
 {{< /tab >}}
@@ -105,20 +122,22 @@ Console.WriteLine(animation.MainSequence.Count); //1
 {{< tab tabNum="2" >}}
 
 ```java
-String fileName = "MyPresentation.pptx";
-int slideIndex = 1;
-int shapeIndex = 2;
-int paragraphIndex = 1;
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Effect dto = new Effect();
-dto.setType(Effect.TypeEnum.BLINK);
-dto.setShapeIndex(shapeIndex);
-dto.setParagraphIndex(paragraphIndex);
-api.createAnimationEffect(fileName, slideIndex, dto, null, null, null);
+var fileName = "MyPresentation.pptx";
+var slideIndex = 1;
+var shapeIndex = 2;
+var paragraphIndex = 1;
 
-SlideAnimation animation = api.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex, null, null, null);
-System.out.println(animation.getMainSequence().size()); //1
+var paragraphEffect = new Effect();
+paragraphEffect.setType(Effect.TypeEnum.BLINK);
+paragraphEffect.setShapeIndex(shapeIndex);
+paragraphEffect.setParagraphIndex(paragraphIndex);
+
+slidesApi.createAnimationEffect(fileName, slideIndex, paragraphEffect, null, null, null);
+
+SlideAnimation animation = slidesApi.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex, null, null, null);
+System.out.println(animation.getMainSequence().size()); // 1
 ```
 
 {{< /tab >}}
@@ -134,26 +153,55 @@ use Aspose\Slides\Cloud\Sdk\Model\Effect;
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+
+$slidesApi = new SlidesApi(null, $config);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
 $paragraphIndex = 1;
 
-$dto = new Effect();
-$dto->setType("Blink");
-$dto->setShapeIndex($shapeIndex);
-$dto->setParagraphIndex($paragraphIndex);
-$animation = $api->createAnimationEffect($fileName, $slideIndex, $dto);
+$paragraphEffect = new Effect();
+$paragraphEffect->setType("Blink");
+$paragraphEffect->setShapeIndex($shapeIndex);
+$paragraphEffect->setParagraphIndex($paragraphIndex);
 
-$animation = $api->getAnimation($fileName, $slideIndex, $shapeIndex, $paragraphIndex);
-print(count($animation->getMainSequence())); //1
+$slidesApi->createAnimationEffect($fileName, $slideIndex, $paragraphEffect);
+
+$animation = $slidesApi->getAnimation($fileName, $slideIndex, $shapeIndex, $paragraphIndex);
+print(count($animation->getMainSequence())); // 1
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+
+```ruby
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+paragraph_index = 1
+
+paragraph_effect = Effect.new
+paragraph_effect.type = "Blink"
+paragraph_effect.shape_index = shape_index
+paragraph_effect.paragraph_index = paragraph_index
+
+slides_api.create_animation_effect(file_name, slide_index, paragraph_effect)
+
+animation = slides_api.get_animation(file_name, slide_index, shape_index, paragraph_index)
+print animation.main_sequence.length # 1
+```
 
 {{< /tab >}}
 
@@ -168,23 +216,25 @@ from asposeslidescloud.models.slide_animation import SlideAnimation
 from asposeslidescloud.models.effect import Effect
 
 configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
 paragraph_index = 1
 
-dto = Effect()
-dto.type = "Blink"
-dto.shape_index = shape_index
-dto.paragraph_index = paragraph_index
-animation = api.create_animation_effect(file_name, slide_index, dto)
+paragraph_effect = Effect()
+paragraph_effect.type = "Blink"
+paragraph_effect.shape_index = shape_index
+paragraph_effect.paragraph_index = paragraph_index
 
-animation = api.get_animation(file_name, slide_index, shape_index, paragraph_index)
-print(f"{ len(animation.main_sequence) }") #1
+slides_api.create_animation_effect(file_name, slide_index, paragraph_effect)
+
+animation = slides_api.get_animation(file_name, slide_index, shape_index, paragraph_index)
+print(f"{ len(animation.main_sequence) }") # 1
 ```
 
 {{< /tab >}}
@@ -193,19 +243,22 @@ print(f"{ len(animation.main_sequence) }") #1
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const slidesApi = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 2;
 const paragraphIndex = 1;
-const dto = new CloudSdk.SlideAnimation();
-dto.type = CloudSdk.Effect.TypeEnum.Blink;
-dto.shapeIndex = shapeIndex;
-dto.paragraphIndex = paragraphIndex;
-api.createAnimationEffect(fileName, slideIndex, dto).then(() => {
-    api.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
-        console.log(result.body.mainSequence.length); //1
+
+const paragraphEffect = new CloudSdk.SlideAnimation();
+paragraphEffect.type = CloudSdk.Effect.TypeEnum.Blink;
+paragraphEffect.shapeIndex = shapeIndex;
+paragraphEffect.paragraphIndex = paragraphIndex;
+
+slidesApi.createAnimationEffect(fileName, slideIndex, paragraphEffect).then(() => {
+    slidesApi.getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).then((result) => {
+        console.log(result.body.mainSequence.length); // 1
     });
 });
 ```
@@ -218,19 +271,22 @@ api.createAnimationEffect(fileName, slideIndex, dto).then(() => {
 cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
+
 api := asposeslidescloud.NewAPIClient(cfg)
 
-dto := asposeslidescloud.NewEffect()
-dto.Type_ = "Blink"
-dto.ShapeIndex = 2
-dto.ParagraphIndex = 1
-_, _, e := api.SlidesApi.CreateAnimationEffect("MyPresentation.pptx", 1, dto, "", "", "")
+paragraphEffect := asposeslidescloud.NewEffect()
+paragraphEffect.Type_ = "Blink"
+paragraphEffect.ShapeIndex = 2
+paragraphEffect.ParagraphIndex = 1
+
+_, _, e := api.SlidesApi.CreateAnimationEffect("MyPresentation.pptx", 1, paragraphEffect, "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
 }
 
 var shapeIndex int32 = 2
 var paragraphIndex int32 = 1
+
 animation, _, e := api.SlidesApi.GetAnimation("MyPresentation.pptx", 1, &shapeIndex, &paragraphIndex, "", "MyStorageFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -243,9 +299,65 @@ if e != nil {
 
 {{< tab tabNum="8" >}}
 
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    auto fileName = L"MyPresentation.pptx";
+    auto slideIndex = 1;
+    auto shapeIndex = 2;
+    auto paragraphIndex = 1;
+
+    auto paragraphEffect = std::make_shared<Effect>();
+    paragraphEffect->setType(L"Blink");
+    paragraphEffect->setShapeIndex(shapeIndex);
+    paragraphEffect->setParagraphIndex(paragraphIndex);
+
+    slidesApi->createAnimationEffect(fileName, slideIndex, paragraphEffect);
+
+    auto animation = slidesApi->getAnimation(fileName, slideIndex, shapeIndex, paragraphIndex).get();
+    std::cout << animation->getMainSequence().size(); // 1
+}
+```
+
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::Effect;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+my $paragraph_index = 1;
+
+my $paragraph_effect = AsposeSlidesCloud::Object::Effect->new();
+$paragraph_effect->{type} = "Blink";
+$paragraph_effect->{shape_index} = $shape_index;
+$paragraph_effect->{paragraph_index} = $paragraph_index;
+
+my %effect_params = (name => $file_name, slide_index => $slide_index, effect => $paragraph_effect);
+$slides_api->create_animation_effect(%effect_params);
+
+my %animation_params = (name => $file_name, slide_index => $slide_index, shape_index => $shape_index, paragraph_index => $paragraph_index);
+$animation = $slides_api->get_animation(%animation_params);
+my $effect_count = @{$animation->{main_sequence}};
+print($effect_count); # 1
+```
 
 {{< /tab >}}
 
@@ -255,5 +367,6 @@ if e != nil {
 
 {{< /tabs >}}
 
-### **SDK Source**
-The Aspose Cloud SDK's can be downloaded from the following page: [Available SDK's](/slides/available-sdks/)
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.

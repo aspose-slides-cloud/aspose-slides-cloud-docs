@@ -1,7 +1,7 @@
 ---
-title: "Working with Special Slide Animation in a PowerPoint Presentation"
+title: "Working with Special Slide Animation"
 type: docs
-url: /working-with-special-slide-animation-in-a-powerpoint-presentation/
+url: /working-with-special-slide-animation/
 weight: 40
 ---
 
