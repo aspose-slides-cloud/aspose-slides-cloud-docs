@@ -6,13 +6,13 @@ weight: 50
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud API provides methods to replace an image in a PowerPoint Presentation. Both, storage presentations and presentations uploded as a part of the request are supported. 
+Aspose.Slides Cloud API provides methods to replace an image in a PowerPoint Presentation. Both storage presentations and presentations uploded as a part of the request are supported. 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/replaceImage/{imageIndex}|PUT|Replace image in a PowerPoint Presentation|[ReplaceImage]()|
-|/slides/replaceImage/{imageIndex}|POST|Replace image in a PowerPoint Presentation (without using storage)|[ReplaceImageOnline]()|
+|/slides/{name}/images/{imageIndex}/replace|PUT|Replace image in a PowerPoint Presentation|[ReplaceImage](https://reference.aspose.cloud/slides/#/Images/ReplaceImage)|
+|/slides/images/{imageIndex}/replace|POST|Replace image in a PowerPoint Presentation (without using storage)|[ReplaceImageOnline](https://reference.aspose.cloud/slides/#/Images/ReplaceImageOnline)|
 ### **cURL Example**
 In the example below we assume that the target paresention is stored in a storage. The example shows how to replace an image with index 1.
 
@@ -30,7 +30,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/replaceTest/1" -H "Content-Type: application/json" -H "Authorization: Bearer MyAuthToken" -F "image=@image.png"
+curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/1/replace" -H "Content-Type: application/json" -H "Authorization: Bearer MyAuthToken" -F "image=@image.png"
 
 ```
 
