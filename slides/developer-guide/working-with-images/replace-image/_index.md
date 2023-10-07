@@ -30,7 +30,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 
 ```java
 
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/1/replace" -H "Content-Type: application/json" -H "Authorization: Bearer MyAuthToken" -F "image=@image.png"
+curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/1/replace" -H "Content-Type: application/json" -H "Authorization: Bearer MyAuthToken" -F "image=@MyImage.png"
 
 ```
 
@@ -56,8 +56,8 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-Stream imageFile = File.OpenRead("image.png");
-var result = api.ReplaceImage("MyPresentation.pptx", 1, image);
+Stream imageFile = File.OpenRead("MyImage.png");
+api.ReplaceImage("MyPresentation.pptx", 1, imageFile);
 Console.WriteLine("The image with the index 1 is replaced.");
 ```
 
@@ -67,7 +67,7 @@ Console.WriteLine("The image with the index 1 is replaced.");
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-byte[] imageFile = Files.readAllBytes("image.png");
+byte[] imageFile = Files.readAllBytes("MyImage.png");
 api.replaceImage("MyPresentation.pptx", 1, imageFile, null, null, null);
 System.out.println("The image with the index 1 is replaced.");
 ```
@@ -85,7 +85,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$imageFile = fopen("image.png", 'r');
+$imageFile = fopen("MyImage.png", 'r');
 $api->replaceImage("MyPresentation.pptx", 1, $imageFile);
 print("The image with the index 1 is replaced.");
 ```
@@ -99,7 +99,7 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid =  "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-image = File.binread("image.png")
+image = File.binread("MyImage.png")
 result = api.replace_image("MyPresentation.pptx", 1, image)
 p("The image with the index 1 is replaced.")
 ```
@@ -119,7 +119,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-with open("image.png", 'rb') as f:
+with open("MyImage.png", 'rb') as f:
    image_source = f.read()/wat
 result = api.replace_image("MyPresentation.pptx", 1, image_source)
 print("The image with the index 1 is replaced.")
@@ -133,7 +133,7 @@ print("The image with the index 1 is replaced.")
 const CloudSdk = require("asposeslidescloud");
 const fs = require('fs');
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-var image = fs.createReadStream("image.png");
+var image = fs.createReadStream("MyImage.png");
 api.replaceImage("MyPresentation.pptx", 1, image).then((response) => {
     console.log("The image with the index 1 is replaced.");
 });
@@ -149,7 +149,7 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-image, e := ioutil.ReadFile("watermark.png")
+image, e := ioutil.ReadFile("MyImage.png")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
