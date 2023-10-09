@@ -120,7 +120,7 @@ configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
 with open("MyImage.png", 'rb') as f:
-   image_source = f.read()/wat
+   image_source = f.read()
 result = api.replace_image("MyPresentation.pptx", 1, image_source)
 print("The image with the index 1 is replaced.")
 ```
