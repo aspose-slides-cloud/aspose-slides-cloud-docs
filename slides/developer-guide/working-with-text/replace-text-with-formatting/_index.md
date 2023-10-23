@@ -1,5 +1,5 @@
 ---
-title: "Replace Text With Formatting"
+title: "Replace Text with Formatting"
 type: docs
 url: /replace-text-with-formatting/
 weight: 100
