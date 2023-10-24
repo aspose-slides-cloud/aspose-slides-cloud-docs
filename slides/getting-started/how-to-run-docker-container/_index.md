@@ -1,10 +1,10 @@
 ---
-title: "How to Run a Docker Container"
-second_title: "Aspose.Slides Cloud Docs"
+title: "How to Run Docker Container"
+second_title: "Aspose Slides Cloud Docs"
 type: docs
 url: /getting-started/how-to-run-docker-container/
 aliases: [/how-to-run-docker-container/]
-description: "How to run a Docker container"
+description: "How to run Docker container"
 weight: 100
 ---
 
