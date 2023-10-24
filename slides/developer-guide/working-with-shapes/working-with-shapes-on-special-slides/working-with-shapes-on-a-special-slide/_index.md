@@ -1,5 +1,5 @@
 ---
-title: "Working with Shapes"
+title: "Working with Shapes on a Special Slide"
 type: docs
 url: /working-with-shapes-on-a-special-slide/
 weight: 10

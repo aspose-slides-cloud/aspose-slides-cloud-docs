@@ -1,5 +1,5 @@
 ---
-title: "Working with SmartArt Text"
+title: "Working With SmartArt Text"
 type: docs
 url: /working-with-smart-art-text/
 weight: 40
