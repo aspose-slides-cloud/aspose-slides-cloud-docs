@@ -1,7 +1,7 @@
 ---
-title: "Working with Animation for a Specific Paragraph"
+title: "Paragraph Animation"
 type: docs
-url: /working-with-animation-for-a-specific-paragraph/
+url: /paragraph-animation/
 weight: 50
 ---
 
@@ -12,7 +12,7 @@ With Aspose.Slides Cloud API, you have the capability to access and manipulate a
 Additionally, you can set or adjust these animation effects. For example, you might want to apply a "Fade In" effect to a specific paragraph to make it smoothly appear during your presentation. By doing so, you are able to customize and enhance the visual impact of your slides, ensuring that your message is conveyed in the most engaging and effective manner possible.
 
 {{% alert color="primary" %}} 
-The following examples use the Aspose.Slides Cloud API described in [Reading Animation Information from a PowerPoint Presentation](https://docs.aspose.cloud/slides/reading-animation-information-from-a-powerpoint-presentation/) and [Updating the Main Sequence of an Animation in a PowerPoint Slide](https://docs.aspose.cloud/slides/updating-the-main-sequence-of-an-animation-in-a-powerpoint-slide/).
+The following examples use the Aspose.Slides Cloud API described in [Read Animation Properties](/slides/read-animation-properties/) and [Update a Main Sequence](/slides/update-a-main-sequence/).
 {{% /alert %}} 
 
 ## **Examples**
