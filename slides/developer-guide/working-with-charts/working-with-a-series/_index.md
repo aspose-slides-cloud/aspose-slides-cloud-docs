@@ -1,6 +1,6 @@
 ---
-title: "Working with a Series"
+title: "Working with Series"
 type: docs
-url: /working-with-a-series/
+url: /working-with-series/
 weight: 20
 ---
