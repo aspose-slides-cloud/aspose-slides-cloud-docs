@@ -23,7 +23,7 @@ The following request methods allow you to easily extract a particular slide fro
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The file name of a presentation saved to a storage.|
 |slideIndex|integer|path|true|The 1-based index of the slide to be downloaded.|
-|format|string|path|true|The output format for the slide. See [the table](/slides/split-powerpoint-presentations/#available-formats-for-output-files) for available formats.|
+|format|string|path|true|The output format for the slide. See [the table](/slides/split-presentations/#available-formats-for-output-files) for available formats.|
 |options|body|object|false|The export options depending on the output format. See [conversion options](/slides/conversion-options/) for the available formats.|
 |width|integer|query|false|The width of the slide in output format units. The default value is 0 (used the original width).|
 |height|integer|query|false|The height of the slide in output format units. The default value is 0 (used the original height).|
@@ -384,7 +384,7 @@ write_file("slide_3.tiff", {binmode => ":raw"}, $tiff_data);
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The file name of a presentation saved to a storage.|
 |slideIndex|integer|path|true|The 1-based index of the slide to be extracted from the presentation.|
-|format|string|path|true|The output format for the slide. See [the table](/slides/split-powerpoint-presentations/#available-formats-for-output-files) for available formats.|
+|format|string|path|true|The output format for the slide. See [the table](/slides/split-presentations/#available-formats-for-output-files) for available formats.|
 |options|body|object|false|The export options depending on the output format. See [conversion options](/slides/conversion-options/) for the available formats.|
 |outPath|string|query|true|The output path for a slide file.|
 |width|integer|query|false|The width of the slide in output format units. The default value is 0 (used the original width).|
@@ -709,7 +709,7 @@ $slides_api->save_slide(%params);
 | :- | :- | :- | :- | :- |
 |document|file|formData|true|The presentation file data.|
 |slideIndex|integer|path|true|The 1-based index of the slide to be downloaded.|
-|format|string|path|true|The output format for the slide. See [the table](/slides/split-powerpoint-presentations/#available-formats-for-output-files) for available formats.|
+|format|string|path|true|The output format for the slide. See [the table](/slides/split-presentations/#available-formats-for-output-files) for available formats.|
 |width|integer|query|false|The width of the slide in output format units. The default value is 0 (used the original width).|
 |height|integer|query|false|The height of the slide in output format units. The default value is 0 (used the original height).|
 |password|string|header|false|The password to open the presentation.|
@@ -1093,7 +1093,7 @@ write_file("slide_5.pdf", {binmode => ":raw"}, $pdf_data);
 | :- | :- | :- | :- | :- |
 |document|file|formData|true|The presentation file data.|
 |slideIndex|integer|path|true|The 1-based index of the slide to be extracted from the presentation.|
-|format|string|path|true|The output format for the slide. See [the table](/slides/split-powerpoint-presentations/#available-formats-for-output-files) for available formats.|
+|format|string|path|true|The output format for the slide. See [the table](/slides/split-presentations/#available-formats-for-output-files) for available formats.|
 |outPath|string|query|true|The output path for a slide file.|
 |width|integer|query|false|The width of the slide in output format units. The default value is 0 (used the original width).|
 |height|integer|query|false|The height of the slide in output format units. The default value is 0 (used the original height).|
