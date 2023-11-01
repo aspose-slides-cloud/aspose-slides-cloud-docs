@@ -1,7 +1,7 @@
 ---
-title: "Working with Special Slide Animation"
+title: "Animation on a Special Slide"
 type: docs
-url: /working-with-special-slide-animation/
+url: /animation-on-a-special-slide/
 weight: 40
 ---
 
