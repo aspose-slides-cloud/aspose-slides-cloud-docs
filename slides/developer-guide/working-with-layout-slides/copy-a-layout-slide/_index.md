@@ -1,7 +1,7 @@
 ---
-title: "Copy Layout Slide from a PowerPoint Presentation"
+title: "Copy a Layout Slide"
 type: docs
-url: /copy-layout-slide-from-a-powerpoint-presentation/
+url: /copy-a-layout-slide/
 weight: 30
 ---
 

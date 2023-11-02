@@ -1,7 +1,7 @@
 ---
-title: "Extract Notes Slide from a PowerPoint Presentation"
+title: "Extract a Notes Slide"
 type: docs
-url: /extract-notes-slide-from-a-powerpoint-presentation/
+url: /extract-a-notes-slide/
 weight: 30
 ---
 

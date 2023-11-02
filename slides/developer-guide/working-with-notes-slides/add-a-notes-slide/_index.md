@@ -1,21 +1,21 @@
 ---
-title: "Update Notes in a PowerPoint Presentation"
+title: "Add a Notes Slide"
 type: docs
-url: /update-notes-in-a-powerpoint-presentation/
-weight: 25
+url: /add-a-notes-slide/
+weight: 20
 ---
 
 ## **Introduction**
 
-With Aspose.Slides Cloud, you can update speaker notes in a PowerPoint presentation. You can prepare new information for the notes and use the following API method to update them for a slide.
+The following API method allows you to add speaker notes to a PowerPoint presentation. The notes will appear in Notes pane below a slide.
 
-## **UpdateNotesSlide**
+## **CreateNotesSlide**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/notesSlide|PUT|Updates notes for a presentation slide.|[UpdateNotesSlide](https://apireference.aspose.cloud/slides/#/NotesSlide/UpdateNotesSlide)|
+|/slides/{name}/slides/{slideIndex}/notesSlide|POST|Adds notes to a presentation slide.|[CreateNotesSlide](https://apireference.aspose.cloud/slides/#/NotesSlide/CreateNotesSlide)|
 
 **Request Parameters**
 
@@ -32,7 +32,7 @@ With Aspose.Slides Cloud, you can update speaker notes in a PowerPoint presentat
 
 ### **Examples**
 
-Update notes with the text "Tell about our company." for the **second** slide in the document **MyFolder/MyPresentation.pptx** saved to the default storage.
+Add notes with the text "Start with our company." to the **second** slide in the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -48,10 +48,10 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Update Notes for the Slide**
+**Add Notes to the Slide**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/notesSlide?folder=MyFolder" \
+curl POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/notesSlide?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @SlideNotes.json
@@ -61,7 +61,7 @@ SlideNotes.json content:
 
 ```json
 {
-    "Text": "Tell about our company."
+    "Text": "Start with our company."
 }
 ```
 
@@ -73,7 +73,7 @@ SlideNotes.json content:
 
 ```json
 {
-    "text": "Tell about our company.",
+    "text": "Start with our company.",
     "shapes": {
         "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/notesSlide/shapes?folder=MyFolder",
         "relation": "self",
@@ -113,11 +113,11 @@ class Application
         // Prepare notes for the slide.
         var notesSlide = new NotesSlide
         {
-            Text = "Tell about our company."
+            Text = "Start with our company."
         };
 
-        // Update the notes for the first slide.
-        var currentNotesSlide = slidesApi.UpdateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder");
+        // Create the notes for the second slide.
+        var currentNotesSlide = slidesApi.CreateNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder");
 
         // Print the resource reference for the notes slide.
         Console.WriteLine(currentNotesSlide.SelfUri.Href);
@@ -142,10 +142,10 @@ public class Application {
 
         // Prepare notes for the slide.
         NotesSlide notesSlide = new NotesSlide();
-        notesSlide.setText("Tell about our company.");
+        notesSlide.setText("Start with our company.");
 
-        // Update the notes for the first slide.
-        NotesSlide currentNotesSlide = slidesApi.updateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder", null);
+        // Create the notes for the second slide.
+        NotesSlide currentNotesSlide = slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder", null);
 
         // Print the resource reference for the notes slide.
         System.out.println(currentNotesSlide.getSelfUri().getHref());
@@ -172,10 +172,10 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 // Prepare notes for the slide.
 $notesSlide = new NotesSlide();
-$notesSlide->setText("Tell about our company.");
+$notesSlide->setText("Start with our company.");
 
-// Update the notes for the first slide.
-$currentNotesSlide = $slidesApi->updateNotesSlide("MyPresentation.pptx", 1, $notesSlide, null, "MyFolder");
+// Create the notes for the second slide.
+$currentNotesSlide = $slidesApi->createNotesSlide("MyPresentation.pptx", 2, $notesSlide, null, "MyFolder");
 
 // Print the resource reference for the notes slide.
 echo $currentNotesSlide->getSelfUri()->getHref();
@@ -192,18 +192,18 @@ require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
 
-configuration = Configuration.new
+configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
-slides_api = SlidesApi.new(configuration)
+slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Prepare notes for the slide.
-notes_slide = NotesSlide.new
-notes_slide.text = "Tell about our company."
+notes_slide = AsposeSlidesCloud::NotesSlide.new
+notes_slide.text = "Start with our company."
 
-# Update the notes for the first slide.
-current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 1, notes_slide, nil, "MyFolder")
+# Create the notes for the second slide.
+current_notes_slide = slides_api.create_notes_slide("MyPresentation.pptx", 2, notes_slide, nil, "MyFolder")
 
 # Print the resource reference for the notes slide.
 print current_notes_slide.self_uri.href
@@ -225,10 +225,10 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Prepare notes for the slide.
 notes_slide = NotesSlide()
-notes_slide.text = "Tell about our company."
+notes_slide.text = "Start with our company."
 
-# Update the notes for the first slide.
-current_notes_slide = slides_api.update_notes_slide("MyPresentation.pptx", 1, notes_slide, None, "MyFolder")
+# Create the notes for the second slide.
+current_notes_slide = slides_api.create_notes_slide("MyPresentation.pptx", 2, notes_slide, None, "MyFolder")
 
 # Print the resource reference for the notes slide.
 print(current_notes_slide.self_uri.href)
@@ -247,10 +247,10 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
 // Prepare notes for the slide.
 const notesSlide = new cloud.NotesSlide()
-notesSlide.text = "Tell about our company."
+notesSlide.text = "Start with our company."
 
-// Update the notes for the first slide.
-slidesApi.updateNotesSlide("MyPresentation.pptx", 1, notesSlide, null, "MyFolder").then((currentNotesSlide) => {
+// Create the notes for the second slide.
+slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder").then((currentNotesSlide) => {
     // Print the resource reference for the notes slide.
     console.log(currentNotesSlide.body.selfUri.href)
 })
@@ -273,10 +273,10 @@ int main()
 
     // Prepare notes for the slide.
     auto notesSlide = std::make_shared<NotesSlide>();
-    notesSlide->setText(L"Tell about our company.");
+    notesSlide->setText(L"Start with our company.");
 
-    // Update the notes for the first slide.
-    auto currentNotesSlide = slidesApi->updateNotesSlide(L"MyPresentation.pptx", 1, notesSlide, L"", L"MyFolder").get();
+    // Create the notes for the second slide.
+    auto currentNotesSlide = slidesApi->createNotesSlide(L"MyPresentation.pptx", 2, notesSlide, L"", L"MyFolder").get();
 
     // Print the resource reference for the notes slide.
     std::wcout << currentNotesSlide->getSelfUri()->getHref();
@@ -304,11 +304,11 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Prepare notes for the slide.
 my $notes_slide = AsposeSlidesCloud::Object::NotesSlide->new();
-$notes_slide->{text} = "Tell about our company.";
+$notes_slide->{text} = "Start with our company.";
 
-# Update the notes for the first slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, dto => $notes_slide, folder => "MyFolder");
-my $current_notes_slide = $slides_api->update_notes_slide(%parameters);
+# Create the notes for the second slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 2, dto => $notes_slide, folder => "MyFolder");
+my $current_notes_slide = $slides_api->create_notes_slide(%parameters);
 
 # Print the resource reference for the notes slide.
 print $current_notes_slide->{self_uri}->{href};
