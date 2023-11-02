@@ -1,5 +1,5 @@
 ---
-title: "Complex types"
+title: "Complex Types"
 type: docs
 url: /complex-types/
 weight: 100
