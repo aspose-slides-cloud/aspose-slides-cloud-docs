@@ -1,27 +1,28 @@
 ---
-title: "Read Information of Layout Slides from a PowerPoint Presentation"
+title: "Read Information about a Master Slide"
 type: docs
-url: /read-information-of-layout-slides-from-a-powerpoint-presentation/
-weight: 10
+url: /read-information-about-a-master-slide/
+weight: 20
 ---
 
 ## **Introduction**
 
-Slide layouts contain formatting, positioning, and placeholder boxes for all of the content that appears on a slide. The following method allows you to read information of all layout slides from a PowerPoint presentation.
+Aspose.Slides Cloud API allows you to read information of a master slide from a PowerPoint presentation. With the following method, you can read the slide name, layout slides of the master slide, depending slides, etc.
 
-## **GetLayoutSlides**
+## **GetMasterSlide**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/layoutSlides|GET|Reads information of layout slides from a presentation.|[GetLayoutSlides](https://apireference.aspose.cloud/slides/#/LayoutSlides/GetLayoutSlides)|
+|/slides/{name}/masterSlides/{slideIndex}|GET|Reads information of a master slide from a presentation.|[GetMasterSlide](https://apireference.aspose.cloud/slides/#/MasterSlides/GetMasterSlide)|
 
 **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of the master slide.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -30,7 +31,7 @@ Slide layouts contain formatting, positioning, and placeholder boxes for all of 
 
 ### **Examples**
 
-Read titles of layout slides from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
+Read the name of the **second** master slide and titles of the layout slides depending on the master slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -41,15 +42,15 @@ Read titles of layout slides from the document **MyFolder/MyPresentation.pptx** 
 **Get an Access Token**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/connect/token" \
+curl POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Read Information of Layout Slides**
+**Read Information of the Master Slide**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides?folder=MyFolder" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/masterSlides/2?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -61,25 +62,27 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlid
 
 ```json
 {
-    "slideList": [
+    "name": "Custom Design",
+    "layoutSlides": [
         {
-            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1?folder=MyFolder",
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/2?folder=MyFolder",
             "relation": "self",
             "title": "Title Slide, Type: Title"
         },
         {
-            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/2?folder=MyFolder",
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/3?folder=MyFolder",
             "relation": "self",
             "title": "Title and Content, Type: TitleAndObject"
         },
         {
-            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/3?folder=MyFolder",
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/4?folder=MyFolder",
             "relation": "self",
             "title": "Section Header, Type: SectionHeader"
         }
     ],
+    "dependingSlides": [],
     "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides?folder=MyFolder",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/masterSlides/2?folder=MyFolder",
         "relation": "self"
     }
 }
@@ -103,17 +106,19 @@ using System;
 
 class Application
 {
-    static void Main(string[] args)
+    static void Main()
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-        var layoutSlides = slidesApi.GetLayoutSlides("MyPresentation.pptx", null, "MyFolder");
+        // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+        var masterSlide = slidesApi.GetMasterSlide("MyPresentation.pptx", 1, null, "MyFolder");
 
-        // Print titles of the layout slides.
-        foreach (var slide in layoutSlides.SlideList)
+        Console.WriteLine($"Master slide name: {masterSlide.Name}");
+
+        Console.WriteLine("\r\nTitles of the layout slides:");
+        foreach (var layoutSlide in masterSlide.LayoutSlides)
         {
-            Console.WriteLine(slide.Title);
+            Console.WriteLine($"\t{layoutSlide.Title}");
         }
     }
 }
@@ -133,12 +138,14 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-        LayoutSlides layoutSlides = slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder", null);
+        // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+        MasterSlide masterSlide = slidesApi.getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder", null);
 
-        // Print titles of the layout slides.
-        for (ResourceUri slide : layoutSlides.getSlideList()) {
-            System.out.println(slide.getTitle());
+        System.out.println("Master slide name: " + masterSlide.getName());
+
+        System.out.println("\r\nTitles of the layout slides:");
+        for (ResourceUri layoutSlide : masterSlide.getLayoutSlides()) {
+            System.out.println("\t" + layoutSlide.getTitle());
         }
     }
 }
@@ -160,12 +167,14 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-$layoutSlides = $slidesApi->getLayoutSlides("MyPresentation.pptx", null, "MyFolder");
+// Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+$masterSlide = $slidesApi->getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder");
 
-// Print titles of the layout slides.
-foreach ($layoutSlides->getSlideList() as $slide) {
-    echo $slide->getTitle(), PHP_EOL;
+echo "Master slide name: ", $masterSlide->getName(), PHP_EOL;
+
+echo PHP_EOL, "Titles of the layout slides:", PHP_EOL;
+foreach ($masterSlide->getLayoutSlides() as $layoutSlide) {
+    echo "\t", $layoutSlide->getTitle(), PHP_EOL;
 }
 ```
 
@@ -186,12 +195,14 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-layout_slides = slides_api.get_layout_slides("MyPresentation.pptx", nil, "MyFolder")
+# Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+master_slide = slides_api.get_master_slide("MyPresentation.pptx", 1, nil, "MyFolder")
 
-# Print titles of the layout slides.
-for slide in layout_slides.slide_list
-    puts slide.title
+puts "Master slide name: #{master_slide.name}"
+
+puts "\nTitles of the layout slides:"
+for layout_slide in master_slide.layout_slides
+    puts "\t #{layout_slide.title}"
 end
 ```
 
@@ -208,12 +219,14 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-layout_slides = slides_api.get_layout_slides("MyPresentation.pptx", None, "MyFolder")
+# Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+master_slide = slides_api.get_master_slide("MyPresentation.pptx", 1, None, "MyFolder")
 
-# Print titles of the layout slides.
-for slide in layout_slides.slide_list:
-    print(slide.title)
+print(f"Master slide name: {master_slide.name}\n")
+
+print("Titles of the layout slides:")
+for layout_slide in master_slide.layout_slides:
+    print(f"\t {layout_slide.title}")
 ```
 
 {{< /tab >}}
@@ -227,13 +240,15 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder").then((layoutSlides) => {
-    // Print titles of the layout slides.
-    layoutSlides.body.slideList.forEach(slide =>
-        console.log(slide.title)
-    )
-})
+// Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+slidesApi.getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder").then(masterSlide => {
+    console.log("Master slide name: ", masterSlide.body.name);
+
+    console.log("\nTitles of the layout slides:");
+    masterSlide.body.layoutSlides.forEach(layoutSlide => {
+        console.log("\t", layoutSlide.title);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -251,12 +266,14 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-    auto layoutSlides = slidesApi->getLayoutSlides(L"MyPresentation.pptx", L"", L"MyFolder").get();
+    // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
+    auto masterSlide = slidesApi->getMasterSlide(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
 
-    // Print titles of the layout slides.
-    for (auto slide : layoutSlides->getSlideList()) {
-        std::wcout << slide->getTitle() << std::endl;
+    std::wcout << "Master slide name: " << masterSlide->getName() << std::endl;
+
+    std::wcout << std::endl << "Titles of the layout slides:" << std::endl;
+    for (auto layoutSlide : masterSlide->getLayoutSlides()) {
+        std::wcout << "\t" << layoutSlide->getTitle() << std::endl;
     }
 
     return 0;
@@ -279,13 +296,15 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-my %parameters = (name => "MyPresentation.pptx", folder => "MyFolder");
-my $layout_slides = $slides_api->get_layout_slides(%parameters);
+# Read information of the second master slide from the document MyFolder/MyPresentation.pptx.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
+my $master_slide = $slides_api->get_master_slide(%parameters);
 
-# Print titles of the layout slides.
-for my $slide (@{$layout_slides->{slide_list}}) {
-    print($slide->{title}, "\n");
+print("Master slide name: $master_slide->{name}\n");
+
+print("\nTitles of the layout slides:\n");
+for my $layout_slide (@{$master_slide->{layout_slides}}) {
+    print("\t$layout_slide->{title}\n");
 }
 ```
 

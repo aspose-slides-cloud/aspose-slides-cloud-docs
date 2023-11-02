@@ -1,7 +1,7 @@
 ---
-title: "Copy Master Slide from a PowerPoint Presentation"
+title: "Copy a Master Slide"
 type: docs
-url: /copy-master-slide-from-a-powerpoint-presentation/
+url: /copy-a-master-slide/
 weight: 30
 ---
 

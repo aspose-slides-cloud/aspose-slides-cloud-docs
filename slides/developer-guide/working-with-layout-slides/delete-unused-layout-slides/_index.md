@@ -1,7 +1,7 @@
 ---
-title: "Deleting Unused LayoutSlides"
+title: "Delete Unused Layout Slides"
 type: docs
-url: /deleting-unused-layoutslides/
+url: /delete-unused-layout-slides/
 weight: 40
 ---
 

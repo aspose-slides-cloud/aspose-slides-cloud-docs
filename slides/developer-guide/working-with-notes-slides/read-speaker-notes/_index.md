@@ -1,7 +1,7 @@
 ---
-title: "Read Notes from a PowerPoint Presentation"
+title: "Read Speaker Notes"
 type: docs
-url: /read-notes-from-a-powerpoint-presentation/
+url: /read-speaker-notes/
 weight: 10
 ---
 
