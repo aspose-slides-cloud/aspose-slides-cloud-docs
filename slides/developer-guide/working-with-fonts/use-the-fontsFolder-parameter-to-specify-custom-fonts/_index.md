@@ -1,7 +1,7 @@
 ---
-title: "Using fontsFolder Parameter to specify custom fonts"
+title: "Use the fontsFolder Parameter to Specify Custom Fonts"
 type: docs
-url: /using-fontsFolder-parameter-to-specify-custom-fonts/
+url: /use-the-fontsFolder-parameter-to-specify-custom-fonts/
 weight: 10
 ---
 
