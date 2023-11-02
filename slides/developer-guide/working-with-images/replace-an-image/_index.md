@@ -1,7 +1,7 @@
 ---
-title: "Replace Image"
+title: "Replace an Image"
 type: docs
-url: /replace-image/
+url: /replace-an-image/
 weight: 50
 ---
 
