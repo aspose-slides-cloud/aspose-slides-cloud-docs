@@ -1,7 +1,7 @@
 ---
-title: "Deleting Properties from a PowerPoint Presentation"
+title: "Delete Document Properties"
 type: docs
-url: /deleting-properties-from-a-powerpoint-presentation/
+url: /delete-document-properties/
 weight: 40
 ---
 

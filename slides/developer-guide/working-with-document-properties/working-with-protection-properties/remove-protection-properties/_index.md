@@ -1,7 +1,7 @@
 ---
-title: "Removing Protection Properties"
+title: "Remove Protection Properties"
 type: docs
-url: /removing-protection-properties/
+url: /remove-protection-properties/
 weight: 30
 ---
 

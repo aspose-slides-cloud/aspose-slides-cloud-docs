@@ -1,7 +1,7 @@
 ---
-title: "Reading Protection Properties"
+title: "Read Protection Properties"
 type: docs
-url: /reading-protection-properties/
+url: /read-protection-properties/
 weight: 10
 ---
 

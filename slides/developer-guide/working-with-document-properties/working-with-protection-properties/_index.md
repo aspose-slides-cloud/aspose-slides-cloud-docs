@@ -18,6 +18,6 @@ Aspose.Slides Cloud SDK allows you to work with the following protection propert
 |ReadPassword|string|The password for read protection.|
 |WritePassword|string|The password for write protection.|
 
-- [Reading Protection Properties](/slides/reading-protection-properties/)
-- [Setting Protection Properties](/slides/setting-protection-properties/)
-- [Removing Protection Properties](/slides/removing-protection-properties/)
+- [Read Protection Properties](/slides/read-protection-properties/)
+- [Set Protection Properties](/slides/set-protection-properties/)
+- [Remove Protection Properties](/slides/remove-protection-properties/)
