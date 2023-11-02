@@ -1,7 +1,7 @@
 ---
-title: "Get the Number of Slides from a PowerPoint Presentation"
+title: "Get the Number of Slides"
 type: docs
-url: /get-the-number-of-slides-from-a-powerpoint-presentation/
+url: /get-the-number-of-slides/
 weight: 90
 ---
 

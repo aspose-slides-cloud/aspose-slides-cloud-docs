@@ -1,7 +1,7 @@
 ---
-title: "Working with a Slide Background in a PowerPoint Presentation"
+title: "Working with a Slide Background"
 type: docs
-url: /working-with-a-slide-background-in-a-powerpoint-presentation/
+url: /working-with-a-slide-background/
 weight: 70
 ---
 
