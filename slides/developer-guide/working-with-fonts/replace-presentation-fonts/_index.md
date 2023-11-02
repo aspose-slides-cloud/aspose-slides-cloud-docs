@@ -1,41 +1,34 @@
 ---
-title: "Compressing Embedded Fonts"
+title: "Replace Presentation Fonts"
 type: docs
-url: /compressing-embedded-fonts/
-weight: 50
+url: /replace-presentation-fonts/
+weight: 60
 ---
 ## **Introduction**
+Aspose.Slides Cloud API allows replacing a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body. Optionaly the new font can be embedded.
 
-Aspose.Slides Cloud API allows compressing embedded fonts by removing unused characters. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
-
-## **CompressEmbeddedFonts**
-
+## **ReplaceFont**
 ### **API Information**
-
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/fonts/embedded/compress|POST| Compresses embedded fonts in a presentation.|[CompressEmbeddedFonts](https://apireference.aspose.cloud/slides/#/Fonts/CompressEmbeddedFonts)|
+/slides/{name}/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation fonts info.|[ReplaceFont](https://apireference.aspose.cloud/slides/#/Fonts/ReplaceFont)|
 
 ### **Examples**
-
 **cURL Example**
 
-The code examples below show how to compress embedded fonts for a presentation in the storage.
+The code examples below show how to replace a font in the presentation in the storage.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
 **Create Authentication Headers**
-
 ```sh
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Compress embedded fonts**
-
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/compress" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/Calibri/replace/Times%20New%20Roman?embed=true" -H "Authorization: Bearer [Access Token]"
 ```
 
 {{< /tab >}}
@@ -45,6 +38,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/emb
 ```sh
 
 Code: 200
+Returns presentation fonts info.
 
 ```
 {{< /tab >}}
@@ -58,7 +52,10 @@ Code: 200
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.CompressEmbeddedFonts("MyPresentation.pptx");
+
+FontsData response = api.ReplaceFont("MyPresentation.pptx", "Calibri", "Times New Roman",  true);
+
+Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -66,7 +63,10 @@ api.CompressEmbeddedFonts("MyPresentation.pptx");
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.compressEmbeddedFonts("MyPresentation.pptx", null, null, null);
+
+FontsData response = api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true, null, null, null, null);
+
+System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -75,13 +75,16 @@ api.compressEmbeddedFonts("MyPresentation.pptx", null, null, null);
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\FontsData;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$api->compressEmbeddedFonts("MyPresentation.pptx");
+$result = $api->replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true);
+
+print("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -92,8 +95,8 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-
-api.compress_embedded_fonts('MyPresentation.pptx')
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", true)
+print "Font Calibri has been replaced with Times New Roman."
 ```
 
 {{< /tab >}}
@@ -110,7 +113,9 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-api.compress_embedded_fonts("MyPresentation.pptx")
+response = api.replace_font("MyPresentation.pptx", "Calibri", "Times New Roman", True)
+
+print("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
@@ -120,7 +125,9 @@ api.compress_embedded_fonts("MyPresentation.pptx")
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-await api.compressEmbeddedFonts("MyPresentation.pptx");
+let result = await api.replaceFont("MyPresentation.pptx", "Calibri", "Times New Roman", true);
+            
+console.log("Font Calibri has been replaced with Times New Roman.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -132,24 +139,20 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-_, e := api.SlidesApi.CompressEmbeddedFonts(fileName, "", "", "")
+fontName := "Calibri"
+targetFontName := "Times New Roman"
+var embed bool = true
+_, _, e := api.SlidesApi.ReplaceFont(fileName, fontName, targetFontName, &embed, "", "", "", "")
 if e != nil {
-    fmt.Printf("Error: %v.", e)
+    fmt.Errorf("Error: %v.", e)
     return
 }
+
+fmt.Printf("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
 {{< tab tabNum="8" >}}
-
-```cpp
-std::shared_ptr<ApiConfiguration> configuration = std::make_shared<ApiConfiguration>();
-configuration->setAppSid(L"MyClientId");
-configuration->setAppKey(L"MyClientSecret");
-std::shared_ptr<SlidesApi> api = std::make_shared<SlidesApi>(configuration);
-
-api->compressEmbeddedFonts("MyPresentation.pptx").get();
-```
 
 {{< /tab >}}
 
@@ -165,84 +168,71 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = (name => "MyPresentation.pptx");
-$api->compress_embedded_fonts(%params);
+#Code example will be added soon.
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
 
-```swift
-AsposeSlidesCloudAPI.appSid = "MyClientId"
-AsposeSlidesCloudAPI.appKey = "MyClientSecret"
-SlidesAPI.deleteUnusedMasterSlides("MyPresentation.pptx") { (error) -> Void in
-    if error != nil {
-        print("Error: \(error!)")
-    }
-}
-```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **CompressEmbeddedFontsOnline**
+
+## **ReplaceFontOnline**
 
 ### **API Information**
-
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/fonts/embedded/compress|POST| Compresses embedded fonts in a presentation.|[CompressEmbeddedFontsOnline](https://apireference.aspose.cloud/slides/#/Fonts/CompressEmbeddedFontsOnline)|
+/slides/fonts/fonts/{sourceFont}/replace/{targetFont}|POST|Replaces specified font and returns presentation.|[ReplaceFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/ReplaceFontOnline)|
 
 ### **Examples**
-
 **cURL Example**
 
-The code examples below show how to compress embedded fonts for a presentation in request body.
+The code examples below show how to replace a font in the presentation in the request body.
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
 **Create Authentication Headers**
-
 ```sh
 curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
 ```
 
-**Compress embedded fonts**
-
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/compress" -H "Authorization: Bearer [Access Token]" -F "file=@MyData/MyPresentation.pptx"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/Calibri/replace/Times%20New%20Roman?embed=true" \
+-H "Authorization: Bearer [Access Token]" \
+-F "file=@MyPresentation.pptx"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
+
 ```sh
 
-Code: 200
-Returns the updated presentation.
+Document with embedded font.
 
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
+
 **SDK Examples**
 
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+Stream file = File.OpenRead("MyPresentation.pptx");
+Stream response = api.ReplaceFontOnline(file, "Calibri", "Times New Roman",  true);
 
-using Stream input = File.OpenRead("MyPresentation.pptx");
-using Stream output = api.CompressEmbeddedFontsOnline(input);
-using Stream outputFile = File.Create("output.pptx");
-output.CopyTo(outputFile);
+Console.WriteLine("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -250,10 +240,10 @@ output.CopyTo(outputFile);
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.compressEmbeddedFontsOnline(file, null);
-System.out.println("The compressed file has been saved to " + response.getPath());
+File response = api.replaceFontOnline(file, "Calibri", "Times New Roman", true, null, null);
+
+System.out.println("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -268,10 +258,10 @@ $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
-
 $file = fopen("MyPresentation.pptx", 'r');
-$response = $api->compressEmbeddedFontsOnline($file);
-print("The compressed file has been saved to " . $response->getPathname());
+$result = $api->replaceFontOnline($file, "Calibri", "Times New Roman", true);
+
+print("Font Calibri has been replaced with Times New Roman.");
 ```
 
 {{< /tab >}}
@@ -282,10 +272,9 @@ configuration = AsposeSlidesCloud::Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
-
-input_data = File.binread("MyPresentation.pptx")
-output_data = api.compress_embedded_fonts_online(input_data)
-File.binwrite("output.pptx", output_data)
+source = File.binread("MyPresentation.pptx") 
+response = api.replace_font_online(source, "Calibri", "Times New Roman", true)
+print "Font Calibri has been replaced with Times New Roman."
 ```
 
 {{< /tab >}}
@@ -304,9 +293,9 @@ api = SlidesApi(configuration)
 
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
+response = api.replace_font_online(source, "Calibri", "Times New Roman", True)
 
-output_path = api.compress_embedded_fonts_online(source)
-print("The output file has been saved to " + output_path)
+print("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
@@ -314,14 +303,13 @@ print("The output file has been saved to " + output_path)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const input = fs.createReadStream("MyPresentation.pptx");
-let response = await api.compressEmbeddedFontsOnline(input);
-fs.writeFile("output.pptx", response.body, (error) => {
-    if (error) throw error;
-});
+const stream = fs.createReadStream("MyPresentation.pptx");
+let result = await api.replaceFontOnline(stream, "Calibri", "Times New Roman", true);
+            
+console.log("Font Calibri has been replaced with Times New Roman.");
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}
@@ -332,32 +320,22 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
+fontName := "Calibri"
+targetFontName := "Times New Roman"
+var embed bool = true
+
 document, e := ioutil.ReadFile("MyPresentation.pptx")
+_, _, e = api.SlidesApi.ReplaceFontOnline(document, fontName, targetFontName, &embed, "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
-response, _, e := api.SlidesApi.CompressEmbeddedFontsOnline(document, "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
-}
-fmt.Printf("The output file was saved to  %v.", response.Name())
+
+fmt.Printf("Font Calibri has been replaced with Times New Roman.")
 ```
 
 {{< /tab >}}
 {{< tab tabNum="8" >}}
-
-```cpp
-std::shared_ptr<ApiConfiguration> configuration = std::make_shared<ApiConfiguration>();
-configuration->setAppSid(L"MyClientId");
-configuration->setAppKey(L"MyClientSecret");
-std::shared_ptr<SlidesApi> api = std::make_shared<SlidesApi>(configuration);
-
-std::make_shared<std::ifstream> file = std::make_shared<std::ifstream>("MyPresentation.pptx", std::ios::binary);
-std::ofstream fs("output.pptx", std::ios::binary);
-api->compressEmbeddedFontsOnline(file, format).get().writeTo(fs);
-```
 
 {{< /tab >}}
 
@@ -373,48 +351,12 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my $input_file = read_file("MyPresentation.pptx", { binmode => ':raw' });
-my %params = ('document' => $input_file);
-my $result = $api->compress_embedded_fonts_online(%params);
-my $output_name = "output.pptx";
-open my $fh, '>', $output_name;
-binmode $fh;
-print $fh $result;
-close $fh;
+#Code example will be added soon.
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
-
-```swift
-import Foundation
-import AsposeSlidesCloud
-
-let dispatchGroup = DispatchGroup()
-
-AsposeSlidesCloudAPI.appSid = "MyClientId"
-AsposeSlidesCloudAPI.appKey = "MyClientSecret"
-
-dispatchGroup.enter()
-let input = FileManager.default.contents(atPath: "MyPresentation.pptx")!
-SlidesAPI.compressEmbeddedFontsOnline(input) { (response, e) -> Void in
-    do {
-        let url = URL(fileURLWithPath: "output.pptx")
-        try (response as! Data).write(to: url)
-    } catch {
-        print("Error saving file: \(error).")
-    }
-    if (e != nil) {
-        print("An error occured: \(e).")
-    }
-    dispatchGroup.leave()
-}
-dispatchGroup.notify(queue: DispatchQueue.main) {
-    exit(EXIT_SUCCESS)
-}
-dispatchMain()
-```
 
 {{< /tab >}}
 
