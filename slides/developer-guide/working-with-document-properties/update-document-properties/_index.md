@@ -1,7 +1,7 @@
 ---
-title: "Updating a Document Property in a PowerPoint Presentation"
+title: "Update Document Properties"
 type: docs
-url: /updating-a-document-property-in-a-powerpoint-presentation/
+url: /update-document-properties/
 weight: 30
 ---
 

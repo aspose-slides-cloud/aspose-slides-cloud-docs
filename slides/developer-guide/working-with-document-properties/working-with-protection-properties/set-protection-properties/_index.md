@@ -1,7 +1,7 @@
 ---
-title: "Setting Protection Properties"
+title: "Set Protection Properties"
 type: docs
-url: /setting-protection-properties/
+url: /set-protection-properties/
 weight: 20
 ---
 
