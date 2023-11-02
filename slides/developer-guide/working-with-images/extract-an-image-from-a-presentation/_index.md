@@ -1,21 +1,21 @@
 ---
-title: "Extract an Image in a Specified Format from a PowerPoint Document"
+title: "Extract an Image from a Presentation"
 type: docs
-url: /extract-an-image-in-a-specified-format-from-a-powerpoint-document/
-weight: 40
+url: /extract-an-image-from-a-presentation/
+weight: 30
 ---
 
 ## **Introduction**
 
-The following API method allows you to easily retrieve an image in a specified format from a PowerPoint document. In order to get image information from a PowerPoint presentation please refer to [this](/slides/get-image-information-from-a-powerpoint-document/) article.
+The following API method allows you to easily retrieve an image from a PowerPoint document. In order to get image information from a PowerPoint presentation please refer to [this](/slides/get-image-information-from-a-presentation/) article.
 
-## **DownloadImage**
+## **DownloadImageDefaultFormat**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/images/{index}/{format}|GET|Retrieves an image in a specified format by index from a PowerPoint document.|[DownloadImage](https://apireference.aspose.cloud/slides/#/Images/DownloadImage)|
+|/slides/{name}/images/{index}|GET|Retrieves an image by index from a PowerPoint presentation.|[DownloadImageDefaultFormat](https://apireference.aspose.cloud/slides/#/Images/DownloadImageDefaultFormat)|
 
 **Request Parameters**
 
@@ -23,7 +23,6 @@ The following API method allows you to easily retrieve an image in a specified f
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |index|integer|path|true|The 1-based index of the image to be retrieved.|
-|format|string|path|true|The format of the image to be retrieved.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -32,7 +31,7 @@ The following API method allows you to easily retrieve an image in a specified f
 
 ### **Examples**
 
-Retrieve the **second** image in GIF format from **MyFolder/MyPresentation.pptx** document saved to the default storage.
+Get the **second** image from **MyFolder/MyPresentation.pptx** file saved to the default storage.
 
 **cURL Solution**
 
@@ -51,7 +50,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Retrieve the Image**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/2/Gif?folder=MyFolder" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/2?folder=MyFolder" \
      -H "authorization: Bearer <access_token>"
 ```
 
@@ -59,7 +58,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/2/G
 
 {{< tab tabNum="2" >}}
 
-Image file
+File
 
 {{< /tab >}}
 
@@ -75,21 +74,15 @@ Image file
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
 using Aspose.Slides.Cloud.Sdk;
-using Aspose.Slides.Cloud.Sdk.Model;
-using System.IO;
 
 class Application
 {
-    static void Main(string[] args)
+    static void Main()
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
-        
-        // Retrieve the second image in GIF format.
-        using var imageStream = slidesApi.DownloadImage("MyPresentation.pptx", 2, ImageExportFormat.Gif, null, "MyFolder");
 
-        // Save the image to a file.
-        using var fileStream = File.OpenWrite("SecondImage.gif");
-        imageStream.CopyTo(fileStream);
+        // Retrieve the second image from the presentation.
+        var imageStream = slidesApi.DownloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder");
     }
 }
 ```
@@ -103,16 +96,15 @@ class Application
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Retrieve the second image in GIF format.
-        File imageFile = slidesApi.downloadImage("MyPresentation.pptx", 2, ImageExportFormat.GIF, null, "MyFolder", null);
+        // Retrieve the second image from the presentation.
+        File imageFile = slidesApi.downloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder", null);
 
-        System.out.println("The second image was saved to " + imageFile.getPath());
+        System.out.println("The image was saved to " + imageFile.getPath());
     }
 }
 ```
@@ -126,7 +118,6 @@ public class Application {
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat;
 
 $configuration = new Configuration();
 $configuration->setAppSid("MyClientId");
@@ -134,10 +125,10 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Retrieve the second image in GIF format.
-$imageFile = $slidesApi->downloadImage("MyPresentation.pptx", 2, ImageExportFormat::GIF, null, "MyFolder");
+// Retrieve the second image from the presentation.
+$imageFile = $slidesApi->downloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder");
 
-echo "The second image was saved to ", $imageFile->getRealPath();
+echo "The image was saved to ", $imageFile->getRealPath();
 ```
 
 {{< /tab >}}
@@ -157,11 +148,8 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Retrieve the second image in GIF format.
-image_data = slides_api.download_image("MyPresentation.pptx", 2, ImageExportFormat::GIF, nil, "MyFolder")
-
-# Save the image to a file.
-File.binwrite("SecondImage.gif", image_data)
+# Retrieve the second image from the presentation.
+image_data = slides_api.download_image_default_format("MyPresentation.pptx", 2, nil, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -174,14 +162,13 @@ File.binwrite("SecondImage.gif", image_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.image_export_format import ImageExportFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Retrieve the second image in GIF format.
-image_path = slides_api.download_image("MyPresentation.pptx", 2, ImageExportFormat.GIF, None, "MyFolder")
+# Retrieve the second image from the presentation.
+file_path = slides_api.download_image_default_format("MyPresentation.pptx", 2, None, "MyFolder")
 
-print("The second image was saved to " + image_path)
+print("The image was saved to " + file_path)
 ```
 
 {{< /tab >}}
@@ -192,16 +179,13 @@ print("The second image was saved to " + image_path)
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
 const cloud = require("asposeslidescloud")
-const fs = require("fs")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Retrieve the second image in GIF format.
-slidesApi.downloadImage("MyPresentation.pptx", 2, "gif", null, "MyFolder").then((response) => {
-    // Save the image to a file.
-    fs.writeFile("SecondImage.gif", response.body, (error) => {
-        if (error) throw error
-    })
+// Retrieve the second image from the presentation.
+slidesApi.downloadImageDefaultFormat("MyPresentation.pptx", 2, null, "MyFolder").then((response) => {
+    const imageData = response.body
+    // ...
 })
 ```
 
@@ -220,12 +204,10 @@ int main()
 {
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
-    // Retrieve the second image in GIF format.
-    auto responseContent = slidesApi->downloadImage(L"MyPresentation.pptx", 2, L"gif", L"", L"MyFolder").get();
-
-    // Save the image to a file.
-    std::ofstream fileStream("SecondImage.gif", std::ofstream::binary);
-    responseContent.writeTo(fileStream);
+    // Retrieve the second image from the presentation.
+    auto response = slidesApi->downloadImageDefaultFormat(L"MyPresentation.pptx", 2, L"", L"MyFolder").get();
+    
+    // ...
 
     std::cin.get();
 
@@ -243,20 +225,15 @@ int main()
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 
-use File::Slurp;
-
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Retrieve the second image in GIF format.
-my %parameters = (name => "MyPresentation.pptx", index => 2, format => "gif", folder => "MyFolder");
-my $image_data = $slides_api->download_image(%parameters);
-
-# Save the image to a file.
-write_file("SecondImage.gif", {binmode => ":raw"}, $image_data);
+# Retrieve the second image from the presentation.
+my %parameters = (name => "MyPresentation.pptx", index => 2, folder => "MyFolder");
+my $image_data = $slides_api->download_image_default_format(%parameters);
 ```
 
 {{< /tab >}}
