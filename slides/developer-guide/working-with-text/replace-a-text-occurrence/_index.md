@@ -1,7 +1,7 @@
 ---
-title: "Replace the Occurrence of Text"
+title: "Replace a Text Occurrence"
 type: docs
-url: /replace-the-occurrence-of-text/
+url: /replace-a-text-occurrence/
 weight: 80
 ---
 

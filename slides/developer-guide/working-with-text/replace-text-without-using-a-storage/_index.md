@@ -1,7 +1,7 @@
 ---
-title: "Replace Text Not Using the Storage"
+title: "Replace Text without Using a Storage"
 type: docs
-url: /replace-text-not-using-the-storage/
+url: /replace-text-without-using-a-storage/
 weight: 90
 ---
 

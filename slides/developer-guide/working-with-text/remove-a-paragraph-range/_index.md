@@ -1,7 +1,7 @@
 ---
-title: "Remove a Range of Paragraphs"
+title: "Remove a Paragraph Range"
 type: docs
-url: /remove-a-range-of-paragraphs/
+url: /remove-a-paragraph-range/
 weight: 30
 ---
 

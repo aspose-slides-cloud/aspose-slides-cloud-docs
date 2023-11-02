@@ -1,7 +1,7 @@
 ---
-title: "Remove a Paragraph by Index"
+title: "Remove a Paragraph"
 type: docs
-url: /remove-a-paragraph-by-index/
+url: /remove-a-paragraph/
 weight: 60
 ---
 
