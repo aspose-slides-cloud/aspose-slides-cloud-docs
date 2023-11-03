@@ -124,7 +124,7 @@ ShapeProperties.json content:
 
 {{% alert color="primary" %}} 
 
-The code examples below also use the `GetShape` method described in [Extracting Shapes from a Group Shape](/slides/extract-shapes-from-a-group-shape/).
+The code examples below also use the `GetShape` method described in [Extract Shapes from a Group Shape](/slides/extract-shapes-from-a-group-shape/).
 
 {{% /alert %}}
 

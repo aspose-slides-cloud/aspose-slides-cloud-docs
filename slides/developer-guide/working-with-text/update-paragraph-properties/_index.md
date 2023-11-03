@@ -377,6 +377,6 @@ int main()
 
 {{% alert color="primary" %}}
 
-To see all available paragraph settings, go to [Paragraph Properties](/slides/read-properties-of-a-paragraph-by-index-from-a-powerpoint-presentation/#paragraph-properties) section.
+To see all available paragraph settings, go to [Paragraph Properties](/slides/read-paragraph-properties/#paragraph-properties) section.
 
 {{% /alert %}}
