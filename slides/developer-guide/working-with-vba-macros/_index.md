@@ -1,5 +1,5 @@
 ---
-title: "Working with VBA macros"
+title: "Working with VBA Macros"
 type: docs
 url: /working-with-vba-macros/
 weight: 160

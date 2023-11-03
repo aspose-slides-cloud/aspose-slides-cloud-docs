@@ -1,21 +1,21 @@
 ---
-title: "Get a Slide Theme from a PowerPoint Presentation"
+title: "Get a Slide Color Scheme"
 type: docs
-url: /get-a-slide-theme-from-a-powerpoint-presentation/
-weight: 5
+url: /get-a-slide-color-scheme/
+weight: 40
 ---
 
 ## **Introduction**
 
-The main properties of presentation design elements are determined by a presentation theme. Each theme uses its own unique set of colors, fonts and effects to create the overall look of your slides. The following API method allows you to read information about a slide theme from a PowerPoint presentation. 
+Theme colors contain text and background colors, accent colors, and hyperlink colors. With Aspose.Slides Cloud, you can use the following API method to read information of a slide color scheme from a PowerPoint presentation.
 
-## **GetTheme**
+## **GetColorScheme**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/theme|GET|Retrieves a slide theme from a presentation.|[GetTheme](https://apireference.aspose.cloud/slides/#/Theme/GetTheme)|
+|/slides/{name}/slides/{slideIndex}/theme/colorScheme|GET|Retrieves a color scheme from a presentation slide.|[GetColorScheme](https://apireference.aspose.cloud/slides/#/Theme/GetColorScheme)|
 
 **Request Parameters**
 
@@ -31,7 +31,7 @@ The main properties of presentation design elements are determined by a presenta
 
 ### **Examples**
 
-Read information about a theme of the **third** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
+Read information of the color scheme of the **first** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -47,10 +47,10 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Read the Slide Theme**
+**Read the Color Scheme**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme?folder=MyFolder" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/colorScheme?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -62,26 +62,22 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/t
 
 ```json
 {
-    "name": "Title Slide",
-    "colorScheme": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/colorScheme?folder=MyFolder",
-        "relation": "self",
-        "slideIndex": 3
-    },
-    "fontScheme": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/fontScheme?folder=MyFolder",
-        "relation": "self",
-        "slideIndex": 3
-    },
-    "formatScheme": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/formatScheme?folder=MyFolder",
-        "relation": "self",
-        "slideIndex": 3
-    },
+    "accent1": "#FFE48312",
+    "accent2": "#FFBD582C",
+    "accent3": "#FF865640",
+    "accent4": "#FF9B8357",
+    "accent5": "#FFC2BC80",
+    "accent6": "#FF94A088",
+    "dark1": "#FF000000",
+    "dark2": "#FF637052",
+    "followedHyperlink": "#FF8C8C8C",
+    "hyperlink": "#FF2998E3",
+    "light1": "#FFFFFFFF",
+    "light2": "#FFCCDDEA",
     "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme?folder=MyFolder",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/colorScheme?folder=MyFolder",
         "relation": "self",
-        "slideIndex": 3
+        "slideIndex": 1
     }
 }
 ```
@@ -108,13 +104,11 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read a theme from the third slide.
-        var slideTheme = slidesApi.GetTheme("MyPresentation.pptx", 3, null, "MyFolder");
+        // Read the color scheme applied to the first slide.
+        var colorScheme = slidesApi.GetColorScheme("MyPresentation.pptx", 1, null, "MyFolder");
 
-        // Print resource references to color scheme, font scheme and format scheme.
-        Console.WriteLine(slideTheme.ColorScheme.Href);
-        Console.WriteLine(slideTheme.FontScheme.Href);
-        Console.WriteLine(slideTheme.FormatScheme.Href);
+        // Print a hyperlink color.
+        Console.WriteLine("Hyperlink color: " + colorScheme.Hyperlink);
     }
 }
 ```
@@ -133,13 +127,11 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read a theme from the third slide.
-        Theme slideTheme = slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder", null);
+        // Read the color scheme applied to the first slide.
+        ColorScheme colorScheme = slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
 
-        // Print resource references to color scheme, font scheme and format scheme.
-        System.out.println(slideTheme.getColorScheme().getHref());
-        System.out.println(slideTheme.getFontScheme().getHref());
-        System.out.println(slideTheme.getFormatScheme().getHref());
+        // Print a hyperlink color.
+        System.out.println("Hyperlink color: " + colorScheme.getHyperlink());
     }
 }
 ```
@@ -160,13 +152,11 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Read a theme from the third slide.
-$slideTheme = $slidesApi->getTheme("MyPresentation.pptx", 3, null, "MyFolder");
+// Read the color scheme applied to the first slide.
+$colorScheme = $slidesApi->getColorScheme("MyPresentation.pptx", 1, null, "MyFolder");
 
-// Print resource references to color scheme, font scheme and format scheme.
-echo $slideTheme->getColorScheme()->getHref() . PHP_EOL;
-echo $slideTheme->getFontScheme()->getHref() . PHP_EOL;
-echo $slideTheme->getFormatScheme()->getHref();
+// Print a hyperlink color.
+echo "Hyperlink color: ", $colorScheme->getHyperlink();
 ```
 
 {{< /tab >}}
@@ -186,13 +176,11 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Read a theme from the third slide.
-slide_theme = slides_api.get_theme("MyPresentation.pptx", 3, nil, "MyFolder")
+# Read the color scheme applied to the first slide.
+color_scheme = slides_api.get_color_scheme("MyPresentation.pptx", 1, nil, "MyFolder")
 
-# Print resource references to color scheme, font scheme and format scheme.
-puts slide_theme.color_scheme.href
-puts slide_theme.font_scheme.href
-puts slide_theme.format_scheme.href
+# Print a hyperlink color.
+print "Hyperlink color: ", color_scheme.hyperlink
 ```
 
 {{< /tab >}}
@@ -208,13 +196,11 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Read a theme from the third slide.
-slide_theme = slides_api.get_theme("MyPresentation.pptx", 3, None, "MyFolder")
+# Read the color scheme applied to the first slide.
+color_scheme = slides_api.get_color_scheme("MyPresentation.pptx", 1, None, "MyFolder")
 
-# Print resource references to color scheme, font scheme and format scheme.
-print(slide_theme.color_scheme.href)
-print(slide_theme.font_scheme.href)
-print(slide_theme.format_scheme.href)
+# Print a hyperlink color.
+print("Hyperlink color:", color_scheme.hyperlink)
 ```
 
 {{< /tab >}}
@@ -228,12 +214,10 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Read a theme from the third slide.
-slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder").then((slideTheme) => {
-    // Print resource references to color scheme, font scheme and format scheme.
-    console.log(slideTheme.body.colorScheme.href)
-    console.log(slideTheme.body.fontScheme.href)
-    console.log(slideTheme.body.formatScheme.href)
+// Read the color scheme applied to the first slide.
+slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder").then((colorScheme) => {
+    // Print a hyperlink color.
+    console.log("Hyperlink color:",  colorScheme.body.hyperlink)
 })
 ```
 
@@ -252,13 +236,11 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Read a theme from the third slide.
-    auto slideTheme = slidesApi->getTheme(L"MyPresentation.pptx", 3, L"", L"MyFolder").get();
+    // Read the color scheme applied to the first slide.
+    auto colorScheme = slidesApi->getColorScheme(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
 
-    // Print resource references to color scheme, font scheme and format scheme.
-    std::wcout << slideTheme->getColorScheme()->getHref() << std::endl;
-    std::wcout << slideTheme->getFontScheme()->getHref() << std::endl;
-    std::wcout << slideTheme->getFormatScheme()->getHref();
+    // Print a hyperlink color.
+    std::wcout << "Hyperlink color: " << colorScheme->getHyperlink();
 
     return 0;
 }
@@ -280,14 +262,12 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Read a theme from the third slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 3, folder => "MyFolder");
-my $slide_theme = $slides_api->get_theme(%parameters);
+# Read the color scheme applied to the first slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
+my $color_scheme = $slides_api->get_color_scheme(%parameters);
 
-# Print resource references to color scheme, font scheme and format scheme.
-print($slide_theme->{color_scheme}->{href} . "\n");
-print($slide_theme->{font_scheme}->{href} . "\n");
-print($slide_theme->{format_scheme}->{href});
+# Print a hyperlink color.
+print "Hyperlink color: ", $color_scheme->{hyperlink};
 ```
 
 {{< /tab >}}

@@ -1,21 +1,21 @@
 ---
-title: "Get a Slide Font Scheme from a PowerPoint Presentation"
+title: "Get a Slide Theme"
 type: docs
-url: /get-a-slide-font-scheme-from-a-powerpoint-presentation/
-weight: 10
+url: /get-a-slide-theme/
+weight: 5
 ---
 
 ## **Introduction**
 
-Aspose.Slides Cloud allows you to read information about a font scheme of a slide from a PowerPoint presentation. You can use the following method to find out major (heading) font and minor (body) font that have been set for Latin and East Asian text.
+The main properties of presentation design elements are determined by a presentation theme. Each theme uses its own unique set of colors, fonts and effects to create the overall look of your slides. The following API method allows you to read information about a slide theme from a PowerPoint presentation. 
 
-## **GetFontScheme**
+## **GetTheme**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/theme/fontScheme|GET|Retrieves a font scheme from a presentation slide.|[GetFontScheme](https://apireference.aspose.cloud/slides/#/Theme/GetFontScheme)|
+|/slides/{name}/slides/{slideIndex}/theme|GET|Retrieves a slide theme from a presentation.|[GetTheme](https://apireference.aspose.cloud/slides/#/Theme/GetTheme)|
 
 **Request Parameters**
 
@@ -31,7 +31,7 @@ Aspose.Slides Cloud allows you to read information about a font scheme of a slid
 
 ### **Examples**
 
-Read information about the font scheme of the **first** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
+Read information about a theme of the **third** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -47,10 +47,10 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Read Font Scheme**
+**Read the Slide Theme**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/fontScheme?folder=MyFolder" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -62,21 +62,26 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/t
 
 ```json
 {
-    "major": {
-        "complexScript": "Arial",
-        "eastAsian": "Consolas",
-        "latin": "Consolas"
-    },
-    "minor": {
-        "complexScript": "Arial",
-        "eastAsian": "Verdana",
-        "latin": "Verdana"
-    },
-    "name": "Consolas-Verdana",
-    "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/fontScheme?folder=MyFolder",
+    "name": "Title Slide",
+    "colorScheme": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/colorScheme?folder=MyFolder",
         "relation": "self",
-        "slideIndex": 1
+        "slideIndex": 3
+    },
+    "fontScheme": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/fontScheme?folder=MyFolder",
+        "relation": "self",
+        "slideIndex": 3
+    },
+    "formatScheme": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme/formatScheme?folder=MyFolder",
+        "relation": "self",
+        "slideIndex": 3
+    },
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/theme?folder=MyFolder",
+        "relation": "self",
+        "slideIndex": 3
     }
 }
 ```
@@ -103,11 +108,13 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read the font scheme from the first slide.
-        var fontScheme = slidesApi.GetFontScheme("MyPresentation.pptx", 1, null, "MyFolder");
+        // Read a theme from the third slide.
+        var slideTheme = slidesApi.GetTheme("MyPresentation.pptx", 3, null, "MyFolder");
 
-        // Print the font scheme name.
-        Console.WriteLine(fontScheme.Name);
+        // Print resource references to color scheme, font scheme and format scheme.
+        Console.WriteLine(slideTheme.ColorScheme.Href);
+        Console.WriteLine(slideTheme.FontScheme.Href);
+        Console.WriteLine(slideTheme.FormatScheme.Href);
     }
 }
 ```
@@ -126,11 +133,13 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read the font scheme from the first slide.
-        FontScheme fontScheme = slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
+        // Read a theme from the third slide.
+        Theme slideTheme = slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder", null);
 
-        // Print the font scheme name.
-        System.out.println(fontScheme.getName());
+        // Print resource references to color scheme, font scheme and format scheme.
+        System.out.println(slideTheme.getColorScheme().getHref());
+        System.out.println(slideTheme.getFontScheme().getHref());
+        System.out.println(slideTheme.getFormatScheme().getHref());
     }
 }
 ```
@@ -151,11 +160,13 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Read the font scheme from the first slide.
-$fontScheme = $slidesApi->getFontScheme("MyPresentation.pptx", 1, null, "MyFolder");
+// Read a theme from the third slide.
+$slideTheme = $slidesApi->getTheme("MyPresentation.pptx", 3, null, "MyFolder");
 
-// Print the font scheme name.
-echo $fontScheme->getName();
+// Print resource references to color scheme, font scheme and format scheme.
+echo $slideTheme->getColorScheme()->getHref() . PHP_EOL;
+echo $slideTheme->getFontScheme()->getHref() . PHP_EOL;
+echo $slideTheme->getFormatScheme()->getHref();
 ```
 
 {{< /tab >}}
@@ -175,11 +186,13 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Read the font scheme from the first slide.
-font_scheme = slides_api.get_font_scheme("MyPresentation.pptx", 1, nil, "MyFolder")
+# Read a theme from the third slide.
+slide_theme = slides_api.get_theme("MyPresentation.pptx", 3, nil, "MyFolder")
 
-# Print the font scheme name.
-print font_scheme.name
+# Print resource references to color scheme, font scheme and format scheme.
+puts slide_theme.color_scheme.href
+puts slide_theme.font_scheme.href
+puts slide_theme.format_scheme.href
 ```
 
 {{< /tab >}}
@@ -195,11 +208,13 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Read the font scheme from the first slide.
-font_scheme = slides_api.get_font_scheme("MyPresentation.pptx", 1, None, "MyFolder")
+# Read a theme from the third slide.
+slide_theme = slides_api.get_theme("MyPresentation.pptx", 3, None, "MyFolder")
 
-# Print the font scheme name.
-print(font_scheme.name)
+# Print resource references to color scheme, font scheme and format scheme.
+print(slide_theme.color_scheme.href)
+print(slide_theme.font_scheme.href)
+print(slide_theme.format_scheme.href)
 ```
 
 {{< /tab >}}
@@ -213,10 +228,12 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Read the font scheme from the first slide.
-slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder").then((fontScheme) => {
-    // Print the font scheme name.
-    console.log(fontScheme.body.name)
+// Read a theme from the third slide.
+slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder").then((slideTheme) => {
+    // Print resource references to color scheme, font scheme and format scheme.
+    console.log(slideTheme.body.colorScheme.href)
+    console.log(slideTheme.body.fontScheme.href)
+    console.log(slideTheme.body.formatScheme.href)
 })
 ```
 
@@ -235,11 +252,13 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Read the font scheme from the first slide.
-    auto fontScheme = slidesApi->getFontScheme(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
+    // Read a theme from the third slide.
+    auto slideTheme = slidesApi->getTheme(L"MyPresentation.pptx", 3, L"", L"MyFolder").get();
 
-    // Print the font scheme name.
-    std::wcout << fontScheme->getName();
+    // Print resource references to color scheme, font scheme and format scheme.
+    std::wcout << slideTheme->getColorScheme()->getHref() << std::endl;
+    std::wcout << slideTheme->getFontScheme()->getHref() << std::endl;
+    std::wcout << slideTheme->getFormatScheme()->getHref();
 
     return 0;
 }
@@ -261,12 +280,14 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Read the font scheme from the first slide.
-my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
-my $font_scheme = $slides_api->get_font_scheme(%parameters);
+# Read a theme from the third slide.
+my %parameters = (name => "MyPresentation.pptx", slide_index => 3, folder => "MyFolder");
+my $slide_theme = $slides_api->get_theme(%parameters);
 
-# Print the font scheme name.
-print($font_scheme->{name});
+# Print resource references to color scheme, font scheme and format scheme.
+print($slide_theme->{color_scheme}->{href} . "\n");
+print($slide_theme->{font_scheme}->{href} . "\n");
+print($slide_theme->{format_scheme}->{href});
 ```
 
 {{< /tab >}}

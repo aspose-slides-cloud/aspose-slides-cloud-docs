@@ -1,7 +1,7 @@
 ---
-title: "Get a Slide Format Scheme from a PowerPoint Presentation"
+title: "Get a Slide Format Scheme"
 type: docs
-url: /get-a-slide-format-scheme-from-a-powerpoint-presentation/
+url: /get-a-slide-format-scheme/
 weight: 20
 ---
 
