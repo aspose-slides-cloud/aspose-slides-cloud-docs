@@ -1,7 +1,7 @@
 ---
-title: "Update Properties of a Paragraph by Index"
+title: "Update Paragraph Properties"
 type: docs
-url: /update-properties-of-a-paragraph-by-index/
+url: /update-paragraph-properties/
 weight: 50
 ---
 
@@ -81,7 +81,7 @@ Update the second paragraph in the first shape on the first slide. Set text alig
 
 {{% alert color="primary" %}}
 
-The following code examples also use [GetParagraph](/slides/read-properties-of-a-paragraph-by-index/) method.
+The following code examples also use [GetParagraph](/slides/read-paragraph-properties/) method.
 
 {{% /alert %}}
 

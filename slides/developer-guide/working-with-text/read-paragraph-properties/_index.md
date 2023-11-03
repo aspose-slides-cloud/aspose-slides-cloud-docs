@@ -1,7 +1,7 @@
 ---
-title: "Read Properties of a Paragraph by Index"
+title: "Read Paragraph Properties"
 type: docs
-url: /read-properties-of-a-paragraph-by-index/
+url: /read-paragraph-properties/
 weight: 40
 ---
 
