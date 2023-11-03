@@ -1,7 +1,7 @@
 ---
-title: "Working with Slide Headers and Footers"
+title: "Working with Headers and Footers"
 type: docs
-url: /working-with-slide-headers-and-footers/
+url: /working-with-headers-and-footers/
 weight: 100
 ---
 
