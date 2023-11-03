@@ -1,5 +1,5 @@
 ---
-title: "Working With Geometry Paths"
+title: "Working with Geometry Paths"
 type: docs
 url: /working-with-geometry-paths/
 weight: 140
