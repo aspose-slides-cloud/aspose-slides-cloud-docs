@@ -1,21 +1,21 @@
 ---
-title: "Get a Slide Color Scheme from a PowerPoint Presentation"
+title: "Get a Slide Font Scheme"
 type: docs
-url: /get-a-slide-color-scheme-from-a-powerpoint-presentation/
-weight: 40
+url: /get-a-slide-font-scheme/
+weight: 10
 ---
 
 ## **Introduction**
 
-Theme colors contain text and background colors, accent colors, and hyperlink colors. With Aspose.Slides Cloud, you can use the following API method to read information of a slide color scheme from a PowerPoint presentation.
+Aspose.Slides Cloud allows you to read information about a font scheme of a slide from a PowerPoint presentation. You can use the following method to find out major (heading) font and minor (body) font that have been set for Latin and East Asian text.
 
-## **GetColorScheme**
+## **GetFontScheme**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/theme/colorScheme|GET|Retrieves a color scheme from a presentation slide.|[GetColorScheme](https://apireference.aspose.cloud/slides/#/Theme/GetColorScheme)|
+|/slides/{name}/slides/{slideIndex}/theme/fontScheme|GET|Retrieves a font scheme from a presentation slide.|[GetFontScheme](https://apireference.aspose.cloud/slides/#/Theme/GetFontScheme)|
 
 **Request Parameters**
 
@@ -31,7 +31,7 @@ Theme colors contain text and background colors, accent colors, and hyperlink co
 
 ### **Examples**
 
-Read information of the color scheme of the **first** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
+Read information about the font scheme of the **first** slide from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -47,10 +47,10 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Read the Color Scheme**
+**Read Font Scheme**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/colorScheme?folder=MyFolder" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/fontScheme?folder=MyFolder" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -62,20 +62,19 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/t
 
 ```json
 {
-    "accent1": "#FFE48312",
-    "accent2": "#FFBD582C",
-    "accent3": "#FF865640",
-    "accent4": "#FF9B8357",
-    "accent5": "#FFC2BC80",
-    "accent6": "#FF94A088",
-    "dark1": "#FF000000",
-    "dark2": "#FF637052",
-    "followedHyperlink": "#FF8C8C8C",
-    "hyperlink": "#FF2998E3",
-    "light1": "#FFFFFFFF",
-    "light2": "#FFCCDDEA",
+    "major": {
+        "complexScript": "Arial",
+        "eastAsian": "Consolas",
+        "latin": "Consolas"
+    },
+    "minor": {
+        "complexScript": "Arial",
+        "eastAsian": "Verdana",
+        "latin": "Verdana"
+    },
+    "name": "Consolas-Verdana",
     "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/colorScheme?folder=MyFolder",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/theme/fontScheme?folder=MyFolder",
         "relation": "self",
         "slideIndex": 1
     }
@@ -104,11 +103,11 @@ class Application
     {
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read the color scheme applied to the first slide.
-        var colorScheme = slidesApi.GetColorScheme("MyPresentation.pptx", 1, null, "MyFolder");
+        // Read the font scheme from the first slide.
+        var fontScheme = slidesApi.GetFontScheme("MyPresentation.pptx", 1, null, "MyFolder");
 
-        // Print a hyperlink color.
-        Console.WriteLine("Hyperlink color: " + colorScheme.Hyperlink);
+        // Print the font scheme name.
+        Console.WriteLine(fontScheme.Name);
     }
 }
 ```
@@ -127,11 +126,11 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        // Read the color scheme applied to the first slide.
-        ColorScheme colorScheme = slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
+        // Read the font scheme from the first slide.
+        FontScheme fontScheme = slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder", null);
 
-        // Print a hyperlink color.
-        System.out.println("Hyperlink color: " + colorScheme.getHyperlink());
+        // Print the font scheme name.
+        System.out.println(fontScheme.getName());
     }
 }
 ```
@@ -152,11 +151,11 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-// Read the color scheme applied to the first slide.
-$colorScheme = $slidesApi->getColorScheme("MyPresentation.pptx", 1, null, "MyFolder");
+// Read the font scheme from the first slide.
+$fontScheme = $slidesApi->getFontScheme("MyPresentation.pptx", 1, null, "MyFolder");
 
-// Print a hyperlink color.
-echo "Hyperlink color: ", $colorScheme->getHyperlink();
+// Print the font scheme name.
+echo $fontScheme->getName();
 ```
 
 {{< /tab >}}
@@ -176,11 +175,11 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-# Read the color scheme applied to the first slide.
-color_scheme = slides_api.get_color_scheme("MyPresentation.pptx", 1, nil, "MyFolder")
+# Read the font scheme from the first slide.
+font_scheme = slides_api.get_font_scheme("MyPresentation.pptx", 1, nil, "MyFolder")
 
-# Print a hyperlink color.
-print "Hyperlink color: ", color_scheme.hyperlink
+# Print the font scheme name.
+print font_scheme.name
 ```
 
 {{< /tab >}}
@@ -196,11 +195,11 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-# Read the color scheme applied to the first slide.
-color_scheme = slides_api.get_color_scheme("MyPresentation.pptx", 1, None, "MyFolder")
+# Read the font scheme from the first slide.
+font_scheme = slides_api.get_font_scheme("MyPresentation.pptx", 1, None, "MyFolder")
 
-# Print a hyperlink color.
-print("Hyperlink color:", color_scheme.hyperlink)
+# Print the font scheme name.
+print(font_scheme.name)
 ```
 
 {{< /tab >}}
@@ -214,10 +213,10 @@ const cloud = require("asposeslidescloud")
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
 
-// Read the color scheme applied to the first slide.
-slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder").then((colorScheme) => {
-    // Print a hyperlink color.
-    console.log("Hyperlink color:",  colorScheme.body.hyperlink)
+// Read the font scheme from the first slide.
+slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder").then((fontScheme) => {
+    // Print the font scheme name.
+    console.log(fontScheme.body.name)
 })
 ```
 
@@ -236,11 +235,11 @@ int main()
 {
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    // Read the color scheme applied to the first slide.
-    auto colorScheme = slidesApi->getColorScheme(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
+    // Read the font scheme from the first slide.
+    auto fontScheme = slidesApi->getFontScheme(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
 
-    // Print a hyperlink color.
-    std::wcout << "Hyperlink color: " << colorScheme->getHyperlink();
+    // Print the font scheme name.
+    std::wcout << fontScheme->getName();
 
     return 0;
 }
@@ -262,12 +261,12 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-# Read the color scheme applied to the first slide.
+# Read the font scheme from the first slide.
 my %parameters = (name => "MyPresentation.pptx", slide_index => 1, folder => "MyFolder");
-my $color_scheme = $slides_api->get_color_scheme(%parameters);
+my $font_scheme = $slides_api->get_font_scheme(%parameters);
 
-# Print a hyperlink color.
-print "Hyperlink color: ", $color_scheme->{hyperlink};
+# Print the font scheme name.
+print($font_scheme->{name});
 ```
 
 {{< /tab >}}

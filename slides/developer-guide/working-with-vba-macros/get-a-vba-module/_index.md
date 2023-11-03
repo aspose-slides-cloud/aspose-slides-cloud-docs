@@ -1,7 +1,7 @@
 ---
-title: "Get VBA Module"
+title: "Get a VBA Module"
 type: docs
-url: /get-vba-module/
+url: /get-a-vba-module/
 weight: 30
 ---
 ## **Introduction**
