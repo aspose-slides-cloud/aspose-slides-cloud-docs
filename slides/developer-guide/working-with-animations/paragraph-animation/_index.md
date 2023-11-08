@@ -122,14 +122,14 @@ Console.WriteLine(animation.MainSequence.Count); // 1
 {{< tab tabNum="2" >}}
 
 ```java
-var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-var fileName = "MyPresentation.pptx";
-var slideIndex = 1;
-var shapeIndex = 2;
-var paragraphIndex = 1;
+String fileName = "MyPresentation.pptx";
+int slideIndex = 1;
+int shapeIndex = 2;
+int paragraphIndex = 1;
 
-var paragraphEffect = new Effect();
+Effect paragraphEffect = new Effect();
 paragraphEffect.setType(Effect.TypeEnum.BLINK);
 paragraphEffect.setShapeIndex(shapeIndex);
 paragraphEffect.setParagraphIndex(paragraphIndex);

@@ -67,7 +67,7 @@ Console.WriteLine("The image with the index 1 is replaced.");
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-byte[] imageFile = Files.readAllBytes("MyImage.png");
+byte[] imageFile = Files.readAllBytes(Paths.get("MyImage.png"));
 api.replaceImage("MyPresentation.pptx", 1, imageFile, null, null, null);
 System.out.println("The image with the index 1 is replaced.");
 ```

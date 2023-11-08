@@ -99,23 +99,23 @@ while (true)
 {
     Thread.Sleep(2000);
     Operation operation = api.GetOperationStatus(operationId);
-	Console.WriteLine($"Current operation status: {operation.Status}");
-	if (operation.Status == Operation.StatusEnum.Canceled)
-	{
+    Console.WriteLine($"Current operation status: {operation.Status}");
+    if (operation.Status == Operation.StatusEnum.Canceled)
+    {
         break;
-	}
-	else if (operation.Status == Operation.StatusEnum.Failed)
-	{
-	    Console.WriteLine(operation.Error);
+    }
+    else if (operation.Status == Operation.StatusEnum.Failed)
+    {
+        Console.WriteLine(operation.Error);
         break;
-	}
-	else if (operation.Status == Operation.StatusEnum.Finished)
-	{
+    }
+    else if (operation.Status == Operation.StatusEnum.Finished)
+    {
         using Stream response = api.GetOperationResult(operationId);
         using var pdfStream = File.Create("MyPresentation.pdf");
-        responseStream.CopyTo(pdfStream);
+        response.CopyTo(pdfStream);
         break;
-	}
+    }
 }
 ```
 
@@ -139,29 +139,26 @@ public class Main {
     public static void main(String[] args) throws ApiException, IOException {
         SlidesAsyncApi api = new SlidesAsyncApi("my_client_id", "my_client_secret");
 
-        using var fileStream = File.OpenRead("MyPresentation.pptx");
-        string operationId = api.StartConvert(fileStream, ExportFormat.Pdf);
-
         byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-        String operationId = testSlidesAsyncApi.startConvert(file, ExportFormat.PDF, null, null, null, null, null);
+        String operationId = api.startConvert(file, ExportFormat.PDF, null, null, null, null, null);
 
         while (true)
         {
             TimeUnit.SECONDS.sleep(2);
-            Operation operation = api.GetOperationStatus(operationId);
+            Operation operation = api.getOperationStatus(operationId);
             System.out.println("Current operation status: " + operation.getStatus());
-	        if (operation.getStatus() == Operation.StatusEnum.CANCELED)
-	        {
+            if (operation.getStatus() == Operation.StatusEnum.CANCELED)
+            {
                 break;
-	        }
-	        else if (operation.getStatus() == Operation.StatusEnum.FAILED)
-	        {
-	            System.out.println(operation.getError());
+            }
+            else if (operation.getStatus() == Operation.StatusEnum.FAILED)
+            {
+                System.out.println(operation.getError());
                 break;
-	        }
-	        else if (operation.getStatus() == Operation.StatusEnum.FINISHED)
-	        {
-                File pdfFile = api.GetOperationResult(operationId);
+            }
+            else if (operation.getStatus() == Operation.StatusEnum.FINISHED)
+            {
+                File pdfFile = api.getOperationResult(operationId);
                 System.out.println("The converted document was saved to: " + pdfFile.toPath());
                 break;
             }
@@ -179,6 +176,8 @@ public class Main {
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesAsyncApi;
+use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 
 $configuration = new Configuration();
 $configuration->setAppSid("my_client_id");
@@ -187,26 +186,26 @@ $configuration->setAppKey("my_client_secret");
 $api = new SlidesAsyncApi(null, $configuration);
 
 $presentationFile = fopen("MyPresentation.pptx", 'r');
-$pdfFile = $api->startConvert($presentationFile, ExportFormat::PDF, null, null, null, null, $pdfOptions);
+$operationId = $api->startConvert($presentationFile, ExportFormat::PDF);
 
 while (true)
 {
     sleep(2);
-    $operation = $api->getOperationStatus(operationId);
-    print("Current operation status: ". $operation->getStatus());
-	if ($operation->getStatus() == "Canceled")
-	{
+    $operation = $api->getOperationStatus($operationId);
+    print("\nCurrent operation status: ". $operation->getStatus());
+    if ($operation->getStatus() == "Canceled")
+    {
         break;
-	}
-	else if ($operation->getStatus() == "Failed")
-	{
-	    print($operation->getError());
+    }
+    else if ($operation->getStatus() == "Failed")
+    {
+        print($operation->getError());
         break;
-	}
-	else if ($operation->getStatus() == "Finished")
-	{
+    }
+    else if ($operation->getStatus() == "Finished")
+    {
         $converted = $api->getOperationResult($operationId);
-        print("The converted document was saved to " . $converted->getPathname());
+        print("\nThe converted document was saved to " . $converted->getPathname());
         break;
     }
 }
@@ -262,7 +261,7 @@ from asposeslidescloud.apis.slides_async_api import SlidesAsyncApi
 api = SlidesAsyncApi(None, "my_client_id", "my_client_secret")
 
 with open("MyPresentation.pptx", "rb") as presentation_file:
-    operation_id = api.start_convert(presentation_file.read(), ExportFormat.PDF)
+    operation_id = api.start_convert(presentation_file.read(), 'pdf')
 
 while True:
     time.sleep(2)
@@ -273,7 +272,7 @@ while True:
     elif operation.status == 'Failed':
         print(operation.error)
         break
-    elsif operation.status != 'Finished' 
+    elif operation.status == 'Finished': 
         pdf_path = api.get_operation_result(operation_id)
         print(f"The converted document was saved to: { pdf_path }")
         break

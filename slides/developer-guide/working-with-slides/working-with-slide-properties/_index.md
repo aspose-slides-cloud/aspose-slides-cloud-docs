@@ -215,17 +215,17 @@ Console.WriteLine("Height: " + slideProperties.Height); // 540
 {{< tab tabNum="2" >}}
 
 ```java
-var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-var fileName = "MyPresentation.pptx";
+String fileName = "MyPresentation.pptx";
 
-var properties = new SlideProperties();
+SlideProperties properties = new SlideProperties();
 properties.setSizeType(SlideProperties.SizeTypeEnum.ONSCREEN);
 properties.setScaleType(SlideProperties.ScaleTypeEnum.ENSUREFIT);
 
 slidesApi.setSlideProperties(fileName, properties, null, null, null);
 
-var slideProperties = slidesApi.getSlideProperties(fileName, null, null, null);
+SlideProperties slideProperties = slidesApi.getSlideProperties(fileName, null, null, null);
 
 System.out.println("Size type: " + slideProperties.getSizeType()); // OnScreen
 System.out.println("Width: " + slideProperties.getWidth()); // 720
