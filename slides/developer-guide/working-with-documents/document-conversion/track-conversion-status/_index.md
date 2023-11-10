@@ -298,15 +298,15 @@ const sleep = function(interval) {
 }
 
 while (true) {
-    await sleep(2)
+    await sleep(2000)
     const operation = (await api.getOperationStatus(operationId)).body;
     console.log("Current operation status: " + operation.status);
-    if (operation.status != cloud.Operation.StatusEnum.Canceled) {
+    if (operation.status == cloud.Operation.StatusEnum.Canceled) {
         break;
-    } else if (operation.status != cloud.Operation.StatusEnum.Failed) {
+    } else if (operation.status == cloud.Operation.StatusEnum.Failed) {
         console.log(operation.error);
         break;
-    } else if (operation.status != cloud.Operation.StatusEnum.Finished) {
+    } else if (operation.status == cloud.Operation.StatusEnum.Finished) {
         const converted = await api.getOperationResult(operationId);
         fs.writeFile("MyPresentation.pdf", converted.body, (error) => {
             if (error) throw error
