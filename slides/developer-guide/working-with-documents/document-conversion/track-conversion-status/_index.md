@@ -12,11 +12,11 @@ This API can be useful for conversion of large files that can take considerable 
 
 To convert presentations with async API, you should to the following:
 
-1. Call one of the async conversion methods, [SlidesAsyncApi.StartConvert](https://apireference.aspose.cloud/slides/#/Document/StartConvert) or [SlidesAsyncApi.StartDownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/StartDownloadPresentation). The methods return operation Id.
+1. Call one of the async conversion methods, [SlidesAsyncApi.StartConvert](https://apireference.aspose.cloud/slides/#/Document/StartConvert), [SlidesAsyncApi.StartDownloadPresentation](https://apireference.aspose.cloud/slides/#/Document/StartDownloadPresentation), [SlidesAsyncApi.StartConvertAndSave](https://apireference.aspose.cloud/slides/#/Document/StartConvertAndSave) or [SlidesAsyncApi.StartSavePresentation](https://apireference.aspose.cloud/slides/#/Document/StartSavePresentation). The methods return operation Id.
 
 2. Call [SlidesAsyncApi.GetOperationStatus](https://apireference.aspose.cloud/slides/#/Queue/GetOperationStatus) method to check operation status. *Started*, *Enqueued* or *Created* means the operation is not complete. *Finished*, *Failed* or *Canceled* means the operation is finished or aborted.
 
-3. Once the operation is finished, you can call [SlidesAsyncApi.GetOperationResult](https://apireference.aspose.cloud/slides/#/Queue/GetOperationResult) method to get conversion result.
+3. Once the operation is finished, you can get conversion result. For **StartConvert** and **StartDownloadPresentation**, use [SlidesAsyncApi.GetOperationResult](https://apireference.aspose.cloud/slides/#/Queue/GetOperationResult) method. For  **StartConvertAndSave** and **StartSavePresentation**, use [SlidesAsyncApi.DownloadFile](https://reference.aspose.cloud/slides/#/File/DownloadFile) method. The  **path** parameter of **DownloadFile** method should be set to the value that you used as **outPath** parameter for **SlidesAsyncApi.StartConvertAndSave/SavePresentation** method. Don't use **GetOperationResult** methods to get the result of operations that have **outPath** parameter.
 
 4. If the operation failed, you can inspect **Error** property of **GetOperationStatus** method for the details.
 
@@ -29,7 +29,7 @@ Convert a presentation to PDF format.
 {{< tab tabNum="1" >}}
 
 **Start converting the presentation**
-```java
+```sh
 curl -X POST "https://api.aspose.cloud/v3.0/slides/async/convert/pdf" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/octet-stream" \
@@ -37,13 +37,13 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/async/convert/pdf" \
 ```
 
 **Track conversion status**
-```java
+```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/async/<operation_id>" \
      -H "authorization: Bearer <access_token>"
 ```
 
 **Download conversion result**
-```java
+```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/async/<operation_id>/result" \
      -H "authorization: Bearer <access_token>"
 ```
@@ -60,10 +60,13 @@ Operation id
 
 ```json
 {
-    "uploaded": [
-        "custom.ttf"
-    ],
-    "errors": []
+    "id": "<operation_id>",
+	"method": "Convert",
+	"status": "Finished",
+	"created": "2023-11-30T15:38:48.8103587Z",
+	"enqueued": "2023-11-30T15:38:49.5378625Z",
+	"started": "2023-11-30T15:38:49.6465388Z",
+	"finished": "2023-11-30T15:38:51.0863055Z"
 }
 ```
 
