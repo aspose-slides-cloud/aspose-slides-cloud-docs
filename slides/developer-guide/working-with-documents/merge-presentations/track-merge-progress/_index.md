@@ -18,9 +18,9 @@ To merge presentations with async API, you should to the following:
 
 3. While the operation is in *Started* state you can check *Progress* property to track the merge progress.
 
-3. Once the operation is finished, you can get merge result. For **StartMerge**, use [SlidesAsyncApi.GetOperationResult](https://apireference.aspose.cloud/slides/#/Queue/GetOperationResult) method. For  **StartMergeAndSave**, use [SlidesAsyncApi.DownloadFile](https://reference.aspose.cloud/slides/#/File/DownloadFile) method. The  **path** parameter of **DownloadFile** method should be set to the value that you used as **outPath** parameter for **SlidesAsyncApi.StartMergeAndSave** method. Don't use **GetOperationResult** methods to get the result of operations that have **outPath** parameter.
+4. Once the operation is finished, you can get merge result. For **StartMerge**, use [SlidesAsyncApi.GetOperationResult](https://apireference.aspose.cloud/slides/#/Queue/GetOperationResult) method. For  **StartMergeAndSave**, use [SlidesAsyncApi.DownloadFile](https://reference.aspose.cloud/slides/#/File/DownloadFile) method. The  **path** parameter of **DownloadFile** method should be set to the value that you used as **outPath** parameter for **SlidesAsyncApi.StartMergeAndSave** method. Don't use **GetOperationResult** methods to get the result of operations that have **outPath** parameter.
 
-4. If the operation failed, you can inspect **Error** property of **GetOperationStatus** method for the details.
+5. If the operation failed, you can inspect **Error** property of **GetOperationStatus** method for the details.
 
 ## **cURL Examples**
 

@@ -7,11 +7,11 @@ weight: 130
 
 ## **Introduction**
 
-You can get and set slide transition properties using **Slide.SlideShowTransition** property.
+You can get and set slide transition effects using **Slide.SlideShowTransition** property.
 
-To set a transition effect for a slide, call [UpdateSlide](https://reference.aspose.cloud/slides/#/Slides/UpdateSlide) method. For the slide DTO object, set **SlideShowTransition** property, specify its type and, if you need, some other properties. Note that some transition properties apply to a limited set of transition types.
+To set a transition effect for a slide, call [UpdateSlide](https://reference.aspose.cloud/slides/#/Slides/UpdateSlide) method. In the slide DTO object, set **SlideShowTransition** property, specify its type and, if you need, some other properties. Note that some transition properties apply to a limited set of transition types.
 
-To remove transition effects, you need to specify **None** for transition type. If you set **SlideShowTransition** to null, the **UpdateSlide** will just ignore transition effects, whether they exist or not.
+To remove transition effects from a slide, you need call **UpdateSlide** method with transition type set to **None**. If you set **SlideShowTransition** to null, the **UpdateSlide** method will just leave transition effects unchanged, whether they exist or not.
 
 ## **Example**
 
