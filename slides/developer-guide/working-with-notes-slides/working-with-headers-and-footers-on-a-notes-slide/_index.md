@@ -169,13 +169,13 @@ Console.WriteLine("Footer text: " + headerFooter.FooterText);
 {{< tab tabNum="2" >}}
 
 ```java
-var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-var fileName = "MyPresentation.pptx";
-var slideIndex = 1;
+String fileName = "MyPresentation.pptx";
+int slideIndex = 1;
 
 // The header and footer settings.
-var headerFooter = new NotesSlideHeaderFooter();
+NotesSlideHeaderFooter headerFooter = new NotesSlideHeaderFooter();
 headerFooter.setIsHeaderVisible(true);
 headerFooter.setIsDateTimeVisible(true);
 headerFooter.setIsFooterVisible(true);

@@ -337,12 +337,12 @@ Console.WriteLine("Footer text: " + firstFooter.FooterText); // "The first foote
 {{< tab tabNum="2" >}}
 
 ```java
-var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-var fileName = "MyPresentation.pptx";
+String fileName = "MyPresentation.pptx";
 
 // The settings for all slides.
-var generalFooter = new HeaderFooter();
+HeaderFooter generalFooter = new HeaderFooter();
 generalFooter.setIsDateTimeVisible(true);
 generalFooter.setIsFooterVisible(true);
 generalFooter.setIsSlideNumberVisible(true);
@@ -353,7 +353,7 @@ generalFooter.setFooterText("A general footer.");
 slidesApi.setPresentationHeaderFooter(fileName, generalFooter, null, null, null);
 
 // The special settings for the first slide.
-var firstFooter = new HeaderFooter();
+HeaderFooter firstFooter = new HeaderFooter();
 firstFooter.setIsDateTimeVisible(false);
 firstFooter.setIsSlideNumberVisible(false);
 firstFooter.setFooterText("The first footer.");
@@ -364,9 +364,9 @@ slidesApi.setSlideHeaderFooter(fileName, 1, firstFooter, null, null, null);
 // Get settings from the first slide.
 firstFooter = slidesApi.getSlideHeaderFooter(fileName, 1, null, null, null);
 
-System.out.println("Date and time visibility: " + firstFooter.isDateTimeVisible()); // False
-System.out.println("Footer visibility: " + firstFooter.isFooterVisible()); // True
-System.out.println("Slide number visibility: " + firstFooter.isSlideNumberVisible()); // False
+System.out.println("Date and time visibility: " + firstFooter.isIsDateTimeVisible()); // False
+System.out.println("Footer visibility: " + firstFooter.isIsFooterVisible()); // True
+System.out.println("Slide number visibility: " + firstFooter.isIsSlideNumberVisible()); // False
 System.out.println("Date and time: " + firstFooter.getDateTimeText()); // 1/2/2023
 System.out.println("Footer text: " + firstFooter.getFooterText()); // "The first footer."
 ```

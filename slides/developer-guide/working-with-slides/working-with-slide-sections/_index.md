@@ -400,20 +400,20 @@ foreach (var section in allSections.SectionList)
 {{< tab tabNum="2" >}}
 
 ```java
-var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-var fileName = "MyPresentation.pptx";
+String fileName = "MyPresentation.pptx";
 
 // Prepare the sections for the presentation.
-var sections = new Sections();
+Sections sections = new Sections();
 sections.setSectionList(new ArrayList<Section>());
 
-var section1 = new Section();
+Section section1 = new Section();
 section1.setFirstSlideIndex(3);
 section1.setName("Products");
 sections.getSectionList().add(section1);
 
-var section2 = new Section();
+Section section2 = new Section();
 section2.setFirstSlideIndex(5);
 section2.setName("Support");
 sections.getSectionList().add(section2);
@@ -425,9 +425,9 @@ slidesApi.setSections(fileName, sections, null, null, null);
 // Rename the "Default Section" to "Introduction".
 slidesApi.updateSection(fileName, 1, "Introduction", null, null, null);
 
-var allSections = slidesApi.getSections(fileName, null, null, null);
+Sections allSections = slidesApi.getSections(fileName, null, null, null);
 
-for (var section : allSections.getSectionList()) {
+for (Section section : allSections.getSectionList()) {
     System.out.println(section.getName() + " section starts on slide " + section.getFirstSlideIndex());
 }
 
