@@ -116,7 +116,7 @@ Console.WriteLine("Transition type: " + slide.SlideShowTransition.Type); // Circ
 ```java
 SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 Slide dto = new Slide();
-SlieShowTransition transition = new SlideShowTransition();
+SlideShowTransition transition = new SlideShowTransition();
 transition.setType(SlideShowTransition.TypeEnum.CIRCLE);
 transition.setSpeed(SlideShowTransition.SpeedEnum.MEDIUM);
 dto.setSlideShowTransition(transition);

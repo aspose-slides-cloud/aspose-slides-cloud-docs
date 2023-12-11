@@ -359,7 +359,7 @@ for (int i = 0; i < maxTries; i++)
 
 {{< /tab >}}
 
-{{< tab tabNum="9" >}}
+{{< tab tabNum="8" >}}
 
 ```perl
 
@@ -407,7 +407,7 @@ while (1) {
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
+{{< tab tabNum="9" >}}
 
 ```swift
 
@@ -445,7 +445,7 @@ func trackProgress(_ operationId: String) {
 
 {{< /tab >}}
 
-{{< tab tabNum="11" >}}
+{{< tab tabNum="10" >}}
 
 ```go
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-go
@@ -461,7 +461,7 @@ if e != nil {
 	return
 }
 
-operationId, _, e := c.SlidesAsyncApi.StartConvert(source, "pdf", "", "", "", nil, nil)
+operationId, _, e := api.SlidesAsyncApi.StartConvert(source, "pdf", "", "", "", nil, nil)
 if e != nil {
     fmt.Printf("Error: %v.", e)
 	return
@@ -470,7 +470,7 @@ if e != nil {
 var operation slidescloud.IOperation
 for {
 	time.Sleep(time.Duration(2) * time.Second)
-	operation, _, e = c.SlidesAsyncApi.GetOperationStatus(operationId)
+	operation, _, e = api.SlidesAsyncApi.GetOperationStatus(operationId)
 	if e != nil {
         fmt.Printf("Error: %v.", e)
 		return
@@ -484,7 +484,7 @@ for {
 		break
 	}
 	if operation.GetStatus() != "Finished" {
-		converted, _, e := c.SlidesAsyncApi.GetOperationResult(operationId)
+		converted, _, e := api.SlidesAsyncApi.GetOperationResult(operationId)
 		if e != nil {
 			fmt.Printf("Error: %v.", operation.GetError())
 			return

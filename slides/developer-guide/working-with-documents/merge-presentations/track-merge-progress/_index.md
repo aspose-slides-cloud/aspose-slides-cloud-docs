@@ -102,10 +102,10 @@ Merge two presentations.
 
 SlidesAsyncApi api = new SlidesAsyncApi("MyClientId", "MyClientSecret");
 
-FileInfo file1 = new FileInfo { Content = File.OpenRead("presentation1.pptx") };
-FileInfo file2 = new FileInfo { Content = File.OpenRead("presentation2.pptx") };
+Sdk.FileInfo file1 = new Sdk.FileInfo { Content = File.OpenRead("presentation1.pptx") };
+Sdk.FileInfo file2 = new Sdk.FileInfo { Content = File.OpenRead("presentation2.pptx") };
 
-string operationId = api.StartMerge(new List<FileInfo> { file1, file2 });
+string operationId = api.StartMerge(new List<Sdk.FileInfo> { file1, file2 });
 
 while (true)
 {
@@ -162,10 +162,10 @@ public class Main {
         SlidesAsyncApi api = new SlidesAsyncApi("my_client_id", "my_client_secret");
 
         FileInfo file1 = new FileInfo();
-        file1.setName(fileName);
+        file1.setName("presentation1.pptx");
         file1.setData(Files.readAllBytes(Paths.get("presentation1.pptx")));
         FileInfo file2 = new FileInfo();
-        file2.setName(c_fileName2);
+        file2.setName("presentation2.pptx");
         file2.setData(Files.readAllBytes(Paths.get("presentation2.pptx")));
         List<FileInfo> files = Arrays.asList(file1, file2);
         String operationId = api.startMerge(files, null, null);
@@ -179,7 +179,7 @@ public class Main {
             {
                 if (operation.getProgress() != null)
                 {
-                    System.out.println("Operation is in progress. Merged " + operation.Progress.StepIndex + " of " + operation.Progress.StepCount + ".");
+                    System.out.println("Operation is in progress. Merged " + operation.getProgress().getStepIndex() + " of " + operation.getProgress().getStepCount() + ".");
                 }
             }
             else if (operation.getStatus() == Operation.StatusEnum.CANCELED)
@@ -424,7 +424,7 @@ for (int i = 0; i < maxTries; i++)
 
 {{< /tab >}}
 
-{{< tab tabNum="9" >}}
+{{< tab tabNum="8" >}}
 
 ```perl
 
@@ -478,7 +478,7 @@ while (1) {
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
+{{< tab tabNum="9" >}}
 
 ```swift
 
@@ -523,7 +523,7 @@ func trackProgress(_ operationId: String) {
 
 {{< /tab >}}
 
-{{< tab tabNum="11" >}}
+{{< tab tabNum="10" >}}
 
 ```go
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-go

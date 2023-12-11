@@ -151,14 +151,14 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 image, e := ioutil.ReadFile("MyImage.png")
 	if e != nil {
-		t.Errorf("Error: %v.", e)
+		fmt.Printf("Error: %v.", e)
 		return
 	}
 
-result, _, e := api.SlidesApi.replaceImage("MyPresentation.pptx", 1, image, "", "", "")
+_, _, e = api.SlidesApi.ReplaceImage("MyPresentation.pptx", 1, image, "", "", "")
 if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	fmt.Printf("Error: %v.", e)
+	return
 }
 fmt.Printf("%v", "The image with the index 1 is replaced.")
 ```
