@@ -467,7 +467,7 @@ if e != nil {
 	return
 }
 
-var operation slidescloud.IOperation
+var operation asposeslidescloud.IOperation
 for {
 	time.Sleep(time.Duration(2) * time.Second)
 	operation, _, e = api.SlidesAsyncApi.GetOperationStatus(operationId)

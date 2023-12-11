@@ -146,7 +146,7 @@ $transition->setType('Circle');
 $transition->setSpeed('Medium');
 $dto->setSlideShowTransition($transition);
 
-$slide = $this->getSlidesApi()->updateSlide("MyPresentation.pptx", 1, $dto);
+$slide = $slidesApi->updateSlide("MyPresentation.pptx", 1, $dto);
 echo "Transition type: ", $slide->getSlideShowTransition()->getType(); // Circle
 ```
 
@@ -211,13 +211,13 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 const fileName = "MyPresentation.pptx";
 
 const dto = new cloud.Slide();
-const transition = new cloud.Transition();
-dto.type = 'Circle';
-dto.speed = 'Medium';
+const transition = new cloud.SlideShowTransition();
+transition.type = 'Circle';
+transition.speed = 'Medium';
 dto.slideShowTransition = transition;
 
-slidesApi.updateSlide("MyPresentation.pptx", 1, dto, result).then(() => {
-    console.log("Transition type: ", slide.slideShowTransition.type); // Circle
+slidesApi.updateSlide("MyPresentation.pptx", 1, dto).then((result) => {
+    console.log("Transition type: ", result.body.slideShowTransition.type); // Circle
 });
 ```
 

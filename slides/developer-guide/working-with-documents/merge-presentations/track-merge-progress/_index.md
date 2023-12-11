@@ -320,8 +320,8 @@ while True:
     operation = api.get_operation_status(operation_id)
     print(f"Current operation status: { operation.status }")
     if operation.status == 'Started':
-        if operation.progress == None
-            print(f"Operation is in progress. Merged { operation.progress.stepIndex } of { operation.progress.stepCount }.")
+        if operation.progress != None:
+            print(f"Operation is in progress. Merged { operation.progress.step_index } of { operation.progress.step_count }.")
     elif operation.status == 'Canceled':
         break
     elif operation.status == 'Failed':
@@ -535,25 +535,25 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 source1, e := ioutil.ReadFile("presentation1.pptx")
 if e != nil {
-    t.Errorf("Error: %v.", e)
+    fmt.Printf("Error: %v.", e)
     return
 }
 source2, e := ioutil.ReadFile("presentation2.pptx")
-if e != nil {
-    t.Errorf("Error: %v.", e)
-    return
-}
-
-operationId, _, e := c.SlidesAsyncApi.StartMerge([][]byte{source1, source2}, nil, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
 
-var operation slidescloud.IOperation
+operationId, _, e := api.SlidesAsyncApi.StartMerge([][]byte{source1, source2}, nil, "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+var operation asposeslidescloud.IOperation
 for {
     time.Sleep(time.Duration(2) * time.Second)
-    operation, _, e = c.SlidesAsyncApi.GetOperationStatus(operationId)
+    operation, _, e = api.SlidesAsyncApi.GetOperationStatus(operationId)
     if e != nil {
         fmt.Printf("Error: %v.", e)
         return
@@ -561,7 +561,7 @@ for {
     fmt.Printf("Current operation status: %v.", operation.GetStatus())
     if operation.GetStatus() != "Started" {
         if operation.GetProgress() != nil {
-            fmt.Printf("Operation is in progress. Merged %v of %v.", operation.StepIndex(), operation.GetStepCount())
+            fmt.Printf("Operation is in progress. Merged %v of %v.", operation.GetProgress().GetStepIndex(), operation.GetProgress().GetStepCount())
         }
         continue
     }
@@ -573,7 +573,7 @@ for {
         break
     }
     if operation.GetStatus() != "Finished" {
-        merged, _, e := c.SlidesAsyncApi.GetOperationResult(operationId)
+        merged, _, e := api.SlidesAsyncApi.GetOperationResult(operationId)
         if e != nil {
             fmt.Printf("Error: %v.", operation.GetError())
             return

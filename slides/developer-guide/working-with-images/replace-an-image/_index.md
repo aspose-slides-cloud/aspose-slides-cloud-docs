@@ -155,7 +155,7 @@ image, e := ioutil.ReadFile("MyImage.png")
 		return
 	}
 
-_, _, e = api.SlidesApi.ReplaceImage("MyPresentation.pptx", 1, image, "", "", "")
+_, e = api.SlidesApi.ReplaceImage("MyPresentation.pptx", 1, image, "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 	return
