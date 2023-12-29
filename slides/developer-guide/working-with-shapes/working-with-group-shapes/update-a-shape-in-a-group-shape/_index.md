@@ -1,4 +1,4 @@
----
+
 title: "Update a Shape in a Group Shape"
 type: docs
 url: /update-a-shape-in-a-group-shape/
@@ -187,10 +187,8 @@ public class Application {
         int shapeIndex = 4;
         String folderPath = "MyFolder";
 
-        // Get the shape from the group shape.
-        ShapeBase shape = slidesApi.getShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape);
-
-        // Change the shape properties.
+        // set the shape properties.
+        ShapeBase shape = new Shape();
         shape.setHidden(true);
 
         // Update the shape properties.
