@@ -83,13 +83,13 @@ import com.aspose.slides.ApiException;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var fileName = "MyPresentation.pptx";
-        var watermarkText = "This presentation was created by Aspose.";
-        var fontName = "Arial";
-        var fontHeight = 40d;
-        var fontColor = "#dddddd";
+        String fileName = "MyPresentation.pptx";
+        String watermarkText = "This presentation was created by Aspose.";
+        String fontName = "Arial";
+        double fontHeight = 40d;
+        String fontColor = "#dddddd";
 
         slidesApi.createWatermark(fileName, null, fontHeight, watermarkText, fontName, fontColor, null, null, null);
     }
@@ -325,17 +325,17 @@ import com.aspose.slides.model.*;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var inputFilePath = "input.pptx";
+        String inputFilePath = "input.pptx";
 
-        var shape = new Shape();
+        Shape shape = new Shape();
         shape.setText("Powered by Aspose.");
         shape.setTextFrameFormat(new TextFrameFormat());
         shape.getTextFrameFormat().setRotationAngle(45d);
 
-        var inputData = Files.readAllBytes(Paths.get(inputFilePath));
-        var outputFile = slidesApi.createWatermarkOnline(inputData, shape, null, null, null, null, null);
+        byte[] inputData = Files.readAllBytes(Paths.get(inputFilePath));
+        File outputFile = slidesApi.createWatermarkOnline(inputData, shape, null, null, null, null, null);
 
         System.out.println("The output file was saved to " + outputFile.getPath());
     }
