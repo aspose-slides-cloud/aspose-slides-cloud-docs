@@ -408,7 +408,7 @@ File.binwrite(output_file_path, output_data)
 import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models import *
+from asposeslidescloud.models import Shape, TextFrameFormat
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
