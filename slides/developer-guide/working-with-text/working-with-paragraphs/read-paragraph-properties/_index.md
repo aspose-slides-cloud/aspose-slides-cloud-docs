@@ -2,7 +2,7 @@
 title: "Read Paragraph Properties"
 type: docs
 url: /read-paragraph-properties/
-weight: 40
+weight: 20
 ---
 
 ## **Introduction**

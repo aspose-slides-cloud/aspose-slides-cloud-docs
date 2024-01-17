@@ -2,7 +2,7 @@
 title: "Update Paragraph Properties"
 type: docs
 url: /update-paragraph-properties/
-weight: 50
+weight: 40
 ---
 
 ## **Introduction**
