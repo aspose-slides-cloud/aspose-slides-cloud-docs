@@ -328,7 +328,7 @@ In the document **MyPresentation.pptx**, the **second** slide contains **one** s
 
 **cURL Solution**
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -385,7 +385,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 
 **SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+{{< tabs tabTotal="11" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
