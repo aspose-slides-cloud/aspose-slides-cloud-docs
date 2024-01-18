@@ -2,7 +2,7 @@
 title: "Create a New Paragraph"
 type: docs
 url: /create-a-new-paragraph/
-weight: 20
+weight: 30
 ---
 
 ## **Introduction**

@@ -2,7 +2,7 @@
 title: "Get a Paragraph Rectangle"
 type: docs
 url: /get-a-paragraph-rectangle/
-weight: 120
+weight: 60
 ---
 ## **Introduction**
 
