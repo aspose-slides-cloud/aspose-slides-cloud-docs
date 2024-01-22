@@ -6,17 +6,38 @@ weight: 90
 ---
 
 ## **Introduction**
-You don't need to upload files to the Storage to perform text replacement. You can use online methods that read presentation from request body and return the updated presentation in response body. As with storage methods, Aspose.Slides Cloud provides you methods to replace text in a individual slide or a presentation as a whole. With online methods, the result of the operation is the updated presentation. The number of replacements is not returned. You need to use storage methods if replacement count is essential information for you.
+
+You don't need to upload files to storage to perform text replacement. You can use online methods to read a presentation from a request body and return an updated one in a response body. As with storage methods, Aspose.Slides Cloud provides methods to replace text on a specified slide or in the presentation as a whole. With online methods, the result of the operation is the updated presentation. The number of replacements is not returned. You need to use storage methods if replacement count is essential information for you.
+
+## **ReplacePresentationTextOnline**
+
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/replaceText|POST|Replace text within a presentation in request body|[ReplacePresentationTextOnline](https://apireference.aspose.cloud/slides/#/Text/ReplacePresentationTextOnline)|
-|/slides/slides/{slideIndex}/replaceText|POST|Replace text within a individual slide in request body|[ReplaceSlideTextOnline](https://apireference.aspose.cloud/slides/#/Text/ReplaceSlideTextOnline)|
-### **cURL Example**
+|/slides/replaceText|POST|Replaces text within a presentation.|[ReplacePresentationTextOnline](https://apireference.aspose.cloud/slides/#/Text/ReplacePresentationTextOnline)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|document|file|formData|true|The presentation file.|
+|oldValue|string|query|true|The text to be replaced.|
+|newValue|string|query|true|The text to replace with.|
+|ignoreCase|boolean|query|false|If `true`, the character case must be ignored. The default is `false`.|
+|password|string|header|false|The password to open the presentation.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+Replace the word **banana** with the word **orange** in the document **MyPresentation.pptx**. **Ignore the case** of text characters.
+
+**cURL Solution**
+
 {{% alert color="primary" %}} 
 
-We are using the **/slides/replaceText** resource as an example below. You can use **/slides/slides/{slideIndex}/replaceText** with the same query parameters to replace all matching occurrences of the text items in a specific slide of a PowerPoint presentation.
+We are using the **/slides/replaceText** resource for the example. You can use the **/slides/slides/{slideIndex}/replaceText** with the same query parameters to replace all matching occurrences of the text items on a specific slide in a PowerPoint presentation.
 
 {{% /alert %}} 
 
@@ -24,43 +45,45 @@ We are using the **/slides/replaceText** resource as an example below. You can u
 
 {{< tab tabNum="1" >}}
 
-**Get Authentication Header**
+**Get an Access Token**
 
-```java
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+```sh
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-```java
-
-curl  -v "https://api.aspose.cloud/v3.0/slides/replaceText?oldValue=banana&newValue=orange&ignoreCase=true" -F "file1=@InputPresentation.pptx" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1NjAwMzA4ODMsImV4cCI6MTU2MDExNzI4MywiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzg5NDZmYjQtM2JkNC00ZDNlLWIzMDktZjllMmZmOWFjNmY5Iiwic2NvcGUiOlsiYXBpLnBsYXRmb3JtIiwiYXBpLnByb2R1Y3RzIl19.bhURwSdcASMrRj4ukvG5rWTT_O2JpzVKH436ekU1CW6ZO7wOqGnE8wtkMdq6oivVzazs8xwbeuJmluFpHLNBco7A0vU56_UXZ5cIsfNCIpTOp6e_lmeHYgOD1rnW8f6y9jWLRoerup2vzqppjbF-8KXZ2HgCOXpos4lzy7GLqWmElW9TGd2uOd3cFEu1rXmkiJzuyjEi1dFdZtvRPvNyqon5R9ZS5rxQ09GhaiRA6DW4HwFTS-jTAPQo0QGfv87b4Gg_DvnUu_JjWlAhIeqWIM72-xmvFQ_20mk-s6H7foiyvJSC65w-XN5AqUyAyE8rAZduIwcS7BuYiQuOqqen4w" --ssl-no-revoke -o "UpdatedPresentation.pptx"
-
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/replaceText?oldValue=banana&newValue=orange&ignoreCase=true" \
+     -H "authorization: Bearer MyAccessToken" \
+     -F "file=@MyPresentation.pptx" \
+     -o UpdatedPresentation.pptx
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-The updated presentation.
+The updated presentation file.
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
-The Aspose.Slides Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-## **SDK Examples**
+**SDK Solutions**
+
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" tabName10="Swift" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-using Stream file = File.OpenRead("InputPresentation.pptx");
-using Stream result = api.ReplacePresentationTextOnline(file, "banana", "orange", true);
-using Stream outFile = File.OpenWrite("UpdatedPresentation.pptx");
-result.CopyTo(outFile);
+
+using Stream documentStream = File.OpenRead("MyPresentation.pptx");
+using Stream resultStream = api.ReplacePresentationTextOnline(documentStream, "banana", "orange", true);
+
+using Stream outputStream = File.OpenWrite("UpdatedPresentation.pptx");
+resultStream.CopyTo(outputStream);
 ```
 
 {{< /tab >}}
@@ -69,9 +92,11 @@ result.CopyTo(outFile);
 
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File response = api.replacePresentationTextOnline(file, "banana", "orange", true, null);
-System.out.println("The updated file was saved to " + response.getPath());
+
+byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+File resultFile = api.replacePresentationTextOnline(documentData, "banana", "orange", true, null);
+
+System.out.println("The updated file was saved to " + resultFile.getPath());
 ```
 
 {{< /tab >}}
@@ -85,15 +110,35 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 $config = new Configuration();
 $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
+
 $api = new SlidesApi(null, $config);
-$file = fopen("MyPresentation.pptx", 'r');
-$result = $api->ReplacePresentationTextOnline($file, "banana", "orange", true);
-print("The updated file was saved to " . $result->getPathname());
+
+$documentStream = fopen("MyPresentation.pptx", "r");
+$resultFile = $api->ReplacePresentationTextOnline($documentStream, "banana", "orange", true);
+
+print("The updated file was saved to " . $resultFile->getPathname());
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+
+```ruby
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+document_data = File.binread("MyPresentation.pptx")
+result_data = slides_api.replace_presentation_text_online(document_data, "banana", "orange", true)
+
+File.binwrite("UpdatedPresentation.pptx", result_data)
+```
 
 {{< /tab >}}
 
@@ -106,29 +151,32 @@ from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
 
 configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
 api = SlidesApi(configuration)
 
-with open("MyPresentation.pptx", 'rb') as f:
-    input_file = f.read()
+with open("MyPresentation.pptx", "rb") as f:
+    document_data = f.read()
 
-result = api.replace_presentation_text_online(input_file, "banana", "orange", True)
-print('The updated file was saved to ' + result)
+result_file_path = api.replace_presentation_text_online(document_data, "banana", "orange", True)
+print("The updated file was saved to " + result_file_path)
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-const file = fs.createReadStream("MyPresentation.pptx");
-api.replacePresentationTextOnline(file, "banana", "orange", true).then((response) => {
-    fs.writeFile("UpdatedPresentation.pptx", response.body, (err) => {
-        if (err) throw err;
+```js
+const cloudSdk = require("asposeslidescloud");
+const fs = require("fs");
+
+const api = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const documentStream = fs.createReadStream("MyPresentation.pptx");
+api.replacePresentationTextOnline(documentStream, "banana", "orange", true).then(response => {
+    fs.writeFile("UpdatedPresentation.pptx", response.body, (error) => {
+        if (error) throw error;
     });
 });
 ```
@@ -137,10 +185,59 @@ api.replacePresentationTextOnline(file, "banana", "orange", true).then((response
 
 {{< tab tabNum="7" >}}
 
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    auto documentStream = std::make_shared<std::ifstream>("MyPresentation.pptx", std::ios::binary);
+    auto documentContent = std::make_shared<HttpContent>();
+    documentContent->setData(documentStream);
+
+    auto resultContent = slidesApi->replacePresentationTextOnline(documentContent, L"banana", L"orange", true).get();
+
+    std::ofstream outputStream("UpdatedPresentation.pptx", std::ofstream::binary);
+    resultContent.writeTo(outputStream);
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```perl
+use File::Slurp;
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $document_data = read_file("MyPresentation.pptx", { binmode => ":raw" });
+
+my %parameters = (document => $document_data, old_value => "banana", new_value => "orange", ignore_case => 1);
+my $result_data = $slides_api->replace_presentation_text_online(%parameters);
+
+write_file("UpdatedPresentation.pptx", {binmode => ":raw"}, $result_data);
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
 ```go
 cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
+
 api := asposeslidescloud.NewAPIClient(cfg)
 
 source, e := ioutil.ReadFile("MyPresentation.pptx")
@@ -155,16 +252,9 @@ if e != nil {
     fmt.Printf("Error: %v.", e)
     return
 }
+
 fmt.Printf("The updated file was saved to %v.", result.Name())
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="9" >}}
 
 {{< /tab >}}
 
@@ -173,3 +263,28 @@ fmt.Printf("The updated file was saved to %v.", result.Name())
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **ReplaceSlideTextOnline**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/slides/{slideIndex}/replaceText|POST|Replaces text within a specified presentation slide.|[ReplaceSlideTextOnline](https://apireference.aspose.cloud/slides/#/Text/ReplaceSlideTextOnline)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|document|file|formData|true|The presentation file.|
+|slideIndex|integer|path|true|The 1-based index of the slide.|
+|oldValue|string|query|true|The text to be replaced.|
+|newValue|string|query|true|The text to replace with.|
+|ignoreCase|boolean|query|false|If `true`, the character case must be ignored. The default is `false`.|
+|password|string|header|false|The password to open the presentation.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
