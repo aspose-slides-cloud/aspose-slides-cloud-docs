@@ -1,13 +1,13 @@
 ---
-title: "Extract an Image in a Specified Format from a Presentation"
+title: "Extract Images in a Specified Format"
 type: docs
-url: /extract-an-image-in-a-specified-format-from-a-presentation/
+url: /extract-images-in-a-specified-format/
 weight: 40
 ---
 
 ## **Introduction**
 
-The following API method allows you to easily retrieve an image in a specified format from a PowerPoint document. In order to get image information from a PowerPoint presentation please refer to [this](/slides/get-image-information-from-a-presentation/) article.
+The following methods make it easy to retrieve images in a specified format from a PowerPoint document.
 
 ## **DownloadImage**
 
@@ -15,7 +15,7 @@ The following API method allows you to easily retrieve an image in a specified f
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/images/{index}/{format}|GET|Retrieves an image in a specified format by index from a PowerPoint document.|[DownloadImage](https://apireference.aspose.cloud/slides/#/Images/DownloadImage)|
+|/slides/{name}/images/{index}/{format}|GET|Retrieves an image in a specified format from a presentation saved to storage.|[DownloadImage](https://apireference.aspose.cloud/slides/#/Images/DownloadImage)|
 
 **Request Parameters**
 
@@ -23,7 +23,7 @@ The following API method allows you to easily retrieve an image in a specified f
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |index|integer|path|true|The 1-based index of the image to be retrieved.|
-|format|string|path|true|The format of the image to be retrieved.|
+|format|string|path|true|The format of the image.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -32,7 +32,7 @@ The following API method allows you to easily retrieve an image in a specified f
 
 ### **Examples**
 
-Retrieve the **second** image in GIF format from **MyFolder/MyPresentation.pptx** document saved to the default storage.
+Retrieve the **second** image in **GIF** format from the document **MyFolder/MyPresentation.pptx** saved to the default storage.
 
 **cURL Solution**
 
@@ -52,7 +52,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 ```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images/2/Gif?folder=MyFolder" \
-     -H "authorization: Bearer <access_token>"
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
@@ -191,18 +191,18 @@ print("The second image was saved to " + image_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Retrieve the second image in GIF format.
-slidesApi.downloadImage("MyPresentation.pptx", 2, "gif", null, "MyFolder").then((response) => {
+slidesApi.downloadImage("MyPresentation.pptx", 2, "gif", null, "MyFolder").then(response => {
     // Save the image to a file.
-    fs.writeFile("SecondImage.gif", response.body, (error) => {
-        if (error) throw error
-    })
-})
+    fs.writeFile("SecondImage.gif", response.body, error => {
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}
@@ -271,6 +271,59 @@ write_file("SecondImage.gif", {binmode => ":raw"}, $image_data);
 
 {{< /tabs >}}
 
+## **DownloadImageOnline**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/images/{index}/{format}|POST|Retrieves an image in a specified format from a presentation saved to a local file.|[DownloadImageOnline](https://reference.aspose.cloud/slides/#/Images/DownloadImageOnline)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|document|file|formData|true|The presentation file.|
+|index|integer|path|true|The 1-based index of the image to be retrieved.|
+|format|string|path|true|The format of the image.|
+|password|string|header|false|The password to open the presentation.|
+
+## **DownloadImages**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/{name}/images/download/{format}|POST|Retrieves images in a specified format from a presentation saved to storage.|[DownloadImages](https://reference.aspose.cloud/slides/#/Images/DownloadImages)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|format|string|path|true|The format of the image.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+## **DownloadImagesOnline**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/images/download/{format}|POST|Retrieves images in a specified format from a presentation saved to a local file.|[DownloadImagesOnline](https://reference.aspose.cloud/slides/#/Images/DownloadImagesOnline)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|document|file|formData|true|The presentation file.|
+|format|string|path|true|The format of the image.|
+|password|string|header|false|The password to open the presentation.|
+
 ## **SDKs**
 
-Using an SDK (API client) is the quickest way for a developer to speed up development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
