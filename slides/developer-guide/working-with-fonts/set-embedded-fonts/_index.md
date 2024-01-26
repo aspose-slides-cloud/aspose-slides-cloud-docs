@@ -2,7 +2,7 @@
 title: "Set Embedded Fonts"
 type: docs
 url: /set-embedded-fonts/
-weight: 30
+weight: 40
 ---
 ## **Introduction**
 Aspose.Slides Cloud API allows embedding a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.

@@ -2,7 +2,7 @@
 title: "Replace Presentation Fonts"
 type: docs
 url: /replace-presentation-fonts/
-weight: 60
+weight: 70
 ---
 ## **Introduction**
 Aspose.Slides Cloud API allows replacing a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body. Optionaly the new font can be embedded.
