@@ -7,7 +7,7 @@ weight: 70
 
 ## **Introduction**
 
-Aspose.Slides Cloud makes it easy to read, update, and delete the background of any slide in a PowerPoint presentation. The presentation must already be saved to Cloud storage. You can set different background types, such as solid color, gradient, pattern, and image. Many effects can also be applied to the slide background (blur, glow, shadows, reflections, etc.).
+Aspose.Slides Cloud API makes it easy to read, update, and delete the background of any slide in a PowerPoint presentation. The presentation must already be saved to a Cloud storage. You can set different background types, such as solid color, gradient, pattern, and image. Many effects can also be applied to the slide background (blur, glow, shadows, reflections, etc.).
 
 ## **GetBackground**
 
@@ -25,13 +25,13 @@ Aspose.Slides Cloud makes it easy to read, update, and delete the background of 
 |slideIndex|integer|path|true|The 1-based index of the slide to read the background.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ### **Examples**
 
-Get the **background type** of the **first slide** from **MyFolder/MyPresentation.pptx** file saved to the default storage.
+Get the **background type** of the **first** slide from **MyFolder/MyPresentation.pptx** file saved to the default storage.
 
 **cURL Solution**
 
@@ -42,7 +42,7 @@ Get the **background type** of the **first slide** from **MyFolder/MyPresentatio
 **Get an Access Token**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/connect/token" \
+curl POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
@@ -51,7 +51,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 ```sh
 curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/background?folder=MyFolder" \
-     -H "authorization: Bearer <access_token>"
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
@@ -304,7 +304,7 @@ print $slide_background->{type}; # Solid, for example
 |background|object|body|true|The background DTO. For more information, please see the [API Reference](https://apireference.aspose.cloud/slides/) and look for the `SlideBackground` object.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -329,7 +329,7 @@ print $slide_background->{type}; # Solid, for example
 
 ### **Examples**
 
-Set **MyImage.png** as the background for the **second slide** in **MyFolder/MyPresentation.pptx** document saved to the default storage. Use the **Tile** fill mode.
+Set **MyImage.png** as the background for the **second** slide in **MyFolder/MyPresentation.pptx** document saved to the default storage. Use the **Tile** fill mode.
 
 **cURL Solution**
 
@@ -349,7 +349,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 ```sh
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/background?folder=MyFolder" \
-     -H "authorization: Bearer <access_token>" \
+     -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @request_data.json
 ```
@@ -735,7 +735,7 @@ print $current_background->{type}; # Picture
 |slideIndex|integer|path|true|The 1-based index of the slide to delete a background.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
@@ -761,7 +761,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 
 ```sh
 curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/background?folder=MyFolder" \
-     -H "authorization: Bearer <access_token>"
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
@@ -1007,6 +1007,267 @@ print current_background->{type}; # NoFill
 
 {{< /tabs >}}
 
+## **SetBackgroundColor**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/{name}/slides/{slideIndex}/backgroundColor|PUT|Sets a background color for a presentation slide.|[SetBackgroundColor](https://reference.aspose.cloud/slides/#/Slides/SetBackgroundColor)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of the slide.|
+|color|string|query|true|The slide background color in #RRGGBB or #AARRGGBB format.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+Set the background color to **#AABBDD** for the **first** slide in the document **MyPresentation.pptx** saved in the default storage.
+
+**cURL Solution**
+
+{{< tabs tabTotal="2" tabID="4" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Get an Access Token**
+
+```sh
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Set the Background Color**
+
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/backgroundColor?color=%23AABBDD" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Length: 0"
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+**Response Example**
+
+```json
+{
+  "type": "Solid",
+  "fillFormat": {
+    "type": "Solid",
+    "color": "#FFAABBDD"
+  },
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/background",
+    "relation": "self",
+    "slideIndex": 1
+  }
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="10" tabID="44" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+using Aspose.Slides.Cloud.Sdk;
+using System;
+
+class Application
+{
+    static void Main(string[] args)
+    {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        var documentName = "MyPresentation.pptx";
+        var slideIndex = 1;
+        var backgroundColor = "#AABBDD";
+
+        var slideBackground = slidesApi.SetBackgroundColor(documentName, slideIndex, backgroundColor);
+
+        Console.WriteLine("Background type: " + slideBackground.FillFormat.Type); // Solid
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        var documentName = "MyPresentation.pptx";
+        var slideIndex = 1;
+        var backgroundColor = "#AABBDD";
+
+        var slideBackground = slidesApi.setBackgroundColor(documentName, slideIndex, backgroundColor, null, null, null);
+
+        System.out.println("Background type: " + slideBackground.getFillFormat().getType()); // Solid
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$documentName = "MyPresentation.pptx";
+$slideIndex = 1;
+$backgroundColor = "#AABBDD";
+
+$slideBackground = $slidesApi->setBackgroundColor($documentName, $slideIndex, $backgroundColor);
+
+echo "Background type: ", $slideBackground->getFillFormat()->getType(); // Solid
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+document_name = "MyPresentation.pptx"
+slide_index = 1
+background_color = "#AABBDD"
+
+slide_background = slides_api.set_background_color(document_name, slide_index, background_color)
+
+print "Background type: ", slide_background.fill_format.type # Solid
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
+
+document_name = "MyPresentation.pptx"
+slide_index = 1
+background_color = "#AABBDD"
+
+slide_background = slides_api.set_background_color(document_name, slide_index, background_color)
+
+print("Background type:", slide_background.fill_format.type)  # Solid
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+const cloud = require("asposeslidescloud");
+
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
+
+const documentName = "MyPresentation.pptx";
+const slideIndex = 1;
+const backgroundColor = "#AABBDD";
+
+slidesApi.setBackgroundColor(documentName, slideIndex, backgroundColor).then(slideBackground => {
+    console.log("Background type:", slideBackground.body.fillFormat.type); // Solid
+});
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    auto documentName = L"MyPresentation.pptx";
+    auto slideIndex = 1;
+    auto backgroundColor = L"#AABBDD";
+
+    auto slideBackground = slidesApi->setBackgroundColor(documentName, slideIndex, backgroundColor).get(); 
+
+    std::wcout << "Background type: " << slideBackground->getFillFormat()->getType(); // Solid
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1, color => "#AABBDD");
+
+my $slide_background = $slides_api->set_background_color(%parameters);
+
+print("Background type: " . $slide_background->{type}); # Solid
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 ## **SDKs**
 
-Using an SDK (API client) is the quickest way for a developer to speed up development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
