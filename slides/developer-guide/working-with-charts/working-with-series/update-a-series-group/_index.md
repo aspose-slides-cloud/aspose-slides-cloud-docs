@@ -40,6 +40,9 @@ Returns chart info.
 ```
 
 {{< /tab >}}
+
+{{< /tabs >}}
+
 ## **SDK Source**
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
 ## **SDK Examples**

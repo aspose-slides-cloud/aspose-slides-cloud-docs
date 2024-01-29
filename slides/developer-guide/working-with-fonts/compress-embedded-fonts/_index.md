@@ -2,7 +2,7 @@
 title: "Compress Embedded Fonts"
 type: docs
 url: /compress-embedded-fonts/
-weight: 50
+weight: 60
 ---
 ## **Introduction**
 
