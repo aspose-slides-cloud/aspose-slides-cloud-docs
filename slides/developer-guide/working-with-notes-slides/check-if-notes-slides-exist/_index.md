@@ -7,7 +7,7 @@ weight: 45
 
 ## **Introduction**
 
-When you add speaker notes to a slide, a Notes slide is created in your PowerPoint presentation. The Notes slide can contain text, shapes, etc. The following methods allow you to check whether a Notes slide exists associated with a regular slide.
+When you add speaker notes to a slide, a Notes slide is created in your PowerPoint presentation. The Notes slide can contain text, shapes, etc. The following methods allow you to check whether a Notes slide associated with a regular slide exists.
 
 ![Notes slide](notes_slide.png)
 
