@@ -33,7 +33,7 @@ When you add speaker notes to a slide, a Notes slide is created in your PowerPoi
 
 ### **Examples**
 
-Check whether a Notes slide **exists** associated with the **first** regular slide.
+Check to see if there is a **Notes slide** associated with the **first** regular slide in the document **MyPresentation.pptx**.
 
 **cURL Solution**
 
