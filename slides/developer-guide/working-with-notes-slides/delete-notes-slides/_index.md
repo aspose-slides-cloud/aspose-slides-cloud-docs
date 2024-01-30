@@ -12,7 +12,7 @@ When you add speaker notes to a slide, a Notes slide is created in your PowerPoi
 ![Notes slide](notes_slide.png)
 
 {{% alert color="primary" %}} 
-When you delete a non-existent Notes slide, you will receive an error message: "Object reference not set to an instance of an object.". You can use the [NotesSlideExists](https://reference.aspose.cloud/slides/#/NotesSlide/NotesSlideExists) or [NotesSlideExistsOnline](https://reference.aspose.cloud/slides/#/NotesSlide/NotesSlideExistsOnline) methods to check if a Notes slide exists.
+When you attempt to delete a non-existent Notes slide, you will get an error. You can use the [NotesSlideExists](https://reference.aspose.cloud/slides/#/NotesSlide/NotesSlideExists) or [NotesSlideExistsOnline](https://reference.aspose.cloud/slides/#/NotesSlide/NotesSlideExistsOnline) methods to check if a Notes slide exists.
 {{% /alert %}} 
 
 ## **DeleteNotesSlide**
