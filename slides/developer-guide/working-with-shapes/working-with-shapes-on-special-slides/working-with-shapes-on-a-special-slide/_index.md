@@ -7,82 +7,96 @@ weight: 10
 
 ## **Introduction**
 
-Aspose.Slides Cloud API allows you to read, add, modify, and delete shapes on a special slide (master, layout, or notes) in a PowerPoint presentation. A set of methods is identical to those that work with normal slides can be used to do that.
+Aspose.Slides Cloud API allows you to read, add, modify, and delete shapes on a special slide (Master, Layout, or Notes) in a PowerPoint presentation. A set of methods is identical to those that work with regular slides can be used to do that.
 
 ## **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|GET|Reads information about slide shapes.|[GetSpecialSlideShapes](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/GetSpecialSlideShapes)|
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}|GET|Reads information about the slide shape.|[GetSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/GetSpecialSlideShape)|
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|POST|Adds a new shape to the slide.|[CreateSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/CreateSpecialSlideShape)|
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}|PUT|Updates a shape in the slide.|[UpdateSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/UpdateSpecialSlideShape)|
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|DELETE|Deletes a shape from the slide.|[DeleteSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/DeleteSpecialSlideShape)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|GET|Reads information about shapes on a special slide.|[GetSpecialSlideShapes](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/GetSpecialSlideShapes)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}|GET|Reads information about a shape on a special slide.|[GetSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/GetSpecialSlideShape)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|POST|Adds a new shape to a special slide.|[CreateSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/CreateSpecialSlideShape)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}|PUT|Updates a shape on a special slide.|[UpdateSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/UpdateSpecialSlideShape)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|DELETE|Deletes a shape from a special slide.|[DeleteSpecialSlideShape](https://apireference.aspose.cloud/slides/#/SpecialSlideShapes/DeleteSpecialSlideShape)|
+|/slides/{name}/slides/{slideIndex}/{slideType}/shapes|DELETE|Deletes shapes from a special slide.|[DeleteSpecialSlideShapes](https://reference.aspose.cloud/slides/#/SpecialSlideShapes/DeleteSpecialSlideShapes)|
 
 {{< expand-list title="GetSpecialSlideShapes Request Parameters" >}}
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the special slide.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
 |slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
 {{< expand-list title="GetSpecialSlideShape Request Parameters" >}}
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the special slide.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
 |slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
 |shapeIndex|integer|path|true|The 1-based index of the shape.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
 {{< expand-list title="CreateSpecialSlideShape Request Parameters" >}}
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the special slide.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
 |slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
 |dto|object|body|true|The data transfer object with parameters for the new shape.|
 |shapeToClone|integer|query|false|The 1-based index for a cloning shape instead of adding a new one.|
 |position|integer|query|false|The 1-based index for the new shape in the list. By default, the shape is added to the end of the list.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
 {{< expand-list title="UpdateSpecialSlideShape Request Parameters" >}}
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the special slide.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
 |slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
 |shapeIndex|integer|path|true|The 1-based index of the shape.|
 |dto|object|body|true|The data transfer object with parameters to be updated.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
 {{< expand-list title="DeleteSpecialSlideShape Request Parameters" >}}
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of the special slide.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
 |slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
 |shapeIndex|integer|path|true|The 1-based index of the shape.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+|subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
+{{< /expand-list >}}
+
+{{< expand-list title="DeleteSpecialSlideShapes Request Parameters" >}}
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a regular slide.|
+|slideType|`MasterSlide` or `LayoutSlide` or `NotesSlide`|path|true|The type of the special slide.|
+|shapes|string|query|false|The indices of the shapes to be deleted. Delete all by default.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
