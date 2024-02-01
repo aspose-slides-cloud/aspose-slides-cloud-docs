@@ -9,7 +9,7 @@ weight: 20
 
 Aspose.Slides Cloud API allows you to read, add, modify and delete text paragraphs from shapes on special (Master, Layout, Notes) slides in a PowerPoint presentation. A set of methods identical to those that work with ordinary slides can be used to do that.
 
-### **API Information**
+## **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
@@ -105,9 +105,11 @@ Aspose.Slides Cloud API allows you to read, add, modify and delete text paragrap
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 {{< /expand-list >}}
 
+## **Examples**
+
 The following examples demonstrate manipulating text paragraphs on a Master slide. You can access paragraphs on a Layout or Notes slide the same way, just change the value of the **slideType** parameter accordingly.
 
-### **cURL Example**
+**cURL Examples**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
@@ -192,7 +194,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 
 {{< /tabs >}}
 
-### **SDK Examples**
+**SDK Examples**
 
 {{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 
