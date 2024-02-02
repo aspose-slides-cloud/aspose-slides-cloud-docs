@@ -98,9 +98,9 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var fileName = "MyPresentation.pptx";
+        String fileName = "MyPresentation.pptx";
 
         slidesApi.deleteWatermark(fileName, null, null, null, null);
     }
@@ -328,13 +328,13 @@ import java.nio.file.Paths;
 
 public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var inputFilePath = "MyPresentation.pptx";
+        String inputFilePath = "MyPresentation.pptx";
 
         // Remove the watermark shapes.
-        var inputData = Files.readAllBytes(Paths.get(inputFilePath));
-        var outputFile = slidesApi.deleteWatermarkOnline(inputData, null, null);
+        byte[] inputData = Files.readAllBytes(Paths.get(inputFilePath));
+        File outputFile = slidesApi.deleteWatermarkOnline(inputData, null, null);
 
         System.out.println("The output file was saved to " + outputFile.getPath());
     }

@@ -364,9 +364,9 @@ slidesApi.setSlideHeaderFooter(fileName, 1, firstFooter, null, null, null);
 // Get settings from the first slide.
 firstFooter = slidesApi.getSlideHeaderFooter(fileName, 1, null, null, null);
 
-System.out.println("Date and time visibility: " + firstFooter.isIsDateTimeVisible()); // False
-System.out.println("Footer visibility: " + firstFooter.isIsFooterVisible()); // True
-System.out.println("Slide number visibility: " + firstFooter.isIsSlideNumberVisible()); // False
+System.out.println("Date and time visibility: " + firstFooter.getIsDateTimeVisible()); // False
+System.out.println("Footer visibility: " + firstFooter.getIsFooterVisible()); // True
+System.out.println("Slide number visibility: " + firstFooter.getIsSlideNumberVisible()); // False
 System.out.println("Date and time: " + firstFooter.getDateTimeText()); // 1/2/2023
 System.out.println("Footer text: " + firstFooter.getFooterText()); // "The first footer."
 ```

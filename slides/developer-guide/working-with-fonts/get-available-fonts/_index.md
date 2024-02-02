@@ -67,8 +67,8 @@ FontsData fonts = api.GetAvailableFonts("customFonts");
 Console.WriteLine("List of available fonts:");
 foreach (FontData font in fonts.List)
 {
-    Console.Write(font.Name);
-    if (font.IsCustom)
+    Console.Write(font.FontName);
+    if (font.IsCustom == true)
     {
         Console.Write(" (custom)");
     }
@@ -85,7 +85,7 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 System.out.println("List of available fonts:");
 FontsData fonts = api.getAvailableFonts("customFonts", null);
 for (FontData font : fonts.getList()) {
-    System.out.print(font.getName());
+    System.out.print(font.getFontName());
     if (font.getIsCustom())
     {
         System.out.print(" (custom)");
@@ -110,7 +110,7 @@ $fonts = $api->getAvailableFonts("customFonts");
 print("List of available fonts:\n");
 foreach ($fonts->getList() as $font)
 {
-    print($font->getName());
+    print($font->getFontName());
     if ($font->getIsCustom())
     {
         print(" (custom)");
@@ -131,7 +131,7 @@ api = AsposeSlidesCloud::SlidesApi.new(configuration)
 fonts = api.get_available_fonts("customFonts")
 puts("List of available fonts:")
 for font in fonts.list
-    print(font.name)
+    print(font.font_name)
     if font.is_custom
         print(" (custom)")
     end
@@ -156,7 +156,7 @@ api = SlidesApi(configuration)
 fonts = api.get_available_fonts("customFonts")
 print("List of available fonts:")
 for font in fonts.list:
-    print(font.name, end = "")
+    print(font.font_name, end = "")
     if font.is_custom:
         print(" (custom)", end = "")
     print("")
@@ -173,7 +173,7 @@ const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 let fonts = await api.getAvailableFonts("customFonts");
 console.log("List of available fonts:");
 for (var i = 0; i < fonts.body.list; i++) {
-    process.stdout.write(fonts.body.list[i].name);
+    process.stdout.write(fonts.body.list[i].font_name);
     if (fonts.body.list[i].isCustom) {
         process.stdout.write(" (custom)");
     }
@@ -189,8 +189,6 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-fileName := "MyPresentation.pptx"
-
 fonts, _, e := api.SlidesApi.GetAvailableFonts("customFonts", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
@@ -199,8 +197,8 @@ if e != nil {
 
 fmt.Printf("List of available fonts:\n")
 for _, font := range fonts.GetList() {
-    fmt.Printf("%v", font.GetName())
-    if font.IsCustom() {
+    fmt.Printf("%v", font.GetFontName())
+    if font.GetIsCustom() {
         fmt.Printf(" (custom)")
     }
     fmt.Printf("\n")
@@ -227,7 +225,7 @@ my %params = ('fonts_folder' => 'customFonts');
 my $fonts = $api->get_available_fonts(%params);
 print "List of available fonts:\n";
 foreach my $font (@($fonts->{list})) {
-    print $font->{name};
+    print $font->{font_name};
     if ($font->{is_custom}) {
         print " (custom)";
     }

@@ -100,10 +100,10 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var author = "John Smith";
+        String documentName = "MyPresentation.pptx";
+        String author = "John Smith";
 
         slidesApi.deleteComments(documentName, author, null, null, null);
     }
@@ -357,11 +357,11 @@ import com.aspose.slides.api.SlidesApi;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var author = "John Smith";
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        String author = "John Smith";
 
         slidesApi.deleteSlideComments(documentName, slideIndex, author, null, null, null);
     }

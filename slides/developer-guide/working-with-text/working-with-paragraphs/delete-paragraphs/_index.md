@@ -128,19 +128,20 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraphs;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var shapeIndex = 1;
-        var paragraphIndex = 2;
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int paragraphIndex = 2;
 
-        var paragraphsInfo = slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
+        Paragraphs paragraphsInfo = slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
 
-        var paragraphCount = paragraphsInfo.getParagraphLinks().size();
+        int paragraphCount = paragraphsInfo.getParagraphLinks().size();
         System.out.println("Number of remaining paragraphs: " + paragraphCount); // 2
     }
 }
@@ -420,20 +421,23 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraphs;
 import java.util.Arrays;
+import java.util.List;
+import java.lang.Integer;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 2;
-        var shapeIndex = 1;
-        var paragraphIndices = Arrays.asList(1, 3, 5);
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 2;
+        int shapeIndex = 1;
+        List<Integer> paragraphIndices = Arrays.asList(1, 3, 5);
 
-        var paragraphsInfo = slidesApi.deleteParagraphs(documentName, slideIndex, shapeIndex, paragraphIndices, null, null, null, null);
+        Paragraphs paragraphsInfo = slidesApi.deleteParagraphs(documentName, slideIndex, shapeIndex, paragraphIndices, null, null, null, null);
 
-        var paragraphCount = paragraphsInfo.getParagraphLinks().size();
+        int paragraphCount = paragraphsInfo.getParagraphLinks().size();
         System.out.println("Number of remaining paragraphs: " + paragraphCount); // 2
     }
 }

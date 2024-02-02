@@ -247,7 +247,7 @@ if e != nil {
 }
 
 var ignoreCase bool = true
-result, _, e := c.SlidesApi.ReplacePresentationTextOnline(source, "banana", "orange", &ignoreCase, "", "", "")
+result, _, e := api.SlidesApi.ReplacePresentationTextOnline(source, "banana", "orange", &ignoreCase, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
