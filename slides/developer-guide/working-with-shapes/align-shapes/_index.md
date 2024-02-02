@@ -336,7 +336,7 @@ $slides_api->align_shapes(%parameters);
 
 {{< /tabs >}}
 
-Result:
+The result:
 
 ![Screenshot of the slide.](output.png "Screenshot of the slide.")
 

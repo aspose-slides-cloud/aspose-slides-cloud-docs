@@ -1,5 +1,5 @@
 ---
-title: "Working with Paragraphs on a Special Slide"
+title: "Working with Paragraphs"
 type: docs
 url: /working-with-paragraphs-on-a-special-slide/
 weight: 20
