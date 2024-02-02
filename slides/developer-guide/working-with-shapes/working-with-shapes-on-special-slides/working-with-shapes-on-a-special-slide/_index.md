@@ -7,7 +7,7 @@ weight: 10
 
 ## **Introduction**
 
-Aspose.Slides Cloud API allows you to read, add, modify, and delete shapes on a special slide (Master, Layout, or Notes) in a PowerPoint presentation. A set of methods is identical to those that work with regular slides can be used to do that.
+Aspose.Slides Cloud API allows you to read, add, modify, and delete shapes on special slides (Master, Layout, or Notes) in a PowerPoint presentation. To do this, you can use the following set of methods, identical to those that work with regular slides.
 
 ## **API Information**
 
