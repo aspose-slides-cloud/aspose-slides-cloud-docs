@@ -1,5 +1,5 @@
 ---
-title: "Working with Text Portions on a Special Slide"
+title: "Working with Text Portions"
 type: docs
 url: /working-with-text-portions-on-a-special-slide/
 weight: 30
