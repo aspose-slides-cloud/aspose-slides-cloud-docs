@@ -34,7 +34,7 @@ Deletion of paragraphs typically pertains to editing text blocks in slides. The 
 
 ### **Examples**
 
-In the document **MyPresentation.pptx**, the **first** slide contains **one** shape (text box) with **three** paragraphs. Delete the **second** paragraph from the shape.
+In the document **MyPresentation.pptx**, the **first** slide contains **one** shape (text box) with **three** paragraphs. Delete the **first** paragraph from the shape.
 
 **cURL Solution**
 
@@ -53,7 +53,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Paragraph**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/2" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -111,7 +111,7 @@ class Application
         var documentName = "MyPresentation.pptx";
         var slideIndex = 1;
         var shapeIndex = 1;
-        var paragraphIndex = 2;
+        var paragraphIndex = 1;
 
         var paragraphsInfo = slidesApi.DeleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex);
 
@@ -137,7 +137,7 @@ public class Application {
         String documentName = "MyPresentation.pptx";
         int slideIndex = 1;
         int shapeIndex = 1;
-        int paragraphIndex = 2;
+        int paragraphIndex = 1;
 
         Paragraphs paragraphsInfo = slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
 
@@ -164,7 +164,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 $documentName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 1;
-$paragraphIndex = 2;
+$paragraphIndex = 1;
 
 $paragraphsInfo = $slidesApi->deleteParagraph($documentName, $slideIndex, $shapeIndex, $paragraphIndex);
 
@@ -190,7 +190,7 @@ slides_api = SlidesApi.new(configuration)
 document_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 1
-paragraph_index = 2
+paragraph_index = 1
 
 paragraphs_info = slides_api.delete_paragraph(document_name, slide_index, shape_index, paragraph_index)
 
@@ -210,7 +210,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 document_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 1
-paragraph_index = 2
+paragraph_index = 1
 
 paragraphs_info = slides_api.delete_paragraph(document_name, slide_index, shape_index, paragraph_index)
 
@@ -230,7 +230,7 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 const documentName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 1;
-const paragraphIndex = 2;
+const paragraphIndex = 1;
 
 slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex).then(paragraphsInfo => {
     const paragraphCount = paragraphsInfo.body.paragraphLinks.length;
@@ -257,7 +257,7 @@ int main()
     auto documentName = L"MyPresentation.pptx";
     auto slideIndex = 1;
     auto shapeIndex = 1;
-    auto paragraphIndex = 2;
+    auto paragraphIndex = 1;
 
     auto paragraphsInfo = slidesApi->deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex).get();
 
