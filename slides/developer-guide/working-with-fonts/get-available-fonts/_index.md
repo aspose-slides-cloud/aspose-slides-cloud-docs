@@ -86,7 +86,7 @@ System.out.println("List of available fonts:");
 FontsData fonts = api.getAvailableFonts("customFonts", null);
 for (FontData font : fonts.getList()) {
     System.out.print(font.getFontName());
-    if (font.getIsCustom())
+    if (font.getIsCustom() != null && font.getIsCustom())
     {
         System.out.print(" (custom)");
     }
@@ -160,7 +160,6 @@ for font in fonts.list:
     if font.is_custom:
         print(" (custom)", end = "")
     print("")
-end
 ```
 
 {{< /tab >}}
