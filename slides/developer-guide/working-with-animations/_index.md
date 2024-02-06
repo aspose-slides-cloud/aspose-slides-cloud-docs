@@ -6,8 +6,10 @@ weight: 40
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint slide. The resource properties are explained below
-### **Resource Properties**
+
+Aspose.Slides Cloud allows you to read, add, and modify animations in a PowerPoint slide. The resource properties are explained below.
+
+### **SlideAnimation properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
@@ -20,6 +22,7 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 | :- | :- | :- |
 |Effects|Effect array|The list of sequence effects.|
 |TriggerShapeIndex|int|The index of the shape that triggers the sequence.|
+
 #### **Effect properties**
 
 |**Property Name**|**Type**|**Description**|
@@ -39,6 +42,7 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 |Restart|enum|The way for a effect to restart after complete.|
 |Speed|float|The percentage by which to speed up (or slow down) the timing.|
 |TriggerDelayTime|float|Delay time after trigger.|
+
 #### **EffectType, EffectSubtype and EffectPresetClassType**
 
 |**Type**|**Valid subtypes**|**Valid classes**|
@@ -201,6 +205,7 @@ Aspose.Slides Cloud allows you to read and modify animations in a PowerPoint sli
 ### **Resource Demonstration**
 
 - [Read Animation Properties](/slides/read-animation-properties/)
+- [Set Animation](/slides/set-animation/)
 - [Update an Interactive Sequence](/slides/update-an-interactive-sequence/)
 - [Update a Main Sequence](/slides/update-a-main-sequence/)
 - [Animation on a Special Slide](/slides/animation-on-a-special-slide/)
