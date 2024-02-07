@@ -26,7 +26,7 @@ Animation in PowerPoint presentations is a powerful tool for creating interactiv
 |animation|`SlideAnimation`|body|true|The data transfer object with animation parameters.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder where the presentation file is located.|
-|storage|string|query|false|The storage where the presentation file is located.|
+|storage|string|query|false|The storage where the folder is located.|
 
 ### **Example 1**
 
