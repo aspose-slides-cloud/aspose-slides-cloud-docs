@@ -117,7 +117,7 @@ public class Application {
         ProtectionProperties protectionProperties = slidesApi.deleteProtection("MyPresentation.pptx", "MyPassword", null, null);
 
         // Check if the presentation has been decrypted.
-        System.out.println(protectionProperties.isIsEncrypted());
+        System.out.println(protectionProperties.getIsEncrypted());
     }
 }
 ```

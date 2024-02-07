@@ -95,12 +95,13 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.ApiInfo;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var apiInfo = slidesApi.getApiInfo();
+        ApiInfo apiInfo = slidesApi.getApiInfo();
         System.out.println(apiInfo.getName() + " " + apiInfo.getVersion());
     }
 }

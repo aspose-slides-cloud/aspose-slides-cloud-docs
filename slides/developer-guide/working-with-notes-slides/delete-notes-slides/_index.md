@@ -285,7 +285,7 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string documentName = "MyPresentation.pptx";
-        int slideIndex = 2;
+        int slideIndex = 1;
 
         Slide slide = slidesApi.DeleteNotesSlide(documentName, slideIndex);
 
@@ -312,7 +312,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String documentName = "MyPresentation.pptx";
-        int slideIndex = 2;
+        int slideIndex = 1;
 
         Slide slide = slidesApi.deleteNotesSlide(documentName, slideIndex, null, null, null);
 
@@ -340,7 +340,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $documentName = "MyPresentation.pptx";
-$slideIndex = 2;
+$slideIndex = 1;
 
 $slide = $slidesApi->deleteNotesSlide($documentName, $slideIndex);
 
@@ -367,7 +367,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 document_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 1
 
 slide = slides_api.delete_notes_slide(document_name, slide_index)
 
@@ -388,7 +388,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 document_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 1
 
 slide = slides_api.delete_notes_slide(document_name, slide_index)
 
@@ -409,7 +409,7 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 documentName = "MyPresentation.pptx";
-slideIndex = 2;
+slideIndex = 1;
 
 slidesApi.deleteNotesSlide(documentName, slideIndex).then(slide => {
     notesSlideExists = slide.body.notesSlide != null;
@@ -434,7 +434,7 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* documentName = L"MyPresentation.pptx";
-    const int slideIndex = 2;
+    const int slideIndex = 1;
 
     std::shared_ptr<Slide> response = slidesApi->deleteNotesSlide(documentName, slideIndex).get();
 
@@ -460,7 +460,7 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 1);
 
 my $slide = $slides_api->delete_notes_slide(%parameters);
 

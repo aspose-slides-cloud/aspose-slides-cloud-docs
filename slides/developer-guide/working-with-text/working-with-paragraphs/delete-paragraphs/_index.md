@@ -34,7 +34,7 @@ Deletion of paragraphs typically pertains to editing text blocks in slides. The 
 
 ### **Examples**
 
-In the document **MyPresentation.pptx**, the **first** slide contains **one** shape (text box) with **three** paragraphs. Delete the **second** paragraph from the shape.
+In the document **MyPresentation.pptx**, the **first** slide contains **one** shape (text box) with **three** paragraphs. Delete the **first** paragraph from the shape.
 
 **cURL Solution**
 
@@ -53,7 +53,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Paragraph**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/2" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/paragraphs/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -111,7 +111,7 @@ class Application
         var documentName = "MyPresentation.pptx";
         var slideIndex = 1;
         var shapeIndex = 1;
-        var paragraphIndex = 2;
+        var paragraphIndex = 1;
 
         var paragraphsInfo = slidesApi.DeleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex);
 
@@ -128,19 +128,20 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraphs;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var shapeIndex = 1;
-        var paragraphIndex = 2;
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int paragraphIndex = 1;
 
-        var paragraphsInfo = slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
+        Paragraphs paragraphsInfo = slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex, null, null, null, null);
 
-        var paragraphCount = paragraphsInfo.getParagraphLinks().size();
+        int paragraphCount = paragraphsInfo.getParagraphLinks().size();
         System.out.println("Number of remaining paragraphs: " + paragraphCount); // 2
     }
 }
@@ -163,7 +164,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 $documentName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 1;
-$paragraphIndex = 2;
+$paragraphIndex = 1;
 
 $paragraphsInfo = $slidesApi->deleteParagraph($documentName, $slideIndex, $shapeIndex, $paragraphIndex);
 
@@ -189,7 +190,7 @@ slides_api = SlidesApi.new(configuration)
 document_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 1
-paragraph_index = 2
+paragraph_index = 1
 
 paragraphs_info = slides_api.delete_paragraph(document_name, slide_index, shape_index, paragraph_index)
 
@@ -209,7 +210,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 document_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 1
-paragraph_index = 2
+paragraph_index = 1
 
 paragraphs_info = slides_api.delete_paragraph(document_name, slide_index, shape_index, paragraph_index)
 
@@ -229,7 +230,7 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 const documentName = "MyPresentation.pptx";
 const slideIndex = 1;
 const shapeIndex = 1;
-const paragraphIndex = 2;
+const paragraphIndex = 1;
 
 slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex).then(paragraphsInfo => {
     const paragraphCount = paragraphsInfo.body.paragraphLinks.length;
@@ -256,7 +257,7 @@ int main()
     auto documentName = L"MyPresentation.pptx";
     auto slideIndex = 1;
     auto shapeIndex = 1;
-    auto paragraphIndex = 2;
+    auto paragraphIndex = 1;
 
     auto paragraphsInfo = slidesApi->deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex).get();
 
@@ -324,7 +325,7 @@ print("Number of remaining paragraphs: ", $paragraph_count); # 2
 
 ### **Examples**
 
-In the document **MyPresentation.pptx**, the **second** slide contains **one** shape (text box) with **five** paragraphs. Delete the paragraphs with indices **1**, **3**, and **5**.
+In the document **MyPresentation.pptx**, the **sixth** slide contains **one** shape (text box) with **five** paragraphs. Delete the paragraphs with indices **1**, **3**, and **5**.
 
 **cURL Solution**
 
@@ -343,7 +344,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Paragraphs**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/paragraphs?paragraphs=1,3,5" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/6/shapes/1/paragraphs?paragraphs=1,3,5" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -357,22 +358,22 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 {
   "paragraphLinks": [
     {
-      "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/paragraphs/1",
+      "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/6/shapes/1/paragraphs/1",
       "relation": "self",
-      "slideIndex": 2,
+      "slideIndex": 6,
       "shapeIndex": 1
     },
     {
-      "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/paragraphs/2",
+      "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/6/shapes/1/paragraphs/2",
       "relation": "self",
-      "slideIndex": 2,
+      "slideIndex": 6,
       "shapeIndex": 1
     }
   ],
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/paragraphs",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/6/shapes/1/paragraphs",
     "relation": "self",
-    "slideIndex": 2,
+    "slideIndex": 6,
     "shapeIndex": 1
   }
 }
@@ -401,7 +402,7 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         var documentName = "MyPresentation.pptx";
-        var slideIndex = 2;
+        var slideIndex = 6;
         var shapeIndex = 1;
         var paragraphIndices = new List<int> { 1, 3, 5 };
 
@@ -420,20 +421,23 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraphs;
 import java.util.Arrays;
+import java.util.List;
+import java.lang.Integer;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 2;
-        var shapeIndex = 1;
-        var paragraphIndices = Arrays.asList(1, 3, 5);
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 6;
+        int shapeIndex = 1;
+        List<Integer> paragraphIndices = Arrays.asList(1, 3, 5);
 
-        var paragraphsInfo = slidesApi.deleteParagraphs(documentName, slideIndex, shapeIndex, paragraphIndices, null, null, null, null);
+        Paragraphs paragraphsInfo = slidesApi.deleteParagraphs(documentName, slideIndex, shapeIndex, paragraphIndices, null, null, null, null);
 
-        var paragraphCount = paragraphsInfo.getParagraphLinks().size();
+        int paragraphCount = paragraphsInfo.getParagraphLinks().size();
         System.out.println("Number of remaining paragraphs: " + paragraphCount); // 2
     }
 }
@@ -454,7 +458,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $documentName = "MyPresentation.pptx";
-$slideIndex = 2;
+$slideIndex = 6;
 $shapeIndex = 1;
 $paragraphIndices = [1, 3, 5];
 
@@ -480,7 +484,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 document_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 6
 shape_index = 1
 paragraph_indices = [1, 3, 5]
 
@@ -500,7 +504,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 document_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 6
 shape_index = 1
 paragraph_indices = [1, 3, 5]
 
@@ -520,7 +524,7 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 const documentName = "MyPresentation.pptx";
-const slideIndex = 2;
+const slideIndex = 6;
 const shapeIndex = 1;
 const paragraphIndices = [1, 3, 5];
 
@@ -547,7 +551,7 @@ int main()
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     auto documentName = L"MyPresentation.pptx";
-    auto slideIndex = 2;
+    auto slideIndex = 6;
     auto shapeIndex = 1;
     auto paragraphIndices = { 1, 3, 5 };
 
@@ -573,7 +577,7 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my @paragraph_indices = (1, 3, 5);
-my %parameters = (name => "MyPresentation.pptx", slide_index => 2, shape_index => 1, paragraphs => \@paragraph_indices);
+my %parameters = (name => "MyPresentation.pptx", slide_index => 6, shape_index => 1, paragraphs => \@paragraph_indices);
 
 my $paragraphs_info = $slides_api->delete_paragraphs(%parameters);
  

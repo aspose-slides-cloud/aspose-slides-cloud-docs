@@ -1113,16 +1113,17 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideBackground;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var backgroundColor = "#AABBDD";
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        String backgroundColor = "#AABBDD";
 
-        var slideBackground = slidesApi.setBackgroundColor(documentName, slideIndex, backgroundColor, null, null, null);
+        SlideBackground slideBackground = slidesApi.setBackgroundColor(documentName, slideIndex, backgroundColor, null, null, null);
 
         System.out.println("Background type: " + slideBackground.getFillFormat().getType()); // Solid
     }

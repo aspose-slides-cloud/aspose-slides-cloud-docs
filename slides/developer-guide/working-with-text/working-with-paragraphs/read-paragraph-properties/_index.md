@@ -77,7 +77,7 @@ curl -v -X GET "https://api.aspose.cloud/v3.0/slides/example.pptx/slides/1/shape
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](https://docs.aspose.cloud/slides/available-sdks/).
 
 ## **SDK Examples**
-Read properties of a paragraph at index 3 from a shape at index 2 on a slide at index 1 in example.pptx. The storage is ‘Main’. The folder is ‘Data’.
+Read properties of a paragraph at index 1 from a shape at index 2 on a slide at index 1 in example.pptx. The storage is ‘Main’. The folder is ‘Data’.
 
 {{< tabs tabTotal="11" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
 
@@ -101,7 +101,7 @@ class Test
         var folderName = "Data";
         var slideIndex = 1;
         var shapeIndex = 2;
-        var paragraphIndex = 3;
+        var paragraphIndex = 1;
         var password = "";
 
         try
@@ -151,7 +151,7 @@ public class Main {
         String folderName = "Data";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
+        int paragraphIndex = 1;
         String password = "";
 
         try {
@@ -198,7 +198,7 @@ $storageName = "Main";
 $folderName = "Data";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphIndex = 3;
+$paragraphIndex = 1;
 $password = "";
 
 try {
@@ -250,7 +250,7 @@ storage_name = "Main"
 folder_name = "Data"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
+paragraph_index = 1
 password = ""
 
 try:
@@ -290,7 +290,7 @@ const storageName = "Main"
 const folderName = "Data"
 const slideIndex = 1
 const shapeIndex = 2
-const paragraphIndex = 3
+const paragraphIndex = 1
 const password = ""
 
 // The path to the presentation file in the storage.
@@ -337,7 +337,7 @@ public class Main {
         String folderName = "Data";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
+        int paragraphIndex = 1;
         String password = "";
 
         try {
@@ -383,7 +383,7 @@ int main()
 	auto folderName = to_string_t("Data");
 	auto slideIndex = 1;
 	auto shapeIndex = 2;
-	auto paragraphIndex = 3;
+	auto paragraphIndex = 1;
 	auto password = to_string_t("");
 		
 	try

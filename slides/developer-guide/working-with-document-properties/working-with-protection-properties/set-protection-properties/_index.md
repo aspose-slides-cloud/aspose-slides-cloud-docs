@@ -139,7 +139,7 @@ public class Application {
         ProtectionProperties response = slidesApi.setProtection("MyPresentation.pptx", properties, null, null, null);
 
         // Check if the presentation has been encrypted.
-        System.out.println(response.isIsEncrypted());
+        System.out.println(response.getIsEncrypted());
     }
 }
 ```

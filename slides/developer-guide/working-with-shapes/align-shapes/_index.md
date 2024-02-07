@@ -176,16 +176,18 @@ import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.model.ShapesAlignmentType;
 
 import java.util.Arrays;
+import java.util.List;
+import java.lang.Integer;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
-        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var documentName = "MyPresentation.pptx";
-        var slideIndex = 1;
-        var alignmentType = ShapesAlignmentType.ALIGNMIDDLE;
-        var alignToSlide = true;
-        var shapeIndices = Arrays.asList(1, 2, 3);
+        String documentName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        ShapesAlignmentType alignmentType = ShapesAlignmentType.ALIGNMIDDLE;
+        boolean alignToSlide = true;
+        List<Integer> shapeIndices = Arrays.asList(1, 2, 3);
 
         slidesApi.alignShapes(documentName, slideIndex, alignmentType, alignToSlide, shapeIndices, null, null, null, null);
     }
