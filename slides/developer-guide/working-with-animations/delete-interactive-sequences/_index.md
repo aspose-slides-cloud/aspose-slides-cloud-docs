@@ -325,11 +325,11 @@ my $sequence_index = 2;
 my %parameters = (name => $file_name, slide_index => $slide_index, sequence_index => $sequence_index);
 my $slide_animation = $slides_api->delete_animation_interactive_sequence(%parameters);
 
-my $main_sequence_effect_count = @{slide_animation->{main_sequence}};
-my $interactive_sequence_count = @{slide_animation->{interactive_sequences}};
+my $main_sequence_effect_count = @{$slide_animation->{main_sequence}};
+my $interactive_sequence_count = @{$slide_animation->{interactive_sequences}};
 
-print("Number of effects in the main sequence: ", $main_sequence_effect_count, "\n");
-print("Number of interactive sequences: ", $interactive_sequence_count);
+print("Number of effects in the main sequence: ", $main_sequence_effect_count, "\n"); # 1
+print("Number of interactive sequences: ", $interactive_sequence_count); # 1
 ```
 
 {{< /tab >}}
