@@ -207,6 +207,7 @@ Aspose.Slides Cloud allows you to read, add, and modify animations in a PowerPoi
 - [Read Animation Properties](/slides/read-animation-properties/)
 - [Set an Animation](/slides/set-an-animation/)
 - [Update an Interactive Sequence](/slides/update-an-interactive-sequence/)
+- [Delete Interactive Sequences](/slides/delete-interactive-sequences/)
 - [Update a Main Sequence](/slides/update-a-main-sequence/)
 - [Delete Animations](/slides/delete-animations/)
 - [Animation on a Special Slide](/slides/animation-on-a-special-slide/)
