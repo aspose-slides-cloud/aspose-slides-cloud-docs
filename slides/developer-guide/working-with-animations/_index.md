@@ -9,21 +9,21 @@ weight: 40
 
 Aspose.Slides Cloud allows you to read, add, and modify animations in a PowerPoint slide. The resource properties are explained below.
 
-### **SlideAnimation properties**
+## **SlideAnimation properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
 |MainSequence|Effect array|The list of main sequence effects.|
 |InteractiveSequences|InteractiveSequence array|The list of interactive sequences.|
 
-#### **InteractiveSequence properties**
+### **InteractiveSequence properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
 |Effects|Effect array|The list of sequence effects.|
 |TriggerShapeIndex|int|The index of the shape that triggers the sequence.|
 
-#### **Effect properties**
+### **Effect properties**
 
 |**Property Name**|**Type**|**Description**|
 | :- | :- | :- |
@@ -43,7 +43,7 @@ Aspose.Slides Cloud allows you to read, add, and modify animations in a PowerPoi
 |Speed|float|The percentage by which to speed up (or slow down) the timing.|
 |TriggerDelayTime|float|Delay time after trigger.|
 
-#### **EffectType, EffectSubtype and EffectPresetClassType**
+### **EffectType, EffectSubtype and EffectPresetClassType**
 
 |**Type**|**Valid subtypes**|**Valid classes**|
 | :- | :- | :- |
@@ -202,11 +202,12 @@ Aspose.Slides Cloud allows you to read, add, and modify animations in a PowerPoi
 |OLEObjectEdit|None|OLEActionVerbs (applicable to OLE object frames)|
 |OLEObjectOpen|None|OLEActionVerbs (applicable to OLE object frames)|
 
-### **Resource Demonstration**
+## **Resource Demonstration**
 
 - [Read Animation Properties](/slides/read-animation-properties/)
 - [Set an Animation](/slides/set-an-animation/)
 - [Update an Interactive Sequence](/slides/update-an-interactive-sequence/)
 - [Update a Main Sequence](/slides/update-a-main-sequence/)
+- [Delete Animations](/slides/delete-animations/)
 - [Animation on a Special Slide](/slides/animation-on-a-special-slide/)
 - [Paragraph Animation](/slides/paragraph-animation/)
