@@ -1,21 +1,21 @@
 ---
-title: "Delete Animations"
+title: "Delete a Main Sequence"
 type: docs
-url: /delete-animations/
-weight: 35
+url: /delete-a-main-sequence/
+weight: 33
 ---
 
 ## **Introduction**
 
-Aspose.Slides Cloud API allows you to read, add, and modify animations in PowerPoint presentations. You can also delete animations from a presentation slide using the following method.
+Aspose.Slides Cloud API allows you to read, add, and modify animations in PowerPoint presentations. You can also delete a main animation sequence from a presentation slide using the following method.
 
-## **DeleteAnimation**
+## **DeleteAnimationMainSequence**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/animation|DELETE|Deletes animations from a presentation slide.|[DeleteAnimation](https://reference.aspose.cloud/slides/#/Animation/DeleteAnimation)|
+|/slides/{name}/slides/{slideIndex}/animation/mainSequence|DELETE|Deletes a main animation sequence from a presentation slide.|[DeleteAnimationMainSequence](https://reference.aspose.cloud/slides/#/Animation/DeleteAnimationMainSequence)|
 
 **Request Parameters**
 
@@ -29,7 +29,7 @@ Aspose.Slides Cloud API allows you to read, add, and modify animations in PowerP
 
 ### **Example**
 
-Delete animations from the **first** slide in the document **MyPresentation.pptx**.
+The document **MyPresentation.pptx** contains a main animation sequence with an animation effect and two interactive sequences on the **first** slide. Delete the **main** animation sequence.
 
 **cURL Solution**
 
@@ -45,10 +45,10 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Delete the Animations**
+**Delete the Main Sequence**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation2.pptx/slides/1/animation" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/mainSequence" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -61,9 +61,38 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation2.pptx/slides
 ```json
 {
   "mainSequence": [],
-  "interactiveSequences": [],
+  "interactiveSequences": [
+    {
+      "effects": [
+        {
+          "type": "Fly",
+          "subtype": "Bottom",
+          "presetClassType": "Entrance",
+          "shapeIndex": 4,
+          "triggerType": "OnClick",
+          "duration": 0.5,
+          "triggerDelayTime": 0.0
+        }
+      ],
+      "triggerShapeIndex": 3
+    },
+    {
+      "effects": [
+        {
+          "type": "Split",
+          "subtype": "HorizontalIn",
+          "presetClassType": "Entrance",
+          "shapeIndex": 5,
+          "triggerType": "OnClick",
+          "duration": 0.5,
+          "triggerDelayTime": 0.0
+        }
+      ],
+      "triggerShapeIndex": 3
+    }
+  ],
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation2.pptx/slides/1/animation",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation",
     "relation": "self",
     "slideIndex": 1
   }
@@ -82,7 +111,6 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation2.pptx/slides
 
 ```csharp
 using System;
-
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
 
@@ -95,13 +123,13 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
 
-        SlideAnimation slideAnimation = slidesApi.DeleteAnimation(fileName, slideIndex);
+        SlideAnimation slideAnimation = slidesApi.DeleteAnimationMainSequence(fileName, slideIndex);
 
         int mainSequenceEffectCount = slideAnimation.MainSequence.Count;
         int interactiveSequenceCount = slideAnimation.InteractiveSequences.Count;
 
         Console.WriteLine("Number of effects in the main sequence: " + mainSequenceEffectCount); // 0
-        Console.WriteLine("Number of interactive sequences: " + interactiveSequenceCount); // 0
+        Console.WriteLine("Number of interactive sequences: " + interactiveSequenceCount); // 2
     }
 }
 ```
@@ -122,13 +150,13 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
 
-        SlideAnimation slideAnimation = slidesApi.deleteAnimation(fileName, slideIndex, null, null, null);
+        SlideAnimation slideAnimation = slidesApi.deleteAnimationMainSequence(fileName, slideIndex, null, null, null);
 
         int mainSequenceEffectCount = slideAnimation.getMainSequence().size();
         int interactiveSequenceCount = slideAnimation.getInteractiveSequences().size();
 
         System.out.println("Number of effects in the main sequence: " + mainSequenceEffectCount); // 0
-        System.out.println("Number of interactive sequences: " + interactiveSequenceCount); // 0
+        System.out.println("Number of interactive sequences: " + interactiveSequenceCount); // 2
     }
 }
 ```
@@ -151,13 +179,13 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 
-$slideAnimation = $slidesApi->deleteAnimation($fileName, $slideIndex);
+$slideAnimation = $slidesApi->deleteAnimationMainSequence($fileName, $slideIndex);
 
 $mainSequenceEffectCount = count($slideAnimation->getMainSequence());
 $interactiveSequenceCount = count($slideAnimation->getInteractiveSequences());
 
 echo "Number of effects in the main sequence: ", $mainSequenceEffectCount, "\n"; // 0
-echo "Number of interactive sequences: ", $interactiveSequenceCount; // 0
+echo "Number of interactive sequences: ", $interactiveSequenceCount; // 2
 ```
 
 {{< /tab >}}
@@ -178,13 +206,13 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 
-slide_animation = slides_api.delete_animation(file_name, slide_index)
+slide_animation = slides_api.delete_animation_main_sequence(file_name, slide_index)
 
 main_sequence_effect_count = slide_animation.main_sequence.length()
 interactive_sequence_count = slide_animation.interactive_sequences.length()
 
 print "Number of effects in the main sequence: ", main_sequence_effect_count, "\n" # 0
-print "Number of interactive sequences: ", interactive_sequence_count # 0
+print "Number of interactive sequences: ", interactive_sequence_count # 2
 ```
 
 {{< /tab >}}
@@ -199,13 +227,13 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 
-slide_animation = slides_api.delete_animation(file_name, slide_index)
+slide_animation = slides_api.delete_animation_main_sequence(file_name, slide_index)
 
 main_sequence_effect_count = len(slide_animation.main_sequence)
 interactive_sequence_count = len(slide_animation.interactive_sequences)
 
 print("Number of effects in the main sequence:", main_sequence_effect_count)  # 0
-print("Number of interactive sequences:", interactive_sequence_count)  # 0
+print("Number of interactive sequences:", interactive_sequence_count)  # 2
 ```
 
 {{< /tab >}}
@@ -220,12 +248,12 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 
-slidesApi.deleteAnimation(fileName, slideIndex).then(slideAnimation => {
+slidesApi.deleteAnimationMainSequence(fileName, slideIndex).then(slideAnimation => {
     mainSequenceEffectCount = slideAnimation.body.mainSequence.length;
     interactiveSequenceCount = slideAnimation.body.interactiveSequences.length;
 
     console.log("Number of effects in the main sequence:", mainSequenceEffectCount); // 0
-    console.log("Number of interactive sequences:", interactiveSequenceCount); // 0
+    console.log("Number of interactive sequences:", interactiveSequenceCount); // 2
 });
 ```
 
@@ -245,13 +273,13 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
 
-    std::shared_ptr<SlideAnimation> slideAnimation = slidesApi->deleteAnimation(fileName, slideIndex).get();
+    std::shared_ptr<SlideAnimation> slideAnimation = slidesApi->deleteAnimationMainSequence(fileName, slideIndex).get();
 
     int mainSequenceEffectCount = slideAnimation->getMainSequence().size();
     int interactiveSequenceCount = slideAnimation->getInteractiveSequences().size();
 
     std::wcout << L"Number of effects in the main sequence: " << mainSequenceEffectCount << "\r\n"; // 0
-    std::wcout << L"Number of interactive sequences: " << interactiveSequenceCount; // 0
+    std::wcout << L"Number of interactive sequences: " << interactiveSequenceCount; // 2
 }
 ```
 
@@ -273,13 +301,13 @@ my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 
 my %parameters = (name => $file_name, slide_index => $slide_index);
-my $slide_animation = $slides_api->delete_animation(%parameters);
+my $slide_animation = $slides_api->delete_animation_main_sequence(%parameters);
 
 my $main_sequence_effect_count = @{$slide_animation->{main_sequence}};
 my $interactive_sequence_count = @{$slide_animation->{interactive_sequences}};
 
 print("Number of effects in the main sequence: ", $main_sequence_effect_count, "\n"); # 0
-print("Number of interactive sequences: ", $interactive_sequence_count); # 0
+print("Number of interactive sequences: ", $interactive_sequence_count); # 2
 ```
 
 {{< /tab >}}
