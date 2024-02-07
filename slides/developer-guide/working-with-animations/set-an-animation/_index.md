@@ -1,7 +1,7 @@
 ---
-title: "Set Animation"
+title: "Set an Animation"
 type: docs
-url: /set-animation/
+url: /set-an-animation/
 weight: 15
 ---
 
