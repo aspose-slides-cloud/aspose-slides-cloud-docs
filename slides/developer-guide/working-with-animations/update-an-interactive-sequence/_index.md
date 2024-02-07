@@ -7,7 +7,7 @@ weight: 20
 
 ## **Introduction**
 
-The interactive sequence represents animations that are triggered by click a specified shape. The following method allows you to update the interactive sequence in a PowerPoint presentation.
+The interactive animation sequence represents animations that are triggered by click a specified shape. The following method allows you to update the interactive sequence in a PowerPoint presentation.
 
 ## **CreateAnimationInteractiveSequence**
 
