@@ -1,13 +1,13 @@
 ---
-title: "Update a Main Sequence"
+title: "Add an Effect to a Main Sequence"
 type: docs
-url: /update-a-main-sequence/
+url: /add-an-effect-to-a-main-sequence/
 weight: 30
 ---
 
 ## **Introduction**
 
-Aspose.Slides Cloud allows you to work with the collection of effects in the main animation sequence of a slide. You can use the following method to add/update the main sequence of an animation. 
+Aspose.Slides Cloud API allows you to work with the collection of effects in the main animation sequence of a slide. You can use the following method to add an effect to a main animation sequence. 
 
 ## **CreateAnimationEffect**
 
@@ -15,18 +15,18 @@ Aspose.Slides Cloud allows you to work with the collection of effects in the mai
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/animation/mainSequence|POST|Adds/updates the main animation sequence.|[CreateAnimationEffect](https://apireference.aspose.cloud/slides/#/Animation/CreateAnimationEffect)|
+|/slides/{name}/slides/{slideIndex}/animation/mainSequence|POST|Adds an effect to a main animation sequence on a slide.|[CreateAnimationEffect](https://apireference.aspose.cloud/slides/#/Animation/CreateAnimationEffect)|
 
 **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|name|string|path|true|The name of a presentation file.|
+|name|string|path|true|The name of a presentation file saved in a storage.|
 |slideIndex|integer|path|true|The 1-based index of a presentation slide.|
-|effect|object|body|true|The effect added to the main animation sequence.|
+|effect|`Effect`|body|true|The data transfer object with effect parameters.|
 |password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|folder|string|query|false|The path to a folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
