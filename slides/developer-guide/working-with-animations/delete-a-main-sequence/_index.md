@@ -2,7 +2,7 @@
 title: "Delete a Main Sequence"
 type: docs
 url: /delete-a-main-sequence/
-weight: 33
+weight: 100
 ---
 
 ## **Introduction**

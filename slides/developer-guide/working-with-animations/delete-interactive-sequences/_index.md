@@ -2,7 +2,7 @@
 title: "Delete Interactive Sequences"
 type: docs
 url: /delete-interactive-sequences/
-weight: 25
+weight: 60
 ---
 
 ## **Introduction**

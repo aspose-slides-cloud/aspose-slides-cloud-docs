@@ -2,7 +2,7 @@
 title: "Set an Animation"
 type: docs
 url: /set-an-animation/
-weight: 15
+weight: 20
 ---
 
 ## **Introduction**

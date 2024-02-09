@@ -2,7 +2,7 @@
 title: "Update an Effect in a Main Sequence"
 type: docs
 url: /update-an-effect-in-a-main-sequence/
-weight: 31
+weight: 80
 ---
 
 ## **Introduction**

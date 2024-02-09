@@ -2,7 +2,7 @@
 title: "Animation on a Special Slide"
 type: docs
 url: /animation-on-a-special-slide/
-weight: 40
+weight: 110
 ---
 
 ## **Introduction**

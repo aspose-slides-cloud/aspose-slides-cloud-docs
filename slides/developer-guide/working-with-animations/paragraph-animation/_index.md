@@ -2,7 +2,7 @@
 title: "Paragraph Animation"
 type: docs
 url: /paragraph-animation/
-weight: 50
+weight: 120
 ---
 
 ## **Introduction**
