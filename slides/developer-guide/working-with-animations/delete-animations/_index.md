@@ -2,7 +2,7 @@
 title: "Delete Animations"
 type: docs
 url: /delete-animations/
-weight: 35
+weight: 30
 ---
 
 ## **Introduction**

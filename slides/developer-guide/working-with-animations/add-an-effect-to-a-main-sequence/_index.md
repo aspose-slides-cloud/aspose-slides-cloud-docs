@@ -2,7 +2,7 @@
 title: "Add an Effect to a Main Sequence"
 type: docs
 url: /add-an-effect-to-a-main-sequence/
-weight: 30
+weight: 70
 ---
 
 ## **Introduction**

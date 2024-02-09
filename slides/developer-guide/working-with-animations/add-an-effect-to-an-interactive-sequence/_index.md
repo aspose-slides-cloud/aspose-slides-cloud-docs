@@ -2,7 +2,7 @@
 title: "Add an Effect to an Interactive Sequence"
 type: docs
 url: /add-an-effect-to-an-interactive-sequence/
-weight: 17
+weight: 40
 ---
 
 ## **Introduction**

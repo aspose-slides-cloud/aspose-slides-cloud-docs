@@ -2,7 +2,7 @@
 title: "Update an Interactive Sequence"
 type: docs
 url: /update-an-interactive-sequence/
-weight: 20
+weight: 50
 ---
 
 ## **Introduction**
