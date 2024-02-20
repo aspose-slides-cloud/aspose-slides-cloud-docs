@@ -1,8 +1,8 @@
 ---
-title: "Working with Files and Storage"
+title: "Working with Files"
 type: docs
-url: /working-with-files-and-storage/
-weight: 110
+url: /working-with-files/
+weight: 30
 ---
 
 ## **Introduction**
