@@ -66,7 +66,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/MyStorage/exist" \
 
 **SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="2" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -263,7 +263,7 @@ In the storage **MyStorage**, check if the file **MyFolder/MyPresentation.pptx**
 
 **cURL Solution**
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -301,7 +301,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/exist/MyFolder%2FMyPre
 
 **SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="2" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -552,7 +552,7 @@ Get disk usage information from **MyStorage** storage.
 
 **cURL Solution**
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="3" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -590,7 +590,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/disc?storageName=MySto
 
 **SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="2" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+{{< tabs tabTotal="10" tabID="33" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -794,7 +794,7 @@ Get information about versions of the **MyFolder/MyPresentation.pptx** file loca
 
 **cURL Solution**
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+{{< tabs tabTotal="2" tabID="4" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -841,7 +841,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/version/MyFolder%2FMyP
 
 **SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="2" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+{{< tabs tabTotal="10" tabID="44" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
