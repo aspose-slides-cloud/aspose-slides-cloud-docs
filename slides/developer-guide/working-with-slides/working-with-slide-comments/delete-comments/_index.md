@@ -8,6 +8,8 @@ weight: 40
 ## **Introduction**
 
 Comments in PowerPoint presentations are a tool that allows users to add explanations, notes, and discussions to each individual slide of a presentation. This functionality is valuable for collaborative work on a presentation, especially when multiple people are involved in the creation or editing process. The following API methods are for deleting comments from presentations.
+ 
+You can delete all comments, or comments by a specific author. There is [a method]((/slides/get-comment-authors/) to retrieve the list of comment authors.
 
 ## **DeleteComments**
 
