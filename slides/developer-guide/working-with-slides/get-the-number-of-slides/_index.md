@@ -7,7 +7,11 @@ weight: 90
 
 ## **Introduction**
 
-This article shows you how to get the number of slides from a PowerPoint document using Aspose.Slides for Cloud API in your applications. The code examples below use the [GetSlides](https://apireference.aspose.cloud/slides/#/Slides/GetSlides) method.
+This article shows you how to get the number of slides from a PowerPoint document using Aspose.Slides Cloud API in your applications. 
+
+{{% alert color="primary" %}} 
+The code examples below use the `GetSlides` method described in [Get Information about Slides](/slides/get-information-about-slides/).
+{{% /alert %}}
 
 ## **Examples**
 
