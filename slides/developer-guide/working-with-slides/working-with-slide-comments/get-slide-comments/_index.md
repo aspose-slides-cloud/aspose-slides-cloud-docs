@@ -4,54 +4,119 @@ type: docs
 url: /get-slide-comments/
 weight: 10
 ---
+
 ## **Introduction**
-The article shows how to retrieve comments from the slide. 
+
+In Microsoft PowerPoint, comments on slides serve as a convenient way to exchange ideas, feedback, and remarks among presentation participants. You can use the following method to retrieve comments from a presentation slide. 
+
+## **GetSlideComments**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/comments|GET|Read presentation slide comments|[GetSlideComments](https://apireference.aspose.cloud/slides/#/Comments/GetSlideComments)|
-### **cURL Example**
+/slides/{name}/slides/{slideIndex}/comments|GET|Retrieves slide comments from a presentation saved in a storage.|[GetSlideComments](https://apireference.aspose.cloud/slides/#/Comments/GetSlideComments)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file saved in a storage.|
+|slideIndex|integer|path|true|The 1-based index of a presentation slide.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to a folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+Get the number of comments on the **first** slide in the **MyPresentation.pptx** document saved in the **default** storage.
+
+**cURL Solution**
+
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
+**Get an Access Token**
+
 ```sh
-
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+**Get the Slide Comments**
+
 ```sh
-
-curl  -v -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/comments" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]
-
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/comments" \
+     -H "Authorization: Bearer [Access Token]"
 ```
+
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```sh
+**Response Example**
 
-Code: 200
-Returns slide comments info.
-
+```json
+{
+  "list": [
+    {
+      "type": "Regular",
+      "author": "John Smith",
+      "text": "This is the first comment.",
+      "createdTime": "2024-03-01T13:35:39.761Z"
+    },
+    {
+      "type": "Regular",
+      "author": "John Smith",
+      "text": "This is the second comment.",
+      "createdTime": "2024-03-01T13:36:01.438Z"
+    }
+  ],
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/comments",
+    "relation": "self",
+    "slideIndex": 1
+  }
+}
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-## **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+**SDK Solutions**
+
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideComments comments = api.GetSlideComments("MyPresentation.pptx", 1);
-Console.WriteLine($"The slide has {comments.List.Count} comments");
+using System;
+
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+
+        SlideComments slideComments = slidesApi.GetSlideComments(fileName, slideIndex);
+
+        int commentCount = slideComments.List.Count;
+        Console.WriteLine($"The slide has {commentCount} comments.");
+    }
+}
+
+// The output example:
+//
+// The slide has 2 comments.
 ```
 
 {{< /tab >}}
@@ -59,9 +124,27 @@ Console.WriteLine($"The slide has {comments.List.Count} comments");
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-SlideComments comments = api.getSlideComments("MyPresentation.pptx", 1, null, null, null);
-System.out.println("The slide has " + comments.getList().size() + " comments");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideComments;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+
+        SlideComments slideComments = slidesApi.getSlideComments(fileName, slideIndex, null, null, null);
+
+        int commentCount = slideComments.getList().size();
+        System.out.println("The slide has " + commentCount + " comments.");
+    }
+}
+
+// The output example:
+//
+// The slide has 2 comments.
 ```
 
 {{< /tab >}}
@@ -72,13 +155,23 @@ System.out.println("The slide has " + comments.getList().size() + " comments");
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$comments = $api->GetSlideComments("MyPresentation.pptx", 1);
-print("The slide has " . count($comments->getList()) . " comments");
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+
+$slideComments = $slidesApi->getSlideComments($fileName, $slideIndex);
+
+$commentCount = count($slideComments->getList());
+echo "The slide has ", $commentCount, " comments.";
+
+// The output example:
+//
+// The slide has 2 comments.
 ```
 
 {{< /tab >}}
@@ -86,13 +179,27 @@ print("The slide has " . count($comments->getList()) . " comments");
 {{< tab tabNum="4" >}}
 
 ```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-comments = api.get_slide_comments("MyPresentation.pptx", 1)
-p("The slide has #{ comments.list.length } comments")
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+
+slide_comments = slides_api.get_slide_comments(file_name, slide_index)
+
+comment_count = slide_comments.list.length()
+print "The slide has ", comment_count, " comments."
+
+# The output example:
+#
+# The slide has 2 comments.
 ```
 
 {{< /tab >}}
@@ -100,57 +207,75 @@ p("The slide has #{ comments.list.length } comments")
 {{< tab tabNum="5" >}}
 
 ```python
-import asposeslidescloud
-
-from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-comments = api.get_slide_comments("MyPresentation.pptx", 1)
-print("The slide has " + str(len(comments.list)) + " comments")
+file_name = "MyPresentation.pptx"
+slide_index = 1
+
+slide_comments = slides_api.get_slide_comments(file_name, slide_index)
+
+comment_count = len(slide_comments.list)
+print("The slide has", comment_count, "comments.")
+
+# The output example:
+#
+# The slide has 2 comments.
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-api.getSlideComments("MyPresentation.pptx", 1).then((comments) => {
-    console.log("The slide has " + comments.body.list.length + " comments");
+```js
+const cloudSdk = require("asposeslidescloud");
+
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+
+slidesApi.getSlideComments(fileName, slideIndex).then(slideComments => {
+    commentCount = slideComments.body.list.length;
+    console.log("The slide has", commentCount, "comments.");
 });
+
+// The output example:
+//
+// The slide has 2 comments.
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-comments, _, e := api.SlidesApi.GetSlideComments("MyPresentation.pptx", 1, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+
+    std::shared_ptr<SlideComments> slideComments = slidesApi->getSlideComments(fileName, slideIndex).get();
+
+    int commentCount = slideComments->getList().size();
+    std::wcout << L"The slide has " << commentCount << L" comments.";
 }
-fmt.Printf("The slide has %v comments", len(comments.(asposeslidescloud.ISlideComments).GetList()))
+
+// The output example:
+//
+// The slide has 2 comments.
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="8" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="9" >}}
 
 ```perl
 use AsposeSlidesCloud::Configuration;
@@ -159,17 +284,58 @@ use AsposeSlidesCloud::SlidesApi;
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my %params = ('name' => 'MyPresentation.pptx', 'slide_index' => 1);
-my $comments = $api->get_slide_comments(%params);
-print "The slide has " . (scalar @{$comments->{list}}) . " comments";
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+
+my $slide_comments = $slides_api->get_slide_comments(name => $file_name, slide_index => $slide_index);
+
+my $comment_count = @{$slide_comments->{list}};
+print("The slide has ", $comment_count, " comments.");
+
+# The output example:
+#
+# The slide has 2 comments.
 ```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
 
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+
+api := asposeslidescloud.NewAPIClient(cfg)
+
+fileName := "MyPresentation.pptx"
+slideIndex := 1
+
+comments, _, e := api.SlidesApi.GetSlideComments(fileName, slideIndex, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+commentCount := len(comments.(asposeslidescloud.ISlideComments).GetList())
+fmt.Printf("The slide has %v comments", commentCount)
+
+// The output example:
+//
+// The slide has 2 comments.
+```
+
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
