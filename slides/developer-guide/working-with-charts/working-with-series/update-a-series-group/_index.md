@@ -4,86 +4,148 @@ type: docs
 url: /update-a-series-group/
 weight: 40
 ---
+
 ## **Introduction**
 
-A group of series contains series properties that are common for each series in the group. Series groups are generated automatically based on types of series contained in the chart object. Aspose.Slide Cloud allows to obtain such groups and update their properties.
+A group of chart data series contains series properties that are common for each series in the group. Series groups are generated automatically based on types of series contained in the chart object. Aspose.Slide Cloud allows you to retrieve such groups and update their properties.
+
+## **SetChartSeriesGroup**
 
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Update chart series group|[SetChartSeriesGroup]()
-### **cURL Example**
-The code example below shows how to update a chart series group. 
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/seriesGroup/{seriesGroupIndex}|PUT|Updates properties of a chart data series group in a presentation saved in a storage.|[SetChartSeriesGroup](https://reference.aspose.cloud/slides/#/Chart/SetChartSeriesGroup)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a presentation slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a chart).|
+|seriesGroupIndex|integer|path|true|The 1-based index of a series group.|
+|seriesGroup|`ChartSeriesGroup`|body|true|The data transfer object with the group properties.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a column chart (the **second** shape). Set the chart column **overlap** to **50%** of the column width.
+
+![The column chart](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
+
+**Get an Access Token**
+
 ```sh
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/seriesGroup/1" -d @"seriesGroup.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-seriesGroup.json
+**Set the Group Properties**
+
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/seriesGroup/1" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @SeriesGroup.json
+```
+
+SeriesGroup.json content:
 ```json
 {
-	"Overlap": 10
+  "Overlap": 50
 }
 ```
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
-
+```text
 Code: 200
-Returns chart info.
-
+Body: Chart JSON
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-## **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+**SDK Solutions**
+
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+
 {{< tab tabNum="1" >}}
 
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-ChartSeriesGroup seriesGroup = new ChartSeriesGroup()
+using System;
+
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+
+class Application
 {
-    Overlap = 10
-};
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 3;
-int shapeIndex = 1;
-int seriesGroupIndex = 1;
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int seriesGroupIndex = 1;
 
-Chart chart = api.SetChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
+        ChartSeriesGroup seriesGroup = new ChartSeriesGroup
+        {
+            Overlap = 50
+        };
+       
+        Chart chart = slidesApi.SetChartSeriesGroup(fileName, slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
 
-Console.WriteLine($"The chart has {chart.SeriesGroups.Count} series groups.");
+        int groupCount = chart.SeriesGroups.Count;
+        Console.WriteLine($"The chart has {groupCount} series group(s).");
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.ChartSeriesGroup;
+import com.aspose.slides.model.Chart;
 
-ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
-seriesGroup.setOverlap(10);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 3;
-int shapeIndex = 1;
-int seriesGroupIndex = 1;
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int seriesGroupIndex = 1;
 
-Chart chart = api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, null, null, null);
+        ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
+        seriesGroup.setOverlap(50);
 
-System.out.println("The chart has  \"" + chart.getSeriesGroups().size() + "\" series groups.");
+        Chart chart = slidesApi.setChartSeriesGroup(fileName, slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, null, null, null);
+
+        int groupCount = chart.getSeriesGroups().size();
+        System.out.printf("The chart has %d series group(s).", groupCount);
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
@@ -91,125 +153,201 @@ use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$chartSeriesGroup = new ChartSeriesGroup();
-$chartSeriesGroup-> setOverlap(10);
+$slidesApi = new SlidesApi(null, $configuration);
 
-$slideIndex = 3;
-$shapeIndex = 1;
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+$shapeIndex = 2;
 $seriesGroupIndex = 1;
 
-$chart = $api->setChartSeriesGroup("MyPresentation.pptx", $slideIndex, $shapeIndex, $seriesGroupIndex, $chartSeriesGroup);
-print("The chart has " . count($chart->getSeriesGroups()) . " sereis groups.");
+$seriesGroup = new ChartSeriesGroup();
+$seriesGroup->setOverlap(50);
+
+$chart = $slidesApi->setChartSeriesGroup($fileName, $slideIndex, $shapeIndex, $seriesGroupIndex, $seriesGroup);
+
+$groupCount = count($chart->getSeriesGroups());
+echo "The chart has ", $groupCount, " series group(s).";
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
 ```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+series_group_index = 1
+
+series_group = ChartSeriesGroup.new
+series_group.overlap = 50
+
+chart = slides_api.set_chart_series_group(file_name, slide_index, shape_index, series_group_index, series_group)
+
+group_count = chart.series_groups.length()
+puts "The chart has #{group_count} series group(s)."
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
 ```python
-import asposeslidescloud
-
-from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.chart_series_group import ChartSeriesGroup
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-series_group = ChartSeriesGroup()
-series_group.overlap = 10
-
-slide_index = 3
-shape_index = 1
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
 series_group_index = 1
 
-chart = api.set_chart_series_group("MyPresentation.pptx", slide_index, shape_index, series_group_index, series_group)
-print(f"The chart contains { len(chart.series_groups) } series groups.")
+series_group = ChartSeriesGroup()
+series_group.overlap = 50
+
+chart = slides_api.set_chart_series_group(file_name, slide_index, shape_index, series_group_index, series_group)
+
+group_count = len(chart.series_groups)
+print(f"The chart has {group_count} series group(s).")
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-let seriesGroup = new CloudSdk.ChartSeriesGroup();
-seriesGroup.overlap = 10;
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientId");
 
-const slideIndex = 3;
-const shapeIndex = 1;
-const seriesGroupIndex = 1;
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+shapeIndex = 2;
+seriesGroupIndex = 1;
 
-const result = await api.setChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup);
-console.log("The chart contains \"" + result.body.seriesGroups.length + "\" series groups.");
+seriesGroup = new cloudSdk.ChartSeriesGroup();
+seriesGroup.overlap = 50;
+
+slidesApi.setChartSeriesGroup(fileName, slideIndex, shapeIndex, seriesGroupIndex, seriesGroup).then(chart => {
+    groupCount = chart.body.seriesGroups.length;
+    console.log("The chart has", groupCount, "series group(s).");
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-seriesGroup := asposeslidescloud.NewChartSeriesGroup()
-seriesGroup.Overlap = 10
+using namespace asposeslidescloud::api;
 
-var slideIndex int32 = 3
-var shapeIndex int32 = 1
-var seriesGroupIndex int32 = 1
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientId");
 
-result, _, e := api.SlidesApi.SetChartSeriesGroup("MyPresentation.pptx", slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
-}            
-fmt.Printf("The chart contains \"%v\" series groups.", len(result.GetSeriesGroups()))
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+    int shapeIndex = 2;
+    int seriesGroupIndex = 1;
+
+    std::shared_ptr<ChartSeriesGroup> seriesGroup = std::make_shared<ChartSeriesGroup>();
+    seriesGroup->setOverlap(50);
+
+    std::shared_ptr<Chart> chart = slidesApi->setChartSeriesGroup(fileName, slideIndex, shapeIndex, seriesGroupIndex, seriesGroup).get();
+
+    int groupCount = chart->getSeriesGroups().size();
+    std::wcout << L"The chart has " << groupCount << " series group(s).";
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```perl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::ChartSeriesGroup;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientId";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+my $series_group_index = 1;
+
+my $series_group = AsposeSlidesCloud::Object::ChartSeriesGroup->new();
+$series_group->{overlap} = 50;
+
+my $chart = $slides_api->set_chart_series_group(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, series_group_index => $series_group_index, series_group => $series_group);
+
+my $group_count = @{$chart->{series_groups}};
+print("The chart has ", $group_count, " series group(s).");
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
-
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-
-#Code example will be added soon.
-```
-
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
 
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+
+api := asposeslidescloud.NewAPIClient(cfg)
+
+var fileName = "MyPresentation.pptx"
+var slideIndex int32 = 1
+var shapeIndex int32 = 2
+var seriesGroupIndex int32 = 1
+
+seriesGroup := asposeslidescloud.NewChartSeriesGroup()
+seriesGroup.Overlap = 50
+
+result, _, e := api.SlidesApi.SetChartSeriesGroup(fileName, slideIndex, shapeIndex, seriesGroupIndex, seriesGroup, "", "", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}           
+
+var groupCount int32 = len(result.GetSeriesGroups())
+fmt.Printf("The chart contains \"%v\" series groups.", groupCount)
+```
+
 {{< /tab >}}
 
 {{< /tabs >}}
+
+The result:
+
+![The column chart](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
