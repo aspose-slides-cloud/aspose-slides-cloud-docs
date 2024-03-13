@@ -32,7 +32,7 @@ A group of chart data series contains series properties that are common for each
 
 ### **Examples**
 
-The document **MyPresentation.pptx**, saved in the **default** storage, contains a column chart (the **second** shape). Set the chart column **overlap** to **50%** of the column width.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a column chart (the **second** shape) on the **first** slide. Set the chart column **overlap** to **50%** of the column width.
 
 ![The column chart](input.png)
 

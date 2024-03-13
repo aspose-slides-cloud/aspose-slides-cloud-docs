@@ -31,7 +31,7 @@ In Microsoft PowerPoint, chart series are used to represent and display data in 
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage has a chart (shape **2**) with three lines on the **first** slide (sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023). Delete the **third** data series ("Product C") from the chart.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **second** shape) with three lines on the **first** slide - sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023. Delete the **third** data series ("Product C") from the chart.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
