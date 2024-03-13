@@ -31,11 +31,7 @@ In Microsoft PowerPoint, chart series refer to the data sets or collections of d
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage has a chart (shape **2**) with two lines on the **first** slide:
-- sales volumes of products "Product A" and "Product B" for 2021 to 2023
-- each data series consists of three values
-
-Add series data (**30**, **20**, **25**) on the sales of **Product C** for the same years.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **second** shape) with two lines on the **first** slide - sales volumes of products "Product A" and "Product B" for 2021 to 2023. Add series data (**30**, **20**, **25**) on the sales of **Product C** for the same years.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
