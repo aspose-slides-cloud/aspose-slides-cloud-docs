@@ -33,7 +33,7 @@ In PowerPoint presentations, data points are individual values or specific piece
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a scatter chart (the **second** shape) that displays the number of items sold for quarters 1 through 4 (**one** data series). Update the sales value for the **4th** quarter to **35** items.
+In the **default** storage, the document **MyPresentation.pptx** contains a scatter chart (the **second** shape) that displays the number of items sold for quarters 1 through 4 (**one** data series). Update the sales value for the **2nd** quarter to **10** items.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
@@ -65,8 +65,8 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/s
 DataPoint.json content:
 ```json
 {
-  "xValue": 4,
-  "yValue": 35
+  "xValue": 2,
+  "yValue": 10
 }
 ```
 
@@ -104,12 +104,12 @@ class Application
         int slideIndex = 1;
         int shapeIndex = 2;
         int seriesIndex = 1;
-        int pointIndex = 4;
+        int pointIndex = 2;
 
         ScatterChartDataPoint dataPoint = new ScatterChartDataPoint
         {
-            XValue = 4,
-            YValue = 35,
+            XValue = 2,
+            YValue = 10,
         };
 
         Chart chart = slidesApi.UpdateChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, dataPoint);
@@ -140,11 +140,11 @@ public class Application {
         int slideIndex = 1;
         int shapeIndex = 2;
         int seriesIndex = 1;
-        int pointIndex = 4;
+        int pointIndex = 2;
 
         ScatterChartDataPoint dataPoint = new ScatterChartDataPoint();
-        dataPoint.setXvalue(4d);
-        dataPoint.setYvalue(35d);
+        dataPoint.setXvalue(2d);
+        dataPoint.setYvalue(10d);
 
         Chart chart = slidesApi.updateChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, dataPoint, null, null, null);
 
@@ -174,11 +174,11 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
 $seriesIndex = 1;
-$pointIndex = 4;
+$pointIndex = 2;
 
 $dataPoint = new ScatterChartDataPoint();
-$dataPoint->setXvalue(4);
-$dataPoint->setYvalue(35);
+$dataPoint->setXvalue(2);
+$dataPoint->setYvalue(10);
 
 $chart = $slidesApi->updateChartDataPoint($fileName, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $dataPoint);
 
@@ -205,11 +205,11 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
 series_index = 1
-point_index = 4
+point_index = 2
 
 data_point = ScatterChartDataPoint.new
-data_point.x_value = 4
-data_point.y_value = 35
+data_point.x_value = 2
+data_point.y_value = 10
 
 chart = slides_api.update_chart_data_point(file_name, slide_index, shape_index, series_index, point_index, data_point)
 
@@ -231,11 +231,11 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
 series_index = 1
-point_index = 4
+point_index = 2
 
 data_point = ScatterChartDataPoint()
-data_point.x_value = 4
-data_point.y_value = 35
+data_point.x_value = 2
+data_point.y_value = 10
 
 chart = slides_api.update_chart_data_point(file_name, slide_index, shape_index, series_index, point_index, data_point)
 
@@ -256,11 +256,11 @@ fileName = "MyPresentation.pptx";
 slideIndex = 1;
 shapeIndex = 2;
 seriesIndex = 1;
-pointIndex = 4;
+pointIndex = 2;
 
 dataPoint = new cloudSdk.ScatterChartDataPoint();
-dataPoint.xValue = 4;
-dataPoint.yValue = 35;
+dataPoint.xValue = 2;
+dataPoint.yValue = 10;
 
 slidesApi.updateChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, dataPoint).then(chart => {
     dataPointCount = chart.body.series[0].dataPoints.length;
@@ -286,11 +286,11 @@ int main()
     int slideIndex = 1;
     int shapeIndex = 2;
     int seriesIndex = 1;
-    int pointIndex = 4;
+    int pointIndex = 2;
 
     std::shared_ptr<ScatterChartDataPoint> dataPoint = std::make_shared<ScatterChartDataPoint>();
-    dataPoint->setXValue(4);
-    dataPoint->setYValue(35);
+    dataPoint->setXValue(2);
+    dataPoint->setYValue(10);
 
     std::shared_ptr<Chart> chart = slidesApi->updateChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, dataPoint).get();
 
@@ -319,11 +319,11 @@ my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $shape_index = 2;
 my $series_index = 1;
-my $point_index = 4;
+my $point_index = 2;
 
 my $data_point = AsposeSlidesCloud::Object::ScatterChartDataPoint->new();
-$data_point->{x_value} = 4;
-$data_point->{y_value} = 35;
+$data_point->{x_value} = 2;
+$data_point->{y_value} = 10;
 
 my $chart = $slides_api->update_chart_data_point(
     name => $file_name, slide_index => $slide_index, shape_index => $shape_index, series_index => $series_index, point_index => $point_index, data_point => $data_point);
@@ -358,11 +358,11 @@ func main() {
 	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var seriesIndex int32 = 1
-	var pointIndex int32 = 4
+	var pointIndex int32 = 2
 
 	dataPoint := asposeslidescloud.NewScatterChartDataPoint()
-	dataPoint.XValue = 4
-	dataPoint.YValue = 35
+	dataPoint.XValue = 2
+	dataPoint.YValue = 10
 
 	chart, _, _ := slidesApi.UpdateChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, dataPoint, "", "", "")
 
