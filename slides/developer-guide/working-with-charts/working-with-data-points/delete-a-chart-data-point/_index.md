@@ -15,7 +15,7 @@ In PowerPoint presentations, data points are the individual values or pieces of 
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{dataPointIndex}|DELETE|Deletes a data point from a chart in a presentation saved in a storage.|[DeleteChartDataPoint](https://apireference.aspose.cloud/slides/#/Chart/DeleteChartDataPoint)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}|DELETE|Deletes a data point from a chart in a presentation saved in a storage.|[DeleteChartDataPoint](https://apireference.aspose.cloud/slides/#/Chart/DeleteChartDataPoint)|
 
 **Request Parameters**
 
