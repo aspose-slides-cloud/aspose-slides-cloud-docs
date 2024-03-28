@@ -45,3 +45,4 @@ The Aspose.Slides Cloud API supports converting presentations to the following f
 |OpenDocument Flat XML Presentation|fodp|
 |Extensible Application Markup Language|xaml|
 |MPEG-4 Video|mp4|
+|Markdown|md|

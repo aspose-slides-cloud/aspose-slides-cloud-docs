@@ -33,84 +33,28 @@ The options below are format-specific. Check the tables to see what options can 
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
-
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages when necessary.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
+|ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
 ### **GIF Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
-
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages when necessary.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
+|ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
 ### **HTML Options**
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |DeletePicturesCroppedAreas|boolean|Specifies whether the cropped parts remain as part of the document or not. When `true`, the cropped parts are removed. When `false`, they are serialized in the document (and this may result in a larger file).|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 |PicturesCompression|PicturesCompressionEnum|Specifies the compression level for pictures.|
 |SaveAsZip|boolean|Specifies whether the output document is saved as a zip file or not.|
-|ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |SubDirectoryName|string|Specifies the subdirectory name in the output zip file to store external files.|
 |SvgResponsiveLayout|boolean|Specifies whether the layout is made responsive (by excluding the width and height attributes from an SVG container) or not.|
-
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages as it is needed.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
 
 {{< expand-list title="PicturesCompressionEnum" >}}
 |**Value**|**Description**|
@@ -134,26 +78,8 @@ The options below are format-specific. Check the tables to see what options can 
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
-
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages when necessary.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
+|ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
 ### **PDF Options**
 
@@ -162,19 +88,15 @@ The options below are format-specific. Check the tables to see what options can 
 |AccessPermissions|AccessPermissionsEnum|Specifies the access permissions that will be granted when the document is opened with user access.|
 |AdditionalCommonFontFamilies|List\<string\>|Specifies an array of user-defined names of font families to be considered common.|
 |ApplyImageTransparent|boolean|Specifies whether the `ImageTransparentColor` option should be applied to images or not.|
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments on pages.|
 |Compliance|ComplianceEnum|Specifies a desired conformance level for the generated document.|
 |DrawSlidesFrame|boolean|Specifies whether each slide is enclosed with a black frame or not.|
 |EmbedFullFonts|boolean|Specifies whether all characters of fonts or only a used subset should be embedded.|
 |EmbedTrueTypeFontsForASCII|boolean|Specifies whether common fonts for ASCII (33..127 code range) text should be embedded or not. Fonts for character codes greater than 127 are always embedded. The list of common fonts includes the base 14 PDF fonts and additional user-specified fonts.|
 |ImageTransparentColor|string|Specifies a transparent color for images.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes on pages.|
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
 |Password|string|Specifies the user password to protect the output document.|
 |SaveMetafilesAsPng|boolean|Specifies whether all metafiles used in a presentation should be converted to PNG images or not.|
-|ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |SufficientResolution|double|Specifies the resolution of images. Affects the output file size, export time, and image quality. The default value is 96.|
 |TextCompression|TextCompressionEnum|Specifies compression type to be used for all text content.|
@@ -200,14 +122,6 @@ The following values may be used together as a combination of choices.
 |PrintDocument|A user may print the document (perhaps not at the highest quality level, depending on whether the bit `HighQualityPrint` is also set).|
 {{< /expand-list >}}
 
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
 {{< expand-list title="ComplianceEnum" >}}
 |**Value**|**Description**|
 | :- | :- |
@@ -215,14 +129,6 @@ The following values may be used together as a combination of choices.
 |PdfA1a|Comply with the PDF/A-1a standard.|
 |PdfA1b|Comply with the PDF/A-1b standard.|
 |PdfUa|Comply with the PDF/UA standard.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages when necessary.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
 {{< /expand-list >}}
 
 {{< expand-list title="TextCompressionEnum" >}}
@@ -236,26 +142,8 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only if comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only if comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
-
-{{< expand-list title="CommentsPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|Bottom|Comments should be displayed at the bottom of pages.|
-|None|Comments should not be displayed at all. The default value.|
-|Right|Comments should be displayed to the right of pages.|
-{{< /expand-list >}}
-
-{{< expand-list title="NotesPositionEnum" >}}
-|**Value**|**Description**|
-| :- | :- |
-|BottomFull|Notes should be fully displayed using additional pages when necessary.|
-|BottomTruncated|Notes should be displayed on a single page.|
-|None|Notes should not be displayed at all. The default value.|
-{{< /expand-list >}}
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
+|ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
 ### **PPTX Options**
 
@@ -402,15 +290,11 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments on pages.|
 |Compression|CompressionEnum|Specifies a compression type.|
 |DpiX|integer|Specifies the horizontal resolution in dots per inch.|
 |DpiY|integer|Specifies the vertical resolution in dots per inch.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes on images.|
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
 |PixelFormat|PixelFormatEnum|Specifies a pixel format for the generated images.|
-|ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 
 {{< expand-list title="CommentsPositionEnum" >}}
@@ -463,6 +347,116 @@ The following values may be used together as a combination of choices.
 |DrawSlidesFrame|boolean|Specifies whether each slide is enclosed with a black frame or not.|
 |SaveMetafilesAsPng|boolean|Specifies whether all metafiles used in a presentation should be converted to PNG images or not.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
+
+### **MD Options**
+
+|**Name**|**Type**|**Description**|
+| :- | :- | :- |
+|ExportType|ExportTypeEnum|Specifies markdown export type. Default is **TextOnly**.|
+|Flavor|FalvorEnum|Specifies markdown specification to convert presentation. Default is **MultiMarkdown**.|
+|NewLineType|NewLineTypeEnum|Specifies whether the generated document should have new lines of \\r(Macintosh), \\n(Unix) or \\r\\n(Windows). Default is **Unix**.|
+|ImagesSaveFolderName|string|Specifies folder name to save images. Default is **Images**.|
+|ShowSlideNumber|boolean|True if the generated document should include slide number.|
+|ShowComments|boolean|True if the generated document should include comments.|
+|ShowHiddenSlides|boolean|True if the generated document should include hidden slides.|
+
+{{< expand-list title="ExportTypeEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|Sequential|Render all items separately, one by one.|
+|TextOnly|Render only text.|
+|Visual|Render all items; render grouped items together.|
+{{< /expand-list >}}
+
+{{< expand-list title="FlavorEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|Github|Github flavor.|
+|Gruber|Gruber flavor.|
+|MultiMarkdown|Multi markdown flavor.|
+|CommonMark|Common mark flavor.|
+|MarkdownExtra|Markdown extra flavor.|
+|Pandoc|Pandoc flavor.|
+|Kramdown|Kramdown flavor.|
+|Markua|Markua flavor.|
+|Maruku|Maruku flavor.|
+|Markdown2|Markdown2 flavor.|
+|Remarkable|Remarkable flavor.|
+|Showdown|Showdown flavor.|
+|Ghost|Ghost flavor.|
+|GitLab|GitLab flavor.|
+|Haroopad|Haroopad flavor.|
+|IaWriter|IaWriter flavor.|
+|Redcarpet|Redcarpet flavor.|
+|ScholarlyMarkdown|Scholarly markdown flavor.|
+|Taiga|Taiga flavor.|
+|Trello|Trello flavor.|
+|S9ETextFormatter|S9E text formatter flavor.|
+|XWiki|XWiki flavor.|
+|StackOverflow|Stack Overflow flavor.|
+|Default|Default markdown flavor.|
+{{< /expand-list >}}
+
+{{< expand-list title="NewLineTypeEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|Windows|Windows new line - \\r\\n.|
+|Unix|Unix new line - \\n.|
+|Mac|Mac (OS 9) new line - \\r.|
+{{< /expand-list >}}
+
+## **SlidesLayoutOptions** Class
+
+Below are the implementations of **SlidesLayoutOptions** class.
+
+### **NotesCommentsLayoutingOptions**
+
+|**Name**|**Type**|**Description**|
+| :- | :- | :- |
+|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
+|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
+|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
+|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
+|ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
+
+{{< expand-list title="CommentsPositionEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|Bottom|Comments should be displayed at the bottom of pages.|
+|None|Comments should not be displayed at all. The default value.|
+|Right|Comments should be displayed to the right of pages.|
+{{< /expand-list >}}
+
+{{< expand-list title="NotesPositionEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|BottomFull|Notes should be fully displayed using additional pages as it is needed.|
+|BottomTruncated|Notes should be displayed on a single page.|
+|None|Notes should not be displayed at all. The default value.|
+{{< /expand-list >}}
+
+### **HandoutLayoutingOptions**
+
+|**Name**|**Type**|**Description**|
+| :- | :- | :- |
+|Handout|HandoutEnum|Specifies the position of slide notes.|
+|PrintSlideNumbers|boolean|True to print the displayed slide numbers.|
+|PrintComments|boolean|True to print the displayed slide numbers.|
+|PrintFrameSlide|boolean|True to draw frames around the displayed slides.|
+
+{{< expand-list title="HandoutEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|Handouts1|One slide.|
+|Handouts2|Two slides.|
+|Handouts3|Three slides.|
+|Handouts4Horizontal|Four slides horizontal.|
+|Handouts4Vertical|Four slides vertical.|
+|Handouts6Horizontal|Six slides horizontal.|
+|Handouts6Vertical|Six slides vertical.|
+|Handouts9Horizontal|Nine slides horizontal.|
+|Handouts9Vertical|Nine slides vertical.|
+{{< /expand-list >}}
 
 ## **cURL Example**
 
