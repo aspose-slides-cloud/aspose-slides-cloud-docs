@@ -42,3 +42,4 @@ The Aspose.Slides Cloud API supports the following formats for splitted output p
 |Scalable Vector Graphics Format|svg|
 |OpenDocument Flat XML Presentation|fodp|
 |Extensible Application Markup Language|xaml|
+|Markdown Markup Language v5|md|
