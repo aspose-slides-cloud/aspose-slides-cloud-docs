@@ -1,13 +1,13 @@
 ---
-title: "Update an Interactive Sequence"
+title: "Create an Interactive Sequence"
 type: docs
-url: /update-an-interactive-sequence/
+url: /create-an-interactive-sequence/
 weight: 50
 ---
 
 ## **Introduction**
 
-The interactive animation sequence represents animations that are triggered by click a specified shape. The following method allows you to update the interactive sequence in a PowerPoint presentation.
+The interactive animation sequence represents animations that are triggered by click on a specified shape. The following method allows you to create the interactive sequence in a PowerPoint presentation.
 
 ## **CreateAnimationInteractiveSequence**
 
@@ -15,7 +15,7 @@ The interactive animation sequence represents animations that are triggered by c
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/animation/interactiveSequences|POST|Updates the interactive sequence of a presentation slide.|[CreateAnimationInteractiveSequence](https://apireference.aspose.cloud/slides/#/Animation/CreateAnimationInteractiveSequence)|
+|/slides/{name}/slides/{slideIndex}/animation/interactiveSequences|POST|Adds an interactive animation sequence to a presentation slide.|[CreateAnimationInteractiveSequence](https://apireference.aspose.cloud/slides/#/Animation/CreateAnimationInteractiveSequence)|
 
 **Request Parameters**
 
