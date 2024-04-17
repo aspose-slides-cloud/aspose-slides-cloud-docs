@@ -20,7 +20,7 @@ Using the methods described in the articles below, you can read, add, modify, an
 
 ## **Resources**
 
-- [Get Text Portion Properties](/slides/get-text-portion-properties-from-a-special-slide)
-- [Create a New Text Portion](/slides/create-a-new-text-portion-on-a-special-slide)
-- [Update Text Portions](/slides/update-text-portions-on-a-special-slide)
-- [Delete Text Portions](/slides/delete-text-portions-on-a-special-slide)
+- [Get Text Portion Properties](/slides/get-text-portion-properties-from-a-special-slide/)
+- [Create a New Text Portion](/slides/create-a-new-text-portion-on-a-special-slide/)
+- [Update Text Portions](/slides/update-text-portions-on-a-special-slide/)
+- [Delete Text Portions](/slides/delete-text-portions-on-a-special-slide/)
