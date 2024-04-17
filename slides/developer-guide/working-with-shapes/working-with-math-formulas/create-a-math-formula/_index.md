@@ -27,7 +27,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 **portion.json example**
 
-```javascript
+```json
 {
     "mathParagraph": {
         "mathBlockList": [
@@ -77,7 +77,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 {{< tab tabNum="2" >}}
 
-```javascript
+```json
 {
     "text": "",
     "mathParagraph": {

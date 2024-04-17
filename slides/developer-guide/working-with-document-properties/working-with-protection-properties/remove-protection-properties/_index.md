@@ -192,8 +192,6 @@ const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 slidesApi.deleteProtection("MyPresentation.pptx", "MyPassword").then(protectionProperties => {
     // Check if the presentation has been decrypted.
     console.log(protectionProperties.body.isIsEncrypted);
-}).catch(error => {
-    console.error(error.message);
 });
 ```
 
@@ -414,8 +412,6 @@ slidesApi.deleteProtectionOnline(documentStream, "MyPassword").then(response => 
     fs.writeFile("Unprotected.pptx", response.body, (error) => {
         if (error) throw error;
     });
-}).catch(error => {
-    console.error(error.message);
 });
 ```
 

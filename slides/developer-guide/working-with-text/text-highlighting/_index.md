@@ -128,9 +128,9 @@ print(result.text)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-api.highlightShapeText("MyPresentation.pptx", 2, 1, "important", "00FF0000").then((response) => {
+api.highlightShapeText("MyPresentation.pptx", 2, 1, "important", "00FF0000").then(response => {
     console.log(response.body.text);
 });
 ```

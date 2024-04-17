@@ -131,10 +131,10 @@ print("The image with the index 1 is replaced.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 var image = fs.createReadStream("MyImage.png");
-api.replaceImage("MyPresentation.pptx", 1, image).then((response) => {
+api.replaceImage("MyPresentation.pptx", 1, image).then(response => {
     console.log("The image with the index 1 is replaced.");
 });
 ```

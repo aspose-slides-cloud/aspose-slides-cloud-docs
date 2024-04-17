@@ -334,7 +334,7 @@ headerFooter.footerText = "This is my footer";
 // Set the header and footer for the first Notes slide.
 slidesApi.setNotesSlideHeaderFooter(fileName, slideIndex, headerFooter).then(() => {
     // Get the header and footer from the first Notes slide.
-    slidesApi.getNotesSlideHeaderFooter(fileName, slideIndex).then((response) => {
+    slidesApi.getNotesSlideHeaderFooter(fileName, slideIndex).then(response => {
         console.log("Header text:" + response.headerText);
         console.log("Date and time text:" + response.dateTimeText);
         console.log("Footer text:" + response.footerText);

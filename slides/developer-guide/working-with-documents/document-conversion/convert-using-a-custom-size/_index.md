@@ -36,7 +36,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/convert/png" \
 ```
 
 options.json file:
-```javascript
+```json
 {
     "width": 480,
     "height": 360
@@ -219,23 +219,23 @@ print("The file with images was saved to: " + output_path)
 ```javascript
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require('fs')
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 // Set the size for output images.
-const options = new cloud.ImageExportOptions()
-options.width = 480
-options.height = 360
+const options = new cloud.ImageExportOptions();
+options.width = 480;
+options.height = 360;
 
 // Convert the presentation to the images.
-const presentationStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.convert(presentationStream, "png", null, null, null, null, options).then((response) => {
+const presentationStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.convert(presentationStream, "png", null, null, null, null, options).then(response => {
     fs.writeFile("MyPresentation.zip", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}

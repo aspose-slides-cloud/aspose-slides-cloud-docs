@@ -355,29 +355,29 @@ print(picture_info.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Prepare the image data.
-const imageBase64String = fs.readFileSync("MyImage.png", { encoding: "base64" })
+const imageBase64String = fs.readFileSync("MyImage.png", { encoding: "base64" });
 
 // Prepare the DTO for the new picture.
-const pictureFrame = new cloud.PictureFrame()
-pictureFrame.x = 20
-pictureFrame.y = 20
-pictureFrame.width = 400
-pictureFrame.height = 300
-pictureFrame.pictureFillFormat = new cloud.PictureFill()
-pictureFrame.pictureFillFormat.base64Data = imageBase64String
-pictureFrame.pictureFillFormat.pictureFillMode = "Tile"
+const pictureFrame = new cloud.PictureFrame();
+pictureFrame.x = 20;
+pictureFrame.y = 20;
+pictureFrame.width = 400;
+pictureFrame.height = 300;
+pictureFrame.pictureFillFormat = new cloud.PictureFill();
+pictureFrame.pictureFillFormat.base64Data = imageBase64String;
+pictureFrame.pictureFillFormat.pictureFillMode = "Tile";
 
 // Add the picture to the second slide.
-slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder").then((pictureInfo) => {
+slidesApi.createShape("MyPresentation.pptx", 2, pictureFrame, null, null, null, "MyFolder").then(pictureInfo => {
     // Print a reference to the picture frame.
-    console.log(pictureInfo.body.selfUri.href)
-})
+    console.log(pictureInfo.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

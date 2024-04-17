@@ -247,9 +247,9 @@ for layout_slide in master_slide.layout_slides:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Copy the first master slide from MyTemplates / MainTemplate.pptx to MyFolder / MyPresentation.pptx and apply the master slide to all slides.
 slidesApi.copyMasterSlide("MyPresentation.pptx", "MyTemplates/MainTemplate.pptx", 1, null, null, true, null, "MyFolder").then(masterSlide => {

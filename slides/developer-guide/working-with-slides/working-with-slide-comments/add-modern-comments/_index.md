@@ -236,7 +236,7 @@ childComment.status = "Active";
 childComment.textSelectionStart = textSelectionStartIndex;
 childComment.textSelectionLength = textSelectionLength;
 dto.childComments= [ childComment ];
-api.createComment("MyPresentation.pptx", 3, dto).then((comments) => {
+api.createComment("MyPresentation.pptx", 3, dto).then(comments => {
     console.log("The slide has " + comments.body.list.length + " comments");
 });
 ```

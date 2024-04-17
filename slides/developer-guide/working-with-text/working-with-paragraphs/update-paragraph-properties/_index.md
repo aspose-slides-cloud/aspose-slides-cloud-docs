@@ -244,31 +244,31 @@ slides_api.update_paragraph(fileName, slideIndex, shapeIndex, paragraphIndex, pa
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const api = require("asposeslidescloud")
+const api = require("asposeslidescloud");
 
-const slidesApi = new api.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new api.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const folderName = "Data"
-const fileName = "example.pptx"
-const slideIndex = 1
-const shapeIndex = 1
-const paragraphIndex = 1
-const password = ""
+const storageName = "Main";
+const folderName = "Data";
+const fileName = "example.pptx";
+const slideIndex = 1;
+const shapeIndex = 1;
+const paragraphIndex = 1;
+const password = "";
 
 // Get a paragraph from the presentation.
-slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then((getResponse) => {
+slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then(getResponse => {
     const paragraph = getResponse.body;
     // Change some paragraph settings.
-    paragraph.alignment = "Justify"
-    paragraph.marginLeft = 30
-    paragraph.spaceBefore = -20 // The negative value means it is in points.
+    paragraph.alignment = "Justify";
+    paragraph.marginLeft = 30;
+    paragraph.spaceBefore = -20; // The negative value means it is in points.
 
     // Update the paragraph settings.
-    slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName).then((updateResponse) => {
+    slidesApi.updateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, paragraph, password, folderName, storageName).then(updateResponse => {
         console.log(updateResponse.body);
-    })
-})
+    });
+});
 ```
 
 {{< /tab >}}

@@ -235,9 +235,6 @@ const paragraphIndex = 1;
 slidesApi.deleteParagraph(documentName, slideIndex, shapeIndex, paragraphIndex).then(paragraphsInfo => {
     const paragraphCount = paragraphsInfo.body.paragraphLinks.length;
     console.log("Number of remaining paragraphs:", paragraphCount); // 2
-})
-.catch(error => {
-    console.error(error.message);
 });
 ```
 
@@ -531,9 +528,6 @@ const paragraphIndices = [1, 3, 5];
 slidesApi.deleteParagraphs(documentName, slideIndex, shapeIndex, paragraphIndices).then(paragraphsInfo => {
     const paragraphCount = paragraphsInfo.body.paragraphLinks.length;
     console.log("Number of remaining paragraphs:", paragraphCount); // 2
-})
-.catch(error => {
-    console.error(error.message);
 });
 ```
 

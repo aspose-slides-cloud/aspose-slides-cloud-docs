@@ -309,27 +309,27 @@ print(f"The shape is hidden: {updated_shape.hidden}")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
-const fileName = "MyPresentation.pptx"
-const slideIndex = 1
-const subShape = "2"
-const shapeIndex = 4
-const folderPath = "MyFolder"
+const fileName = "MyPresentation.pptx";
+const slideIndex = 1;
+const subShape = "2";
+const shapeIndex = 4;
+const folderPath = "MyFolder";
 
 // Get the shape from the group shape.
-slidesApi.getShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape).then((shape) => {
+slidesApi.getShape(fileName, slideIndex, shapeIndex, null, folderPath, null, subShape).then(shape => {
     // Change the shape properties.
-    shape.body.hidden = true
+    shape.body.hidden = true;
 
     // Update the shape properties.
-    slidesApi.updateShape(fileName, slideIndex, shapeIndex, shape.body, null, folderPath, null, subShape).then((updatedShape) => {
+    slidesApi.updateShape(fileName, slideIndex, shapeIndex, shape.body, null, folderPath, null, subShape).then(updatedShape => {
         // Check if the shape is hidden.
-        console.log("The shape is hidden: " + updatedShape.body.hidden)
-    })
-})
+        console.log("The shape is hidden: " + updatedShape.body.hidden);
+    });
+});
 ```
 
 {{< /tab >}}

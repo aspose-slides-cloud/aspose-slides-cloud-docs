@@ -422,7 +422,7 @@ const end = new CloudSdk.ClosePathSegment();
 path.pathData = [ start, line1, line2, line3, line4, end ];
 dto.paths = [ path ];
 
-return api.setShapeGeometryPath(fileName, slideIndex, shapeIndex, dto).then((result) => {
+return api.setShapeGeometryPath(fileName, slideIndex, shapeIndex, dto).then(result => {
     console.log(result.body.width);
 });
 ```

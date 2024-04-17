@@ -268,7 +268,7 @@ documentFolder = "MyFolder";
 documentName = "MyPresentation.pptx";
 
 slidesApi.getSlides(documentName, null, documentFolder, storageName).then(slidesInfo => {
-    console.log("Reference to slides:", slidesInfo.body.selfUri.href)
+    console.log("Reference to slides:", slidesInfo.body.selfUri.href);
     slidesInfo.body.slideList.forEach(slideInfo => {
         console.log("    Slide reference:", slideInfo.href);
     });

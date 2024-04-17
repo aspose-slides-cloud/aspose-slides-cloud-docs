@@ -236,17 +236,17 @@ for property in properties.list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get all document properties from the presentation.
-slidesApi.getDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder").then((properties) => {
+slidesApi.getDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder").then(properties => {
     // Print the document properties.
-    properties.body.list.forEach(property =>
-        console.log(property.name + ": " + property.value)
-    )
-})
+    properties.body.list.forEach(property => {
+        console.log(property.name + ": " + property.value);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -507,15 +507,15 @@ print(property.value) # Jhon Smith, for example.
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the document property.
-slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder").then((property) => {
+slidesApi.getDocumentProperty("MyPresentation.pptx", "Author", null, "MyFolder").then(property => {
     // Print the property value.
-    console.log(property.body.value)
-})
+    console.log(property.body.value);
+});
 ```
 
 {{< /tab >}}

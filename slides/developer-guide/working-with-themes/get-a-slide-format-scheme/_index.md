@@ -378,16 +378,16 @@ print("The number of background styles:", background_styles)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the format scheme for the second slide.
-slidesApi.getFormatScheme("MyPresentation.pptx", 2, null, "MyFolder").then((formatScheme) => {
+slidesApi.getFormatScheme("MyPresentation.pptx", 2, null, "MyFolder").then(formatScheme => {
     // Print the number of background styles from the format scheme.
-    const backgroundStyles = formatScheme.body.backgroundStyles.length
-    console.log("The number of background styles:", backgroundStyles)
-})
+    const backgroundStyles = formatScheme.body.backgroundStyles.length;
+    console.log("The number of background styles:", backgroundStyles);
+});
 ```
 
 {{< /tab >}}

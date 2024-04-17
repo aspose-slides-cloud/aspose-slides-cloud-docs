@@ -314,7 +314,7 @@ print("The output file has been saved to " + output_path)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const input = fs.createReadStream("MyPresentation.pptx");

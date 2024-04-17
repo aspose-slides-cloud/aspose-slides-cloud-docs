@@ -209,15 +209,15 @@ print(font_scheme.name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the font scheme from the first slide.
-slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder").then((fontScheme) => {
+slidesApi.getFontScheme("MyPresentation.pptx", 1, null, "MyFolder").then(fontScheme => {
     // Print the font scheme name.
-    console.log(fontScheme.body.name)
-})
+    console.log(fontScheme.body.name);
+});
 ```
 
 {{< /tab >}}

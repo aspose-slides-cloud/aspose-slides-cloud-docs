@@ -114,7 +114,7 @@ print("VBA project contains: " + str(len(response.modules)) + " module(s), and "
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.deleteVbaModule("MyPresentation.pptm", 1).then((response) => {
+const response = await api.deleteVbaModule("MyPresentation.pptm", 1).then(response => {
 const vbaProject = response.body;
 console.log("VBA project contains: " + vbaProject.modules.length + " module(s), and " + vbaProject.references.length + " references");
 });

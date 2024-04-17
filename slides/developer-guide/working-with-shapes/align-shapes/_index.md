@@ -277,9 +277,6 @@ const alignToSlide = true;
 const shapeIndices = [1, 2, 3];
 
 slidesApi.alignShapes(documentName, slideIndex, alignmentType, alignToSlide, shapeIndices).then(() => {
-})
-.catch(error => {
-    console.error(error.message);
 });
 ```
 

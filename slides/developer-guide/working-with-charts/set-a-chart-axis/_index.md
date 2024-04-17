@@ -176,7 +176,7 @@ axis.hasTitle = true;
 axis.isAutomaticMaxValue = false;
 axis.maxValue = 10;
             
-let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.AxisType.VerticalAxis, axis)
+let result = await api.setChartAxis("MyPresentation.pptx", slideIndex, shapeIndex, CloudSdk.AxisType.VerticalAxis, axis);
             
 console.log("The maximum value on the axis equals \"" + result.body.maxValue + "\".");
 ```

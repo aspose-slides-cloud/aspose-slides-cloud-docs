@@ -223,18 +223,18 @@ for resource_uri in response.placeholder_links:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Get information about all placeholders on the first slide.
-const response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder").then((response) => {
+const response = slidesApi.getPlaceholders("MyPresentation.pptx", 1, null, "MyFolder").then(response => {
     // Print placeholder links from the response.
-    response.body.placeholderLinks.forEach(resourceUri =>
+    response.body.placeholderLinks.forEach(resourceUri => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/placeholders/1?folder=MyFolder etc.
-        console.log(resourceUri.href)
-    )
-})
+        console.log(resourceUri.href);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -523,14 +523,14 @@ print(response)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Get information about the placeholder.
-slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage").then((response) => {
-    console.log(response.body)
-})
+slidesApi.getPlaceholder("MyPresentation.pptx", 2, 1, null, null, "MyStorage").then(response => {
+    console.log(response.body);
+});
 ```
 
 {{< /tab >}}

@@ -125,7 +125,7 @@ print("The presentation has " + str(len(authors.list)) + " comment authors")
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-api.getCommentAuthors("MyPresentation.pptx").then((authors) => {
+api.getCommentAuthors("MyPresentation.pptx").then(authors => {
     console.log("The presentation has " + authors.body.list.length + " authors");
 });
 ```

@@ -27,7 +27,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 **zoomFrame.json example**
 
-```javascript
+```json
 {
     "type": "ZoomFrame",
     "x": 20,
@@ -42,7 +42,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 {{< tab tabNum="2" >}}
 
-```javascript
+```json
 {
     "type": "ZoomFrame",
     "targetSlideIndex": 2,
@@ -200,7 +200,7 @@ dto.y = 20;
 dto.width = 200;
 dto.height = 100;
 dto.targetSlideIndex = 2;
-return api.createShape(fileName, slideIndex, dto).then((result) => {
+return api.createShape(fileName, slideIndex, dto).then(result => {
     console.log(result.body.targetSlideIndex);
 });
 ```

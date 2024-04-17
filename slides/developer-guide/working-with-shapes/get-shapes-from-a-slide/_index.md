@@ -284,20 +284,20 @@ print(f"The slide contains {shape_count} shapes, including {chart_count} charts.
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get all shapes from the first slide.
-slidesApi.getShapes("MyPresentation.pptx", 1).then((allShapes) => {
+slidesApi.getShapes("MyPresentation.pptx", 1).then(allShapes => {
     // Get all charts from the first slide.
-    slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, "Chart").then((charts) => {
+    slidesApi.getShapes("MyPresentation.pptx", 1, null, null, null, "Chart").then(charts => {
         // Print information about the shapes and charts.
-        shapeCount = allShapes.body.shapesLinks.length
-        chartCount = charts.body.shapesLinks.length
-        console.log("The slide contains " + shapeCount + " shapes, including " + chartCount + " charts.")
-    })
-})
+        shapeCount = allShapes.body.shapesLinks.length;
+        chartCount = charts.body.shapesLinks.length;
+        console.log("The slide contains " + shapeCount + " shapes, including " + chartCount + " charts.");
+    });
+});
 ```
 
 {{< /tab >}}

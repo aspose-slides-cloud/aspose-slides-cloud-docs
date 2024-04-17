@@ -396,7 +396,7 @@ const fileName = "MyPresentation.pptx";
 const slideType = CloudSdk.SpecialSlideType.MasterSlide;
 const slideIndex = 1;
 
-api.getSpecialSlideShapes(fileName, slideIndex, slideType).then((result) => {
+api.getSpecialSlideShapes(fileName, slideIndex, slideType).then(result => {
     const shapeCount = result.body.shapesLinks.length;
 
     const dto = new CloudSdk.Shape();
@@ -407,10 +407,10 @@ api.getSpecialSlideShapes(fileName, slideIndex, slideType).then((result) => {
     dto.height = 200;
     dto.text = "New shape";
 
-    api.createSpecialSlideShape(fileName, slideIndex, slideType, dto).then((postResult) => {
+    api.createSpecialSlideShape(fileName, slideIndex, slideType, dto).then(postResult => {
         console.log(postResult.body.text); // New shape
         dto.text = "Updated shape";
-        api.updateSpecialSlideShape(fileName, slideIndex, slideType, shapeCount + 1, dto).then((putResult) => {
+        api.updateSpecialSlideShape(fileName, slideIndex, slideType, shapeCount + 1, dto).then(putResult => {
             console.log(putResult.body.text); // Updated shape
             api.deleteSpecialSlideShape(fileName, slideIndex, slideType, shapeCount + 1);
         });

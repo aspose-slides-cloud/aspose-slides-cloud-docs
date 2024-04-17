@@ -430,9 +430,6 @@ slidesApi.deleteWatermarkOnline(inputStream).then(response => {
     fs.writeFile(outputFilePath, response.body, error => {
         if (error) throw error;
     });
-})
-.catch(error => {
-    console.error(error.message);
 });
 ```
 

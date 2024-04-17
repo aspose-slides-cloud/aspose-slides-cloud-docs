@@ -196,15 +196,15 @@ print(f"The second slide contains {len(shapes.shapes_links)} shapes.")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get all shapes from the second slide.
-slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage").then((shapes) => {
+slidesApi.getShapes("MyPresentation.pptx", 2, null, "MyFolder", "MyGoogleStorage").then(shapes => {
     // Print the number of shapes.
-    console.log("The second slide contains " + shapes.body.shapesLinks.length + " shapes.")
-})
+    console.log("The second slide contains " + shapes.body.shapesLinks.length + " shapes.");
+});
 ```
 
 {{< /tab >}}

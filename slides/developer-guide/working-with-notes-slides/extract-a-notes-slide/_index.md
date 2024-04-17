@@ -196,18 +196,18 @@ print("The PDF document was saved to", pdf_file_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Extract slide notes from the first slide as a PDF document.
-slidesApi.downloadNotesSlide("MyPresentation.pptx", 1, "Pdf", null, null, null, "MyFolder").then((pdfFile) => {
+slidesApi.downloadNotesSlide("MyPresentation.pptx", 1, "Pdf", null, null, null, "MyFolder").then(pdfFile => {
     // Save the PDF document to a file.
     fs.writeFile("SlideNotes2.pdf", pdfFile.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}
@@ -468,19 +468,19 @@ print("The XPS document was saved to", xps_file_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Extract slide notes from the first slide as an XPS document.
-const pptStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.downloadNotesSlideOnline(pptStream, 1, "Xps").then((xpsFile) => {
+const pptStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.downloadNotesSlideOnline(pptStream, 1, "Xps").then(xpsFile => {
     // Save the XPS document to a file.
     fs.writeFile("SlideNotes2.xps", xpsFile.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}

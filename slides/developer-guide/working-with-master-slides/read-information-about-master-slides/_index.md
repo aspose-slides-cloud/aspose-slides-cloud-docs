@@ -213,12 +213,12 @@ for slide in master_slides.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information of master slides from the document MyFolder/MyPresentation.pptx.
-slidesApi.getMasterSlides("MyPresentation.pptx", null, "MyFolder").then((masterSlides) => {
+slidesApi.getMasterSlides("MyPresentation.pptx", null, "MyFolder").then(masterSlides => {
     // Print titles of the master slides.
     masterSlides.body.slideList.forEach(slide => {
         console.log(slide.title);

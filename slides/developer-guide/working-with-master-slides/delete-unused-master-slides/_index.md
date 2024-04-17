@@ -10,8 +10,8 @@ Aspose.Slides Cloud API allows you to delete unused Master slides from a PowerPo
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/materSlides|DELETE|Delete unused Master slides from a PowerPoint Presentation|[DeleteUnusedMasterSlides]()|
-|/slides/masterSlides/delete|POST|Delete unused Master slides from a PowerPoint Presentation (without using storage)|[DeleteUnusedMasterSlidesOnline]())|
+|/slides/{name}/materSlides|DELETE|Delete unused Master slides from a PowerPoint Presentation|[DeleteUnusedMasterSlides](https://reference.aspose.cloud/slides/#/MasterSlides/DeleteUnusedMasterSlides)|
+|/slides/masterSlides/delete|POST|Delete unused Master slides from a PowerPoint Presentation (without using storage)|[DeleteUnusedMasterSlidesOnline](https://reference.aspose.cloud/slides/#/MasterSlides/DeleteUnusedMasterSlidesOnline)|
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -120,7 +120,7 @@ print(len(result.slide_list))
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 api.deleteUnusedMasterSlides("MyPresentation.pptx", true).then((response) => {
     console.log(response.body.slideList.length);

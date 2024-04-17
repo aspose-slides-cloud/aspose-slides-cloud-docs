@@ -233,17 +233,17 @@ for slide in response.slides:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Split all slides in the presentation.
-slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder").then((response) => {
-    response.body.slides.forEach(slide =>
+slidesApi.split("MyPresentation.pptx", null, null, null, null, null, null, null, null, "MyFolder").then(response => {
+    response.body.slides.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyFolder/MyPresentation_1.jpeg, etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -538,17 +538,17 @@ for slide in response.slides:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Split the 2nd and 3rd slides and save them to PNG format.
-slidesApi.split("MyPresentation.pptx", null, "png", null, null, 2, 3, "MyImages", null, "MyFolder").then((response) => {
-    response.body.slides.forEach(slide =>
+slidesApi.split("MyPresentation.pptx", null, "png", null, null, 2, 3, "MyImages", null, "MyFolder").then(response => {
+    response.body.slides.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/MyPresentation_2.png, etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}

@@ -256,17 +256,17 @@ for image_info in images_info.list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information about the images placed on the first slide.
-slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder").then((imagesInfo) => {
+slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder").then(imagesInfo => {
     // Print information about the images.
-    imagesInfo.body.list.forEach(imageInfo =>
-        console.log(imageInfo.width + "x" + imageInfo.height + ", " + imageInfo.contentType)
-    )
-})
+    imagesInfo.body.list.forEach(imageInfo => {
+        console.log(imageInfo.width + "x" + imageInfo.height + ", " + imageInfo.contentType);
+    });
+});
 ```
 
 {{< /tab >}}

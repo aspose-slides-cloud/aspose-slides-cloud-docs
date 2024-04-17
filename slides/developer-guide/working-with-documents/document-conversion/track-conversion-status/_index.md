@@ -288,20 +288,20 @@ while True:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const api = new cloud.SlidesAsyncApi("my_client_id", "my_client_secret")
+const api = new cloud.SlidesAsyncApi("my_client_id", "my_client_secret");
 
-const fileStream = fs.createReadStream("MyPresentation.pptx")
+const fileStream = fs.createReadStream("MyPresentation.pptx");
 const operationId = (await api.startConvert(fileStream, "pdf")).body;
 
 const sleep = function(interval) {
-    return new Promise(resolve => setTimeout(resolve, interval))
+    return new Promise(resolve => setTimeout(resolve, interval));
 }
 
 while (true) {
-    await sleep(2000)
+    await sleep(2000);
     const operation = (await api.getOperationStatus(operationId)).body;
     console.log("Current operation status: " + operation.status);
     if (operation.status == cloud.Operation.StatusEnum.Canceled) {
@@ -312,8 +312,8 @@ while (true) {
     } else if (operation.status == cloud.Operation.StatusEnum.Finished) {
         const converted = await api.getOperationResult(operationId);
         fs.writeFile("MyPresentation.pdf", converted.body, (error) => {
-            if (error) throw error
-        })
+            if (error) throw error;
+        });
         break;
     }
 }

@@ -340,20 +340,20 @@ while True:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const api = new cloud.SlidesAsyncApi("my_client_id", "my_client_secret")
+const api = new cloud.SlidesAsyncApi("my_client_id", "my_client_secret");
 
 const files = [fs.createReadStream("presentation1.pptx"), fs.createReadStream("presentation2.pptx")];
 const operationId = (await api.startMerge(files)).body;
 
 const sleep = function(interval) {
-    return new Promise(resolve => setTimeout(resolve, interval))
+    return new Promise(resolve => setTimeout(resolve, interval));
 }
 
 while (true) {
-    await sleep(2000)
+    await sleep(2000);
     const operation = (await api.getOperationStatus(operationId)).body;
     console.log("Current operation status: " + operation.status);
     if (operation.status == cloud.Operation.StatusEnum.Started) {
@@ -368,8 +368,8 @@ while (true) {
     } else if (operation.status == cloud.Operation.StatusEnum.Finished) {
         const merged = await api.getOperationResult(operationId);
         fs.writeFile("merged.pptx", merged.body, (error) => {
-            if (error) throw error
-        })
+            if (error) throw error;
+        });
         break;
     }
 }

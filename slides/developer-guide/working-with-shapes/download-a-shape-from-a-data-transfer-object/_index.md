@@ -34,12 +34,12 @@ curl  -v "https://api.aspose.cloud/v3.0/slides/shape/png" -d @"shape.json" -H "C
 
 ```
 shape.json file:
-```javascript
+```json
 {
-    shapeType: "Rectangle",
-    width: 400,
-    height: 200,
-    text: "Shape text"
+    "shapeType": "Rectangle",
+    "width": 400,
+    "height": 200,
+    "text": "Shape text"
 }
 ```
 {{< /tab >}}
@@ -160,7 +160,7 @@ print("The PNG file was saved to " + result)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 const dto = new CloudSdk.Shape();
@@ -171,8 +171,8 @@ dto.text = "Shape text";
 
 const response = await api.downloadShapeFromDto(CloudSdk.ShapeExportFormat.Png, dto);
 fs.writeFile("shape.png", response.body, (error) => {
-                if (error) throw error
-            });
+    if (error) throw error;
+});
 ```
 {{< /tab >}}
 {{< tab tabNum="7" >}}

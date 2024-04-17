@@ -500,9 +500,9 @@ print(response.self_uri.href) # https://api.aspose.cloud/v3.0/slides/JohnDoeCV.p
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 var data =
     "<staff>" +
@@ -529,11 +529,11 @@ var data =
                 "</skill>" +
             "</skills>" +
         "</person>" +
-    "</staff>"
+    "</staff>";
 
-slidesApi.createPresentationFromTemplate("JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, "Main", null, null, "Data", "Main").then((response) => {
-    console.log(response.body.selfUri.href) // https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=Data
-})
+slidesApi.createPresentationFromTemplate("JohnDoeCV.pptx", "Resources/TemplateCV.pptx", data, null, "Main", null, null, "Data", "Main").then(response => {
+    console.log(response.body.selfUri.href); // https://api.aspose.cloud/v3.0/slides/JohnDoeCV.pptx?folder=Data
+});
 ```
 
 {{< /tab >}}

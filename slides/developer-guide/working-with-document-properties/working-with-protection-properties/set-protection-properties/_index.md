@@ -236,8 +236,6 @@ properties.readOnlyRecommended = true;
 slidesApi.setProtection("MyPresentation.pptx", properties).then(response => {
     // Check if the presentation has been encrypted.
     console.log(response.body.isIsEncrypted);
-}).catch(error => {
-    console.error(error.message);
 });
 ```
 
@@ -503,8 +501,6 @@ slidesApi.setProtectionOnline(documentStream, properties).then(response => {
     fs.writeFile("WriteProtected.pptx", response.body, (error) => {
         if (error) throw error;
     });
-}).catch(error => {
-    console.error(error.message);
 });
 ```
 

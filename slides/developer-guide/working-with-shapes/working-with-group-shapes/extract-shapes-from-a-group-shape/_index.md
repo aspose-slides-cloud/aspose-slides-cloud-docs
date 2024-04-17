@@ -245,15 +245,15 @@ print(shape.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Extract the 2nd shape from the group shape at index 4 placed on the 1st slide.
-slidesApi.getShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "2").then((shape) => {
+slidesApi.getShape("MyPresentation.pptx", 1, 4, null, "MyFolder", null, "2").then(shape => {
     // Print a resource reference to the shape.
-    console.log(shape.body.selfUri.href)
-})
+    console.log(shape.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

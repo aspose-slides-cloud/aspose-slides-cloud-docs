@@ -29,7 +29,7 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/mpeg4
 
 ```
 options.json file:
-```javascript
+```json
 {
 	"Format":"mpeg4",
 	"SlidesTransitionDuration":5,
@@ -166,7 +166,7 @@ print('The converted file was saved to ' + result)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const exportOptions = new CloudSdk.VideoExportOptions();

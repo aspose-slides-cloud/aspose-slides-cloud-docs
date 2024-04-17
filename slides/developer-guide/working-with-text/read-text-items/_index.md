@@ -241,17 +241,17 @@ for text_item in text_items.items:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get all text items from the presentation.
-slidesApi.getPresentationTextItems("MyPresentation.pptx", true, null, "MyFolder").then((textItems) => {
+slidesApi.getPresentationTextItems("MyPresentation.pptx", true, null, "MyFolder").then(textItems => {
     // Print the texts.
-    textItems.body.items.forEach(textItem =>
-        console.log(textItem.text)
-    )
-})
+    textItems.body.items.forEach(textItem => {
+        console.log(textItem.text);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -559,17 +559,17 @@ for text_item in text_items.items:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get all text items from the second slide, except empty ones.
-slidesApi.getSlideTextItems("MyPresentation.pptx", 2, null, null, "MyFolder").then((textItems) => {
+slidesApi.getSlideTextItems("MyPresentation.pptx", 2, null, null, "MyFolder").then(textItems => {
     // Print the texts.
-    textItems.body.items.forEach(textItem =>
-        console.log(textItem.text)
-    )
-})
+    textItems.body.items.forEach(textItem => {
+        console.log(textItem.text);
+    });
+});
 ```
 
 {{< /tab >}}

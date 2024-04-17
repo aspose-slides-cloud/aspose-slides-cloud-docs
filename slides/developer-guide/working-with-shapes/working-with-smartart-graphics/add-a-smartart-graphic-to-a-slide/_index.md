@@ -413,32 +413,32 @@ print(shape.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Prepare data for the SmartArt shape.
-const graphicData = new cloud.SmartArt()
-graphicData.x = 20
-graphicData.y = 20
-graphicData.width = 200
-graphicData.height = 200
-graphicData.layout = "Gear"
-graphicData.quickStyle = "IntenceEffect"
-graphicData.colorStyle = "ColorfulAccentColors"
-const firstNode = new cloud.SmartArtNode()
-firstNode.text = "Development"
-const secondNode = new cloud.SmartArtNode()
-secondNode.text = "Analysis"
-const thirdNode = new cloud.SmartArtNode()
-thirdNode.text = "Sales"
-graphicData.nodes = [firstNode, secondNode, thirdNode]
+const graphicData = new cloud.SmartArt();
+graphicData.x = 20;
+graphicData.y = 20;
+graphicData.width = 200;
+graphicData.height = 200;
+graphicData.layout = "Gear";
+graphicData.quickStyle = "IntenceEffect";
+graphicData.colorStyle = "ColorfulAccentColors";
+const firstNode = new cloud.SmartArtNode();
+firstNode.text = "Development";
+const secondNode = new cloud.SmartArtNode();
+secondNode.text = "Analysis";
+const thirdNode = new cloud.SmartArtNode();
+thirdNode.text = "Sales";
+graphicData.nodes = [firstNode, secondNode, thirdNode];
 
 // Create the SmartArt shape.
-slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder").then((shape) => {
+slidesApi.createShape("MyPresentation.pptx", 1, graphicData, null, null, null, "MyFolder").then(shape => {
     // Print a resource reference to the shape.
-    console.log(shape.body.selfUri.href)
-})
+    console.log(shape.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

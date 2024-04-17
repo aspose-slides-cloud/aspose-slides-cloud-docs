@@ -312,14 +312,14 @@ print("Replaced", result.matches, "matches.")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Replace the specified text, ignoring case.
-slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder").then((result) => {
-    console.log("Replaced", result.body.matches, "matches.")
-})
+slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder").then(result => {
+    console.log("Replaced", result.body.matches, "matches.");
+});
 ```
 
 {{< /tab >}}
@@ -778,14 +778,14 @@ print("Replaced", result.matches, "matches.")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Replace the specified text on the second slide.
-slidesApi.replaceSlideText("MyPresentation.pptx", 2, "banana", "orange", null, null, "MyFolder").then((result) => {
-    console.log("Replaced", result.body.matches, "matches.")
-})
+slidesApi.replaceSlideText("MyPresentation.pptx", 2, "banana", "orange", null, null, "MyFolder").then(result => {
+    console.log("Replaced", result.body.matches, "matches.");
+});
 ```
 
 {{< /tab >}}

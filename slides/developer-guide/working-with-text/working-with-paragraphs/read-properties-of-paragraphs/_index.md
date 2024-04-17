@@ -250,34 +250,28 @@ except ApiException as e:
 ```js
 // https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const api = require("asposeslidescloud")
-const fs = require("fs")
-const path = require("path")
+const api = require("asposeslidescloud");
+const fs = require("fs");
+const path = require("path");
 
-const slidesApi = new api.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new api.SlidesApi("my_client_id", "my_client_key");
 
-const fileName = "example.pptx"
-const folderName = "Data"
-const storageName = "Main"
-const filePath = path.join(folderName, fileName)
-const slideIndex = 1
-const shapeIndex = 3
-const password = null
+const fileName = "example.pptx";
+const folderName = "Data";
+const storageName = "Main";
+const filePath = path.join(folderName, fileName);
+const slideIndex = 1;
+const shapeIndex = 3;
+const password = null;
 
-const readStream = fs.createReadStream(fileName)
+const readStream = fs.createReadStream(fileName);
 
 slidesApi.uploadFile(filePath, readStream, storageName).then(() => {
-    slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName).then((paragraphs) => {
-        const paragraphCount = paragraphs.body.paragraphLinks.length
-        console.log(paragraphCount)
-    })
-    .catch(function (error) {
-        console.error(error)
-    })
-})
-.catch(function (error) {
-    console.error(error)
-})
+    slidesApi.getParagraphs(fileName, slideIndex, shapeIndex, password, folderName, storageName).then(paragraphs => {
+        const paragraphCount = paragraphs.body.paragraphLinks.length;
+        console.log(paragraphCount);
+    });
+});
 ```
 
 {{< /tab >}}

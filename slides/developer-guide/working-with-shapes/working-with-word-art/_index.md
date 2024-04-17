@@ -27,7 +27,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 **wordArt.json example**
 
-```javascript
+```json
 {
     "type": "Shape",
     "shapeType": "Rectangle",
@@ -74,7 +74,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 
 {{< tab tabNum="2" >}}
 
-```javascript
+```json
 {
     "type": "Shape",
     "text": "Sample text",
@@ -515,7 +515,7 @@ threeDFormat.camera = camera;
 textFrameFormat.threeDFormat = threeDFormat;
 dto.textFrameFormat = textFrameFormat;
 
-return api.createShape(fileName, slideIndex, dto).then((result) => {
+return api.createShape(fileName, slideIndex, dto).then(result => {
     console.log(result.body.text);
 });
 ```

@@ -119,7 +119,7 @@ print('The converted file was saved to ' + result)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const file = fs.createReadStream("customfont.pptx");

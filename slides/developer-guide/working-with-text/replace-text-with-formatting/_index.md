@@ -326,9 +326,9 @@ slides_api.replace_text_formatting("MyPresentation.pptx", "banana", "orange", po
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Replace the "banana" for "orange", in orange color.
 const portionFormat = new cloud.PortionFormat();
@@ -596,14 +596,14 @@ print('The updated file was saved to ' + result)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require('fs');
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 const portionFormat = new cloud.PortionFormat();
 portionFormat.fontColor = "#FFFFA500";
-slidesApi.replaceTextFormattingOnline(fs.createReadStream("MyPresentation.pptx"), "banana", "orange", portionFormat).then((response) => {
+slidesApi.replaceTextFormattingOnline(fs.createReadStream("MyPresentation.pptx"), "banana", "orange", portionFormat).then(response => {
     fs.writeFile("UpdatedPresentation.pptx", response.body, (err) => {
         if (err) throw err;
     });

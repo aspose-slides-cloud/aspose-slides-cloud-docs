@@ -224,20 +224,20 @@ slides_api.save_presentation("example.pptx", ExportFormat.TIFF, "MyImages/output
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 // Slide notes should be added at the bottom of pages.
-const tiffOptions = new cloud.TiffExportOptions()
-tiffOptions.notesPosition = "BottomFull"
+const tiffOptions = new cloud.TiffExportOptions();
+tiffOptions.notesPosition = "BottomFull";
 
 // The TIFF file should only contain the slides with indexes 1 and 3.
-const slideIndices = [1, 3]
+const slideIndices = [1, 3];
 
 // Save the presentation to TIFF file.
 slidesApi.savePresentation("example.pptx", cloud.ExportFormat.Tiff, "MyImages/output.tiff", tiffOptions, null, "MyFolder", "MyStorage", null, slideIndices).then(() => {
-})
+});
 ```
 
 {{< /tab >}}
