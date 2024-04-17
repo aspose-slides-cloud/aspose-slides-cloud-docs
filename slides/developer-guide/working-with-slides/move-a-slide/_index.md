@@ -230,18 +230,18 @@ for resource_uri in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Move the third slide to the first position.
-slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.moveSlide("MyPresentation.pptx", 3, 1, null, "MyFolder", "MyStorage").then(response => {
     // Print links to all slides.
-    response.body.slideList.forEach(resourceUri =>
+    response.body.slideList.forEach(resourceUri => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
-        console.log(resourceUri.href)
-    )
-})
+        console.log(resourceUri.href);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -561,18 +561,18 @@ for resource_uri in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Swap the first and third slides.
-slidesApi.reorderSlides("MyPresentation.pptx", [1, 3], [3, 1], null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.reorderSlides("MyPresentation.pptx", [1, 3], [3, 1], null, "MyFolder", "MyStorage").then(response => {
     // Print links to all slides.
-    response.body.slideList.forEach(resourceUri =>
+    response.body.slideList.forEach(resourceUri => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
-        console.log(resourceUri.href)
-    )
-})
+        console.log(resourceUri.href);
+    });
+});
 ```
 
 {{< /tab >}}

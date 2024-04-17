@@ -27,7 +27,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/s
 
 **portion.json example**
 
-```javascript
+```json
 {
     "hyperlinkMouseOver": {
         "actionType": "JumpLastSlide"
@@ -39,7 +39,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/s
 
 {{< tab tabNum="2" >}}
 
-```javascript
+```json
 {
     "text": "New portion",
     "fontBold": "True",
@@ -188,7 +188,7 @@ const dto = new CloudSdk.Portion();
 const hyperlink = new CloudSdk.Hyperlink();
 hyperlink.actionType = CloudSdk.Hyperlink.ActionTypeEnum.JumpLastSlide;
 dto.hyperlinkMouseOver = hyperlink;
-return api.updatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto).then((result) => {
+return api.updatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto).then(result => {
     console.log(result.body.hyperlinkMouseOver.targetSlideIndex); //5
 });
 ```

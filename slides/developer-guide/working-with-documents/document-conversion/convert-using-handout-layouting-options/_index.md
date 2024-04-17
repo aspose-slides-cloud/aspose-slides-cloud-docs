@@ -30,9 +30,9 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/pdf" 
 
 **options.json file**
 
-```javascript
+```json
 {
-    "format":"pdf",
+    "format": "pdf",
     "slidesLayoutOptions": {
         "layoutType": "Handout",
         "handout": "Handouts2",
@@ -180,7 +180,7 @@ print('The converted file was saved to ' + result)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const slidesLayoutOptions = new CloudSdk.HandoutLayoutingOptions();

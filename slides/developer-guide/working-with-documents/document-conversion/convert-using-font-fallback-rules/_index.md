@@ -37,13 +37,15 @@ curl  -v -X POST "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/png" 
 ```
 
 options.json file:
-```javascript
+```json
 {
-    "format":"image",
-    "FontFallbackRules":[
-        {"RangeStartIndex": 0x0B80,
-        "RangeEndIndex": 0x0BFF,
-        FallbackFontList: ["Arial"]}
+    "format": "image",
+    "FontFallbackRules": [
+        {
+            "RangeStartIndex": 0x0B80,
+            "RangeEndIndex": 0x0BFF,
+            "FallbackFontList": ["Arial"]
+        }
     ]
 }
 ```
@@ -234,7 +236,7 @@ print('The converted file was saved to ' + result)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const startUnicodeIndex = 0x0B80;

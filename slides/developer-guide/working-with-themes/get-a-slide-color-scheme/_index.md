@@ -210,15 +210,15 @@ print("Hyperlink color:", color_scheme.hyperlink)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the color scheme applied to the first slide.
-slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder").then((colorScheme) => {
+slidesApi.getColorScheme("MyPresentation.pptx", 1, null, "MyFolder").then(colorScheme => {
     // Print a hyperlink color.
-    console.log("Hyperlink color:",  colorScheme.body.hyperlink)
-})
+    console.log("Hyperlink color:",  colorScheme.body.hyperlink);
+});
 ```
 
 {{< /tab >}}

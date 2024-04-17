@@ -236,9 +236,9 @@ for layout_slide in master_slide.layout_slides:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information of the first master slide from the document MyFolder/MyPresentation.pptx.
 slidesApi.getMasterSlide("MyPresentation.pptx", 1, null, "MyFolder").then(masterSlide => {

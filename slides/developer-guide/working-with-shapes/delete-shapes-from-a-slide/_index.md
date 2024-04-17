@@ -222,17 +222,17 @@ for shape in remaining_shapes.shapes_links:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Delete the second shape from the first slide.
-slidesApi.deleteShape("MyPresentation.pptx", 1, 2, null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteShape("MyPresentation.pptx", 1, 2, null, "MyFolder").then(remainingShapes => {
     // Print resource references for the remaining shapes.
-    remainingShapes.body.shapesLinks.forEach(shape =>
-        console.log(shape.href)
-    )
-})
+    remainingShapes.body.shapesLinks.forEach(shape => {
+        console.log(shape.href);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -512,17 +512,17 @@ for shape in remaining_shapes.shapes_links:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Delete the first and third shapes from the first slide.
-slidesApi.deleteShapes("MyPresentation.pptx", 1, [1, 3], null, "MyFolder").then((remainingShapes) => {
+slidesApi.deleteShapes("MyPresentation.pptx", 1, [1, 3], null, "MyFolder").then(remainingShapes => {
     // Print resource references for the remaining shapes.
-    remainingShapes.body.shapesLinks.forEach(shape =>
-        console.log(shape.href)
-    )
-})
+    remainingShapes.body.shapesLinks.forEach(shape => {
+        console.log(shape.href);
+    });
+});
 ```
 
 {{< /tab >}}

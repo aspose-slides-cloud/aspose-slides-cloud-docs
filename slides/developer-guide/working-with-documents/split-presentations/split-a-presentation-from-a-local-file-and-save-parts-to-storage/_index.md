@@ -248,21 +248,20 @@ for slide in response.slides:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Split the first three slides and save them to 480x270 bitmaps in the storage.
-const presentationStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.splitAndSaveOnline(presentationStream, "bmp", "MyImages", 480, 270, 1, 3, null, "MyStorage").then((response) => {
-
+const presentationStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.splitAndSaveOnline(presentationStream, "bmp", "MyImages", 480, 270, 1, 3, null, "MyStorage").then(response => {
     // Print information about the result.
-    response.body.slides.forEach(slide =>
+    response.body.slides.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/storage/file/MyImages/sourcePresentation_1.bmp, etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}

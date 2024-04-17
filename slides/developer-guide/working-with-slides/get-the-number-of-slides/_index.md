@@ -194,15 +194,15 @@ print(len(slides_info.slide_list))
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get information about presentation slides.
-slidesApi.getSlides("MyPresentation.pptx", "MyPassword", "MyFolder").then((slidesInfo) => {
+slidesApi.getSlides("MyPresentation.pptx", "MyPassword", "MyFolder").then(slidesInfo => {
     // Print the number of slides.
-    console.log(slidesInfo.body.slideList.length)
-})
+    console.log(slidesInfo.body.slideList.length);
+});
 ```
 
 {{< /tab >}}

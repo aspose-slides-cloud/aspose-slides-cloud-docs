@@ -178,7 +178,8 @@ const fontName = "Arial";
 const fontHeight = 40;
 const fontColor = "#dddddd";
 
-slidesApi.createWatermark(fileName, null, fontHeight, watermarkText, fontName, fontColor);
+slidesApi.createWatermark(fileName, null, fontHeight, watermarkText, fontName, fontColor).then(() => {
+});
 ```
 
 {{< /tab >}}
@@ -446,7 +447,7 @@ shape.textFrameFormat.rotationAngle = 45;
 const inputStream = fs.createReadStream(inputFilePath);
 slidesApi.createWatermarkOnline(inputStream, shape).then(response => {
     fs.writeFile(outputFilePath, response.body, error => {
-        if (error) throw error
+        if (error) throw error;
     });
 });
 ```

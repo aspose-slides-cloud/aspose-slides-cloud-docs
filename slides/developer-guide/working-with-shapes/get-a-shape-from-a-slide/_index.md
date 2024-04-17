@@ -275,19 +275,19 @@ print(f"Height: {shape.height}")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get the second shape from the third slide.
-slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder").then((shape) => {
+slidesApi.getShape("MyPresentation.pptx", 3, 2, null, "MyFolder").then(shape => {
     // Print the resource URI, position and size of the shape.
-    console.log("Resource reference: %s", shape.body.selfUri.href)
-    console.log("X: %s", shape.body.x)
-    console.log("Y: %s", shape.body.y)
-    console.log("Width: %s", shape.body.width)
-    console.log("Height: %s", shape.body.height)
-})
+    console.log("Resource reference:", shape.body.selfUri.href);
+    console.log("X:", shape.body.x);
+    console.log("Y:", shape.body.y);
+    console.log("Width:", shape.body.width);
+    console.log("Height:", shape.body.height);
+});
 ```
 
 {{< /tab >}}

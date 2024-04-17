@@ -139,7 +139,7 @@ print(f"height: { response.height }")
 ```javascript
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-api.getPortionRectangle("MyPresentation.pptx", 1, 2, 1, 1).then((response) => {
+api.getPortionRectangle("MyPresentation.pptx", 1, 2, 1, 1).then(response => {
     console.log("x: " + response.body.x);
     console.log("y: " + response.body.y);
     console.log("width: " + response.body.width);

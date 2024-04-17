@@ -344,29 +344,29 @@ for property in all_properties.list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Create the new document properties.
-const property1 = new cloud.DocumentProperty()
-property1.name = "ProcessedByOffice"
-property1.value = "Scotland Team"
-const property2 = new cloud.DocumentProperty()
-property2.name = "MyProperty"
-property2.value = "My Value"
+const property1 = new cloud.DocumentProperty();
+property1.name = "ProcessedByOffice";
+property1.value = "Scotland Team";
+const property2 = new cloud.DocumentProperty();
+property2.name = "MyProperty";
+property2.value = "My Value";
 
 // Prepare a collection of the properties.
-const newProperties = new cloud.DocumentProperties()
-newProperties.list = [property1, property2]
+const newProperties = new cloud.DocumentProperties();
+newProperties.list = [property1, property2];
 
 // Add the new document properties to the presentation.
-slidesApi.setDocumentProperties("MyPresentation.pptx", newProperties, null, "MyFolder").then((allProperties) => {
+slidesApi.setDocumentProperties("MyPresentation.pptx", newProperties, null, "MyFolder").then(allProperties => {
     // Print all document properties.
-    allProperties.body.list.forEach(property =>
-        console.log(property.name + ": " + property.value)
-    )
-})
+    allProperties.body.list.forEach(property => {
+        console.log(property.name + ": " + property.value);
+    });
+});
 ```
 
 {{< /tab >}}

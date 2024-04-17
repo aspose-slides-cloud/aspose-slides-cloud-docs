@@ -204,15 +204,15 @@ print(layout_slide.name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information of the second layout slide.
-slidesApi.getLayoutSlide("MyPresentation.pptx", 2, null, "MyFolder").then((layoutSlide) => {
+slidesApi.getLayoutSlide("MyPresentation.pptx", 2, null, "MyFolder").then(layoutSlide => {
     // Print the layout slide name.
-    console.log(layoutSlide.body.name)
-})
+    console.log(layoutSlide.body.name);
+});
 ```
 
 {{< /tab >}}

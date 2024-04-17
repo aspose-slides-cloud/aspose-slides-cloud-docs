@@ -196,14 +196,14 @@ print(slide_background.type) # Solid, for example
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Get the background of the first slide.
-slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder").then((response) => {
-    console.log(response.body.type) // Solid, for example
-})
+slidesApi.getBackground("MyPresentation.pptx", 1, null, "MyFolder").then(response => {
+    console.log(response.body.type); // Solid, for example
+});
 ```
 
 {{< /tab >}}
@@ -598,27 +598,27 @@ print(current_background.type) # Picture
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
-const imageBase64String = fs.readFileSync("MyImage.png", { encoding: "base64" })
+const imageBase64String = fs.readFileSync("MyImage.png", { encoding: "base64" });
 
 // Prepare the background fill format.
-const pictureFill = new cloud.PictureFill()
-pictureFill.base64Data = imageBase64String
-pictureFill.pictureFillMode = "Tile"
+const pictureFill = new cloud.PictureFill();
+pictureFill.base64Data = imageBase64String;
+pictureFill.pictureFillMode = "Tile";
 
 // Prepare the background DTO.
-const newBackground = new cloud.SlideBackground()
-newBackground.fillFormat = pictureFill
+const newBackground = new cloud.SlideBackground();
+newBackground.fillFormat = pictureFill;
 
 // Set the new background for the second slide.
-slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder").then((currentBackground) => {
+slidesApi.setBackground("MyPresentation.pptx", 2, newBackground, null, "MyFolder").then(currentBackground => {
     // Check the type of the current background.
-    console.log(currentBackground.body.type) // Picture
-})
+    console.log(currentBackground.body.type); // Picture
+});
 ```
 
 {{< /tab >}}
@@ -910,15 +910,15 @@ print(f"{current_background.type}") # NoFill
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Delete a background from the second slide.
-slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder").then((currentBackground) => {
+slidesApi.deleteBackground("MyPresentation.pptx", 2, null, "MyFolder").then(currentBackground => {
     // Check the type of the current background.
-    console.log(currentBackground.body.type)
-})
+    console.log(currentBackground.body.type);
+});
 ```
 
 {{< /tab >}}

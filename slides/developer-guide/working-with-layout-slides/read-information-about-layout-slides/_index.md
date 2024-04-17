@@ -223,17 +223,17 @@ for slide in layout_slides.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information of layout slides from the document MyFolder/MyPresentation.pptx.
-slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder").then((layoutSlides) => {
+slidesApi.getLayoutSlides("MyPresentation.pptx", null, "MyFolder").then(layoutSlides => {
     // Print titles of the layout slides.
-    layoutSlides.body.slideList.forEach(slide =>
-        console.log(slide.title)
-    )
-})
+    layoutSlides.body.slideList.forEach(slide => {
+        console.log(slide.title);
+    });
+});
 ```
 
 {{< /tab >}}

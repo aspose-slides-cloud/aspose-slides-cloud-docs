@@ -214,15 +214,15 @@ print(layout_slide.name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Copy the third layout slide.
-slidesApi.copyLayoutSlide("MyPresentation.pptx", "MyTemplates/SalesTemplate.pptx", 3, null, null, null, "MyFolder").then((layoutSlide) => {
+slidesApi.copyLayoutSlide("MyPresentation.pptx", "MyTemplates/SalesTemplate.pptx", 3, null, null, null, "MyFolder").then(layoutSlide => {
     // Print the layout slide name.
-    console.log(layoutSlide.body.name)
-})
+    console.log(layoutSlide.body.name);
+});
 ```
 
 {{< /tab >}}

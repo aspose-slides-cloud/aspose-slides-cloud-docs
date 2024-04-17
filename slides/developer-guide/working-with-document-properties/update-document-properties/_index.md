@@ -246,20 +246,20 @@ print(f"{current_property.name}: {current_property.value}")
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Create the document property.
-var property = new cloud.DocumentProperty()
-property.name = "Author"
-property.value = "H.G. Wells"
+var property = new cloud.DocumentProperty();
+property.name = "Author";
+property.value = "H.G. Wells";
 
 // Update the property in the presentation.
-slidesApi.setDocumentProperty("MyPresentation.pptx", "Author", property, null, "MyFolder").then((currentProperty) => {
+slidesApi.setDocumentProperty("MyPresentation.pptx", "Author", property, null, "MyFolder").then(currentProperty => {
     // Print data of the document property.
-    console.log(currentProperty.body.name + ": " + currentProperty.body.value)
-})
+    console.log(currentProperty.body.name + ": " + currentProperty.body.value);
+});
 ```
 
 {{< /tab >}}

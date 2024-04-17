@@ -358,21 +358,20 @@ print (response.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Prepare request data for presentations to merge.
-const request = new cloud.PresentationsMergeRequest()
-request.presentationPaths = ["MyResources/example1.pptx", "MyResources/example2.pptx"]
-request.presentationPasswords = ["password1"]
+const request = new cloud.PresentationsMergeRequest();
+request.presentationPaths = ["MyResources/example1.pptx", "MyResources/example2.pptx"];
+request.presentationPasswords = ["password1"];
 
 // Merge the presentations.
-slidesApi.merge("MyPresentation.pptx", request, "my_password", "MyFolder").then((response) => {
-
+slidesApi.merge("MyPresentation.pptx", request, "my_password", "MyFolder").then(response => {
     // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx?folder=MyFolder
-    console.log(response.body.selfUri.href)
-})
+    console.log(response.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

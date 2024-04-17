@@ -215,19 +215,19 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, None, "M
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Collect the presentations to merge.
-const fileStream1 = fs.createReadStream("TestData/example1.pptx")
-const fileStream2 = fs.createReadStream("TestData/example2.pptx")
-const files = [fileStream1, fileStream2]
+const fileStream1 = fs.createReadStream("TestData/example1.pptx");
+const fileStream2 = fs.createReadStream("TestData/example2.pptx");
+const files = [fileStream1, fileStream2];
 
 // Merge the presentations and save the result to the specified path.
 slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MyStorage").then(() => {
-})
+});
 ```
 
 {{< /tab >}}
@@ -656,38 +656,38 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, request,
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_key", "my_client_secret");
 
 // Collect the presentations to merge.
-const fileStream = fs.createReadStream("local.pptx")
-const files = [fileStream]
+const fileStream = fs.createReadStream("local.pptx");
+const files = [fileStream];
 
 // Prepare information for the first presentation to merge.
-const presentation1 = new cloud.PresentationToMerge()
-presentation1.path = "local.pptx"
-presentation1.slides = [1, 2]
+const presentation1 = new cloud.PresentationToMerge();
+presentation1.path = "local.pptx";
+presentation1.slides = [1, 2];
 
 // Prepare information for the first presentation to merge.
-const presentation2 = new cloud.PresentationToMerge()
-presentation2.path = "storage.pptx"
-presentation2.password = "my_password"
-presentation2.source = "Storage"
+const presentation2 = new cloud.PresentationToMerge();
+presentation2.path = "storage.pptx";
+presentation2.password = "my_password";
+presentation2.source = "Storage";
 
 // Prepare information for the first presentation to merge.
-const presentation3 = new cloud.PresentationToMerge()
-presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx"
-presentation3.source = "Url"
+const presentation3 = new cloud.PresentationToMerge();
+presentation3.path = "https://drive.google.com/uc?export=download&id=remote.pptx";
+presentation3.source = "Url";
 
 // Prepare the merge request.
-const request = new cloud.OrderedMergeRequest()
-request.presentations = [presentation1, presentation2, presentation3]
+const request = new cloud.OrderedMergeRequest();
+request.presentations = [presentation1, presentation2, presentation3];
 
 // Merge the presentations and save the result to the specified path.
 slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, request, "MyStorage").then(() => {
-})
+});
 ```
 
 {{< /tab >}}

@@ -115,7 +115,7 @@ print("Module: " + response.name + "\n" + response.source_code)
 const CloudSdk = require("asposeslidescloud");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.getVbaModule("MyPresentation.pptm", 1).then((response) => {
+const response = await api.getVbaModule("MyPresentation.pptm", 1).then(response => {
 const vbaModule = response.body;
 console.log("Module: " + vbaModule.name + "\n" + vbaModule.sourceCode);
 });

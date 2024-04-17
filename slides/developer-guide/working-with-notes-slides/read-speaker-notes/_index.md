@@ -222,15 +222,15 @@ print("Speaker notes:", notes_slide.text)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the notes slide for the first slide.
-slidesApi.getNotesSlide("MyPresentation.pptx", 1, null, "MyFolder").then((notesSlide) => {
+slidesApi.getNotesSlide("MyPresentation.pptx", 1, null, "MyFolder").then(notesSlide => {
     // Print the speaker notes.
-    console.log("Speaker notes:", notesSlide.body.text)
-})
+    console.log("Speaker notes:", notesSlide.body.text);
+});
 ```
 
 {{< /tab >}}
@@ -497,17 +497,17 @@ print("Speaker notes:", notes_slide.text)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read the notes slide for the first slide.
-documentStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.getNotesSlideOnline(documentStream, 1).then((notesSlide) => {
+documentStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.getNotesSlideOnline(documentStream, 1).then(notesSlide => {
     // Print the speaker notes.
-    console.log("Speaker notes:", notesSlide.body.text)
-})
+    console.log("Speaker notes:", notesSlide.body.text);
+});
 ```
 
 {{< /tab >}}

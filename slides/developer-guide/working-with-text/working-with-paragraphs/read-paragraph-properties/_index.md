@@ -279,41 +279,35 @@ except ApiException as e:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const api = require("asposeslidescloud")
-const fs = require("fs")
-const path = require("path")
+const api = require("asposeslidescloud");
+const fs = require("fs");
+const path = require("path");
 
-const slidesApi = new api.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new api.SlidesApi("my_client_id", "my_client_key");
 
-const fileName = "example.pptx"
-const storageName = "Main"
-const folderName = "Data"
-const slideIndex = 1
-const shapeIndex = 2
-const paragraphIndex = 1
-const password = ""
+const fileName = "example.pptx";
+const storageName = "Main";
+const folderName = "Data";
+const slideIndex = 1;
+const shapeIndex = 2;
+const paragraphIndex = 1;
+const password = "";
 
 // The path to the presentation file in the storage.
-const filePath = path.join(folderName, fileName)
+const filePath = path.join(folderName, fileName);
 
 // Upload the presentation to the storage.
-const fileStream = fs.createReadStream(fileName)
+const fileStream = fs.createReadStream(fileName);
 slidesApi.uploadFile(filePath, fileStream, storageName).then(() => {
 
     // Get properties of the specified paragraph.
-    slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then((paragraph) => {
+    slidesApi.getParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, storageName).then(paragraph => {
 
         // Display some paragraph properties.
-        console.log("Text alignment: ", paragraph.body.alignment)
-        console.log("Spacing before: ", paragraph.body.spaceBefore)
-    })
-    .catch(function (error) {
-        console.error(error)
-    })
-})
-.catch(function (error) {
-    console.error(error)
-})
+        console.log("Text alignment: ", paragraph.body.alignment);
+        console.log("Spacing before: ", paragraph.body.spaceBefore);
+    });
+});
 ```
 
 {{< /tab >}}

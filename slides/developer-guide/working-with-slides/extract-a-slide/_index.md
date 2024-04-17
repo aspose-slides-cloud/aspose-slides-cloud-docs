@@ -242,24 +242,24 @@ print("The TIFF image was saved to " + tiff_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Set options for the output TIFF image.
-const tiffOptions = new cloud.TiffExportOptions()
-tiffOptions.pixelFormat = "Format24bppRgb"
-tiffOptions.width = 540
-tiffOptions.height = 380
+const tiffOptions = new cloud.TiffExportOptions();
+tiffOptions.pixelFormat = "Format24bppRgb";
+tiffOptions.width = 540;
+tiffOptions.height = 380;
 
 // Extract the third slide and get it in TIFF format.
-slidesApi.downloadSlide("MyPresentation.pptx", 3, "tiff", tiffOptions, null, null, null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.downloadSlide("MyPresentation.pptx", 3, "tiff", tiffOptions, null, null, null, "MyFolder", "MyStorage").then(response => {
     // Save the TIFF image to a file.
     fs.writeFile("slide_3.tiff", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}
@@ -583,17 +583,18 @@ slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Set options for the output PNG image.
-const pngOptions = new cloud.ImageExportOptions()
-pngOptions.notesPosition = "BottomTruncated"
-pngOptions.commentsPosition = "Right"
+const pngOptions = new cloud.ImageExportOptions();
+pngOptions.notesPosition = "BottomTruncated";
+pngOptions.commentsPosition = "Right";
 
 // Save the second slide to the PNG image.
-slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage")
+slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage").then(() => {
+});
 ```
 
 {{< /tab >}}
@@ -938,26 +939,26 @@ print("The PDF document was saved to ", pdf_file_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
-const fileStream = fs.createReadStream("MyPresentation.pptx")
+const fileStream = fs.createReadStream("MyPresentation.pptx");
 
 // Set the options for the output PDF document.
-const pdfOptions = new cloud.PdfExportOptions()
-pdfOptions.compliance = "PdfA1b"
-pdfOptions.embedFullFonts = true
-pdfOptions.jpegQuality = 90
+const pdfOptions = new cloud.PdfExportOptions();
+pdfOptions.compliance = "PdfA1b";
+pdfOptions.embedFullFonts = true;
+pdfOptions.jpegQuality = 90;
 
 // Extract the 5th slide and save it to the PDF document.
-slidesApi.downloadSlideOnline(fileStream, 5, cloud.SlideExportFormat.Pdf, null, null, null, null, null, pdfOptions).then((response) => {
+slidesApi.downloadSlideOnline(fileStream, 5, cloud.SlideExportFormat.Pdf, null, null, null, null, null, pdfOptions).then(response => {
     // Save the PDF document to a file.
     fs.writeFile("slide_5.pdf", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}
@@ -1298,19 +1299,20 @@ with open("MyPresentation.pptx", "rb") as file_stream:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
-const fileStream = fs.createReadStream("MyPresentation.pptx")
+const fileStream = fs.createReadStream("MyPresentation.pptx");
 
 // Set the options for the output SVG file.
-const svgOptions = new cloud.SvgExportOptions()
-svgOptions.externalFontsHandling = "Embed"
+const svgOptions = new cloud.SvgExportOptions();
+svgOptions.externalFontsHandling = "Embed";
 
 // Extract the 4th slide and save it to the SVG file.
-slidesApi.saveSlideOnline(fileStream, 4, cloud.SlideExportFormat.Svg, "MyImages/slide_4.svg", null, null, null, "MyStorage", "MyFonts", svgOptions)
+slidesApi.saveSlideOnline(fileStream, 4, cloud.SlideExportFormat.Svg, "MyImages/slide_4.svg", null, null, null, "MyStorage", "MyFonts", svgOptions).then(() => {
+});
 ```
 
 {{< /tab >}}

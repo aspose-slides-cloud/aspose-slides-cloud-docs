@@ -293,13 +293,13 @@ print(response.self_uri.href) # https://api.aspose.cloud/v3.0/slides/Sales.pptx?
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-slidesApi.createPresentationFromSource("Sales.pptx", "Resources/SalesTemplate.potx", null, "Main", null, "Data", "Main").then((response) => {
-    console.log(response.body.selfUri.href) // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
-})
+slidesApi.createPresentationFromSource("Sales.pptx", "Resources/SalesTemplate.potx", null, "Main", null, "Data", "Main").then(response => {
+    console.log(response.body.selfUri.href); // https://api.aspose.cloud/v3.0/slides/Sales.pptx?folder=Data
+});
 ```
 
 {{< /tab >}}

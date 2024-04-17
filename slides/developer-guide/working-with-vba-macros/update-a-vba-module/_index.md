@@ -212,7 +212,7 @@ dto.references = [
         libId: "*\\\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\OFFICE14\\\\MSO.DLL#Microsoft Office 14.0 Object Library"
     }
 ];
-const response = await api.updateVbaModule("MyPresentation.pptm", 1, dto).then((response) => {
+const response = await api.updateVbaModule("MyPresentation.pptm", 1, dto).then(response => {
 const vbaModule = response.body;
 console.log("\"" + vbaModule.name + "\" has been updated\n" + vbaModule.selfUri.href);
 });

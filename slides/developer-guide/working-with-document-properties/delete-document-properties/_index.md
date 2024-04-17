@@ -359,17 +359,17 @@ for property in current_properties.list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Delete all document properties.
-slidesApi.deleteDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder").then((currentProperties) => {
+slidesApi.deleteDocumentProperties("MyPresentation.pptx", "MyPassword", "MyFolder").then(currentProperties => {
     // Print the current document properties.
-    currentProperties.body.list.forEach(property =>
-        console.log(property.name + ": " + property.value)
-    )
-})
+    currentProperties.body.list.forEach(property => {
+        console.log(property.name + ": " + property.value);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -783,17 +783,17 @@ for property in current_properties.list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Delete the document property.
-slidesApi.deleteDocumentProperty("MyPresentation.pptx", "MyProperty", null, "MyFolder").then((currentProperties) => {
+slidesApi.deleteDocumentProperty("MyPresentation.pptx", "MyProperty", null, "MyFolder").then(currentProperties => {
     // Print the current document properties.
-    currentProperties.body.list.forEach(property =>
-        console.log(property.name + ": " + property.value)
-    )
-})
+    currentProperties.body.list.forEach(property => {
+        console.log(property.name + ": " + property.value);
+    });
+});
 ```
 
 {{< /tab >}}

@@ -192,22 +192,22 @@ shutil.copyfile(temp_path, result_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const filePath = "Data/example.pptx"
-const resultPath = "result.pptx"
+const storageName = "Main";
+const filePath = "Data/example.pptx";
+const resultPath = "result.pptx";
 
-slidesApi.downloadFile(filePath, storageName).then((response) => {
+slidesApi.downloadFile(filePath, storageName).then(response => {
     fs.writeFile(resultPath, response.body, (error) => {
          if (error) {
-             console.error(error) 
+             console.error(error);
          }
-     })
- })
+     });
+ });
 ```
 
 {{< /tab >}}
@@ -466,19 +466,19 @@ print(len(response.uploaded))
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const filePath = "example.pptx"
-const resultPath = "Data/result.pptx"
+const storageName = "Main";
+const filePath = "example.pptx";
+const resultPath = "Data/result.pptx";
 
-const fileStream = fs.createReadStream(filePath)
-slidesApi.uploadFile(resultPath, fileStream, storageName).then((response) => {
-    console.log(response.body.uploaded.length)
-})
+const fileStream = fs.createReadStream(filePath);
+slidesApi.uploadFile(resultPath, fileStream, storageName).then(response => {
+    console.log(response.body.uploaded.length);
+});
 ```
 
 {{< /tab >}}
@@ -711,17 +711,17 @@ slides_api.copy_file(file_path, copy_path, storage_name, storage_name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const filePath = "Data/example.pptx"
-const copyPath = "Resources/example_copy.pptx"
+const storageName = "Main";
+const filePath = "Data/example.pptx";
+const copyPath = "Resources/example_copy.pptx";
 
 slidesApi.copyFile(filePath, copyPath, storageName, storageName).then(() => {
-    console.log("Done")
-})
+    console.log("Done");
+});
 ```
 
 {{< /tab >}}
@@ -942,17 +942,17 @@ slides_api.move_file(file_path, new_path, storage_name, storage_name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const filePath = "Data/example.pptx"
-const newPath = "Resources/example.pptx"
+const storageName = "Main";
+const filePath = "Data/example.pptx";
+const newPath = "Resources/example.pptx";
 
 slidesApi.moveFile(filePath, newPath, storageName, storageName).then(() => {
-    console.log("Done")
-})
+    console.log("Done");
+});
 ```
 
 {{< /tab >}}
@@ -1167,16 +1167,16 @@ slides_api.delete_file(file_path, storage_name)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const filePath = "Resources/example.pptx"
+const storageName = "Main";
+const filePath = "Resources/example.pptx";
 
 slidesApi.deleteFile(filePath, storageName).then(() => {
-    console.log("Done")
-})
+    console.log("Done");
+});
 ```
 
 {{< /tab >}}

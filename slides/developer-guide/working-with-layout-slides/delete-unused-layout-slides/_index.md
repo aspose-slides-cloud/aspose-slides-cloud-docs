@@ -150,9 +150,9 @@ print(len(result.slide_list))
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
-api.deleteUnusedLayoutSlides("MyPresentation.pptx").then((response) => {
+api.deleteUnusedLayoutSlides("MyPresentation.pptx").then(response => {
     console.log(response.body.slideList.length);
 });
 ```

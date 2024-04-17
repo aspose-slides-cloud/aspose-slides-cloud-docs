@@ -142,7 +142,7 @@ print(f"The slide contains { len(response.shapes_links) } shapes.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const slideIndex = 5;

@@ -298,23 +298,23 @@ print(shape.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Prepare data for the new shape.
-const square = new cloud.Shape()
-square.shapeType = "Rectangle"
-square.x = 20
-square.y = 20
-square.width = 100
-square.height = 100
+const square = new cloud.Shape();
+square.shapeType = "Rectangle";
+square.x = 20;
+square.y = 20;
+square.width = 100;
+square.height = 100;
 
 // Create the shape and add it to the shape group that has an index of 4.
-slidesApi.createShape("MyPresentation.pptx", 1, square, null, null, null, "MyFolder", null, "4").then((shape) => {
+slidesApi.createShape("MyPresentation.pptx", 1, square, null, null, null, "MyFolder", null, "4").then(shape => {
     // Print the resource reference to the shape.
-    console.log(shape.body.selfUri.href)
-})
+    console.log(shape.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

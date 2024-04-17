@@ -27,7 +27,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/s
 
 **shape.json example**
 
-```javascript
+```json
 {
     "type": "Shape",
     "hyperlinkClick": {
@@ -40,7 +40,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/s
 
 {{< tab tabNum="2" >}}
 
-```javascript
+```json
 {
     "type": "Shape",
     "shapeType": "Rectangle",
@@ -183,7 +183,7 @@ const shape = new CloudSdk.Shape();
 const hyperlink = new CloudSdk.Hyperlink();
 hyperlink.isDisabled = true;
 shape.hyperlinkClick = hyperlink;
-return api.updateShape(fileName, slideIndex, shapeIndex, shape).then((result) => {
+return api.updateShape(fileName, slideIndex, shapeIndex, shape).then(result => {
     console.log(result.body.hyperlinkClick == null); //true
 });
 ```

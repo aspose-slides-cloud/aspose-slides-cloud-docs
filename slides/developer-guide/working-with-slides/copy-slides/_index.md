@@ -229,18 +229,18 @@ for resource_uri in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Copy the fourth slide.
-slidesApi.copySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.copySlide("MyPresentation.pptx", 4, 2, "MyResources/MyCharts.pptx", null, null, null, "MyFolder", "MyStorage").then(response => {
     // Print links to all slides from MyPresentation.pptx.
-    response.body.slideList.forEach(resourceUri =>
+    response.body.slideList.forEach(resourceUri => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
-        console.log(resourceUri.href)
-    )
-})
+        console.log(resourceUri.href);
+    });
+});
 ```
 
 {{< /tab >}}

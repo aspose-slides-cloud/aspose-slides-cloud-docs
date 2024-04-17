@@ -224,17 +224,17 @@ print(slide_theme.format_scheme.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read a theme from the third slide.
-slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder").then((slideTheme) => {
+slidesApi.getTheme("MyPresentation.pptx", 3, null, "MyFolder").then(slideTheme => {
     // Print resource references to color scheme, font scheme and format scheme.
-    console.log(slideTheme.body.colorScheme.href)
-    console.log(slideTheme.body.fontScheme.href)
-    console.log(slideTheme.body.formatScheme.href)
-})
+    console.log(slideTheme.body.colorScheme.href);
+    console.log(slideTheme.body.fontScheme.href);
+    console.log(slideTheme.body.formatScheme.href);
+});
 ```
 
 {{< /tab >}}

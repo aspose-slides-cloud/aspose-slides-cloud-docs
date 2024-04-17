@@ -284,33 +284,33 @@ print("The PDF file was saved to " + pdf_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const storageName = "Main"
-const fontFolderName = "MyFonts"
-const fontFileName = "custom.ttf"
+const storageName = "Main";
+const fontFolderName = "MyFonts";
+const fontFileName = "custom.ttf";
 
 // Create the font folder in the storage.
 slidesApi.createFolder(fontFolderName, storageName).then(() => {
 
     // Add the font to the font folder.
-    const fontStream = fs.createReadStream(fontFileName)
+    const fontStream = fs.createReadStream(fontFileName);
     slidesApi.uploadFile(fontFolderName + "/" + fontFileName, fontStream, storageName).then(() => {
 
         // Convert the presentation to PDF format.
-        const fileStream = fs.createReadStream("example.pptx")
-        slidesApi.convert(fileStream, "pdf", null, storageName, fontFolderName).then((response) => {
+        const fileStream = fs.createReadStream("example.pptx");
+        slidesApi.convert(fileStream, "pdf", null, storageName, fontFolderName).then(response => {
 
             // Save the PDF document to a file.
             fs.writeFile("output.pdf", response.body, (error) => {
-                if (error) throw error
-            })
-        })
-    })
-})
+                if (error) throw error;
+            });
+        });
+    });
+});
 ```
 
 {{< /tab >}}

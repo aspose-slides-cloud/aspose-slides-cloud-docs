@@ -246,20 +246,20 @@ print("Italic style: " + updated_paragraph.default_portion_format.font_italic)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Prepare the paragraph options.
-var paragraph = new cloud.Paragraph()
-paragraph.defaultPortionFormat = new cloud.PortionFormat()
-paragraph.defaultPortionFormat.fontItalic = "True"
+var paragraph = new cloud.Paragraph();
+paragraph.defaultPortionFormat = new cloud.PortionFormat();
+paragraph.defaultPortionFormat.fontItalic = "True";
 
 // Update the 1st paragraph in the 2nd shape within the 4th group shape on the 1st slide.
-slidesApi.updateParagraph("MyPresentation.pptx", 1, 4, 1, paragraph, null, "MyFolder", null, "2").then((updatedParagraph) => {
+slidesApi.updateParagraph("MyPresentation.pptx", 1, 4, 1, paragraph, null, "MyFolder", null, "2").then(updatedParagraph => {
     // Check if italic style has been applied to the paragraph.
-    console.log("Italic style: " + updatedParagraph.body.defaultPortionFormat.fontItalic)
-})
+    console.log("Italic style: " + updatedParagraph.body.defaultPortionFormat.fontItalic);
+});
 ```
 
 {{< /tab >}}

@@ -241,19 +241,19 @@ print(current_notes_slide.self_uri.href)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret")
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Prepare notes for the slide.
-const notesSlide = new cloud.NotesSlide()
-notesSlide.text = "Start with our company."
+const notesSlide = new cloud.NotesSlide();
+notesSlide.text = "Start with our company.";
 
 // Create the notes for the second slide.
-slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder").then((currentNotesSlide) => {
+slidesApi.createNotesSlide("MyPresentation.pptx", 2, notesSlide, null, "MyFolder").then(currentNotesSlide => {
     // Print the resource reference for the notes slide.
-    console.log(currentNotesSlide.body.selfUri.href)
-})
+    console.log(currentNotesSlide.body.selfUri.href);
+});
 ```
 
 {{< /tab >}}

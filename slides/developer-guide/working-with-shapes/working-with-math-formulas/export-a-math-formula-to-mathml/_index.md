@@ -180,7 +180,7 @@ print('The converted file was saved to ' + mathMl)
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require('fs');
+const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const fileName = "MyPresentation.pptx";
@@ -189,7 +189,7 @@ const shapeIndex = 3;
 const paragraphIndex = 1;
 const portionIndex = 1;
 
-api.downloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then((result) => {
+api.downloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then(result => {
     fs.writeFile("equation.xml", result.body, (err) => {
         if (err) throw err;
     });

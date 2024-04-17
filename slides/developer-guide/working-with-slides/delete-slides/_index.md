@@ -221,18 +221,18 @@ for slide in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Delete the first slide from the presentation.
-slidesApi.deleteSlide("MyPresentation.pptx", 1, null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.deleteSlide("MyPresentation.pptx", 1, null, "MyFolder", "MyStorage").then(response => {
     // Print the links of the remaining slides.
-    response.body.slideList.forEach(slide =>
+    response.body.slideList.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}
@@ -548,18 +548,18 @@ for slide in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Delete the slides from the presentation.
-slidesApi.deleteSlides("MyPresentation.pptx", [1, 3, 5], "my_password").then((response) => {
+slidesApi.deleteSlides("MyPresentation.pptx", [1, 3, 5], "my_password").then(response => {
     // Print the links of the remaining slides.
-    response.body.slideList.forEach(slide =>
+    response.body.slideList.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1 etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}

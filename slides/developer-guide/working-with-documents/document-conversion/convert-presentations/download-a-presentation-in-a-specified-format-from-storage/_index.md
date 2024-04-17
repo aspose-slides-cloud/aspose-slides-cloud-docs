@@ -241,26 +241,26 @@ print('The HTML document was saved to ' + html_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 // Use the Helvetica font if any presentation font is not found.
-const htmlOptions = new cloud.HtmlExportOptions()
-htmlOptions.defaultRegularFont = "Helvetica"
+const htmlOptions = new cloud.HtmlExportOptions();
+htmlOptions.defaultRegularFont = "Helvetica";
 
 // The HTML document should only contain the slides with indexes 2 and 4.
-const slideIndices = [2, 4]
+const slideIndices = [2, 4];
 
 // Export the presentation to HTML document and download the result.
-slidesApi.downloadPresentation("example.pptx", cloud.ExportFormat.Html, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices).then((response) => {
+slidesApi.downloadPresentation("example.pptx", cloud.ExportFormat.Html, htmlOptions, null, "MyFolder", "MyStorage", null, slideIndices).then(response => {
 
     // Save the HTML document to output.html file.
     fs.writeFile("output.html", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}

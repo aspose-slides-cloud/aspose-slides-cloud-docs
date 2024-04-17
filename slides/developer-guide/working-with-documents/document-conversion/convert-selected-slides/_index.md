@@ -174,17 +174,17 @@ print("The converted file was saved to " + pdf_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require('fs')
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const fileStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.convert(fileStream, "pdf", null, null, null, [2, 4]).then((response) => {
+const fileStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.convert(fileStream, "pdf", null, null, null, [2, 4]).then(response => {
     fs.writeFile("MyPresentation.pdf", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}

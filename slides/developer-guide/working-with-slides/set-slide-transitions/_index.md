@@ -212,11 +212,11 @@ const fileName = "MyPresentation.pptx";
 
 const dto = new cloud.Slide();
 const transition = new cloud.SlideShowTransition();
-transition.type = 'Circle';
-transition.speed = 'Medium';
+transition.type = "Circle";
+transition.speed = "Medium";
 dto.slideShowTransition = transition;
 
-slidesApi.updateSlide("MyPresentation.pptx", 1, dto).then((result) => {
+slidesApi.updateSlide("MyPresentation.pptx", 1, dto).then(result => {
     console.log("Transition type: ", result.body.slideShowTransition.type); // Circle
 });
 ```

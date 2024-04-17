@@ -209,20 +209,19 @@ print("The output ZIP file was saved to " + output_path)
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Split the 2nd and 3rd slides and save them to PDF documents.
-const presentationStream = fs.createReadStream("MyPresentation.pptx")
-slidesApi.splitOnline(presentationStream, "pdf", null, null, 2, 3).then((response) => {
-
+const presentationStream = fs.createReadStream("MyPresentation.pptx");
+slidesApi.splitOnline(presentationStream, "pdf", null, null, 2, 3).then(response => {
     // Save the output data to a ZIP file.
     fs.writeFile("output.zip", response.body, (error) => {
-        if (error) throw error
-    })
-})
+        if (error) throw error;
+    });
+});
 ```
 
 {{< /tab >}}

@@ -296,16 +296,16 @@ print(response.self_uri.href) # https://api.aspose.cloud/v3.0/slides/summary.ppt
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
-const fs = require("fs")
+const cloud = require("asposeslidescloud");
+const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
-const pdfStream = fs.createReadStream("test.pdf")
+const pdfStream = fs.createReadStream("test.pdf");
 
-slidesApi.importFromPdf("summary.pptx", pdfStream, null, "Data", "Main").then((response) => {
-    console.log(response.body.selfUri.href) // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
-})
+slidesApi.importFromPdf("summary.pptx", pdfStream, null, "Data", "Main").then(response => {
+    console.log(response.body.selfUri.href); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
+});
 ```
 
 {{< /tab >}}

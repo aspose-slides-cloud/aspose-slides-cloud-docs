@@ -226,18 +226,18 @@ for slide in response.slide_list:
 ```js
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
 
-const cloud = require("asposeslidescloud")
+const cloud = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret")
+const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Create a new slide.
-slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage").then((response) => {
+slidesApi.createSlide("MyPresentation.pptx", "3", 2, null, "MyFolder", "MyStorage").then(response => {
     // Print links to all slides.
-    response.body.slideList.forEach(slide =>
+    response.body.slideList.forEach(slide => {
         // Output: https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1?folder=MyFolder etc.
-        console.log(slide.href)
-    )
-})
+        console.log(slide.href);
+    });
+});
 ```
 
 {{< /tab >}}
