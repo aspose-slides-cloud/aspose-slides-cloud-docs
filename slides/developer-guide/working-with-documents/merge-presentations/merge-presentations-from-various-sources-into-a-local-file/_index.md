@@ -96,10 +96,9 @@ Presentation file.
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
 using Aspose.Slides.Cloud.Sdk;
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using System.Collections.Generic;
 using System.IO;
-
-using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 
 class Application
 {
@@ -108,8 +107,8 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
-        var files = new List<Sdk.FileInfo> { fileInfo};
+        var fileInfo = new FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
+        var files = new List<FileInfo> { fileInfo };
 
         // Prepare information for the second presentation to merge.
         var presentation1 = new PresentationToMerge
