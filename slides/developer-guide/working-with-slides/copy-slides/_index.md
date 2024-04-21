@@ -1,5 +1,6 @@
 ---
 title: "Copy Slides"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, copy a slide"
 type: docs
 url: /copy-slides/
 weight: 50

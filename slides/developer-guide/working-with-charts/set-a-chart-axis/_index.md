@@ -1,5 +1,6 @@
 ---
 title: "Set a Chart Axis"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart axis"
 type: docs
 url: /set-a-chart-axis/
 weight: 50

@@ -1,5 +1,6 @@
 ---
 title: "Working with Slide Show Properties"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, slide show, slide show properties"
 type: docs
 url: /working-with-slide-show-properties/
 weight: 70

@@ -1,5 +1,6 @@
 ---
 title: "Add a Chart Series"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart series, data series, add a data series"
 type: docs
 url: /add-a-chart-series/
 weight: 10

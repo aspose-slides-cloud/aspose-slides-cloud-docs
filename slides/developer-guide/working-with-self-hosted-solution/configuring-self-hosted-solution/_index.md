@@ -1,5 +1,6 @@
 ---
 title: "Configuring Self-Hosted Solution"
+keywords: "PowerPoint, presentation, REST API, Cloud API, docker, self-hosted solution"
 type: docs
 url: /configuring-self-hosted-solution/
 weight: 20

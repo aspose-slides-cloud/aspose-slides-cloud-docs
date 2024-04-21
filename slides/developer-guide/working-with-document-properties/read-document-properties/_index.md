@@ -1,5 +1,6 @@
 ---
 title: "Read Document Properties"
+keywords: "PowerPoint, presentation, REST API, Cloud API, document properties"
 type: docs
 url: /read-document-properties/
 weight: 10

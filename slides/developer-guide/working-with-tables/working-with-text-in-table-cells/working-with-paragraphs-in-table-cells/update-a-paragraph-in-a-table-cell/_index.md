@@ -1,5 +1,6 @@
 ---
 title: "Update a Paragraph"
+keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, paragraph, update a paragraph, edit a paragraph"
 type: docs
 url: /update-a-paragraph-in-a-table-cell/
 weight: 40

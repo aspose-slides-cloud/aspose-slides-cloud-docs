@@ -1,5 +1,6 @@
 ---
 title: "Update a Chart Series"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart series, data series, update a data series"
 type: docs
 url: /update-a-chart-series/
 weight: 30

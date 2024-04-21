@@ -1,6 +1,6 @@
 ---
 title: "Create a New Text Portion"
-keywords: "PowerPoint, REST API, add text, format text, text formatting, text box, text color, bold font, italic font, font height"
+keywords: "PowerPoint, REST API, Cloud API, add text, format text, text formatting, text box, text color, bold font, italic font, font height"
 type: docs
 url: /create-a-new-text-portion-on-a-special-slide/
 weight: 20

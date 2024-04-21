@@ -1,5 +1,6 @@
 ---
 title: "Set a Chart Data Source"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart data source"
 type: docs
 url: /set-a-chart-data-source/
 weight: 80

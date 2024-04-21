@@ -1,5 +1,6 @@
 ---
 title: "Split a Table Cell"
+keywords: "PowerPoint, presentation, REST API, Cloud API, table, split a cell"
 type: docs
 url: /split-a-table-cell/
 weight: 50

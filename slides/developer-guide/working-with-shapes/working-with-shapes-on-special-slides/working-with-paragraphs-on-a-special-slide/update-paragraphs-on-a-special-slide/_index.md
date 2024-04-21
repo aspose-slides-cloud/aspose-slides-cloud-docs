@@ -1,5 +1,6 @@
 ---
 title: "Update Paragraphs"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, update a paragraph, change a paragraph, paragraph properties, master, layout, notes"
 type: docs
 url: /update-paragraphs-on-a-special-slide/
 weight: 30

@@ -1,10 +1,10 @@
 ---
 title: "Add a Shape to a Group Shape"
+keywords: "PowerPoint, presentation, REST API, Cloud API, shape, group shape, change a group shape"
 type: docs
 url: /add-a-shape-to-a-group-shape/
 weight: 20
 ---
-
 
 ## **Introduction**
 

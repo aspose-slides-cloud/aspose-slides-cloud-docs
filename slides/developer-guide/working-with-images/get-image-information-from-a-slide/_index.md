@@ -1,5 +1,6 @@
 ---
 title: "Get Image Information from a Slide"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, image"
 type: docs
 url: /get-image-information-from-a-slide/
 weight: 20

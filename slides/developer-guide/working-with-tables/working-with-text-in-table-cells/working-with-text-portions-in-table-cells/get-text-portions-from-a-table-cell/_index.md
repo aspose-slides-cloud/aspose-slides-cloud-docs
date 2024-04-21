@@ -1,5 +1,6 @@
 ---
 title: "Get Text Portions"
+keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, get text, extract text"
 type: docs
 url: /get-text-portions-from-a-table-cell/
 weight: 10

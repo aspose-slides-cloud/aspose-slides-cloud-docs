@@ -1,5 +1,6 @@
 ---
 title: "Overview"
+keywords: "PowerPoint, presentation, REST API, Cloud API, overview"
 type: docs
 url: /overview/
 weight: 10

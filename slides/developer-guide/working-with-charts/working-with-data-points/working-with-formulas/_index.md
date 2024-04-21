@@ -1,5 +1,6 @@
 ---
 title: "Working with Formulas"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, Excel formulas"
 type: docs
 url: /working-with-formulas/
 weight: 40

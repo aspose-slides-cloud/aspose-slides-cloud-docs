@@ -1,5 +1,6 @@
 ---
 title: "Create a Column Chart"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, add chart, Column chart, add a Column chart"
 type: docs
 url: /create-a-column-chart/
 weight: 10

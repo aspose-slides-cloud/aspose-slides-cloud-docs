@@ -1,5 +1,6 @@
 ---
 title: "Working with Headers and Footers"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide notes, speaker notes, header, footer, update header, update footer"
 type: docs
 url: /working-with-headers-and-footers-on-a-notes-slide/
 weight: 50

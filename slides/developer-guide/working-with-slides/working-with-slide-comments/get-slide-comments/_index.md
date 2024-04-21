@@ -1,5 +1,6 @@
 ---
 title: "Get Slide Comments"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, comment, slide comments, author, get comments"
 type: docs
 url: /get-slide-comments/
 weight: 10

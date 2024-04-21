@@ -1,5 +1,6 @@
 ---
 title: "Add a Chart Category"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart category, add chart data"
 type: docs
 url: /add-a-chart-category/
 weight: 10

@@ -1,5 +1,6 @@
 ---
 title: "Delete Unused Master Slides"
+keywords: "PowerPoint, presentation, REST API, Cloud API, design, slide, master, delete master"
 type: docs
 url: /delete-unused-master-slides/
 weight: 40

@@ -1,5 +1,6 @@
 ---
 title: "Create a Hyperlink for a Shape"
+keywords: "PowerPoint, presentation, REST API, Cloud API, shape, hyperlink, create a hyperlink, add a hyperlink"
 type: docs
 url: /create-a-hyperlink-for-a-shape/
 weight: 10

@@ -1,5 +1,6 @@
 ---
 title: "Replace Presentation Fonts"
+keywords: "PowerPoint, presentation, REST API, Cloud API, font, presentation fonts, replace fonts"
 type: docs
 url: /replace-presentation-fonts/
 weight: 70

@@ -1,5 +1,6 @@
 ---
 title: "Merge Presentations from Various Sources into a File in Storage"
+keywords: "PowerPoint, presentation, REST API, Cloud API, merge presentations, merge slides"
 type: docs
 url: /merge-presentations-from-various-sources-into-a-file-in-storage/
 weight: 40

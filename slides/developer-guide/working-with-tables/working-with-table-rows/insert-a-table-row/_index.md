@@ -1,5 +1,6 @@
 ---
 title: "Insert a Table Row"
+keywords: "PowerPoint, presentation, REST API, Cloud API, table, row, table row, insert a row, add a row"
 type: docs
 url: /insert-a-table-row/
 weight: 10

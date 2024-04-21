@@ -1,5 +1,6 @@
 ---
 title: "Working with Geometry Paths"
+keywords: "PowerPoint, presentation, REST API, Cloud API, shape, geometry, shape geometry"
 type: docs
 url: /working-with-geometry-paths/
 weight: 140

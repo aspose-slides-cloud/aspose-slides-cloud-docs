@@ -1,5 +1,6 @@
 ---
 title: "Split Presentations"
+keywords: "PowerPoint, presentation, REST API, Cloud API, split a presentation, split slides"
 type: docs
 url: /split-presentations/
 weight: 80

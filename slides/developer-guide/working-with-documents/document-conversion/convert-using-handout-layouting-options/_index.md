@@ -1,5 +1,6 @@
 ---
 title: "Convert Using Handout Layouting Options"
+keywords: "PowerPoint, presentation, REST API, Cloud API, convert a presentation, export a presentation, handout layouting"
 type: docs
 url: /convert-using-handout-layouting-options/
 weight: 70

@@ -1,5 +1,6 @@
 ---
 title: "Add a SmartArt Node"
+keywords: "PowerPoint, presentation, REST API, Cloud API, SmartArt, node, SmartArt node, add a node"
 type: docs
 url: /add-a-smartart-node/
 weight: 20

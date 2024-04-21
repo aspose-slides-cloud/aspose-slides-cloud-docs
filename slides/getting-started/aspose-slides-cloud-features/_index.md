@@ -1,5 +1,6 @@
 ---
 title: "Aspose.Slides Cloud Features"
+keywords: "PowerPoint, presentation, REST API, Cloud API, cloud service, features, storage"
 type: docs
 url: /aspose-slides-cloud-features/
 weight: 30

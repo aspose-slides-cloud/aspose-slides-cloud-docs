@@ -1,5 +1,6 @@
 ---
 title: "Align Shapes"
+keywords: "PowerPoint, presentation, REST API, Cloud API, shape, align shapes, align to the left, align to the right, align to the center, align to the top, align to the bottom, align to the middle, distribute shapes"
 type: docs
 url: /align-shapes-on-a-special-slide/
 weight: 40

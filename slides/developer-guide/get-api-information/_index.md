@@ -1,5 +1,6 @@
 ---
 title: "Get API Information"
+keywords: "PowerPoint, presentation, REST API, Cloud API"
 type: docs
 url: /get-api-information/
 weight: 5

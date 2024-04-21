@@ -1,5 +1,6 @@
 ---
 title: "Quickstart"
+keywords: "PowerPoint, presentation, REST API, Cloud API, quickstart, account, dashboard, API reference, SDK"
 type: docs
 url: /quickstart/
 weight: 20

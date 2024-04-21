@@ -1,5 +1,6 @@
 ---
 title: "Set an Animation"
+keywords: "PowerPoint, presentation, REST API, Cloud API, animation, add animation, shape animation, text animation"
 type: docs
 url: /set-an-animation-on-a-special-slide/
 weight: 20

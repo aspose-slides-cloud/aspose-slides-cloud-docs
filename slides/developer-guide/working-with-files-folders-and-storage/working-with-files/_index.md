@@ -1,5 +1,6 @@
 ---
 title: "Working with Files"
+keywords: "PowerPoint, presentation, REST API, Cloud API, cloud storage, file storage, upload file, download file, copy file, move file"
 type: docs
 url: /working-with-files/
 weight: 30

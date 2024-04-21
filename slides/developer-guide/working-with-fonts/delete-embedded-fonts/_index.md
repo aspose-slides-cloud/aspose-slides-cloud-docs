@@ -1,5 +1,6 @@
 ---
 title: "Delete Embedded Fonts"
+keywords: "PowerPoint, presentation, REST API, Cloud API, font, embedded font, presentation fonts, delete fonts"
 type: docs
 url: /delete-embedded-fonts/
 weight: 80
