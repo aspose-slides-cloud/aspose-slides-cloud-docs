@@ -1,7 +1,7 @@
 ---
-title: "Export a Math Formula to MathML"
+title: "Export a Math Formula"
 type: docs
-url: /export-a-math-formula-to-mathml/
+url: /export-a-math-formula/
 weight: 20
 ---
 
@@ -12,8 +12,8 @@ You can export (download or save to the storage) math formulas in MathML format.
 
 |**API**|**Type**|**Description**|**Resource Link**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml|POST|Converts math formula to MathML format.|[DownloadPortionAsMathMl](https://apireference.aspose.cloud/slides/#/Shapes/DownloadPortionAsMathMl)|
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml|PUT|Converts math formula to MathML format and saves result to the storage.|[SavePortionAsMathMl](https://apireference.aspose.cloud/slides/#/Shapes/SavePortionAsMathMl)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/{format}|POST|Converts math formula to MathML or LaTeX format.|[DownloadMathPortion](https://apireference.aspose.cloud/slides/#/Shapes/DownloadMathPortion)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/{format}|PUT|Converts math formula to MathML or LaTeX format and saves result to the storage.|[SaveMathPortion](https://apireference.aspose.cloud/slides/#/Shapes/SaveMathPortion)|
 
 {{< expand-list title="Request Parameters" >}}
 
@@ -101,7 +101,7 @@ int paragraphIndex = 1;
 int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-using Stream mathMl = api.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex);
+using Stream mathMl = api.DownloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, Mathformat.MathML);
 using Stream fileStream = File.Open("equation.xml", FileMode.Create);
 mathMl.CopyTo(fileStream);
 ```
@@ -118,7 +118,7 @@ int paragraphIndex = 1;
 int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-File mathMl = api.downloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, null, null, null);
+File mathMl = api.downloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, MathFormat.MATHML, null, null, null);
 System.out.println("The converted file was saved to " + mathMl.getPath());
 ```
 
@@ -141,7 +141,7 @@ $shapeIndex = 3;
 $paragraphIndex = 1;
 $portionIndex = 1;
 
-$mathMl = $api->downloadPortionAsMathMl($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex);
+$mathMl = $api->downloadMathPortion($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, "MathML");
 print("The converted file was saved to " . $mathMl->getPathname());
 ```
 
@@ -170,7 +170,7 @@ shape_index = 3
 paragraph_index = 1
 portion_index = 1
 
-mathMl = api.download_portion_as_math_ml(file_name, slide_index, shape_index, paragraph_index, portion_index)
+mathMl = api.download_math_portion(file_name, slide_index, shape_index, paragraph_index, portion_index, "MathML")
 print('The converted file was saved to ' + mathMl)
 ```
 
@@ -189,7 +189,7 @@ const shapeIndex = 3;
 const paragraphIndex = 1;
 const portionIndex = 1;
 
-api.downloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then(result => {
+api.downloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "MathML").then(result => {
     fs.writeFile("equation.xml", result.body, (err) => {
         if (err) throw err;
     });
@@ -212,7 +212,7 @@ var shapeIndex int32 = 3
 var paragraphIndex int32 = 1
 var portionIndex int32 = 1
 
-mathMl, _, e := api.SlidesApi.DownloadPortionAsMathMl(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "")
+mathMl, _, e := api.SlidesApi.DownloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "MathML", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

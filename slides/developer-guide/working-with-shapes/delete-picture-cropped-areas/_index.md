@@ -52,7 +52,7 @@ string fileName = "MyPresentation.pptx";
 int slideIndex = 2;
 int shapeIndex = 4;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.DeletePictureCroppedAreas(fileName, slideIndex, shapeIndex);
+api.DeletePictureCroppedAreas(fileName, slideIndex, shapeIndex, null, null);
 ```
 
 {{< /tab >}}

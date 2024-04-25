@@ -427,8 +427,11 @@ request_data.json content:
 
 ```json
 {
-    "NotesPosition": "BottomTruncated",
-    "CommentsPosition": "Right"
+    "SlidesLayoutOptions": {
+        "LayoutType": "NotesComments",
+        "NotesPosition": "BottomTruncated",
+        "CommentsPosition": "Right"
+    }
 }
 ```
 
@@ -444,7 +447,7 @@ None
 
 **SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -461,10 +464,13 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set options for the output PNG image.
-        var pngOptions = new ImageExportOptions
+        ImageExportOptions pngOptions = new ImageExportOptions
         {
-            NotesPosition = ImageExportOptions.NotesPositionEnum.BottomTruncated,
-            CommentsPosition = ImageExportOptions.CommentsPositionEnum.Right
+            SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+            {
+                NotesPosition = NotesCommentsLayoutingOptions.NotesPositionEnum.BottomTruncated,
+                CommentsPosition = NotesCommentsLayoutingOptions.CommentsPositionEnum.Right
+            }
         };
 
         // Save the second slide to the PNG image.
@@ -489,9 +495,12 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output PNG image.
+        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+        notesOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMTRUNCATED);
+        notesOptions.setCommentsPosition(NotesCommentsLayoutingOptions.CommentsPositionEnum.RIGHT);
+
         ImageExportOptions pngOptions = new ImageExportOptions();
-        pngOptions.setNotesPosition(ImageExportOptions.NotesPositionEnum.BOTTOMTRUNCATED);
-        pngOptions.setCommentsPosition(ImageExportOptions.CommentsPositionEnum.RIGHT);
+        pngOptions.setSlidesLayoutOptions(notesOptions);
 
         // Save the second slide to the PNG image.
         slidesApi.saveSlide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage", null);
@@ -509,6 +518,7 @@ public class Application {
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
+use Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions;
 use Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat;
 
 $configuration = new Configuration();
@@ -518,9 +528,12 @@ $configuration->setAppKey("my_client_secret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Set options for the output PNG image.
+$notesOptions = new NotesCommentsLayoutingOptions();
+$notesOptions->setNotesPosition("BottomTruncated");
+$notesOptions->setCommentsPosition("Right");
+
 $pngOptions = new ImageExportOptions();
-$pngOptions->setNotesPosition("BottomTruncated");
-$pngOptions->setCommentsPosition("Right");
+$pngOptions->setSlidesLayoutOptions($notesOptions);
 
 // Save the second slide to the PNG image.
 $slidesApi->saveSlide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImages/slide_2.png", $pngOptions, null, null, null, "MyFolder", "MyStorage");
@@ -544,9 +557,12 @@ configuration.app_key = "my_client_secret"
 slides_api = SlidesApi.new(configuration)
 
 # Set options for the output PNG image.
+notes_options = NotesCommentsLayoutingOptions.new
+notes_options.notes_position = "BottomTruncated"
+notes_options.comments_position = "Right"
+
 png_options = ImageExportOptions.new
-png_options.notes_position = "BottomTruncated"
-png_options.comments_position = "Right"
+png_options.slides_layout_options = notes_options
 
 # Save the second slide to the PNG image.
 slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImages/slide_2.png", png_options, nil, nil, nil, "MyFolder", "MyStorage")
@@ -564,13 +580,17 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.slide_export_format import SlideExportFormat
 from asposeslidescloud.models.image_export_options import ImageExportOptions
+from asposeslidescloud.models.image_export_options import NotesCommentsLayoutingOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
 # Set options for the output PNG image.
+notes_options = NotesCommentsLayoutingOptions()
+notes_options.notes_position = "BottomTruncated"
+notes_options.comments_position = "Right"
+
 png_options = ImageExportOptions()
-png_options.notes_position = "BottomTruncated"
-png_options.comments_position = "Right"
+png_options.slides_layout_options = notes_options
 
 # Save the second slide to the PNG image.
 slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", png_options, None, None, None, "MyFolder", "MyStorage")
@@ -588,9 +608,12 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Set options for the output PNG image.
+const notesOptions = new cloud.NotesCommentsLayoutingOptions();
+notesOptions.notesPosition = "BottomTruncated";
+notesOptions.commentsPosition = "Right";
+
 const pngOptions = new cloud.ImageExportOptions();
-pngOptions.notesPosition = "BottomTruncated";
-pngOptions.commentsPosition = "Right";
+pngOptions.slidesLayoutOptions = notesOptions;
 
 // Save the second slide to the PNG image.
 slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage").then(() => {
@@ -601,37 +624,12 @@ slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", png
 
 {{< tab tabNum="7" >}}
 
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.ApiException;
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.model.*;
-
-public class Application {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
-
-        // Set options for the output PNG image.
-        ImageExportOptions pngOptions = new ImageExportOptions();
-        pngOptions.setNotesPosition(ImageExportOptions.NotesPositionEnum.BOTTOMTRUNCATED);
-        pngOptions.setCommentsPosition(ImageExportOptions.CommentsPositionEnum.RIGHT);
-
-        // Save the second slide to the PNG image.
-        slidesApi.saveSlide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage", null);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/ImageExportOptions.h"
+#include "asposeslidescloud/model/NotesCommentsLayoutingOptions.h"
 
 using namespace utility;
 using namespace utility::conversions;
@@ -642,9 +640,12 @@ int main()
     auto slidesApi = new SlidesApi(L"my_client_id", L"my_client_secret");
 
     // Set options for the output PNG image.
+    auto notesOptions = std::make_shared<NotesCommentsLayoutingOptions>();
+    notesOptions->setNotesPosition(L"BottomTruncated");
+    notesOptions->setCommentsPosition(L"Right");
+
     auto pngOptions = std::make_shared<ImageExportOptions>();
-    pngOptions->setNotesPosition(L"BottomTruncated");
-    pngOptions->setCommentsPosition(L"Right");
+    pngOptions->setSlidesLayoutOptions(notesOptions);
 
     // Save the second slide to the PNG image.
     slidesApi->saveSlide(
@@ -656,7 +657,7 @@ int main()
 
 {{< /tab >}}
 
-{{< tab tabNum="9" >}}
+{{< tab tabNum="8" >}}
 
 ```perl
 # For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
@@ -664,6 +665,7 @@ int main()
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::ImageExportOptions;
+use AsposeSlidesCloud::Object::NotesCommentsLayoutingOptions;
 
 my $config = AsposeSlidesCloud::Configuration->new();
 $config->{app_sid} = "my_client_id";
@@ -672,9 +674,12 @@ $config->{app_key} = "my_client_secret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Set options for the output PNG image.
+my $notes_options = AsposeSlidesCloud::Object::NotesCommentsLayoutingOptions->new();
+$notes_options->{notes_position} = "BottomTruncated";
+$notes_options->{comments_position} = "Right";
+
 my $png_options = AsposeSlidesCloud::Object::ImageExportOptions->new();
-$png_options->{notes_position} = "BottomTruncated";
-$png_options->{comments_position} = "Right";
+$png_options->{slides_layout_options} = $notes_options;
 
 # Prepare parameters for saving the second slide to the PNG image.
 my %params = (name => "MyPresentation.pptx", slide_index => 2, format => "png", out_path => "MyImages/slide_2.png", 
@@ -686,11 +691,11 @@ $slides_api->save_slide(%params);
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
+{{< tab tabNum="9" >}}
 
 {{< /tab >}}
 
-{{< tab tabNum="11" >}}
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

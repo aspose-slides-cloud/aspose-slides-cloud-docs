@@ -74,8 +74,8 @@ Document with merged presentation info.
 ```csharp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
-using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using Aspose.Slides.Cloud.Sdk;
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using System;
 using System.Collections.Generic;
 using System.IO;                                  
@@ -87,9 +87,9 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
-        var fileInfo2 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
-        var files = new List<Sdk.FileInfo> { fileInfo1, fileInfo2 };
+        var fileInfo1 = new FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
+        var fileInfo2 = new FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
+        var files = new List<FileInfo> { fileInfo1, fileInfo2 };
 
         // Merge the presentations and save the result to the specified path.
         api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files);
@@ -412,6 +412,7 @@ Document with merged presentation info.
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
 using Aspose.Slides.Cloud.Sdk;
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using Aspose.Slides.Cloud.Sdk.Model;
 using System;
 using System.Collections.Generic;
@@ -423,8 +424,8 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
-        var files = new List<Sdk.FileInfo> { fileInfo};
+        var fileInfo = new FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
+        var files = new List<FileInfo> { fileInfo};
 
         // Prepare information for the second presentation to merge.
         var presentation1 = new PresentationToMerge
