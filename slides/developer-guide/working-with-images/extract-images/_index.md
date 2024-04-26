@@ -1,6 +1,12 @@
 ---
 title: "Extract Images"
-keywords: "PowerPoint, presentation, REST API, Cloud API, image, extract an image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- image
+- extract an image
 type: docs
 url: /extract-images/
 weight: 30

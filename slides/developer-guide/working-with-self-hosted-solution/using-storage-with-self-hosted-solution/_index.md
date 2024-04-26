@@ -1,6 +1,14 @@
 ---
 title: "Using Storage With Self-Hosted Solution"
-keywords: "PowerPoint, presentation, REST API, Cloud API, self-hosted solution, storage, file storage, cloud storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- self-hosted solution
+- storage
+- file storage
+- cloud storage
 type: docs
 url: /using-storage-with-self-hosted-solution/
 weight: 60

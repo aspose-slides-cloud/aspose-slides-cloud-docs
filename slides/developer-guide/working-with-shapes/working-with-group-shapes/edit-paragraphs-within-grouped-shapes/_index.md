@@ -1,6 +1,14 @@
 ---
 title: "Edit Paragraphs within Grouped Shapes"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, group shape, edit a paragraph"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- group shape
+- edit a paragraph
 type: docs
 url: /edit-paragraphs-within-grouped-shapes/
 weight: 50

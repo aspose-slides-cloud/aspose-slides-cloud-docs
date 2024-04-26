@@ -1,6 +1,12 @@
 ---
 title: "Merge Presentations from Various Sources into a Local File"
-keywords: "PowerPoint, presentation, REST API, Cloud API, merge presentations, merge slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
 type: docs
 url: /merge-presentations-from-various-sources-into-a-local-file/
 weight: 30

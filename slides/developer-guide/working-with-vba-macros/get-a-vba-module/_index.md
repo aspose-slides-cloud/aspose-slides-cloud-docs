@@ -1,6 +1,15 @@
 ---
 title: "Get a VBA Module"
-keywords: "PowerPoint, presentation, REST API, Cloud API, VBA, macros, module, VBA module, get a module"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- VBA
+- macros
+- module
+- VBA module
+- get a module
 type: docs
 url: /get-a-vba-module/
 weight: 30

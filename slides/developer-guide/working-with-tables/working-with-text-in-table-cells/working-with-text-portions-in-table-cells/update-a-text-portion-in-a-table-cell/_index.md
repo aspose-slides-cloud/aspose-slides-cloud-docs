@@ -1,6 +1,17 @@
 ---
 title: "Update a Text Portion"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, text properties, update text, edit text"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- text properties
+- update text
+- edit text
 type: docs
 url: /update-a-text-portion-in-a-table-cell/
 weight: 40

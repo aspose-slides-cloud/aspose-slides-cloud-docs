@@ -1,6 +1,17 @@
 ---
 title: "Create a Paragraph"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, paragraph, create a paragraph, add a paragraph"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- paragraph
+- create a paragraph
+- add a paragraph
 type: docs
 url: /create-a-paragraph-in-a-table-cell/
 weight: 30

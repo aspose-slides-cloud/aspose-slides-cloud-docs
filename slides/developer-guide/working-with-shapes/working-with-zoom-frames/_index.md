@@ -1,6 +1,13 @@
 ---
 title: "Working with Zoom Frames"
-keywords: "PowerPoint, presentation, REST API, Cloud API, zoom, zoom frame, add a zoom frame"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- zoom
+- zoom frame
+- add a zoom frame
 type: docs
 url: /working-with-zoom-frames/
 weight: 150

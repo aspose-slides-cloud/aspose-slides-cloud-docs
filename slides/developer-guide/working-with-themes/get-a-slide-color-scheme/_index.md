@@ -1,6 +1,19 @@
 ---
 title: "Get a Slide Color Scheme"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, color, scheme, color scheme, text color, background color, accent color, hyperlink color, light"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- color
+- scheme
+- color scheme
+- text color
+- background color
+- accent color
+- hyperlink color
+- light
 type: docs
 url: /get-a-slide-color-scheme/
 weight: 40

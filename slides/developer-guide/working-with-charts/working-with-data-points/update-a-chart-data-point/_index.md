@@ -1,6 +1,15 @@
 ---
 title: "Update a Chart Data Point"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, data point, chart data point, update a data point"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- data point
+- chart data point
+- update a data point
 type: docs
 url: /update-a-chart-data-point/
 weight: 30

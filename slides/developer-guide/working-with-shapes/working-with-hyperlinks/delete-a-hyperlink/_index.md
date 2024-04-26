@@ -1,6 +1,12 @@
 ---
 title: "Delete a Hyperlink"
-keywords: "PowerPoint, presentation, REST API, Cloud API, hyperlink, remove a hyperlink"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- hyperlink
+- remove a hyperlink
 type: docs
 url: /delete-a-hyperlink/
 weight: 30

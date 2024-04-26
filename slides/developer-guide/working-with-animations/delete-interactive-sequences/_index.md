@@ -1,6 +1,14 @@
 ---
 title: "Delete Interactive Sequences"
-keywords: "PowerPoint, presentation, REST API, Cloud API, animation, remove animation, shape animation, text animation"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- remove animation
+- shape animation
+- text animation
 type: docs
 url: /delete-interactive-sequences/
 weight: 60

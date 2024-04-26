@@ -1,6 +1,12 @@
 ---
 title: "Split a Presentation Saved to Storage"
-keywords: "PowerPoint, presentation, REST API, Cloud API, split a presentation, split slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- split a presentation
+- split slides
 type: docs
 url: /split-a-presentation-saved-to-storage/
 weight: 10

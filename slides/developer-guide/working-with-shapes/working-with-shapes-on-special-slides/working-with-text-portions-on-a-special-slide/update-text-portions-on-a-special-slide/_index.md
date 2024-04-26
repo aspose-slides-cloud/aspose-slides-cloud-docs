@@ -1,6 +1,17 @@
 ---
 title: "Update Text Portions"
-keywords: "PowerPoint, REST API, Cloud API, update text, format text, text formatting, text box, text color, bold font, italic font, font height"
+keywords:
+- PowerPoint
+- REST API
+- cloud API
+- update text
+- format text
+- text formatting
+- text box
+- text color
+- bold font
+- italic font
+- font height
 type: docs
 url: /update-text-portions-on-a-special-slide/
 weight: 30

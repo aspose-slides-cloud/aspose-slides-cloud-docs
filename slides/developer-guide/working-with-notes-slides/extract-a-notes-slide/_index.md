@@ -1,6 +1,14 @@
 ---
 title: "Extract a Notes Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide notes, speaker notes, extract notes, convert notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide notes
+- speaker notes
+- extract notes
+- convert notes
 type: docs
 url: /extract-a-notes-slide/
 weight: 30

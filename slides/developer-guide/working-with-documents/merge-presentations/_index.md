@@ -1,6 +1,12 @@
 ---
 title: "Merge Presentations"
-keywords: "PowerPoint, presentation, REST API, Cloud API, merge presentations, merge slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
 type: docs
 url: /merge-presentations/
 weight: 90

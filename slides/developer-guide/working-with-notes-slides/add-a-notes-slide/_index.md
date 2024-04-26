@@ -1,6 +1,13 @@
 ---
 title: "Add a Notes Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide notes, speaker notes, add notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide notes
+- speaker notes
+- add notes
 type: docs
 url: /add-a-notes-slide/
 weight: 20

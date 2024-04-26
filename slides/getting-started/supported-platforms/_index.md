@@ -1,6 +1,12 @@
 ---
 title: "Supported Platforms"
-keywords: "PowerPoint, presentation, REST API, Cloud API, platform, suported platform"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- platform
+- suported platform
 type: docs
 url: /supported-platforms/
 weight: 40

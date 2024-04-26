@@ -1,6 +1,14 @@
 ---
 title: "Working with Shapes"
-keywords: "PowerPoint, presentation, REST API, Cloud API, shape, master, layout, notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- master
+- layout
+- notes
 type: docs
 url: /working-with-shapes-on-a-special-slide/
 weight: 10

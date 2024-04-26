@@ -1,6 +1,14 @@
 ---
 title: "Update a Chart Category"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart category, update chart data"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- chart category
+- update chart data
 type: docs
 url: /update-a-chart-category/
 weight: 30

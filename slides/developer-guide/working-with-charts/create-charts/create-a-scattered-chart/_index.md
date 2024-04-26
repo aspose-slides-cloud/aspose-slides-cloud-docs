@@ -1,6 +1,14 @@
 ---
 title: "Create a Scattered Chart"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, add chart, Scattered chart, add a Scattered chart"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- add chart
+- Scattered chart
+- add a Scattered chart
 type: docs
 url: /create-a-scattered-chart/
 weight: 40

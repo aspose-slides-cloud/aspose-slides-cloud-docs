@@ -1,6 +1,16 @@
 ---
 title: "Delete a Text Portion"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, remove, remove text"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- remove
+- remove text
 type: docs
 url: /delete-a-text-portion-from-a-table-cell/
 weight: 50

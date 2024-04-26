@@ -1,6 +1,15 @@
 ---
 title: "Delete Cropped Areas from a Picture Frame"
-keywords: "PowerPoint, presentation, REST API, Cloud API, picture, image, picture frame, crop an image, cropped area"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- picture
+- image
+- picture frame
+- crop an image
+- cropped area
 type: docs
 url: /delete-picture-cropped-areas/
 weight: 200

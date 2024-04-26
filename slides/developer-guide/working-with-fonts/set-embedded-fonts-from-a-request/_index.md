@@ -1,6 +1,13 @@
 ---
 title: "Set Embedded Fonts from a Request"
-keywords: "PowerPoint, presentation, REST API, Cloud API, font, embedded fonts, presentation fonts"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- font
+- embedded fonts
+- presentation fonts
 type: docs
 url: /set-embedded-fonts-from-a-request/
 weight: 50

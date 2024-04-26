@@ -1,6 +1,14 @@
 ---
 title: "Download a Shape from a Data Transfer Object"
-keywords: "PowerPoint, presentation, REST API, Cloud API, shape, create a shape, convert a shape, shape to an image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- create a shape
+- convert a shape
+- shape to an image
 type: docs
 url: /download-a-shape-from-a-data-transfer-object/
 weight: 180

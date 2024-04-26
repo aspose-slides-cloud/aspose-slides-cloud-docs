@@ -1,6 +1,15 @@
 ---
 title: "Add a Chart Data Point"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, data point, chart data point, add a data point"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- data point
+- chart data point
+- add a data point
 type: docs
 url: /add-a-chart-data-point/
 weight: 10

@@ -1,6 +1,16 @@
 ---
 title: "Create a VBA Module"
-keywords: "PowerPoint, presentation, REST API, Cloud API, VBA, macros, module, VBA module, create a module, add a module"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- VBA
+- macros
+- module
+- VBA module
+- create a module
+- add a module
 type: docs
 url: /create-a-vba-module/
 weight: 10

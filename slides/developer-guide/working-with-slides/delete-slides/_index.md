@@ -1,6 +1,12 @@
 ---
 title: "Delete Slides"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, remove a slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- remove a slide
 type: docs
 url: /delete-slides/
 weight: 20

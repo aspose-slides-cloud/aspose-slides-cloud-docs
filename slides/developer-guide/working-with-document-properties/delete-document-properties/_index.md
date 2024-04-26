@@ -1,6 +1,12 @@
 ---
 title: "Delete Document Properties"
-keywords: "PowerPoint, presentation, REST API, Cloud API, document properties, remove a document property"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- document properties
+- remove a document property
 type: docs
 url: /delete-document-properties/
 weight: 40

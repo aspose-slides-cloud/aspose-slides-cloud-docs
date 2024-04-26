@@ -1,6 +1,14 @@
 ---
 title: "Extract Shapes from a Slide Using a Third Party Storage"
-keywords: "PowerPoint, presentation, REST API, Cloud API, shape, slide, extract a shape, storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- slide
+- extract a shape
+- storage
 type: docs
 url: /extract-shapes-from-a-slide-using-a-third-party-storage/
 weight: 10

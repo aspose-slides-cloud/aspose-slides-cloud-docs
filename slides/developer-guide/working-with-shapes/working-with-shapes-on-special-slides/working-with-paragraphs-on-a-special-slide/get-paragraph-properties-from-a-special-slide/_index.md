@@ -1,6 +1,17 @@
 ---
 title: "Get Paragraph Properties"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, extract a paragraph, paragraph properties, master, layout, notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- extract a paragraph
+- paragraph properties
+- master
+- layout
+- notes
 type: docs
 url: /get-paragraph-properties-from-a-special-slide/
 weight: 10
