@@ -1,6 +1,12 @@
 ---
 title: "EffectFormat"
-keywords: "PowerPoint, presentation, REST API, Cloud API, effect, effect format"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- effect
+- effect format
 type: docs
 url: /effect-format-type/
 weight: 10

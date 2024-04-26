@@ -1,6 +1,21 @@
 ---
 title: "Available SDKs"
-keywords: "PowerPoint, presentation, REST API, Cloud API, SDK, C#, Java, PHP, Ruby, Python, Node.js, C++, Perl, Go, Swift"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- SDK
+- C#
+- Java
+- PHP
+- Ruby
+- Python
+- Node.js
+- C++
+- Perl
+- Go
+- Swift
 type: docs
 url: /available-sdks/
 weight: 50

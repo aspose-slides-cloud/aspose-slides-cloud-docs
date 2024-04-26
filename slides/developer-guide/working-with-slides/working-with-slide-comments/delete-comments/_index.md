@@ -1,6 +1,14 @@
 ---
 title: "Delete Comments"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, comment, author, remove a comment"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- comment
+- author
+- remove a comment
 type: docs
 url: /delete-comments/
 weight: 40

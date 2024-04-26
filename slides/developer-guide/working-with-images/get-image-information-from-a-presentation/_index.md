@@ -1,6 +1,11 @@
 ---
 title: "Get Image Information from a Presentation"
-keywords: "PowerPoint, presentation, REST API, Cloud API, image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- image
 type: docs
 url: /get-image-information-from-a-presentation/
 weight: 10

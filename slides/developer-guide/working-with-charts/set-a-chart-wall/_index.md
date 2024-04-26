@@ -1,6 +1,12 @@
 ---
 title: "Set a Chart Wall"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart wall"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart wall
 type: docs
 url: /set-a-chart-wall/
 weight: 70

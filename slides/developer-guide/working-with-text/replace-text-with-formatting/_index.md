@@ -1,6 +1,14 @@
 ---
 title: "Replace Text with Formatting"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, replace text, change text, text formatting"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- replace text
+- change text
+- text formatting
 type: docs
 url: /replace-text-with-formatting/
 weight: 100

@@ -1,6 +1,13 @@
 ---
 title: "Add a New Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, create a slide, add a slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- create a slide
+- add a slide
 type: docs
 url: /add-a-new-slide/
 weight: 40

@@ -1,6 +1,12 @@
 ---
 title: "Merge Presentations Saved to Storage"
-keywords: "PowerPoint, presentation, REST API, Cloud API, merge presentations, merge slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
 type: docs
 url: /merge-presentations-saved-to-storage/
 weight: 10

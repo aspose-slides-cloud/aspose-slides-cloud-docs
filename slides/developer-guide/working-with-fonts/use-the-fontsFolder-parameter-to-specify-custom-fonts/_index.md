@@ -1,6 +1,12 @@
 ---
 title: "Use the fontsFolder Parameter to Specify Custom Fonts"
-keywords: "PowerPoint, presentation, REST API, Cloud API, font, presentation fonts"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- font
+- presentation fonts
 type: docs
 url: /use-the-fontsFolder-parameter-to-specify-custom-fonts/
 weight: 10

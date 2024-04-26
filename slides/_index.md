@@ -1,6 +1,10 @@
 ---
 title: "Aspose.Slides Cloud"
-keywords: "PowerPoint, presentation, REST API, Cloud API"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
 type: docs
 url: /
 weight: 10

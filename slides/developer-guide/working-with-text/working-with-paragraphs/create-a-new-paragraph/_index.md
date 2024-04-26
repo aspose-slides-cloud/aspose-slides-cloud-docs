@@ -1,6 +1,14 @@
 ---
 title: "Create a New Paragraph"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, create a paragraph, add a paragraph"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- create a paragraph
+- add a paragraph
 type: docs
 url: /create-a-new-paragraph/
 weight: 30

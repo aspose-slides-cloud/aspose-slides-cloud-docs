@@ -1,6 +1,14 @@
 ---
 title: "Add a Text Watermark"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, watermark, create a watermark, add a watermark"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- watermark
+- create a watermark
+- add a watermark
 type: docs
 url: /add-a-text-watermark/
 weight: 10

@@ -1,6 +1,16 @@
 ---
 title: "Working with Slide Properties"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, slide properties, slide orientation, scaling, slide size, custom size"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- slide properties
+- slide orientation
+- scaling
+- slide size
+- custom size
 type: docs
 url: /working-with-slide-properties/
 weight: 120

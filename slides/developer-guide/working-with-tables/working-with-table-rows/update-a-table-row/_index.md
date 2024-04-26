@@ -1,6 +1,15 @@
 ---
 title: "Update a Table Row"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, row, table row, update a row, row height"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- row
+- table row
+- update a row
+- row height
 type: docs
 url: /update-a-table-row/
 weight: 20

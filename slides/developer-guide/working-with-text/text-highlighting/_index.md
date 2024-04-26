@@ -1,6 +1,14 @@
 ---
 title: "Text Highlighting"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, highlight, highlight text, text color"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- highlight
+- highlight text
+- text color
 type: docs
 url: /text-highlighting/
 weight: 110

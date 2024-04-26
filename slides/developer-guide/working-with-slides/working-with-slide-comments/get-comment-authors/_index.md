@@ -1,6 +1,14 @@
 ---
 title: "Get Comment Authors"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, comment, author, get authors"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- comment
+- author
+- get authors
 type: docs
 url: /get-comment-authors/
 weight: 50

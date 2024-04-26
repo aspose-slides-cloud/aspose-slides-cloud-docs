@@ -1,6 +1,13 @@
 ---
 title: "Delete Text Portions"
-keywords: "PowerPoint, REST API, Cloud API, text box, delete text, format text, text formatting"
+keywords:
+- PowerPoint
+- REST API
+- cloud API
+- text box
+- delete text
+- format text
+- text formatting
 type: docs
 url: /delete-text-portions-on-a-special-slide/
 weight: 40

@@ -1,6 +1,13 @@
 ---
 title: "Read Information about a Layout Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, design, slide, layout"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- design
+- slide
+- layout
 type: docs
 url: /read-information-about-a-layout-slide/
 weight: 20

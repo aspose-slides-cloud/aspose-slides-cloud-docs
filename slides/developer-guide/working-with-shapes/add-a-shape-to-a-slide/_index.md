@@ -1,6 +1,20 @@
 ---
 title: "Add a Shape to a Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, shape, add a shape, add text, add a chart, add WordArt, add SmartArt, add a picture, add an image, add an OLE object, add a table"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- add a shape
+- add text
+- add a chart
+- add WordArt
+- add SmartArt
+- add a picture
+- add an image
+- add an OLE object
+- add a table
 type: docs
 url: /add-a-shape-to-a-slide/
 weight: 25

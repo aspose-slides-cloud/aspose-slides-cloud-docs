@@ -1,6 +1,14 @@
 ---
 title: "Delete a Table Row"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, row, table row, remove a row"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- row
+- table row
+- remove a row
 type: docs
 url: /delete-a-table-row/
 weight: 30

@@ -1,6 +1,12 @@
 ---
 title: "Get Presentation Fonts"
-keywords: "PowerPoint, presentation, REST API, Cloud API, font, presentation fonts"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- font
+- presentation fonts
 type: docs
 url: /get-presentation-fonts/
 weight: 20

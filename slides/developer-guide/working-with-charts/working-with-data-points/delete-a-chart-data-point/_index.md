@@ -1,6 +1,15 @@
 ---
 title: "Delete a Chart Data Point"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, data point, chart data point, remove a data point"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- data point
+- chart data point
+- remove a data point
 type: docs
 url: /delete-a-chart-data-point/
 weight: 20

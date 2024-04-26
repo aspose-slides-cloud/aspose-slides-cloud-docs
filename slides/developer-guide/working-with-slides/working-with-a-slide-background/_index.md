@@ -1,6 +1,16 @@
 ---
 title: "Working with a Slide Background"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, background, slide background, set background, remove background, background color"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- background
+- slide background
+- set background
+- remove background
+- background color
 type: docs
 url: /working-with-a-slide-background/
 weight: 70

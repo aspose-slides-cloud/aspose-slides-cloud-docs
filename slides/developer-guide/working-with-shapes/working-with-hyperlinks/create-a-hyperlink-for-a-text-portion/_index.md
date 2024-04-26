@@ -1,6 +1,14 @@
 ---
 title: "Create a Hyperlink for a Text Portion"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, hyperlink, create a hyperlink, add a hyperlink"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- hyperlink
+- create a hyperlink
+- add a hyperlink
 type: docs
 url: /create-a-hyperlink-for-a-text-portion/
 weight: 20

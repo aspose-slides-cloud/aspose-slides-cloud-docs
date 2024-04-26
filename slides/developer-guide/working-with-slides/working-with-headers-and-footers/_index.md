@@ -1,6 +1,16 @@
 ---
 title: "Working with Headers and Footers"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, header, footer, header and footer, set header, set footer"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- header
+- footer
+- header and footer
+- set header
+- set footer
 type: docs
 url: /working-with-headers-and-footers/
 weight: 100

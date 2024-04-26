@@ -1,6 +1,14 @@
 ---
 title: "Extract a Slide"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, extract a slide, convert a slide, slide to image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- extract a slide
+- convert a slide
+- slide to image
 type: docs
 url: /extract-a-slide/
 weight: 10

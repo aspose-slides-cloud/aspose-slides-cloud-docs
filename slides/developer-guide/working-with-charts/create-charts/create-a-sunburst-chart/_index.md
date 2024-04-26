@@ -1,6 +1,14 @@
 ---
 title: "Create a Sunburst Chart"
-keywords: "PowerPoint, presentation, REST API, Cloud API, chart, add chart, Sunburst chart, add a Sunburst chart"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- add chart
+- Sunburst chart
+- add a Sunburst chart
 type: docs
 url: /create-a-sunburst-chart/
 weight: 30

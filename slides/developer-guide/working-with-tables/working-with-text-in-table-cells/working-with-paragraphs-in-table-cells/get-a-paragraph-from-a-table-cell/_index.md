@@ -1,6 +1,17 @@
 ---
 title: "Get a Paragraph"
-keywords: "PowerPoint, presentation, REST API, Cloud API, table, cell, table cell, text, paragraph, get a paragraph, extract a paragraph"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- paragraph
+- get a paragraph
+- extract a paragraph
 type: docs
 url: /get-a-paragraph-from-a-table-cell/
 weight: 20

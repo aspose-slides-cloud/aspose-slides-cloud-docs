@@ -1,6 +1,14 @@
 ---
 title: "Update a Shape in a Group Shape"
-keywords: "PowerPoint, presentation, REST API, Cloud API, shape, group shape, update a shape, change a shape"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- group shape
+- update a shape
+- change a shape
 type: docs
 url: /update-a-shape-in-a-group-shape/
 weight: 30

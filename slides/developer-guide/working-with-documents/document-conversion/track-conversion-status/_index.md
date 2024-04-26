@@ -1,6 +1,13 @@
 ---
 title: "Track Conversion Status"
-keywords: "PowerPoint, presentation, REST API, Cloud API, convert a presentation, export a presentation, asynchronous conversion"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- convert a presentation
+- export a presentation
+- asynchronous conversion
 type: docs
 url: /track-conversion-status/
 weight: 80

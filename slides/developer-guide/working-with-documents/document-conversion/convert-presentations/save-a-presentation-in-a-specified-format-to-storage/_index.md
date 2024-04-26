@@ -1,6 +1,27 @@
 ---
 title: "Save a Presentation in a Specified Format to Storage"
-keywords: "PowerPoint, presentation, REST API, Cloud API, convert a presentation, export a presentation, PPT to PDF, PPT to BMP, PPT to GIF, PPT to HTML, PPT to HTML 5, PPT to JPG, PPT to PNG, PPT to PPTX, PPT to SVG, PPT to MPEG-4, PPT to SWF, PPT to TIFF, PPT to XAML, PPT to XPS, PPT to MD"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- convert a presentation
+- export a presentation
+- PPT to PDF
+- PPT to BMP
+- PPT to GIF
+- PPT to HTML
+- PPT to HTML 5
+- PPT to JPG
+- PPT to PNG
+- PPT to PPTX
+- PPT to SVG
+- PPT to MPEG-4
+- PPT to SWF
+- PPT to TIFF
+- PPT to XAML
+- PPT to XPS
+- PPT to MD
 type: docs
 url: /save-a-presentation-in-a-specified-format-to-storage/
 weight: 40

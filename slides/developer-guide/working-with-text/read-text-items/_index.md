@@ -1,6 +1,13 @@
 ---
 title: "Read Text Items"
-keywords: "PowerPoint, presentation, REST API, Cloud API, text, get text, extract text"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- get text
+- extract text
 type: docs
 url: /read-text-items/
 weight: 70

@@ -1,6 +1,25 @@
 ---
 title: "Get a Slide Format Scheme"
-keywords: "PowerPoint, presentation, REST API, Cloud API, slide, format, scheme, format scheme, color, background style, effect style, shadow, reflection, glow, fill style, line style, fill mode, gradient, alignment"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- format
+- scheme
+- format scheme
+- color
+- background style
+- effect style
+- shadow
+- reflection
+- glow
+- fill style
+- line style
+- fill mode
+- gradient
+- alignment
 type: docs
 url: /get-a-slide-format-scheme/
 weight: 20

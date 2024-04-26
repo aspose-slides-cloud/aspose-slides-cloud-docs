@@ -1,6 +1,12 @@
 ---
 title: "Supported File Formats"
-keywords: "PowerPoint, presentation, REST API, Cloud API, file format, supported format"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- file format
+- supported format
 type: docs
 url: /supported-file-formats/
 weight: 70
