@@ -1,5 +1,6 @@
 ---
 title: "Export a Math Formula"
+keywords: "PowerPoint, presentation, REST API, Cloud API, math, formula, equation, math formula, export formula, MathML, LaTeX"
 type: docs
 url: /export-a-math-formula/
 weight: 20
