@@ -1,5 +1,6 @@
 ---
 title: "Check If Notes Slides Exist"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide notes, speaker notes"
 type: docs
 url: /check-if-notes-slides-exist/
 weight: 45

@@ -1,11 +1,10 @@
 ---
 title: "Available SDKs"
+keywords: "PowerPoint, presentation, REST API, Cloud API, SDK, C#, Java, PHP, Ruby, Python, Node.js, C++, Perl, Go, Swift"
 type: docs
 url: /available-sdks/
 weight: 50
 ---
-
-
 
 ## **Aspose.Slides Cloud SDKs**
 Aspose.Slides Cloud is a modern REST API, that allows easy integration into the existing systems.
@@ -105,7 +104,3 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 {{< /tab >}}
 
 {{< /tabs >}}
-
-
-
-

@@ -1,5 +1,6 @@
 ---
 title: "Replace a Text Occurrence"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, replace text, change text"
 type: docs
 url: /replace-a-text-occurrence/
 weight: 80

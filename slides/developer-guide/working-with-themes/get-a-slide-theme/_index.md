@@ -1,5 +1,6 @@
 ---
 title: "Get a Slide Theme"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, theme, slide theme, color, font, effect, format"
 type: docs
 url: /get-a-slide-theme/
 weight: 5

@@ -1,5 +1,6 @@
 ---
 title: "Working with WordArt"
+keywords: "PowerPoint, presentation, REST API, Cloud API, WordArt, create WordArt, add WordArt"
 type: docs
 url: /working-with-word-art/
 weight: 160

@@ -1,5 +1,6 @@
 ---
 title: "Use a Document Template"
+keywords: "PowerPoint, presentation, REST API, Cloud API, create a presentation, presentation template, document template"
 type: docs
 url: /use-a-document-template/
 weight: 50

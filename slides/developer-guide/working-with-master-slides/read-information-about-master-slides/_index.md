@@ -1,5 +1,6 @@
 ---
 title: "Read Information about Master Slides"
+keywords: "PowerPoint, presentation, REST API, Cloud API, design, slide, master"
 type: docs
 url: /read-information-about-master-slides/
 weight: 10

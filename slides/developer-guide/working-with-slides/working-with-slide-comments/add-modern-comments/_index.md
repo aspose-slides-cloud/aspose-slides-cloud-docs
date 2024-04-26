@@ -1,5 +1,6 @@
 ---
 title: "Add Modern Comments"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, comment, author, modern comment, create a comment, add a comment"
 type: docs
 url: /add-modern-comments/
 weight: 30

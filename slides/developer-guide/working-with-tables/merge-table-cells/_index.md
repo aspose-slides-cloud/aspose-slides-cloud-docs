@@ -1,5 +1,6 @@
 ---
 title: "Merge Table Cells"
+keywords: "PowerPoint, presentation, REST API, Cloud API, table, merge cells"
 type: docs
 url: /merge-table-cells/
 weight: 40

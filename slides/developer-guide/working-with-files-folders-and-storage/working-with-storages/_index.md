@@ -1,5 +1,6 @@
 ---
 title: "Working with Storages"
+keywords: "PowerPoint, presentation, REST API, Cloud API, cloud storage, file storage"
 type: docs
 url: /working-with-storages/
 weight: 10

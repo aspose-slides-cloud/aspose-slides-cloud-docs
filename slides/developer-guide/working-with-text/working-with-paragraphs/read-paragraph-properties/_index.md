@@ -1,5 +1,6 @@
 ---
 title: "Read Paragraph Properties"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, paragraph properties, text formatting, alignment, indent, spacing, margin, color, bulleted list, numbered list"
 type: docs
 url: /read-paragraph-properties/
 weight: 20

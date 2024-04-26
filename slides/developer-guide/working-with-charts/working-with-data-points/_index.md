@@ -1,5 +1,6 @@
 ---
 title: "Working with Data Points"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, data point, chart data point, add a data point, update a data point, remove a data point"
 type: docs
 url: /working-with-data-points/
 weight: 40

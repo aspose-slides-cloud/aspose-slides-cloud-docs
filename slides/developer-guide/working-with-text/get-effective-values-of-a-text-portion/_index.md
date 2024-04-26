@@ -1,5 +1,6 @@
 ---
 title: "Get Effective Values of a Text Portion"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, effective, effective values, text formatting, text properties"
 type: docs
 url: /get-effective-values-of-a-text-portion/
 weight: 150

@@ -1,5 +1,6 @@
 ---
 title: "Authorizing Requests to Self-Hosted Solution"
+keywords: "PowerPoint, presentation, REST API, Cloud API, docker, authorizing, self-hosted solution"
 type: docs
 url: /authorizing-requests-to-self-hosted-solution/
 weight: 40

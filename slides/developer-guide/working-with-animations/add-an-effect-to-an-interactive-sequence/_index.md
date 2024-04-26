@@ -1,5 +1,6 @@
 ---
 title: "Add an Effect to an Interactive Sequence"
+keywords: "PowerPoint, presentation, REST API, Cloud API, animation, add animation, shape animation, text animation"
 type: docs
 url: /add-an-effect-to-an-interactive-sequence/
 weight: 40

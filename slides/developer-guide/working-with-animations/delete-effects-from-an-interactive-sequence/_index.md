@@ -1,5 +1,6 @@
 ---
 title: "Delete Effects from an Interactive Sequence"
+keywords: "PowerPoint, presentation, REST API, Cloud API, animation, remove animation, shape animation, text animation"
 type: docs
 url: /delete-effects-from-an-interactive-sequence/
 weight: 55

@@ -1,5 +1,6 @@
 ---
 title: "Working with SmartArt Text"
+keywords: "PowerPoint, presentation, REST API, Cloud API, SmartArt, text, SmartArt text"
 type: docs
 url: /working-with-smart-art-text/
 weight: 40

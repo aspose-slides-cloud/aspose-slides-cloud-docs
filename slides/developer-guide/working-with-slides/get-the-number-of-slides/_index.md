@@ -1,5 +1,6 @@
 ---
 title: "Get the Number of Slides"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, slide number, number of slides"
 type: docs
 url: /get-the-number-of-slides/
 weight: 90

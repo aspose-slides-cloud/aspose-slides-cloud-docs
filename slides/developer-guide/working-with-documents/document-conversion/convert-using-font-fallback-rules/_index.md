@@ -1,5 +1,6 @@
 ---
 title: "Convert Using Font Fallback Rules"
+keywords: "PowerPoint, presentation, REST API, Cloud API, convert a presentation, export a presentation, presentation fonts"
 type: docs
 url: /convert-using-font-fallback-rules/
 weight: 50

@@ -1,5 +1,6 @@
 ---
 title: "Delete a Chart Category"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart data, chart category, remove chart data"
 type: docs
 url: /delete-a-chart-category/
 weight: 20

@@ -1,5 +1,6 @@
 ---
 title: "Pricing Plan"
+keywords: "PowerPoint, presentation, REST API, Cloud API, pricing, pricing plan, purchase"
 type: docs
 url: /pricing-plan/
 weight: 80

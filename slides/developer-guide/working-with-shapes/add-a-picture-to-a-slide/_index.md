@@ -1,5 +1,6 @@
 ---
 title: "Add a Picture to a Slide"
+keywords: "PowerPoint, presentation, REST API, Cloud API, picture, image, bitmap, vector image, add a picture, add an image"
 type: docs
 url: /add-a-picture-to-a-slide/
 weight: 95

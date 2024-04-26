@@ -1,5 +1,6 @@
 ---
 title: "Add a SmartArt Graphic to a Slide"
+keywords: "PowerPoint, presentation, REST API, Cloud API, SmartArt, create SmartArt, add SmartArt"
 type: docs
 url: /add-a-smartart-graphic-to-a-slide/
 weight: 10

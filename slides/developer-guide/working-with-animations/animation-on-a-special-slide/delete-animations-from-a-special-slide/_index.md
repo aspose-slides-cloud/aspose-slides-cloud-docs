@@ -1,5 +1,6 @@
 ---
 title: "Delete Animations"
+keywords: "PowerPoint, presentation, REST API, Cloud API, animation, remove animation, shape animation, text animation"
 type: docs
 url: /delete-animations-from-a-special-slide/
 weight: 30

@@ -1,5 +1,6 @@
 ---
 title: "Working with Math Formulas"
+keywords: "PowerPoint, presentation, REST API, Cloud API, math, formula, math formula, equation"
 type: docs
 url: /working-with-math-formulas/
 weight: 120

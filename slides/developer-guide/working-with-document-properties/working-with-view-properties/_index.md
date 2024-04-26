@@ -1,5 +1,6 @@
 ---
 title: "Working with View Properties"
+keywords: "PowerPoint, presentation, REST API, Cloud API, view properties"
 type: docs
 url: /working-with-view-properties/
 weight: 60

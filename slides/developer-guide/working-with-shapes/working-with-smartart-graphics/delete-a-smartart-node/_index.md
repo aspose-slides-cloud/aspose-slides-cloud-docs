@@ -1,5 +1,6 @@
 ---
 title: "Delete a SmartArt Node"
+keywords: "PowerPoint, presentation, REST API, Cloud API, SmartArt, node, SmartArt node, remove a node"
 type: docs
 url: /delete-a-smartart-node/
 weight: 30

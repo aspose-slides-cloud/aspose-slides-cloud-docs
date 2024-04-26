@@ -1,5 +1,6 @@
 ---
 title: "Aspose.Slides Cloud for WordPress"
+keywords: "PowerPoint, presentation, REST API, Cloud API, WordPress"
 type: docs
 url: /aspose-slides-cloud-for-wordpress/
 weight: 10

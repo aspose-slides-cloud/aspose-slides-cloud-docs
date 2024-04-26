@@ -1,5 +1,6 @@
 ---
 title: "Update Document Properties"
+keywords: "PowerPoint, presentation, REST API, Cloud API, document properties, update a document property"
 type: docs
 url: /update-document-properties/
 weight: 30

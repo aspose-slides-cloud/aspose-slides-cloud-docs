@@ -1,5 +1,6 @@
 ---
 title: "Get Paragraph Effective Values"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, paragraph, effective values, paragraph properties, text formatting"
 type: docs
 url: /get-paragraph-effective-values/
 weight: 50

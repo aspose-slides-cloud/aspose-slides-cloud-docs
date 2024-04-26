@@ -1,5 +1,6 @@
 ---
 title: "Set a Chart Legend"
+keywords: "PowerPoint, presentation, REST API, Cloud API, chart, chart legend"
 type: docs
 url: /set-a-chart-legend/
 weight: 60

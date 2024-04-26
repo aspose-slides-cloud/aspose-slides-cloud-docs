@@ -1,10 +1,10 @@
 ---
 title: "Delete Shapes from a Group Shape"
+keywords: "PowerPoint, presentation, REST API, Cloud API, shape, group shape, remove a shape"
 type: docs
 url: /delete-shapes-from-a-group-shape/
 weight: 40
 ---
-
 
 ## **Introduction**
 

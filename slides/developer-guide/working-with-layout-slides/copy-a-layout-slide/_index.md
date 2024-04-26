@@ -1,5 +1,6 @@
 ---
 title: "Copy a Layout Slide"
+keywords: "PowerPoint, presentation, REST API, Cloud API, design, slide, layout, copy layout"
 type: docs
 url: /copy-a-layout-slide/
 weight: 30

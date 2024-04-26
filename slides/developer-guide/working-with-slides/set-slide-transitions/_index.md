@@ -1,5 +1,6 @@
 ---
 title: "Set Slide Transitions"
+keywords: "PowerPoint, presentation, REST API, Cloud API, slide, slide transition, update a slide, slide show"
 type: docs
 url: /set-slide-transitions/
 weight: 130

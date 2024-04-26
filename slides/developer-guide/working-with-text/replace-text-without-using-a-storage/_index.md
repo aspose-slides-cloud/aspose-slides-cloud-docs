@@ -1,5 +1,6 @@
 ---
 title: "Replace Text without Using a Storage"
+keywords: "PowerPoint, presentation, REST API, Cloud API, text, replace text, change text, storage"
 type: docs
 url: /replace-text-without-using-a-storage/
 weight: 90
