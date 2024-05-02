@@ -5,8 +5,7 @@ keywords:
 - REST API
 - cloud API
 - text
-- format text
-- text formatting
+- extract text
 - text box
 - text color
 - bold font

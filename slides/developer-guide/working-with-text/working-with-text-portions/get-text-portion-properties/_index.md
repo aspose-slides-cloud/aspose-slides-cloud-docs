@@ -1,63 +1,65 @@
 ---
-title: "Delete Text Portions"
+title: "Get Text Portion Properties"
 keywords:
 - PowerPoint
+- presentation
 - REST API
 - cloud API
+- text
+- text properties
+- extract text
 - text box
-- delete text
-- format text
-- text formatting
+- text color
+- bold font
+- italic font
+- font height
 type: docs
-url: /delete-text-portions-on-a-special-slide/
-weight: 40
+url: /get-text-portion-properties/
+weight: 10
 ---
 
 ## **Introduction**
 
-Aspose.Slides Cloud API allows you to read, add, and modify text portions on special slides (Master, Layout, Notes) in PowerPoint presentations. Use the following methods to delete text portions within paragraphs.
+Aspose.Slides Cloud API allows you to read, add, modify and delete text portions from PowerPoint presentation slides. Use the following methods to get properties of text portions.
 
-## **DeleteSpecialSlidePortions**
+## **GetPortions**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|DELETE|Deletes text portions from a paragraph in a shape located on a special slide in a presentation saved in a storage.|[DeleteSpecialSlidePortions](https://reference.aspose.cloud/slides/#/SpecialSlideShapes/DeleteSpecialSlidePortions)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|GET|Returns information about text portions within a paragraph in a shape located in a presentation saved in a storage.|[GetPortions](https://reference.aspose.cloud/slides/#/Shapes/GetPortions)|
 
 **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of a regular slide.|
-|slideType|`SpecialSlideType`|path|true|The type of a special slide.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
 |shapeIndex|integer|path|true|The 1-based index of a shape.|
 |paragraphIndex|integer|path|true|The 1-based index of a paragraph.|
-|portions|string|query|false|The indices of the text portions to be deleted. Delete all by default.|
 |password|string|header|false|The password to open the presentation.|
-|folder|string|query|false|The path to the folder containing the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
 |storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 
-## **DeleteSpecialSlidePortion**
+## **GetPortion**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}|DELETE|Deletes a text portion from a paragraph in a shape located on a special slide in a presentation saved in a storage.|[DeleteSpecialSlidePortion](https://reference.aspose.cloud/slides/#/SpecialSlideShapes/DeleteSpecialSlidePortion)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}|GET|Returns information about a text portion within a paragraph in a shape located in a presentation saved in a storage.|[GetPortion](https://reference.aspose.cloud/slides/#/Shapes/GetPortion)|
 
 **Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
-|slideIndex|integer|path|true|The 1-based index of a regular slide.|
-|slideType|`SpecialSlideType`|path|true|The type of a special slide.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
 |shapeIndex|integer|path|true|The 1-based index of a shape.|
 |paragraphIndex|integer|path|true|The 1-based index of a paragraph.|
-|portionIndex|integer|path|true|The 1-based index of a text portion to be deleted.|
+|portionIndex|integer|path|true|The 1-based index of a text portion.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the folder.|
@@ -65,9 +67,9 @@ Aspose.Slides Cloud API allows you to read, add, and modify text portions on spe
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **Layout** of the **first** slide. The **second** text box contains three paragraphs. Delete the **second** text portion from the **third** paragraph.
+The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **first** slide. The **second** text box contains three paragraphs. Get properties of the **second** text portion within the **third** paragraph.
 
-![Layout slide](input.png)
+![Slide](input.png)
 
 **cURL Solution**
 
@@ -83,10 +85,10 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Delete the Text Portion**
+**Get the Text Portion Properties**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/LayoutSlide/shapes/2/paragraphs/3/portions/2" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/2" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -98,33 +100,22 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 
 ```json
 {
-  "items": [
-    {
-      "text": "The third paragraph",
-      "highlightColor": "#0",
-      "fontHeight": "NaN",
-      "languageId": "en-US",
-      "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions/1",
-        "relation": "self",
-        "shapeIndex": 2
-      }
-    },
-    {
-      "text": ".",
-      "highlightColor": "#0",
-      "fontHeight": "NaN",
-      "languageId": "en-US",
-      "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions/2",
-        "relation": "self",
-        "shapeIndex": 2
-      }
-    }
-  ],
+  "text": "the second text portion.",
+  "fontItalic": "True",
+  "fontColor": "#FF4472C4",
+  "highlightColor": "#0",
+  "fontHeight": 20,
+  "languageId": "en-US",
+  "fillFormat": {
+    "type": "Solid",
+    "color": "#FF4472C4"
+  },
+  "latinFont": "Arial",
+  "complexScriptFont": "Arial",
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/2",
     "relation": "self",
+    "slideIndex": 1,
     "shapeIndex": 2
   }
 }
@@ -140,7 +131,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
 
 {{< tab tabNum="1" >}}
 
-```csharp
+```cs
 using System;
 
 using Aspose.Slides.Cloud.Sdk;
@@ -154,15 +145,16 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
         int shapeIndex = 2;
         int paragraphIndex = 3;
         int portionIndex = 2;
 
-        Portions textPortions = slidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex);
+        Portion portion = slidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex);
 
-        int portionCount = textPortions.Items.Count;
-        Console.WriteLine("Number of text portions: " + portionCount); // 2
+        Console.WriteLine("Font name: " + portion.LatinFont);       // Arial
+        Console.WriteLine("Font height: " + portion.FontHeight);    // 20
+        Console.WriteLine("Italic font: " + portion.FontItalic);    // True
+        Console.WriteLine("Font color: " + portion.FontColor);      // #FF4472C4
     }
 }
 ```
@@ -174,8 +166,7 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.model.Portions;
-import com.aspose.slides.model.SpecialSlideType;
+import com.aspose.slides.model.Portion;
 
 public class Application {
     public static void main(String[] args) throws ApiException {
@@ -183,15 +174,16 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
         int shapeIndex = 2;
         int paragraphIndex = 3;
         int portionIndex = 2;
 
-        Portions textPortions = slidesApi.deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, null, null, null, null);
+        Portion portion = slidesApi.getPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, null, null, null, null);
 
-        int portionCount = textPortions.getItems().size();
-        System.out.println("Number of text portions: " + portionCount); // 2
+        System.out.println("Font name: " + portion.getLatinFont());     // Arial
+        System.out.println("Font height: " + portion.getFontHeight());  // 20
+        System.out.println("Italic font: " + portion.getFontItalic());  // True
+        System.out.println("Font color: " + portion.getFontColor());    // #FF4472C4
     }
 }
 ```
@@ -203,7 +195,6 @@ public class Application {
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType;
 
 $configuration = new Configuration();
 $configuration->setAppSid("MyClientId");
@@ -213,22 +204,23 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$slideType = SpecialSlideType::LAYOUT_SLIDE;
 $shapeIndex = 2;
 $paragraphIndex = 3;
 $portionIndex = 2;
 
-$textPortions = $slidesApi->deleteSpecialSlidePortion($fileName, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex);
+$portion = $slidesApi->getPortion($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex);
 
-$portionCount = count($textPortions->getItems());
-echo "Number of text portions: ", $portionCount; // 2
+echo "Font name: ", $portion->getLatinFont(), "\n";     // Arial
+echo "Font height: ", $portion->getFontHeight(), "\n";  // 20
+echo "Italic font: ", $portion->getFontItalic(), "\n";  // True
+echo "Font color: ", $portion->getFontColor();          // #FF4472C4
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
 
-```ruby
+```rb
 require "aspose_slides_cloud"
 
 include AsposeSlidesCloud
@@ -241,38 +233,39 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-slide_type = SpecialSlideType::LAYOUT_SLIDE
 shape_index = 2
 paragraph_index = 3
 portion_index = 2
 
-text_portions = slides_api.delete_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
+portion = slides_api.get_portion(file_name, slide_index, shape_index, paragraph_index, portion_index)
 
-portion_count = text_portions.items.length()
-print "Number of text portions: ", portion_count # 2
+puts "Font name: #{portion.latin_font}"     # Arial
+puts "Font height: #{portion.font_height}"  # 20
+puts "Italic font: #{portion.font_italic}"  # True
+puts "Font color: #{portion.font_color}"    # #FF4472C4
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
 
-```python
+```py
 from asposeslidescloud.apis import SlidesApi
-from asposeslidescloud.models import SpecialSlideType
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-slide_type = SpecialSlideType.LAYOUTSLIDE
 shape_index = 2
 paragraph_index = 3
 portion_index = 2
 
-text_portions = slides_api.delete_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
+portion = slides_api.get_portion(file_name, slide_index, shape_index, paragraph_index, portion_index)
 
-portion_count = len(text_portions.items)
-print("Number of text portions:", portion_count)  # 2
+print("Font name:", portion.latin_font)     # Arial
+print("Font height:", portion.font_height)  # 20
+print("Italic font:", portion.font_italic)  # True
+print("Font color:", portion.font_color)    # #FF4472C4
 ```
 
 {{< /tab >}}
@@ -286,14 +279,15 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-slideType = cloudSdk.SpecialSlideType.LayoutSlide;
 shapeIndex = 2;
 paragraphIndex = 3;
 portionIndex = 2;
 
-slidesApi.deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).then(textPortions => {
-    portionCount = textPortions.body.items.length;
-    console.log("Number of text portions:", portionCount); // 2
+slidesApi.getPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then(portion => {
+    console.log("Font name: " + portion.body.latinFont);     // Arial
+    console.log("Font height: " + portion.body.fontHeight);  // 20
+    console.log("Italic font: " + portion.body.fontItalic);  // True
+    console.log("Font color: " + portion.body.fontColor);    // #FF4472C4
 });
 ```
 
@@ -312,15 +306,16 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    const wchar_t* slideType = L"LayoutSlide";
     int shapeIndex = 2;
     int paragraphIndex = 3;
     int portionIndex = 2;
 
-    std::shared_ptr<Portions> textPortions = slidesApi->deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).get();
+    std::shared_ptr<Portion> portion = slidesApi->getPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).get();
 
-    int portionCount = textPortions->getItems().size();
-    std::wcout << L"Number of text portions: " << portionCount; // 2
+    std::wcout << L"Font name: " << portion->getLatinFont() << L"\r\n";     // Arial
+    std::wcout << L"Font height: " << portion->getFontHeight() << L"\r\n";  // 20
+    std::wcout << L"Italic font: " << portion->getFontItalic() << L"\r\n";  // True
+    std::wcout << L"Font color: " << portion->getFontColor();               // #FF4472C4
 }
 ```
 
@@ -328,7 +323,7 @@ int main()
 
 {{< tab tabNum="8" >}}
 
-```perl
+```pl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 
@@ -340,16 +335,17 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $slide_type = "LayoutSlide";
 my $shape_index = 2;
 my $paragraph_index = 3;
 my $portion_index = 2;
 
-my $text_portions = $slides_api->delete_special_slide_portion(
-    name => $file_name, slide_index => $slide_index, slide_type => $slide_type, shape_index => $shape_index, paragraph_index => $paragraph_index, portion_index => $portion_index);
+my $portion = $slides_api->get_portion(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, paragraph_index => $paragraph_index, portion_index => $portion_index);
 
-my $portion_count = @{$text_portions->{items}};
-print("Number of text portions: ", $portion_count); # 2
+print("Font name: ", $portion->{latin_font}, "\n");     # Arial
+print("Font height: ", $portion->{font_height}, "\n");  # 20
+print("Italic font: ", $portion->{font_italic}, "\n");  # True
+print("Font color: ", $portion->{font_color});          # #FF4472C4
 ```
 
 {{< /tab >}}
@@ -376,25 +372,22 @@ func main() {
 
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
-	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 3
 	var portionIndex int32 = 2
 
-	textPortions, _, _ := slidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
+	portion, _, _ := slidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
 
-	portionCount := len(textPortions.GetItems())
-	fmt.Println("Number of text portions:", portionCount) // 2
+	fmt.Println("Font name:", portion.GetLatinFont())    // Arial
+	fmt.Println("Font height:", portion.GetFontHeight()) // 20
+	fmt.Println("Italic font:", portion.GetFontItalic()) // True
+	fmt.Println("Font color:", portion.GetFontColor())   // #FF4472C4
 }
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
-
-The result:
-
-![Layout slide](output.png)
 
 ## **SDKs**
 
