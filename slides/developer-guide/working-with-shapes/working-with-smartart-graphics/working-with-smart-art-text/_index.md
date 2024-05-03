@@ -12,24 +12,13 @@ type: docs
 url: /working-with-smart-art-text/
 weight: 40
 ---
-## **Introduction**
-You can manage text within a SmartArt node the same way as it works for sub-shapes. Instead of the path to the sub-shape, the path to the sub-node must be specified. The sub-node path is a string that contains node index (e.g., "1") or a path in case of more than one level of grouping( e.g. "1/nodes/1").
 
-### **API Information**
-|**API**|**Type**|**Description**|**Resource**|
-| :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs|GET|Read shape paragraphs info| [GetParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraphs)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|POST|Creates new paragraph|[CreateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/CreateParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs|DELETE|Remove a range of paragraps|[DeleteParagraphs](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraphs)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|GET|Read shape paragraph info|[GetParagraph](https://apireference.aspose.cloud/slides/#/Shapes/GetParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|PUT|Update paragraph properties|[UpdateParagraph](https://apireference.aspose.cloud/slides/#/Shapes/UpdateParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}|DELETE|Remove a paragraph|[DeleteParagraph](https://apireference.aspose.cloud/slides/#/Shapes/DeleteParagraph)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|GET|Read paragraph portions info|[GetPortions](https://apireference.aspose.cloud/slides/#/Shapes/GetPortions)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|POST|Creates new portion|[CreatePortion](https://apireference.aspose.cloud/slides/#/Shapes/CreatePortion)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions|DELETE| Remove a range of portions|[DeletePortions](https://apireference.aspose.cloud/slides/#/Shapes/DeletePortions)|
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}|GET|Read paragraph portion info|[GetPortion](https://apireference.aspose.cloud/slides/#/Shapes/GetPortion)|
-​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|PUT|Update portion properties|[UpdatePortion](https://apireference.aspose.cloud/slides/#/Shapes/UpdatePortion)|
-​/slides​/{name}​/slides​/{slideIndex}​/shapes​/{shapeIndex}​/paragraphs​/{paragraphIndex}​/portions​/{portionIndex}|DELETE|Remove a portion|[DeletePortion](https://apireference.aspose.cloud/slides/#/Shapes/DeletePortion)|
+## **Introduction**
+
+You can manage text within a SmartArt node the same way as it works for child shapes in group shapes. Instead of the path to a child shape, the path to a child node must be specified. The child node path is a string that contains a node index (e.g. "1") or a path in case of more than one level of grouping ( e.g. "1/nodes/1").
+
+To manage text within a SmartArt node, use the methods described in [Working with Paragraphs](/slides/working-with-paragraphs/) and [Working with Text Portions](/slides/working-with-text-portions/).
+
 ### **cURL Example**
 The code example below shows how to update a text portion in an existing SmartArt object. 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
