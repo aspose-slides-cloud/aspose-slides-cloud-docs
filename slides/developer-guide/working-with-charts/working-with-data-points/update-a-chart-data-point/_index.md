@@ -65,6 +65,8 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Update the Data**
+
 ```sh
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series/1/dataPoints/4" \
      -H "authorization: Bearer MyAccessToken" \
