@@ -102,10 +102,10 @@ Merge two presentations.
 
 SlidesAsyncApi api = new SlidesAsyncApi("MyClientId", "MyClientSecret");
 
-Sdk.FileInfo file1 = new Sdk.FileInfo { Content = File.OpenRead("presentation1.pptx") };
-Sdk.FileInfo file2 = new Sdk.FileInfo { Content = File.OpenRead("presentation2.pptx") };
+FileInfo file1 = new FileInfo { Content = File.OpenRead("presentation1.pptx") };
+FileInfo file2 = new FileInfo { Content = File.OpenRead("presentation2.pptx") };
 
-string operationId = api.StartMerge(new List<Sdk.FileInfo> { file1, file2 });
+string operationId = api.StartMerge(new List<FileInfo> { file1, file2 });
 
 while (true)
 {

@@ -93,10 +93,16 @@ class Test
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Slide notes should be added at the bottom of pages.
-        var tiffOptions = new TiffExportOptions { NotesPosition = TiffExportOptions.NotesPositionEnum.BottomFull };
+        TiffExportOptions tiffOptions = new TiffExportOptions
+        {
+            SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+            {
+                NotesPosition = NotesCommentsLayoutingOptions.NotesPositionEnum.BottomFull
+            }
+        };
 
         // The TIFF file should only contain the slides with indexes 1 and 3.
-        var slideIndices = new List<int> { 1, 3 };
+        List<int> slideIndices = new List<int> { 1, 3 };
 
         // Save the presentation to TIFF file.
         api.SavePresentation("example.pptx", ExportFormat.Tiff, "MyImages/output.tiff", tiffOptions, slides: slideIndices);
@@ -122,8 +128,11 @@ public class Main {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Slide notes should be added at the bottom of pages.
+        NotesCommentsLayoutingOptions slidesLayoutOptions = new NotesCommentsLayoutingOptions();
+        slidesLayoutOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMFULL);
+
         TiffExportOptions tiffOptions = new TiffExportOptions();
-        tiffOptions.setNotesPosition(TiffExportOptions.NotesPositionEnum.BOTTOMFULL);
+        tiffOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
         // The TIFF file should only contain the slides with indexes 1 and 3.
         ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
@@ -144,6 +153,7 @@ public class Main {
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\TiffExportOptions;
+use Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 
 $configuration = new Configuration();
@@ -153,8 +163,11 @@ $configuration->setAppKey("my_client_key");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Slide notes should be added at the bottom of pages.
+$slidesLayoutOptions = new NotesCommentsLayoutingOptions();
+$slidesLayoutOptions->setNotesPosition("BottomFull");
+
 $tiffOptions = new TiffExportOptions();
-$tiffOptions->setNotesPosition("BottomFull");
+$tiffOptions->setNotesPosition($slidesLayoutOptions);
 
 // The TIFF file should only contain the slides with indexes 1 and 3.
 $slideIndices = [1, 3];
@@ -181,8 +194,11 @@ configuration.app_key = "my_client_key"
 slides_api = SlidesApi.new(configuration)
 
 # Slide notes should be added at the bottom of pages.
+slides_layout_options = NotesCommentsLayoutingOptions.new
+slides_layout_options.notes_position = "BottomFull"
+
 tiff_options = TiffExportOptions.new
-tiff_options.notes_position = "BottomFull"
+tiff_options.notes_position = slides_layout_options
 
 # The TIFF file should only contain the slides with indexes 1 and 3.
 slide_indices = [1, 3]
@@ -207,8 +223,11 @@ from asposeslidescloud.models.export_format import ExportFormat
 slides_api = SlidesApi(None, "my_client_id", "my_client_key")
 
 # Slide notes should be added at the bottom of pages.
+slides_layout_options = NotesCommentsLayoutingOptions()
+slides_layout_options.notes_position = "BottomFull"
+
 tiff_options = TiffExportOptions()
-tiff_options.notes_position = "BottomFull"
+tiff_options.notes_position = slides_layout_options
 
 # The TIFF file should only contain the slides with indexes 1 and 3.
 slide_indices = [1, 3]
@@ -229,8 +248,11 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 // Slide notes should be added at the bottom of pages.
+const slidesLayoutOptions = new cloud.NotesCommentsLayoutingOptions();
+slidesLayoutOptions.notesPosition = "BottomFull";
+
 const tiffOptions = new cloud.TiffExportOptions();
-tiffOptions.notesPosition = "BottomFull";
+tiffOptions.notesPosition = slidesLayoutOptions;
 
 // The TIFF file should only contain the slides with indexes 1 and 3.
 const slideIndices = [1, 3];
@@ -258,8 +280,11 @@ public class Main {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
         // Slide notes should be added at the bottom of pages.
+        NotesCommentsLayoutingOptions slidesLayoutOptions = new NotesCommentsLayoutingOptions();
+        slidesLayoutOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMFULL);
+
         TiffExportOptions tiffOptions = new TiffExportOptions();
-        tiffOptions.setNotesPosition(TiffExportOptions.NotesPositionEnum.BOTTOMFULL);
+        tiffOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
         // The TIFF file should only contain the slides with indexes 1 and 3.
         ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
@@ -279,6 +304,7 @@ public class Main {
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/TiffExportOptions.h"
+#include "asposeslidescloud/model/NotesCommentsLayoutingOptions.h"
 
 using namespace utility::conversions;
 using namespace asposeslidescloud::api;
@@ -288,8 +314,12 @@ int main()
     auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
 
     // Slide notes should be added at the bottom of pages.
+    auto slidesLayoutOptions = std::make_shared<NotesCommentsLayoutingOptions>();
+    slidesLayoutOptions->setNotesPosition(L"BottomFull");
+
+    // Slide notes should be added at the bottom of pages.
     auto tiffOptions = std::make_shared<TiffExportOptions>();
-    tiffOptions->setNotesPosition(to_string_t("BottomFull"));
+    tiffOptions->setSlidesLayoutOptions(slidesLayoutOptions);
 
     // The TIFF file should only contain the slides with indexes 1 and 3.
     auto slideIndices = { 1, 3 };

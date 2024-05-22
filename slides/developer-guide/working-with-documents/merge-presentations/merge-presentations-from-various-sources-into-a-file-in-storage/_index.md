@@ -87,9 +87,9 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo1 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
-        var fileInfo2 = new Sdk.FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
-        var files = new List<Sdk.FileInfo> { fileInfo1, fileInfo2 };
+        var fileInfo1 = new FileInfo { Content = File.OpenRead("TestData/example1.pptx") };
+        var fileInfo2 = new FileInfo { Content = File.OpenRead("TestData/example2.pptx") };
+        var files = new List<FileInfo> { fileInfo1, fileInfo2 };
 
         // Merge the presentations and save the result to the specified path.
         api.MergeAndSaveOnline("MyFolder/MyPresentation.pptx", files);
@@ -423,8 +423,8 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Collect the presentations to merge.
-        var fileInfo = new Sdk.FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
-        var files = new List<Sdk.FileInfo> { fileInfo};
+        var fileInfo = new FileInfo { Content = File.OpenRead("local.pptx"), Name = "local.pptx" };
+        var files = new List<FileInfo> { fileInfo};
 
         // Prepare information for the second presentation to merge.
         var presentation1 = new PresentationToMerge
