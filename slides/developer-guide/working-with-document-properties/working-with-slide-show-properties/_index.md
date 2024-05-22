@@ -8,285 +8,539 @@ keywords:
 - slide
 - slide show
 - slide show properties
+- slide show type
+- show animation
+- play narrations
+- show media controls
+- use timings
+- show scrollbar
 type: docs
 url: /working-with-slide-show-properties/
 weight: 70
 ---
+
 ## **Introduction**
-Aspose.Slides Cloud API allows reading and updating slide show properties of a presentation. 
+
+In PowerPoint presentations, Slide Show settings allow you to manage various aspects of your presentation, from automation to audience interaction. The main options and features are slide show type, start and end of slides, show animation, play narrations, show media controls, use timings, and others. Use the following methods to get and update the slide show properties of a presentation. 
 
 ## **GetSlideShowProperties**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slideShowProperties|GET|Read presentation slide show properties.|[GetSlideShowProperties]()|
+|/slides/{name}/slideShowProperties|GET|Returns the slide show properties from a presentation saved in a storage.|[GetSlideShowProperties](https://reference.aspose.cloud/slides/#/Document/GetSlideShowProperties)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 ### **Examples**
-**cURL Example**
 
-The code examples below shows how to retrieve slide show properties from the presentation. 
+Retrieve the slide show properties from the document **MyPresentation.pptx** saved in the **default** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+**Get an Access Token**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Get the Show Properties**
+
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```sh
+**Response Example**
 
-Code: 200
-Returns slide show properties data.
-
+```json
+{
+  "loop": false,
+  "showAnimation": true,
+  "showNarration": false,
+  "showMediaControls": false,
+  "useTimings": false,
+  "slideShowType": "PresentedBySpeaker",
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-SlideShowProperties response = api.GetSlideShowProperties("MyPresentation.pptx");
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.ShowAnimation == true)
-	Console.WriteLine("Animation enabled.");
+        SlideShowProperties properties = slidesApi.GetSlideShowProperties("MyPresentation.pptx");
+
+        Console.WriteLine("Loop Slide Show: " + properties.Loop);
+        Console.WriteLine("Show Animation: " + properties.ShowAnimation);
+        Console.WriteLine("Show Media Controls: " + properties.ShowMediaControls);
+        Console.WriteLine("Play Narrations: " + properties.ShowNarration);
+        Console.WriteLine("Slide Show Type: " + properties.SlideShowType);
+        Console.WriteLine("Use Timings: " + properties.UseTimings);
+    }
+}
+
+// Example output:
+// 
+// Loop Slide Show: False
+// Show Animation: True
+// Show Media Controls: True
+// Play Narrations: True
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: True
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideShowProperties;
 
-SlideShowProperties response = api.getSlideShowProperties("MyPresentation.pptx", null, null, null);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.isShowAnimation())
-	System.out.println("Animation enabled.");
+        SlideShowProperties properties = slidesApi.getSlideShowProperties("MyPresentation.pptx", null, null, null);
+
+        System.out.println("Loop Slide Show: " + properties.isLoop());
+        System.out.println("Show Animation: " + properties.isShowAnimation());
+        System.out.println("Show Media Controls: " + properties.isShowMediaControls());
+        System.out.println("Play Narrations: " + properties.isShowNarration());
+        System.out.println("Slide Show Type: " + properties.getSlideShowType());
+        System.out.println("Use Timings: " + properties.isUseTimings());
+    }
+}
+
+// Example output:
+// 
+// Loop Slide Show: False
+// Show Animation: True
+// Show Media Controls: True
+// Play Narrations: True
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: True
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$result = $api->getSlideShowProperties("MyPresentation.pptx");
+$slidesApi = new SlidesApi(null, $configuration);
 
-if ($result->getShowAnimation())
-	print("Animation enabled.");
+$properties = $slidesApi->getSlideShowProperties("MyPresentation.pptx");
+
+print("Loop Slide Show: " . $properties->getLoop() . "\r\n");
+print("Show Animation: " . $properties->getShowAnimation() . "\r\n");
+print("Show Media Controls: " . $properties->getShowMediaControls() . "\r\n");
+print("Play Narrations: " . $properties->getShowNarration() . "\r\n");
+print("Slide Show Type: " . $properties->getSlideShowType() . "\r\n");
+print("Use Timings: " . $properties->getUseTimings());
+
+// Example output:
+//
+// Loop Slide Show: 
+// Show Animation: 1
+// Show Media Controls: 1
+// Play Narrations: 1
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: 1
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_slide_show_properties("MyPresentation.pptx")
+slides_api = SlidesApi.new(configuration)
 
-if response.show_animation
-	print "Animation enabled."
-end
+properties = slides_api.get_slide_show_properties("MyPresentation.pptx")
+
+puts "Loop Slide Show: #{properties.loop}"
+puts "Show Animation: #{properties.show_animation}"
+puts "Show Media Controls: #{properties.show_media_controls}"
+puts "Play Narrations: #{properties.show_narration}"
+puts "Slide Show Type: #{properties.slide_show_type}"
+puts "Use Timings: #{properties.use_timings}"
+
+# Example output:
+#
+# Loop Slide Show: false
+# Show Animation: true
+# Show Media Controls: true
+# Play Narrations: true
+# Slide Show Type: PresentedBySpeaker
+# Use Timings: true
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+properties = slides_api.get_slide_show_properties("MyPresentation.pptx")
 
-response = api.get_slide_show_properties("MyPresentation.pptx")
-if response.show_animation:
-	print("Animation enabled.")
+print("Loop Slide Show:", properties.loop)
+print("Show Animation:", properties.show_animation)
+print("Show Media Controls:", properties.show_media_controls)
+print("Play Narrations:", properties.show_narration)
+print("Slide Show Type:", properties.slide_show_type)
+print("Use Timings:", properties.use_timings)
+
+# Example output:
+#
+# Loop Slide Show: False
+# Show Animation: True
+# Show Media Controls: True
+# Play Narrations: True
+# Slide Show Type: PresentedBySpeaker
+# Use Timings: True
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-let response = await api.getSlideShowProperties("MyPresentation.pptx");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.body.showAnimation)
-	console.log("Animation enabled.");
+slidesApi.getSlideShowProperties("MyPresentation.pptx").then(properties => {
+    console.log("Loop Slide Show:", properties.body.loop);
+    console.log("Show Animation:", properties.body.showAnimation);
+    console.log("Show Media Controls:", properties.body.showMediaControls);
+    console.log("Play Narrations:", properties.body.showNarration);
+    console.log("Slide Show Type:", properties.body.slideShowType);
+    console.log("Use Timings:", properties.body.useTimings);
+});
+
+// Example output:
+//
+// Loop Slide Show: false
+// Show Animation: true
+// Show Media Controls: true
+// Play Narrations: true
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: true
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-fileName := "MyPresentation.pptx"
-response, _, e := api.SlidesApi.GetSlideShowProperties(fileName, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    std::shared_ptr<SlideShowProperties> properties = slidesApi->getSlideShowProperties(L"MyPresentation.pptx").get();
+
+    std::wcout << L"Loop Slide Show: " << properties->isLoop() << "\r\n";
+    std::wcout << L"Show Animation: " << properties->isShowAnimation() << "\r\n";
+    std::wcout << L"Show Media Controls: " << properties->isShowMediaControls() << "\r\n";
+    std::wcout << L"Play Narrations: " << properties->isShowNarration() << "\r\n";
+    std::wcout << L"Slide Show Type: " << properties->getSlideShowType() << "\r\n";
+    std::wcout << L"Use Timings: " << properties->isUseTimings();
 }
 
-if response.GetShowAnimation() {
-    fmt.Printf("Animation enabled.")
-}
+// Example output:
+//
+// Loop Slide Show: 0
+// Show Animation: 1
+// Show Media Controls: 1
+// Play Narrations: 1
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: 1
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $properties = $slides_api->get_slide_show_properties(name => "MyPresentation.pptx");
+
+print("Loop Slide Show: ", $properties->{loop}, "\n");
+print("Show Animation: ", $properties->{show_animation}, "\n");
+print("Show Media Controls: ", $properties->{show_media_controls}, "\n");
+print("Play Narrations: ", $properties->{show_narration}, "\n");
+print("Slide Show Type: ", $properties->{slide_show_type}, "\n");
+print("Use Timings: ", $properties->{use_timings});
+
+# Example output:
+#
+# Loop Slide Show: 0
+# Show Animation: 1
+# Show Media Controls: 1
+# Play Narrations: 1
+# Slide Show Type: PresentedBySpeaker
+# Use Timings: 1
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
+```go
+import (
+	"fmt"
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-#Code example will be added soon.
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	properties, _, _ := slidesApi.GetSlideShowProperties("MyPresentation.pptx", "", "", "")
+
+	fmt.Println("Loop Slide Show:", properties.GetLoop())
+	fmt.Println("Show Animation:", properties.GetShowAnimation())
+	fmt.Println("Show Media Controls:", properties.GetShowMediaControls())
+	fmt.Println("Play Narrations:", properties.GetShowNarration())
+	fmt.Println("Slide Show Type:", properties.GetSlideShowType())
+	fmt.Println("Use Timings:", properties.GetUseTimings())
+}
+
+// Example output:
+//
+// Loop Slide Show: false
+// Show Animation: true
+// Show Media Controls: true
+// Play Narrations: true
+// Slide Show Type: PresentedBySpeaker
+// Use Timings: true
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-
 ## **SetSlideShowProperties**
 
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slideShowProperties|PUT|Update presentation slide show properties.|[SetSlideShowProperties]()|
+|/slides/{name}/slideShowProperties|PUT|Updates the slide show properties in a presentation saved in a storage.|[SetSlideShowProperties](https://reference.aspose.cloud/slides/#/Document/SetSlideShowProperties)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|dto|`SlideShowProperties`|body|true|The data transfer object with the slide show properties.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 ### **Examples**
-**cURL Example**
 
-The code examples below shows how to set slide show properties of the presentation.
+The **default** storage contains the document **MyPresentation.pptx**. Change the following slide show properties:
+- set **Loop continuously until 'Esc'**
+- reset **Use Timings**
+- set **Show type** to **Browsed by an individual**
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
+**Get an Access Token**
+
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+**Set the Show Properties**
 
 ```sh
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" \
--H "Authorization: Bearer [Access Token]" \
--H "Content-Type: application/json" \
--d @request_data.json
+     -H "authorization: Bearer MyAccessToken" \
+	 -H "Content-Type: application/json" \
+	 -d @ShowProperties.json
 ```
 
-request_data.json content:
+ShowProperties.json content:
 
 ```json
 {
-  "Loop": false,
+  "Loop": true,
   "useTimings": false,
-  "slideShowType": "PresentedBySpeaker"
+  "slideShowType": "BrowsedByIndividual"
 }
 ```
-
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
+**Response Example**
 
-```sh
-
-Code: 200
-Returns slide show properties data.
-
+```json
+{
+  "loop": true,
+  "showAnimation": true,
+  "showNarration": true,
+  "showMediaControls": true,
+  "useTimings": false,
+  "slideShowType": "BrowsedByIndividual",
+  "showScrollbar": true,
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
+**SDK Solutions**
 
-**SDK Examples**
+{{< tabs tabTotal="9" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
-{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-SlideShowProperties properties = new SlideShowProperties()
+class Application
 {
-	Loop = true,
-	UseTimings = true,
-	SlideShowType = SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker
-};
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-SlideShowProperties response = api.SetSlideShowProperties("MyPresentation.pptx", properties);
+        string fileName = "MyPresentation.pptx";
 
-Console.WriteLine("Slide show properties were successfully set.");
+        SlideShowProperties properties = new SlideShowProperties
+        {
+            Loop = true,
+            UseTimings = false,
+            SlideShowType = SlideShowProperties.SlideShowTypeEnum.BrowsedByIndividual
+        };
+
+        SlideShowProperties updatedProperties = slidesApi.SetSlideShowProperties(fileName, properties);
+
+        Console.WriteLine("Loop Slide Show: " + updatedProperties.Loop);            // true
+        Console.WriteLine("Use Timings: " + updatedProperties.UseTimings);          // false
+        Console.WriteLine("Slide Show Type: " + updatedProperties.SlideShowType);   // BrowsedByIndividual
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideShowProperties;
 
-SlideShowProperties dto = new SlideShowProperties();
-dto.setLoop(true);
-dto.setUseTimings(true);
-dto.slideShowType(SlideShowProperties.SlideShowTypeEnum.PRESENTEDBYSPEAKER);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-SlideShowProperties response = api.setSlideShowProperties("MyPresentation.pptx", dto, null, null, null);
+        String fileName = "MyPresentation.pptx";
 
-System.out.println("Slide show properties were successfully set.");
+        SlideShowProperties properties = new SlideShowProperties();
+        properties.setLoop(true);
+        properties.setUseTimings(false);
+        properties.setSlideShowType(SlideShowProperties.SlideShowTypeEnum.BROWSEDBYINDIVIDUAL);
+
+        SlideShowProperties updatedProperties = slidesApi.setSlideShowProperties(fileName, properties, null, null, null);
+
+        System.out.println("Loop Slide Show: " + updatedProperties.isLoop());            // true
+        System.out.println("Use Timings: " + updatedProperties.isUseTimings());          // false
+        System.out.println("Slide Show Type: " + updatedProperties.getSlideShowType());  // BrowsedByIndividual
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
@@ -294,134 +548,200 @@ use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$dto = new SlideShowProperties();
-$dto->setLoop(true);
-$dto->setUseTimings(true);
-$dto->setSlideShowType('PresentedBySpeaker');
+$slidesApi = new SlidesApi(null, $configuration);
 
-$result = $api->setSlideShowProperties("MyPresentation.pptx", $dto);
+$fileName = "MyPresentation.pptx";
 
-print("Slide show properties were successfully set.");
+$properties = new SlideShowProperties();
+$properties->setLoop(true);
+$properties->setUseTimings(false);
+$properties->setSlideShowType("BrowsedByIndividual");
+
+$updatedProperties = $slidesApi->setSlideShowProperties($fileName, $properties);
+
+print("Loop Slide Show: " . $updatedProperties->getLoop() . "\r\n");    // 1
+print("Use Timings: " . $updatedProperties->getUseTimings() . "\r\n");  //
+print("Slide Show Type: " . $updatedProperties->getSlideShowType());    // BrowsedByIndividual
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-dto = AsposeSlidesCloud::SlideShowProperties.new
-dto.loop = true
-dto.slide_show_type = "PresentedBySpeaker"
-      
-response = api.set_slide_show_properties("MyPresentation.pptx", dto)
+slides_api = SlidesApi.new(configuration)
 
-print "Slide show properties were successfully set."
+file_name = "MyPresentation.pptx"
+
+properties = SlideShowProperties.new
+properties.loop = true
+properties.use_timings = false
+properties.slide_show_type = "BrowsedByIndividual"
+
+updated_properties = slides_api.set_slide_show_properties(file_name, properties)
+
+puts "Loop Slide Show: #{updated_properties.loop}"              # true
+puts "Use Timings: #{updated_properties.use_timings}"           # false
+puts "Slide Show Type: #{updated_properties.slide_show_type}"   # BrowsedByIndividual
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import SlideShowProperties
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.slide_show_properties import SlideShowProperties
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+file_name = "MyPresentation.pptx"
 
-dto = SlideShowProperties()
-dto.loop = True
-dto.use_timings = True
-dto.slide_show_type = "PresentedBySpeaker"
-        
-response = api.set_slide_show_properties("MyPresentation.pptx", dto)
+properties = SlideShowProperties()
+properties.loop = True
+properties.use_timings = False
+properties.slide_show_type = "BrowsedByIndividual"
 
-print("Slide show properties were successfully set.")
+updated_properties = slides_api.set_slide_show_properties(file_name, properties)
+
+print("Loop Slide Show:", updated_properties.loop)              # True
+print("Use Timings:", updated_properties.use_timings)           # False
+print("Slide Show Type:", updated_properties.slide_show_type)   # BrowsedByIndividual
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-const dto = new CloudSdk.SlideShowProperties();
-dto.loop = true;
-dto.useTimings = true;
-dto.slideShowType = CloudSdk.SlideShowProperties.SlideShowTypeEnum.PresentedBySpeaker;
-            
-let result = await api.setSlideShowProperties("MyPresentation.pptx", dto);
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-console.log("Slide show properties were successfully set.");
+fileName = "MyPresentation.pptx";
+
+properties = new cloudSdk.SlideShowProperties();
+properties.loop = true;
+properties.useTimings = false;
+properties.slideShowType = cloudSdk.SlideShowProperties.SlideShowTypeEnum.BrowsedByIndividual;
+
+slidesApi.setSlideShowProperties(fileName, properties).then(updatedProperties => {
+    console.log("Loop Slide Show:", updatedProperties.body.loop);           // true
+    console.log("Use Timings:", updatedProperties.body.useTimings);         // false
+    console.log("Slide Show Type:", updatedProperties.body.slideShowType);  // BrowsedByIndividual
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-fileName := "MyPresentation.pptx"
-dto := asposeslidescloud.NewSlideShowProperties()
-dto.SetLoop(true)
-dto.SetUseTimings(true)
-dto.SetSlideShowType("PresentedBySpeaker")
+using namespace asposeslidescloud::api;
 
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-_, _, e := api.SlidesApi.SetSlideShowProperties(fileName, dto, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+    const wchar_t* fileName = L"MyPresentation.pptx";
+
+    std::shared_ptr<SlideShowProperties> properties = std::make_shared<SlideShowProperties>();
+    properties->setLoop(true);
+    properties->setUseTimings(false);
+    properties->setSlideShowType(L"BrowsedByIndividual");
+
+    std::shared_ptr<SlideShowProperties> updatedProperties = slidesApi->setSlideShowProperties(fileName, properties).get();
+
+    std::wcout << L"Loop Slide Show: " << updatedProperties->isLoop() << "\r\n";    // 1
+    std::wcout << L"Use Timings: " << updatedProperties->isUseTimings() << "\r\n";  // 0
+    std::wcout << L"Slide Show Type: " << updatedProperties->getSlideShowType();    // BrowsedByIndividual
 }
-
-fmt.Printf("Slide show properties were successfully set.")
-
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::SlideShowProperties;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_name = "MyPresentation.pptx";
+
+$properties = AsposeSlidesCloud::Object::SlideShowProperties->new();
+$properties->{loop} = True;
+$properties->{use_timings} = False;
+$properties->{slide_show_type} = "BrowsedByIndividual";
+
+my $updated_properties = $slides_api->set_slide_show_properties(name => $file_name, dto => $properties);
+
+print("Loop Slide Show: ", $updated_properties->{loop}, "\n");      # 1
+print("Use Timings: ", $updated_properties->{use_timings}, "\n");   # 0
+print("Slide Show Type: ", $updated_properties->{slide_show_type}); # BrowsedByIndividual
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
+```go
+import (
+	"fmt"
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-#Code example will be added soon.
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+
+	properties := asposeslidescloud.NewSlideShowProperties()
+	properties.Loop = true
+	properties.UseTimings = false
+	properties.SlideShowType = "BrowsedByIndividual"
+
+	updatedProperties, _, _ := slidesApi.SetSlideShowProperties(fileName, properties, "", "", "")
+
+	fmt.Println("Loop Slide Show:", updatedProperties.GetLoop())          // true
+	fmt.Println("Use Timings:", updatedProperties.GetUseTimings())        // false
+	fmt.Println("Slide Show Type:", updatedProperties.GetSlideShowType()) // BrowsedByIndividual
+}
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
+The result:
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+![Show properties](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
