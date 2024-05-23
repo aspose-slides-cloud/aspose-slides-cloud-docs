@@ -126,7 +126,7 @@ class Application
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
+        int paragraphIndex = 1;
 
         Portion textPortion = new Portion
         {
@@ -161,7 +161,7 @@ public class Application {
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
+        int paragraphIndex = 1;
 
         Portion textPortion = new Portion();
         textPortion.setText(" The second text portion.");
@@ -196,7 +196,7 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
 $shapeIndex = 2;
-$paragraphIndex = 3;
+$paragraphIndex = 1;
 
 $textPortion = new Portion();
 $textPortion->setText(" The second text portion.");
@@ -228,7 +228,7 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
 shape_index = 2
-paragraph_index = 3
+paragraph_index = 1
 
 text_portion = Portion.new
 text_portion.text = " The second text portion."
@@ -256,7 +256,7 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
 shape_index = 2
-paragraph_index = 3
+paragraph_index = 1
 
 text_portion = Portion()
 text_portion.text = " The second text portion."
@@ -282,7 +282,7 @@ fileName = "MyPresentation.pptx";
 slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
 shapeIndex = 2;
-paragraphIndex = 3;
+paragraphIndex = 1;
 
 textPortion = new cloudSdk.Portion();
 textPortion.text = " The second text portion.";
@@ -312,7 +312,7 @@ int main()
     int slideIndex = 1;
     const wchar_t* slideType = L"LayoutSlide";
     int shapeIndex = 2;
-    int paragraphIndex = 3;
+    int paragraphIndex = 1;
 
     std::shared_ptr<Portion> textPortion = std::make_shared<Portion>();
     textPortion->setText(L" The second text portion.");
@@ -345,7 +345,7 @@ my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $slide_type = "LayoutSlide";
 my $shape_index = 2;
-my $paragraph_index = 3;
+my $paragraph_index = 1;
 
 my $text_portion = AsposeSlidesCloud::Object::Portion->new();
 $text_portion->{text} = " The second text portion.";
@@ -385,7 +385,7 @@ func main() {
 	var slideIndex int32 = 1
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
 	var shapeIndex int32 = 2
-	var paragraphIndex int32 = 3
+	var paragraphIndex int32 = 1
 
 	textPortion := asposeslidescloud.NewPortion()
 	textPortion.Text = " The second text portion."

@@ -107,8 +107,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
 
         ChartCategory dataCategory = new ChartCategory
         {
@@ -147,8 +147,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
 
         OneValueChartDataPoint dataPoint1 = new OneValueChartDataPoint();
         dataPoint1.setValue(30d);
@@ -188,8 +188,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 3;
+$shapeIndex = 1;
 
 $dataPoint1 = new OneValueChartDataPoint();
 $dataPoint1->setValue(30);
@@ -226,8 +226,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 
 data_point1 = OneValueChartDataPoint.new
 data_point1.value = 30
@@ -260,8 +260,8 @@ from asposeslidescloud.models.chart_category import ChartCategory
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 
 data_point1 = OneValueChartDataPoint()
 data_point1.value = 30
@@ -292,8 +292,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 3;
+shapeIndex = 1;
 
 dataCategory = new cloudSdk.ChartCategory();
 dataCategory.value = "2023";
@@ -319,8 +319,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 3;
+    int shapeIndex = 1;
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint1 = std::make_shared<OneValueChartDataPoint>();
     dataPoint1->setValue(30);
@@ -359,8 +359,8 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 3;
+my $shape_index = 1;
 
 my $data_point1 = AsposeSlidesCloud::Object::OneValueChartDataPoint->new();
 $data_point1->{value} = 30;
@@ -398,8 +398,8 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-slideIndex := 1
-shapeIndex := 2
+slideIndex := 3
+shapeIndex := 1
 
 dataPoint1 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint1.Value = 30
