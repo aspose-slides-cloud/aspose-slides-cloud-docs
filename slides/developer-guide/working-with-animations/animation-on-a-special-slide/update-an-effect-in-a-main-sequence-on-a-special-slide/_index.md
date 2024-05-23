@@ -129,7 +129,7 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
-        int effectIndex = 2;
+        int effectIndex = 1;
         
         Effect effect = new Effect
         {
@@ -164,7 +164,7 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
-        int effectIndex = 2;
+        int effectIndex = 1;
 
         Effect effect = new Effect();
         effect.setType(Effect.TypeEnum.BLINK);
@@ -199,7 +199,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
-$effectIndex = 2;
+$effectIndex = 1;
 
 $effect = new Effect();
 $effect->setType(Effect::TYPE_BLINK);
@@ -230,7 +230,7 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
-effect_index = 2
+effect_index = 1
 
 effect = Effect.new
 effect.type = "Blink"
@@ -257,7 +257,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
-effect_index = 2
+effect_index = 1
 
 effect = Effect()
 effect.type = "Blink"
@@ -282,7 +282,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
-effectIndex = 2;
+effectIndex = 1;
 
 effect = new cloudSdk.Effect();
 effect.type = cloudSdk.Effect.TypeEnum.Blink;
@@ -311,7 +311,7 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
     const wchar_t* slideType = L"LayoutSlide";
-    int effectIndex = 2;
+    int effectIndex = 1;
 
     std::shared_ptr<Effect> effect = std::make_shared<Effect>();
     effect->setType(L"Blink");
@@ -343,7 +343,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $slide_type = "LayoutSlide";
-my $effect_index = 2;
+my $effect_index = 1;
 
 my $effect = AsposeSlidesCloud::Object::Effect->new();
 $effect->{type} = "Blink";
@@ -382,7 +382,7 @@ func main() {
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
-	var effectIndex int32 = 2
+	var effectIndex int32 = 1
 
 	effect := asposeslidescloud.NewEffect()
 	effect.Type_ = "Blink"

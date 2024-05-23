@@ -126,8 +126,8 @@ class Application
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portion textPortion = new Portion
         {
@@ -161,8 +161,8 @@ public class Application {
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portion textPortion = new Portion();
         textPortion.setLatinFont("Times New Roman");
@@ -196,8 +196,8 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
 $shapeIndex = 2;
-$paragraphIndex = 3;
-$portionIndex = 2;
+$paragraphIndex = 1;
+$portionIndex = 1;
 
 $textPortion = new Portion();
 $textPortion->setLatinFont("Times New Roman");
@@ -228,8 +228,8 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portion = Portion.new
 text_portion.latin_font = "Times New Roman"
@@ -256,8 +256,8 @@ file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portion = Portion()
 text_portion.latin_font = "Times New Roman"
@@ -282,8 +282,8 @@ fileName = "MyPresentation.pptx";
 slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
 shapeIndex = 2;
-paragraphIndex = 3;
-portionIndex = 2;
+paragraphIndex = 1;
+portionIndex = 1;
 
 textPortion = new cloudSdk.Portion();
 textPortion.latinFont = "Times New Roman";
@@ -312,8 +312,8 @@ int main()
     int slideIndex = 1;
     const wchar_t* slideType = L"LayoutSlide";
     int shapeIndex = 2;
-    int paragraphIndex = 3;
-    int portionIndex = 2;
+    int paragraphIndex = 1;
+    int portionIndex = 1;
 
     std::shared_ptr<Portion> textPortion = std::make_shared<Portion>();
     textPortion->setLatinFont(L"Times New Roman");
@@ -345,8 +345,8 @@ my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $slide_type = "LayoutSlide";
 my $shape_index = 2;
-my $paragraph_index = 3;
-my $portion_index = 2;
+my $paragraph_index = 1;
+my $portion_index = 1;
 
 my $text_portion = AsposeSlidesCloud::Object::Portion->new();
 $text_portion->{latin_font} = "Times New Roman";
@@ -385,8 +385,8 @@ func main() {
 	var slideIndex int32 = 1
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
 	var shapeIndex int32 = 2
-	var paragraphIndex int32 = 3
-	var portionIndex int32 = 2
+	var paragraphIndex int32 = 1
+	var portionIndex int32 = 1
 
 	textPortion := asposeslidescloud.NewPortion()
 	textPortion.LatinFont = "Times New Roman"
