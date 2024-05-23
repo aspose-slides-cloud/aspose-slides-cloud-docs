@@ -6,291 +6,591 @@ keywords:
 - REST API
 - cloud API
 - view properties
+- last view
+- horizontal bar state
+- vertical bar state
+- single view
+- view scale
+- show comments
+- handout view
+- outline view
+- slide view
+- slide master view
+- notes master view
+- slide thumbnail view
 type: docs
 url: /working-with-view-properties/
 weight: 60
 ---
+
 ## **Introduction**
-Aspose.Slides Cloud API allows reading and updating view properties of the presentation. 
+
+In PowerPoint documents, view properties refer to the various viewing modes available that allow you to work with your presentation in different ways, depending on your current needs. Use the following methods to get and update the view properties of a presentation. 
 
 ## **GetViewProperties**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/viewProperties|GET|Read presentation view properties.|[GetViewProperties]()|
+|/slides/{name}/viewProperties|GET|Returns the view properties from a presentation saved in a storage.|[GetViewProperties](https://reference.aspose.cloud/slides/#/Document/GetViewProperties)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 ### **Examples**
-**cURL Example**
 
-The code examples below shows how to retrieve view properties from the presentation. 
+Retrieve the view properties from the document **MyPresentation.pptx** saved in the **default** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+**Get an Access Token**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Get the View Properties**
+
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```sh
+**Response Example**
 
-Code: 200
-Returns view properties data.
-
+```json
+{
+  "lastView": "SlideView",
+  "horizontalBarState": "Restored",
+  "verticalBarState": "Restored",
+  "preferSingleView": false,
+  "restoredLeft": {
+    "autoAdjust": true,
+    "dimensionSize": 15.62
+  },
+  "restoredTop": {
+    "autoAdjust": true,
+    "dimensionSize": 94.66
+  },
+  "slideViewProperties": {
+    "scale": 93,
+    "variableScale": true
+  },
+  "notesViewProperties": {
+    "scale": 1,
+    "variableScale": false
+  },
+  "showComments": "True",
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-ViewProperties response = api.GetViewProperties("MyPresentation.pptx");
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.ShowComments == ViewProperties.ShowCommentsEnum.True)
-	Console.WriteLine("Comments enabled.");
+        ViewProperties viewProperties = slidesApi.GetViewProperties("MyPresentation.pptx");
+
+        Console.WriteLine("Horizontal bar state: " + viewProperties.HorizontalBarState);
+        Console.WriteLine("Last view: " + viewProperties.LastView);
+        Console.WriteLine("Notes view scale: " + viewProperties.NotesViewProperties.Scale);
+        Console.WriteLine("Prefer single view: " + viewProperties.PreferSingleView);
+        Console.WriteLine("Show comments: " + viewProperties.ShowComments);
+        Console.WriteLine("Slide view scale: " + viewProperties.SlideViewProperties.Scale);
+        Console.WriteLine("Vertical bar state: " + viewProperties.VerticalBarState);
+    }
+}
+
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: False
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.ViewProperties;
 
-ViewProperties response = api.getViewProperties("MyPresentation.pptx", null, null, null);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.getShowComments() == ViewProperties.ShowCommentsEnum.TRUE)
-	System.out.println("Comments enabled.");
+        ViewProperties viewProperties = slidesApi.getViewProperties("MyPresentation.pptx", null, null, null);
+
+        System.out.println("Horizontal bar state: " + viewProperties.getHorizontalBarState());
+        System.out.println("Last view: " + viewProperties.getLastView());
+        System.out.println("Notes view scale: " + viewProperties.getNotesViewProperties().getScale());
+        System.out.println("Prefer single view: " + viewProperties.isPreferSingleView());
+        System.out.println("Show comments: " + viewProperties.getShowComments());
+        System.out.println("Slide view scale: " + viewProperties.getSlideViewProperties().getScale());
+        System.out.println("Vertical bar state: " + viewProperties.getVerticalBarState());
+    }
+}
+
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: false
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$result = $api->getViewProperties("MyPresentation.pptx");
+$slidesApi = new SlidesApi(null, $configuration);
 
-if ($result->getShowComments() == 'True')
-	print("Comments enabled.");
+$viewProperties = $slidesApi->getViewProperties("MyPresentation.pptx");
+
+print("Horizontal bar state: " . $viewProperties->getHorizontalBarState()) . "\r\n";
+print("Last view: " . $viewProperties->getLastView() . "\r\n");
+print("Notes view scale: " . $viewProperties->getNotesViewProperties()->getScale() . "\r\n");
+print("Prefer single view: " . $viewProperties->getPreferSingleView() . "\r\n");
+print("Show comments: " . $viewProperties->getShowComments() . "\r\n");
+print("Slide view scale: " . $viewProperties->getSlideViewProperties()->getScale() . "\r\n");
+print("Vertical bar state: " . $viewProperties->getVerticalBarState() . "\r\n");
+
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: 
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_view_properties("MyPresentation.pptx")
+slides_api = SlidesApi.new(configuration)
 
-if response.show_comments === 'True'
-    print "Comments enabled."
-end
+view_properties = slides_api.get_view_properties("MyPresentation.pptx")
+
+puts "Horizontal bar state: #{view_properties.horizontal_bar_state}"
+puts "Last view: #{view_properties.last_view}"
+puts "Notes view scale: #{view_properties.notes_view_properties.scale}"
+puts "Prefer single view: #{view_properties.prefer_single_view}"
+puts "Show comments: #{view_properties.show_comments}"
+puts "Slide view scale: #{view_properties.slide_view_properties.scale}"
+puts "Vertical bar state: #{view_properties.vertical_bar_state}"
+
+# Example output:
+#
+# Horizontal bar state: Restored
+# Last view: SlideView
+# Notes view scale: 1
+# Prefer single view: false
+# Show comments: True
+# Slide view scale: 93
+# Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+view_properties = slides_api.get_view_properties("MyPresentation.pptx")
 
-response = api.get_view_properties("MyPresentation.pptx")
-if response.show_comments == 'true':
-	print("Comments enabled.")
+print("Horizontal bar state:", view_properties.horizontal_bar_state)
+print("Last view:", view_properties.last_view)
+print("Notes view scale:", view_properties.notes_view_properties.scale)
+print("Prefer single view:", view_properties.prefer_single_view)
+print("Show comments:", view_properties.show_comments)
+print("Slide view scale:", view_properties.slide_view_properties.scale)
+print("Vertical bar state:", view_properties.vertical_bar_state)
+
+# Example output:
+#
+# Horizontal bar state: Restored
+# Last view: SlideView
+# Notes view scale: 1
+# Prefer single view: False
+# Show comments: True
+# Slide view scale: 93
+# Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-let response = await api.getViewProperties("MyPresentation.pptx");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-if (response.body.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.True)
-	console.log("Comments enabled.");
+slidesApi.getViewProperties("MyPresentation.pptx").then(viewProperties => {
+    console.log("Horizontal bar state:", viewProperties.body.horizontalBarState);
+    console.log("Last view:", viewProperties.body.lastView);
+    console.log("Notes view scale:", viewProperties.body.notesViewProperties.scale);
+    console.log("Prefer single view:", viewProperties.body.preferSingleView);
+    console.log("Show comments:", viewProperties.body.showComments);
+    console.log("Slide view scale:", viewProperties.body.slideViewProperties.scale);
+    console.log("Vertical bar state:", viewProperties.body.verticalBarState);
+});
+
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: false
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-fileName := "MyPresentation.pptx"
-response, _, e := api.SlidesApi.GetViewProperties(fileName, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    std::shared_ptr<ViewProperties> viewProperties = slidesApi->getViewProperties(L"MyPresentation.pptx").get();
+
+    std::wcout << L"Horizontal bar state: " << viewProperties->getHorizontalBarState() << std::endl;
+    std::wcout << L"Last view: " << viewProperties->getLastView() << std::endl;
+    std::wcout << L"Notes view scale: " << viewProperties->getNotesViewProperties()->getScale() << std::endl;
+    std::wcout << L"Prefer single view: " << viewProperties->isPreferSingleView() << std::endl;
+    std::wcout << L"Show comments: " << viewProperties->getShowComments() << std::endl;
+    std::wcout << L"Slide view scale: " << viewProperties->getSlideViewProperties()->getScale() << std::endl;
+    std::wcout << L"Vertical bar state: " << viewProperties->getVerticalBarState() << std::endl;
 }
 
-if response.GetShowComments() == "True" {
-    fmt.Printf("Comments enabled.")
-}
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: 0
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $view_properties = $slides_api->get_view_properties(name => "MyPresentation.pptx");
+
+print "Horizontal bar state: $view_properties->{horizontal_bar_state}\n";
+print "Last view: $view_properties->{last_view}\n";
+print "Notes view scale: $view_properties->{notes_view_properties}{scale}\n";
+print "Prefer single view: $view_properties->{prefer_single_view}\n";
+print "Show comments: $view_properties->{show_comments}\n";
+print "Slide view scale: $view_properties->{slide_view_properties}{scale}\n";
+print "Vertical bar state: $view_properties->{vertical_bar_state}\n";
+
+# Example output:
+#
+# Horizontal bar state: Restored
+# Last view: SlideView
+# Notes view scale: 1
+# Prefer single view: 0
+# Show comments: True
+# Slide view scale: 93
+# Vertical bar state: Restored
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
+```go
+import (
+	"fmt"
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-#Code example will be added soon.
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	viewProperties, _, _ := slidesApi.GetViewProperties("MyPresentation.pptx", "", "", "")
+
+	fmt.Println("Horizontal bar state:", viewProperties.GetHorizontalBarState())
+	fmt.Println("Last view:", viewProperties.GetLastView())
+	fmt.Println("Notes view scale:", viewProperties.GetNotesViewProperties().GetScale())
+	fmt.Println("Prefer single view:", viewProperties.GetPreferSingleView())
+	fmt.Println("Show comments:", viewProperties.GetShowComments())
+	fmt.Println("Slide view scale:", viewProperties.GetSlideViewProperties().GetScale())
+	fmt.Println("Vertical bar state:", viewProperties.GetVerticalBarState())
+}
+
+// Example output:
+//
+// Horizontal bar state: Restored
+// Last view: SlideView
+// Notes view scale: 1
+// Prefer single view: false
+// Show comments: True
+// Slide view scale: 93
+// Vertical bar state: Restored
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-
 ## **SetViewProperties**
 
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/viewProperties|PUT|Update presentation view properties.|[SetViewProperties]()|
+|/slides/{name}/viewProperties|PUT|Updates the view properties of a presentation saved in a storage.|[SetViewProperties](https://reference.aspose.cloud/slides/#/Document/SetViewProperties)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|dto|`ViewProperties`|body|true|The data transfer object with the view properties.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
 
 ### **Examples**
-**cURL Example**
 
-The code examples below shows how to set view properties of the presentation.
+**Hide comments** and set the **slide view scale** to **50** in the document **MyPresentation.pptx** saved in the **default** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+**Get an Access Token**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slideShowProperties" \
--H "Authorization: Bearer [Access Token]" \
--H "Content-Type: application/json" \
--d @request_data.json
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-request_data.json content:
+**Set the View Properties**
+
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @ViewProperties.json
+```
+
+ViewProperties.json content:
 
 ```json
 {
   "ShowComments": "False",
-  "SlideViewProperties":{
+  "SlideViewProperties": {
 	"Scale": 50
   }
 }
 ```
 
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
+**Response Example**
 
-```sh
-
-Code: 200
-Returns view properties data.
-
+```json
+{
+  "lastView": "SlideView",
+  "horizontalBarState": "Maximized",
+  "verticalBarState": "Restored",
+  "preferSingleView": false,
+  "restoredLeft": {
+    "autoAdjust": false,
+    "dimensionSize": 15.62
+  },
+  "restoredTop": {
+    "autoAdjust": false,
+    "dimensionSize": 94.66
+  },
+  "slideViewProperties": {
+    "scale": 50,
+    "variableScale": true
+  },
+  "notesViewProperties": {
+    "scale": 75,
+    "variableScale": true
+  },
+  "showComments": "False",
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
+**SDK Solutions**
 
-**SDK Examples**
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
-{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-ViewProperties dto = new ViewProperties()
+class Application
 {
-	ShowComments = ViewProperties.ShowCommentsEnum.False,
-	SlideViewProperties = new CommonSlideViewProperties()
-	{
-		Scale = 50
-	}
-};
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-ViewProperties response = api.SetViewProperties("MyPresentation.pptx", dto);
+        string fileName = "MyPresentation.pptx";
 
-if (response.ShowComments == ViewProperties.ShowCommentsEnum.False)
-	Console.WriteLine("Comments disabled.");
+        ViewProperties viewProperties = new ViewProperties
+        {
+            ShowComments = ViewProperties.ShowCommentsEnum.False,
+            SlideViewProperties = new CommonSlideViewProperties
+            {
+                Scale = 50
+            }
+        };
+
+        ViewProperties updatedProperties = slidesApi.SetViewProperties(fileName, viewProperties);
+
+        Console.WriteLine("Show comments: " + updatedProperties.ShowComments);                 // False
+        Console.WriteLine("Slide view scale: " + updatedProperties.SlideViewProperties.Scale); // 50
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.ViewProperties;
+import com.aspose.slides.model.CommonSlideViewProperties;
 
-ViewProperties dto = new ViewProperties();
-dto.showComments(ViewProperties.ShowCommentsEnum.FALSE);
-CommonSlideViewProperties commonProperties = new CommonSlideViewProperties();
-commonProperties.setScale(50);
-dto.setSlideViewProperties(commonProperties);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-ViewProperties response = api.setViewProperties("MyPresentation.pptx", dto, null, null, null);
+        String fileName = "MyPresentation.pptx";
 
-if (response.getShowComments() == ViewProperties.ShowCommentsEnum.FALSE)
-	System.out.println("Comments disabled.");
+        ViewProperties viewProperties = new ViewProperties();
+        viewProperties.setShowComments(ViewProperties.ShowCommentsEnum.FALSE);
+        viewProperties.setSlideViewProperties(new CommonSlideViewProperties());
+        viewProperties.getSlideViewProperties().setScale(50);
+
+        ViewProperties updatedProperties = slidesApi.setViewProperties(fileName, viewProperties, null, null, null);
+
+        System.out.println("Show comments: " + updatedProperties.getShowComments());                      // False
+        System.out.println("Slide view scale: " + updatedProperties.getSlideViewProperties().getScale()); // 50
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
@@ -299,144 +599,191 @@ use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
 use Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$dto = new ViewProperties();
-$dto->setShowComments('False');
-$slideViewProperties = new CommonSlideViewProperties();
-$slideViewProperties->setScale(50);
-$dto->setSlideViewProperties($slideViewProperties);
+$slidesApi = new SlidesApi(null, $configuration);
 
-$result = $api->setViewProperties("MyPresentation.pptx", $dto);
+$fileName = "MyPresentation.pptx";
 
-if ($result->getShowComments() == 'False')
-	print("Comments disabled.");
+$viewProperties = new ViewProperties();
+$viewProperties->setShowComments("False");
+$viewProperties->setSlideViewProperties(new CommonSlideViewProperties());
+$viewProperties->getSlideViewProperties()->setScale(50);
+
+$updatedProperties = $slidesApi->setViewProperties($fileName, $viewProperties);
+
+print("Show comments: " . $updatedProperties->getShowComments() . "\n");                        // False
+print("Slide view scale: " . $updatedProperties->getSlideViewProperties()->getScale() . "\n");  // 50
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-dto = AsposeSlidesCloud::ViewProperties.new
-dto.show_comments = "False"
-dto.slide_view_properties = AsposeSlidesCloud::CommonSlideViewProperties.new
-dto.slide_view_properties.scale = 50
-      
-response = api.set_view_properties("MyPresentation.pptx", dto)
+slides_api = SlidesApi.new(configuration)
 
-if response.show_comments === 'False'
-    print "Comments disabled."
-end
+file_name = "MyPresentation.pptx"
+
+view_properties = ViewProperties.new
+view_properties.show_comments = "False"
+view_properties.slide_view_properties = CommonSlideViewProperties.new
+view_properties.slide_view_properties.scale = 50
+
+updated_properties = slides_api.set_view_properties(file_name, view_properties)
+
+puts "Show comments: #{updated_properties.show_comments}"                   # False
+puts "Slide view scale: #{updated_properties.slide_view_properties.scale}"  # 50
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import ViewProperties
+from asposeslidescloud.models import CommonSlideViewProperties
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.view_properties import ViewProperties
-from asposeslidescloud.models.common_slide_view_properties import CommonSlideViewProperties
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+file_name = "MyPresentation.pptx"
 
-dto = ViewProperties()
-dto.show_comments = "False"
-dto.slide_view_properties = CommonSlideViewProperties()
-dto.slide_view_properties.scale = 50
-        
-response = api.set_view_properties("MyPresentation.pptx", dto)
-if response.show_comments == 'false':
-	print("Comments disabled.")
+view_properties = ViewProperties()
+view_properties.show_comments = "False"
+view_properties.slide_view_properties = CommonSlideViewProperties()
+view_properties.slide_view_properties.scale = 50
+
+updated_properties = slides_api.set_view_properties(file_name, view_properties)
+
+print("Show comments:", updated_properties.show_comments)                   # False
+print("Slide view scale:", updated_properties.slide_view_properties.scale)  # 50
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-const slideViewPropDto = new CloudSdk.CommonSlideViewProperties();
-slideViewPropDto.scale = 50;
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new CloudSdk.ViewProperties();
-dto.showComments = CloudSdk.ViewProperties.ShowCommentsEnum.False;
-dto.slideViewProperties = slideViewPropDto;
+fileName = "MyPresentation.pptx";
 
-let response = await api.setViewProperties("MyPresentation.pptx", dto);
+viewProperties = new cloudSdk.ViewProperties();
+viewProperties.showComments = cloudSdk.ViewProperties.ShowCommentsEnum.False;
+viewProperties.slideViewProperties = new cloudSdk.CommonSlideViewProperties();
+viewProperties.slideViewProperties.scale = 50;
 
-if (response.showComments === CloudSdk.ViewProperties.ShowCommentsEnum.False)
-	console.log("Comments disabled.");
+slidesApi.setViewProperties(fileName, viewProperties).then(updatedProperties => {
+    console.log("Show comments:", updatedProperties.body.showComments);                 // False
+    console.log("Slide view scale:", updatedProperties.body.slideViewProperties.scale); // 50
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-fileName := "MyPresentation.pptx"
-dto := asposeslidescloud.NewViewProperties()
-dto.SetShowComments("False")
-slideViewProperties := asposeslidescloud.NewCommonSlideViewProperties()
-slideViewProperties.SetScale(50)
-dto.SetSlideViewProperties(slideViewProperties)
+using namespace asposeslidescloud::api;
 
-response, _, e := api.SlidesApi.SetViewProperties(fileName, dto, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
-}
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-if response.GetShowComments() == "False" {
-    fmt.Printf("Comments disabled.")
+    const wchar_t* fileName = L"MyPresentation.pptx";
+
+    std::shared_ptr<ViewProperties> viewProperties = std::make_shared<ViewProperties>();
+    viewProperties->setShowComments(L"False");
+    viewProperties->setSlideViewProperties(std::make_shared<CommonSlideViewProperties>());
+    viewProperties->getSlideViewProperties()->setScale(50);
+
+    std::shared_ptr<ViewProperties> updatedProperties = slidesApi->setViewProperties(fileName, viewProperties).get();
+
+    std::wcout << L"Show comments: " << updatedProperties->getShowComments() << std::endl;                        // False
+    std::wcout << L"Slide view scale: " << updatedProperties->getSlideViewProperties()->getScale() << std::endl;  // 50
 }
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::ViewProperties;
+use AsposeSlidesCloud::Object::CommonSlideViewProperties;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_name = "MyPresentation.pptx";
+
+my $view_properties = AsposeSlidesCloud::Object::ViewProperties->new();
+$view_properties->{show_comments} = "False";
+$view_properties->{slide_view_properties} = AsposeSlidesCloud::Object::CommonSlideViewProperties->new();
+$view_properties->{slide_view_properties}{scale} = 50;
+
+my $updated_properties = $slides_api->set_view_properties(name => $file_name, dto => $view_properties);
+
+print "Show comments: $updated_properties->{show_comments}\n";                      # False
+print "Slide view scale: $updated_properties->{slide_view_properties}{scale}\n";    # 50
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
+```go
+import (
+	"fmt"
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-#Code example will be added soon.
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+
+	viewProperties := asposeslidescloud.NewViewProperties()
+	viewProperties.SetShowComments("False")
+	viewProperties.SetSlideViewProperties(asposeslidescloud.NewCommonSlideViewProperties())
+	viewProperties.GetSlideViewProperties().SetScale(50)
+
+	updatedProperties, _, _ := slidesApi.SetViewProperties(fileName, viewProperties, "", "", "")
+
+	fmt.Println("Show comments:", updatedProperties.GetShowComments())                      // False
+	fmt.Println("Slide view scale:", updatedProperties.GetSlideViewProperties().GetScale()) // 50
+}
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
+## **SDKs**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
