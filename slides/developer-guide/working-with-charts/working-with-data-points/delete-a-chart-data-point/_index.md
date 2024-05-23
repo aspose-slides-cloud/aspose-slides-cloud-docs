@@ -32,7 +32,7 @@ In PowerPoint presentations, data points are the individual values or pieces of 
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a scatter chart (the **second** shape) that displays the number of items sold for quarters 1 through 4 (**one** data series). Delete data for the **4th** quarter.
+In the **default** storage, the document **MyPresentation.pptx** contains a scatter chart (the **second** shape) that displays the number of items sold for quarters 1 through 4 (**one** data series). Delete data for the **3th** quarter.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
@@ -55,7 +55,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 ```
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series/1/dataPoints/4" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/series/1/dataPoints/3" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -93,7 +93,7 @@ class Application
         int slideIndex = 3;
         int shapeIndex = 2;
         int seriesIndex = 1;
-        int pointIndex = 4;
+        int pointIndex = 3;
 
         Chart chart = slidesApi.DeleteChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex);
 
@@ -122,7 +122,7 @@ public class Application {
         int slideIndex = 3;
         int shapeIndex = 2;
         int seriesIndex = 1;
-        int pointIndex = 4;
+        int pointIndex = 3;
 
         Chart chart = slidesApi.deleteChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, null, null, null);
 
@@ -151,7 +151,7 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 3;
 $shapeIndex = 2;
 $seriesIndex = 1;
-$pointIndex = 4;
+$pointIndex = 3;
 
 $chart = $slidesApi->deleteChartDataPoint($fileName, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex);
 
@@ -178,7 +178,7 @@ file_name = "MyPresentation.pptx"
 slide_index = 3
 shape_index = 2
 series_index = 1
-point_index = 4
+point_index = 3
 
 chart = slides_api.delete_chart_data_point(file_name, slide_index, shape_index, series_index, point_index)
 
@@ -199,7 +199,7 @@ file_name = "MyPresentation.pptx"
 slide_index = 3
 shape_index = 2
 series_index = 1
-point_index = 4
+point_index = 3
 
 chart = slides_api.delete_chart_data_point(file_name, slide_index, shape_index, series_index, point_index)
 
@@ -220,7 +220,7 @@ fileName = "MyPresentation.pptx";
 slideIndex = 3;
 shapeIndex = 2;
 seriesIndex = 1;
-pointIndex = 4;
+pointIndex = 3;
 
 slidesApi.deleteChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex).then(chart => {
     dataPointCount = chart.body.series[0].dataPoints.length;
@@ -246,7 +246,7 @@ int main()
     int slideIndex = 3;
     int shapeIndex = 2;
     int seriesIndex = 1;
-    int pointIndex = 4;
+    int pointIndex = 3;
 
     std::shared_ptr<Chart> chart = slidesApi->deleteChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex).get();
 
@@ -274,7 +274,7 @@ my $file_name = "MyPresentation.pptx";
 my $slide_index = 3;
 my $shape_index = 2;
 my $series_index = 1;
-my $point_index = 4;
+my $point_index = 3;
 
 my $chart = $slides_api->delete_chart_data_point(
     name => $file_name, slide_index => $slide_index, shape_index => $shape_index, series_index => $series_index, point_index => $point_index);
@@ -309,7 +309,7 @@ func main() {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 2
 	var seriesIndex int32 = 1
-	var pointIndex int32 = 4
+	var pointIndex int32 = 3
 
 	chart, _, _ := slidesApi.DeleteChartDataPoint(fileName, slideIndex, shapeIndex, seriesIndex, pointIndex, "", "", "")
 

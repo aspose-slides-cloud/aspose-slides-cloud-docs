@@ -58,7 +58,7 @@ Aspose.Slides Cloud API allows you to read, add, and modify text portions on spe
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **Layout** of the **first** slide. The **second** text box contains three paragraphs. Delete the **second** text portion from the **third** paragraph.
+The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **Layout** of the **first** slide. The **second** text box contains three paragraphs. Delete the **first** text portion from the **first** paragraph.
 
 ![Layout slide](input.png)
 
@@ -79,7 +79,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Text Portion**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/LayoutSlide/shapes/2/paragraphs/3/portions/2" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/LayoutSlide/shapes/2/paragraphs/1/portions/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -98,7 +98,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
       "fontHeight": "NaN",
       "languageId": "en-US",
       "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions/1",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/1/portions/1",
         "relation": "self",
         "shapeIndex": 2
       }
@@ -109,14 +109,14 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
       "fontHeight": "NaN",
       "languageId": "en-US",
       "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions/2",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/1/portions/1",
         "relation": "self",
         "shapeIndex": 2
       }
     }
   ],
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/1/paragraphs/1/portions",
     "relation": "self",
     "shapeIndex": 2
   }
@@ -150,7 +150,7 @@ class Application
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
         int shapeIndex = 2;
         int paragraphIndex = 1;
-        int portionIndex = 2;
+        int portionIndex = 1;
 
         Portions textPortions = slidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex);
 
@@ -179,7 +179,7 @@ public class Application {
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
         int shapeIndex = 2;
         int paragraphIndex = 1;
-        int portionIndex = 2;
+        int portionIndex = 1;
 
         Portions textPortions = slidesApi.deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, null, null, null, null);
 
@@ -209,7 +209,7 @@ $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
 $shapeIndex = 2;
 $paragraphIndex = 1;
-$portionIndex = 2;
+$portionIndex = 1;
 
 $textPortions = $slidesApi->deleteSpecialSlidePortion($fileName, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex);
 
@@ -237,7 +237,7 @@ slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
 shape_index = 2
 paragraph_index = 1
-portion_index = 2
+portion_index = 1
 
 text_portions = slides_api.delete_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
 
@@ -260,7 +260,7 @@ slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
 shape_index = 2
 paragraph_index = 1
-portion_index = 2
+portion_index = 1
 
 text_portions = slides_api.delete_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
 
@@ -282,7 +282,7 @@ slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
 shapeIndex = 2;
 paragraphIndex = 1;
-portionIndex = 2;
+portionIndex = 1;
 
 slidesApi.deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).then(textPortions => {
     portionCount = textPortions.body.items.length;
@@ -308,7 +308,7 @@ int main()
     const wchar_t* slideType = L"LayoutSlide";
     int shapeIndex = 2;
     int paragraphIndex = 1;
-    int portionIndex = 2;
+    int portionIndex = 1;
 
     std::shared_ptr<Portions> textPortions = slidesApi->deleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).get();
 
@@ -336,7 +336,7 @@ my $slide_index = 1;
 my $slide_type = "LayoutSlide";
 my $shape_index = 2;
 my $paragraph_index = 1;
-my $portion_index = 2;
+my $portion_index = 1;
 
 my $text_portions = $slides_api->delete_special_slide_portion(
     name => $file_name, slide_index => $slide_index, slide_type => $slide_type, shape_index => $shape_index, paragraph_index => $paragraph_index, portion_index => $portion_index);
@@ -372,7 +372,7 @@ func main() {
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
-	var portionIndex int32 = 2
+	var portionIndex int32 = 1
 
 	textPortions, _, _ := slidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
 

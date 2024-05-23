@@ -30,7 +30,7 @@ Aspose.Slides Cloud API allows you to read, add, and modify animations in PowerP
 
 ### **Example**
 
-The document **MyPresentation.pptx** contains two effects in the **main** animation sequence on the **first** slide. Delete the **second** effect.
+The document **MyPresentation.pptx** contains two effects in the **main** animation sequence on the **first** slide. Delete the **first** effect.
 
 **cURL Solution**
 
@@ -49,7 +49,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Effect**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/mainSequence/2" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/animation/mainSequence/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -104,7 +104,7 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int effectIndex = 2;
+        int effectIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.DeleteAnimationEffect(fileName, slideIndex, effectIndex);
 
@@ -129,7 +129,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int effectIndex = 2;
+        int effectIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.deleteAnimationEffect(fileName, slideIndex, effectIndex, null, null, null);
 
@@ -156,7 +156,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$effectIndex = 2;
+$effectIndex = 1;
 
 $slideAnimation = $slidesApi->deleteAnimationEffect($fileName, $slideIndex, $effectIndex);
 
@@ -181,7 +181,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-effect_index = 2
+effect_index = 1
 
 slide_animation = slides_api.delete_animation_effect(file_name, slide_index, effect_index)
 
@@ -200,7 +200,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-effect_index = 2
+effect_index = 1
 
 slide_animation = slides_api.delete_animation_effect(file_name, slide_index, effect_index)
 
@@ -219,7 +219,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-effectIndex = 2;
+effectIndex = 1;
 
 slidesApi.deleteAnimationEffect(fileName, slideIndex, effectIndex).then(slideAnimation => {
     effectCount = slideAnimation.body.mainSequence.length;
@@ -242,7 +242,7 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    int effectIndex = 2;
+    int effectIndex = 1;
 
     std::shared_ptr<SlideAnimation> slideAnimation = slidesApi->deleteAnimationEffect(fileName, slideIndex, effectIndex).get();
 
@@ -268,7 +268,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $effect_index = 2;
+my $effect_index = 1;
 
 my %parameters = (name => $file_name, slide_index => $slide_index, effect_index => $effect_index);
 my $slide_animation = $slides_api->delete_animation_effect(%parameters);

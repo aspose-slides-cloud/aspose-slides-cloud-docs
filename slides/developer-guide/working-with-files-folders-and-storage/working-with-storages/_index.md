@@ -81,9 +81,9 @@ class Application
     {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        string storageName = "MyStorage";
+        string storageNameToCheck = "MainStorage";
 
-        StorageExist storageExist = slidesApi.StorageExists(storageName);
+        StorageExist storageExist = slidesApi.StorageExists(storageNameToCheck);
 
         Console.WriteLine("Storage exists: " + storageExist.Exists);
     }
@@ -103,9 +103,9 @@ public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "MyStorage";
+        String storageNameToCheck = "MainStorage";
 
-        StorageExist storageExist = slidesApi.storageExists(storageName);
+        StorageExist storageExist = slidesApi.storageExists(storageNameToCheck);
 
         System.out.println("Storage exists: " + storageExist.isExists());
     }
@@ -126,9 +126,9 @@ $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "MyStorage";
+$storageNameToCheck = "MainStorage";
 
-$storageExist = $slidesApi->storageExists($storageName);
+$storageExist = $slidesApi->storageExists($storageNameToCheck);
 
 echo "Storage exists: ", $storageExist->getExists();
 ```
@@ -148,9 +148,9 @@ configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
 
-storage_name = "MyStorage"
+storage_name_to_check = "MainStorage"
 
-storage_exist = slides_api.storage_exists(storage_name)
+storage_exist = slides_api.storage_exists(storage_name_to_check)
 
 print "Storage exists: ", storage_exist.exists
 ```
@@ -164,9 +164,9 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-storage_name = "MyStorage"
+storage_name_to_check = "MainStorage"
 
-storage_exist = slides_api.storage_exists(storage_name)
+storage_exist = slides_api.storage_exists(storage_name_to_check)
 
 print("Storage exists:", storage_exist.exists)
 ```
@@ -180,9 +180,9 @@ const cloudSdk = require("asposeslidescloud");
 
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-storageName = "MyStorage";
+storageNameToCheck = "MainStorage";
 
-slidesApi.storageExists(storageName).then(storageExist => {
+slidesApi.storageExists(storageNameToCheck).then(storageExist => {
     console.log("Storage exists:", storageExist.body.exists);
 });
 ```
@@ -200,9 +200,9 @@ int main()
 {
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-    const wchar_t* storageName = L"MyStorage";
+    const wchar_t* storageNameToCheck = L"MainStorage";
 
-    std::shared_ptr<StorageExist> storageExist = slidesApi->storageExists(storageName).get();
+    std::shared_ptr<StorageExist> storageExist = slidesApi->storageExists(storageNameToCheck).get();
 
     std::wcout << L"Storage exists: " << storageExist->isExists();
 }
@@ -222,9 +222,9 @@ $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-my $storage_name = "MyStorage";
+my $storage_name_to_check = "MainStorage";
 
-my $storage_exist = $slides_api->storage_exists(storage_name => $storage_name);
+my $storage_exist = $slides_api->storage_exists(storage_name => $storage_name_to_check);
 
 print("Storage exists: ", $storage_exist->{exists});
 ```
