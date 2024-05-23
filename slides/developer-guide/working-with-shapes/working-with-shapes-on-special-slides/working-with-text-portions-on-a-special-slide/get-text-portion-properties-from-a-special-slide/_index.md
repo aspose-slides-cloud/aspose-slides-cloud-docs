@@ -57,7 +57,7 @@ Aspose.Slides Cloud API allows you to read, add, modify and delete text portions
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **Layout** of the **first** slide. The **second** text box contains three paragraphs. Get properties of the **second** text portion within the **third** paragraph.
+The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **Layout** of the **first** slide. The **second** text box contains three paragraphs. Get properties of the **first** text portion within the **first** paragraph.
 
 ![Layout slide](input.png)
 
@@ -78,7 +78,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Get the Text Portion Properties**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/LayoutSlide/shapes/2/paragraphs/3/portions/2" \
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/LayoutSlide/shapes/2/paragraphs/1/portions/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -101,7 +101,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/L
     "color": "#FFFF0000"
   },
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/3/portions/2",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides/1/shapes/2/paragraphs/1/portions/1",
     "relation": "self",
     "shapeIndex": 2
   }
@@ -134,8 +134,8 @@ class Application
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portion portion = slidesApi.GetSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex);
 
@@ -164,7 +164,7 @@ public class Application {
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
         int shapeIndex = 2;
         int paragraphIndex = 1;
-        int portionIndex = 2;
+        int portionIndex = 1;
 
         Portion portion = slidesApi.getSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, null, null, null, null);
 
@@ -194,7 +194,7 @@ $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
 $shapeIndex = 2;
 $paragraphIndex = 1;
-$portionIndex = 2;
+$portionIndex = 1;
 
 $portion = $slidesApi->getSpecialSlidePortion($fileName, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex);
 
@@ -222,7 +222,7 @@ slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
 shape_index = 2
 paragraph_index = 1
-portion_index = 2
+portion_index = 1
 
 portion = slides_api.get_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
 
@@ -245,7 +245,7 @@ slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
 shape_index = 2
 paragraph_index = 1
-portion_index = 2
+portion_index = 1
 
 portion = slides_api.get_special_slide_portion(file_name, slide_index, slide_type, shape_index, paragraph_index, portion_index)
 
@@ -267,7 +267,7 @@ slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
 shapeIndex = 2;
 paragraphIndex = 1;
-portionIndex = 2;
+portionIndex = 1;
 
 slidesApi.getSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).then(portion => {
     console.log("Italic font:", portion.body.fontItalic); // True
@@ -293,7 +293,7 @@ int main()
     const wchar_t* slideType = L"LayoutSlide";
     int shapeIndex = 2;
     int paragraphIndex = 1;
-    int portionIndex = 2;
+    int portionIndex = 1;
 
     std::shared_ptr<Portion> portion = slidesApi->getSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex).get();
 
@@ -321,7 +321,7 @@ my $slide_index = 1;
 my $slide_type = "LayoutSlide";
 my $shape_index = 2;
 my $paragraph_index = 1;
-my $portion_index = 2;
+my $portion_index = 1;
 
 my $portion = $slides_api->get_special_slide_portion(
     name => $file_name, slide_index => $slide_index, slide_type => $slide_type, shape_index => $shape_index, paragraph_index => $paragraph_index, portion_index => $portion_index);
@@ -357,7 +357,7 @@ func main() {
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
-	var portionIndex int32 = 2
+	var portionIndex int32 = 1
 
 	portion, _, _ := slidesApi.GetSpecialSlidePortion(fileName, slideIndex, slideType, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
 
