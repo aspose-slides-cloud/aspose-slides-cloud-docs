@@ -11,99 +11,157 @@ type: docs
 url: /merge-table-cells/
 weight: 40
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows merging table cells.
+
+Merging table cells in PowerPoint documents is the process of combining two or more cells into one larger cell. This is useful for creating headers, improving the appearance of the table, and enhancing data readability. After merging the cells, you can adjust the formatting of the merged cell to make it look appropriate. This includes changing the font size, text alignment, etc. Use the following method to merge table cells in a presentation.
+
 ## **MergeTableCells**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/mergeCells|POST|Returns table info|[MergeTableCells](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/mergeCells|POST|Merges table cells in a presentation saved in a storage.|[MergeTableCells](https://reference.aspose.cloud/slides/#/Table/MergeTableCells)|
 
-The code example below shows how to merge four cells {1,1} {1,2} {2,1} {2,2} into one cell.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a table).|
+|tableCellMergeOptions|`TableCellMergeOptions`|body|true|The data transfer object with merge parameters.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a table with 3 columns and 4 rows. Merge the four cells **(1,1)**, **(1,2)**, **(2,1)**, and **(2,2)** into one cell.
+
+![The table](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+
+**Get an Access Token**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/mergeCells" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"tableCellMergeOptions.json" 
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-tableCellMergeOptions.json
+**Merge the Cells**
+
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/mergeCells" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @MergeCells.json
+```
+
+MergeCells.json content:
 ```json
 {
-    "firstRowIndex": 1,
-    "firstCellIndex": 1,
-    "lastRowIndex": 2,
-    "lastCellIndex": 2,
-    "allowSplitting" : true
+  "FirstRowIndex": 1,
+  "FirstCellIndex": 1,
+  "LastRowIndex": 2,
+  "LastCellIndex": 2
 }
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
 
+```text
 Code: 200
 Returns table info.
-
 ```
+
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-var dto = new TableCellMergeOptions()
+class Application
 {
-    FirstRowIndex = 1,
-    FirstCellIndex = 1,
-    LastRowIndex = 2,
-    LastCellIndex = 2,
-    AllowSplitting = true
-};
-Table response = api.MergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto);
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Console.WriteLine("Cell col span is: " + response.Rows[0].Cells[0].ColSpan);
-Console.WriteLine("Cell row span is: " + response.Rows[0].Cells[0].RowSpan);
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+
+        TableCellMergeOptions mergeOptions = new TableCellMergeOptions
+        {
+            FirstRowIndex = 1,
+            FirstCellIndex = 1,
+            LastRowIndex = 2,
+            LastCellIndex = 2
+        };
+
+        Table table = slidesApi.MergeTableCells(fileName, slideIndex, shapeIndex, mergeOptions);
+
+        TableCell cell = table.Rows[0].Cells[0];
+        Console.WriteLine("Column span: " + cell.ColSpan); // 2
+        Console.WriteLine("Row span: " + cell.RowSpan);    // 2
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.TableCell;
+import com.aspose.slides.model.TableCellMergeOptions;
+import com.aspose.slides.model.Table;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-TableCellMergeOptions dto = new TableCellMergeOptions();
-dto.setFirstRowIndex(1);
-dto.setFirstCellIndex(1);
-dto.lastRowIndex(2);
-dto.lastCellIndex(2);
-dto.setAllowSplitting(true);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Table response = api.mergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto, null, null, null);
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
 
-System.out.println("Cell col span is: " + response.getRows().get(0).getCells().get(0).getColSpan());
-System.out.println("Cell row span is: " + response.getRows().get(0).getCells().get(0).getRowSpan());
+        TableCellMergeOptions mergeOptions = new TableCellMergeOptions();
+        mergeOptions.setFirstRowIndex(1);
+        mergeOptions.setFirstCellIndex(1);
+        mergeOptions.setLastRowIndex(2);
+        mergeOptions.setLastCellIndex(2);
+
+        Table table = slidesApi.mergeTableCells(fileName, slideIndex, shapeIndex, mergeOptions, null, null, null);
+
+        TableCell cell = table.getRows().get(0).getCells().get(0);
+        System.out.println("Column span: " + cell.getColSpan()); // 2
+        System.out.println("Row span: " + cell.getRowSpan());    // 2
+    }
+}
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
@@ -111,172 +169,222 @@ use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$slideIndex = 9;
-$shapeIndex = 1;
-$dto = new TableCellMergeOptions();
-$dto->setFirstRowIndex(1);
-$dto->setFirstCellIndex(1);
-$dto->setLastRowIndex(2);
-$dto->setLastCellIndex(2);
-$dto->setAllowSplitting(true);
+$slidesApi = new SlidesApi(null, $configuration);
 
-$result = $api->mergeTableCells("MyPresentation.pptx", $slideIndex, $shapeIndex, $dto);
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+$shapeIndex = 2;
 
-print("Cell col span is: " . $result->getRows()[0]->getCells()[0]->getColSpan());
-print("Cell row span is: " . $result->getRows()[0]->getCells()[0]->getRowSpan());
+$mergeOptions = new TableCellMergeOptions();
+$mergeOptions->setFirstRowIndex(1);
+$mergeOptions->setFirstCellIndex(1);
+$mergeOptions->setLastRowIndex(2);
+$mergeOptions->setLastCellIndex(2);
+
+$table = $slidesApi->mergeTableCells($fileName, $slideIndex, $shapeIndex, $mergeOptions);
+
+$cell = $table->getRows()[0]->getCells()[0];
+echo "Column span: " . $cell->getColSpan() . "\n"; // 2
+echo "Row span: " . $cell->getRowSpan() . "\n";    // 2
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-slide_index = 9
-shape_index = 1        
-dto = AsposeSlidesCloud::TableCellMergeOptions.new
-dto.first_row_index = 1
-dto.first_cell_index = 1
-dto.last_row_index = 2
-dto.last_cell_index = 2
-dto.allow_splitting = true
+slides_api = SlidesApi.new(configuration)
 
-result = api.merge_table_cells("MyPresentation.pptx", slide_index, shape_index, dto)
-puts "Cell col span is: #{result.rows[0].cells[0].col_span}"
-puts "Cell row span is: #{result.rows[0].cells[0].row_span}"
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+
+merge_options = TableCellMergeOptions.new
+merge_options.first_row_index = 1
+merge_options.first_cell_index = 1
+merge_options.last_row_index = 2
+merge_options.last_cell_index = 2
+
+table = slides_api.merge_table_cells(file_name, slide_index, shape_index, merge_options)
+
+cell = table.rows[0].cells[0]
+puts "Column span: #{cell.col_span}" # 2
+puts "Row span: #{cell.row_span}"    # 2
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import TableCellMergeOptions
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.table_cell_merge_options import TableCellMergeOptions
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
 
-slide_index = 9
-shape_index = 1
-dto = TableCellMergeOptions()
-dto.first_row_index = 1
-dto.first_cell_index = 1
-dto.last_row_index = 2
-dto.last_cell_index = 2
+merge_options = TableCellMergeOptions()
+merge_options.first_row_index = 1
+merge_options.first_cell_index = 1
+merge_options.last_row_index = 2
+merge_options.last_cell_index = 2
 
-response = api.merge_table_cells("MyPresentation.pptx", slide_index, shape_index, dto)
+table = slides_api.merge_table_cells(file_name, slide_index, shape_index, merge_options)
 
-print(f"Cell col span is: { response.rows[0].cells[0].col_span }")
-print(f"Cell row span is: { response.rows[0].cells[0].row_span }")
+cell = table.rows[0].cells[0]
+print("Column span:", cell.col_span)  # 2
+print("Row span:", cell.row_span)     # 2
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-let slideIndex = 9;
-let shapeIndex = 1;
-let dto = new CloudSdk.TableCellMergeOptions();
-dto.firstRowIndex = 1;
-dto.firstCellIndex = 1;
-dto.lastRowIndex = 2;
-dto.lastCellIndex = 2;
-dto.allowSplitting = true;
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const result = await api.mergeTableCells("MyPresentation.pptx", slideIndex, shapeIndex, dto);
-            
-console.log("Cell col span is: " + result.body.rows[0].cells[0].colSpan);
-console.log("Cell row span is: " + result.body.rows[0].cells[0].rowSpan);
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+shapeIndex = 2;
+
+mergeOptions = new cloudSdk.TableCellMergeOptions();
+mergeOptions.firstRowIndex = 1;
+mergeOptions.firstCellIndex = 1;
+mergeOptions.lastRowIndex = 2;
+mergeOptions.lastCellIndex = 2;
+
+slidesApi.mergeTableCells(fileName, slideIndex, shapeIndex, mergeOptions).then(table => {
+    cell = table.body.rows[0].cells[0]
+    console.log("Column span:", cell.colSpan); // 2
+    console.log("Row span:", cell.rowSpan);    // 2
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
 
-fileName := "MyPresentation.pptx"
-var slideIndex int32 = 9
-var shapeIndex int32 = 1
+using namespace asposeslidescloud::api;
 
-dto := asposeslidescloud.NewTableCellMergeOptions()
-dto.FirstRowIndex = 1
-dto.FirstCellIndex = 1
-dto.LastRowIndex = 2
-dto.LastCellIndex = 2
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-result, _, e := api.SlidesApi.MergeTableCells(fileName, slideIndex, shapeIndex, dto, "", "", "")
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+    int shapeIndex = 2;
 
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+    std::shared_ptr<TableCellMergeOptions> mergeOptions = std::make_shared<TableCellMergeOptions>();
+    mergeOptions->setFirstRowIndex(1);
+    mergeOptions->setFirstCellIndex(1);
+    mergeOptions->setLastRowIndex(2);
+    mergeOptions->setLastCellIndex(2);
+
+    std::shared_ptr<Table> table = slidesApi->mergeTableCells(fileName, slideIndex, shapeIndex, mergeOptions).get();
+
+    std::shared_ptr<TableCell> cell = table->getRows()[0]->getCells()[0];
+    std::wcout << L"Column span: " << cell->getColSpan() << std::endl; // 2
+    std::wcout << L"Row span: " << cell->getRowSpan() << std::endl;    // 2
 }
-
-fmt.Printf("Cell col span is: %v", result.GetRows()[0].GetCells()[0].GetColSpan())
-fmt.Printf("Cell row span is: %v", result.GetRows()[0].GetCells()[0].GetRowSpan())
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::TableCellMergeOptions;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+
+my $merge_options = AsposeSlidesCloud::Object::TableCellMergeOptions->new();
+$merge_options->{first_row_index} = 1;
+$merge_options->{first_cell_index} = 1;
+$merge_options->{last_row_index} = 2;
+$merge_options->{last_cell_index} = 2;
+
+my $table = $slides_api->merge_table_cells(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, table_cell_merge_options => $merge_options);
+
+my $cell = $table->{rows}[0]{cells}[0];
+print "Column span: $cell->{col_span}\n"; # 2
+print "Row span: $cell->{row_span}\n";    # 2
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::TableCellMergeOptions;
+```go
+import (
+	"fmt"
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-my $dto = AsposeSlidesCloud::Object::TableCellMergeOptions->new();
-$dto->{first_row_index} = 1;
-$dto->{first_cell_index} = 1;
-$dto->{last_row_index} = 2;
-$dto->{last_cell_index} = 2;
-$dto->{allow_splitting} = 'true';
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
 
-my %params = (
-'name' => "MyPresentation.pptx", 
-'slide_index' => 9,
-'shape_index' => 1, 
-'table_cell_merge_options' => $dto);
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
-my $response = $api->merge_table_cells(%params);
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 1
+	var shapeIndex int32 = 2
 
-print "Cell col span is: $response->{rows}[0]{cells}[0]->col_span \n";
-print "Cell row span is: $response->{rows}[0]{cells}[0]->row_span \n";
+	mergeOptions := asposeslidescloud.NewTableCellMergeOptions()
+	mergeOptions.FirstRowIndex = 1
+	mergeOptions.FirstCellIndex = 1
+	mergeOptions.LastRowIndex = 2
+	mergeOptions.LastCellIndex = 2
+
+	table, _, _ := slidesApi.MergeTableCells(fileName, slideIndex, shapeIndex, mergeOptions, "", "", "")
+
+	cell := table.GetRows()[0].GetCells()[0]
+	fmt.Println("Column span:", cell.GetColSpan()) // 2
+	fmt.Println("Row span:", cell.GetRowSpan())    // 2
+}
 ```
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
-
-{{< /tab >}}
-
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The result:
+
+![The table](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
