@@ -526,7 +526,7 @@ ViewProperties.json content:
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 
