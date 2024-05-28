@@ -101,7 +101,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/
 ## **SDKs**
 Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/aspose-slides-cloud) for a complete list of Aspose.Slides Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs](/slides/available-sdks/) article to learn how to add an SDK to your project.
 ### **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="6" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Python" tabName5="Node.js" tabName6="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -113,7 +113,7 @@ int paragraphIndex = 1;
 int portionIndex = 1;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-using Stream mathMl = api.DownloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, Mathformat.MathML);
+using Stream mathMl = api.DownloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, MathFormat.MathML);
 using Stream fileStream = File.Open("equation.xml", FileMode.Create);
 mathMl.CopyTo(fileStream);
 ```
@@ -161,10 +161,6 @@ print("The converted file was saved to " . $mathMl->getPathname());
 
 {{< tab tabNum="4" >}}
 
-{{< /tab >}}
-
-{{< tab tabNum="5" >}}
-
 ```python
 import asposeslidescloud
 
@@ -188,7 +184,7 @@ print('The converted file was saved to ' + mathMl)
 
 {{< /tab >}}
 
-{{< tab tabNum="6" >}}
+{{< tab tabNum="5" >}}
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
@@ -210,7 +206,7 @@ api.downloadMathPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portio
 
 {{< /tab >}}
 
-{{< tab tabNum="7" >}}
+{{< tab tabNum="6" >}}
 
 ```go
 cfg := asposeslidescloud.NewConfiguration()
@@ -231,18 +227,6 @@ if e != nil {
 }
 fmt.Printf("The converted file was saved to  %v.", mathMl.Name())
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="9" >}}
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 
