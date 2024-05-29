@@ -38,7 +38,7 @@ Merging table cells in PowerPoint documents is the process of combining two or m
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a table with 3 columns and 4 rows. Merge the four cells **(1,1)**, **(1,2)**, **(2,1)**, and **(2,2)** into one cell.
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with three columns and four rows on the **first** slide. Merge the four cells **(1,1)**, **(1,2)**, **(2,1)**, and **(2,2)** into one cell.
 
 ![The table](input.png)
 
