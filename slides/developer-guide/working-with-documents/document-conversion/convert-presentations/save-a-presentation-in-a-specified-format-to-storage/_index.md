@@ -1,5 +1,27 @@
 ---
 title: "Save a Presentation in a Specified Format to Storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- convert a presentation
+- export a presentation
+- PPT to PDF
+- PPT to BMP
+- PPT to GIF
+- PPT to HTML
+- PPT to HTML 5
+- PPT to JPG
+- PPT to PNG
+- PPT to PPTX
+- PPT to SVG
+- PPT to MPEG-4
+- PPT to SWF
+- PPT to TIFF
+- PPT to XAML
+- PPT to XPS
+- PPT to MD
 type: docs
 url: /save-a-presentation-in-a-specified-format-to-storage/
 weight: 40
@@ -54,7 +76,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/example.pptx/Tiff?outPath=MyIm
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -H "accept: application/json" \
-     -d "{ 'NotesPosition':'BottomFull' }"
+     -d "{ 'SlidesLayoutOptions': { 'LayoutType': 'NotesComments', 'NotesPosition':'BottomFull' } }"
 ```
 
 {{< /tab >}}
@@ -75,7 +97,7 @@ Using an SDK (API client) is the quickest way for a developer to speed up the de
 
 Convert **MyFolder/example.pptx** presentation located in **MyStorage** storage and save it to **MyImages/output.tiff** file into the same storage. The document should only contain the slides with indexes **1** and **3**. The slides should contain slide notes in the output file.
 
-{{< tabs tabTotal="11" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -218,6 +240,7 @@ import asposeslidescloud
 
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.tiff_export_options import TiffExportOptions
+from asposeslidescloud.models.notes_comments_layouting_options import NotesCommentsLayoutingOptions
 from asposeslidescloud.models.export_format import ExportFormat
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_key")
@@ -266,39 +289,6 @@ slidesApi.savePresentation("example.pptx", cloud.ExportFormat.Tiff, "MyImages/ou
 
 {{< tab tabNum="7" >}}
 
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.ApiException;
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.model.*;
-
-import java.util.Arrays;
-
-public class Main {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        // Slide notes should be added at the bottom of pages.
-        NotesCommentsLayoutingOptions slidesLayoutOptions = new NotesCommentsLayoutingOptions();
-        slidesLayoutOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMFULL);
-
-        TiffExportOptions tiffOptions = new TiffExportOptions();
-        tiffOptions.setSlidesLayoutOptions(slidesLayoutOptions);
-
-        // The TIFF file should only contain the slides with indexes 1 and 3.
-        ArrayList slideIndices = new ArrayList(Arrays.asList(1, 3));
-
-        // Save the presentation to TIFF file.
-        slidesApi.savePresentation("example.pptx", ExportFormat.TIFF, "MyImages/output.tiff", tiffOptions, null, "MyFolder", "MyStorage", null, slideIndices);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
@@ -306,12 +296,11 @@ public class Main {
 #include "asposeslidescloud/model/TiffExportOptions.h"
 #include "asposeslidescloud/model/NotesCommentsLayoutingOptions.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-    auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    auto slidesApi = std::make_shared<SlidesApi>(L"my_client_id", L"my_client_key");
 
     // Slide notes should be added at the bottom of pages.
     auto slidesLayoutOptions = std::make_shared<NotesCommentsLayoutingOptions>();
@@ -325,8 +314,7 @@ int main()
     auto slideIndices = { 1, 3 };
 
     // Save the presentation to TIFF file.
-    slidesApi->savePresentation(to_string_t("example.pptx"), to_string_t("tiff"), to_string_t("MyImages/output.tiff"), tiffOptions, 
-        utility::string_t(), to_string_t("MyFolder"), to_string_t("MyStorage"), utility::string_t(), slideIndices).get();
+    slidesApi->savePresentation(L"example.pptx", L"tiff", L"MyImages/output.tiff", tiffOptions, L"", L"MyFolder", L"MyStorage", L"", slideIndices).get();
 
     return 0;
 }
@@ -334,7 +322,7 @@ int main()
 
 {{< /tab >}}
 
-{{< tab tabNum="9" >}}
+{{< tab tabNum="8" >}}
 
 ```perl
 
@@ -342,7 +330,7 @@ int main()
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
+{{< tab tabNum="9" >}}
 
 ```swift
 
@@ -350,7 +338,7 @@ int main()
 
 {{< /tab >}}
 
-{{< tab tabNum="11" >}}
+{{< tab tabNum="10" >}}
 
 ```go
 

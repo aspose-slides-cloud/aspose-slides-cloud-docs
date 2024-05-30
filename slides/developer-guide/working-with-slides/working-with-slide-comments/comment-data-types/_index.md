@@ -1,5 +1,13 @@
 ---
 title: "Comment Data Types"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- comment
+- author
 type: docs
 url: /comment-data-types/
 weight: 200

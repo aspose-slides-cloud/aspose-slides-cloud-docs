@@ -1,5 +1,15 @@
 ---
 title: "Get a VBA Project"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- VBA
+- macros
+- project
+- VBA project
+- get a project
 type: docs
 url: /get-a-vba-project/
 weight: 40

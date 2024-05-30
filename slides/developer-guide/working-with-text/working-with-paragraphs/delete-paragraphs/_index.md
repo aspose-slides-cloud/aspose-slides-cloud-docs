@@ -1,5 +1,14 @@
 ---
 title: "Delete Paragraphs"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- remove a paragraph
+- delete a paragraph
 type: docs
 url: /delete-paragraphs/
 weight: 70

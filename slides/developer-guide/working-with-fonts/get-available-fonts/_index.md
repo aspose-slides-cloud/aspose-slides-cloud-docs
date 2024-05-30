@@ -1,5 +1,12 @@
 ---
 title: "Get Available Fonts"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- font
+- presentation fonts
 type: docs
 url: /get-available-fonts/
 weight: 30

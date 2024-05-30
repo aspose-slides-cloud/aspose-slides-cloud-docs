@@ -1,5 +1,12 @@
 ---
 title: "Replace an Image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- image
+- replace an image
 type: docs
 url: /replace-an-image/
 weight: 50

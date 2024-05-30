@@ -1,5 +1,12 @@
 ---
 title: "Get a Shape from a Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- extract a shape
 type: docs
 url: /get-a-shape-from-a-slide/
 weight: 20

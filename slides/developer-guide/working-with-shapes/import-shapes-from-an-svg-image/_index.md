@@ -1,5 +1,16 @@
 ---
 title: "Import Shapes from an SVG Image"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- image
+- SVG
+- SVG image
+- SVG format
+- import shapes
 type: docs
 url: /import-shapes-from-an-svg-image/
 weight: 170

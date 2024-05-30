@@ -1,5 +1,15 @@
 ---
 title: "Delete Cropped Areas from a Picture Frame"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- picture
+- image
+- picture frame
+- crop an image
+- cropped area
 type: docs
 url: /delete-picture-cropped-areas/
 weight: 200
@@ -52,7 +62,7 @@ string fileName = "MyPresentation.pptx";
 int slideIndex = 2;
 int shapeIndex = 4;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.DeletePictureCroppedAreas(fileName, slideIndex, shapeIndex);
+api.DeletePictureCroppedAreas(fileName, slideIndex, shapeIndex, null, null);
 ```
 
 {{< /tab >}}

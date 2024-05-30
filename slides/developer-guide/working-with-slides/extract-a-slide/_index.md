@@ -1,5 +1,14 @@
 ---
 title: "Extract a Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- extract a slide
+- convert a slide
+- slide to image
 type: docs
 url: /extract-a-slide/
 weight: 10
@@ -427,8 +436,11 @@ request_data.json content:
 
 ```json
 {
-    "NotesPosition": "BottomTruncated",
-    "CommentsPosition": "Right"
+    "SlidesLayoutOptions": {
+        "LayoutType": "NotesComments",
+        "NotesPosition": "BottomTruncated",
+        "CommentsPosition": "Right"
+    }
 }
 ```
 
@@ -444,7 +456,7 @@ None
 
 **SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
 
 {{< tab tabNum="1" >}}
 
@@ -461,7 +473,7 @@ class Application
         SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Set options for the output PNG image.
-        var pngOptions = new ImageExportOptions
+        ImageExportOptions pngOptions = new ImageExportOptions
         {
             SlidesLayoutOptions = new NotesCommentsLayoutingOptions
             {
@@ -577,6 +589,7 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 from asposeslidescloud.models.slide_export_format import SlideExportFormat
 from asposeslidescloud.models.image_export_options import ImageExportOptions
+from asposeslidescloud.models.image_export_options import NotesCommentsLayoutingOptions
 
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
@@ -620,35 +633,6 @@ slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", png
 
 {{< tab tabNum="7" >}}
 
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.ApiException;
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.model.*;
-
-public class Application {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
-
-        // Set options for the output PNG image.
-        NotesCommentsLayoutingOptions slidesLayoutOptions = new NotesCommentsLayoutingOptions();
-        slidesLayoutOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMTRUNCATED);
-        slidesLayoutOptions.setCommentsPosition(NotesCommentsLayoutingOptions.CommentsPositionEnum.RIGHT);
-
-        ImageExportOptions pngOptions = new ImageExportOptions();
-        pngOptions.setSlidesLayoutOptions(slidesLayoutOptions);
-
-        // Save the second slide to the PNG image.
-        slidesApi.saveSlide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage", null);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
 
@@ -682,7 +666,7 @@ int main()
 
 {{< /tab >}}
 
-{{< tab tabNum="9" >}}
+{{< tab tabNum="8" >}}
 
 ```perl
 # For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
@@ -716,11 +700,11 @@ $slides_api->save_slide(%params);
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
+{{< tab tabNum="9" >}}
 
 {{< /tab >}}
 
-{{< tab tabNum="11" >}}
+{{< tab tabNum="10" >}}
 
 {{< /tab >}}
 

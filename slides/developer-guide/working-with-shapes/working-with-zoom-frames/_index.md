@@ -1,12 +1,20 @@
 ---
 title: "Working with Zoom Frames"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- zoom
+- zoom frame
+- add a zoom frame
 type: docs
 url: /working-with-zoom-frames/
 weight: 150
 ---
 
 ## **Introduction**
-The example below shows how to create add a zoom frame to a slide.
+The example below shows how to add a zoom frame to a slide.
 
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}

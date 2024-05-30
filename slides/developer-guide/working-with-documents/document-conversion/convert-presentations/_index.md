@@ -1,5 +1,28 @@
 ---
 title: "Convert Presentations"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- convert a presentation
+- export a presentation
+- PPT to PDF
+- PPT to BMP
+- PPT to GIF
+- PPT to HTML
+- PPT to HTML 5
+- PPT to JPG
+- PPT to PNG
+- PPT to PPTX
+- PPT to SVG
+- PPT to MPEG-4
+- PPT to SWF
+- PPT to TIFF
+- PPT to XAML
+- PPT to XPS
+- PPT to MD
+- slides to images
 type: docs
 url: /convert-presentations/
 weight: 10

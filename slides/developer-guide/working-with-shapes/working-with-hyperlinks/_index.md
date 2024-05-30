@@ -1,5 +1,11 @@
 ---
 title: "Working with Hyperlinks"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- hyperlink
 type: docs
 url: /working-with-hyperlinks/
 weight: 130

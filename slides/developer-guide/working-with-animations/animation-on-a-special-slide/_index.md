@@ -1,5 +1,16 @@
 ---
 title: "Animation on a Special Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- add animation
+- update animation
+- remove animation
+- shape animation
+- text animation
 type: docs
 url: /animation-on-a-special-slide/
 weight: 110

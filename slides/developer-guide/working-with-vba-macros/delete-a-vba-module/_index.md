@@ -1,5 +1,16 @@
 ---
 title: "Delete a VBA Module"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- VBA
+- macros
+- module
+- VBA module
+- remove a module
+- delete a module
 type: docs
 url: /delete-a-vba-module/
 weight: 20

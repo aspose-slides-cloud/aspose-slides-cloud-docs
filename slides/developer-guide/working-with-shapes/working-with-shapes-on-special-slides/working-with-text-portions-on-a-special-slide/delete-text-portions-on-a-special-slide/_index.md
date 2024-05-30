@@ -1,6 +1,13 @@
 ---
 title: "Delete Text Portions"
-keywords: "PowerPoint, REST API, text box, delete text, format text, text formatting"
+keywords:
+- PowerPoint
+- REST API
+- cloud API
+- text box
+- delete text
+- format text
+- text formatting
 type: docs
 url: /delete-text-portions-on-a-special-slide/
 weight: 40
@@ -33,7 +40,7 @@ Aspose.Slides Cloud API allows you to read, add, and modify text portions on spe
 |storage|string|query|false|The name of the storage contaning the folder.|
 |subShape|string|query|false|The path to a child shape (e.g. "3", "3/shapes/2").|
 
-## **GetSpecialSlidePortion**
+## **DeleteSpecialSlidePortion**
 
 ### **API Information**
 

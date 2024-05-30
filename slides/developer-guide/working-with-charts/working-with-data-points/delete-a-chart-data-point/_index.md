@@ -1,5 +1,15 @@
 ---
 title: "Delete a Chart Data Point"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- data point
+- chart data point
+- remove a data point
 type: docs
 url: /delete-a-chart-data-point/
 weight: 20
@@ -53,6 +63,8 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+**Delete the Data**
 
 ```sh
 curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/series/1/dataPoints/3" \

@@ -1,5 +1,14 @@
 ---
 title: "Update an Effect in a Main Sequence"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- update animation
+- shape animation
+- text animation
 type: docs
 url: /update-an-effect-in-a-main-sequence-on-a-special-slide/
 weight: 80

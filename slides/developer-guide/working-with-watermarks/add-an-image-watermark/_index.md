@@ -1,5 +1,14 @@
 ---
 title: "Add an Image Watermark"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- image
+- watermark
+- create a watermark
+- add a watermark
 type: docs
 url: /add-an-image-watermark/
 weight: 20

@@ -1,5 +1,12 @@
 ---
 title: "Features Not Available In Self-Hosted Solution"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- docker
+- self-hosted solution
 type: docs
 url: /features-not-available-in-self-hosted-solution/
 weight: 30

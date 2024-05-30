@@ -1,5 +1,17 @@
 ---
 title: "Get a Rectangle of a Text Portion"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- rectangle
+- text bounds
+- get bounds
+- coordinates
+- text width
+- text height
 type: docs
 url: /get-a-rectangle-of-a-text-portion/
 weight: 130

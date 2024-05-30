@@ -1,10 +1,17 @@
 ---
 title: "Extract Shapes from a Group Shape"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- group shape
+- extract a shape
 type: docs
 url: /extract-shapes-from-a-group-shape/
 weight: 10
 ---
-
 
 ## **Introduction**
 

@@ -1,5 +1,13 @@
 ---
 title: "Track Merge Progress"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
+- asynchronous merging
 type: docs
 url: /track-merge-progress/
 weight: 50

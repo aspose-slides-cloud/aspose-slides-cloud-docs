@@ -1,5 +1,14 @@
 ---
 title: "Add OLE Objects"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- OLE
+- OLE object
+- create an OLE object
+- add an OLE object
 type: docs
 url: /add-ole-objects/
 weight: 10

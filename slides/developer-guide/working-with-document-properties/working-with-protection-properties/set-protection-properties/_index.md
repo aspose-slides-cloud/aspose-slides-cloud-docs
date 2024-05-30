@@ -1,5 +1,13 @@
 ---
 title: "Set Protection Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- protection
+- protection properties
+- add a protection property
 type: docs
 url: /set-protection-properties/
 weight: 20

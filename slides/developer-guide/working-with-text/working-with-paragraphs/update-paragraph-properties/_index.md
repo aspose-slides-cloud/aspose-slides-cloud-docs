@@ -1,5 +1,22 @@
 ---
 title: "Update Paragraph Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- paragraph properties
+- update properties
+- text formatting
+- alignment
+- indent
+- spacing
+- margin
+- color
+- bulleted list
+- numbered list
 type: docs
 url: /update-paragraph-properties/
 weight: 40

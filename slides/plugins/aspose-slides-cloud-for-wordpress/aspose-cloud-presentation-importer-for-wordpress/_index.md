@@ -1,5 +1,11 @@
 ---
 title: "Aspose Cloud Presentation Importer for Wordpress"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- WordPress
 type: docs
 url: /aspose-cloud-presentation-importer-for-wordpress/
 weight: 10

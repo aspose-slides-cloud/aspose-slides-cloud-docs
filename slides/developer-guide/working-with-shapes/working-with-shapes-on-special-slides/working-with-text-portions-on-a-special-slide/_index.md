@@ -1,6 +1,15 @@
 ---
 title: "Working with Text Portions"
-keywords: "PowerPoint, REST API, text box, add text, update text, delete text, format text, text formatting"
+keywords:
+- PowerPoint
+- REST API
+- cloud API
+- text box
+- add text
+- update text
+- delete text
+- format text
+- text formatting
 type: docs
 url: /working-with-text-portions-on-a-special-slide/
 weight: 30

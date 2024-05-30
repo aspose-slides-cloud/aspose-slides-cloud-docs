@@ -1,5 +1,14 @@
 ---
 title: "Create a Pie Chart"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- add chart
+- Pie chart
+- add a Pie chart
 type: docs
 url: /create-a-pie-chart/
 weight: 20

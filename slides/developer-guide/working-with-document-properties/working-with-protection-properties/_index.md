@@ -1,5 +1,15 @@
 ---
 title: "Working with Protection Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- protection
+- protection properties
+- add a protection property
+- update a protection property
+- remove a protection property
 type: docs
 url: /working-with-protection-properties/
 weight: 50

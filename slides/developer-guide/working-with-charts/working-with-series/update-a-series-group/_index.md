@@ -1,5 +1,15 @@
 ---
 title: "Update a Series Group"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- chart series
+- data series
+- series group
 type: docs
 url: /update-a-series-group/
 weight: 40

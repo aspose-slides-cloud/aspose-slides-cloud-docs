@@ -1,5 +1,14 @@
 ---
 title: "Create a Bubble Chart"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- add chart
+- Bubble chart
+- add a Bubble chart
 type: docs
 url: /create-a-bubble-chart/
 weight: 50

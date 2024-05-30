@@ -1,5 +1,12 @@
 ---
 title: "Merge Presentations from Various Sources into a File in Storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
 type: docs
 url: /merge-presentations-from-various-sources-into-a-file-in-storage/
 weight: 40
@@ -74,8 +81,8 @@ Document with merged presentation info.
 ```csharp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
-using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using Aspose.Slides.Cloud.Sdk;
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using System;
 using System.Collections.Generic;
 using System.IO;                                  
@@ -412,6 +419,7 @@ Document with merged presentation info.
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
 
 using Aspose.Slides.Cloud.Sdk;
+using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
 using Aspose.Slides.Cloud.Sdk.Model;
 using System;
 using System.Collections.Generic;

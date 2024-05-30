@@ -1,5 +1,14 @@
 ---
 title: "Delete Unused Layout Slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- design
+- slide
+- layout
+- delete layout
 type: docs
 url: /delete-unused-layout-slides/
 weight: 40

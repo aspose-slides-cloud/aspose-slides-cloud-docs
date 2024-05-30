@@ -1,5 +1,16 @@
 ---
 title: "Working with Animations"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- add animation
+- update animation
+- remove animation
+- shape animation
+- text animation
 type: docs
 url: /working-with-animations/
 weight: 40

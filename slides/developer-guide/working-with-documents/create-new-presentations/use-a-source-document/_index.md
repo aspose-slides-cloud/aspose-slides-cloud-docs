@@ -1,5 +1,15 @@
 ---
 title: "Use a Source Document"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- create a presentation
+- POTX
+- template
+- presentation template
+- presentation source
 type: docs
 url: /use-a-source-document/
 weight: 30

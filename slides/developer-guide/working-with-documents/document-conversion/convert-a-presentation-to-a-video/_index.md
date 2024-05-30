@@ -1,5 +1,15 @@
 ---
 title: "Convert a Presentation to a Video"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- convert a presentation
+- export a presentation
+- presentation to video
+- PPT to video
+- PPT to MPEG-4
 type: docs
 url: /convert-a-presentation-to-a-video/
 weight: 60

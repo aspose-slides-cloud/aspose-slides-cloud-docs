@@ -1,5 +1,14 @@
 ---
 title: "Paragraph Animation"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- add animation
+- update animation
+- text animation
 type: docs
 url: /paragraph-animation/
 weight: 120

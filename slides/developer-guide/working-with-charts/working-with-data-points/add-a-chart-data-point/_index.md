@@ -1,5 +1,15 @@
 ---
 title: "Add a Chart Data Point"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- data point
+- chart data point
+- add a data point
 type: docs
 url: /add-a-chart-data-point/
 weight: 10
@@ -53,6 +63,8 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+**Add the Data**
 
 ```sh
 curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series/1/dataPoints" \

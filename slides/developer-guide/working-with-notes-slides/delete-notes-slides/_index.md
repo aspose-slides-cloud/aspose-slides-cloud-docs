@@ -1,5 +1,13 @@
 ---
 title: "Delete Notes Slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide notes
+- speaker notes
+- delete notes
 type: docs
 url: /delete-notes-slides/
 weight: 35

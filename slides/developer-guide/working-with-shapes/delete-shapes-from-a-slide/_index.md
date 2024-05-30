@@ -1,5 +1,12 @@
 ---
 title: "Delete Shapes from a Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- shape
+- remove a shape
 type: docs
 url: /delete-shapes-from-a-slide/
 weight: 80
