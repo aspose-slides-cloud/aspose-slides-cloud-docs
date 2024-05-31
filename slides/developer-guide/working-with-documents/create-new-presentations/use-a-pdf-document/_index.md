@@ -31,9 +31,18 @@ The following method allows you to create a PowerPoint presentation from a PDF d
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The file name of the new presentation or existing one.|
 |pdf|file|formData|true|The input data of a PDF document.|
+|options|[PdfImportOptions](#import-options)|header|false|PDF import options.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder path where the presentation is located.|
 |storage|string|query|false|The storage name where the presentation is located.|
+
+#### Import Options
+
+Represents PDF import options.
+
+| **Property Name** | **Type** | **Description** | 
+| :- | :- | :- |
+| DetectTables | bool | true to detect tables | 
 
 ## **cURL Examples**
 Create a new presentation **Data/summary.pptx** in a **Main** storage from a PDF document **report.pdf**.
@@ -42,12 +51,21 @@ Create a new presentation **Data/summary.pptx** in a **Main** storage from a PDF
 
 {{< tab tabNum="1" >}}
 
-```java
+```sh
 curl -X POST "https://api.aspose.cloud/v3.0/slides/summary.pptx/fromPdf?folder=Data&storage=Main" \
      -H "accept: application/json" \
      -H "authorization: Bearer <access_token>" \
      -H "Content-Type: multipart/form-data" \
      -F "file=@report.pdf"
+     -F "options=@options.json;filename="
+```
+
+**options.json**
+
+```json
+{
+    detectTables: false
+}
 ```
 
 {{< /tab >}}
@@ -205,7 +223,9 @@ class Test
 
         using (var pdfStream = File.OpenRead("test.pdf"))
         {
-            var response = api.ImportFromPdf("summary.pptx", pdfStream);
+            PdfImportOptions options = new PdfImportOptions();
+            options.DetectTables = false;
+            var response = api.ImportFromPdf("summary.pptx", pdfStream, options);
             Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/summary.pptx
         }
     }
@@ -220,6 +240,7 @@ class Test
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
 
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.PdfImportOptions;
 import com.aspose.slides.ApiException;
 
 import java.io.IOException;
@@ -230,8 +251,10 @@ public class Main {
     public static void main(String[] args) throws ApiException, IOException {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
+        PdfImportOptions options = new PdfImportOptions();
+        options.setDetectTables(false);
         byte[] pdfData = Files.readAllBytes(Paths.get("report.pdf"));
-        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
+        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, options, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
     }
@@ -247,6 +270,7 @@ public class Main {
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions;
 
 $configuration = new Configuration();
 $configuration->setAppSid("my_client_id");
@@ -255,7 +279,9 @@ $configuration->setAppKey("my_client_key");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $pdfSteam = fopen("report.pdf", 'r');
-$response = $slidesApi->importFromPdf("summary.pptx", $pdfSteam, null, "Data", "Main");
+$options = new PdfImportOptions();
+$options->setDetectTables(false);
+$response = $slidesApi->importFromPdf("summary.pptx", $pdfSteam, $options, null, "Data", "Main");
 
 echo $response->getSelfUri()->getHref(); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
 ```
@@ -276,7 +302,9 @@ configuration.app_key = "my_client_key"
 slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 pdf_data = File.binread("report.pdf")
-response = slides_api.import_from_pdf("summary.pptx", pdf_data, nil, "Data", "Main")
+options = AsposeSlidesCloud::PdfImportOptions.new
+options.detect_tables = false
+response = slides_api.import_from_pdf("summary.pptx", pdf_data, options, nil, "Data", "Main")
 
 print response.self_uri.href # https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
 ```
@@ -295,7 +323,9 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "my_client_id", "my_client_key")
 
 with open("report.pdf", "rb") as pdf_stream:
-    response = slides_api.import_from_pdf("summary.pptx", pdf_stream, None, "Data", "Main")
+    options = PdfImportOptions()
+    options.detect_tables = False
+    response = slides_api.import_from_pdf("summary.pptx", pdf_stream, options, None, "Data", "Main")
 
 print(response.self_uri.href) # https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
 ```
@@ -314,7 +344,9 @@ const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
 
 const pdfStream = fs.createReadStream("test.pdf");
 
-slidesApi.importFromPdf("summary.pptx", pdfStream, null, "Data", "Main").then(response => {
+const pdfOptions = new asposelsidescloud.PdfImportOptions();
+options.detectTables = false;
+slidesApi.importFromPdf("summary.pptx", pdfStream, options, null, "Data", "Main").then(response => {
     console.log(response.body.selfUri.href); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
 });
 ```
@@ -337,8 +369,10 @@ public class Main {
     public static void main(String[] args) throws ApiException, IOException {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
 
+        PdfImportOptions options = new PdfImportOptions();
+        options.setDetectTables(false);
         byte[] pdfData = Files.readAllBytes(Paths.get("report.pdf"));
-        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, null, "Data", "Main");
+        Document response = slidesApi.importFromPdf("summary.pptx", pdfData, options, null, "Data", "Main");
 
         System.out.println(response.getSelfUri().getHref()); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
     }
@@ -366,8 +400,10 @@ int main()
     auto pdfContent = std::make_shared<HttpContent>();
     pdfContent->setData(pdfStream);
 
+    std::shared_ptr<PdfImportOptions> options = std::make_shared<PdfImportOptions>();
+    options->setDetectTables(false);
     auto response = slidesApi->importFromPdf(
-        to_string_t("summary.pptx"), pdfContent, utility::string_t(), to_string_t("Data"), to_string_t("Main")).get();
+        to_string_t("summary.pptx"), pdfContent, options, utility::string_t(), to_string_t("Data"), to_string_t("Main")).get();
 
     std::cout << to_utf8string(response->getSelfUri()->getHref()); // https://api.aspose.cloud/v3.0/slides/summary.pptx?folder=Data
 

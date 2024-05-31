@@ -65,7 +65,7 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string documentName = "MyPresentation.pptx";
-        string imageFilePath = "MyWatermark.jpg"; // the path to a local file
+        string imageFilePath = "MyImage.png"; // the path to a local file
 
         byte[] imageData = File.ReadAllBytes(imageFilePath);
 
@@ -107,7 +107,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String documentName = "MyPresentation.pptx";
-        String imageFilePath = "MyWatermark.jpg"; // the path to a local file
+        String imageFilePath = "MyImage.png"; // the path to a local file
 
         byte[] imageData = Files.readAllBytes(Paths.get(imageFilePath));
 
@@ -142,7 +142,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $documentName = "MyPresentation.pptx";
-$imageFilePath = "MyWatermark.jpg"; // the path to a local file
+$imageFilePath = "MyImage.png"; // the path to a local file
 
 $imageData = file_get_contents($imageFilePath);
 
@@ -175,7 +175,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 document_name = "MyPresentation.pptx"
-image_file_path = "MyWatermark.jpg" # the path to a local file
+image_file_path = "MyImage.png" # the path to a local file
 
 image_data = File.binread(image_file_path)
 
@@ -205,7 +205,7 @@ from asposeslidescloud.models.picture_fill import PictureFill
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 document_name = "MyPresentation.pptx"
-image_file_path = "MyWatermark.jpg"  # the path to a local file
+image_file_path = "MyImage.png"  # the path to a local file
 
 with open(image_file_path, "rb") as image_stream:
     image_base64_data = str(base64.b64encode(image_stream.read()), "utf-8")
@@ -233,7 +233,7 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 documentName = "MyPresentation.pptx";
-imageFilePath = "MyWatermark.jpg"; // the path to a local file
+imageFilePath = "MyImage.png"; // the path to a local file
 
 imageBase64Data = fs.readFileSync(imageFilePath, { encoding: "base64" });
 
@@ -275,7 +275,7 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $document_name = "MyPresentation.pptx";
-my $image_file_path = "MyWatermark.jpg"; # the path to a local file
+my $image_file_path = "MyImage.png"; # the path to a local file
 
 my $image_data = read_file($image_file_path, { binmode => ":raw" });
 

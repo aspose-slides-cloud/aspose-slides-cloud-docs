@@ -41,7 +41,7 @@ Aspose.Slides Cloud API enables you to manipulate animations within PowerPoint p
 
 ### **Example**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two interactive animation sequences on the **Layout** of the **first** slide, each with a single effect (Fly and Split, for example). Add a **Fade** effect for the **fourth** shape into the **second** interactive sequence.
+The document **MyPresentation.pptx** saved in the **default** storage contains two interactive animation sequences on the **Layout** of the **first** slide, each with a single effect (Fly and Split, for example). Add a **Fade** effect for the **fourth** shape into the **first** interactive sequence.
 
 **cURL Solution**
 
@@ -60,7 +60,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Add the Effect**
 
 ```sh
-curl -X POST "/slides/MyPresentation.pptx/slides/1/LayoutSlide/animation/interactiveSequences/2" \
+curl -X POST "/slides/MyPresentation.pptx/slides/1/LayoutSlide/animation/interactiveSequences/1" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @Effect.json
@@ -152,7 +152,7 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
         
         Effect animationEffect = new Effect
         {
@@ -187,7 +187,7 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
 
         Effect animationEffect = new Effect();
         animationEffect.setShapeIndex(4);
@@ -222,7 +222,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
-$sequenceIndex = 2;
+$sequenceIndex = 1;
 
 $animationEffect = new Effect();
 $animationEffect->setShapeIndex(4);
@@ -253,7 +253,7 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
-sequence_index = 2
+sequence_index = 1
 
 animation_effect = Effect.new
 animation_effect.shape_index = 4
@@ -280,7 +280,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
-sequence_index = 2
+sequence_index = 1
 
 animation_effect = Effect()
 animation_effect.shape_index = 4
@@ -305,7 +305,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
-sequenceIndex = 2;
+sequenceIndex = 1;
 
 animationEffect = new cloudSdk.Effect();
 animationEffect.shapeIndex = 4;
@@ -334,7 +334,7 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
     const wchar_t* slideType = L"LayoutSlide";
-    int sequenceIndex = 2;
+    int sequenceIndex = 1;
 
     std::shared_ptr<Effect> animationEffect = std::make_shared<Effect>();
     animationEffect->setShapeIndex(4);
@@ -366,7 +366,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $slide_type = "LayoutSlide";
-my $sequence_index = 2;
+my $sequence_index = 1;
 
 my $animation_effect = AsposeSlidesCloud::Object::Effect->new();
 $animation_effect->{shape_index} = 4;
@@ -405,7 +405,7 @@ func main() {
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
   slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
-	var sequenceIndex int32 = 2
+	var sequenceIndex int32 = 1
 
 	animationEffect := asposeslidescloud.NewEffect()
 	animationEffect.ShapeIndex = 4

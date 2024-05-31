@@ -40,7 +40,7 @@ Aspose.Slides Cloud API allows you to read, add, and modify animations in PowerP
 
 ### **Example**
 
-The document **MyPresentation.pptx** contains two effects in the **main** animation sequence on the **first** slide. Change the **second** effect to **Blink** and trigger it **with the previous** effect.
+The document **MyPresentation.pptx** contains two effects in the **main** animation sequence on the **first** slide. Change the **first** effect to **Blink** and trigger it **with the previous** effect.
 
 **cURL Solution**
 
@@ -134,7 +134,7 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int effectIndex = 2;
+        int effectIndex = 1;
 
         Effect updateEffect = new Effect
         {
@@ -167,7 +167,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int effectIndex = 2;
+        int effectIndex = 1;
 
         Effect updateEffect = new Effect();
         updateEffect.setType(Effect.TypeEnum.BLINK);
@@ -200,7 +200,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$effectIndex = 2;
+$effectIndex = 1;
 
 $updateEffect = new Effect();
 $updateEffect->setType(Effect::TYPE_BLINK);
@@ -230,7 +230,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-effect_index = 2
+effect_index = 1
 
 update_effect = Effect.new
 update_effect.type = "Blink"
@@ -255,7 +255,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-effect_index = 2
+effect_index = 1
 
 update_effect = Effect()
 update_effect.type = "Blink"
@@ -279,7 +279,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-effectIndex = 2;
+effectIndex = 1;
 
 updateEffect = new cloudSdk.Effect();
 updateEffect.type = cloudSdk.Effect.TypeEnum.Blink;
@@ -307,7 +307,7 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    int effectIndex = 2;
+    int effectIndex = 1;
 
     std::shared_ptr<Effect> updateEffect = std::make_shared<Effect>();
     updateEffect->setType(L"Blink");
@@ -338,7 +338,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $effect_index = 2;
+my $effect_index = 1;
 
 my $update_effect = AsposeSlidesCloud::Object::Effect->new();
 $update_effect->{type} = "Blink";

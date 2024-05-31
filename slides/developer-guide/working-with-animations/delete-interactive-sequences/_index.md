@@ -145,7 +145,7 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.DeleteAnimationInteractiveSequence(fileName, slideIndex, sequenceIndex);
 
@@ -173,7 +173,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.deleteAnimationInteractiveSequence(fileName, slideIndex, sequenceIndex, null, null, null);
 
@@ -203,7 +203,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$sequenceIndex = 2;
+$sequenceIndex = 1;
 
 $slideAnimation = $slidesApi->deleteAnimationInteractiveSequence($fileName, $slideIndex, $sequenceIndex);
 
@@ -231,7 +231,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-sequence_index = 2
+sequence_index = 1
 
 slide_animation = slides_api.delete_animation_interactive_sequence(file_name, slide_index, sequence_index)
 
@@ -253,7 +253,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-sequence_index = 2
+sequence_index = 1
 
 slide_animation = slides_api.delete_animation_interactive_sequence(file_name, slide_index, sequence_index)
 
@@ -275,7 +275,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-sequenceIndex = 2;
+sequenceIndex = 1;
 
 slidesApi.deleteAnimationInteractiveSequence(fileName, slideIndex, sequenceIndex).then(slideAnimation => {
     mainSequenceEffectCount = slideAnimation.body.mainSequence.length;
@@ -301,7 +301,7 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    int sequenceIndex = 2;
+    int sequenceIndex = 1;
 
     std::shared_ptr<SlideAnimation> slideAnimation = slidesApi->deleteAnimationInteractiveSequence(fileName, slideIndex, sequenceIndex).get();
 
@@ -329,7 +329,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $sequence_index = 2;
+my $sequence_index = 1;
 
 my %parameters = (name => $file_name, slide_index => $slide_index, sequence_index => $sequence_index);
 my $slide_animation = $slides_api->delete_animation_interactive_sequence(%parameters);

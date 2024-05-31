@@ -760,10 +760,10 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string storageName = "MyStorage";
-        string folderPath = "MyFolder/MyPresentations";
+        string folderToDelete = "MyFolder/MyPresentations";
         bool recursive = true;
 
-        slidesApi.DeleteFolder(folderPath, storageName, recursive);
+        slidesApi.DeleteFolder(folderToDelete, storageName, recursive);
     }
 }
 ```
@@ -781,10 +781,10 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String storageName = "MyStorage";
-        String folderPath = "MyFolder/MyPresentations";
+        String folderToDelete = "MyFolder/MyPresentations";
         boolean recursive = true;
         
-        slidesApi.deleteFolder(folderPath, storageName, recursive);
+        slidesApi.deleteFolder(folderToDelete, storageName, recursive);
     }
 }
 ```
@@ -804,10 +804,10 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $storageName = "MyStorage";
-$folderPath = "MyFolder/MyPresentations";
+$folderToDelete = "MyFolder/MyPresentations";
 $recursive = true;
 
-$slidesApi->deleteFolder($folderPath, $storageName, $recursive);
+$slidesApi->deleteFolder($folderToDelete, $storageName, $recursive);
 ```
 
 {{< /tab >}}
@@ -826,10 +826,10 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 storage_name = "MyStorage"
-folder_path = "MyFolder/MyPresentations"
+folder_to_delete = "MyFolder/MyPresentations"
 recursive = true
 
-slides_api.delete_folder(folder_path, storage_name, recursive)
+slides_api.delete_folder(folder_to_delete, storage_name, recursive)
 ```
 
 {{< /tab >}}
@@ -842,10 +842,10 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 storage_name = "MyStorage"
-folder_path = "MyFolder/MyPresentations"
+folder_to_delete = "MyFolder/MyPresentations"
 recursive = True
 
-slides_api.delete_folder(folder_path, storage_name, recursive)
+slides_api.delete_folder(folder_to_delete, storage_name, recursive)
 ```
 
 {{< /tab >}}
@@ -858,10 +858,10 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 storageName = "MyStorage";
-folderPath = "MyFolder/MyPresentations";
+folderToDelete = "MyFolder/MyPresentations";
 recursive = true;
 
-slidesApi.deleteFolder(folderPath, storageName, recursive).then(() => {
+slidesApi.deleteFolder(folderToDelete, storageName, recursive).then(() => {
     console.log("Done.");
 });
 ```
@@ -880,10 +880,10 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* storageName = L"MyStorage";
-    const wchar_t* folderPath = L"MyFolder/MyPresentations";
+    const wchar_t* folderToDelete = L"MyFolder/MyPresentations";
     bool recursive = true;
 
-    slidesApi->deleteFolder(folderPath, storageName, recursive).get();
+    slidesApi->deleteFolder(folderToDelete, storageName, recursive).get();
 }
 ```
 
@@ -902,10 +902,10 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $storage_name = "MyStorage";
-my $folder_path = "MyFolder/MyPresentations";
+my $folder_to_delete = "MyFolder/MyPresentations";
 my $recursive = "true";
 
-$slides_api->delete_folder(path => $folder_path, storage_name => $storage_name, recursive => $recursive);
+$slides_api->delete_folder(path => $folder_to_delete, storage_name => $storage_name, recursive => $recursive);
 ```
 
 {{< /tab >}}

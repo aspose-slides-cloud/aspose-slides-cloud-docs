@@ -101,8 +101,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
         int categoryIndex = 3;
 
         Chart chart = slidesApi.DeleteChartCategory(fileName, slideIndex, shapeIndex, categoryIndex);
@@ -127,8 +127,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
         int categoryIndex = 3;
 
         Chart chart = slidesApi.deleteChartCategory(fileName, slideIndex, shapeIndex, categoryIndex, null, null, null);
@@ -154,8 +154,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 3;
+$shapeIndex = 1;
 $categoryIndex = 3;
 
 $chart = $slidesApi->deleteChartCategory($fileName, $slideIndex, $shapeIndex, $categoryIndex);
@@ -180,8 +180,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 category_index = 3
 
 chart = slides_api.delete_chart_category(file_name, slide_index, shape_index, category_index)
@@ -220,8 +220,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 3;
+shapeIndex = 1;
 categoryIndex = 3;
 
 slidesApi.deleteChartCategory(fileName, slideIndex, shapeIndex, categoryIndex).then(chart => {
@@ -244,8 +244,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 3;
+    int shapeIndex = 1;
     int categoryIndex = 3;
 
     std::shared_ptr<Chart> chart = slidesApi->deleteChartCategory(fileName, slideIndex, shapeIndex, categoryIndex).get();
@@ -270,8 +270,8 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 3;
+my $shape_index = 1;
 my $category_index = 3;
 
 my $chart = $slides_api->delete_chart_category(
@@ -297,8 +297,8 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-slideIndex := 1
-shapeIndex := 2
+slideIndex := 3
+shapeIndex := 1
 categoryIndex := 3
 
 result, _, e := api.SlidesApi.DeleteChartCategory(fileName, slideIndex, shapeIndex, categoryIndex, "", "", "")

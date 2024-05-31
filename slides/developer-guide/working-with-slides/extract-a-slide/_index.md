@@ -504,12 +504,12 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_secret");
 
         // Set options for the output PNG image.
-        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-        notesOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMTRUNCATED);
-        notesOptions.setCommentsPosition(NotesCommentsLayoutingOptions.CommentsPositionEnum.RIGHT);
+        NotesCommentsLayoutingOptions slidesLayoutOptions = new NotesCommentsLayoutingOptions();
+        slidesLayoutOptions.setNotesPosition(NotesCommentsLayoutingOptions.NotesPositionEnum.BOTTOMTRUNCATED);
+        slidesLayoutOptions.setCommentsPosition(NotesCommentsLayoutingOptions.CommentsPositionEnum.RIGHT);
 
         ImageExportOptions pngOptions = new ImageExportOptions();
-        pngOptions.setSlidesLayoutOptions(notesOptions);
+        pngOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
         // Save the second slide to the PNG image.
         slidesApi.saveSlide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage", null);
@@ -537,12 +537,12 @@ $configuration->setAppKey("my_client_secret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Set options for the output PNG image.
-$notesOptions = new NotesCommentsLayoutingOptions();
-$notesOptions->setNotesPosition("BottomTruncated");
-$notesOptions->setCommentsPosition("Right");
+$slidesLayoutOptions = new NotesCommentsLayoutingOptions();
+$slidesLayoutOptions->setNotesPosition("BottomTruncated");
+$slidesLayoutOptions->setCommentsPosition("Right");
 
 $pngOptions = new ImageExportOptions();
-$pngOptions->setSlidesLayoutOptions($notesOptions);
+$pngOptions->setSlidesLayoutOptions(slidesLayoutOptions);
 
 // Save the second slide to the PNG image.
 $slidesApi->saveSlide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImages/slide_2.png", $pngOptions, null, null, null, "MyFolder", "MyStorage");
@@ -566,12 +566,12 @@ configuration.app_key = "my_client_secret"
 slides_api = SlidesApi.new(configuration)
 
 # Set options for the output PNG image.
-notes_options = NotesCommentsLayoutingOptions.new
-notes_options.notes_position = "BottomTruncated"
-notes_options.comments_position = "Right"
+slides_layout_options = NotesCommentsLayoutingOptions.new
+slides_layout_options.notes_position = "BottomTruncated"
+slides_layout_options.comments_position = "Right"
 
 png_options = ImageExportOptions.new
-png_options.slides_layout_options = notes_options
+png_options.slides_layout_options = slides_layout_options
 
 # Save the second slide to the PNG image.
 slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImages/slide_2.png", png_options, nil, nil, nil, "MyFolder", "MyStorage")
@@ -594,12 +594,12 @@ from asposeslidescloud.models.image_export_options import NotesCommentsLayouting
 slides_api = SlidesApi(None, "my_client_id", "my_client_secret")
 
 # Set options for the output PNG image.
-notes_options = NotesCommentsLayoutingOptions()
-notes_options.notes_position = "BottomTruncated"
-notes_options.comments_position = "Right"
+slides_layout_options = NotesCommentsLayoutingOptions()
+slides_layout_options.notes_position = "BottomTruncated"
+slides_layout_options.comments_position = "Right"
 
 png_options = ImageExportOptions()
-png_options.slides_layout_options = notes_options
+png_options.slides_layout_options = slides_layout_options
 
 # Save the second slide to the PNG image.
 slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages/slide_2.png", png_options, None, None, None, "MyFolder", "MyStorage")
@@ -617,12 +617,12 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_secret");
 
 // Set options for the output PNG image.
-const notesOptions = new cloud.NotesCommentsLayoutingOptions();
-notesOptions.notesPosition = "BottomTruncated";
-notesOptions.commentsPosition = "Right";
+const slidesLayoutOptions = new cloud.NotesCommentsLayoutingOptions();
+slidesLayoutOptions.notesPosition = "BottomTruncated";
+slidesLayoutOptions.commentsPosition = "Right";
 
 const pngOptions = new cloud.ImageExportOptions();
-pngOptions.slidesLayoutOptions = notesOptions;
+pngOptions.slidesLayoutOptions = slidesLayoutOptions;
 
 // Save the second slide to the PNG image.
 slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", pngOptions, null, null, null, "MyFolder", "MyStorage").then(() => {
@@ -649,12 +649,12 @@ int main()
     auto slidesApi = new SlidesApi(L"my_client_id", L"my_client_secret");
 
     // Set options for the output PNG image.
-    auto notesOptions = std::make_shared<NotesCommentsLayoutingOptions>();
-    notesOptions->setNotesPosition(L"BottomTruncated");
-    notesOptions->setCommentsPosition(L"Right");
+    auto slidesLayoutOptions = std::make_shared<NotesCommentsLayoutingOptions>();
+    slidesLayoutOptions->setNotesPosition(L"BottomTruncated");
+    slidesLayoutOptions->setCommentsPosition(L"Right");
 
     auto pngOptions = std::make_shared<ImageExportOptions>();
-    pngOptions->setSlidesLayoutOptions(notesOptions);
+    pngOptions->setSlidesLayoutOptions(slidesLayoutOptions);
 
     // Save the second slide to the PNG image.
     slidesApi->saveSlide(
@@ -683,12 +683,12 @@ $config->{app_key} = "my_client_secret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 # Set options for the output PNG image.
-my $notes_options = AsposeSlidesCloud::Object::NotesCommentsLayoutingOptions->new();
-$notes_options->{notes_position} = "BottomTruncated";
-$notes_options->{comments_position} = "Right";
+my $slides_layout_options = AsposeSlidesCloud::Object::NotesCommentsLayoutingOptions->new();
+$slides_layout_options->{notes_position} = "BottomTruncated";
+$slides_layout_options->{comments_position} = "Right";
 
 my $png_options = AsposeSlidesCloud::Object::ImageExportOptions->new();
-$png_options->{slides_layout_options} = $notes_options;
+$png_options->{slides_layout_options} = $slides_layout_options;
 
 # Prepare parameters for saving the second slide to the PNG image.
 my %params = (name => "MyPresentation.pptx", slide_index => 2, format => "png", out_path => "MyImages/slide_2.png", 

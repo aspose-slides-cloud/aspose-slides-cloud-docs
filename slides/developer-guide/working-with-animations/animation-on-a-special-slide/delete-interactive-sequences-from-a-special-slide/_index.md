@@ -148,7 +148,7 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LayoutSlide;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.DeleteSpecialSlideAnimationInteractiveSequence(fileName, slideIndex, slideType, sequenceIndex);
 
@@ -175,7 +175,7 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         SpecialSlideType slideType = SpecialSlideType.LAYOUTSLIDE;
-        int sequenceIndex = 2;
+        int sequenceIndex = 1;
 
         SlideAnimation slideAnimation = slidesApi.deleteSpecialSlideAnimationInteractiveSequence(fileName, slideIndex, slideType, sequenceIndex, null, null, null);
 
@@ -204,7 +204,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $slideType = SpecialSlideType::LAYOUT_SLIDE;
-$sequenceIndex = 2;
+$sequenceIndex = 1;
 
 $slideAnimation = $slidesApi->deleteSpecialSlideAnimationInteractiveSequence($fileName, $slideIndex, $slideType, $sequenceIndex);
 
@@ -230,7 +230,7 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType::LAYOUT_SLIDE
-sequence_index = 2
+sequence_index = 1
 
 slide_animation = slides_api.delete_special_slide_animation_interactive_sequence(file_name, slide_index, slide_type, sequence_index)
 
@@ -251,7 +251,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 slide_type = SpecialSlideType.LAYOUTSLIDE
-sequence_index = 2
+sequence_index = 1
 
 slide_animation = slides_api.delete_special_slide_animation_interactive_sequence(file_name, slide_index, slide_type, sequence_index)
 
@@ -271,7 +271,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 slideType = cloudSdk.SpecialSlideType.LayoutSlide;
-sequenceIndex = 2;
+sequenceIndex = 1;
 
 slidesApi.deleteSpecialSlideAnimationInteractiveSequence(fileName, slideIndex, slideType, sequenceIndex).then(slideAnimation => {
     interactiveSequenceCount = slideAnimation.body.interactiveSequences.length;
@@ -295,7 +295,7 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
     const wchar_t* slideType = L"LayoutSlide";
-    int sequenceIndex = 2;
+    int sequenceIndex = 1;
 
     std::shared_ptr<SlideAnimation> slideAnimation = slidesApi->deleteSpecialSlideAnimationInteractiveSequence(fileName, slideIndex, slideType, sequenceIndex).get();
 
@@ -321,7 +321,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $slide_type = "LayoutSlide";
-my $sequence_index = 2;
+my $sequence_index = 1;
 
 my $slide_animation = $slides_api->delete_special_slide_animation_interactive_sequence(
     name => $file_name, slide_index => $slide_index, slide_type => $slide_type, sequence_index => $sequence_index);
@@ -355,7 +355,7 @@ func main() {
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
 	slideType := string(asposeslidescloud.SpecialSlideType_LayoutSlide)
-	var sequenceIndex int32 = 2
+	var sequenceIndex int32 = 1
 
 	slideAnimation, _, _ := slidesApi.DeleteSpecialSlideAnimationInteractiveSequence(fileName, slideIndex, slideType, sequenceIndex, "", "", "")
 
