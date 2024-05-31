@@ -9,217 +9,303 @@ keywords:
 - row
 - table row
 - remove a row
+- delete a row
 type: docs
 url: /delete-a-table-row/
 weight: 30
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows deleting table rows. If the optional "withAttachedRows" parameter is set, rows that have common merged cells with the target row will be deleted as well. 
+
+Aspose.Slides Cloud API provides you with the ability to efficiently manage table content in PowerPoint presentations, including deleting rows. This functionality allows you to simplify the process of updating and editing data directly within the slides. Use the following method to delete rows from a table.
+
 ## **DeleteTableRow**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}|DELETE|Returns table info|[DeleteTableRow](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}|DELETE|Deletes a table row in a presentation saved in a storage.|[DeleteTableRow](https://reference.aspose.cloud/slides/#/Table/DeleteTableRow)|
 
-Assume that we have a table with four rows and intend to delete the second row. The second and the third row have a common merged cell. Since the "withAttachedRows" parameter is set, the third row will be removed as well.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a table).|
+|rowIndex|integer|path|true|The 1-based index of a row.|
+|withAttachedRows|boolean|query|false|Specifies whether rows that share merged cells with the target row should be deleted.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with five rows on the **first** slide. Delete the **third** row and **rows that share merged cells** with the target row.
+
+![The table](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+
+**Get an Access Token**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/2" -H "Authorization: Bearer [Access Token]"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Delete the Row***
+
+```sh
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/3?withAttachedRows=true" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
 
+```text
 Code: 200
 Returns table info.
-
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
-
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 2;
-bool withAttachedRows = true;
-Table response = api.DeleteTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, withAttachedRows);
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Console.WriteLine("Table rows count: " + response.Rows.Count);
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int rowIndex = 3;
+        bool withAttachedRows = true;
+
+        Table table = slidesApi.DeleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, withAttachedRows);
+
+        int rowCount = table.Rows.Count;
+        Console.WriteLine("Number of rows: " + rowCount); // 3
+    }
+}
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Table;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 2;
-Boolean withAttachedRows = true;
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Table response = api.deleteTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, withAttachedRows, null, null, null);
-System.out.println("Table rows count: " + response.getRows().size());
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int rowIndex = 3;
+        Boolean withAttachedRows = true;
+
+        Table table = slidesApi.deleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, withAttachedRows, null, null, null);
+
+        int rowCount = table.getRows().size();
+        System.out.println("Number of rows: " + rowCount); // 3
+    }
+}
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\Table;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$slideIndex = 9;
-$shapeIndex = 1;
-$rowIndex = 2;
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+$shapeIndex = 2;
+$rowIndex = 3;
 $withAttachedRows = true;
-        
-$result = $api->deleteTableRow("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows);
 
-print("Table rows count: " . count($result->getRows()));
+$table = $slidesApi->deleteTableRow($fileName, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows);
+
+$rowCount = count($table->getRows());
+echo "Number of rows: ", $rowCount; // 3
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
+{{< tab tabNum="4" >}}
 ```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-slide_index = 9
-shape_index = 1
-row_index = 2
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+row_index = 3
 with_attached_rows = true
 
-result = api.delete_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, with_attached_rows)
-puts "Table rows count: #{result.rows.length}"
-```
+table = slides_api.delete_table_row(file_name, slide_index, shape_index, row_index, with_attached_rows)
 
+row_count = table.rows.length
+puts "Number of rows: #{row_count}" # 3
+```
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
-
 ```python
-import asposeslidescloud
+from asposeslidescloud.apis import SlidesApi
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+row_index = 3
+with_attached_rows = True
 
-slide_index = 9
-shape_index = 1
-row_index = 2
-with_attached_table_rows = True
+table = slides_api.delete_table_row(file_name, slide_index, shape_index, row_index, with_attached_rows)
 
-response = api.delete_table_row("MyPresentation.pptx", slide_index, shape_index, row_index, with_attached_table_rows)
-print(f"Table rows count: { len(response.rows) }")
+row_count = len(table.rows)
+print("Number of rows:", row_count)  # 3
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let slideIndex = 9;
-let shapeIndex = 1;
-let rowIndex = 2;
-let withAttachedRows = true;
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+shapeIndex = 2;
+rowIndex = 3;
+withAttachedRows = true;
 
-const result = await api.deleteTableRow("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, withAttachedRows);         
-console.log("Table rows count: " + result.body.rows.length);
+slidesApi.deleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, withAttachedRows).then(table => {
+    rowCount = table.body.rows.length;
+    console.log("Number of rows:", rowCount); // 3
+}); 
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-fileName := "MyPresentation.pptx"
-var slideIndex int32 = 9
-var shapeIndex int32 = 1
-var rowIndex int32 = 2
-var withAttachedRows bool = true
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-result, _, e := api.SlidesApi.DeleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, &withAttachedRows, "", "", "")
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
 
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 1
+	var shapeIndex int32 = 2
+	var rowIndex int32 = 3
+	withAttachedRows := true
+
+	table, _, _ := slidesApi.DeleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, &withAttachedRows, "", "", "")
+
+	rowCount := len(table.GetRows())
+	fmt.Println("Number of rows:", rowCount) // 3
 }
-
-fmt.Printf("Table rows count: %v", len(result.GetRows()))
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+    int shapeIndex = 2;
+    int rowIndex = 3;
+    bool withAttachedRows = true;
+
+    std::shared_ptr<Table> table = slidesApi->deleteTableRow(fileName, slideIndex, shapeIndex, rowIndex, withAttachedRows).get();
+
+    int rowCount = table->getRows().size();
+    std::wcout << L"Number of rows: " << rowCount; // 3
+}
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
 ```perl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::Table;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my %params = (
-'name' => "MyPresentation.pptx",
-'slide_index' => 9,
-'shape_index' => 1,
-'row_index' => 2,
-'with_attached_rows' => 'true');
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
-my $response = $api->delete_table_row(%params);
-print "Table rows count: scalar @{$response->{rows}} \n";
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+my $row_index = 3;
+my $with_attached_rows = "True";
+
+my $table = $slides_api->delete_table_row(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, row_index => $row_index, with_attached_rows => $with_attached_rows);
+
+my $row_count = @{$table->{rows}};
+print "Number of rows: $row_count"; # 3
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The result:
+
+![The table](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
