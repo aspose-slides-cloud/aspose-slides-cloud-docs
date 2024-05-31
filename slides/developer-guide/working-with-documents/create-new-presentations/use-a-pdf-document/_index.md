@@ -20,7 +20,7 @@ The following method allows you to create a PowerPoint presentation from a PDF d
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The file name of the new presentation or existing one.|
 |pdf|file|formData|true|The input data of a PDF document.|
-|options|[PdfImportOptions](#import-options)|header|false|The password to open the presentation.|
+|options|[PdfImportOptions](#import-options)|header|false|PDF import options.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The folder path where the presentation is located.|
 |storage|string|query|false|The storage name where the presentation is located.|
@@ -30,7 +30,7 @@ The following method allows you to create a PowerPoint presentation from a PDF d
 Represents PDF import options.
 
 | **Property Name** | **Type** | **Description** | 
-| :- | :- | :- |  
+| :- | :- | :- |
 | DetectTables | bool | true to detect tables | 
 
 ## **cURL Examples**
@@ -213,6 +213,7 @@ class Test
         using (var pdfStream = File.OpenRead("test.pdf"))
         {
             PdfImportOptions options = new PdfImportOptions();
+            options.DetectTables = false;
             var response = api.ImportFromPdf("summary.pptx", pdfStream, options);
             Console.WriteLine(response.SelfUri.Href); // https://api.aspose.cloud/v3.0/slides/summary.pptx
         }
