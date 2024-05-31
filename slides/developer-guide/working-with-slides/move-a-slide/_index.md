@@ -1,5 +1,14 @@
 ---
 title: "Move a Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- move a slide
+- slide position
+- reorder slides
 type: docs
 url: /move-a-slide/
 weight: 60

@@ -1,5 +1,15 @@
 ---
 title: "Working with Folders"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- cloud storage
+- file storage
+- create a folder
+- copy a folder
+- delete a folder
 type: docs
 url: /working-with-folders/
 weight: 20

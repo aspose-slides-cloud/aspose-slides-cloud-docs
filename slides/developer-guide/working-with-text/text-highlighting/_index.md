@@ -1,12 +1,21 @@
 ---
 title: "Text Highlighting"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- highlight
+- highlight text
+- text color
 type: docs
 url: /text-highlighting/
 weight: 110
 ---
 
 ## **Introduction**
-1
+
 You can use **highlightText** or **highlightRegex** methods of shape resource to highlight text in a shape.
 ### **API Information**
 

@@ -1,5 +1,14 @@
 ---
 title: "Update an Effect in an Interactive Sequence"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- update animation
+- shape animation
+- text animation
 type: docs
 url: /update-an-effect-in-an-interactive-sequence/
 weight: 45

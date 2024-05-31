@@ -1,243 +1,388 @@
 ---
 title: "Set a Chart Legend"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart legend
 type: docs
 url: /set-a-chart-legend/
 weight: 60
 ---
+
 ## **Introduction**
-Aspose.Slides Cloud API allows setting chart legend properties.
+
+The primary function of a legend is to identify the different data series or categories represented in the chart. Legends often use colors to represent different data series. Each color in the legend corresponds to a specific element in the chart. In addition to color, some charts may use symbols or markers to distinguish between data series, especially in line charts or scatter plots. The legend explains the meaning of these symbols, ensuring clarity for the audience. Alongside the color or symbol, the legend typically includes a textual description of each data series. This description may include the name of the series or any relevant information that helps viewers understand what each element represents. The legend is usually positioned adjacent to or within the chart area for easy reference. However, its exact location can vary depending on the design of the slide and the space available. Use the following method to customize a chart legend.
+
+## **SetChartLegend**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/legend|PUT|Updates chart legend properties|[SetChartLegend]()|
-### **cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/legend|PUT|Updates the properties of a chart legend in a presentation saved in a storage.|[SetChartLegend](https://reference.aspose.cloud/slides/#/Chart/SetChartLegend)|
 
-The code example below shows how to update some properties of the chart legend.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a chart).|
+|legend|`Legend`|body|true|The data transfer object with the legend parameters.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a chart (the **second** shape) on the **first** slide with a legend located at the bottom of the chart. Move the legend to the **right** and fill it with the color **#77CEF9**.
+
+![The chart](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
 
-**Create Authentication Headers**
+**Get an Access Token**
+
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Update Vertical Axis**
+**Update the Chart Legend**
+
 ```sh
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/legend" -d @"legend.json" -H "Content-Type: text/json" -H "Authorization: Bearer [Access Token]"
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/legend" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @Legend.json
 ```
 
-legend.json
+Legend.json content:
 ```json
 {
-    "Overlay":true,
-    "FillFormat":{
-        "Type": "Solid",
-        "Color": "#77CEF9"
+  "Position": "Right",
+  "FillFormat":{
+    "Type": "Solid",
+    "Color": "#77CEF9"
     }
 }
-
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
 
-```java
+**Response Example**
 
-Code: 200
-Returns chart legend info.
-
+```json
+{
+  "position": "Right",
+  "x": "NaN",
+  "y": "NaN",
+  "width": "NaN",
+  "height": "NaN",
+  "fillFormat": {
+    "type": "Solid",
+    "color": "#FF77CEF9"
+  },
+  "lineFormat": {
+    "fillFormat": {
+      "type": "NoFill"
+    }
+  }
+}
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **SDK Source**
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
-## **SDK Examples**
-{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+**SDK Solutions**
+
+{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+
 {{< tab tabNum="1" >}}
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-int slideIndex = 3;
-int shapeIndex = 1;
-
-Legend legendDto = new Legend();
-legendDto.Overlay = true;
-legendDto.FillFormat = new SolidFill()
+class Application
 {
-    Color = "#77CEF9"
-};
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Legend response = api.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legendDto);
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
 
-Console.WriteLine("Background color of the chart legend has been changed.");
+        Legend chartLegend = new Legend
+        {
+            Position = Legend.PositionEnum.Right,
+            FillFormat = new SolidFill
+            {
+                Color = "#77CEF9"
+            }
+        };
+
+        Legend updatedLegend = slidesApi.SetChartLegend(fileName, slideIndex, shapeIndex, chartLegend);
+        Console.WriteLine("The chart legend has been updated.");
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SolidFill;
+import com.aspose.slides.model.Legend;
 
-int slideIndex = 3;
-int shapeIndex = 1;
-Legend legend = new Legend();
-legend.setOverlay(true);
-SolidFill fillFormat = new SolidFill();
-fillFormat.setColor("#77CEF9");
-legend.setFillFormat(fillFormat);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Legend response = api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, null, null, null);
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
 
-System.out.println("Background color of the chart legend has been changed.");
+        SolidFill fillFormat = new SolidFill();
+        fillFormat.setColor("#77CEF9");
+
+        Legend chartLegend = new Legend();
+        chartLegend.setPosition(Legend.PositionEnum.RIGHT);
+        chartLegend.setFillFormat(fillFormat);
+
+        Legend updatedLegend = slidesApi.setChartLegend(fileName, slideIndex, shapeIndex, chartLegend, null, null, null);
+        System.out.println("The chart legend has been updated.");
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Model\Legend;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
+use Aspose\Slides\Cloud\Sdk\Model\Legend;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$slideIndex = 3;
-$shapeIndex = 1;
+$slidesApi = new SlidesApi(null, $configuration);
 
-$legend = new Legend();
-$legend->setOverlay(true);
-$fillFormat = new SolidFill();
-$fillFormat->setColor("#77CEF9"); 
-$legend->setFillFormat($fillFormat);
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+$shapeIndex = 2;
 
-$result = $api->setChartLegend("MyPresentation.pptx", $slideIndex, $shapeIndex, $legend);
+$chartLegend = new Legend();
+$chartLegend->setPosition("Right");
+$chartLegend->setFillFormat(new SolidFill());
+$chartLegend->getFillFormat()->setColor("#77CEF9");
 
-print("Background color of the chart legend has been changed.");
+$updatedLegend = $slidesApi->setChartLegend($fileName, $slideIndex, $shapeIndex, $chartLegend);
+echo "The chart legend has been updated.";
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
+
+chart_legend = Legend.new
+chart_legend.position = "Right"
+chart_legend.fill_format = SolidFill.new
+chart_legend.fill_format.color = "#77CEF9"
+
+updated_legend = slides_api.set_chart_legend(file_name, slide_index, shape_index, chart_legend)
+puts "The chart legend has been updated."
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
-```python
-import asposeslidescloud
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import Legend
+from asposeslidescloud.models import SolidFill
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.legend import Legend
-from asposeslidescloud.models.solid_fill import SolidFill
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
 
-slide_index = 3
-shape_index = 1
+chart_legend = Legend()
+chart_legend.position = "Right"
+chart_legend.fill_format = SolidFill()
+chart_legend.fill_format.color = "#77CEF9"
 
-legend = Legend()
-legend.overlay = True
-fill_format = SolidFill()
-fill_format.color = "#77CEF9"
-legend.fill_format = fill_format
-response = api.set_chart_legend("MyPresentation.pptx", slide_index, shape_index, legend)
-
-print("Background color of the chart legend has been changed.")
+updated_legend = slides_api.set_chart_legend(file_name, slide_index, shape_index, chart_legend)
+print("The chart legend has been updated.")
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-const slideIndex = 3;
-const shapeIndex = 1;
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const fillFormat = new CloudSdk.SolidFill();
-fillFormat.color = "#77CEF9";
-const legend = new CloudSdk.Legend();
-legend.overlay = true;
-legend.fillFormat = fillFormat;
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+shapeIndex = 2;
 
-let result = await api.setChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend);
-            
-console.log("Background color of the chart legend has been changed.");
+chartLegend = new cloudSdk.Legend();
+chartLegend.position = cloudSdk.Legend.PositionEnum.Right;
+chartLegend.fillFormat = new cloudSdk.SolidFill();
+chartLegend.fillFormat.color = "#77CEF9";
+
+slidesApi.setChartLegend(fileName, slideIndex, shapeIndex, chartLegend).then(updatedLegend => {
+    console.log("The chart legend has been updated.");
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
-```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+#include "asposeslidescloud/model/SolidFill.h"
 
-var slideIndex int32 = 3
-var shapeIndex int32 = 1
+using namespace asposeslidescloud::api;
 
-fillFormat := asposeslidescloud.NewSolidFill()
-fillFormat.Color = "#77CEF9"
-legend := asposeslidescloud.NewLegend()
-legend.Overlay = true
-legend.FillFormat = fillFormat
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-_, _, e := api.SlidesApi.SetChartLegend("MyPresentation.pptx", slideIndex, shapeIndex, legend, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
-}            
-fmt.Printf("Background color of the chart legend has been changed.")
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+    int shapeIndex = 2;
 
+    std::shared_ptr<SolidFill> fillFormat = std::make_shared<SolidFill>();
+    fillFormat->setColor(L"#77CEF9");
+
+    std::shared_ptr<Legend> chartLegend = std::make_shared<Legend>();
+    chartLegend->setPosition(L"Right");
+    chartLegend->setFillFormat(fillFormat);
+
+    std::shared_ptr<Legend> updatedLegend = slidesApi->setChartLegend(fileName, slideIndex, shapeIndex, chartLegend).get();
+    std::wcout << L"The chart legend has been updated.";
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+use AsposeSlidesCloud::Object::Legend;
+use AsposeSlidesCloud::Object::SolidFill;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+
+my $chart_legend = AsposeSlidesCloud::Object::Legend->new();
+$chart_legend->{position} = "Right";
+$chart_legend->{fill_format} = AsposeSlidesCloud::Object::SolidFill->new();
+$chart_legend->{fill_format}->{color} = "#77CEF9";
+
+my $updated_legend = $slides_api->set_chart_legend(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, legend => $chart_legend);
+
+print("The chart legend has been updated.");
+```
 
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
 
-```perl
-use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;
-use AsposeSlidesCloud::Object::SlideComment;
-
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-
-#Code example will be added soon.
-```
-
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
 
+```go
+import (
+	"fmt"
+
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
+
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 1
+	var shapeIndex int32 = 2
+
+	fillFormat := asposeslidescloud.NewSolidFill()
+	fillFormat.Color = "#77CEF9"
+
+	chartLegend := asposeslidescloud.NewLegend()
+	chartLegend.Position = "Right"
+	chartLegend.FillFormat = fillFormat
+
+	slidesApi.SetChartLegend(fileName, slideIndex, shapeIndex, chartLegend, "", "", "")
+	fmt.Printf("The chart legend has been updated.")
+}
+```
+
 {{< /tab >}}
 
 {{< /tabs >}}
+
+The result:
+
+![The chart](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.

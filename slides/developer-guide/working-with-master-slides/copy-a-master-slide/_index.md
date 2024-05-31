@@ -1,5 +1,14 @@
 ---
 title: "Copy a Master Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- design
+- slide
+- master
+- copy master
 type: docs
 url: /copy-a-master-slide/
 weight: 30

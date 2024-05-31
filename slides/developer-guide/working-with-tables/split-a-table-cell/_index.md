@@ -1,197 +1,314 @@
 ---
 title: "Split a Table Cell"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- split a cell
+- column span
+- row span
 type: docs
 url: /split-a-table-cell/
 weight: 50
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API provides different options for splitting table cells. There are four of them: by width, by height, by col span and by row span. Last two options can be applied for merged cells. The methods accept a mandatory **value** argument. In the case of splitting by width or height, you have to specify desired cell width or height accordingly. In the case of splitting by span, the col span or row span value has to be provided.
+
+Aspose.Slides Cloud API provides different options for splitting table cells. There are four of them: by width, by height, by column span, and by row span. The last two options can be applied to merged cells. The methods take a required `value` argument. In the case of splitting by width or height, you have to specify the desired cell width or height accordingly. In the case of splitting by span, the column span or row span value has to be provided.
+
 ## **SplitTableCell**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/splitByWidth/{value}|POST|Returns table info|[SplitTableCell](#)
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/splitByHeight/{value}|POST|Returns table info|[SplitTableCell](#)
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/splitByColSpan/{value}|POST|Returns table info|[SplitTableCell](#)
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/splitByRowSpan/{value}|POST|Returns table info|[SplitTableCell](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/{splitType}/{value}|POST|Splits a table cell in a presentation saved in a storage.|[SplitTableCell](https://reference.aspose.cloud/slides/#/Table/SplitTableCell)|
 
-The code example below shows how to split a cell by width. The width of the new cell is 10.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a table).|
+|rowIndex|integer|path|true|The 1-based index of a row.|
+|cellIndex|integer|path|true|The 1-based index of the cell in the row.|
+|splitType|`TableCellSplitType`|path|true|The type of splitting.|
+|value|number|path|true|The width, height, column span, or row span (depending on the split type).|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with two columns and two rows on the **first** slide. Split the cell **(1,1)** by **width**. The width of the new cell must be **40** pt.
+
+![The table](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
-```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
-```
+
+**Get an Access Token**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/1/cells/1/splitByWidth/10" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Split the Cell**
+
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/1/cells/1/SplitByWidth/40" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
 
+```text
 Code: 200
 Returns table info.
-
 ```
+
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**cURL Solution**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
 
 ```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-int cellWidth = 10;
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Table response = api.SplitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, TableCellSplitType.SplitByWidth, cellWidth);
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int rowIndex = 1;
+        int cellIndex = 1;
+        TableCellSplitType splitType = TableCellSplitType.SplitByWidth;
+        int cellWidth = 40;
 
-Console.WriteLine("Cells count in the row: " + response.Rows[0].Cells.Count);
+        Table table = slidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, splitType, cellWidth);
+
+        int cellCount = table.Rows[rowIndex - 1].Cells.Count;
+        Console.WriteLine("Number of cells in the row: " + cellCount); // 3
+    }
+}
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
 
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.TableCellSplitType;
+import com.aspose.slides.model.Table;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-double cellWidth = 10.0;
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Table response = api.splitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, TableCellSplitType.SPLITBYWIDTH, cellWidth, null, null, null);
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 1;
+        int shapeIndex = 2;
+        int rowIndex = 1;
+        int cellIndex = 1;
+        TableCellSplitType splitType = TableCellSplitType.SPLITBYWIDTH;
+        double cellWidth = 40.0;
 
-System.out.println("Cells count in the row: " + response.getRows().get(0).getCells().size());
+        Table table = slidesApi.splitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, splitType, cellWidth, null, null, null);
+
+        int cellCount = table.getRows().get(rowIndex - 1).getCells().size();
+        System.out.println("Number of cells in the row: " + cellCount); // 3
+    }
+}
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="3" >}}
 
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\TableCellSplitType;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$slideIndex = 9;
-$shapeIndex = 1;
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptx";
+$slideIndex = 1;
+$shapeIndex = 2;
 $rowIndex = 1;
 $cellIndex = 1;
-$cellWidth = 10;
+$cellType = TableCellSplitType::SPLIT_BY_WIDTH;
+$cellWidth = 40;
 
-$result = $api->splitTableCell("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, 'SplitByWidth', $cellWidth);
+$table = $slidesApi->splitTableCell($fileName, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $cellType, $cellWidth);
 
-print("Cells count in the row: " . count($result->getRows()[0]->getCells()));
+$cellCount = count($table->getRows()[$rowIndex - 1]->getCells());
+echo "Number of cells in the row: ", $cellCount; // 3
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="4" >}}
 
 ```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-slide_index = 9
-shape_index = 1        
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2        
 row_index = 1
 cell_index = 1
-cell_width = 10
+cell_type = TableCellSplitType::SPLIT_BY_WIDTH
+cell_width = 40
 
-result = api.split_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, "SplitByWidth", cell_width)
-puts "Cells count in the row: #{result.rows[0].cells.length}"
+table = slides_api.split_table_cell(file_name, slide_index, shape_index, row_index, cell_index, cell_type, cell_width)
+
+cell_count = table.rows[row_index - 1].cells.length
+puts "Number of cells in the row: #{cell_count}" # 3
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
 
 ```python
-import asposeslidescloud
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import TableCellSplitType
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
-
-slide_index = 9
-shape_index = 1
+file_name = "MyPresentation.pptx"
+slide_index = 1
+shape_index = 2
 row_index = 1
-slides_index = 1
 cell_index = 1
-cell_width = 10
+cell_type = TableCellSplitType.SPLITBYWIDTH
+cell_width = 40
 
-response = api.split_table_cell("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, 'splitByWidth', cell_width)
+table = slides_api.split_table_cell(file_name, slide_index, shape_index, row_index, cell_index, cell_type, cell_width)
 
-print(f"Cells count in the row: { len(response.rows[0].cells) }")
+cell_count = len(table.rows[row_index - 1].cells)
+print("Cells count in the row:", cell_count)  # 3
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+```js
+const cloudSdk = require("asposeslidescloud");
 
-let slideIndex = 9;
-let shapeIndex = 1;
-let rowIndex = 1;
-let cellIndex = 1;
-let cellWidth = 10;
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const result = await api.splitTableCell("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, CloudSdk.TableCellSplitType.SplitByWidth, cellWidth);
-            
-console.log("Cells count in the row: " + result.body.rows[0].cells.length);
+fileName = "MyPresentation.pptx";
+slideIndex = 1;
+shapeIndex = 2;
+rowIndex = 1;
+cellIndex = 1;
+cellType = cloudSdk.TableCellSplitType.SplitByWidth;
+cellWidth = 40;
+
+slidesApi.splitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, cellType, cellWidth).then(table => {
+    cellCount = table.body.rows[rowIndex - 1].cells.length;
+    console.log("Number of cells in the row:", cellCount); // 3
+});
 ```
+
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
 
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-fileName := "MyPresentation.pptx"
-var slideIndex int32 = 9
-var shapeIndex int32 = 1
-var rowIndex int32 = 1
-var cellIndex int32 = 1
-var cellWidth int32 = 10
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-result, _, e := api.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByWidth", float64(cellWidth), "", "", "")
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
 
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 1
+	var shapeIndex int32 = 2
+	var rowIndex int32 = 1
+	var cellIndex int32 = 1
+	cellType := string(asposeslidescloud.TableCellSplitType_SplitByWidth)
+	var cellWidth float64 = 40
+
+	table, _, _ := slidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, cellType, cellWidth, "", "", "")
+
+	cellCount := len(table.GetRows()[rowIndex-1].GetCells())
+	fmt.Println("Number of cells in the row:", cellCount) // 3
 }
-
-fmt.Printf("Cells count in the row: %v", len(result.GetRows()[0].GetCells()))
 ```
 
 {{< /tab >}}
+
 {{< tab tabNum="8" >}}
+
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 1;
+    int shapeIndex = 2;
+    int rowIndex = 1;
+    int cellIndex = 1;
+    const wchar_t* splitType = L"SplitByWidth";
+    double cellWidth = 40;
+
+    std::shared_ptr<Table> table = slidesApi->splitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, splitType, cellWidth).get();
+
+    int cellCount = table->getRows()[rowIndex - 1]->getCells().size();
+    std::wcout << L"Number of cells in the row: " << cellCount; // 3
+}
+```
 
 {{< /tab >}}
 
@@ -201,32 +318,35 @@ fmt.Printf("Cells count in the row: %v", len(result.GetRows()[0].GetCells()))
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my %params = (
-'name' => "MyPresentation.pptx", 
-'split_type' => 'SplitByWidth',
-'value' => 10,
-'slide_index' => 9,
-'shape_index' => 1, 
-'row_index' => 1,
-'cell_index' => 1);
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
-my $response = $api->split_table_cell(%params);
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 1;
+my $shape_index = 2;
+my $row_index = 1;
+my $cell_index = 1;
+my $split_type = "SplitByWidth";
+my $cell_width = 40;
 
-print "Cells count in the row: scalar @{$response->{rows}[0]{cells}} \n";
+my $table = $slides_api->split_table_cell(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, row_index => $row_index, cell_index => $cell_index, split_type => $split_type, value => $cell_width);
+
+my $cell_count = @{$table->{rows}[$row_index - 1]{cells}};
+print "Number of cells in the row: ", $cell_count; # 3
 ```
 
 {{< /tab >}}
 
-{{< tab tabNum="10" >}}
-
-{{< /tab >}}
-
 {{< /tabs >}}
+
+The result:
+
+![The table](output.png)
+
 ## **SDK Source**
 
 The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)

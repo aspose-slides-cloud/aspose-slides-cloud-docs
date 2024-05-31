@@ -1,5 +1,13 @@
 ---
 title: "Remove Protection Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- protection
+- protection properties
+- remove a protection property
 type: docs
 url: /remove-protection-properties/
 weight: 30

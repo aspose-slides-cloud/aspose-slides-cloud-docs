@@ -1,5 +1,16 @@
 ---
 title: "Create a Text Portion"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- create text
+- add text
 type: docs
 url: /create-a-text-portion-in-a-table-cell/
 weight: 30

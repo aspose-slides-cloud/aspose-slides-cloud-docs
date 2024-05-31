@@ -1,5 +1,15 @@
 ---
 title: "Delete a Chart Series"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- chart series
+- data series
+- remove a data series
 type: docs
 url: /delete-a-chart-series/
 weight: 20

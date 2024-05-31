@@ -1,5 +1,14 @@
 ---
 title: "Update Speaker Notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide notes
+- speaker notes
+- update notes
+- edit notes
 type: docs
 url: /update-speaker-notes/
 weight: 25

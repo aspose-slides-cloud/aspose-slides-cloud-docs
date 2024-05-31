@@ -1,5 +1,12 @@
 ---
 title: "Evaluate Aspose.Slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- evaluation
+- trial account
 type: docs
 url: /evaluate-aspose-slides/
 weight: 60

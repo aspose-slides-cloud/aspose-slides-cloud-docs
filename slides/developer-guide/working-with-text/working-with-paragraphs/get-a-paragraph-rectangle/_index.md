@@ -1,5 +1,19 @@
 ---
 title: "Get a Paragraph Rectangle"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
+- coordinates
+- text bounds
+- paragraph bounds
+- paragraph coordinates
+- get bounds
+- paragraph width
+- paragraph height
 type: docs
 url: /get-a-paragraph-rectangle/
 weight: 60

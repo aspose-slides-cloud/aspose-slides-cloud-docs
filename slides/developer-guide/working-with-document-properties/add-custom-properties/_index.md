@@ -1,5 +1,12 @@
 ---
 title: "Add Custom Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- document properties
+- add a document property
 type: docs
 url: /add-custom-properties/
 weight: 20

@@ -1,5 +1,14 @@
 ---
 title: "Update a Chart Category"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- chart
+- chart data
+- chart category
+- update chart data
 type: docs
 url: /update-a-chart-category/
 weight: 30
@@ -51,6 +60,8 @@ curl POST "https://api.aspose.cloud/connect/token" \
      -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
+
+**Update the Category**
 
 ```sh
 curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/categories/3" \

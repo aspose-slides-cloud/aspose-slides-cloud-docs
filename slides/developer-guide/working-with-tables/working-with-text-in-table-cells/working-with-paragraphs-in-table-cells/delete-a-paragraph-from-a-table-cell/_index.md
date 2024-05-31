@@ -1,5 +1,16 @@
 ---
 title: "Delete a Paragraph"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- table
+- cell
+- table cell
+- text
+- paragraph
+- remove a paragraph
 type: docs
 url: /delete-a-paragraph-from-a-table-cell/
 weight: 50

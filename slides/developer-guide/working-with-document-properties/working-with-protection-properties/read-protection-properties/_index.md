@@ -1,5 +1,12 @@
 ---
 title: "Read Protection Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- protection
+- protection properties
 type: docs
 url: /read-protection-properties/
 weight: 10

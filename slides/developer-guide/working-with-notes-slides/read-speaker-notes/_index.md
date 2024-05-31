@@ -1,5 +1,13 @@
 ---
 title: "Read Speaker Notes"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide notes
+- speaker notes
+- extract notes
 type: docs
 url: /read-speaker-notes/
 weight: 10

@@ -1,5 +1,19 @@
 ---
 title: "Working with Slide Sections"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- section
+- slide section
+- get a section
+- create a section
+- add a section
+- move a section
+- update a section
+- remove a section
 type: docs
 url: /working-with-slide-sections/
 weight: 110

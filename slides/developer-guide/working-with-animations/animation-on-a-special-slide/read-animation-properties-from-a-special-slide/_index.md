@@ -1,5 +1,13 @@
 ---
 title: "Read Animation Properties"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- shape animation
+- text animation
 type: docs
 url: /read-animation-properties-from-a-special-slide/
 weight: 10

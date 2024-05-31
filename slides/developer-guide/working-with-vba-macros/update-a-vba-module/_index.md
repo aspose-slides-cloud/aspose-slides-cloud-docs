@@ -1,5 +1,17 @@
 ---
 title: "Update a VBA Module"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- VBA
+- macros
+- module
+- VBA module
+- update a module
+- edit a module
+- change a module
 type: docs
 url: /update-a-vba-module/
 weight: 50

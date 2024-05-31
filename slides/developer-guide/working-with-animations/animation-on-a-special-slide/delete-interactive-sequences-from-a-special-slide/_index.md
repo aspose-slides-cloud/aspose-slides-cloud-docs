@@ -1,5 +1,14 @@
 ---
 title: "Delete Interactive Sequences"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- remove animation
+- shape animation
+- text animation
 type: docs
 url: /delete-interactive-sequences-from-a-special-slide/
 weight: 60

@@ -1,5 +1,18 @@
 ---
 title: "Create a Math Formula"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- math
+- formula
+- math formula
+- create a formula
+- add a formula
+- equation
+- create an equation
+- add an equation
 type: docs
 url: /create-a-math-formula/
 weight: 10

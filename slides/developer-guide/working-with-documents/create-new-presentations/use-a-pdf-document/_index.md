@@ -1,5 +1,16 @@
 ---
 title: "Use a PDF Document"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- create a presentation
+- PDF to PPT
+- PDF to PPTX
+- import PDF
+- import PDF document
+- import PDF file
 type: docs
 url: /use-a-pdf-document/
 weight: 60

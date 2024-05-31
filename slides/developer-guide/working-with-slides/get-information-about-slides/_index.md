@@ -1,5 +1,11 @@
 ---
 title: "Get Information about Slides"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
 type: docs
 url: /get-information-about-slides/
 weight: 5

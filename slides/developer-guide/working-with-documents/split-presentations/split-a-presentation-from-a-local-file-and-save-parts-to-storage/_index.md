@@ -1,5 +1,12 @@
 ---
 title: "Split a Presentation from a Local File and Save Parts to Storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- split a presentation
+- split slides
 type: docs
 url: /split-a-presentation-from-a-local-file-and-save-parts-to-storage/
 weight: 30

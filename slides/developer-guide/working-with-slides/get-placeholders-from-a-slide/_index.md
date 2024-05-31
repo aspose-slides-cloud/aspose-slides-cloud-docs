@@ -1,5 +1,13 @@
 ---
 title: "Get Placeholders from a Slide"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- placeholder
+- get a placeholder
 type: docs
 url: /get-placeholders-from-a-slide/
 weight: 30

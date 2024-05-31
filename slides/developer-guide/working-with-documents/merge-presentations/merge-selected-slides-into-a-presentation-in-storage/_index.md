@@ -1,5 +1,12 @@
 ---
 title: "Merge Selected Slides into a Presentation in Storage"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- merge presentations
+- merge slides
 type: docs
 url: /merge-selected-slides-into-a-presentation-in-storage/
 weight: 20

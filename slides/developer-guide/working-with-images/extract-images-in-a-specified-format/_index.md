@@ -1,5 +1,13 @@
 ---
 title: "Extract Images in a Specified Format"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- image
+- extract an image
+- image format
 type: docs
 url: /extract-images-in-a-specified-format/
 weight: 40

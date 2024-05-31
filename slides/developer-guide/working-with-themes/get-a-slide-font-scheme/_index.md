@@ -1,5 +1,14 @@
 ---
 title: "Get a Slide Font Scheme"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- slide
+- font
+- scheme
+- font scheme
 type: docs
 url: /get-a-slide-font-scheme/
 weight: 10

@@ -1,5 +1,14 @@
 ---
 title: "Use an HTML Document"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- create a presentation
+- HTML to PPT
+- HTML to PPTX
+- import HTML
 type: docs
 url: /use-an-html-document/
 weight: 40

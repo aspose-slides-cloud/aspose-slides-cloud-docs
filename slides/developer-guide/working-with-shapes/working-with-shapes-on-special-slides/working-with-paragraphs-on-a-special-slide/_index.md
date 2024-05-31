@@ -1,5 +1,12 @@
 ---
 title: "Working with Paragraphs"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- paragraph
 type: docs
 url: /working-with-paragraphs-on-a-special-slide/
 weight: 20

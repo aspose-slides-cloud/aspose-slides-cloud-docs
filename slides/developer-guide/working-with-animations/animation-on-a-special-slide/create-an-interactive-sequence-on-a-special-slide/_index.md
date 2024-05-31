@@ -1,5 +1,14 @@
 ---
 title: "Create an Interactive Sequence"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- add animation
+- shape animation
+- text animation
 type: docs
 url: /create-an-interactive-sequence-on-a-special-slide/
 weight: 50

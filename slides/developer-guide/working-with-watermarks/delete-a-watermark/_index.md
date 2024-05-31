@@ -1,5 +1,14 @@
 ---
 title: "Delete a Watermark"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- text
+- watermark
+- delete a watermark
+- remove a watermark
 type: docs
 url: /delete-a-watermark/
 weight: 30

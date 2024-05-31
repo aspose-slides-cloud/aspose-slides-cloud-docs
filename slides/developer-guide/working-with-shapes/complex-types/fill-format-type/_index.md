@@ -1,5 +1,12 @@
 ---
 title: "FillFormat"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- fill
+- fill format
 type: docs
 url: /fill-format-type/
 weight: 20

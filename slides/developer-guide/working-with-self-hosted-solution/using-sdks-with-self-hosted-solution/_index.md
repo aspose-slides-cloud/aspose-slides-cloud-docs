@@ -1,5 +1,11 @@
 ---
 title: "Using SDKs With Self-Hosted Solution"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- self-hosted solution
 type: docs
 url: /using-sdks-with-self-hosted-solution/
 weight: 50

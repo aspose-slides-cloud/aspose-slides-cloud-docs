@@ -1,5 +1,14 @@
 ---
 title: "Compress Embedded Fonts"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- font
+- embedded font
+- presentation fonts
+- compress fonts
 type: docs
 url: /compress-embedded-fonts/
 weight: 60

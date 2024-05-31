@@ -1,6 +1,16 @@
 o---
 title: "Get Text Portion Properties"
-keywords: "PowerPoint, REST API, text, format text, text formatting, text box, text color, bold font, italic font, font height"
+keywords:
+- PowerPoint
+- REST API
+- cloud API
+- text
+- extract text
+- text box
+- text color
+- bold font
+- italic font
+- font height
 type: docs
 url: /get-text-portion-properties-from-a-special-slide/
 weight: 10

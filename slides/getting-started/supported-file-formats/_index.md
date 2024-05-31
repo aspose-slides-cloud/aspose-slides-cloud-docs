@@ -1,5 +1,12 @@
 ---
 title: "Supported File Formats"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- file format
+- supported format
 type: docs
 url: /supported-file-formats/
 weight: 70
@@ -40,4 +47,3 @@ weight: 70
 |[SVG](https://wiki.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}|
 |[SWF](https://wiki.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}|
 |[HTML](https://wiki.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}|
-

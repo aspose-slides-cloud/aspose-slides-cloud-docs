@@ -1,5 +1,11 @@
 ---
 title: "Create a New Presentation"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- create a presentation
 type: docs
 url: /create-a-new-presentation/
 weight: 10

@@ -1,5 +1,14 @@
 ---
 title: "Delete Effects from a Main Sequence"
+keywords:
+- PowerPoint
+- presentation
+- REST API
+- cloud API
+- animation
+- remove animation
+- shape animation
+- text animation
 type: docs
 url: /delete-effects-from-a-main-sequence/
 weight: 90
