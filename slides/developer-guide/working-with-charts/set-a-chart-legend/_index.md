@@ -38,7 +38,7 @@ The primary function of a legend is to identify the different data series or cat
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a chart (the **second** shape) on the **first** slide with a legend located at the bottom of the chart. Move the legend to the **right** and fill it with the color **#77CEF9**.
+In the **default** storage, the document **MyPresentation.pptx** contains a chart (the **first** shape) on the **third** slide with a legend located at the bottom of the chart. Move the legend to the **right** and fill it with the color **#77CEF9**.
 
 ![The chart](input.png)
 
@@ -59,7 +59,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Update the Chart Legend**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/legend" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/legend" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @Legend.json
@@ -123,8 +123,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
 
         Legend chartLegend = new Legend
         {
@@ -156,8 +156,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
 
         SolidFill fillFormat = new SolidFill();
         fillFormat.setColor("#77CEF9");
@@ -189,8 +189,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 3;
+$shapeIndex = 1;
 
 $chartLegend = new Legend();
 $chartLegend->setPosition("Right");
@@ -217,8 +217,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 
 chart_legend = Legend.new
 chart_legend.position = "Right"
@@ -241,8 +241,8 @@ from asposeslidescloud.models import SolidFill
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 
 chart_legend = Legend()
 chart_legend.position = "Right"
@@ -263,8 +263,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 3;
+shapeIndex = 1;
 
 chartLegend = new cloudSdk.Legend();
 chartLegend.position = cloudSdk.Legend.PositionEnum.Right;
@@ -291,8 +291,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 3;
+    int shapeIndex = 1;
 
     std::shared_ptr<SolidFill> fillFormat = std::make_shared<SolidFill>();
     fillFormat->setColor(L"#77CEF9");
@@ -323,8 +323,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 3;
+my $shape_index = 1;
 
 my $chart_legend = AsposeSlidesCloud::Object::Legend->new();
 $chart_legend->{position} = "Right";
@@ -360,8 +360,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 3
+	var shapeIndex int32 = 1
 
 	fillFormat := asposeslidescloud.NewSolidFill()
 	fillFormat.Color = "#77CEF9"

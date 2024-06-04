@@ -63,7 +63,7 @@ Aspose.Slides Cloud API allows you to read, add, modify and delete text portions
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **first** slide. The **second** text box contains three paragraphs. Delete the **second** text portion from the **third** paragraph.
+The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **first** slide. The **second** text box contains three paragraphs. Delete the **first** text portion from the **first** paragraph.
 
 ![Slide](input.png)
 
@@ -84,7 +84,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Text Portion**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/2" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/1/portions/1" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -105,7 +105,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
       "latinFont": "Arial",
       "complexScriptFont": "Arial",
       "selfUri": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/1",
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/1/portions/1",
         "relation": "self",
         "slideIndex": 1,
         "shapeIndex": 2
@@ -113,7 +113,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/
     }
   ],
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/1/portions",
     "relation": "self",
     "slideIndex": 1,
     "shapeIndex": 2
@@ -146,8 +146,8 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portions textPortions = slidesApi.DeletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex);
 
@@ -173,8 +173,8 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portions textPortions = slidesApi.deletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, null, null, null, null);
 
@@ -201,8 +201,8 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphIndex = 3;
-$portionIndex = 2;
+$paragraphIndex = 1;
+$portionIndex = 1;
 
 $textPortions = $slidesApi->deletePortion($fileName, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex);
 
@@ -228,8 +228,8 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portions = slides_api.delete_portion(file_name, slide_index, shape_index, paragraph_index, portion_index)
 
@@ -249,8 +249,8 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portions = slides_api.delete_portion(file_name, slide_index, shape_index, paragraph_index, portion_index)
 
@@ -270,8 +270,8 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 shapeIndex = 2;
-paragraphIndex = 3;
-portionIndex = 2;
+paragraphIndex = 1;
+portionIndex = 1;
 
 slidesApi.deletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).then(textPortions => {
     portionCount = textPortions.body.items.length;
@@ -295,8 +295,8 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
     int shapeIndex = 2;
-    int paragraphIndex = 3;
-    int portionIndex = 2;
+    int paragraphIndex = 1;
+    int portionIndex = 1;
 
     std::shared_ptr<Portions> textPortions = slidesApi->deletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex).get();
 
@@ -322,8 +322,8 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $shape_index = 2;
-my $paragraph_index = 3;
-my $portion_index = 2;
+my $paragraph_index = 1;
+my $portion_index = 1;
 
 my $text_portions = $slides_api->delete_portion(
     name => $file_name, slide_index => $slide_index, shape_index => $shape_index, paragraph_index => $paragraph_index, portion_index => $portion_index);
@@ -357,8 +357,8 @@ func main() {
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
-	var paragraphIndex int32 = 3
-	var portionIndex int32 = 2
+	var paragraphIndex int32 = 1
+	var portionIndex int32 = 1
 
 	textPortions, _, _ := slidesApi.DeletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, "", "", "", "")
 

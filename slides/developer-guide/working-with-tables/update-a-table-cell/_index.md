@@ -47,7 +47,7 @@ Aspose.Slides Cloud API provides a wide range of features for formatting table c
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) on the **first** slide. For cell **(1,1)** set the **text** to **"ID"** and the **fill color** to **#ED7D31**.
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) on the **ninth** slide. For cell **(1,1)** set the **text** to **"ID"** and the **fill color** to **#ED7D31**.
 
 ![The table](input.png)
 
@@ -68,7 +68,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Update the Cell**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/1/cells/1" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/1/cells/1" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @TableCell.json
@@ -121,7 +121,7 @@ TableCell.json content:
     }
   },
   "paragraphs": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/2/cells/2/paragraphs",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/2/cells/2/paragraphs",
     "relation": "self",
     "slideIndex": 1,
     "shapeIndex": 2
@@ -150,8 +150,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 1;
         int cellIndex = 1;
 
@@ -187,8 +187,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 1;
         int cellIndex = 1;
 
@@ -224,8 +224,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 9;
+$shapeIndex = 1;
 $rowIndex = 1;
 $cellIndex = 1;
 
@@ -256,8 +256,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2        
+slide_index = 9
+shape_index = 1        
 row_index = 1
 cell_index = 1
 
@@ -284,8 +284,8 @@ from asposeslidescloud.models import SolidFill
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 row_index = 1
 cell_index = 1
 
@@ -310,8 +310,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 9;
+shapeIndex = 1;
 rowIndex = 1;
 cellIndex = 1;
 
@@ -345,8 +345,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
 	var rowIndex int32 = 1
 	var cellIndex int32 = 1
 
@@ -379,8 +379,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 9;
+    int shapeIndex = 1;
     int rowIndex = 1;
     int cellIndex = 1;
 
@@ -415,8 +415,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 9;
+my $shape_index = 1;
 my $row_index = 1;
 my $cell_index = 1;
 

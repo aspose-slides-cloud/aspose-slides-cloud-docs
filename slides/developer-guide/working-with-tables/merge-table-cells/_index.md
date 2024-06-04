@@ -38,7 +38,7 @@ Merging table cells in PowerPoint documents is the process of combining two or m
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with three columns and four rows on the **first** slide. Merge the four cells **(1,1)**, **(1,2)**, **(2,1)**, and **(2,2)** into one cell.
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) with three columns and four rows on the **ninth** slide. Merge the four cells **(1,1)**, **(1,2)**, **(2,1)**, and **(2,2)** into one cell.
 
 ![The table](input.png)
 
@@ -59,7 +59,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Merge the Cells**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/mergeCells" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/mergeCells" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @MergeCells.json
@@ -106,8 +106,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
 
         TableCellMergeOptions mergeOptions = new TableCellMergeOptions
         {
@@ -142,8 +142,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
 
         TableCellMergeOptions mergeOptions = new TableCellMergeOptions();
         mergeOptions.setFirstRowIndex(1);
@@ -176,8 +176,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 9;
+$shapeIndex = 1;
 
 $mergeOptions = new TableCellMergeOptions();
 $mergeOptions->setFirstRowIndex(1);
@@ -208,8 +208,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 
 merge_options = TableCellMergeOptions.new
 merge_options.first_row_index = 1
@@ -235,8 +235,8 @@ from asposeslidescloud.models import TableCellMergeOptions
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 
 merge_options = TableCellMergeOptions()
 merge_options.first_row_index = 1
@@ -261,8 +261,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 9;
+shapeIndex = 1;
 
 mergeOptions = new cloudSdk.TableCellMergeOptions();
 mergeOptions.firstRowIndex = 1;
@@ -291,8 +291,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 9;
+    int shapeIndex = 1;
 
     std::shared_ptr<TableCellMergeOptions> mergeOptions = std::make_shared<TableCellMergeOptions>();
     mergeOptions->setFirstRowIndex(1);
@@ -324,8 +324,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 9;
+my $shape_index = 1;
 
 my $merge_options = AsposeSlidesCloud::Object::TableCellMergeOptions->new();
 $merge_options->{first_row_index} = 1;
@@ -360,8 +360,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
 
 	mergeOptions := asposeslidescloud.NewTableCellMergeOptions()
 	mergeOptions.FirstRowIndex = 1

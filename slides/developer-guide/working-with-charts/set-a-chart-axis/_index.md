@@ -47,7 +47,7 @@ You can create various types of charts such as column charts, line charts, water
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains a chart (the **first** shape) on the **second** slide that displays the number of items sold for quarters 1 through 4. Apply the following settings for the vertical axis:
+The document **MyPresentation.pptx** saved in the **default** storage contains a chart (the **first** shape) on the **third** slide that displays the number of items sold for quarters 1 through 4. Apply the following settings for the vertical axis:
 - show the axis title
 - set the maximum value to 35
 
@@ -70,7 +70,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Update the Vertical Axis**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/1/VerticalAxis" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/VerticalAxis" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @VerticalAxis.json
@@ -154,7 +154,7 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 2;
+        int slideIndex = 3;
         int shapeIndex = 1;
         AxisType axisType = AxisType.VerticalAxis;
 
@@ -188,7 +188,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 2;
+        int slideIndex = 3;
         int shapeIndex = 1;
         AxisType axisType = AxisType.VERTICALAXIS;
 
@@ -222,7 +222,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 2;
+$slideIndex = 3;
 $shapeIndex = 1;
 $axisType = AxisType::VERTICAL_AXIS;
 
@@ -253,7 +253,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 3
 shape_index = 1
 axis_type = AxisType::VERTICAL_AXIS
 
@@ -280,7 +280,7 @@ from asposeslidescloud.models import Axis
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 2
+slide_index = 3
 shape_index = 1
 axis_type = AxisType.VERTICALAXIS
 
@@ -305,7 +305,7 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 2;
+slideIndex = 3;
 shapeIndex = 1;
 axisType = cloudSdk.AxisType.VerticalAxis;
 
@@ -334,7 +334,7 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 2;
+    int slideIndex = 3;
     int shapeIndex = 1;
     const wchar_t* axisType = L"VerticalAxis";
 
@@ -366,7 +366,7 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 2;
+my $slide_index = 3;
 my $shape_index = 1;
 my $axis_type = "VerticalAxis";
 
@@ -405,7 +405,7 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 2
+	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 	axisType := string(asposeslidescloud.AxisType_VerticalAxis)
 

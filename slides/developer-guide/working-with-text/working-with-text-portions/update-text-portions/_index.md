@@ -46,7 +46,7 @@ Aspose.Slides Cloud API allows you to read, add, modify and delete text portions
 
 ### **Examples**
 
-The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **first** slide. The **second** text box contains three paragraphs. Set the following options for the **second** text portion in the **third** paragraph:
+The document **MyPresentation.pptx** saved in the **default** storage contains two text boxes on the **first** slide. The **second** text box contains three paragraphs. Set the following options for the **first** text portion in the **first** paragraph:
 - font: Times New Roman
 - font size: 26
 
@@ -69,7 +69,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Update the Text Portion**
 
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/2" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/1/portions/1" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @TextPortion.json
@@ -104,7 +104,7 @@ TextPortion.json content:
   "latinFont": "Times New Roman",
   "complexScriptFont": "Arial",
   "selfUri": {
-    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/3/portions/2",
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/paragraphs/1/portions/1",
     "relation": "self",
     "slideIndex": 1,
     "shapeIndex": 2
@@ -137,8 +137,8 @@ class Application
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portion textPortion = new Portion
         {
@@ -170,8 +170,8 @@ public class Application {
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
         int shapeIndex = 2;
-        int paragraphIndex = 3;
-        int portionIndex = 2;
+        int paragraphIndex = 1;
+        int portionIndex = 1;
 
         Portion textPortion = new Portion();
         textPortion.setLatinFont("Times New Roman");
@@ -203,8 +203,8 @@ $slidesApi = new SlidesApi(null, $configuration);
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
 $shapeIndex = 2;
-$paragraphIndex = 3;
-$portionIndex = 2;
+$paragraphIndex = 1;
+$portionIndex = 1;
 
 $textPortion = new Portion();
 $textPortion->setLatinFont("Times New Roman");
@@ -234,8 +234,8 @@ slides_api = SlidesApi.new(configuration)
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portion = Portion.new
 text_portion.latin_font = "Times New Roman"
@@ -260,8 +260,8 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 file_name = "MyPresentation.pptx"
 slide_index = 1
 shape_index = 2
-paragraph_index = 3
-portion_index = 2
+paragraph_index = 1
+portion_index = 1
 
 text_portion = Portion()
 text_portion.latin_font = "Times New Roman"
@@ -285,8 +285,8 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
 shapeIndex = 2;
-paragraphIndex = 3;
-portionIndex = 2;
+paragraphIndex = 1;
+portionIndex = 1;
 
 textPortion = new cloudSdk.Portion();
 textPortion.latinFont = "Times New Roman";
@@ -314,8 +314,8 @@ int main()
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
     int shapeIndex = 2;
-    int paragraphIndex = 3;
-    int portionIndex = 2;
+    int paragraphIndex = 1;
+    int portionIndex = 1;
 
     std::shared_ptr<Portion> textPortion = std::make_shared<Portion>();
     textPortion->setLatinFont(L"Times New Roman");
@@ -346,8 +346,8 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
 my $shape_index = 2;
-my $paragraph_index = 3;
-my $portion_index = 2;
+my $paragraph_index = 1;
+my $portion_index = 1;
 
 my $text_portion = AsposeSlidesCloud::Object::Portion->new();
 $text_portion->{latin_font} = "Times New Roman";
@@ -385,8 +385,8 @@ func main() {
 	fileName := "MyPresentation.pptx"
 	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
-	var paragraphIndex int32 = 3
-	var portionIndex int32 = 2
+	var paragraphIndex int32 = 1
+	var portionIndex int32 = 1
 
 	textPortion := asposeslidescloud.NewPortion()
 	textPortion.LatinFont = "Times New Roman"

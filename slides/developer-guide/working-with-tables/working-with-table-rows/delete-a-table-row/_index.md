@@ -42,7 +42,7 @@ Aspose.Slides Cloud API provides you with the ability to efficiently manage tabl
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with five rows on the **first** slide. Delete the **third** row and **rows that share merged cells** with the target row.
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) with five rows on the **ninth** slide. Delete the **third** row and **rows that share merged cells** with the target row.
 
 ![The table](input.png)
 
@@ -63,7 +63,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Delete the Row***
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/3?withAttachedRows=true" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/3?withAttachedRows=true" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -96,8 +96,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 3;
         bool withAttachedRows = true;
 
@@ -121,8 +121,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 3;
         Boolean withAttachedRows = true;
 
@@ -147,8 +147,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 9;
+$shapeIndex = 1;
 $rowIndex = 3;
 $withAttachedRows = true;
 
@@ -172,8 +172,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 row_index = 3
 with_attached_rows = true
 
@@ -191,8 +191,8 @@ from asposeslidescloud.apis import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 row_index = 3
 with_attached_rows = True
 
@@ -210,8 +210,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 9;
+shapeIndex = 1;
 rowIndex = 3;
 withAttachedRows = true;
 
@@ -238,8 +238,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
 	var rowIndex int32 = 3
 	withAttachedRows := true
 
@@ -262,8 +262,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 9;
+    int shapeIndex = 1;
     int rowIndex = 3;
     bool withAttachedRows = true;
 
@@ -287,8 +287,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 9;
+my $shape_index = 1;
 my $row_index = 3;
 my $with_attached_rows = "True";
 

@@ -40,7 +40,7 @@ In the context of 3D charts in PowerPoint presentations, the "wall" is an import
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a 3D chart (the **second** shape) on the **first** slide. Fill the **back** wall of the chart with the color **#70AD46**.
+In the **default** storage, the document **MyPresentation.pptx** contains a 3D chart (the **first** shape) on the **third** slide. Fill the **back** wall of the chart with the color **#70AD46**.
 
 ![The chart](input.png)
 
@@ -60,7 +60,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 
 **Update the Chart Wall**
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/BackWall" \
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/BackWall" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @Wall.json
@@ -119,8 +119,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
         ChartWallType wallType = ChartWallType.BackWall;
 
         ChartWall chartWall = new ChartWall
@@ -154,8 +154,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 3;
+        int shapeIndex = 1;
         ChartWallType wallType = ChartWallType.BACKWALL;
 
         SolidFill fillFormat = new SolidFill();
@@ -189,8 +189,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 3;
+$shapeIndex = 1;
 $wallType = ChartWallType::BACK_WALL;
 
 $fillFormat = new SolidFill();
@@ -220,8 +220,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 wall_type = ChartWallType::BACK_WALL
 
 chart_wall = ChartWall.new
@@ -246,8 +246,8 @@ from asposeslidescloud.models import ChartWall
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 3
+shape_index = 1
 wall_type = ChartWallType.BACKWALL
 
 chart_wall = ChartWall()
@@ -269,8 +269,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 3;
+shapeIndex = 1;
 wallType = cloudSdk.ChartWallType.BackWall;
 
 chartWall = new cloudSdk.ChartWall();
@@ -297,8 +297,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 3;
+    int shapeIndex = 1;
     const wchar_t* wallType = L"BackWall";
 
     std::shared_ptr<SolidFill> fillFormat = std::make_shared<SolidFill>();
@@ -330,8 +330,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 3;
+my $shape_index = 1;
 my $wall_type = "BackWall";
 
 my $chart_wall = AsposeSlidesCloud::Object::ChartWall->new();
@@ -367,8 +367,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 3
+	var shapeIndex int32 = 1
 	wallType := string(asposeslidescloud.ChartWallType_BackWall)
 
 	fillFormat := asposeslidescloud.NewSolidFill()

@@ -43,7 +43,7 @@ Aspose.Slides Cloud API provides different options for splitting table cells. Th
 
 ### **Examples**
 
-In the **default** storage, the document **MyPresentation.pptx** contains a table (the **second** shape) with two columns and two rows on the **first** slide. Split the cell **(1,1)** by **width**. The width of the new cell must be **40** pt.
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) with two columns and two rows on the **ninth** slide. Split the cell **(1,1)** by **width**. The width of the new cell must be **40** pt.
 
 ![The table](input.png)
 
@@ -64,7 +64,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Split the Cell**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/rows/1/cells/1/SplitByWidth/40" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/1/cells/1/SplitByWidth/40" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -99,8 +99,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 1;
         int cellIndex = 1;
         TableCellSplitType splitType = TableCellSplitType.SplitByWidth;
@@ -129,8 +129,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 1;
-        int shapeIndex = 2;
+        int slideIndex = 9;
+        int shapeIndex = 1;
         int rowIndex = 1;
         int cellIndex = 1;
         TableCellSplitType splitType = TableCellSplitType.SPLITBYWIDTH;
@@ -160,8 +160,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 1;
-$shapeIndex = 2;
+$slideIndex = 9;
+$shapeIndex = 1;
 $rowIndex = 1;
 $cellIndex = 1;
 $cellType = TableCellSplitType::SPLIT_BY_WIDTH;
@@ -189,8 +189,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2        
+slide_index = 9
+shape_index = 1        
 row_index = 1
 cell_index = 1
 cell_type = TableCellSplitType::SPLIT_BY_WIDTH
@@ -213,8 +213,8 @@ from asposeslidescloud.models import TableCellSplitType
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 1
-shape_index = 2
+slide_index = 9
+shape_index = 1
 row_index = 1
 cell_index = 1
 cell_type = TableCellSplitType.SPLITBYWIDTH
@@ -236,8 +236,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 1;
-shapeIndex = 2;
+slideIndex = 9;
+shapeIndex = 1;
 rowIndex = 1;
 cellIndex = 1;
 cellType = cloudSdk.TableCellSplitType.SplitByWidth;
@@ -268,8 +268,8 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	fileName := "MyPresentation.pptx"
-	var slideIndex int32 = 1
-	var shapeIndex int32 = 2
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
 	var rowIndex int32 = 1
 	var cellIndex int32 = 1
 	cellType := string(asposeslidescloud.TableCellSplitType_SplitByWidth)
@@ -296,8 +296,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 1;
-    int shapeIndex = 2;
+    int slideIndex = 9;
+    int shapeIndex = 1;
     int rowIndex = 1;
     int cellIndex = 1;
     const wchar_t* splitType = L"SplitByWidth";
@@ -325,8 +325,8 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 1;
-my $shape_index = 2;
+my $slide_index = 9;
+my $shape_index = 1;
 my $row_index = 1;
 my $cell_index = 1;
 my $split_type = "SplitByWidth";
