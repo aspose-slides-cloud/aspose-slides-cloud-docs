@@ -264,7 +264,7 @@ dataSourceForSeries1Values.setWorksheetIndex(1);
 dataSourceForSeries1Values.setColumnIndex(2);
 dataSourceForSeries1Values.setRowIndex(2);
 
-series1.setDataSourceForSeriesName(dataSourceForSeries1Values);
+series1.setDataSourceForValues(dataSourceForSeries1Values);
 
 OneValueChartDataPoint dataPoint11 = new OneValueChartDataPoint();
 dataPoint11.setValue(40.0);
@@ -290,7 +290,7 @@ dataSourceForSeries2Values.setWorksheetIndex(1);
 dataSourceForSeries2Values.setColumnIndex(3);
 dataSourceForSeries2Values.setRowIndex(2);
 
-series2.setDataSourceForSeriesName(dataSourceForSeries2Values);
+series2.setDataSourceForValues(dataSourceForSeries2Values);
 
 OneValueChartDataPoint dataPoint21 = new OneValueChartDataPoint();
 dataPoint21.setValue(55.0);
@@ -818,7 +818,7 @@ int main()
     dataSourceForSeries1Values->setColumnIndex(2);
     dataSourceForSeries1Values->setRowIndex(2);
 
-    series1->setDataSourceForSeriesName(dataSourceForSeries1Values);
+    series1->setDataSourceForValues(dataSourceForSeries1Values);
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint11 = std::make_shared<OneValueChartDataPoint>();
     dataPoint11->setValue(40.0);
@@ -844,7 +844,7 @@ int main()
     dataSourceForSeries2Values->setColumnIndex(3);
     dataSourceForSeries2Values->setRowIndex(2);
 
-    series2->setDataSourceForSeriesName(dataSourceForSeries2Values);
+    series2->setDataSourceForValues(dataSourceForSeries2Values);
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint21 = std::make_shared<OneValueChartDataPoint>();
     dataPoint21->setValue(55.0);
@@ -1156,7 +1156,7 @@ series1.setName("Series1");
 Literals dataSourceForSeries1Name = new Literals();
 series1.setDataSourceForSeriesName(dataSourceForSeries1Name);
 Literals dataSourceForSeries1Values = new Literals();
-series1.setDataSourceForSeriesName(dataSourceForSeries1Values);
+series1.setDataSourceForValues(dataSourceForSeries1Values);
 
 OneValueChartDataPoint dataPoint11 = new OneValueChartDataPoint();
 dataPoint11.setValue(20.0);
@@ -1173,7 +1173,7 @@ series2.setName("Series2");
 Literals dataSourceForSeries2Name = new Literals();
 series2.setDataSourceForSeriesName(dataSourceForSeries2Name);
 Literals dataSourceForSeries2Values = new Literals();
-series2.setDataSourceForSeriesName(dataSourceForSeries2Values);
+series2.setDataSourceForValues(dataSourceForSeries2Values);
 
 OneValueChartDataPoint dataPoint21 = new OneValueChartDataPoint();
 dataPoint21.setValue(30.0);
@@ -1585,7 +1585,7 @@ int main()
     std::shared_ptr<Literals> dataSourceForSeries1Name = std::make_shared<Literals>();
     series1->setDataSourceForSeriesName(dataSourceForSeries1Name);
     std::shared_ptr<Literals> dataSourceForSeries1Values = std::make_shared<Literals>();
-    series1->setDataSourceForSeriesName(dataSourceForSeries1Values);
+    series1->setDataSourceForValues(dataSourceForSeries1Values);
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint11 = std::make_shared<OneValueChartDataPoint>();
     dataPoint11->setValue(20);
@@ -1602,7 +1602,7 @@ int main()
     std::shared_ptr<Literals> dataSourceForSeries2Name = std::make_shared<Literals>();
     series2->setDataSourceForSeriesName(dataSourceForSeries2Name);
     std::shared_ptr<Literals> dataSourceForSeries2Values = std::make_shared<Literals>();
-    series2->setDataSourceForSeriesName(dataSourceForSeries2Values);
+    series2->setDataSourceForValues(dataSourceForSeries2Values);
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint21 = std::make_shared<OneValueChartDataPoint>();
     dataPoint21->setValue(30);
