@@ -309,7 +309,7 @@ tableRow.cells = [cell1, cell2, cell3, cell4];
 
 slidesApi.createTableRow(fileName, slideIndex, shapeIndex, tableRow).then(createdRow => {
     console.log("The row has been added.");  
-})
+});
 ```
 {{< /tab >}}
 
