@@ -41,7 +41,7 @@ In Microsoft PowerPoint, chart series are used to represent and display data in 
 
 ### **Examples**
 
-The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **second** shape) with three lines on the **first** slide - sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023. Delete the **third** data series ("Product C") from the chart.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **first** shape) with three lines on the **first** slide - sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023. Delete the **third** data series ("Product C") from the chart.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
@@ -66,7 +66,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Data Series**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series/3" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/series/3" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -103,7 +103,7 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int shapeIndex = 2;
+        int shapeIndex = 1;
         int seriesIndex = 3;
 
         Chart chart = slidesApi.DeleteChartSeries(fileName, slideIndex, shapeIndex, seriesIndex);
@@ -129,7 +129,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int shapeIndex = 2;
+        int shapeIndex = 1;
         int seriesIndex = 3;
 
         Chart chart = slidesApi.deleteChartSeries(fileName, slideIndex, shapeIndex, seriesIndex, null, null, null);
@@ -156,7 +156,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$shapeIndex = 2;
+$shapeIndex = 1;
 $seriesIndex = 3;
 
 $chart = $slidesApi->deleteChartSeries($fileName, $slideIndex, $shapeIndex, $seriesIndex);
@@ -182,7 +182,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shape_index = 2
+shape_index = 1
 series_index = 3
 
 chart = slides_api.delete_chart_series(file_name, slide_index, shape_index, series_index)
@@ -202,7 +202,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shape_index = 2
+shape_index = 1
 series_index = 3
 
 chart = slides_api.delete_chart_series(file_name, slide_index, shape_index, series_index)
@@ -222,7 +222,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-shapeIndex = 2;
+shapeIndex = 1;
 seriesIndex = 3;
 
 slidesApi.deleteChartSeries(fileName, slideIndex, shapeIndex, seriesIndex).then(chart => {
@@ -246,7 +246,7 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    int shapeIndex = 2;
+    int shapeIndex = 1;
     int seriesIndex = 3;
 
     std::shared_ptr<Chart> chart = slidesApi->deleteChartSeries(fileName, slideIndex, shapeIndex, seriesIndex).get();
@@ -272,7 +272,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $shape_index = 2;
+my $shape_index = 1;
 my $series_index = 3;
 
 my $chart = $slides_api->delete_chart_series(
@@ -299,7 +299,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
 slideIndex := 1
-shapeIndex := 2
+shapeIndex := 1
 seriesIndex := 3
 
 result, _, e := api.SlidesApi.DeleteChartSeries(fileName, slideIndex, shapeIndex, seriesIndex, "", "", "")

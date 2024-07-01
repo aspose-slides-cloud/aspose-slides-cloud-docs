@@ -101,7 +101,7 @@ slidesLayoutOptions.setPrintSlideNumbers(true);
 
 PdfExportOptions exportOptions = new PdfExportOptions();
 exportOptions.setSlidesLayoutOptions(slidesLayoutOptions);
-File response = api.downloadPresentation(fileName, ExportFormat.PDF, exportOptions, password, folderName, null, null, null);
+File response = api.downloadPresentation("MyPresentation.pptx", ExportFormat.PDF, exportOptions, null, null, null, null, null);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 
@@ -128,7 +128,7 @@ $slidesLayoutOptions->setPrintSlideNumbers(true);
 $exportOptions = new PdfExportOptions();
 $exportOptions->setSlidesLayoutOptions($slidesLayoutOptions);
 
-$result = $api->downloadPresentation(self::fileName, "pdf", $exportOptions, self::password, self::folderName);
+$result = $api->downloadPresentation("MyPresentation.pptx", "pdf", $exportOptions);
 print("The converted file was saved to " . $result->getPathname());
 ```
 

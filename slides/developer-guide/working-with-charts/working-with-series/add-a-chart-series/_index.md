@@ -41,7 +41,7 @@ In Microsoft PowerPoint, chart series refer to the data sets or collections of d
 
 ### **Examples**
 
-The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **second** shape) with two lines on the **first** slide - sales volumes of products "Product A" and "Product B" for 2021 to 2023. Add series data (**30**, **20**, **25**) on the sales of **Product C** for the same years.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **first** shape) with two lines on the **first** slide - sales volumes of products "Product A" and "Product B" for 2021 to 2023. Add series data (**30**, **20**, **25**) on the sales of **Product C** for the same years.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
@@ -66,7 +66,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Add the Data Series**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/series" \
      -H "authorization: Bearer MyAccessToken" \
      -H "Content-Type: application/json" \
      -d @DataSeries.json
@@ -119,7 +119,7 @@ class Application
 
         string fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int shapeIndex = 2;
+        int shapeIndex = 1;
 
         OneValueSeries dataSeries = new OneValueSeries
         {
@@ -159,7 +159,7 @@ public class Application {
 
         String fileName = "MyPresentation.pptx";
         int slideIndex = 1;
-        int shapeIndex = 2;
+        int shapeIndex = 1;
 
         OneValueChartDataPoint dataPoint1 = new OneValueChartDataPoint();
         dataPoint1.setValue(30d);
@@ -200,7 +200,7 @@ $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
 $slideIndex = 1;
-$shapeIndex = 2;
+$shapeIndex = 1;
 
 $dataPoint1 = new OneValueChartDataPoint();
 $dataPoint1->setValue(30);
@@ -238,7 +238,7 @@ slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shape_index = 2
+shape_index = 1
 
 data_point1 = OneValueChartDataPoint.new
 data_point1.value = 30
@@ -272,7 +272,7 @@ slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
 slide_index = 1
-shape_index = 2
+shape_index = 1
 
 data_point1 = OneValueChartDataPoint()
 data_point1.value = 30
@@ -304,7 +304,7 @@ const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
 slideIndex = 1;
-shapeIndex = 2;
+shapeIndex = 1;
 
 dataSeries = new cloudSdk.OneValueSeries();
 dataSeries.name = "Product C";
@@ -332,7 +332,7 @@ int main()
 
     const wchar_t* fileName = L"MyPresentation.pptx";
     int slideIndex = 1;
-    int shapeIndex = 2;
+    int shapeIndex = 1;
 
     std::shared_ptr<OneValueChartDataPoint> dataPoint1 = std::make_shared<OneValueChartDataPoint>();
     dataPoint1->setValue(30);
@@ -372,7 +372,7 @@ my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
 my $slide_index = 1;
-my $shape_index = 2;
+my $shape_index = 1;
 
 my $data_point1 = AsposeSlidesCloud::Object::OneValueChartDataPoint->new();
 $data_point1->{value} = 30;
@@ -411,7 +411,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
 slideIndex := 1
-shapeIndex := 2
+shapeIndex := 1
 
 dataPoint1 := asposeslidescloud.NewOneValueChartDataPoint()
 dataPoint1.Value = 30
@@ -444,3 +444,4 @@ The result:
 ## **SDKs**
 
 Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
+                   2

@@ -187,9 +187,8 @@ $slidesApi = new SlidesApi(null, $configuration);
 // Slide notes should be added at the bottom of pages.
 $slidesLayoutOptions = new NotesCommentsLayoutingOptions();
 $slidesLayoutOptions->setNotesPosition("BottomFull");
-
 $tiffOptions = new TiffExportOptions();
-$tiffOptions->setNotesPosition($slidesLayoutOptions);
+$tiffOptions->setSlidesLayoutOptions($slidesLayoutOptions);
 
 // The TIFF file should only contain the slides with indexes 1 and 3.
 $slideIndices = [1, 3];
@@ -220,7 +219,7 @@ slides_layout_options = NotesCommentsLayoutingOptions.new
 slides_layout_options.notes_position = "BottomFull"
 
 tiff_options = TiffExportOptions.new
-tiff_options.notes_position = slides_layout_options
+tiff_options.slides_layout_options = slides_layout_options
 
 # The TIFF file should only contain the slides with indexes 1 and 3.
 slide_indices = [1, 3]
@@ -250,7 +249,7 @@ slides_layout_options = NotesCommentsLayoutingOptions()
 slides_layout_options.notes_position = "BottomFull"
 
 tiff_options = TiffExportOptions()
-tiff_options.notes_position = slides_layout_options
+tiff_options.slides_layout_options = slides_layout_options
 
 # The TIFF file should only contain the slides with indexes 1 and 3.
 slide_indices = [1, 3]
@@ -275,7 +274,7 @@ const slidesLayoutOptions = new cloud.NotesCommentsLayoutingOptions();
 slidesLayoutOptions.notesPosition = "BottomFull";
 
 const tiffOptions = new cloud.TiffExportOptions();
-tiffOptions.notesPosition = slidesLayoutOptions;
+tiffOptions.slidesLayoutOptions = slidesLayoutOptions;
 
 // The TIFF file should only contain the slides with indexes 1 and 3.
 const slideIndices = [1, 3];
