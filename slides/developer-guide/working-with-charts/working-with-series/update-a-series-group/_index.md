@@ -107,8 +107,8 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
-        int shapeIndex = 1;
+        int slideIndex = 1;
+        int shapeIndex = 2;
         int seriesGroupIndex = 1;
 
         ChartSeriesGroup seriesGroup = new ChartSeriesGroup
@@ -139,8 +139,8 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
-        int shapeIndex = 1;
+        int slideIndex = 1;
+        int shapeIndex = 2;
         int seriesGroupIndex = 1;
 
         ChartSeriesGroup seriesGroup = new ChartSeriesGroup();
@@ -170,8 +170,8 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 3;
-$shapeIndex = 1;
+$slideIndex = 1;
+$shapeIndex = 2;
 $seriesGroupIndex = 1;
 
 $seriesGroup = new ChartSeriesGroup();
@@ -199,8 +199,8 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
-shape_index = 1
+slide_index = 1
+shape_index = 2
 series_group_index = 1
 
 series_group = ChartSeriesGroup.new
@@ -223,8 +223,8 @@ from asposeslidescloud.models.chart_series_group import ChartSeriesGroup
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
-shape_index = 1
+slide_index = 1
+shape_index = 2
 series_group_index = 1
 
 series_group = ChartSeriesGroup()
@@ -246,8 +246,8 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientId");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 3;
-shapeIndex = 1;
+slideIndex = 1;
+shapeIndex = 2;
 seriesGroupIndex = 1;
 
 seriesGroup = new cloudSdk.ChartSeriesGroup();
@@ -273,8 +273,8 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientId");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 3;
-    int shapeIndex = 1;
+    int slideIndex = 1;
+    int shapeIndex = 2;
     int seriesGroupIndex = 1;
 
     std::shared_ptr<ChartSeriesGroup> seriesGroup = std::make_shared<ChartSeriesGroup>();
@@ -303,8 +303,8 @@ $config->{app_key} = "MyClientId";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 3;
-my $shape_index = 1;
+my $slide_index = 1;
+my $shape_index = 2;
 my $series_group_index = 1;
 
 my $series_group = AsposeSlidesCloud::Object::ChartSeriesGroup->new();
@@ -333,8 +333,8 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 var fileName = "MyPresentation.pptx"
-var slideIndex int32 = 3
-var shapeIndex int32 = 1
+var slideIndex int32 = 1
+var shapeIndex int32 = 2
 var seriesGroupIndex int32 = 1
 
 seriesGroup := asposeslidescloud.NewChartSeriesGroup()
