@@ -45,7 +45,7 @@ chart.json file:
     "y": 100,
     "width": 400,
     "height": 400,
-    "title": { "hasTitle": true, "text": "Pie Chart" },
+    "title": { "text": "Pie Chart" },
     "categories": [
         { "Value": "First" },
         { "Value": "Second" },
@@ -93,7 +93,8 @@ chart.json file:
         { "value": "Second" },
         { "value": "Third" }
     ],
-    "title": { "text": "Pie Chart", "hasTitle": true},
+    "hasTitle": true,
+    "title": { "text": "Pie Chart" },
     "name": "ChartObject",
     "width": 400.0,
     "height": 400.0,
@@ -132,7 +133,7 @@ dto.X = 100;
 dto.Y = 100;
 dto.Width = 400;
 dto.Height = 400;
-dto.Title = new ChartTitle { HasTitle = true, Text = "Pie Chart" };
+dto.Title = new ChartTitle { Text = "Pie Chart" };
 
 dto.Categories = new System.Collections.Generic.List<ChartCategory>();
 dto.Categories.Add(new ChartCategory { Value = "First" });
@@ -166,7 +167,6 @@ dto.setWidth(400.0);
 dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
-title.setHasTitle(true);
 title.setText("Pie Chart");
 dto.setTitle(title);
 
@@ -231,7 +231,6 @@ $dto->setWidth(400);
 $dto->setHeight(400);
 
 $title = new ChartTitle();
-$title->setHasTitle(true);
 $title->setText("Pie Chart");
 $dto->setTitle($title);
 
@@ -290,7 +289,6 @@ dto.width = 400
 dto.height = 400
 
 title = ChartTitle()
-title.hasTitle = True
 title.text = 'Pie Chart'
 dto.title = title
 
@@ -333,7 +331,6 @@ chart.width = 400;
 chart.height = 400;
 
 title = new CloudSdk.ChartTitle();
-title.hasTitle = true;
 title.text = 'Pie Chart';
 chart.title = title;
 
@@ -365,7 +362,6 @@ dto.Width = 400
 dto.Height = 400
 
 title := asposeslidescloud.NewChartTitle()
-title.HasTitle = true
 title.Text = "Pie Chart"
 dto.Title = title
 
