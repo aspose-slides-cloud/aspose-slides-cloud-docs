@@ -44,7 +44,7 @@ chart.json file:
     "y": 100,
     "width": 400,
     "height": 400,
-    "title": { "hasTitle": true, "text": "Scattered Chart" },
+    "title": { "text": "Scattered Chart" },
     "series": [
         {
             "name": "Series1",
@@ -103,7 +103,8 @@ chart.json file:
             "invertIfNegative": true
         }
     ],
-    "title": { "text": "Scattered Chart", "hasTitle": true},
+    "hasTitle": true,
+    "title": { "text": "Scattered Chart" },
     "name": "ChartObject",
     "width": 400.0,
     "height": 400.0,
@@ -143,7 +144,7 @@ dto.X = 100;
 dto.Y = 100;
 dto.Width = 400;
 dto.Height = 400;
-dto.Title = new ChartTitle { HasTitle = true, Text = "Scattered Chart" };
+dto.Title = new ChartTitle { Text = "Scattered Chart" };
 
 dto.Series = new System.Collections.Generic.List<Series>();
 ScatterSeries series1 = new ScatterSeries();
@@ -178,7 +179,6 @@ dto.setWidth(400.0);
 dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
-title.setHasTitle(true);
 title.setText("Scattered Chart");
 dto.setTitle(title);
 
@@ -251,7 +251,6 @@ $dto->setWidth(400);
 $dto->setHeight(400);
 
 $title = new ChartTitle();
-$title->setHasTitle(true);
 $title->setText("Scattered Chart");
 $dto->setTitle($title);
 
@@ -315,7 +314,6 @@ dto.width = 400
 dto.height = 400
 
 title = ChartTitle()
-title.hasTitle = True
 title.text = 'Scattered Chart'
 dto.title = title
 
@@ -364,7 +362,6 @@ chart.width = 400;
 chart.height = 400;
 
 title = new CloudSdk.ChartTitle();
-title.hasTitle = true;
 title.text = 'Scattered Chart';
 chart.title = title;
 
@@ -396,7 +393,6 @@ dto.Width = 400
 dto.Height = 400
 
 title := asposeslidescloud.NewChartTitle()
-title.HasTitle = true
 title.Text = "Scattered Chart"
 dto.Title = title
 

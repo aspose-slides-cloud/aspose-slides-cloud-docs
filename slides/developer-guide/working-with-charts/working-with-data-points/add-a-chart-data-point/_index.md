@@ -112,7 +112,7 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
+        int slideIndex = 1;
         int shapeIndex = 2;
         int seriesIndex = 1;
 
@@ -147,7 +147,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
+        int slideIndex = 1;
         int shapeIndex = 2;
         int seriesIndex = 1;
 
@@ -180,7 +180,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 3;
+$slideIndex = 1;
 $shapeIndex = 2;
 $seriesIndex = 1;
 
@@ -210,7 +210,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
+slide_index = 1
 shape_index = 2
 series_index = 1
 
@@ -235,7 +235,7 @@ from asposeslidescloud.models.scatter_chart_data_point import ScatterChartDataPo
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
+slide_index = 1
 shape_index = 2
 series_index = 1
 
@@ -259,7 +259,7 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 3;
+slideIndex = 1;
 shapeIndex = 2;
 seriesIndex = 1;
 
@@ -289,7 +289,7 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 3;
+    int slideIndex = 1;
     int shapeIndex = 2;
     int seriesIndex = 1;
 
@@ -321,7 +321,7 @@ $configuration->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 3;
+my $slide_index = 1;
 my $shape_index = 2;
 my $series_index = 1;
 
@@ -359,7 +359,7 @@ func main() {
 	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
 
 	var fileName = "MyPresentation.pptx"
-	var slideIndex int32 = 3
+	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var seriesIndex int32 = 1
 

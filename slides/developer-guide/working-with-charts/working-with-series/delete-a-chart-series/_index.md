@@ -41,7 +41,7 @@ In Microsoft PowerPoint, chart series are used to represent and display data in 
 
 ### **Examples**
 
-The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **second** shape) with three lines on the **first** slide - sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023. Delete the **third** data series ("Product C") from the chart.
+The document **MyPresentation.pptx**, saved in the **default** storage, contains a chart (the **first** shape) with three lines on the **first** slide - sales volumes of products "Product A", "Product B", and "Product C" for 2021 to 2023. Delete the **third** data series ("Product C") from the chart.
 
 {{% alert color="primary" %}}
 The referenced shape must be a chart, otherwise the operation will fail.
@@ -66,7 +66,7 @@ curl POST "https://api.aspose.cloud/connect/token" \
 **Delete the Data Series**
 
 ```sh
-curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/2/series/3" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/1/shapes/1/series/3" \
      -H "authorization: Bearer MyAccessToken"
 ```
 
@@ -102,7 +102,7 @@ class Application
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         string fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
+        int slideIndex = 1;
         int shapeIndex = 1;
         int seriesIndex = 3;
 
@@ -128,7 +128,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         String fileName = "MyPresentation.pptx";
-        int slideIndex = 3;
+        int slideIndex = 1;
         int shapeIndex = 1;
         int seriesIndex = 3;
 
@@ -155,7 +155,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 $fileName = "MyPresentation.pptx";
-$slideIndex = 3;
+$slideIndex = 1;
 $shapeIndex = 1;
 $seriesIndex = 3;
 
@@ -181,7 +181,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
+slide_index = 1
 shape_index = 1
 series_index = 3
 
@@ -201,7 +201,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 file_name = "MyPresentation.pptx"
-slide_index = 3
+slide_index = 1
 shape_index = 1
 series_index = 3
 
@@ -221,7 +221,7 @@ const cloudSdk = require("asposeslidescloud");
 const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 fileName = "MyPresentation.pptx";
-slideIndex = 3;
+slideIndex = 1;
 shapeIndex = 1;
 seriesIndex = 3;
 
@@ -245,7 +245,7 @@ int main()
     std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     const wchar_t* fileName = L"MyPresentation.pptx";
-    int slideIndex = 3;
+    int slideIndex = 1;
     int shapeIndex = 1;
     int seriesIndex = 3;
 
@@ -271,7 +271,7 @@ $config->{app_key} = "MyClientSecret";
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
 my $file_name = "MyPresentation.pptx";
-my $slide_index = 3;
+my $slide_index = 1;
 my $shape_index = 1;
 my $series_index = 3;
 
@@ -298,7 +298,7 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 fileName := "MyPresentation.pptx"
-slideIndex := 3
+slideIndex := 1
 shapeIndex := 1
 seriesIndex := 3
 

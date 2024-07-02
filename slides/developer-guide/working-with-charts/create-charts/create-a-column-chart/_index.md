@@ -45,7 +45,7 @@ chart.json file:
     "y": 100,
     "width": 400,
     "height": 400,
-    "title": { "hasTitle": true, "text": "Column Chart" },
+    "title": { "text": "Column Chart" },
     "categories": [
         { "Value": "Category1" },
         { "Value": "Category2" },
@@ -110,7 +110,8 @@ chart.json file:
         { "value": "Category2" },
         { "value": "Category3" }
     ],
-    "title": { "text": "Column Chart", "hasTitle": true},
+    "hasTitle": true,
+    "title": { "text": "Column Chart" },
     "name": "ChartObject",
     "width": 400.0,
     "height": 400.0,
@@ -150,7 +151,7 @@ dto.X = 100;
 dto.Y = 100;
 dto.Width = 400;
 dto.Height = 400;
-dto.Title = new ChartTitle { HasTitle = true, Text = "Column Chart" };
+dto.Title = new ChartTitle { Text = "Column Chart" };
 
 dto.Categories = new System.Collections.Generic.List<ChartCategory>();
 dto.Categories.Add(new ChartCategory { Value = "Category1" });
@@ -190,7 +191,6 @@ dto.setWidth(400.0);
 dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
-title.setHasTitle(true);
 title.setText("Column Chart");
 dto.setTitle(title);
 
@@ -270,7 +270,6 @@ $dto->setWidth(400);
 $dto->setHeight(400);
 
 $title = new ChartTitle();
-$title->setHasTitle(true);
 $title->setText("Column Chart");
 $dto->setTitle($title);
 
@@ -388,7 +387,6 @@ chart.width = 400;
 chart.height = 400;
 
 title = new CloudSdk.ChartTitle();
-title.hasTitle = true;
 title.text = 'Column Chart';
 chart.title = title;
 
@@ -422,7 +420,6 @@ dto.Width = 400
 dto.Height = 400
 
 title := asposeslidescloud.NewChartTitle()
-title.HasTitle = true
 title.Text = "Column Chart"
 dto.Title = title
 

@@ -542,7 +542,7 @@ $slidesLayoutOptions->setNotesPosition("BottomTruncated");
 $slidesLayoutOptions->setCommentsPosition("Right");
 
 $pngOptions = new ImageExportOptions();
-$pngOptions->setSlidesLayoutOptions(slidesLayoutOptions);
+$pngOptions->setSlidesLayoutOptions($slidesLayoutOptions);
 
 // Save the second slide to the PNG image.
 $slidesApi->saveSlide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImages/slide_2.png", $pngOptions, null, null, null, "MyFolder", "MyStorage");

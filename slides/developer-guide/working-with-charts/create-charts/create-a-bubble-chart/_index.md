@@ -44,7 +44,7 @@ chart.json file:
     "y": 100,
     "width": 400,
     "height": 400,
-    "title": { "hasTitle": true, "text": "Bubble Chart" },
+    "title": { "text": "Bubble Chart" },
     "series": [
         {
             "name": "Series1",
@@ -103,7 +103,8 @@ chart.json file:
             "invertIfNegative": true
         }
     ],
-    "title": { "text": "Bubble Chart", "hasTitle": true},
+    "hasTitle": true,
+    "title": { "text": "Bubble Chart" },
     "name": "ChartObject",
     "width": 400.0,
     "height": 400.0,
@@ -143,7 +144,7 @@ dto.X = 100;
 dto.Y = 100;
 dto.Width = 400;
 dto.Height = 400;
-dto.Title = new ChartTitle { HasTitle = true, Text = "Bubble Chart" };
+dto.Title = new ChartTitle { Text = "Bubble Chart" };
 
 dto.Series = new System.Collections.Generic.List<Series>();
 BubbleSeries series1 = new BubbleSeries();
@@ -178,7 +179,6 @@ dto.setWidth(400.0);
 dto.setHeight(400.0);
 
 ChartTitle title = new ChartTitle();
-title.setHasTitle(true);
 title.setText("Bubble Chart");
 dto.setTitle(title);
 
@@ -257,7 +257,6 @@ $dto->setWidth(400);
 $dto->setHeight(400);
 
 $title = new ChartTitle();
-$title->setHasTitle(true);
 $title->setText("Bubble Chart");
 $dto->setTitle($title);
 
@@ -327,7 +326,6 @@ dto.width = 400
 dto.height = 400
 
 title = ChartTitle()
-title.hasTitle = True
 title.text = 'Bubble Chart'
 dto.title = title
 
@@ -382,7 +380,6 @@ chart.width = 400;
 chart.height = 400;
 
 title = new CloudSdk.ChartTitle();
-title.hasTitle = true;
 title.text = 'Bubble Chart';
 chart.title = title;
 
@@ -414,7 +411,6 @@ dto.Width = 400
 dto.Height = 400
 
 title := asposeslidescloud.NewChartTitle()
-title.HasTitle = true
 title.Text = "Bubble Chart"
 dto.Title = title
 
