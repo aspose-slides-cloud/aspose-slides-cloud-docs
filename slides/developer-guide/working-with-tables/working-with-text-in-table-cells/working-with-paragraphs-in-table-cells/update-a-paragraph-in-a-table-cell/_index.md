@@ -16,302 +16,460 @@ type: docs
 url: /update-a-paragraph-in-a-table-cell/
 weight: 40
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows updating text paragraphs within a table cell.
+
+In PowerPoint table cells, you can add and change text, change the font, size, color, and style of the text, as well as adjust the alignment within the cells. Use the following method to update paragraphs in table cells.
+
 ## **UpdateTableCellParagraph**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}|PUT|Returns paragraph info|[UpdateTableCellParagraph](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}|PUT|Updates a paragraph in a table cell in a presentation saved in a storage.|[UpdateTableCellParagraph](https://reference.aspose.cloud/slides/#/Table/UpdateTableCellParagraph)|
 
-The code example below shows how to update a table cell paragraph with two text portions.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a table).|
+|rowIndex|integer|path|true|The 1-based index of a row.|
+|cellIndex|integer|path|true|The 1-based index of a cell.|
+|paragraphIndex|integer|path|true|The 1-based index of a paragraph.|
+|dto|`Paragraph`|body|true|The data transfer object with paragraph properties.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) with four columns and three rows on the **ninth** slide. The cell **(2, 2)** contains three paragraphs. Update the **third** paragraph in the cell with the following properties:
+- set text to "The third paragraph."
+- set the font to bold
+- set the font color to red
+
+![The table](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
+**Get an Access Token**
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Update the Paragraph**
 ```sh
-curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/1/cells/1/paragraphs/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"paragraph.json" 
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/2/cells/2/paragraphs/3" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @Paragraph.json
 ```
 
-paragraph.json
+Paragraph.json content:
 ```json
 {
-    "portionList": [
-        {
-            "text":"Portion 1"
-        },
-        {
-            "text":"Portion 2"
-        }
-    ]
+  "PortionList": [
+    {
+      "Text": "The third paragraph."
+    }
+  ],
+  "DefaultPortionFormat": {
+    "FontBold": "True",
+    "FontColor": "#FF0000"
+  }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
-
-Code: 200
-Returns paragraph info.
-
+**Response Example**
+```json
+{
+  "portionList": [
+    {
+      "text": "The third paragraph.",
+      "highlightColor": "#0",
+      "fontHeight": "NaN",
+      "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/3/cells/3/paragraphs/3/portions/1",
+        "relation": "self",
+        "slideIndex": 9,
+        "shapeIndex": 1
+      }
+    }
+  ],
+  "defaultPortionFormat": {
+    "fontBold": "True",
+    "fontColor": "#FFFF0000",
+    "highlightColor": "#0",
+    "fontHeight": "NaN",
+    "fillFormat": {
+      "type": "Solid",
+      "color": "#FFFF0000"
+    }
+  },
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/3/cells/3/paragraphs/3",
+    "relation": "self",
+    "slideIndex": 9,
+    "shapeIndex": 1
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
+```cs
+using System;
+using System.Collections.Generic;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-int paragraphIndex = 1;
-
-Paragraph dto = new Paragraph()
+class Application
 {
-    PortionList = new List<Portion>
+    static void Main(string[] args)
     {
-        new Portion {Text = "Portion 1"},
-        new Portion {Text = "Portion 2"}
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 9;
+        int shapeIndex = 1;
+        int rowIndex = 2;
+        int cellIndex = 2;
+        int paragraphIndex = 3;
+
+        Paragraph paragraph = new Paragraph
+        {
+            PortionList = new List<Portion>
+            {
+                new Portion {Text = "The third paragraph."}
+            },
+            DefaultPortionFormat = new PortionFormat
+            {
+                FontBold = PortionFormat.FontBoldEnum.True,
+                FontColor = "#FF0000"
+            }
+        };
+
+        Paragraph updatedParagraph = slidesApi.UpdateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, paragraph);
+
+        Console.WriteLine("The paragraph has been updated.");
     }
-};
-
-Paragraph response = api.UpdateTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);
-
-Console.WriteLine("The paragraph has been updated.");
+}
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Paragraph;
+import com.aspose.slides.model.Portion;
+import com.aspose.slides.model.PortionFormat;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-int paragraphIndex = 1;
+import java.util.Arrays;
 
-Portion portion0 = new Portion();
-portion0.setText("Portion 1");
-Portion portion1 = new Portion();
-portion1.setText("Portion 2");
-Paragraph dto = new Paragraph();
-dto.setPortionList(new ArrayList(Arrays.asList(portion0, portion1)));
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Paragraph response = api.updateTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, null, null, null);
-System.out.println("The paragraph has been updated.");
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 9;
+        int shapeIndex = 1;
+        int rowIndex = 2;
+        int cellIndex = 2;
+        int paragraphIndex = 3;
+
+        Portion textPortion = new Portion();
+        textPortion.setText("The third paragraph.");
+
+        PortionFormat portionFormat = new PortionFormat();
+        portionFormat.setFontBold(PortionFormat.FontBoldEnum.TRUE);
+        portionFormat.setFontColor("#FF0000");
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.setPortionList(Arrays.asList(textPortion));
+        paragraph.setDefaultPortionFormat(portionFormat);
+        
+        Paragraph updatedParagraph = slidesApi.updateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, paragraph, null, null, null);
+
+        System.out.println("The paragraph has been updated.");
+    }
+}
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
+use Aspose\Slides\Cloud\Sdk\Model\PortionFormat;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptx";
 $slideIndex = 9;
 $shapeIndex = 1;
-$rowIndex = 1;
-$cellIndex = 1;
-$paragraphIndex = 1;
-$portion0 = new Portion();
-$portion0->setText("Portion 1");
-$portion1 = new Portion();
-$portion1->setText("Portion 2");
-$dto = new Paragraph();
-$dto->setPortionList([$portion0, $portion1]);
+$rowIndex = 2;
+$cellIndex = 2;
+$paragraphIndex = 3;
 
-$result = $api->updateTableCellParagraph("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto);
+$textPortion = new Portion();
+$textPortion->setText("The third paragraph.");
+
+$portionFormat = new PortionFormat();
+$portionFormat->setFontBold(PortionFormat::FONT_BOLD_TRUE);
+$portionFormat->setFontColor("#FF0000");
+
+$paragraph = new Paragraph();
+$paragraph->setPortionList([$textPortion]);
+$paragraph->setDefaultPortionFormat($portionFormat);
+
+$updatedParagraph = $slidesApi->updateTableCellParagraph($fileName, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $paragraph);
 
 print("The paragraph has been updated.");
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+{{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
 slide_index = 9
 shape_index = 1
-row_index = 1
-cell_index = 1
-paragraph_index = 1
-            
-portion0 = AsposeSlidesCloud::Portion.new
-portion0.text = "Portion 1"
-portion1 = AsposeSlidesCloud::Portion.new
-portion1.text = "Portion 2"
-dto = AsposeSlidesCloud::Paragraph.new
-dto.portion_list = [portion0, portion1]
+row_index = 2
+cell_index = 2
+paragraph_index = 3
 
-result = api.update_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, dto)
+text_portion = Portion.new
+text_portion.text = "The third paragraph."
+
+portion_format = PortionFormat.new
+portion_format.font_bold = "True"
+portion_format.font_color = "#FF0000"
+
+paragraph = Paragraph.new
+paragraph.portion_list = [text_portion]
+paragraph.default_portion_format = portion_format
+
+updated_paragraph = slides_api.update_table_cell_paragraph(file_name, slide_index, shape_index, row_index, cell_index, paragraph_index, paragraph)
+
 print "The paragraph has been updated."
-
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import Paragraph
+from asposeslidescloud.models import Portion
+from asposeslidescloud.models import PortionFormat
 
-```python
-import asposeslidescloud
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.paragraph import Paragraph
-from asposeslidescloud.models.portion import Portion
-
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
-
+file_name = "MyPresentation.pptx"
 slide_index = 9
 shape_index = 1
-row_index = 1
-cell_index = 1
-paragraph_index = 1
-portion_0 = Portion()
-portion_0.text = "Portion 1"
-portion_1 = Portion()
-portion_1.text = "Portion 2"
-dto = Paragraph()
-dto.portion_list = [portion_0, portion_1]
+row_index = 2
+cell_index = 2
+paragraph_index = 3
 
-response = api.update_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, dto)
+text_portion = Portion()
+text_portion.text = "The third paragraph."
 
-print(f"The paragraph has been updated.")
+portion_format = PortionFormat()
+portion_format.font_bold = "True"
+portion_format.font_color = "#FF0000"
+
+paragraph = Paragraph()
+paragraph.portion_list = [text_portion]
+paragraph.default_portion_format = portion_format
+
+updated_paragraph = slides_api.update_table_cell_paragraph(file_name, slide_index, shape_index, row_index, cell_index, paragraph_index, paragraph)
+
+print("The paragraph has been updated.")
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let slideIndex = 9;
-let shapeIndex = 1;
-let rowIndex = 1;
-let cellIndex = 1;
-let paragraphIndex = 1;
-            
-let portion1 = new CloudSdk.Portion();
-portion1.text = "Portion 1";
-let portion2 = new CloudSdk.Portion();
-portion2.text = "Portion 2";
-            
-let dto = new CloudSdk.Paragraph();
-dto.portionList = [portion1, portion2];
+fileName = "MyPresentation.pptx";
+slideIndex = 9;
+shapeIndex = 1;
+rowIndex = 2;
+cellIndex = 2;
+paragraphIndex = 3;
 
-const result = await api.updateTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);
-            
-console.log("The paragraph has been updated.");
+textPortion = new cloudSdk.Portion();
+textPortion.text = "The third paragraph.";
+
+portionFormat = new cloudSdk.PortionFormat();
+portionFormat.fontBold = cloudSdk.PortionFormat.FontBoldEnum.True;
+portionFormat.fontColor = "#FF0000";
+
+paragraph = new cloudSdk.Paragraph();
+paragraph.portionList = [textPortion];
+paragraph.defaultPortionFormat = portionFormat;
+
+slidesApi.updateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, paragraph).then(updatedParagraph => {
+    console.log("The paragraph has been updated.");
+});
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-fileName := "MyPresentation.pptx"
-var slideIndex int32 = 9
-var shapeIndex int32 = 1
-var rowIndex int32 = 1
-var cellIndex int32 = 1
-var paragraphIndex int32 = 1
-portion0 := asposeslidescloud.NewPortion()
-portion0.SetText("Portion 1")
-portion1 := asposeslidescloud.NewPortion()
-portion1.SetText("Portion 2")
-dto := asposeslidescloud.NewParagraph()
-dto.SetPortionList([]asposeslidescloud.IPortion{portion0, portion1})
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-result, _, e := api.SlidesApi.UpdateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex,  dto, "", "", "")
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
 
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
+	var rowIndex int32 = 2
+	var cellIndex int32 = 2
+	var paragraphIndex int32 = 3
+
+	textPortion := asposeslidescloud.NewPortion()
+	textPortion.Text = "The third paragraph."
+
+	portionFormat := asposeslidescloud.NewPortionFormat()
+	portionFormat.FontBold = "True"
+	portionFormat.FontColor = "#FF0000"
+
+	paragraph := asposeslidescloud.NewParagraph()
+	paragraph.PortionList = []asposeslidescloud.IPortion{textPortion}
+	paragraph.DefaultPortionFormat = portionFormat
+
+	slidesApi.UpdateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, paragraph, "", "", "")
+
+	fmt.Printf("The paragraph has been updated.")
 }
-
-fmt.Printf("The paragraph has been updated^ %v portions.", len(result.GetPortionList()))
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 9;
+    int shapeIndex = 1;
+    int rowIndex = 2;
+    int cellIndex = 2;
+    int paragraphIndex = 3;
+
+    std::shared_ptr<Portion> textPortion = std::make_shared<Portion>();
+    textPortion->setText(L"The third paragraph.");
+
+    std::shared_ptr<PortionFormat> portionFormat = std::make_shared<PortionFormat>();
+    portionFormat->setFontBold(L"True");
+    portionFormat->setFontColor(L"#FF0000");
+
+    std::shared_ptr<Paragraph> paragraph = std::make_shared<Paragraph>();
+    paragraph->setPortionList({ textPortion });
+    paragraph->setDefaultPortionFormat(portionFormat);
+
+    std::shared_ptr<Paragraph> updatedParagraph = slidesApi->updateTableCellParagraph(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, paragraph).get();
+
+    std::wcout << L"The paragraph has been updated.";
+}
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
 ```perl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::Portion;
+use AsposeSlidesCloud::Object::PortionFormat;
 use AsposeSlidesCloud::Object::Paragraph;
 
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
-my $portion0 = AsposeSlidesCloud::Object::Portion->new();
-$portion0->{text} = "Portion 1";
-my $portion1 = AsposeSlidesCloud::Object::Portion->new();
-$portion1->{text} = "Portion 2";
-my @portions = ($portion0, $portion1);
-my $dto = AsposeSlidesCloud::Object::Paragraph->new();
-$dto->{portion_list} = \@portions;
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 9;
+my $shape_index = 1;
+my $row_index = 2;
+my $cell_index = 2;
+my $paragraph_index = 3;
 
-my %params = (
-'name' => "MyPresentation.pptx",
-'slide_index' => 9,
-'shape_index' => 1,
-'row_index' => 1,
-'cell_index' => 1,
-'paragraph_index' => 1,
-'dto' => $dto);
+my $text_portion = AsposeSlidesCloud::Object::Portion->new();
+$text_portion->{text} = "The third paragraph.";
 
-my $response = $api->update_table_cell_paragraph(%params);
-print "The paragraph has been updated. \n";
+my $portion_format = AsposeSlidesCloud::Object::PortionFormat->new();
+$portion_format->{font_bold} = "True";
+$portion_format->{font_color} = "#FF0000";
+
+my $paragraph = AsposeSlidesCloud::Object::Paragraph->new();
+$paragraph->{portion_list} = [$text_portion];
+$paragraph->{default_portion_format} = $portion_format;
+
+my $updated_paragraph = $slides_api->update_table_cell_paragraph(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, row_index => $row_index, cell_index => $cell_index, paragraph_index => $paragraph_index, dto => $paragraph);
+
+print "The paragraph has been updated.";
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The result:
+
+![The table](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
