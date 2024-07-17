@@ -9,254 +9,383 @@ keywords:
 - cell
 - table cell
 - text
+- cell text
+- text portion
+- part of text
 - create text
 - add text
 type: docs
 url: /create-a-text-portion-in-a-table-cell/
 weight: 30
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows creating text portions within table cell paragraphs.
+
+In PowerPoint table cells, you can work with individual parts of text by changing their formatting independently. For example, you can select a portion of text and change its font, size, color, or style (bold, italic, underline) without affecting the rest of the text. Use the following method to create text portions in table cells.
+
 ## **CreateTableCellPortion**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions|POST|Returns portion info|[CreateTableCellPortion](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions|POST|Adds a new text portion to a paragraph in a table cell in a presentation saved in a storage.|[CreateTableCellPortion](https://reference.aspose.cloud/slides/#/Table/CreateTableCellPortion)|
 
-The code example below shows how to create a table cell portion.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|slideIndex|integer|path|true|The 1-based index of a slide.|
+|shapeIndex|integer|path|true|The 1-based index of a shape (must be a table).|
+|rowIndex|integer|path|true|The 1-based index of a row.|
+|cellIndex|integer|path|true|The 1-based index of a cell.|
+|paragraphIndex|integer|path|true|The 1-based index of a paragraph.|
+|dto|`Portion`|body|true|The data transfer object with text portion properties.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptx** contains a table (the **first** shape) with four columns and three rows on the **ninth** slide. The cell **(2, 2)** contains three paragraphs. Add a text portion to the **third** paragraph with the following properties:
+- text: " The second text portion."
+- bold font
+- red font color
+
+![The table](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
+**Get an Access Token**
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Add the Text Portion**
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/1/cells/1/paragraphs/1/portions" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"portion.json" 
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/2/cells/2/paragraphs/3/portions" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @TextPortion.json
 ```
 
-portion.json
+TextPortion.json content:
 ```json
 {
-    {
-        "text":"Portion 1"
-    }
+  "Text": " The second text portion.",
+  "FontBold": "True",
+  "FontColor": "#FF0000"
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
-
-Code: 200
-Returns portion info.
-
+```json
+{
+  "text": " The second text portion.",
+  "fontBold": "True",
+  "fontColor": "#FFFF0000",
+  "highlightColor": "#0",
+  "fontHeight": "NaN",
+  "fillFormat": {
+    "type": "Solid",
+    "color": "#FFFF0000"
+  },
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/9/shapes/1/rows/3/cells/3/paragraphs/3/portions/3",
+    "relation": "self",
+    "slideIndex": 9,
+    "shapeIndex": 1
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-int paragraphIndex = 1;
-Portion dto = new Portion(){Text = "Portion 1"};
+        string fileName = "MyPresentation.pptx";
+        int slideIndex = 9;
+        int shapeIndex = 1;
+        int rowIndex = 2;
+        int cellIndex = 2;
+        int paragraphIndex = 3;
 
-Portion response = api.CreateTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);
-Console.WriteLine("The portion has been created.");
+        Portion textPortion = new Portion
+        { 
+            Text = " The second text portion.",
+            FontBold = Portion.FontBoldEnum.True,
+            FontColor = "#FF0000"
+        };
+
+        Portion newPortion = slidesApi.CreateTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, textPortion);
+        
+        Console.WriteLine("The text portion has been added.");
+    }
+}
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.Portion;
 
-int slideIndex = 9;
-int shapeIndex = 1;
-int rowIndex = 1;
-int cellIndex = 1;
-int paragraphIndex = 1;
-Portion dto = new Portion();
-dto.setText("Portion 1");
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-Portion response = api.createTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, null, null, null);
-System.out.println("The portion has been created.");
+        String fileName = "MyPresentation.pptx";
+        int slideIndex = 9;
+        int shapeIndex = 1;
+        int rowIndex = 2;
+        int cellIndex = 2;
+        int paragraphIndex = 3;
+
+        Portion textPortion = new Portion();
+        textPortion.setText(" The second text portion.");
+        textPortion.setFontBold(Portion.FontBoldEnum.TRUE);
+        textPortion.setFontColor("#FF0000");
+
+        Portion newPortion = slidesApi.createTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, textPortion, null, null, null);
+
+        System.out.println("The text portion has been added.");
+    }
+}
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptx";
 $slideIndex = 9;
 $shapeIndex = 1;
-$rowIndex = 1;
-$cellIndex = 1;
-$paragraphIndex = 1;
-$dto = new Portion();
-$dto->setText("Portion 1");
+$rowIndex = 2;
+$cellIndex = 2;
+$paragraphIndex = 3;
 
-$result = $api->createTableCellPortion("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto);
-print("The portion has been created.");
+$textPortion = new Portion();
+$textPortion->setText(" The second text portion.");
+$textPortion->setFontBold(Portion::FONT_BOLD_TRUE);
+$textPortion->setFontColor("#FF0000");
+
+$newPortion = $slidesApi->createTableCellPortion($fileName, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $textPortion);
+
+print("The text portion has been added.");
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+{{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptx"
 slide_index = 9
 shape_index = 1
-row_index = 1
-cell_index = 1
-paragraph_index = 1
-dto = AsposeSlidesCloud::Portion.new
-dto.text = "Portion 1"           
+row_index = 2
+cell_index = 2
+paragraph_index = 3
 
-result = api.create_table_cell_portion("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, dto)
-print "The portion has been created."
+text_portion = Portion.new
+text_portion.text = " The second text portion."
+text_portion.font_bold = "True"
+text_portion.font_color = "#FF0000"
 
+new_portion = slides_api.create_table_cell_portion(file_name, slide_index, shape_index, row_index, cell_index, paragraph_index, text_portion)
+
+print "The text portion has been added."
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import Portion
 
-```python
-import asposeslidescloud
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.portion import Portion
-
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
-
+file_name = "MyPresentation.pptx"
 slide_index = 9
 shape_index = 1
-row_index = 1
-cell_index = 1
-paragraph_index = 1
-dto = Portion()
-dto.text = "Portion 1"
+row_index = 2
+cell_index = 2
+paragraph_index = 3
 
-response = api.create_table_cell_portion("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, dto)
-print(f"The portion has been created.")
+text_portion = Portion()
+text_portion.text = " The second text portion."
+text_portion.font_bold = "True"
+text_portion.font_color = "#FF0000"
+
+new_portion = slides_api.create_table_cell_portion(file_name, slide_index, shape_index, row_index, cell_index, paragraph_index, text_portion)
+
+print("The text portion has been added.")
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-let slideIndex = 9;
-let shapeIndex = 1;
-let rowIndex = 1;
-let cellIndex = 1;
-let paragraphIndex = 1;
-let dto = new CloudSdk.Portion();
-dto.text = "Portion 1";
+fileName = "MyPresentation.pptx";
+slideIndex = 9;
+shapeIndex = 1;
+rowIndex = 2;
+cellIndex = 2;
+paragraphIndex = 3;
 
-const result = await api.createTableCellPortion("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto);  
-console.log("The portion has been created.");
+textPortion = new cloudSdk.Portion();
+textPortion.text = " The second text portion.";
+textPortion.fontBold = cloudSdk.Portion.FontBoldEnum.True;
+textPortion.fontColor = "#FF0000";
+
+slidesApi.createTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, textPortion).then(newPortion => {
+    console.log("The text portion has been added.");
+});
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-fileName := "MyPresentation.pptx"
-var slideIndex int32 = 9
-var shapeIndex int32 = 1
-var rowIndex int32 = 1
-var cellIndex int32 = 1
-var paragraphIndex int32 = 1
-dto := asposeslidescloud.NewPortion()
-dto.SetText("Portion 1")
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-result, _, e := api.SlidesApi.CreateTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, dto, "", "", "")
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
 
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptx"
+	var slideIndex int32 = 9
+	var shapeIndex int32 = 1
+	var rowIndex int32 = 2
+	var cellIndex int32 = 2
+	var paragraphIndex int32 = 3
+
+	textPortion := asposeslidescloud.NewPortion()
+	textPortion.Text = " The second text portion."
+	textPortion.FontBold = "True"
+	textPortion.FontColor = "#FF0000"
+
+	slidesApi.CreateTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, textPortion, "", "", "")
+
+	fmt.Println("The text portion has been added.")
 }
-
-fmt.Printf("The portion has been created %v.", result.GetText())
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptx";
+    int slideIndex = 9;
+    int shapeIndex = 1;
+    int rowIndex = 2;
+    int cellIndex = 2;
+    int paragraphIndex = 3;
+
+    std::shared_ptr<Portion> textPortion = std::make_shared<Portion>();
+    textPortion->setText(L" The second text portion.");
+    textPortion->setFontBold(L"True");
+    textPortion->setFontColor(L"#FF0000");
+
+    std::shared_ptr<Portion> newPortion = slidesApi->createTableCellPortion(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, textPortion).get();
+
+    std::wcout << L"The text portion has been added.";
+}
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
 ```perl
 use AsposeSlidesCloud::Configuration;
-use AsposeSlidesCloud::SlidesApi;        
+use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::Portion;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my $dto = AsposeSlidesCloud::Object::Portion->new();
-$dto->{text} = "Portion 1";
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
-my %params = (
-'name' => "MyPresentation.pptx",
-'slide_index' => 9,
-'shape_index' => 1,
-'row_index' => 1,
-'cell_index' => 1,
-'paragraph_index' => 1,
-'dto' => $dto);
+my $file_name = "MyPresentation.pptx";
+my $slide_index = 9;
+my $shape_index = 1;
+my $row_index = 2;
+my $cell_index = 2;
+my $paragraph_index = 3;
 
-my $response = $api->create_table_cell_portion(%params);
-print "The portion has been created. \n";
+my $text_portion = AsposeSlidesCloud::Object::Portion->new();
+$text_portion->{text} = " The second text portion.";
+$text_portion->{font_bold} = "True";
+$text_portion->{font_color} = "#FF0000";
+
+my $new_portion = $slides_api->create_table_cell_portion(
+    name => $file_name, slide_index => $slide_index, shape_index => $shape_index, row_index => $row_index, cell_index => $cell_index, paragraph_index => $paragraph_index, dto => $text_portion);
+
+print "The text portion has been added.";
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The result:
+
+![The table](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
