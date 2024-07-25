@@ -21,13 +21,13 @@ To use custom templates, you need to,
 1. Upload your custom HTML5 templates to that folder.
 1. Call one of the [conversion](/slides/convert-presentations/) methods and specify the storage folder as **TemplatesPath** option value.
 
-Only the last step is repeated for every conversion. The rest are done once; when you have uploaded your templates, you use them as long as you need. You have to upload them again only when your templates are modified and need to be refreshed.
+Only the last step is repeated for every conversion. The rest is done once. Once you upload your templates, you can use them as much as you need. You have to upload them again only when your templates are modified and need to be refreshed.
 
-You need not have the whole set of templates in your templates folder. E.g. if you wish to render picture frames in a customized way, and leave all the rest as they are, you only need to provide your custom *pictureFrame.html* file. The application will use default files for all the other templates.
+You don't have to store the entire set of templates in your templates folder. E.g. if you wish to render picture frames in a customized way, and leave all the rest as they are, you only need to provide your custom *pictureFrame.html* file. The application will use default files for all the other templates.
 
 Instead of creating the template(s) from scratch, you can get the default template set by using [GetHtml5Templates](/slides/get-default-html5-templates/) method, and then modify the template files you need.
 
-The example below shows conversion to HTML5 using custom PictureFrame template.
+The example below shows the conversion to HTML5 using a custom PictureFrame template.
 
 ## **cURL Example**
 
