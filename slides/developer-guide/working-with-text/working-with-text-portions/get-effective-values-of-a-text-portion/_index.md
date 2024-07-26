@@ -23,6 +23,8 @@ Effective values are format values that are actually applied to the text portion
 You can also get effective values of [Paragraphs](/slides/get-paragraph-effective-values/).
 {{% /alert %}}
 
+## **GetPortionEffective**
+
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
