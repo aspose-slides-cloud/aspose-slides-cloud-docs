@@ -25,6 +25,8 @@ This article shows how to get the coordinates and dimensions of a text portion u
 There is [a similar method](/slides/get-a-paragraph-rectangle/) for getting the coordinates and dimensions of a paragraph.
 {{% /alert %}}
 
+## **GetPortionRectangle**
+
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
