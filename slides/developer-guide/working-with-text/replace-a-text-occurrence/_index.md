@@ -33,6 +33,7 @@ Using Aspose.Slides Cloud, you can easily replace all occurrences of text. Aspo
 |oldValue|string|query|true|The text string to be replaced.|
 |newValue|string|query|true|The text string to replace with.|
 |ignoreCase|boolean|query|false|Indicates whether to ignore character case. False by default.|
+|wholeWordsOnly|boolean|query|false|Indicates whether to replace only whole words that match the replace string. False by default.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -220,7 +221,7 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Replace the specified text, ignoring case.
-        var result = slidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder");
+        var result = slidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, null, "MyFolder");
         
         Console.WriteLine($"Replaced {result.Matches} matches.");
     }
@@ -242,7 +243,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Replace the specified text, ignoring case.
-        DocumentReplaceResult result = slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder", null);
+        DocumentReplaceResult result = slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, null, "MyFolder", null);
 
         System.out.println("Replaced " + result.getMatches() + " matches.");
     }
@@ -266,7 +267,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Replace the specified text, ignoring case.
-$result = $slidesApi->replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder");
+$result = $slidesApi->replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, null, "MyFolder");
 
 echo "Replaced ", $result->getMatches(), " matches.";
 ```
@@ -308,7 +309,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Replace the specified text, ignoring case.
-result = slides_api.replace_presentation_text("MyPresentation.pptx", "banana", "orange", True, None, "MyFolder")
+result = slides_api.replace_presentation_text("MyPresentation.pptx", "banana", "orange", True, None, None, "MyFolder")
 
 print("Replaced", result.matches, "matches.")
 ```
@@ -325,7 +326,7 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Replace the specified text, ignoring case.
-slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, "MyFolder").then(result => {
+slidesApi.replacePresentationText("MyPresentation.pptx", "banana", "orange", true, null, null, "MyFolder").then(result => {
     console.log("Replaced", result.body.matches, "matches.");
 });
 ```
@@ -346,7 +347,7 @@ int main()
     auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
     // Replace the specified text, ignoring case.
-    auto result = slidesApi->replacePresentationText(L"MyPresentation.pptx", L"banana", L"orange", true, L"", L"MyFolder").get();
+    auto result = slidesApi->replacePresentationText(L"MyPresentation.pptx", L"banana", L"orange", true, null, L"", L"MyFolder").get();
 
     std::wcout << "Replaced " << result->getMatches() << " matches.";
 
@@ -395,7 +396,7 @@ api := asposeslidescloud.NewAPIClient(cfg)
 
 // Replace the specified text, ignoring case.
 var ignoreCase bool = true
-result, _, e := api.SlidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", &ignoreCase, "", "MyFolder", "")
+result, _, e := api.SlidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", &ignoreCase, nil, "", "MyFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

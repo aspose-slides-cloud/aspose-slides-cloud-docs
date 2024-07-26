@@ -34,6 +34,7 @@ You don't need to upload files to storage to perform text replacement. You can u
 |oldValue|string|query|true|The text to be replaced.|
 |newValue|string|query|true|The text to replace with.|
 |ignoreCase|boolean|query|false|If `true`, the character case must be ignored. The default is `false`.|
+|wholeWordsOnly|boolean|query|false|Indicates whether to replace only whole words that match the replace string. False by default.|
 |password|string|header|false|The password to open the presentation.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
@@ -103,7 +104,7 @@ resultStream.CopyTo(outputStream);
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-File resultFile = api.replacePresentationTextOnline(documentData, "banana", "orange", true, null);
+File resultFile = api.replacePresentationTextOnline(documentData, "banana", "orange", true, null, null);
 
 System.out.println("The updated file was saved to " + resultFile.getPath());
 ```
@@ -256,7 +257,7 @@ if e != nil {
 }
 
 var ignoreCase bool = true
-result, _, e := api.SlidesApi.ReplacePresentationTextOnline(source, "banana", "orange", &ignoreCase, "")
+result, _, e := api.SlidesApi.ReplacePresentationTextOnline(source, "banana", "orange", &ignoreCase, nil, "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
