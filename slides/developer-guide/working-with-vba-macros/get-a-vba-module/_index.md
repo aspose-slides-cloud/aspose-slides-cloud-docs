@@ -14,167 +14,318 @@ type: docs
 url: /get-a-vba-module/
 weight: 30
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows to retrieve VBA module info. 
+
+VBA (Visual Basic for Applications) modules in PowerPoint are used to automate tasks and add functionality that is not supported by the standard PowerPoint features. VBA allows you to write macros and create custom functions that can perform various operations, such as modifying slides, working with objects on a slide, managing animations, and much more. Use the following method to get modules from VBA projects.
+
 ## **GetVbaModule**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/modules/{moduleIndex}|GET|Returns VBA module info|[GetVbaModule](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/vbaProject/modules/{moduleIndex}|GET|Returns a VBA module from a presentation saved in a storage.|[GetVbaModule](https://reference.aspose.cloud/slides/#/Vba/GetVbaModule)|
 
-The code example below shows how to retrieve VBA module with index 1.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|moduleIndex|integer|path|true|The 1-based index of a VBA module.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptm** contains a VBA project with one module. Get the source code from the module.
+
+![The VBA module](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
+**Get an Access Token**
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Get the VBA Module**
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1" \
+     -H "authorization: Bearer MyAccessToken"
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
-
-Code: 200
-Returns VBA module info.
-
+```json
+{
+  "name": "MyModule",
+  "sourceCode": "Attribute VB_Name = \"MyModule\"\r\nSub MyMacro()\r\n    MsgBox (\"Hello, World!\")\r\nEnd Sub\r\n",
+  "references": [],
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaModule response = api.GetVbaModule("MyPresentation.pptm", 1);
-Console.WriteLine($"Module: {response.Name}\n{response.SourceCode}");
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        string fileName = "MyPresentation.pptm";
+        int moduleIndex = 1;
+
+        VbaModule vbaModule = slidesApi.GetVbaModule(fileName, moduleIndex);
+
+        Console.WriteLine(vbaModule.SourceCode);
+    }
+}
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaModule response = (VbaModule)api.getVbaModule("MyPresentation.pptm", 1, null, null, null);
-String s = String.format("Module: \"%s\"\n%s", response.getName(), response.getSourceCode());
-System.out.println(s);
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.VbaModule;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        String fileName = "MyPresentation.pptm";
+        int moduleIndex = 1;
+
+        VbaModule vbaModule = slidesApi.getVbaModule(fileName, moduleIndex, null, null, null);
+
+        System.out.println(vbaModule.getSourceCode());
+    }
+}
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$result = $api->getVbaModule("MyPresentation.pptm", 1);
-echo "Module: " . $result->getName() . "\n" . $result->getSourceCode();
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptm";
+$moduleIndex = 1;
+
+$vbaModule = $slidesApi->getVbaModule($fileName, $moduleIndex);
+
+print($vbaModule->getSourceCode());
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+{{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_vba_module("MyPresentation.pptm", 1)
-puts "#{response.name} \n#{response.source_code}"
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptm"
+module_index = 1
+
+vba_module = slides_api.get_vba_module(file_name, module_index)
+
+puts vba_module.source_code
+
+# Example output:
+#
+# Attribute VB_Name = "MyModule"
+# Sub MyMacro()
+#     MsgBox ("Hello, World!")
+# End Sub
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
 
-```python
-import asposeslidescloud
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+file_name = "MyPresentation.pptm"
+module_index = 1
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+vba_module = slides_api.get_vba_module(file_name, module_index)
 
-response = api.get_vba_module("MyPresentation.pptm", 1)
-print("Module: " + response.name + "\n" + response.source_code)
+print(vba_module.source_code)
+
+# Example output:
+#
+# Attribute VB_Name = "MyModule"
+# Sub MyMacro()
+#     MsgBox ("Hello, World!")
+# End Sub
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.getVbaModule("MyPresentation.pptm", 1).then(response => {
-const vbaModule = response.body;
-console.log("Module: " + vbaModule.name + "\n" + vbaModule.sourceCode);
+fileName = "MyPresentation.pptm";
+moduleIndex = 1;
+
+slidesApi.getVbaModule(fileName, moduleIndex).then(vbaModule => {
+    console.log(vbaModule.body.sourceCode);
 });
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-response, _, e := api.SlidesApi.GetVbaModule("MyPresentation.pptm", 1, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
+
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptm"
+	var moduleIndex int32 = 1
+
+	vbaModule, _, _ := slidesApi.GetVbaModule(fileName, moduleIndex, "", "", "")
+
+	fmt.Println(vbaModule.GetSourceCode())
 }
-fmt.Printf("Module: %v \n %v", response.GetName(), response.GetSourceCode())
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptm";
+    int moduleIndex = 1;
+
+    std::shared_ptr<VbaModule> vbaModule = slidesApi->getVbaModule(fileName, moduleIndex).get();
+
+    std::wcout << vbaModule->getSourceCode();
+}
+
+// Example output:
+//
+// Attribute VB_Name = "MyModule"
+// Sub MyMacro()
+//     MsgBox ("Hello, World!")
+// End Sub
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
+```pl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my %params = ('name' => 'MyPresentation.pptm', 'module_index' => 1);
-my $response = $api->get_vba_module(%params);
-print "Module: ".$response->{name}."\n".$response->{source_code};
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $vbaModule = $slides_api->get_vba_module(
+    name => "MyPresentation.pptm",
+    module_index => 1);
+
+print $vbaModule->{source_code};
+
+# Example output:
+#
+# Attribute VB_Name = "MyModule"
+# Sub MyMacro()
+#     MsgBox ("Hello, World!")
+# End Sub
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
