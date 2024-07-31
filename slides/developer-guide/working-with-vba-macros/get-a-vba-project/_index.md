@@ -14,168 +14,266 @@ type: docs
 url: /get-a-vba-project/
 weight: 40
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows to retrieve VBA project data. 
+
+VBA projects in PowerPoint allow users to create complex automations and customizations for presentations. These projects can include various modules, forms, and classes that work together to perform specific tasks. Use the following method to get a VBA project from a presentation.
+
 ## **GetVbaProject**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject|GET|Returns VBA project info|[GetVbaProject](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/vbaProject|GET|Returns a VBA project from a presentation saved in a storage.|[GetVbaProject](https://reference.aspose.cloud/slides/#/Vba/GetVbaProject)|
 
-The code example below shows how to retrieve VBA project data.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+In the **default** storage, the document **MyPresentation.pptm** contains a VBA project. Get the number of modules in the project.
+
+![The VBA project](input.png)
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
+**Get an Access Token**
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Get the VBA Project**
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json"
+curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject" \
+     -H "authorization: Bearer MyAccessToken"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
-
-Code: 200
-Returns VBA project info.
-
+```json
+{
+  "modules": [
+    {
+      "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1",
+      "relation": "self"
+    }
+  ],
+  "references": [
+    {
+      "name": "stdole"
+    },
+    {
+      "name": "Office"
+    }
+  ],
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
+```cs
+using System;
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = api.GetVbaProject("MyPresentation.pptm");
-Console.WriteLine($"VBA project contains: {response.Modules.Count} module(s), and {response.References.Count} references");
+class Application
+{
+    static void Main(string[] args)
+    {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        string fileName = "MyPresentation.pptm";
+
+        VbaProject vbaProject = slidesApi.GetVbaProject(fileName);
+
+        int moduleCount = vbaProject.Modules.Count;
+        Console.WriteLine("Number of modules: " + moduleCount); // 1
+    }
+}
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-VbaProject response = (VbaProject)api.getVbaProject("MyPresentation.pptm", null, null, null);
-System.out.println("VBA project contains: " + response.getModules().size() + " module(s), and " + response.getReferences().size() + " references");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.VbaProject;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        String fileName = "MyPresentation.pptm";
+
+        VbaProject vbaProject = slidesApi.getVbaProject(fileName, null, null, null);
+
+        int moduleCount = vbaProject.getModules().size();
+        System.out.println("Number of modules: " + moduleCount); // 1
+    }
+}
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
-$result = $api->getVbaProject("MyPresentation.pptm");
-echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptm";
+
+$vbaProject = $slidesApi->getVbaProject($fileName);
+
+$moduleCount = count($vbaProject->getModules());
+print("Number of modules: " . $moduleCount); // 1
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+{{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-response = api.get_vba_project("MyPresentation.pptm")
-puts "VBA project contains: #{response.modules.length} module(s), and #{response.references.length} references"
+slides_api = SlidesApi.new(configuration)
+
+file_name = "MyPresentation.pptm"
+
+vba_project = slides_api.get_vba_project(file_name)
+
+module_count = vba_project.modules.length()
+puts("Number of modules: #{module_count}") # 1
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
 
-```python
-import asposeslidescloud
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
+file_name = "MyPresentation.pptm"
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+vba_project = slides_api.get_vba_project(file_name)
 
-response = api.get_vba_project("MyPresentation.pptm")
-print("VBA project contains: " + str(len(response.modules)) + " module(s), and " + str(len(response.references)) + " references")
+module_count = len(vba_project.modules)
+print("Number of modules:", module_count)  # 1
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const response = await api.getVbaProject("MyPresentation.pptm").then(response => {
-const vbaProject = response.body;
-console.log("VBA project contains: " + vbaProject.modules.length + " module(s), and " + vbaProject.references.length + " references");
+fileName = "MyPresentation.pptm";
+
+slidesApi.getVbaProject(fileName).then(vbaProject => {
+    moduleCount = vbaProject.body.modules.length;
+    console.log("Number of modules:", moduleCount); // 1
 });
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-response, _, e := api.SlidesApi.GetVbaProject("MyPresentation.pptm", "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
+
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptm"
+
+	vbaProject, _, _ := slidesApi.GetVbaProject(fileName, "", "", "")
+
+	moduleCount := len(vbaProject.GetModules())
+	fmt.Println("Number of modules:", moduleCount) // 1
 }
-fmt.Printf("VBA project contains: %v module(s), and %v references", len(response.GetModules()), len(response.GetReferences()))
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptm";
+
+    std::shared_ptr<VbaProject> vbaProject = slidesApi->getVbaProject(fileName).get();
+
+    int moduleCount = vbaProject->getModules().size();
+    std::wcout << L"Number of modules: " << moduleCount; // 1
+}
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
+```pl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my %params = ('name' => 'MyPresentation.pptm');
-my $response = $api->get_vba_project(%params);
-my $modules_count = scalar @{$response->{modules}};
-my $references_count = scalar @{$response->{references}};
-print "VBA project contains: ".$modules_count." module(s), and ".$references_count." references";
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $vba_project = $slides_api->get_vba_project(
+    name => "MyPresentation.pptm");
+
+my $module_count = @{$vba_project->{modules}};
+print "Number of modules: ", $module_count; # 1
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
