@@ -14,7 +14,7 @@ keywords:
 - change a module
 type: docs
 url: /update-a-vba-module/
-weight: 50
+weight: 40
 ---
 ## **Introduction**
 Aspose.Slides.Cloud API allows to update VBA modules and add global references if needed. The module name can't be updated.
