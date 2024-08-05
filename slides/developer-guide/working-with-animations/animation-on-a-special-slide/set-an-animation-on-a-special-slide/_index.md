@@ -205,7 +205,7 @@ public class Application {
         effect2.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
         SlideAnimation newAnimation = new SlideAnimation();
-        newAnimation.setMainSequence(List.of(effect1, effect2));
+        newAnimation.setMainSequence(Arrays.asList(effect1, effect2));
 
         SlideAnimation slideAnimation = slidesApi.setSpecialSlideAnimation(fileName, slideIndex, slideType, newAnimation, null, null, null);
 
@@ -653,10 +653,10 @@ public class Application {
 
         InteractiveSequence interactiveSequence = new InteractiveSequence();
         interactiveSequence.setTriggerShapeIndex(2);
-        interactiveSequence.setEffects(List.of(effect));
+        interactiveSequence.setEffects(Arrays.asList(effect));
 
         SlideAnimation newAnimation = new SlideAnimation();
-        newAnimation.setInteractiveSequences(List.of(interactiveSequence));
+        newAnimation.setInteractiveSequences(Arrays.asList(interactiveSequence));
 
         SlideAnimation slideAnimation = slidesApi.setSpecialSlideAnimation(fileName, slideIndex, slideType, newAnimation, null, null, null);
 

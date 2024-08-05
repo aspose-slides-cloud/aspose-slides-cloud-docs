@@ -201,7 +201,7 @@ public class Application {
         effect2.setType(Effect.TypeEnum.BLINK);
         effect2.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
-        List<Effect> effects = List.of(effect1, effect2);
+        List<Effect> effects = Arrays.asList(effect1, effect2);
 
         SlideAnimation newAnimation = new SlideAnimation();
         newAnimation.setMainSequence(effects);
@@ -613,13 +613,13 @@ public class Application {
         effect.setSubtype(Effect.SubtypeEnum.BOTTOM);
         effect.setTriggerType(Effect.TriggerTypeEnum.ONCLICK);
 
-        List<Effect> effects = List.of(effect);
+        List<Effect> effects = Arrays.asList(effect);
 
         InteractiveSequence interactiveSequence = new InteractiveSequence();
         interactiveSequence.setTriggerShapeIndex(2);
         interactiveSequence.setEffects(effects);
 
-        List<InteractiveSequence> interactiveSequences = List.of(interactiveSequence);
+        List<InteractiveSequence> interactiveSequences = Arrays.asList(interactiveSequence);
 
         SlideAnimation newAnimation = new SlideAnimation();
         newAnimation.setInteractiveSequences(interactiveSequences);

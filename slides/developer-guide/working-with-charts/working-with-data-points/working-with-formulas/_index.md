@@ -195,6 +195,7 @@ import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.model.Chart;
 import com.aspose.slides.model.Workbook;
 import com.aspose.slides.model.ChartCategory;
+import com.aspose.slides.model.Series;
 import com.aspose.slides.model.OneValueSeries;
 import com.aspose.slides.model.OneValueChartDataPoint;
 
@@ -256,7 +257,7 @@ public class Application {
 
         series1.setDataPoints(Arrays.asList(dataPoint11, dataPoint12, dataPoint13));
 
-        chartData.setSeries(Arrays.asList(series1));
+        chartData.setSeries(Arrays.asList((Series)series1));
 
         Chart chart = (Chart)slidesApi.createShape(fileName, slideIndex, chartData, null, null, null, null, null, null);
 

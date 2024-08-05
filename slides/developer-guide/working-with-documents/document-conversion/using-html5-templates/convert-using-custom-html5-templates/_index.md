@@ -125,15 +125,15 @@ SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 api.createFolder(templatesPath, null);
 
-byte[] template = Files.readAllBytes(templateFileName);
+byte[] template = Files.readAllBytes(Paths.get(templateFileName));
 api.uploadFile(templatesPath + "/" + templateFileName, template, null);
 
 Html5ExportOptions exportOptions = new Html5ExportOptions();
 exportOptions.setTemplatesPath(templatesPath);
 exportOptions.setAnimateTransitions(true);
 
-byte[] file = Files.readAllBytes("MyPresentation.pptx");
-File response = api.convert(fileName, ExportFormat.HTML5, null, null, null, null, exportOptions);
+byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+File response = api.convert(file, ExportFormat.HTML5, null, null, null, null, exportOptions);
 System.out.println("The converted file was saved to " + response.getPath());
 ```
 
@@ -160,11 +160,11 @@ $api->createFolder($templatesPath);
 $api->uploadFile($templatesPath."/".$templateFileName, fopen($templateFileName, 'r'));
 
 $exportOptions = new Html5ExportOptions();
-$exportOptions->setTemplatesPath(templatesPath);
+$exportOptions->setTemplatesPath($templatesPath);
 $exportOptions->setAnimateTransitions(true);
 
-$response = $api->convert(fopen("MyPresentation.pptx", 'r'), "html5", null, null, null, null, exportOptions);
-print("The converted file was saved to " . $result->getPathname());
+$response = $api->convert(fopen("MyPresentation.pptx", 'r'), "html5", null, null, null, null, $exportOptions);
+print("The converted file was saved to " . $response->getPathname());
 ```
 
 {{< /tab >}}
@@ -233,8 +233,8 @@ print('The converted file was saved to ' + result)
 {{< tab tabNum="6" >}}
 
 ```javascript
-String templatesPath = "Html5Templates";
-String templateFileName = "pictureFrame.html";
+const templatesPath = "Html5Templates";
+const templateFileName = "pictureFrame.html";
 
 const CloudSdk = require("asposeslidescloud");
 const fs = require("fs");
