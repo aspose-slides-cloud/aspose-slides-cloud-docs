@@ -12,7 +12,7 @@ keywords:
 - get a module
 type: docs
 url: /get-a-vba-module/
-weight: 30
+weight: 20
 ---
 
 ## **Introduction**

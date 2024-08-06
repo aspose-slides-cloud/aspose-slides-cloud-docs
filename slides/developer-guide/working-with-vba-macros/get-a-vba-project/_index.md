@@ -12,7 +12,7 @@ keywords:
 - get a project
 type: docs
 url: /get-a-vba-project/
-weight: 40
+weight: 10
 ---
 
 ## **Introduction**

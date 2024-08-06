@@ -13,7 +13,7 @@ keywords:
 - add a module
 type: docs
 url: /create-a-vba-module/
-weight: 10
+weight: 30
 ---
 ## **Introduction**
 Aspose.Slides.Cloud API allows to create VBA modules and add global references if needed. 
