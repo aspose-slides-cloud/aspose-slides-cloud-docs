@@ -301,7 +301,7 @@ dataPoint23.setValue(90.0);
 
 series2.setDataPoints(Arrays.asList(dataPoint21, dataPoint22, dataPoint23));
 
-dto.setSeries(Arrays.asList(series1, series2));
+dto.setSeries(Arrays.asList((Series)series1, (Series)series2));
 
 Chart chart = (Chart)api.createShape(fileName, slideIndex, dto, null, null, null, null, null, null);
 System.out.println("Chart has been created.");
@@ -1184,7 +1184,7 @@ dataPoint23.setValue(60.0);
 
 series2.setDataPoints(Arrays.asList(dataPoint21, dataPoint22, dataPoint23));
 
-dto.setSeries(Arrays.asList(series1, series2));
+dto.setSeries(Arrays.asList((Series)series1, (Series)series2));
 
 Chart chart = (Chart)api.createShape(fileName, slideIndex, dto, null, null, null, null, null, null);
 System.out.println("Chart has been created.");

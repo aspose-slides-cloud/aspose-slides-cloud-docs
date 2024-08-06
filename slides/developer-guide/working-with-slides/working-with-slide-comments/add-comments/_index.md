@@ -170,6 +170,7 @@ class Application
 ```java
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.SlideCommentBase;
 import com.aspose.slides.model.SlideComment;
 import com.aspose.slides.model.SlideComments;
 
@@ -190,7 +191,7 @@ public class Application {
         childComment.setAuthor("James Johnson");
         childComment.setText("This is a child comment.");
 
-        firstComment.setChildComments(List.of(childComment));
+        firstComment.setChildComments(Arrays.asList((SlideCommentBase)childComment));
 
         SlideComments slideComments = slidesApi.createComment(fileName, slideIndex, firstComment, null, null, null, null);
 

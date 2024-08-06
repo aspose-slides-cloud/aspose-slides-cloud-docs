@@ -88,7 +88,7 @@ $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
 $response = $api->getHtml5Templates();
-print("The templates were saved to " . $result->getPathname());
+print("The templates were saved to " . $response->getPathname());
 ```
 
 {{< /tab >}}

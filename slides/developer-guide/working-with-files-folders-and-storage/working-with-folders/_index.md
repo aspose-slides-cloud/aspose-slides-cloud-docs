@@ -174,7 +174,7 @@ public class Application {
         for (StorageFile item : filesList.getValue())
         {
             System.out.println("Name: " + item.getName());
-            System.out.println("Is folder: " + item.isIsFolder());
+            System.out.println("Is folder: " + item.getIsFolder());
             System.out.println("Size: " + item.getSize());
             System.out.println("Path: " + item.getPath());
             System.out.println();
