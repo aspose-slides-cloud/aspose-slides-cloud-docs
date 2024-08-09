@@ -17,7 +17,8 @@ weight: 30
 ---
 
 ## **Introduction**
-Aspose.Slides Cloud provides methods to work with files uploaded to Aspose Cloud Storage or any other Cloud Storage of your choice. If you need any help getting started with setting third party storage please refer to [Aspose Cloud UI Help Topics](https://docs.aspose.cloud/storage/aspose-cloud-ui-help-topics/).
+
+Aspose.Slides Cloud API provides methods to work with files in Aspose Cloud Storage or any other Cloud storage of your choice. If you need any help setting up third-party storage, please refer to [Aspose Cloud UI Help Topics](https://docs.aspose.cloud/storage/aspose-cloud-ui-help-topics/).
 
 **Request Access Token**
 
@@ -26,15 +27,15 @@ The cURL examples below use **<access_token>** template string instead of an act
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl -v -X POST "https://api.aspose.cloud/connect/token" -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+```sh
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9&client_secret=b125f13bf6b76ed81ee990142d841195" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -H "Accept: application/json"
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```json
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NDUwMDcwMjQsImV4cCI6MTY0NTAxMDYyNCwiaXNzIjoiaHR0cHM6Ly9hcGkuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkuYmlsbGluZyIsImFwaS5pZGVudGl0eSIsImFwaS5wcm9kdWN0cyIsImFwaS5zdG9yYWdlIl0sImNsaWVudF9pZCI6ImM1MTQwZDVhLTlhZDItNDRjZS1iOGNmLTcyMWZkNDBhNDk0OSIsImNsaWVudF9kZWZhdWx0X3N0b3JhZ2UiOiI1MzI2ZjMwNC1jOWZjLTQyYzktOGIxYy04NzAwZjQ0YmEwNTMiLCJjbGllbnRfaWRlbnRpdHlfdXNlcl9pZCI6Ijc5MTMzOCIsInNjb3BlIjpbImFwaS5iaWxsaW5nIiwiYXBpLmlkZW50aXR5IiwiYXBpLnByb2R1Y3RzIiwiYXBpLnN0b3JhZ2UiXX0.gqEhtex3zjYWknT4JVehzne70X1gJ0X-8UJqy41AolrVLvdk5sffqFnjCcGXUibVCNmwkxUC1l9-A4nn9gGsTAB7hw85aI8_yknEw4oVxou64-jpff0lXFqdq37iioZczhn4NO4kByTjnSrW_D_UOM70R_v4KUfCYNWUSQUqEQFcyI-Pl-yHqMKDF2BOYq4Stfx5yGX41i6EMW_p3zveFlqrHLyGQebOiAR_mSXwc3vnNgtum1VatCirvhDFei3Hjs7VVyrI0SGpWKRUsnEpTfxQ6ULmeo2GUZhBmkF_TPEmHuFG3E_w0rmC4rsxerpfvuGhDaxwPcvk-FmzLJaTAA",
@@ -42,52 +43,51 @@ curl -v -X POST "https://api.aspose.cloud/connect/token" -d "grant_type=client_c
   "token_type": "Bearer"
 }
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **Downloading a file from Cloud Storage**
+## **DownloadFile**
 
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|GET|Downloads a file from a Cloud storage.|[DownloadFile](https://apireference.aspose.cloud/slides/#/File/DownloadFile)|
+|/slides/storage/file/{path}|GET|Downloads a file from a Cloud storage.|[DownloadFile](https://reference.aspose.cloud/slides/#/File/DownloadFile)|
 
-#### **Request Parameters**
+**Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|path|string|path|true|The file path in a storage.|
-|storageName|string|query|false|The storage name.|
-|versionId|string|query|false|The file version ID.|
+|path|string|path|true|The path to a file in a storage.|
+|storageName|string|query|false|The name of the storage.|
+|versionId|string|query|false|The version ID of the file.|
 
-### **cURL Example**
-Download a file **Data/example.pptx** from a storage **Main** and save the file to **result.pptx**. 
+### **Examples**
+
+Download the **Data/example.pptx** file from the **MyStorage** storage and save it to **result.pptx**. 
+
+**cURL Solution**
 
 {{< tabs tabTotal="1" tabID="2" tabName1="Request" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl -v -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/Data/example.pptx?storageName=Main" -H "accept: multipart/form-data" -o result.pptx -H "Authorization: Bearer <access_token>" --ssl-no-revoke
+```sh
+curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/Data/example.pptx?storageName=MyStorage" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "accept: multipart/form-data" \ 
+     -o result.pptx
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### **SDK Examples**
-Download a file **Data/example.pptx** from a storage **Main** and save the file to **result.pptx**. 
+**SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
-
-```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
-
+```cs
 using System;
 using System.IO;
 using Aspose.Slides.Cloud.Sdk;
@@ -96,37 +96,36 @@ class Test
 {
     static void Main()
     {
-        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var filePath = "Data/example.pptx";
-        var resultPath = "result.pptx";
+        string storageName = "MyStorage";
+        string filePath = "Data/example.pptx";
+        string resultPath = "result.pptx";
 
-        using (var fileStream = api.DownloadFile(filePath))
-        using (var resultStream = File.OpenWrite(resultPath))
-            fileStream.CopyTo(resultStream);
+        using Stream fileStream = slidesApi.DownloadFile(filePath, storageName);
+
+        using FileStream resultStream = File.OpenWrite(resultPath);
+        fileStream.CopyTo(resultStream);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
-
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws ApiException, IOException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "Main";
+        String storageName = "MyStorage";
         String filePath = "Data/example.pptx";
         String resultPath = "result.pptx";
 
@@ -137,24 +136,20 @@ public class Main {
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
-
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
-
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "Main";
+$storageName = "MyStorage";
 $filePath = "Data/example.pptx";
 $resultPath = "result.pptx";
 
@@ -163,30 +158,40 @@ $file = $slidesApi->downloadFile($filePath, $storageName);
 
 copy($file->getRealPath(), $resultPath);
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
 
-```ruby
+include AsposeSlidesCloud
 
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+storage_name = "MyStorage"
+file_path = "Data/example.pptx"
+result_path = "result.pptx"
+
+file_data = slides_api.download_file(file_path, storage_name)
+
+File.binwrite(result_path, file_data)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
-
-```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
-
+```py
 import asposeslidescloud
 import shutil
 
 from asposeslidescloud.apis.slides_api import SlidesApi
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-storage_name = "Main"
+storage_name = "MyStorage"
 file_path = "Data/example.pptx"
 result_path = "result.pptx"
 
@@ -195,149 +200,140 @@ temp_path = slides_api.download_file(file_path, storage_name)
 
 shutil.copyfile(temp_path, result_path)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
-
-const cloud = require("asposeslidescloud");
+const cloudSdk = require("asposeslidescloud");
 const fs = require("fs");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const storageName = "Main";
-const filePath = "Data/example.pptx";
-const resultPath = "result.pptx";
+storageName = "MyStorage";
+filePath = "Data/example.pptx";
+resultPath = "result.pptx";
 
-slidesApi.downloadFile(filePath, storageName).then(response => {
-    fs.writeFile(resultPath, response.body, (error) => {
-         if (error) {
-             console.error(error);
-         }
-     });
- });
+slidesApi.downloadFile(filePath, storageName).then(fileData => {
+    fs.writeFile(resultPath, fileData.body, error => {
+    });
+});
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class Main {
-    public static void main(String[] args) throws ApiException, IOException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        String storageName = "Main";
-        String filePath = "Data/example.pptx";
-        String resultPath = "result.pptx";
-
-        // Note: The file data will be stored to a temporary file.
-        File file = slidesApi.downloadFile(filePath, storageName, null);
-
-        Files.copy(file.toPath(), Paths.get(resultPath));
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
-
 #include "asposeslidescloud/api/SlidesApi.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-	auto storageName = to_string_t("Main");
-	auto filePath = to_string_t("Data/example.pptx");
-	auto resultPath = to_string_t("result.pptx");
+    const wchar_t* storageName = L"MyStorage";
+    const wchar_t* filePath = L"Data/example.pptx";
+    const wchar_t* resultPath = L"result.pptx";
 
-	std::ofstream resultStream(resultPath, std::ofstream::binary);
-	slidesApi->downloadFile(filePath, storageName).get().writeTo(resultStream);
-	
-	return 0;
+    HttpContent fileContent = slidesApi->downloadFile(filePath, storageName).get();
+
+    std::ofstream resultStream(resultPath, std::ofstream::binary);
+    fileContent.writeTo(resultStream);
 }
 ```
+{{< /tab >}}
 
+{{< tab tabNum="8" >}}
+```pl
+use File::Slurp;
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_data = $slides_api->download_file(
+    path => "Data/example.pptx", 
+    storage_name => "MyStorage");
+
+write_file("result.pptx", {binmode => ":raw"}, $file_data);
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
-```swift
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="11" >}}
-
 ```go
+import (
+	"io"
+	"os"
 
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
+
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	storageName := "MyStorage"
+	filePath := "Data/example.pptx"
+	resultPath := "result.pptx"
+
+	// Note: The file data will be stored to a temporary file.
+	file, _, _ := slidesApi.DownloadFile(filePath, storageName, "")
+
+	source, _ := os.Open(file.Name())
+	defer source.Close()
+
+	destination, _ := os.Create(resultPath)
+	defer destination.Close()
+
+	io.Copy(destination, source)
+}
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **Uploading a file to Cloud Storage**
+## **UploadFile**
 
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|PUT|Uploads a file to a Cloud storage.|[UploadFile](https://apireference.aspose.cloud/slides/#/File/UploadFile)|
+|/slides/storage/file/{path}|PUT|Uploads a file to a Cloud storage.|[UploadFile](https://reference.aspose.cloud/slides/#/File/UploadFile)|
 
-#### **Request Parameters**
+**Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|path|string|path|true|The file path in a storage. If the content is multipart and the path does not contains the file name, it tries to get them from `filename` parameter from the Content-Disposition header.|
-|file|file|formData|true|The file to upload.|
-|storageName|string|query|false|The storage name.|
+|path|string|path|true|The path to a file in a storage. If the content is multipart and the path does not contains the file name, it tries to get them from the `filename` parameter from the Content-Disposition header.|
+|file|file|formData|true|The file to be uploaded.|
+|storageName|string|query|false|The name of the storage.|
 
-### **cURL Example**
-Upload a file **example.pptx** to the path **Data/result.pptx** on a storage **Main**.
+### **Examples**
+
+Upload the **example.pptx** file to the **Data/result.pptx** path in the **MyStorage** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="3" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.pptx?storageName=Main"  -H "Content-Type:application/octet-stream" --data-binary @example.pptx -H "Authorization: Bearer <access_token>" --ssl-no-revoke
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.pptx?storageName=MyStorage" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type:application/octet-stream" \
+     --data-binary @example.pptx
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
-```java
+```json
 {
    "uploaded":[
       "result.pptx"
@@ -346,921 +342,854 @@ curl  -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.p
    ]
 }
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### **SDK Examples**
-Upload a file **example.pptx** to the path **Data/result.pptx** on a storage **Main**.
+**SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="8" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
-
-```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
-
+```cs
 using System;
 using System.IO;
 using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
 
-class Test
+class Application
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var filePath = "example.pptx";
-        var resultPath = "Data/result.pptx";
+        string storageName = "MyStorage";
+        string filePath = "example.pptx";
+        string resultPath = "Data/result.pptx";
 
-        using (var fileStream = File.OpenRead(filePath))
-        {
-            var response = api.UploadFile(resultPath, fileStream);
-            Console.WriteLine(response.Uploaded.Count);
-        }
+        using FileStream fileStream = File.OpenRead(filePath);
+        FilesUploadResult uploadResult = slidesApi.UploadFile(resultPath, fileStream, storageName);
+
+        int fileCount = uploadResult.Uploaded.Count;
+        Console.WriteLine("Number of uploaded files: " + fileCount); // 1
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
-
-import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.FilesUploadResult;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException, IOException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "Main";
+        String storageName = "MyStorage";
         String filePath = "example.pptx";
         String resultPath = "Data/result.pptx";
 
         byte[] fileData = Files.readAllBytes(Paths.get(filePath));
-        FilesUploadResult response = slidesApi.uploadFile(resultPath, fileData, storageName);
+        FilesUploadResult uploadResult = slidesApi.uploadFile(resultPath, fileData, storageName);
 
-        System.out.println(response.getUploaded().size());
+        int fileCount = uploadResult.getUploaded().size();
+        System.out.println("Number of uploaded files: " + fileCount); // 1
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
-
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
-
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "Main";
+$storageName = "MyStorage";
 $filePath = "example.pptx";
 $resultPath = "Data/result.pptx";
 
-$fileStream = fopen($filePath, 'r');
-$response = $slidesApi->uploadFile($resultPath, $fileStream, $storageName);
+$fileStream = fopen($filePath, "r");
+$uploadResult = $slidesApi->uploadFile($resultPath, $fileStream, $storageName);
 
-echo count($response->getUploaded());
+$fileCount = count($uploadResult->getUploaded());
+print("Number of uploaded files: " . $fileCount); // 1
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
 
-```ruby
+include AsposeSlidesCloud
 
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+storage_name = "MyStorage"
+file_path = "example.pptx"
+result_path = "Data/result.pptx"
+
+file_data = File.binread(file_path)
+upload_result = slides_api.upload_file(result_path, file_data, storage_name)
+
+file_count = upload_result.uploaded.length()
+puts "Number of uploaded files: #{file_count}" # 1
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
 
-```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-import asposeslidescloud
-
-from asposeslidescloud.apis.slides_api import SlidesApi
-
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
-
-storage_name = "Main"
+storage_name = "MyStorage"
 file_path = "example.pptx"
 result_path = "Data/result.pptx"
 
 with open(file_path, "rb") as file_stream:
-    response = slides_api.upload_file(result_path, file_stream, storage_name)
+    upload_result = slides_api.upload_file(result_path, file_stream, storage_name)
 
-print(len(response.uploaded))
+file_count = len(upload_result.uploaded)
+print("Number of uploaded files:", file_count)  # 1
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
-
-const cloud = require("asposeslidescloud");
 const fs = require("fs");
+const cloudSdk = require("asposeslidescloud");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const storageName = "Main";
-const filePath = "example.pptx";
-const resultPath = "Data/result.pptx";
+storageName = "MyStorage";
+filePath = "example.pptx";
+resultPath = "Data/result.pptx";
 
-const fileStream = fs.createReadStream(filePath);
-slidesApi.uploadFile(resultPath, fileStream, storageName).then(response => {
-    console.log(response.body.uploaded.length);
+fileStream = fs.createReadStream(filePath);
+
+slidesApi.uploadFile(resultPath, fileStream, storageName).then(uploadResult => {
+    fileCount = uploadResult.body.uploaded.length;
+    console.log("Number of uploaded files:", fileCount); // 1
 });
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class Main {
-    public static void main(String[] args) throws ApiException, IOException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        String storageName = "Main";
-        String filePath = "example.pptx";
-        String resultPath = "Data/result.pptx";
-
-        byte[] fileData = Files.readAllBytes(Paths.get(filePath));
-        FilesUploadResult response = slidesApi.uploadFile(resultPath, fileData, storageName);
-
-        System.out.println(response.getUploaded().size());
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
-
 #include "asposeslidescloud/api/SlidesApi.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-	auto storageName = to_string_t("Main");
-	auto filePath = to_string_t("example.pptx");
-	auto resultPath = to_string_t("Data/result.pptx");
+	const wchar_t* storageName = L"MyStorage";
+	const wchar_t* filePath = L"example.pptx";
+	const wchar_t* resultPath = L"Data/result.pptx";
 
-	auto fileStream = std::make_shared<std::ifstream>(filePath, std::ios::binary);
-	auto uploadContent = std::make_shared<HttpContent>();
+	std::shared_ptr<std::ifstream> fileStream = std::make_shared<std::ifstream>(filePath, std::ios::binary);
+	std::shared_ptr<HttpContent> uploadContent = std::make_shared<HttpContent>();
 	uploadContent->setData(fileStream);
 
-	auto response = slidesApi->uploadFile(resultPath, uploadContent, storageName).get();
-	std::cout << response->getUploaded().size();
-	
-	return 0;
+	std::shared_ptr<FilesUploadResult> uploadResult = slidesApi->uploadFile(resultPath, uploadContent, storageName).get();
+
+	int fileCount = uploadResult->getUploaded().size();
+	std::wcout << L"Number of uploaded files: " << fileCount; // 1
 }
 ```
+{{< /tab >}}
 
+{{< tab tabNum="8" >}}
+```pl
+use File::Slurp;
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+my $file_data = read_file("example.pptx", { binmode => ":raw" });
+
+my $upload_result = $slides_api->upload_file(
+    path => "Data/result.pptx",
+    file => $file_data,
+    storage_name => "MyStorage");
+
+my $file_count = @{$upload_result->{uploaded}};
+print "Number of uploaded files: ", $file_count; # 1
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
-```swift
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="11" >}}
-
 ```go
+import (
+	"fmt"
+	"os"
 
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
+
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	storageName := "MyStorage"
+	filePath := "example.pptx"
+	resultPath := "Data/result.pptx"
+
+	fileData, _ := os.ReadFile(filePath)
+	uploadResult, _, _ := slidesApi.UploadFile(resultPath, fileData, storageName)
+
+	fileCount := len(uploadResult.GetUploaded())
+	fmt.Println("Number of uploaded files:", fileCount) // 1
+}
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **Copying a file to a new location on Cloud Storage**
+## **CopyFile**
 
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/storage/file/copy/{srcPath}|PUT|Duplicates a file to a new location on a Cloud storage.|[CopyFile](https://apireference.aspose.cloud/slides/#/File/CopyFile)|
+|/slides/storage/file/copy/{srcPath}|PUT|Copies a file in a Cloud storage.|[CopyFile](https://reference.aspose.cloud/slides/#/File/CopyFile)|
 
-#### **Request Parameters**
+**Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|srcPath|string|path|true|The source file path.|
-|destPath|string|query|true|The destination file path.|
-|srcStorageName|string|query|false|The source storage name.|
-|destStorageName|string|query|false|The destination storage name.|
-|versionId|string|query|false|The version ID of the file to copy.|
+|srcPath|string|path|true|The path to a source file.|
+|destPath|string|query|true|The path to a destination file.|
+|srcStorageName|string|query|false|The name of a source storage.|
+|destStorageName|string|query|false|The name of a destination storage.|
+|versionId|string|query|false|The version ID of the file to be copied.|
 
-### **cURL Example**
-Copy a file **Data/example.pptx** to the path **Resources/example_copy.pptx** on a storage **Main**.
+### **Examples**
+
+Copy the **Data/example.pptx** file to the **Resources/example_copy.pptx** path in the **MyStorage** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="1" tabID="4" tabName1="Request" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/Data/example.pptx?destPath=Resources/example_copy.pptx&srcStorageName=Main&destStorageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>"  -d {} --ssl-no-revoke
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/Data%2Fexample.pptx?destPath=Resources%2Fexample_copy.pptx&srcStorageName=MyStorage&destStorageName=MyStorage" 
+     -H "Authorization: Bearer <access_token>"
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### **SDK Examples**
-Copy a file **Data/example.pptx** to the path **Resources/example_copy.pptx** on a storage **Main**.
+**SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="9" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
-
-```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
-
-using System;
+```cs
 using Aspose.Slides.Cloud.Sdk;
 
-class Test
+class Application
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-        
-        var filePath = "Data/example.pptx";
-        var copyPath = "Resources/example_copy.pptx";
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        api.CopyFile(filePath, copyPath);
+        string storageName = "MyStorage";
+        string sourcePath = "Data/example.pptx";
+        string targetPath = "Resources/example_copy.pptx";
+
+        slidesApi.CopyFile(sourcePath, targetPath, storageName, storageName);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
-
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "Main";
-        String filePath = "Data/example.pptx";
-        String copyPath = "Resources/example_copy.pptx";
+        String storageName = "MyStorage";
+        String sourcePath = "Data/example.pptx";
+        String targetPath = "Resources/example_copy.pptx";
 
-        slidesApi.copyFile(filePath, copyPath, storageName, storageName, null);
+        slidesApi.copyFile(sourcePath, targetPath, storageName, storageName, null);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
-
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
-
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "Main";
-$filePath = "Data/example.pptx";
-$copyPath = "Resources/example_copy.pptx";
+$storageName = "MyStorage";
+$sourcePath = "Data/example.pptx";
+$targetPath = "Resources/example_copy.pptx";
 
-$slidesApi->copyFile($filePath, $copyPath, $storageName, $storageName);
+$slidesApi->copyFile($sourcePath, $targetPath, $storageName, $storageName);
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
 
-```ruby
+include AsposeSlidesCloud
 
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+storage_name = "MyStorage"
+source_path = "Data/example.pptx"
+target_path = "Resources/example_copy.pptx"
+
+slides_api.copy_file(source_path, target_path, storage_name, storage_name)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
-
-```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
-
+```py
 import asposeslidescloud
 
-from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.apis import SlidesApi
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-storage_name = "Main"
-file_path = "Data/example.pptx"
-copy_path = "Resources/example_copy.pptx"
+storage_name = "MyStorage"
+source_path = "Data/example.pptx"
+target_path = "Resources/example_copy.pptx"
 
-slides_api.copy_file(file_path, copy_path, storage_name, storage_name)
+slides_api.copy_file(source_path, target_path, storage_name, storage_name)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+const cloudSdk = require("asposeslidescloud");
 
-const cloud = require("asposeslidescloud");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
+storageName = "MyStorage";
+sourcePath = "Data/example.pptx";
+targetPath = "Resources/example_copy.pptx";
 
-const storageName = "Main";
-const filePath = "Data/example.pptx";
-const copyPath = "Resources/example_copy.pptx";
-
-slidesApi.copyFile(filePath, copyPath, storageName, storageName).then(() => {
-    console.log("Done");
+slidesApi.copyFile(sourcePath, targetPath, storageName, storageName).then(() => {
 });
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-
-public class Main {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        String storageName = "Main";
-        String filePath = "Data/example.pptx";
-        String copyPath = "Resources/example_copy.pptx";
-
-        slidesApi.copyFile(filePath, copyPath, storageName, storageName, null);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
-
 #include "asposeslidescloud/api/SlidesApi.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-	auto storageName = to_string_t("Main");
-	auto filePath = to_string_t("Data/example.pptx");
-	auto copyPath = to_string_t("Resources/example_copy.pptx");
+	const wchar_t* storageName = L"MyStorage";
+	const wchar_t* sourcePath = L"Data/example.pptx";
+	const wchar_t* targetPath = L"Resources/example_copy.pptx";
 
-	slidesApi->copyFile(filePath, copyPath, storageName, storageName);
-	
-	return 0;
+	slidesApi->copyFile(sourcePath, targetPath, storageName, storageName);
 }
 ```
+{{< /tab >}}
 
+{{< tab tabNum="8" >}}
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+$slides_api->copy_file(
+    src_path => "Data/example.pptx",
+    dest_path => "Resources/example_copy.pptx",
+    src_storage_name => "MyStorage",
+    dest_storage_name => "MyStorage");
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
-```swift
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="11" >}}
-
 ```go
+import (
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	storageName := "MyStorage"
+	sourcePath := "Data/example.pptx"
+	targetPath := "Resources/example_copy.pptx"
+
+	slidesApi.CopyFile(sourcePath, targetPath, storageName, storageName, "")
+}
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **Moving a file to a new location on Cloud Storage**
+## **MoveFile**
 
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/storage/file/move/{srcPath}|PUT|Moves a file to a new location on a Cloud storage.|[MoveFile](https://apireference.aspose.cloud/slides/#/File/MoveFile)|
+|/slides/storage/file/move/{srcPath}|PUT|Moves a file to a new location in a Cloud storage.|[MoveFile](https://reference.aspose.cloud/slides/#/File/MoveFile)|
 
-#### **Request Parameters**
+**Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|srcPath|string|path|true|The source file path.|
-|destPath|string|query|true|The destination file path.|
-|srcStorageName|string|query|false|The source storage name.|
-|destStorageName|string|query|false|The destination storage name.|
-|versionId|string|query|false|The version ID of the file to move.|
+|srcPath|string|path|true|The path to a source file.|
+|destPath|string|query|true|The path to a destination file.|
+|srcStorageName|string|query|false|The name of a source storage.|
+|destStorageName|string|query|false|The name of a destination storage.|
+|versionId|string|query|false|The version ID of the file to be moved.|
 
-### **cURL Example**
-Move a file **Data/example.pptx** to the path **Resources/example.pptx** on a storage **Main**.
+### **Examples**
+
+Move the **Data/example.pptx** file to the **Resources** folder in the **MyStorage** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="1" tabID="5" tabName1="Request" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl -v -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/Data/example.pptx?destPath=Resources/example.pptx&srcStorageName=Main&destStorageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>"  -d {} --ssl-no-revoke
+```sh
+curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/Data%2Fexample.pptx?destPath=Resources%2Fexample.pptx&srcStorageName=MyStorage&destStorageName=MyStorage" \
+     -H "Authorization: Bearer <access_token>"
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### **SDK Examples**
-Move a file **Data/example.pptx** to the path **Resources/example.pptx** on a storage **Main**.
+**SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="10" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
-
-```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
-
-using System;
+```cs
 using Aspose.Slides.Cloud.Sdk;
 
-class Test
+class Application
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        var filePath = "Data/example.pptx";
-        var newPath = "Resources/example.pptx";
+        string storageName = "MyStorage";
+        string sourcePath = "Data/example.pptx";
+        string targetPath = "Resources/example.pptx";
 
-        api.MoveFile(filePath, newPath);
+        slidesApi.MoveFile(sourcePath, targetPath, storageName, storageName);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
-
-import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
 
-public class Main {
+public class Application {
     public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "Main";
-        String filePath = "Data/example.pptx";
-        String newPath = "Resources/example.pptx";
+        String storageName = "MyStorage";
+        String sourcePath = "Data/example.pptx";
+        String targetPath = "Resources/example.pptx";
 
-        slidesApi.moveFile(filePath, newPath, storageName, storageName, null);
+        slidesApi.moveFile(sourcePath, targetPath, storageName, storageName, null);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
-
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
-
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "Main";
-$filePath = "Data/example.pptx";
-$newPath = "Resources/example.pptx";
+$storageName = "MyStorage";
+$sourcePath = "Data/example.pptx";
+$targetPath = "Resources/example.pptx";
 
-$slidesApi->moveFile($filePath, $newPath, $storageName, $storageName);
+$slidesApi->moveFile($sourcePath, $targetPath, $storageName, $storageName);
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
 
-```ruby
+include AsposeSlidesCloud
 
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+storage_name = "MyStorage"
+source_path = "Data/example.pptx"
+target_path = "Resources/example.pptx"
+
+slides_api.move_file(source_path, target_path, storage_name, storage_name)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="5" >}}
-
-```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
-
+```py
 import asposeslidescloud
 
-from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.apis import SlidesApi
 
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-storage_name = "Main"
-file_path = "Data/example.pptx"
-new_path = "Resources/example.pptx"
+storage_name = "MyStorage"
+source_path = "Data/example.pptx"
+target_path = "Resources/example.pptx"
 
-slides_api.move_file(file_path, new_path, storage_name, storage_name)
+slides_api.move_file(source_path, target_path, storage_name, storage_name)
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+const cloudSdk = require("asposeslidescloud");
 
-const cloud = require("asposeslidescloud");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
+storageName = "MyStorage";
+sourcePath = "Data/example.pptx";
+targetPath = "Resources/example.pptx";
 
-const storageName = "Main";
-const filePath = "Data/example.pptx";
-const newPath = "Resources/example.pptx";
-
-slidesApi.moveFile(filePath, newPath, storageName, storageName).then(() => {
-    console.log("Done");
+slidesApi.moveFile(sourcePath, targetPath, storageName, storageName).then(() => {
 });
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-
-public class Main {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        String storageName = "Main";
-        String filePath = "Data/example.pptx";
-        String newPath = "Resources/example.pptx";
-
-        slidesApi.moveFile(filePath, newPath, storageName, storageName, null);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
-
 #include "asposeslidescloud/api/SlidesApi.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-	auto storageName = to_string_t("Main");
-	auto filePath = to_string_t("Data/example.pptx");
-	auto newPath = to_string_t("Resources/example.pptx");
+	const wchar_t* storageName = L"MyStorage";
+	const wchar_t* sourcePath = L"Data/example.pptx";
+	const wchar_t* targetPath = L"Resources/example.pptx";
 
-	slidesApi->moveFile(filePath, newPath, storageName, storageName);
-	
-	return 0;
+	slidesApi->moveFile(sourcePath, targetPath, storageName, storageName);
 }
 ```
+{{< /tab >}}
 
+{{< tab tabNum="8" >}}
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+$slides_api->move_file(
+    src_path => "Data/example.pptx",
+    dest_path => "Resources/example.pptx",
+    src_storage_name => "MyStorage",
+    dest_storage_name => "MyStorage");
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
-```swift
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="11" >}}
-
 ```go
+import (
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	storageName := "MyStorage"
+	sourcePath := "Data/example.pptx"
+	targetPath := "Resources/example.pptx"
+
+	slidesApi.MoveFile(sourcePath, targetPath, storageName, storageName, "")
+}
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-## **Deleting a file on Cloud Storage**
+## **DeleteFile**
 
 ### **API Information**
 
-|**API**|**Type**|**Description**|**Swagger Link**|
+|**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/storage/file/{path}|DELETE|Deletes a file from a Cloud storage.|[DeleteFile](https://apireference.aspose.cloud/slides/#/File/DeleteFile)|
+|/slides/storage/file/{path}|DELETE|Deletes a file from a Cloud storage.|[DeleteFile](https://reference.aspose.cloud/slides/#/File/DeleteFile)|
 
-#### **Request Parameters**
+**Request Parameters**
 
 |**Name**|**Type**|**Location**|**Required**|**Description**|
 | :- | :- | :- | :- | :- |
-|path|string|path|true|The file path.|
-|storageName|string|query|false|The storage name.|
-|versionId|string|query|false|The version ID of the file to delete.|
+|path|string|path|true|The path to a file.|
+|storageName|string|query|false|The name of a storage.|
+|versionId|string|query|false|The version ID of the file to be deleted.|
 
-### **cURL Example**
-Delete a file **Resources/example.pptx** on a storage **Main**.
+### **Examples**
+
+Delete the **Resources/example.pptx** file from the **MyStorage** storage.
+
+**cURL Solution**
 
 {{< tabs tabTotal="1" tabID="6" tabName1="Request" >}}
 
 {{< tab tabNum="1" >}}
-
-```java
-curl -v -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources/example.pptx?storageName=Main" -H "Content-Type:application/json" -H "Authorization: Bearer <access_token>" --ssl-no-revoke
+```sh
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources%2Fexample.pptx?storageName=MyStorage" \
+     -H "Authorization: Bearer <access_token>"
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
 
-### **SDK Examples**
-Delete a file **Resources/example.pptx** on a storage **Main**.
+**SDK Solutions**
 
-{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Android" tabName8="C++" tabName9="Perl" tabName10="Swift" tabName11="Go" >}}
+{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
-
-```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
-
-using System;
+```cs
 using Aspose.Slides.Cloud.Sdk;
 
 class Test
 {
     static void Main()
     {
-        SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-                                
-        var filePath = "Resources/example.pptx";
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        api.DeleteFile(filePath);
+        string storageName = "MyStorage";        
+        string filePath = "Resources/example.pptx";
+
+        slidesApi.DeleteFile(filePath, storageName);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
-
 import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
 
 public class Main {
     public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
-        String storageName = "Main";
+        String storageName = "MyStorage";
         String filePath = "Resources/example.pptx";
 
         slidesApi.deleteFile(filePath, storageName, null);
     }
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="3" >}}
-
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
-
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 
 $configuration = new Configuration();
-$configuration->setAppSid("my_client_id");
-$configuration->setAppKey("my_client_key");
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
 
-$storageName = "Main";
+$storageName = "MyStorage";
 $filePath = "Resources/example.pptx";
 
 $slidesApi->deleteFile($filePath, $storageName);
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
 
-```ruby
+include AsposeSlidesCloud
 
-```
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
 
-{{< /tab >}}
+slides_api = SlidesApi.new(configuration)
 
-{{< tab tabNum="5" >}}
-
-```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
-
-import asposeslidescloud
-
-from asposeslidescloud.apis.slides_api import SlidesApi
-
-slides_api = SlidesApi(None, "my_client_id", "my_client_key")
-
-storage_name = "Main"
+storage_name = "MyStorage"
 file_path = "Resources/example.pptx"
 
 slides_api.delete_file(file_path, storage_name)
 ```
+{{< /tab >}}
 
+{{< tab tabNum="5" >}}
+```py
+import asposeslidescloud
+
+from asposeslidescloud.apis import SlidesApi
+
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
+
+storage_name = "MyStorage"
+file_path = "Resources/example.pptx"
+
+slides_api.delete_file(file_path, storage_name)
+```
 {{< /tab >}}
 
 {{< tab tabNum="6" >}}
-
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+const cloudSdk = require("asposeslidescloud");
 
-const cloud = require("asposeslidescloud");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const slidesApi = new cloud.SlidesApi("my_client_id", "my_client_key");
-
-const storageName = "Main";
-const filePath = "Resources/example.pptx";
+storageName = "MyStorage";
+filePath = "Resources/example.pptx";
 
 slidesApi.deleteFile(filePath, storageName).then(() => {
-    console.log("Done");
 });
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="7" >}}
-
-```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-
-public class Main {
-    public static void main(String[] args) throws ApiException {
-        SlidesApi slidesApi = new SlidesApi("my_client_id", "my_client_key");
-
-        String storageName = "Main";
-        String filePath = "Resources/example.pptx";
-
-        slidesApi.deleteFile(filePath, storageName, null);
-    }
-}
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="8" >}}
-
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
-
 #include "asposeslidescloud/api/SlidesApi.h"
 
-using namespace utility::conversions;
 using namespace asposeslidescloud::api;
 
 int main()
 {
-	auto slidesApi = std::make_shared<SlidesApi>(to_string_t("my_client_id"), to_string_t("my_client_key"));
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
 
-	auto storageName = to_string_t("Main");
-	auto filePath = to_string_t("Resources/example.pptx");
+	const wchar_t* storageName = L"MyStorage";
+	const wchar_t* filePath = L"Resources/example.pptx";
 
 	slidesApi->deleteFile(filePath, storageName);
-	
-	return 0;
 }
 ```
+{{< /tab >}}
 
+{{< tab tabNum="8" >}}
+```pl
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
+
+$slides_api->delete_file(
+    path => "Resources/example.pptx", 
+    storage_name => "MyStorage");
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
-```swift
-
-```
-
-{{< /tab >}}
-
-{{< tab tabNum="11" >}}
-
 ```go
+import (
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	storageName := "MyStorage"
+	filePath := "Resources/example.pptx"
+
+	slidesApi.DeleteFile(filePath, storageName, "")
+}
 ```
-
 {{< /tab >}}
 
 {{< /tabs >}}
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
