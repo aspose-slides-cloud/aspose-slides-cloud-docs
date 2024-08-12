@@ -84,7 +84,7 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/storage/file/Data/example.pptx
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 ```cs
@@ -348,7 +348,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/Data/result.pptx?
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="33" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 ```cs
@@ -609,7 +609,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/copy/Data%2Fexamp
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="44" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 ```cs
@@ -819,7 +819,7 @@ curl -X PUT "https://api.aspose.cloud/v3.0/slides/storage/file/move/Data%2Fexamp
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="55" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 ```cs
@@ -1027,7 +1027,7 @@ curl -X DELETE "https://api.aspose.cloud/v3.0/slides/storage/file/Resources%2Fex
 
 **SDK Solutions**
 
-{{< tabs tabTotal="9" tabID="7" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+{{< tabs tabTotal="9" tabID="66" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
 
 {{< tab tabNum="1" >}}
 ```cs
