@@ -15,297 +15,305 @@ type: docs
 url: /create-a-vba-module/
 weight: 10
 ---
+
 ## **Introduction**
-Aspose.Slides.Cloud API allows to create VBA modules and add global references if needed. 
+
+VBA modules in PowerPoint are used to automate tasks and add functionality that is not supported by the standard PowerPoint features. VBA allows you to write macros and create custom functions that can perform various operations, such as modifying slides, working with objects on a slide, managing animations, and much more. Use the folowing method to add modules to VBA projects.
+
 ## **CreateVbaModule**
+
 ### **API Information**
+
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/vbaProject/modules|POST|Returns VBA module info|[CreateVbaModule](#)
-### **Examples**
-**cURL Example**
+|/slides/{name}/vbaProject/modules|POST|Adds a module to a VBA project in a presentation saved in a storage.|[CreateVbaModule](https://reference.aspose.cloud/slides/#/Vba/CreateVbaModule)|
 
-The code example below shows how to create VBA module and add two global references.
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|moduleDto|`VbaModule`|body|true|The data transfer object with module parameters.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation file.|
+|storage|string|query|false|The name of the storage contaning the folder.|
+
+### **Examples**
+
+The **default** storage contains the document **MyPresentation.pptm**. Add a module **MyModule** for a macro **MyMacro** with the following code:
+```vb
+Sub MyMacro()
+    MsgBox "Hello, World!"
+End Sub
+```
+
+**cURL Solution**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
 {{< tab tabNum="1" >}}
-**Create Authentication Headers**
+**Get an Access Token**
 ```sh
-curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_credentials&client_id=XXXX&client_secret=XXXX-XX" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json"
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
+**Add the VBA Module**
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules" -H "Authorization: Bearer [Access Token]" -H "Content-Type: text/json" -F @"vbaModule.json"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Type: application/json" \
+     -d @vbaModule.json
 ```
 
-vbaModule.json
+vbaModule.json content:
 ```json
 {
-    "name": "NewModule",
-    "sourceCode": "Sub Test() MsgBox \"Test\" End Sub",
-    "references": [
-        {
-            "name": "stdole",
-            "libId": "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation"
-        },
-        {
-            "name": "Office",
-            "libId": "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
-        }
-    ]
+    "name": "MyModule",
+    "sourceCode": "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n"
 }
 ```
-
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
-```sh
-
-Code: 201
-Returns VBA module info.
-
+```json
+{
+  "name": "MyModule",
+  "sourceCode": "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n",
+  "references": [],
+  "selfUri": {
+    "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptm/vbaProject/modules/1",
+    "relation": "self"
+  }
+}
 ```
 {{< /tab >}}
 
 {{< /tabs >}}
 
-**SDK Examples**
+**SDK Solutions**
 
-{{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
+{{< tabs tabTotal="9" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" >}}
+
 {{< tab tabNum="1" >}}
+```cs
+using Aspose.Slides.Cloud.Sdk;
+using Aspose.Slides.Cloud.Sdk.Model;
+using System;
 
-```csharp
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-
-VbaModule dto = new VbaModule()
+class Application
 {
-    Name = "NewModule",
-    SourceCode = @"Sub Test() MsgBox ""Test"" End Sub",
-    References = new List<VbaReference>()
+    static void Main(string[] args)
     {
-        new VbaReference()
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        string fileName = "MyPresentation.pptm";
+
+        VbaModule vbaModule = new VbaModule
         {
-            Name = "stdole",
-            LibId = "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation"
-        },
-        new VbaReference()
-        {
-            Name = "Office",
-            LibId = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
-        }    
+            Name = "MyModule",
+            SourceCode = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n"
+        };
+
+        VbaModule addedModule = slidesApi.CreateVbaModule(fileName, vbaModule);
+
+        Console.WriteLine("Module name: " + addedModule.Name); // MyModule
     }
-};
-
-VbaModule response = api.CreateVbaModule("MyPresentation.pptm", dto);
-
-Console.WriteLine($"\"{response.Name} has been created \n{response.SelfUri.Href}");
+}
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="2" >}}
-
 ```java
-SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+import com.aspose.slides.model.VbaModule;
 
-VbaModule dto = new VbaModule();
-dto.setName("NewModule");
-dto.setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
-VbaReference reference1 = new VbaReference();
-reference1.setName("stdole");
-reference1.setLibId("*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-VbaReference reference2 = new VbaReference();
-reference2.setName("Office");
-reference2.setLibId("*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-List<VbaReference> references = new ArrayList<VbaReference>();
-references.add(reference1);
-references.add(reference2);
-dto.setReferences(references);
-VbaModule response = api.createVbaModule("MyPresentation.pptm", dto, null, null, null);
-String s = String.format("\"%s\" has been created \n%s", response.getName(), response.getSelfUri().getHref());
-System.out.println(s);
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        String fileName = "MyPresentation.pptm";
+
+        VbaModule vbaModule = new VbaModule();
+        vbaModule.setName("MyModule");
+        vbaModule.setSourceCode("Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n");
+
+        VbaModule addedModule = slidesApi.createVbaModule(fileName, vbaModule, null, null, null);
+
+        System.out.println("Module name: " + addedModule.getName()); // MyModule
+    }
+}
 ```
 {{< /tab >}}
-{{< tab tabNum="3" >}}
 
+{{< tab tabNum="3" >}}
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\VbaModule;
-use Aspose\Slides\Cloud\Sdk\Model\VbaReference;
 
-$config = new Configuration();
-$config->setAppSid("MyClientId");
-$config->setAppKey("MyClientSecret");
-$api = new SlidesApi(null, $config);
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+$fileName = "MyPresentation.pptm";
 
 $vbaModule = new VbaModule();
-$vbaModule->setName("NewModule");
-$vbaModule->setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
+$vbaModule->setName("MyModule");
+$vbaModule->setSourceCode("Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n");
 
-$reference1 = new VbaReference();
-$reference1->setName("stdole");
-$reference1->setLibId("*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-$reference2 = new VbaReference();
-$reference2->setName("Office");
-$reference2->setLibId("*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-$vbaModule->setReferences([$reference1, $reference2]);
+$addedModule = $slidesApi->createVbaModule($fileName, $vbaModule);
 
-$result = $api->createVbaModule("MyPresentation.pptm", $vbaModule);
-echo "\"" . $result->getName() . "\" has been created\n" . $result->getSelfUri()->getHref();
+print("Module name: " . $addedModule->getName()); // MyModule
 ```
-
 {{< /tab >}}
-{{< tab tabNum="4" >}}
 
-```ruby
-configuration = AsposeSlidesCloud::Configuration.new
+{{< tab tabNum="4" >}}
+```rb
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
 configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
-api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-dto = AsposeSlidesCloud::VbaModule.new
-dto.name = "NewModule"
-dto.source_code = "Sub Test() MsgBox ""Test"" End Sub"
-        
-reference1 = AsposeSlidesCloud::VbaReference.new
-reference1.name = "stdole"
-reference1.lib_id = "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation"
-reference2 = AsposeSlidesCloud::VbaReference.new
-reference2.name = "Office"
-reference2.lib_id = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
-dto.references = [reference1, reference2]
+slides_api = SlidesApi.new(configuration)
 
-response = api.create_vba_module("MyPresentation.pptm", dto)
-puts "'#{response.name}' has been created \n #{response.self_uri.href}"
+file_name = "MyPresentation.pptm"
+
+vba_module = VbaModule.new
+vba_module.name = "MyModule"
+vba_module.source_code = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n"
+
+added_module = slides_api.create_vba_module(file_name, vba_module)
+
+puts "Module name: #{added_module.name}" # MyModule
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="5" >}}
+```py
+from asposeslidescloud.apis import SlidesApi
+from asposeslidescloud.models import VbaModule
 
-```python
-import asposeslidescloud
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
-from asposeslidescloud.configuration import Configuration
-from asposeslidescloud.apis.slides_api import SlidesApi
-from asposeslidescloud.models.vba_module import VbaModule
-from asposeslidescloud.models.vba_reference import VbaReference
+file_name = "MyPresentation.pptm"
 
-configuration = Configuration()
-configuration.app_sid = 'MyClientId'
-configuration.app_key = 'MyClientSecret'
-api = SlidesApi(configuration)
+vba_module = VbaModule()
+vba_module.name = "MyModule"
+vba_module.source_code = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n"
 
-dto = VbaModule()
-dto.name = "NewModule"
-dto.source_code = "Sub Test() MsgBox ""Test"" End Sub"
-reference1 = VbaReference()
-reference1.name = "stdole"
-reference1.lib_id = "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation"
-reference2 = VbaReference()
-reference2.name = "Office"
-reference2.lib_id = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
-dto.references = [reference1, reference2]
-response = api.create_vba_module("MyPresentation.pptm", dto)
-print("\"" + response.name + "\" has been created\n" + response.self_uri.href)
+added_module = slides_api.create_vba_module(file_name, vba_module)
+
+print("Module name:", added_module.name)  # MyModule
 ```
-
 {{< /tab >}}
+
 {{< tab tabNum="6" >}}
+```js
+const cloudSdk = require("asposeslidescloud");
 
-```javascript
-const CloudSdk = require("asposeslidescloud");
-const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+const slidesApi = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const dto = new CloudSdk.VbaModule();
-dto.name = "NewModule";
-dto.sourceCode = "Sub Test() MsgBox \"Test\" End Sub";
-dto.references = [
-    {
-        name: "stdole",
-        libId: "*\\\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\\\Windows\\\\system32\\\\stdole2.tlb#OLE Automation"
-    },
-    {
-        name: "Office",
-        libId: "*\\\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\\\Program Files\\\\Common Files\\\\Microsoft Shared\\\\OFFICE14\\\\MSO.DLL#Microsoft Office 14.0 Object Library"
-    }
-];
-const response = await api.createVbaModule("MyPresentation.pptm", dto).then(response => {
-const vbaModule = response.body;
-console.log("\"" + vbaModule.name + "\" has been created\n" + vbaModule.selfUri.href);
+fileName = "MyPresentation.pptm";
+
+vbaModule = new cloudSdk.VbaModule();
+vbaModule.name = "MyModule";
+vbaModule.sourceCode = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n";
+
+slidesApi.createVbaModule(fileName, vbaModule).then(addedModule => {
+    console.log("Module name:", addedModule.body.name); // MyModule
 });
 ```
 {{< /tab >}}
+
 {{< tab tabNum="7" >}}
-
 ```go
-cfg := asposeslidescloud.NewConfiguration()
-cfg.AppSid = "MyClientId"
-cfg.AppKey = "MyClientSecret"
-api := asposeslidescloud.NewAPIClient(cfg)
+import (
+	"fmt"
 
-fileName := "MyPresentation.pptm"
-dto := asposeslidescloud.NewVbaModule()
-dto.Name = "NewModule"
-dto.SourceCode = "Sub Test() MsgBox \"Test\" End Sub"
-reference1 := asposeslidescloud.NewVbaReference()
-reference1.Name = "stdole"
-reference1.LibId = "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation"
-reference2 := asposeslidescloud.NewVbaReference()
-reference2.Name = "Office"
-reference2.LibId = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library"
-dto.References = []asposeslidescloud.IVbaReference{reference1, reference2}
+	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+)
 
-response, _, e := api.SlidesApi.CreateVbaModule(fileName, dto, "", "", "")
-if e != nil {
-    fmt.Printf("Error: %v.", e)
-    return
+func main() {
+	configuration := asposeslidescloud.NewConfiguration()
+	configuration.AppSid = "MyClientId"
+	configuration.AppKey = "MyClientSecret"
+
+	slidesApi := asposeslidescloud.NewAPIClient(configuration).SlidesApi
+
+	fileName := "MyPresentation.pptm"
+
+	vbaModule := asposeslidescloud.NewVbaModule()
+	vbaModule.Name = "MyModule"
+	vbaModule.SourceCode = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n"
+
+	addedModule, _, _ := slidesApi.CreateVbaModule(fileName, vbaModule, "", "", "")
+
+	fmt.Println("Module name:", addedModule.GetName()) // MyModule
 }
-fmt.Printf("\"%v\", has been created \n%v", response.GetName(), response.GetSelfUri().GetHref())
 ```
-
 {{< /tab >}}
-{{< tab tabNum="8" >}}
 
+{{< tab tabNum="8" >}}
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    std::shared_ptr<SlidesApi> slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    const wchar_t* fileName = L"MyPresentation.pptm";
+
+    std::shared_ptr<VbaModule> vbaModule = std::make_shared<VbaModule>();
+    vbaModule->setName(L"MyModule");
+    vbaModule->setSourceCode(L"Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n");
+
+    std::shared_ptr<VbaModule> addedModule = slidesApi->createVbaModule(fileName, vbaModule).get();
+
+    std::wcout << L"Module name: " << addedModule->getName(); // MyModule
+}
+```
 {{< /tab >}}
 
 {{< tab tabNum="9" >}}
-
-```perl
+```pl
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
 use AsposeSlidesCloud::Object::VbaModule;
 
-my $config = AsposeSlidesCloud::Configuration->new();
-$config->{app_sid} = "MyClientId";
-$config->{app_key} = "MyClientSecret";
-my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+my $configuration = AsposeSlidesCloud::Configuration->new();
+$configuration->{app_sid} = "MyClientId";
+$configuration->{app_key} = "MyClientSecret";
 
-my $dto = AsposeSlidesCloud::Object::VbaModule->new();
-$dto->{name} = "NewModule";
-$dto->{source_code} = "Sub Test() MsgBox \"Test\" End Sub";
-my $reference_1 = AsposeSlidesCloud::Object::VbaReference->new();
-$reference_1->{name} = "stdole";
-$reference_1->{lib_id} = "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation";
-my $reference_2 = AsposeSlidesCloud::Object::VbaReference->new();
-$reference_2->{name} = "Office";
-$reference_2->{lib_id} = "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library";
-my @references = ($reference_1, $reference_2);
-$dto->{references} = \@references;
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $configuration);
 
-my %params = ('name' => 'MyPresentation.pptm', 'module_dto' => $dto);
-my $response = $api->create_vba_module(%params);
+my $vba_module = AsposeSlidesCloud::Object::VbaModule->new();
+$vba_module->{name} = "MyModule";
+$vba_module->{source_code} = "Sub MyMacro()\r\n    MsgBox \"Hello, World!\"\r\nEnd Sub\r\n";
 
-print "'".$response->{name}."' has been created\n".$response->{self_uri}->{href};
+my $added_module = $slides_api->create_vba_module(
+    name => "MyPresentation.pptm",
+    module_dto => $vba_module);
+
+print("Module name: ", $added_module->{name}); # MyModule
 ```
-
-{{< /tab >}}
-
-{{< tab tabNum="10" >}}
-
 {{< /tab >}}
 
 {{< /tabs >}}
-## **SDK Source**
 
-The Aspose for Cloud SDKs can be downloaded from the following page: [Available SDKs](/slides/available-sdks/)
+The result:
+
+![The VBA module](output.png)
+
+## **SDKs**
+
+Check [Available SDKs](/slides/available-sdks/) to learn how to add an SDK to your project.
