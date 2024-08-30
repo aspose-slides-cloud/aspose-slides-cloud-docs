@@ -8,6 +8,8 @@ keywords:
 - text
 - replace text
 - change text
+- regular expression
+- regex
 type: docs
 url: /replace-a-text-occurrence/
 weight: 80
@@ -397,6 +399,396 @@ api := asposeslidescloud.NewAPIClient(cfg)
 // Replace the specified text, ignoring case.
 var ignoreCase bool = true
 result, _, e := api.SlidesApi.ReplacePresentationText("MyPresentation.pptx", "banana", "orange", &ignoreCase, nil, "", "MyFolder", "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+fmt.Printf("Replaced %v matches.", result.GetMatches())
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## **ReplacePresentationRegex**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/{name}/replaceRegex|POST|Replaces text in a presentation that matches a specified regular expression.|[ReplacePresentationRegex](https://apireference.aspose.cloud/slides/#/Text/ReplacePresentationRegex)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|name|string|path|true|The name of a presentation file.|
+|pattern|string|query|true|The regular expression to be replaced.|
+|newValue|string|query|true|The text string to replace with.|
+|ignoreCase|boolean|query|false|Indicates whether to ignore character case. False by default.|
+|password|string|header|false|The password to open the presentation.|
+|folder|string|query|false|The path to the folder containing the presentation.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+Replace every occurence of **hello**, **hi** or **hey** with **hola** in the document **MyPresentation.pptx**. Ignore character case.
+
+**cURL Solution**
+
+{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Get an Access Token**
+
+```sh
+curl -X POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+**Replace the Text**
+
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/replaceRegex?oldValue=%5Cb%28hello%7Chi%7Chey%29%5Cb&newValue=hola&ignoreCase=true" \
+     -H "authorization: Bearer MyAccessToken" \
+     -H "Content-Length: 0"
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+**Response Example**
+
+```json
+{
+    "matches": 3,
+    "documentProperties": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/documentProperties",
+        "relation": "self"
+    },
+    "viewProperties": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/viewProperties",
+        "relation": "self"
+    },
+    "slides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides",
+        "relation": "self"
+    },
+    "images": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/images",
+        "relation": "self"
+    },
+    "layoutSlides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/layoutSlides",
+        "relation": "self"
+    },
+    "masterSlides": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/masterSlides",
+        "relation": "self"
+    },
+    "selfUri": {
+        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx",
+        "relation": "self"
+    },
+    "alternateLinks": [
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/odp",
+            "relation": "alternate",
+            "linkType": "application/vnd.oasis.opendocument.presentation",
+            "title": "Download as Odp"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fodp",
+            "relation": "alternate",
+            "linkType": "application/vnd.oasis.opendocument.presentation",
+            "title": "Download as Fodp"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/ppt",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint",
+            "title": "Download as Ppt"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/pdf",
+            "relation": "alternate",
+            "linkType": "application/pdf",
+            "title": "Download as Pdf"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/tiff",
+            "relation": "alternate",
+            "linkType": "image/tiff",
+            "title": "Download as Tiff"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/xps",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-xpsdocument",
+            "title": "Download as Xps"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/pps",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint",
+            "title": "Download as Pps"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/ppsx",
+            "relation": "alternate",
+            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
+            "title": "Download as Ppsx"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/pptm",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.presentation.macroEnabled.12",
+            "title": "Download as Pptm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/ppsm",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.slideshow.macroEnabled.12",
+            "title": "Download as Ppsm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/pot",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint",
+            "title": "Download as Pot"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/potx",
+            "relation": "alternate",
+            "linkType": "application/vnd.openxmlformats-officedocument.presentationml.template",
+            "title": "Download as Potx"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/potm",
+            "relation": "alternate",
+            "linkType": "application/vnd.ms-powerpoint.template.macroEnabled.12",
+            "title": "Download as Potm"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/otp",
+            "relation": "alternate",
+            "linkType": "application/vnd.oasis.opendocument.presentation-template",
+            "title": "Download as Otp"
+        },
+        {
+            "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/html",
+            "relation": "alternate",
+            "linkType": "text/html",
+            "title": "Download as Html"
+        }
+    ]
+}
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="11" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Swift" tabName10="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+
+using Aspose.Slides.Cloud.Sdk;
+using System;
+
+class Application
+{
+    static void Main(string[] args)
+    {
+        var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Replace the specified text, ignoring case.
+        var result = slidesApi.ReplacePresentationRegex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", true);
+
+        Console.WriteLine($"Replaced {result.Matches} matches.");
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+
+import com.aspose.slides.ApiException;
+import com.aspose.slides.api.SlidesApi;
+
+public class Application {
+    public static void main(String[] args) throws ApiException {
+        SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
+
+        // Replace the specified text, ignoring case.
+        DocumentReplaceResult result = slidesApi.replacePresentationRegex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", true, null, null, null);
+
+        System.out.println("Replaced " + result.getMatches() + " matches.");
+    }
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$configuration = new Configuration();
+$configuration->setAppSid("MyClientId");
+$configuration->setAppKey("MyClientSecret");
+
+$slidesApi = new SlidesApi(null, $configuration);
+
+// Replace the specified text, ignoring case.
+$result = $slidesApi->replacePresentationRegex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", true);
+
+echo "Replaced ", $result->getMatches(), " matches.";
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+# Replace the specified text, ignoring case.
+result = slides_api.replace_presentation_regex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", true)
+
+print "Replaced ", result.matches, " matches."
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+
+import asposeslidescloud
+
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
+
+# Replace the specified text, ignoring case.
+result = slides_api.replace_presentation_regex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", True)
+
+print("Replaced", result.matches, "matches.")
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+
+const cloud = require("asposeslidescloud");
+
+const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
+
+// Replace the specified text, ignoring case.
+slidesApi.replacePresentationRegex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", true).then(result => {
+    console.log("Replaced", result.body.matches, "matches.");
+});
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```cpp
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    // Replace the specified text, ignoring case.
+    auto result = slidesApi->replacePresentationRegex(L"MyPresentation.pptx", L"\\b(hello|hi|hey)\\b", L"hola", true).get();
+
+    std::wcout << "Replaced " << result->getMatches() << " matches.";
+
+    return 0;
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```perl
+# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+# Replace the specified text, ignoring case.
+my %parameters = (name => "MyPresentation.pptx", pattern => "\\b(hello|hi|hey)\\b", new_value => "hola", ignore_case => true);
+my $result = $slides_api->replace_presentation_regex(%parameters);
+
+print "Replaced ", $result->{matches}, " matches.";
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+{{< /tab >}}
+
+{{< tab tabNum="10" >}}
+
+```go
+// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-go
+
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+api := asposeslidescloud.NewAPIClient(cfg)
+
+// Replace the specified text, ignoring case.
+var ignoreCase bool = true
+result, _, e := api.SlidesApi.ReplacePresentationRegex("MyPresentation.pptx", "\\b(hello|hi|hey)\\b", "hola", &ignoreCase, "", "MyFolder", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return

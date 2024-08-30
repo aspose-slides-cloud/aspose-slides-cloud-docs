@@ -8,6 +8,8 @@ keywords:
 - text
 - replace text
 - change text
+- regular expression
+- regex
 - storage
 type: docs
 url: /replace-text-without-using-a-storage/
@@ -269,6 +271,251 @@ fmt.Printf("The updated file was saved to %v.", result.Name())
 {{< /tab >}}
 
 {{< tab tabNum="10" >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## **ReplacePresentationRegexOnline**
+
+### **API Information**
+
+|**API**|**Type**|**Description**|**Resource**|
+| :- | :- | :- | :- |
+|/slides/replaceRegex|POST|Replaces text in a presentation that matches a specified regular expression.|[ReplacePresentationRegexOnline](https://apireference.aspose.cloud/slides/#/Text/ReplacePresentationRegexOnline)|
+
+**Request Parameters**
+
+|**Name**|**Type**|**Location**|**Required**|**Description**|
+| :- | :- | :- | :- | :- |
+|document|file|formData|true|The presentation file.|
+|pattern|string|query|true|The regular expression to be replaced.|
+|newValue|string|query|true|The text to replace with.|
+|ignoreCase|boolean|query|false|If `true`, the character case must be ignored. The default is `false`.|
+|password|string|header|false|The password to open the presentation.|
+
+*In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
+
+### **Examples**
+
+Replace every occurence of **hello**, **hi** or **hey** with **hola** in the document **MyPresentation.pptx**. **Ignore the case** of text characters.
+
+**cURL Solution**
+
+{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
+
+{{< tab tabNum="1" >}}
+
+**Get an Access Token**
+
+```sh
+curl POST "https://api.aspose.cloud/connect/token" \
+     -d "grant_type=client_credentials&client_id=MyClientId&client_secret=MyClientSecret" \
+     -H "Content-Type: application/x-www-form-urlencoded"
+```
+
+```sh
+curl -X POST "https://api.aspose.cloud/v3.0/slides/replaceRegex?oldValue=%5Cb%28hello%7Chi%7Chey%29%5Cb&newValue=hola&ignoreCase=true" \
+     -H "authorization: Bearer MyAccessToken" \
+     -F "file=@MyPresentation.pptx" \
+     -o UpdatedPresentation.pptx
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+The updated presentation file.
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+**SDK Solutions**
+
+{{< tabs tabTotal="10" tabID="5" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="C++" tabName8="Perl" tabName9="Go" >}}
+
+{{< tab tabNum="1" >}}
+
+```csharp
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+
+using Stream documentStream = File.OpenRead("MyPresentation.pptx");
+using Stream resultStream = api.ReplacePresentationRegexOnline(documentStream, "\\b(hello|hi|hey)\\b", "hola", true);
+
+using Stream outputStream = File.OpenWrite("UpdatedPresentation.pptx");
+resultStream.CopyTo(outputStream);
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="2" >}}
+
+```java
+SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
+
+byte[] documentData = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
+File resultFile = api.replacePresentationRegexOnline(documentData, "\\b(hello|hi|hey)\\b", "hola", true, null);
+
+System.out.println("The updated file was saved to " + resultFile.getPath());
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="3" >}}
+
+```php
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+
+$config = new Configuration();
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
+
+$api = new SlidesApi(null, $config);
+
+$documentStream = fopen("MyPresentation.pptx", "r");
+$resultFile = $api->ReplacePresentationRegexOnline($documentStream, "\\b(hello|hi|hey)\\b", "hola", true);
+
+print("The updated file was saved to " . $resultFile->getPathname());
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="4" >}}
+
+```ruby
+require "aspose_slides_cloud"
+
+include AsposeSlidesCloud
+
+configuration = Configuration.new
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+slides_api = SlidesApi.new(configuration)
+
+document_data = File.binread("MyPresentation.pptx")
+result_data = slides_api.replace_presentation_regex_online(document_data, "\\b(hello|hi|hey)\\b", "hola", true)
+
+File.binwrite("UpdatedPresentation.pptx", result_data)
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="5" >}}
+
+```python
+import asposeslidescloud
+
+from asposeslidescloud.configuration import Configuration
+from asposeslidescloud.apis.slides_api import SlidesApi
+
+configuration = Configuration()
+configuration.app_sid = "MyClientId"
+configuration.app_key = "MyClientSecret"
+
+api = SlidesApi(configuration)
+
+with open("MyPresentation.pptx", "rb") as f:
+    document_data = f.read()
+
+result_file_path = api.replace_presentation_regex_online(document_data, "\\b(hello|hi|hey)\\b", "hola", True)
+print("The updated file was saved to " + result_file_path)
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="6" >}}
+
+```js
+const cloudSdk = require("asposeslidescloud");
+const fs = require("fs");
+
+const api = new cloudSdk.SlidesApi("MyClientId", "MyClientSecret");
+
+const documentStream = fs.createReadStream("MyPresentation.pptx");
+api.replacePresentationRegexOnline(documentStream, "\\b(hello|hi|hey)\\b", "hola", true).then(response => {
+    fs.writeFile("UpdatedPresentation.pptx", response.body, (error) => {
+        if (error) throw error;
+    });
+});
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
+
+```cpp
+#include "asposeslidescloud/api/SlidesApi.h"
+
+using namespace asposeslidescloud::api;
+
+int main()
+{
+    auto slidesApi = std::make_shared<SlidesApi>(L"MyClientId", L"MyClientSecret");
+
+    auto documentStream = std::make_shared<std::ifstream>("MyPresentation.pptx", std::ios::binary);
+    auto documentContent = std::make_shared<HttpContent>();
+    documentContent->setData(documentStream);
+
+    auto resultContent = slidesApi->replacePresentationRegexOnline(documentContent, L"\\b(hello|hi|hey)\\b", L"hola", true).get();
+
+    std::ofstream outputStream("UpdatedPresentation.pptx", std::ofstream::binary);
+    resultContent.writeTo(outputStream);
+}
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="8" >}}
+
+```perl
+use File::Slurp;
+
+use AsposeSlidesCloud::Configuration;
+use AsposeSlidesCloud::SlidesApi;
+
+my $config = AsposeSlidesCloud::Configuration->new();
+$config->{app_sid} = "MyClientId";
+$config->{app_key} = "MyClientSecret";
+
+my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
+
+my $document_data = read_file("MyPresentation.pptx", { binmode => ":raw" });
+
+my %parameters = (document => $document_data, pattern => "banana", new_value => "orange", ignore_case => 1);
+my $result_data = $slides_api->replace_presentation_regex_online(%parameters);
+
+write_file("UpdatedPresentation.pptx", {binmode => ":raw"}, $result_data);
+```
+
+{{< /tab >}}
+
+{{< tab tabNum="9" >}}
+
+```go
+cfg := asposeslidescloud.NewConfiguration()
+cfg.AppSid = "MyClientId"
+cfg.AppKey = "MyClientSecret"
+
+api := asposeslidescloud.NewAPIClient(cfg)
+
+source, e := ioutil.ReadFile("MyPresentation.pptx")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+var ignoreCase bool = true
+result, _, e := api.SlidesApi.ReplacePresentationRegexOnline(source, "\\b(hello|hi|hey)\\b", "hola", &ignoreCase, "")
+if e != nil {
+    fmt.Printf("Error: %v.", e)
+    return
+}
+
+fmt.Printf("The updated file was saved to %v.", result.Name())
+```
 
 {{< /tab >}}
 
