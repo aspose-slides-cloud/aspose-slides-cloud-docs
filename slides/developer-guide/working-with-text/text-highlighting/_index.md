@@ -21,7 +21,9 @@ You can use **highlightText** or **highlightRegex** methods of shape resource to
 
 |**API**|**Type**|**Description**|**Swagger Link**|
 | :- | :- | :- | :- |
-|/slides/{slideIndex}/shapes/{shapeIndex}/highlightText|POST|Highlight text in a shape|[HighlightShapeText](https://apireference.aspose.cloud/slides/#/Text/HighlightShapeRegex)|
+|/highlightText|POST|Highlight text in a presentation|[HighlightPresentationText](https://apireference.aspose.cloud/slides/#/Text/HighlightPresentationText)|
+|/highlightRegex|POST|Highlight text in a presentation using a regular expression|[HighlightPresentationRegex](https://apireference.aspose.cloud/slides/#/Text/HighlightPresentationRegex)|
+|/slides/{slideIndex}/shapes/{shapeIndex}/highlightText|POST|Highlight text in a shape|[HighlightShapeText](https://apireference.aspose.cloud/slides/#/Text/HighlightShapeTect)|
 |/slides/{slideIndex}/shapes/{shapeIndex}/highlightRegex|POST|Highlight text in a shape using a regular expression|[HighlightShapeRegex](https://apireference.aspose.cloud/slides/#/Text/HighlightShapeRegex)|
 
 ### **cURL Example**

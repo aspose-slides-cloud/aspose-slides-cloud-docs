@@ -20,6 +20,7 @@ The following articles describe methods for splitting presentations.
 - [Split a Presentation Saved to Storage](/slides/split-a-presentation-saved-to-storage/)
 - [Split a Presentation Saved to a Local File](/slides/split-a-presentation-saved-to-a-local-file/)
 - [Split a Presentation from a Local File and Save Parts to Storage](/slides/split-a-presentation-from-a-local-file-and-save-parts-to-storage/)
+- [Track Split progress](/slides/track-split-progress/)
 
 ## **Available Formats for Output Files**
 
