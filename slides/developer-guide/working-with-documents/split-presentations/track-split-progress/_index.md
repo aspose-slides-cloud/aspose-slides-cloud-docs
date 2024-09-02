@@ -380,10 +380,12 @@ while (true) {
         console.log("Operation complete.");
         break;
     }
-}L
+}
 ```
 
-{{< /L"p{< "tab tabNumptr="7boost::none>}}boost::none
+{{< /tab >}}
+
+{{< tab tabNum="7" >}}
 
 ```cpp
 // For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
