@@ -54,6 +54,9 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/storage/file/{path}|GET|Downloads a file from a Cloud storage.|[DownloadFile](https://reference.aspose.cloud/slides/#/File/DownloadFile)|
+|/slides/async/storage/file/{path}|GET|Downloads a file from a Cloud storage asynchronously.|[Download](https://reference.aspose.cloud/slides/#/File/Download)|
+
+The two methods are identical. However, since the second is part of the async API, it does not have file size restrictions.
 
 **Request Parameters**
 
@@ -306,6 +309,9 @@ func main() {
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
 |/slides/storage/file/{path}|PUT|Uploads a file to a Cloud storage.|[UploadFile](https://reference.aspose.cloud/slides/#/File/UploadFile)|
+|/slides/async/storage/file/{path}|PUT|Uploads a file to a Cloud storage asynchronously.|[Upload](https://reference.aspose.cloud/slides/#/File/Upload)|
+
+The two methods are identical. However, since the second is part of the async API, it does not have file size restrictions.
 
 **Request Parameters**
 
