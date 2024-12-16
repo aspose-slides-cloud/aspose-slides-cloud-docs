@@ -1,5 +1,5 @@
 ---
-title: "Delete Cropped Areas from a Picture Frame"
+title: "Compress an Image"
 keywords:
 - PowerPoint
 - presentation
@@ -8,19 +8,19 @@ keywords:
 - picture
 - image
 - picture frame
-- crop an image
-- cropped area
+- compress image
 type: docs
-url: /delete-picture-cropped-areas/
-weight: 210
+url: /compress-an-image/
+weight: 200
 ---
 
 ## **Introduction**
 
-You can use [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to delete cropped areas from a picture frame.
-That can help you reduce the size of the presentation. Keep in mind, however, that the method converts the picture to PNG format, which in some cases can increase the image size.
+You can use [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to compress an image specifying target resolution.
 
-The method requires presentation name, slide and shape index. The shape must be a picture frame, or you get an exception. You should set **deletePictureCroppedAreas** parameter to **true**, and you can optionally specify image resolution.
+The method requires presentation name, slide and shape index. The shape must be a picture frame, or you get an exception. You should also specify **resolution** (DPI) and/or set **deletePictureCroppedAreas** parameter to **true**.
+
+This method can also be used to [delete picture cropped areas](/slides/delete-picture-cropped-areas/).
 
 Below is an example of using **CompressImage** method.
 
@@ -38,7 +38,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" -d "grant_type=client_cred
 **Delete picture cropped areas**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/4/compressImage?deletePictureCroppedAreas=true" -H "Authorization: Bearer <AuthToken>"
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/2/shapes/4/compressImage?resolution=150" -H "Authorization: Bearer <AuthToken>"
 ```
 
 {{< /tab >}}
@@ -62,7 +62,7 @@ string fileName = "MyPresentation.pptx";
 int slideIndex = 2;
 int shapeIndex = 4;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.CompressImage(fileName, slideIndex, shapeIndex, null, true);
+api.CompressImage(fileName, slideIndex, shapeIndex, 150);
 ```
 
 {{< /tab >}}
@@ -74,7 +74,7 @@ String fileName = "MyPresentation.pptx";
 int slideIndex = 2;
 int shapeIndex = 4;
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
-api.compressImage(fileName, slideIndex, shapeIndex, null, true, null, null, null);
+api.compressImage(fileName, slideIndex, shapeIndex, 150, null, null, null, null);
 ```
 
 {{< /tab >}}
@@ -94,7 +94,7 @@ $fileName = "MyPresentation.pptx";
 $slideIndex = 2;
 $shapeIndex = 4;
 
-$api->CompressImage($fileName, $slideIndex, $shapeIndex, null, true);
+$api->CompressImage($fileName, $slideIndex, $shapeIndex, 150);
 ```
 
 {{< /tab >}}
@@ -120,7 +120,7 @@ file_name = "MyPresentation.pptx"
 slide_index = 2
 shape_index = 4
 
-api.compress_image(file_name, slide_index, shape_index, None, True)
+api.compress_image(file_name, slide_index, shape_index, 150)
 ```
 
 {{< /tab >}}
@@ -135,7 +135,7 @@ const fileName = "MyPresentation.pptx";
 const slideIndex = 2;
 const shapeIndex = 4;
 
-await api.CompressImage(fileName, slideIndex, shapeIndex, null, true);
+await api.CompressImage(fileName, slideIndex, shapeIndex, 150);
 ```
 
 {{< /tab >}}
@@ -152,8 +152,8 @@ fileName := "MyPresentation.pptx"
 var slideIndex int32 = 2
 var shapeIndex int32 = 4
 
-var deletePictureCroppedAreas bool = true
-_, e := api.SlidesApi.CompressImage(fileName, slideIndex, shapeIndex, nil, &deletePictureCroppedAreas, "", "", "")
+var resolution float64 = 150
+_, e := api.SlidesApi.CompressImage(fileName, slideIndex, shapeIndex, &resolution, nil, "", "", "")
 if e != nil {
 	fmt.Printf("Error: %v.", e)
 }
