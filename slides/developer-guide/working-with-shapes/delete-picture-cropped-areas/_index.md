@@ -17,12 +17,12 @@ weight: 210
 
 ## **Introduction**
 
-You can use [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to delete cropped areas from a picture frame.
-That can help you reduce the size of the presentation. Keep in mind, however, that the method converts the picture to PNG format, which in some cases can increase the image size.
+You can use the [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to delete cropped areas from a picture frame.
+This can help you reduce the size of the presentation. However, keep in mind that the method converts the picture to PNG format, which may increase the image size in some cases.
 
-The method requires presentation name, slide and shape index. The shape must be a picture frame, or you get an exception. You should set **deletePictureCroppedAreas** parameter to **true**, and you can optionally specify image resolution.
+The method requires a presentation file name, slide index, and shape index. The shape must be a picture frame, or you will get an exception. You should set the **deletePictureCroppedAreas** parameter to **true**, and you can optionally specify the image resolution.
 
-Below is an example of using **CompressImage** method.
+Below is an example of using the **CompressImage** method.
 
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
