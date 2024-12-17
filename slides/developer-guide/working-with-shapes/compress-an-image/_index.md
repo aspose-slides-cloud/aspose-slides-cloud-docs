@@ -16,13 +16,13 @@ weight: 200
 
 ## **Introduction**
 
-You can use [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to compress an image specifying target resolution.
+You can use the [CompressImage](https://apireference.aspose.cloud/slides/#/Shapes/CompressImage) method to compress an image by specifying target resolution.
 
-The method requires presentation name, slide and shape index. The shape must be a picture frame, or you get an exception. You should also specify **resolution** (DPI) and/or set **deletePictureCroppedAreas** parameter to **true**.
+The method requires a presentation file name, slide index, and shape index. The shape must be a picture frame, or you will get an exception. You should also specify the **resolution** (DPI) and/or set the **deletePictureCroppedAreas** parameter to **true**.
 
 This method can also be used to [delete picture cropped areas](/slides/delete-picture-cropped-areas/).
 
-Below is an example of using **CompressImage** method.
+Below is an example of using the **CompressImage** method.
 
 ### **cURL Example**
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
