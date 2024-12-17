@@ -73,12 +73,125 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/s
 {
     "type": "Shape",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "paragraphs": {
-        "href": "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs?folder=MyFolder",
-        "relation": "self",
-        "slideIndex": 3,
-        "shapeIndex": 2
-    },
+    "paragraphs": [
+      {
+         "alignment": "Center",
+         "portionList": [
+            {
+               "text": "Paragraph 1",
+               "fontBold":"True",
+               "fontColor":"#FFFFFFFF",
+               "highlightColor":"#0",
+               "fontHeight":60.0,
+               "languageId":"en-US",
+               "fillFormat":{
+                  "type":"Solid",
+                  "color":"#FFFFFFFF"
+               },
+               "effectFormat":{
+                  "glow":{
+                     "radius":3.0,
+                     "color":"#66595959"
+                  }
+               },
+               "selfUri":{
+                  "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/1/portions/1?folder=MyFolder",
+                  "relation":"self",
+                  "slideIndex":1,
+                  "shapeIndex":2
+               }
+            }
+         ],
+         "defaultPortionFormat":{
+            "highlightColor":"#0",
+            "fontHeight":"NaN"
+         },
+         "selfUri":{
+            "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/1?folder=MyFolder",
+            "relation":"self",
+            "slideIndex":1,
+            "shapeIndex":2
+         }
+      },
+      {
+         "alignment":"Center",
+         "portionList":[
+            {
+               "text":"Paragraph 2",
+               "fontBold":"True",
+               "fontColor":"#FFFFFFFF",
+               "highlightColor":"#0",
+               "fontHeight":60.0,
+               "languageId":"en-US",
+               "fillFormat":{
+                  "type":"Solid",
+                  "color":"#FFFFFFFF"
+               },
+               "effectFormat":{
+                  "glow":{
+                     "radius":3.0,
+                     "color":"#66595959"
+                  }
+               },
+               "selfUri":{
+                  "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/2/portions/1?folder=MyFolder",
+                  "relation":"self",
+                  "slideIndex":1,
+                  "shapeIndex":2
+               }
+            }
+         ],
+         "defaultPortionFormat":{
+            "highlightColor":"#0",
+            "fontHeight":"NaN"
+         },
+         "selfUri":{
+            "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/2?folder=MyFolder",
+            "relation":"self",
+            "slideIndex":1,
+            "shapeIndex":2
+         }
+      },
+      {
+         "alignment":"Center",
+         "portionList":[
+            {
+               "text":"Paragraph 3",
+               "fontBold":"True",
+               "fontColor":"#FFFFFFFF",
+               "highlightColor":"#0",
+               "fontHeight":60.0,
+               "languageId":"en-US",
+               "fillFormat":{
+                  "type":"Solid",
+                  "color":"#FFFFFFFF"
+               },
+               "effectFormat":{
+                  "glow":{
+                     "radius":3.0,
+                     "color":"#66595959"
+                  }
+               },
+               "selfUri":{
+                  "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/3/portions/1?folder=MyFolder",
+                  "relation":"self",
+                  "slideIndex":1,
+                  "shapeIndex":2
+               }
+            }
+         ],
+         "defaultPortionFormat":{
+            "highlightColor":"#0",
+            "fontHeight":"NaN"
+         },
+         "selfUri":{
+            "href":"https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/2/paragraphs/3?folder=MyFolder",
+            "relation":"self",
+            "slideIndex":1,
+            "shapeIndex":2
+         }
+      }
+   ],
     "textFrameFormat": {
         "threeDFormat": {
             "contourWidth": 0.0,
