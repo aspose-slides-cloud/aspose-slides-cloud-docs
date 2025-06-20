@@ -14,7 +14,7 @@ weight: 10
 
 ## **Introduction**
 
-The following API method allows you to get information about caption tracks of a video frame. You can choose whether to get caption contents, or just IDs and titles.
+The following API method allows you to get information about caption tracks of a video frame. You can choose whether to retrieve the caption contents or just their IDs and titles.
 
 ## **GetVideoCaptionTracks**
 
@@ -31,17 +31,17 @@ The following API method allows you to get information about caption tracks of a
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide.|
 |shapeIndex|integer|path|true|The 1-based index of the shape; must refer to a video frame.|
-|includeData|boolean|query|false|true to include captions contents (DataAsString property) in the response.|
+|includeData|boolean|query|false|True to include captions contents (DataAsString property) in the response.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage contaning the `folder`.|
+|storage|string|query|false|The name of the storage containing the `folder`.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ### **Examples**
 
 Get information about caption tracks for a video frame, which is the 1st shape on the 3rd slide in **MyFolder/MyPresentation.pptx** file saved to the default storage.
-The response will not contain captions data because includeData property is not set to true.
+The response will not contain captions data because the `includeData` property is not set to true.
 
 **cURL Solution**
 
