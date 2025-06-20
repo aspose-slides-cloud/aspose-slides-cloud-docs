@@ -46,6 +46,7 @@ The following options may be used with any file format that a presentation is co
 |DefaultRegularFont|string|Specifies the default regular font used when a presentation font is not found.|
 |Height|double|Specifies the height of pages or images in an output document.|
 |Width|double|Specifies the width of pages or images in an output document.|
+|SkipJavaScriptLinks|boolean|true to skip hyperlinks with javascript calls when saving the presentation.|
 
 ## **Format Export Options**
 
@@ -77,6 +78,7 @@ The options below are format-specific. Check the tables to see what options can 
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |SubDirectoryName|string|Specifies the subdirectory name in the output zip file to store external files.|
 |SvgResponsiveLayout|boolean|Specifies whether the layout is made responsive (by excluding the width and height attributes from an SVG container) or not.|
+|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
 
 {{< expand-list title="PicturesCompressionEnum" >}}
 |**Value**|**Description**|
@@ -95,6 +97,10 @@ The options below are format-specific. Check the tables to see what options can 
 | :- | :- | :- |
 |AnimateTransitions|boolean|Specifies whether slide transitions are animated or not.|
 |AnimateShapes|boolean|Specifies whether shapes are animated or not.|
+|EmbedImages|boolean|true to embed images in the html file.|
+|TemplatesPath|string|Path to custom templates.|
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
+|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
 
 ### **JPG Options**
 
@@ -194,6 +200,7 @@ The following values may be used together as a combination of choices.
 |MetafileRasterizationDpi|integer|Specifies the lower resolution limit for metafile rasterization.|
 |PicturesCompression|PicturesCompressionEnum|Specifies the compression level for pictures.|
 |VectorizeText|boolean|Specifies whether the text on slides will be saved as graphics or not.|
+|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
 
 {{< expand-list title="ExternalFontsHandlingEnum" >}}
 |**Value**|**Description**|
@@ -271,17 +278,12 @@ The following values may be used together as a combination of choices.
 
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
-|CommentsAreaColor|integer|Specifies the color of the comment area. Applies only when comments are displayed on the right.|
-|CommentsAreaWidth|integer|Specifies the width of the comment area in pixels. Applies only when comments are displayed on the right.|
-|CommentsPosition|CommentsPositionEnum|Specifies the position of slide comments.|
 |Compressed|boolean|Specifies whether the generated SWF document should be compressed or not. The default value is `true`.|
 |EnableContextMenu|boolean|Specifies whether the context menu is enabled. The default value is `true`.|
 |JpegQuality|integer|Specifies the quality of JPEG images. The default value is 95.|
 |LogoImage|string|Specifies the image that will be displayed as a logo at the top-right corner of the viewer. The image data is a Base64 string. The image should be 32x64 pixels in the PNG format. Otherwise, the logo may be displayed improperly.|
 |LogoLink|string|Specifies the full hyperlink address for a logo. Has effect only when `LogoImage` is specified.|
-|NotesPosition|NotesPositionEnum|Specifies the position of slide notes.|
 |ShowBottomPane|boolean|Specifies whether to show the bottom pane or not. Can be overridden in flashvars. The default value is `true`.|
-|ShowCommentsByNoAuthor|boolean|Specifies whether comments without an author are displayed or not.|
 |ShowFullScreen|boolean|Specifies whether to show the fullscreen button or not. Can be overridden in flashvars. The default value is `true`.|
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |ShowLeftPane|boolean|Specifies whether to show the left pane or not. Can be overridden in flashvars. The default value is `true`.|
@@ -291,6 +293,7 @@ The following values may be used together as a combination of choices.
 |ShowTopPane|boolean|Specifies whether to show the whole top pane or not. Can be overridden in flashvars. The default value is `true`.|
 |StartOpenLeftPane|boolean|Specifies whether to start with the opened left pane. Can be overridden in flashvars.|
 |ViewerIncluded|boolean|Specifies whether the generated SWF document should include the integrated document viewer or not. The default value is `true`.|
+|SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
 
 {{< expand-list title="CommentsPositionEnum" >}}
 |**Value**|**Description**|
@@ -381,6 +384,9 @@ The following values may be used together as a combination of choices.
 |ShowSlideNumber|boolean|True if the generated document should include slide number.|
 |ShowComments|boolean|True if the generated document should include comments.|
 |ShowHiddenSlides|boolean|True if the generated document should include hidden slides.|
+|RemoveEmptyLines|boolean|true to remove empty or whitespace-only lines from the final Markdown output.|
+|SlideNumberFormat|string|The format of slide number headers.|
+|HandleRepeatedSpaces|HandleRepeatedSpacesEnum|Specifies how repeated space characters are preserved to maintain visual alignment.|
 
 {{< expand-list title="ExportTypeEnum" >}}
 |**Value**|**Description**|
@@ -425,6 +431,14 @@ The following values may be used together as a combination of choices.
 |Windows|Windows new line - \\r\\n.|
 |Unix|Unix new line - \\n.|
 |Mac|Mac (OS 9) new line - \\r.|
+{{< /expand-list >}}
+
+{{< expand-list title="HandleRepeatedSpacesEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|None|All spaces are preserved as regular space characters without any changes. No transformation is applied, and multiple consecutive spaces are exported as-is.|
+|AlternateSpacesToNbsp|Converts sequences of two or more consecutive regular spaces by alternating between regular space characters and non-breaking space entities.|
+|MultipleSpacesToNbsp|Converts sequences of two or more consecutive regular spaces by preserving the first space as a regular space character and replacing all subsequent spaces with non-breaking space entities.|
 {{< /expand-list >}}
 
 ## **SlidesLayoutOptions** Class

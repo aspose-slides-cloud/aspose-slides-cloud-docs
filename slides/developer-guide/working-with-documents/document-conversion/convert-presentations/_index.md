@@ -22,6 +22,7 @@ keywords:
 - PPT to XAML
 - PPT to XPS
 - PPT to MD
+- PPT to EMF
 - slides to images
 type: docs
 url: /convert-presentations/
@@ -69,3 +70,4 @@ The Aspose.Slides Cloud API supports converting presentations to the following f
 |Extensible Application Markup Language|xaml|
 |MPEG-4 Video|mp4|
 |Markdown|md|
+|Enhanced mediafile|emf|

@@ -261,6 +261,8 @@ Represents FillFormat with picture fill.
 | Image | Resource | Link to the Image picture format referenced to. In operations for update background, shape fill or create picture can be used to refer to the existing image in the presentation instead of Base64Data or SvgData |
 | Base64Data | string | Used only in operations for update background, shape fill, or create pictures. Represents a base64 encoded picture. In GET operations this property is omitted |
 | SvgData | string | Used only in operations for update background, shape fill, or create pictures. Represents an SVG image. In GET operations this property is omitted. Ignored if Base64Data is specified |
+| Resolution | float | Used only in operations for update background, shape fill, or create pictures. Prescribes to compress the image at the specified resolution (in Dpi). |
+| DeletePictureCroppedAreas | boolean | Used only in operations for update background, shape fill, or create pictures. If set to true, prescribes to delete picture cropped areas. |
 
 {{< tabs tabTotal="2" tabID="5" tabName1="JSON" tabName2="XML" >}}
 
