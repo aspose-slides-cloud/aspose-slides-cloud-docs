@@ -24,6 +24,7 @@ keywords:
 - PPT to XAML
 - PPT to XPS
 - PPT to MD
+- PPT to EMF
 type: docs
 url: /convert-selected-slides/
 weight: 20

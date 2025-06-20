@@ -47,3 +47,5 @@ weight: 70
 |[SVG](https://wiki.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics (An XML-based vector image format)| |{{< emoticons/tick >}}|
 |[SWF](https://wiki.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}|
 |[HTML](https://wiki.fileformat.com/web/html/)|HTML Format| |{{< emoticons/tick >}}|
+|[MD](https://docs.fileformat.com/word-processing/md/)|Markdown Format| |{{< emoticons/tick >}}|
+|[EMF](https://docs.fileformat.com/image/emf/)|EMF Format| |{{< emoticons/tick >}}|

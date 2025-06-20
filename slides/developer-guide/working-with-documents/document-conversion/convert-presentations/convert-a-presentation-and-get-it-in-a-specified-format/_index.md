@@ -22,6 +22,7 @@ keywords:
 - PPT to XAML
 - PPT to XPS
 - PPT to MD
+- PPT to EMF
 type: docs
 url: /convert-a-presentation-and-get-it-in-a-specified-format/
 weight: 10

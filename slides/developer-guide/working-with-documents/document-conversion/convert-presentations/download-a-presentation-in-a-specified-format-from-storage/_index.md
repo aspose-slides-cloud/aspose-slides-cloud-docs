@@ -22,6 +22,7 @@ keywords:
 - PPT to XAML
 - PPT to XPS
 - PPT to MD
+- PPT to EMF
 type: docs
 url: /download-a-presentation-in-a-specified-format-from-storage/
 weight: 30
