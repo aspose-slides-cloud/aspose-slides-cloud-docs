@@ -46,7 +46,7 @@ The following options may be used with any file format that a presentation is co
 |DefaultRegularFont|string|Specifies the default regular font used when a presentation font is not found.|
 |Height|double|Specifies the height of pages or images in an output document.|
 |Width|double|Specifies the width of pages or images in an output document.|
-|SkipJavaScriptLinks|boolean|true to skip hyperlinks with javascript calls when saving the presentation.|
+|SkipJavaScriptLinks|boolean|True to skip hyperlinks containing JavaScript calls when saving the presentation.|
 
 ## **Format Export Options**
 
@@ -78,7 +78,7 @@ The options below are format-specific. Check the tables to see what options can 
 |ShowHiddenSlides|boolean|Specifies whether the generated document should include hidden slides or not.|
 |SubDirectoryName|string|Specifies the subdirectory name in the output zip file to store external files.|
 |SvgResponsiveLayout|boolean|Specifies whether the layout is made responsive (by excluding the width and height attributes from an SVG container) or not.|
-|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
+|DisableFontLigatures|boolean|True to disable ligatures in the rendered output.|
 
 {{< expand-list title="PicturesCompressionEnum" >}}
 |**Value**|**Description**|
@@ -97,10 +97,10 @@ The options below are format-specific. Check the tables to see what options can 
 | :- | :- | :- |
 |AnimateTransitions|boolean|Specifies whether slide transitions are animated or not.|
 |AnimateShapes|boolean|Specifies whether shapes are animated or not.|
-|EmbedImages|boolean|true to embed images in the html file.|
-|TemplatesPath|string|Path to custom templates.|
+|EmbedImages|boolean|True to embed images in the HTML file.|
+|TemplatesPath|string|Specifies the path to custom templates.|
 |SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
-|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
+|DisableFontLigatures|boolean|True to disable ligatures in the rendered output.|
 
 ### **JPG Options**
 
@@ -200,7 +200,7 @@ The following values may be used together as a combination of choices.
 |MetafileRasterizationDpi|integer|Specifies the lower resolution limit for metafile rasterization.|
 |PicturesCompression|PicturesCompressionEnum|Specifies the compression level for pictures.|
 |VectorizeText|boolean|Specifies whether the text on slides will be saved as graphics or not.|
-|DisableFontLigatures|boolean|true to disable ligatures in the rendered output.|
+|DisableFontLigatures|boolean|True to disable ligatures in the rendered output.|
 
 {{< expand-list title="ExternalFontsHandlingEnum" >}}
 |**Value**|**Description**|
@@ -384,8 +384,8 @@ The following values may be used together as a combination of choices.
 |ShowSlideNumber|boolean|True if the generated document should include slide number.|
 |ShowComments|boolean|True if the generated document should include comments.|
 |ShowHiddenSlides|boolean|True if the generated document should include hidden slides.|
-|RemoveEmptyLines|boolean|true to remove empty or whitespace-only lines from the final Markdown output.|
-|SlideNumberFormat|string|The format of slide number headers.|
+|RemoveEmptyLines|boolean|True to remove empty or whitespace-only lines from the final Markdown output.|
+|SlideNumberFormat|string|Specifies the format of slide number headers.|
 |HandleRepeatedSpaces|HandleRepeatedSpacesEnum|Specifies how repeated space characters are preserved to maintain visual alignment.|
 
 {{< expand-list title="ExportTypeEnum" >}}
