@@ -258,11 +258,11 @@ Represents FillFormat with picture fill.
 | CropTop | float | Relative (0..1) crop from top. |
 | Dpi | int | Image Dpi if set. |
 | PictureFillMode | Tile / Stretch | Fill mode of picture. |
-| Image | Resource | Link to the Image picture format referenced to. In operations for update background, shape fill or create picture can be used to refer to the existing image in the presentation instead of Base64Data or SvgData |
-| Base64Data | string | Used only in operations for update background, shape fill, or create pictures. Represents a base64 encoded picture. In GET operations this property is omitted |
-| SvgData | string | Used only in operations for update background, shape fill, or create pictures. Represents an SVG image. In GET operations this property is omitted. Ignored if Base64Data is specified |
-| Resolution | float | Used only in operations for update background, shape fill, or create pictures. Prescribes to compress the image at the specified resolution (in Dpi). |
-| DeletePictureCroppedAreas | boolean | Used only in operations for update background, shape fill, or create pictures. If set to true, prescribes to delete picture cropped areas. |
+| Image | Resource | Link to the image resource. In update-background, shape-fill, or create-picture operations, this can refer to an existing image in the presentation instead of using Base64Data or SvgData. |
+| Base64Data | string | Used only in update-background, shape-fill, or create-picture operations. Represents a Base64-encoded picture. This property is omitted in GET operations. |
+| SvgData | string | Used only in update-background, shape-fill, or create-picture operations. Represents an SVG image. This property is omitted in GET operations and ignored if Base64Data is specified. |
+| Resolution | float | Used only in update-background, shape-fill, or create-picture operations. Specifies the resolution (in DPI) at which to compress the image. |
+| DeletePictureCroppedAreas | boolean | Used only in update-background, shape-fill, or create-picture operations. If set to `true`, deletes the cropped areas of the picture. |
 
 {{< tabs tabTotal="2" tabID="5" tabName1="JSON" tabName2="XML" >}}
 
