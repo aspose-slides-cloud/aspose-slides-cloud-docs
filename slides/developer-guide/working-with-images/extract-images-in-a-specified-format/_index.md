@@ -35,7 +35,7 @@ The following methods make it easy to retrieve images in a specified format from
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
-|quality|integer|query|false|Image quality (0 to 100; has effect only on Jpeg format).|
+|quality|integer|query|false|The image quality (0 to 100; only applies to JPEG format).|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
