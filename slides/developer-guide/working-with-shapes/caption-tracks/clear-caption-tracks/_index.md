@@ -1,28 +1,29 @@
 ---
-title: "Create Caption Tracks for a Video Frame"
+title: "Delete Caption Tracks"
 keywords:
 - PowerPoint
 - presentation
 - REST API
 - cloud API
 - video frame
+- audio frame
 - caption tracks
 type: docs
-url: /create-a-video-caption-track/
-weight: 20
+url: /clear-video-caption-tracks/
+weight: 40
 ---
 
 ## **Introduction**
 
-The following API method allows you to add caption tracks to a video frame.
+The following API method allows you to delete all caption tracks from a video frame or an audio frame.
 
-## **CreateVideoCaptionTrack**
+## **DeleteVideoCaptionTracks**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks|POST|Creates a caption track for a video frame.|[CreateVideoCaptionTrack](https://apireference.aspose.cloud/slides/#/Shapes/CreateVideoCaptionTrack)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks|DELETE|Deletes all caption tracks from a video frame or an audio frame.|[DeleteCaptionTracks](https://apireference.aspose.cloud/slides/#/Shapes/DeleteCaptionTracks)|
 
 **Request Parameters**
 
@@ -30,9 +31,7 @@ The following API method allows you to add caption tracks to a video frame.
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide.|
-|shapeIndex|integer|path|true|The 1-based index of the shape; must refer to a video frame.|
-|label|string|query|true|The label of the caption track.|
-|data|string|body|true|The content of the caption track.|
+|shapeIndex|integer|path|true|The 1-based index of the shape; must refer to a video frame or an audio frame.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -41,7 +40,7 @@ The following API method allows you to add caption tracks to a video frame.
 
 ### **Examples**
 
-Create a caption track for a video frame, which is the 1st shape on the 3rd slide in **MyFolder/MyPresentation.pptx** file saved to the default storage.
+Delete caption tracks from a video frame, which is the 1st shape on the 3rd slide in **MyFolder/MyPresentation.pptx** file saved to the default storage.
 
 **cURL Solution**
 
@@ -60,8 +59,7 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
 **Read Image Information**
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/captionTracks?folder=MyFolder&label=Captions" \
-     -d "@caption.vtt"
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/captionTracks?folder=MyFolder" \
      -H "authorization: Bearer <access_token>"
 ```
 
@@ -69,14 +67,9 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/
 
 {{< tab tabNum="2" >}}
 
-**Response Example**
+**Response**
 
-```json
-{
-    "captionId": "ac2a3180-07f9-4323-955f-36d9f585c612",
-    "label": "Captions"
-}
-```
+Empty response.
 
 {{< /tab >}}
 
@@ -99,12 +92,7 @@ class Application
     static void Main()
     {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
-
-        const string captionsData = @"WEBVTT
-
-00:00:00.000-- > 00:00:10.000
-Caption text.";
-        slidesApi.CreateVideoCaptionTrack("MyPresentation.pptx", 3, 1, "Captions", captionsData, "MyFolder");
+        slidesApi.DeleteCaptionTracks("MyPresentation.pptx", 3, 1, "MyFolder");
     }
 }
 ```
@@ -122,8 +110,7 @@ import com.aspose.slides.api.SlidesApi;
 public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
-        String captionsData = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
-        slidesApi.createVideoCaptionTrack("MyPresentation.pptx", 3, 1, "Captions", captionsData, "MyFolder", null);
+        slidesApi.deleteCaptionTracks("MyPresentation.pptx", 3, 1, "MyFolder", null);
     }
 }
 ```
@@ -143,8 +130,7 @@ $configuration->setAppSid("MyClientId");
 $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
-$captionsData = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
-$slidesApi->createVideoCaptionTrack("MyPresentation.pptx", 3, 1, "Captions", $captionsData, "MyFolder");
+$slidesApi->deleteCaptionTracks("MyPresentation.pptx", 3, 1, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -163,8 +149,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
-captions_data = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text."
-slides_api.create_video_caption_track("MyPresentation.pptx", 3, 1, "Captions", captions_data, "MyFolder")
+slides_api.delete_caption_tracks("MyPresentation.pptx", 3, 1, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -179,8 +164,7 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
-captions_data = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text."
-slides_api.create_video_caption_track("MyPresentation.pptx", 3, 1, "Captions", captions_data, "MyFolder")
+slides_api.delete_caption_tracks("MyPresentation.pptx", 3, 1, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -193,8 +177,7 @@ slides_api.create_video_caption_track("MyPresentation.pptx", 3, 1, "Captions", c
 const cloud = require("asposeslidescloud");
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
-const captionsData = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
-slidesApi.createVideoCaptionTracks("MyPresentation.pptx", 3, 1, "Captions", captionsData, "MyFolder");
+slidesApi.deleteCaptionTracks("MyPresentation.pptx", 3, 1, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -211,8 +194,7 @@ using namespace asposeslidescloud::api;
 int main()
 {
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
-    auto captionsData = L"WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
-    slidesApi->createVideoCaptionTrack(L"MyPresentation.pptx", 3, 1, L"Captions", captionsData, L"MyFolder").get();
+    slidesApi->deleteCaptionTracks(L"MyPresentation.pptx", 3, 1, L"MyFolder").get();
 
     std::cin.get();
 
@@ -235,9 +217,8 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-my $captions_data = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
-my %parameters = (name => "MyPresentation.pptx", slideIndex => 3, shapeIndex => 1, label => "Captions", data => $captions_data, folder => "MyFolder");
-$slides_api->create_video_caption_track(%parameters);
+my %parameters = (name => "MyPresentation.pptx", slideIndex => 3, shapeIndex => 1, folder => "MyFolder");
+$slides_api->delete_caption_tracks(%parameters);
 ```
 
 {{< /tab >}}

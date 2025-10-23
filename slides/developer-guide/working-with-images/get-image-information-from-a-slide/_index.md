@@ -15,6 +15,7 @@ weight: 20
 ## **Introduction**
 
 The following API method allows you to easily read information about images placed on a slide in a PowerPoint document. You can find out the following image properties: width, height, type, etc.
+You can optionally limit the output to images related to a specific shape, specifying its index or alternative text.
 
 ## **GetSlideImages**
 
@@ -30,6 +31,8 @@ The following API method allows you to easily read information about images plac
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide.|
+|shapeIndex|integer|query|false|The 1-based index of the shape; if specified, returns only images related to that shape.|
+|shapeAltText|string|query|false|The alternative text of the shape; if specified, returns only images related to that shape. The property value should match shape alternative text ot alternative text title.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
 |storage|string|query|false|The name of the storage contaning the `folder`.|
@@ -148,7 +151,7 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information about the images placed on the first slide.
-        var imagesInfo = slidesApi.GetSlideImages("MyPresentation.pptx", 1, null, "MyFolder");
+        var imagesInfo = slidesApi.GetSlideImages("MyPresentation.pptx", 1, null, null, null, "MyFolder");
 
         // Print information about the images.
         foreach (var imageInfo in imagesInfo.List)
@@ -174,7 +177,7 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Read information about the images placed on the first slide.
-        Images imagesInfo = slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder", null);
+        Images imagesInfo = slidesApi.getSlideImages("MyPresentation.pptx", 1, null, null, null, "MyFolder", null);
 
         // Print information about the images.
         for (Image imageInfo : imagesInfo.getList()) {
@@ -201,7 +204,7 @@ $configuration->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $configuration);
 
 // Read information about the images placed on the first slide.
-$imagesInfo = $slidesApi->getSlideImages("MyPresentation.pptx", 1, null, "MyFolder");
+$imagesInfo = $slidesApi->getSlideImages("MyPresentation.pptx", 1, null, null, null, "MyFolder");
 
 // Print information about the images.
 foreach ($imagesInfo->getList() as $imageInfo) {
@@ -227,7 +230,7 @@ configuration.app_key = "MyClientSecret"
 slides_api = SlidesApi.new(configuration)
 
 # Read information about the images placed on the first slide.
-images_info = slides_api.get_slide_images("MyPresentation.pptx", 1, nil, "MyFolder")
+images_info = slides_api.get_slide_images("MyPresentation.pptx", 1, nil, nil, nil, "MyFolder")
 
 # Print information about the images.
 for image_info in images_info.list
@@ -249,7 +252,7 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Read information about the images placed on the first slide.
-images_info = slides_api.get_slide_images("MyPresentation.pptx", 1, None, "MyFolder")
+images_info = slides_api.get_slide_images("MyPresentation.pptx", 1, None, None, None, "MyFolder")
 
 # Print information about the images.
 for image_info in images_info.list:
@@ -268,7 +271,7 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Read information about the images placed on the first slide.
-slidesApi.getSlideImages("MyPresentation.pptx", 1, null, "MyFolder").then(imagesInfo => {
+slidesApi.getSlideImages("MyPresentation.pptx", 1, null, null, null, "MyFolder").then(imagesInfo => {
     // Print information about the images.
     imagesInfo.body.list.forEach(imageInfo => {
         console.log(imageInfo.width + "x" + imageInfo.height + ", " + imageInfo.contentType);
@@ -292,7 +295,7 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Read information about the images placed on the first slide.
-    auto imagesInfo = slidesApi->getSlideImages(L"MyPresentation.pptx", 1, L"", L"MyFolder").get();
+    auto imagesInfo = slidesApi->getSlideImages(L"MyPresentation.pptx", 1, boost::none, L"", L"", L"MyFolder").get();
 
     // Print information about the images.
     for (auto imageInfo : imagesInfo->getList()) {

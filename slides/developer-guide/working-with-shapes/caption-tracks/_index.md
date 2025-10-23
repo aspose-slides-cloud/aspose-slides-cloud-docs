@@ -1,13 +1,14 @@
 ---
-title: "Video Caption Tracks"
+title: "Caption Tracks"
 keywords:
 - PowerPoint
 - presentation
 - REST API
 - cloud API
 - video frames
+- audio frames
 - caption tracks
 type: docs
-url: /video-caption-tracks/
+url: /caption-tracks/
 weight: 220
 ---

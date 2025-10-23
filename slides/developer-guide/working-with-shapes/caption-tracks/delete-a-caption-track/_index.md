@@ -1,28 +1,29 @@
 ---
-title: "Get Caption Tracks for a Video Frame"
+title: "Delete a Caption Track"
 keywords:
 - PowerPoint
 - presentation
 - REST API
 - cloud API
 - video frame
+- audio frame
 - caption tracks
 type: docs
-url: /get-video-caption-tracks/
-weight: 10
+url: /delete-a-caption-track/
+weight: 30
 ---
 
 ## **Introduction**
 
-The following API method allows you to get information about caption tracks of a video frame. You can choose whether to retrieve the caption contents or just their IDs and titles.
+The following API method allows you to delete a caption track from a video frame or an audio frame.
 
-## **GetVideoCaptionTracks**
+## **DeleteCaptionTrack**
 
 ### **API Information**
 
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks|GET|Returns caption tracks of a video frame.|[GetVideoCaptionTracks](https://apireference.aspose.cloud/slides/#/Shapes/GetVideoCaptionTracks)|
+|/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks/{captionsIndex}|DELETE|Deletes a caption track from a video frame or an audio frame.|[DeleteCaptionTrack](https://apireference.aspose.cloud/slides/#/Shapes/DeleteCaptionTrack)|
 
 **Request Parameters**
 
@@ -30,18 +31,17 @@ The following API method allows you to get information about caption tracks of a
 | :- | :- | :- | :- | :- |
 |name|string|path|true|The name of a presentation file.|
 |slideIndex|integer|path|true|The 1-based index of the slide.|
-|shapeIndex|integer|path|true|The 1-based index of the shape; must refer to a video frame.|
-|includeData|boolean|query|false|True to include captions contents (DataAsString property) in the response.|
+|shapeIndex|integer|path|true|The 1-based index of the shape; must refer to a video frame or an audio frame.|
+|captionsIndex|integer|path|true|The 1-based index of the captions track.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
-|storage|string|query|false|The name of the storage containing the `folder`.|
+|storage|string|query|false|The name of the storage contaning the `folder`.|
 
 *In case of Amazon S3 storage folder path starts with Amazon S3 bucket name.*
 
 ### **Examples**
 
-Get information about caption tracks for a video frame, which is the 1st shape on the 3rd slide in **MyFolder/MyPresentation.pptx** file saved to the default storage.
-The response will not contain captions data because the `includeData` property is not set to true.
+Delete a caption track from a video frame, which is the 1st shape on the 3rd slide in **MyFolder/MyPresentation.pptx** file saved to the default storage.
 
 **cURL Solution**
 
@@ -57,10 +57,10 @@ curl -X POST "https://api.aspose.cloud/connect/token" \
      -H "Content-Type: application/x-www-form-urlencoded"
 ```
 
-**Read Caption Tracks Information**
+**Read Image Information**
 
 ```sh
-curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/captionTracks?folder=MyFolder" \
+curl -X DELETE "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/shapes/1/captionTracks/1?folder=MyFolder" \
      -H "authorization: Bearer <access_token>"
 ```
 
@@ -68,18 +68,9 @@ curl -X GET "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/s
 
 {{< tab tabNum="2" >}}
 
-**Response Example**
+**Response**
 
-```json
-{
-    "items": [
-        {
-            "captionId": "ac2a3180-07f9-4323-955f-36d9f585c612",
-            "label": "Caption1"
-        }
-    ]
-}
-```
+Empty response.
 
 {{< /tab >}}
 
@@ -102,11 +93,7 @@ class Application
     static void Main()
     {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
-        CaptionTracks captions = slidesApi.GetVideoCaptionTracks("MyPresentation.pptx", 3, 1, null, "MyFolder");
-        foreach (CaptionTrack caption in captions.Items)
-        {
-            Debug.WriteLine($"Label: {caption.Label}");
-        }
+        slidesApi.DeleteCaptionTrack("MyPresentation.pptx", 3, 1, 1, "MyFolder");
     }
 }
 ```
@@ -124,10 +111,7 @@ import com.aspose.slides.api.SlidesApi;
 public class Application {
     public static void main(String[] args) throws ApiException {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
-        CaptionTracks captions = slidesApi.getVideoCaptionTracks("MyPresentation.pptx", 3, 1, null, "MyFolder", null);
-        for (CaptionTrack caption : captions.getItems()) {
-            System.out.printf("Label: %s\n", caption.getLabel());
-        }
+        slidesApi.deleteCaptionTrack("MyPresentation.pptx", 3, 1, 1, "MyFolder", null);
     }
 }
 ```
@@ -147,10 +131,7 @@ $configuration->setAppSid("MyClientId");
 $configuration->setAppKey("MyClientSecret");
 
 $slidesApi = new SlidesApi(null, $configuration);
-$captions = $slidesApi->getVideoCaptionTracks("MyPresentation.pptx", 3, 1, null, "MyFolder");
-foreach ($captions->getItems() as $caption) {
-    echo sprintf("Label: %s\n", $caption->getLabel());
-}
+$slidesApi->deleteCaptionTrack("MyPresentation.pptx", 3, 1, 1, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -169,10 +150,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 
 slides_api = SlidesApi.new(configuration)
-captions = slides_api.get_video_caption_tracks("MyPresentation.pptx", 3, 1, nil, "MyFolder")
-for caption in captions.items
-    puts "Label: #{caption.label}"
-end
+slides_api.delete_caption_track("MyPresentation.pptx", 3, 1, 1, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -187,13 +165,7 @@ import asposeslidescloud
 from asposeslidescloud.apis.slides_api import SlidesApi
 
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
-
-# Read information about all images.
-captions = slides_api.get_video_caption_tracks("MyPresentation.pptx", 3, 1, None, "MyFolder")
-
-# Print information about the images.
-for caption in captions.items:
-    print(f"Label: {caption.label}")
+slides_api.delete_caption_track("MyPresentation.pptx", 3, 1, 1, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -206,12 +178,8 @@ for caption in captions.items:
 const cloud = require("asposeslidescloud");
 
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
-
-slidesApi.getVideoCaptionTracks("MyPresentation.pptx", 3, 1, null, "MyFolder").then(captions => {
-    captions.body.list.forEach(caption => {
-        console.log("Label: " + caption.label);
-    });
-});
+const captionsData = "WEBVTT\n\n00:00:00.000-- > 00:00:10.000\nCaption text.";
+slidesApi.deleteCaptionTrack("MyPresentation.pptx", 3, 1, 1, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -228,11 +196,7 @@ using namespace asposeslidescloud::api;
 int main()
 {
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
-
-    auto captions = slidesApi->getVideoCaptionTracks(L"MyPresentation.pptx", 3, 1, boost::none, L"", L"MyFolder").get();
-    for (auto caption : captions->getItems()) {
-        std::wcout << "Label: " << caption->getLabel() << std::endl;
-    }
+    slidesApi->deleteCaptionTrack(L"MyPresentation.pptx", 3, 1, 1, L"MyFolder").get();
 
     std::cin.get();
 
@@ -255,13 +219,8 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 
 my $slides_api = AsposeSlidesCloud::SlidesApi->new(config => $config);
-
-my %parameters = (name => "MyPresentation.pptx", slideIndex => 3, shapeIndex => 1, folder => "MyFolder");
-my $captions = $slides_api->get_video_caption_tracks(%parameters);
-
-for my $caption (@{$captions->{items}}) {
-    print("Label: $caption->{label}\n");
-}
+my %parameters = (name => "MyPresentation.pptx", slideIndex => 3, shapeIndex => 1, captionsIndex => 1, folder => "MyFolder");
+$slides_api->delete_caption_track(%parameters);
 ```
 
 {{< /tab >}}
