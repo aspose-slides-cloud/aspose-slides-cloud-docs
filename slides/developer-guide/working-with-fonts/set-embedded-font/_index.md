@@ -1,5 +1,5 @@
 ---
-title: "Set Embedded Font"
+title: "Set an Embedded Font"
 keywords:
 - PowerPoint
 - presentation
@@ -22,7 +22,7 @@ You can also [embed multiple fonts](/slides/set-embedded-fonts/) in one request.
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation fonts info.|[SetEmbeddedFont](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFont)|
+/slides/{name}/fonts/embedded/{fontName}|POST|Embeds the specified font and returns presentation font information.|[SetEmbeddedFont](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFont)|
 
 ### **Examples**
 **cURL Example**
@@ -107,7 +107,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -178,7 +178,7 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -194,7 +194,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/embedded/{fontName}|POST|Embeds specified font and returns presentation.|[SetEmbeddedFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontOnline)|
+/slides/fonts/embedded/{fontName}|POST|Embeds the specified font and returns the presentation.|[SetEmbeddedFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontOnline)|
 
 ### **Examples**
 **cURL Example**
@@ -284,7 +284,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -360,7 +360,7 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
