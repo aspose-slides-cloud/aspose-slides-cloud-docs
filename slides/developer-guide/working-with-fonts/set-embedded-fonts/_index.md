@@ -19,7 +19,7 @@ Aspose.Slides Cloud API allows embedding multiple fonts in one request. You can 
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded|POST|Embeds fonts and returns presentation fonts info.|[SetEmbeddedFonts](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFonts)|
+/slides/{name}/fonts/embedded|POST|Embeds fonts and returns presentation fonts information.|[SetEmbeddedFonts](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFonts)|
 
 ### **Examples**
 **cURL Example**
@@ -234,7 +234,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/embedded|POST|Embeds fonts and returns presentation.|[SetEmbeddedFontsOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontsOnline)|
+/slides/fonts/embedded|POST|Embeds fonts and returns the presentation.|[SetEmbeddedFontsOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontsOnline)|
 
 ### **Examples**
 **cURL Example**
@@ -263,7 +263,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded&fontNames=Cali
 
 ```sh
 
-Document with embedded fonts.
+The document with the embedded fonts.
 
 ```
 {{< /tab >}}
