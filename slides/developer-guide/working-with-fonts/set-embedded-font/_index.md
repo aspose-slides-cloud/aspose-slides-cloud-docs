@@ -1,5 +1,5 @@
 ---
-title: "Set Embedded Fonts from a Request"
+title: "Set an Embedded Font"
 keywords:
 - PowerPoint
 - presentation
@@ -9,22 +9,25 @@ keywords:
 - embedded fonts
 - presentation fonts
 type: docs
-url: /set-embedded-fonts-from-a-request/
-weight: 50
+url: /set-embedded-font/
+weight: 40
 ---
 ## **Introduction**
-Aspose.Slides Cloud API allows embedding a font used in a presentation. The font can be provided in the request body if needed. The feature can be applied to presentations located in the storage or presentations uploaded in the request body along with the font file.
 
-## **SetEmbeddedFontFromRequest**
+Aspose.Slides Cloud API allows embedding a font used in a presentation. The feature can be applied to presentations located in the storage or presentations uploaded in the request body.
+
+You can also [embed multiple fonts](/slides/set-embedded-fonts/) in one request.
+
+## **SetEmbeddedFont**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/{name}/fonts/embedded|POST|Embeds font from request and returns presentation fonts info.|[SetEmbeddedFontFromRequest](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontFromRequest)|
+/slides/{name}/fonts/embedded/{fontName}|POST|Embeds the specified font and returns presentation font information.|[SetEmbeddedFont](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFont)|
 
 ### **Examples**
 **cURL Example**
 
-The code examples below show how to embed fonts in a presentation located in the storage.
+The code examples below show how to embed fonts in a presentation in the storage.
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
 
@@ -36,9 +39,7 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded" \
--H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/calibri.ttf" \ 
+curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/fonts/embedded/calibri" -H "Authorization: Bearer [Access Token]"
 ```
 
 {{< /tab >}}
@@ -55,7 +56,6 @@ Returns presentation fonts info.
 
 {{< /tabs >}}
 
-
 **SDK Examples**
 
 {{< tabs tabTotal="10" tabID="11" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
@@ -64,8 +64,7 @@ Returns presentation fonts info.
 ```csharp
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-Stream fontFile = File.OpenRead("calibri.ttf");
-FontsData response = api.SetEmbeddedFontFromRequest(fontFile, "MyPresentation.pptx", false);
+FontsData response = api.SetEmbeddedFont("MyPresentation.pptx", "Calibri", false);
 
 Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 ```
@@ -76,8 +75,7 @@ Console.WriteLine("Font " + response.List[2].FontName + " has been embedded.");
 ```java
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
-byte[] file = Files.readAllBytes(Paths.get("calibri.ttf"));
-FontsData response = api.setEmbeddedFontFromRequest(file, "MyPresentation.pptx", false, null, null, null);
+FontsData response = api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false, null, null, null, null);
 
 System.out.println("Font " + response.getList().get(2).getFontName() + " has been embedded.");
 ```
@@ -95,8 +93,7 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$file = fopen("calibri.ttf", 'r');
-$result = $api->setEmbeddedFontFromRequest($file, "MyPresentation.pptx", false);
+$result = $api->setEmbeddedFont("MyPresentation.pptx", "Calibri", false);
 
 print("Font " . $result->getList()[2]->getFontName() . " has been embedded.");
 ```
@@ -110,9 +107,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-source = File.binread("calibri.ttf")
-response = api.set_embedded_font_from_request(source, "MyPresentation.pptx", false)
-print "Font " + response.list[2].font_name + " has been embedded."      
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -129,10 +124,7 @@ configuration.app_sid = 'MyClientId'
 configuration.app_key = 'MyClientSecret'
 api = SlidesApi(configuration)
 
-with open("calibri.ttf", 'rb') as f:
-    source = f.read()
-
-response = api.set_embedded_font_from_request(source, "MyPresentation.pptx", False)
+response = api.set_embedded_font("MyPresentation.pptx", "Calibri", False)
 
 print("Font " + response.list[2].font_name + " has been embedded.")
 ```
@@ -142,11 +134,10 @@ print("Font " + response.list[2].font_name + " has been embedded.")
 
 ```javascript
 const CloudSdk = require("asposeslidescloud");
-const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
-const stream = fs.createReadStream("calibri.ttf");
-let result = await api.setEmbeddedFontFromRequest(stream, "MyPresentation.pptx", false);
+let result = await api.setEmbeddedFont("MyPresentation.pptx", "Calibri", false);
+            
 console.log("Font " + result.body.list[2].fontName + " has been embedded.");
 ```
 {{< /tab >}}
@@ -158,9 +149,10 @@ cfg.AppSid = "MyClientId"
 cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
-document, e := ioutil.ReadFile("calibri.ttf")
+fileName := "MyPresentation.pptx"
+fontName := "Calibri"
 var onlyUsed bool = false
-response, _, e := api.SlidesApi.SetEmbeddedFontFromRequest(document, "MyPresentation.pptx", &onlyUsed, "", "", "")
+response, _, e := api.SlidesApi.SetEmbeddedFont(fileName, fontName, &onlyUsed, "", "", "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -186,7 +178,7 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -198,16 +190,16 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tabs >}}
 
 
-## **SetEmbeddedFontFromRequestOnline**
+## **SetEmbeddedFontOnline**
 ### **API Information**
 |**API**|**Type**|**Description**|**Resource**|
 | :- | :- | :- | :- |
-/slides/fonts/embedded|POST|Embeds font from request and returns presentation.|[SetEmbeddedFontFromRequestOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontFromRequestOnline)|
+/slides/fonts/embedded/{fontName}|POST|Embeds the specified font and returns the presentation.|[SetEmbeddedFontOnline](https://apireference.aspose.cloud/slides/#/Fonts/SetEmbeddedFontOnline)|
 
 ### **Examples**
 **cURL Example**
 
-The code examples below show how to embed fonts in a presentation located in the request body.
+The code examples below show how to embed fonts in a presentation in the request body.
 
 {{< tabs tabTotal="2" tabID="2" tabName1="Request" tabName2="Response" >}}
 
@@ -219,16 +211,15 @@ curl -v "https://api.aspose.cloud/connect/token" -X POST -d "grant_type=client_c
 ```
 
 ```sh
-curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded" \
+curl -X POST "https://api.aspose.cloud/v3.0/slides/fonts/embedded/Calibri" \
 -H "Authorization: Bearer [Access Token]" \
--F "file=@TestData/MyPresentation.pptx" \
--F "file=@TestData/calibri.ttf" \
--o "MyPresentation.pptx" \
+-F "file=@TestData/MyPresentation.pptx"
 ```
 
 {{< /tab >}}
 
 {{< tab tabNum="2" >}}
+
 
 ```sh
 
@@ -239,7 +230,6 @@ Document with embedded font.
 
 {{< /tabs >}}
 
-
 **SDK Examples**
 
 {{< tabs tabTotal="10" tabID="22" tabName1="C#" tabName2="Java" tabName3="PHP" tabName4="Ruby" tabName5="Python" tabName6="Node.js" tabName7="Go" tabName8="C++" tabName9="Perl" tabName10="Swift" >}}
@@ -249,8 +239,7 @@ Document with embedded font.
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 Stream file = File.OpenRead("MyPresentation.pptx");
-Stream fontFile = File.OpenRead("calibri.ttf");
-Stream response = api.SetEmbeddedFontFromRequestOnline(file, fontFile, false);
+api.SetEmbeddedFontOnline(file, "Calibri", false);
 
 Console.WriteLine("Font Calibri has been embedded.");
 ```
@@ -262,8 +251,7 @@ Console.WriteLine("Font Calibri has been embedded.");
 SlidesApi api = new SlidesApi("MyClientId", "MyClientSecret");
 
 byte[] file = Files.readAllBytes(Paths.get("MyPresentation.pptx"));
-byte[] fontFile = Files.readAllBytes(Paths.get("calibri.ttf"));
-File response = api.setEmbeddedFontFromRequestOnline(file, fontFile, false, null);
+api.setEmbeddedFontOnline(file, "Calibri", false, null, null);
 
 System.out.println("Font Calibri has been embedded.");
 ```
@@ -281,9 +269,8 @@ $config->setAppSid("MyClientId");
 $config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 
-$file = fopen("MyPresentataion.pptx", 'r');
-$fontFile = fopen("calibri.ttf", 'r');
-$result = $api->setEmbeddedFontFromRequestOnline($file, $fontFile, false);
+$file = fopen("MyPresentation.pptx", 'r');
+$api->setEmbeddedFontOnline($file, "Calibri", false);
 
 print("Font Calibri has been embedded.");
 ```
@@ -297,10 +284,7 @@ configuration.app_sid = "MyClientId"
 configuration.app_key = "MyClientSecret"
 api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
-source = File.binread("MyPresentation.pptx")
-fontSource = File.binread("calibri.ttf")
-response = api.set_embedded_font_from_request_online(source, fontSource, false)
-print "Font Calibri has been embedded."      
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -320,10 +304,7 @@ api = SlidesApi(configuration)
 with open("MyPresentation.pptx", 'rb') as f:
     source = f.read()
 
-with open("calibri.ttf", 'rb') as f:
-    fontsource = f.read()
-
-response = api.set_embedded_font_from_request_online(source, fontsource, False)
+api.set_embedded_font_online(source, "Calibri", False)
 
 print("Font Calibri has been embedded.")
 ```
@@ -337,8 +318,8 @@ const fs = require("fs");
 const api = new CloudSdk.SlidesApi("MyClientId", "MyClientSecret");
 
 const stream = fs.createReadStream("MyPresentation.pptx");
-const fontStream = fs.createReadStream("calibri.ttf");
-let reponse = await api.setEmbeddedFontFromRequestOnline(stream, fontStream, false);
+let response = await api.setEmbeddedFontOnline(stream, "Calibri", false);
+
 console.log("Font Calibri has been embedded.");
 ```
 {{< /tab >}}
@@ -351,9 +332,9 @@ cfg.AppKey = "MyClientSecret"
 api := asposeslidescloud.NewAPIClient(cfg)
 
 document, e := ioutil.ReadFile("MyPresentation.pptx")
-fontFile, e := ioutil.ReadFile("calibri.ttf")
+fontName := "Calibri"
 var onlyUsed bool = false
-_, _, e = api.SlidesApi.SetEmbeddedFontFromRequestOnline(document, fontFile, &onlyUsed, "")
+_, _, e = api.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, "", "")
 if e != nil {
     fmt.Printf("Error: %v.", e)
     return
@@ -379,7 +360,7 @@ $config->{app_sid} = "MyClientId";
 $config->{app_key} = "MyClientSecret";
 my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 
-#Code example will be added soon.
+# The code example will be added soon.
 ```
 
 {{< /tab >}}
@@ -389,6 +370,7 @@ my $api = AsposeSlidesCloud::SlidesApi->new(config => $config);
 {{< /tab >}}
 
 {{< /tabs >}}
+
 
 ## **SDK Source**
 
