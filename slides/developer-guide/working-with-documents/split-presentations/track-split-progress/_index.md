@@ -129,7 +129,7 @@ Merge two presentations.
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 SlidesAsyncApi api = new SlidesAsyncApi("MyClientId", "MyClientSecret");
 
@@ -170,7 +170,7 @@ while (true)
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/aspose-slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.FileInfo;
@@ -227,7 +227,7 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -277,7 +277,7 @@ while (true)
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require 'aspose_slides_cloud'
 
@@ -315,7 +315,7 @@ end
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 import time
@@ -349,7 +349,7 @@ while True:
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -388,7 +388,7 @@ while (true) {
 {{< tab tabNum="7" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 std::shared_ptr<SlidesAsyncApi> api = std::make_shared<SlidesAsyncApi>(L"my_client_id", L"my_client_secret");
 
@@ -512,7 +512,7 @@ func trackProgress(_ operationId: String) {
 {{< tab tabNum="10" >}}
 
 ```go
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-go
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go
 
 cfg := asposeslidescloud.NewConfiguration()
 cfg.AppSid = "my_client_id"

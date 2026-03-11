@@ -100,7 +100,7 @@ Read properties of a paragraph at index 1 from a shape at index 2 on a slide at 
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using System;
 using System.IO;
@@ -151,7 +151,7 @@ class Test
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.api.SlidesApi;
 import java.io.File;
@@ -197,7 +197,7 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/aspose-slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -251,7 +251,7 @@ catch (ApiException $e) {
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 import os
@@ -293,7 +293,7 @@ except ApiException as e:
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const api = require("asposeslidescloud");
 const fs = require("fs");
@@ -331,7 +331,7 @@ slidesApi.uploadFile(filePath, fileStream, storageName).then(() => {
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.api.SlidesApi;
 import java.io.File;
@@ -377,7 +377,7 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 

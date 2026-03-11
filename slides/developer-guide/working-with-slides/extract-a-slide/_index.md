@@ -98,7 +98,7 @@ TIFF file data
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
@@ -133,7 +133,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -162,7 +162,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -192,7 +192,7 @@ print("The TIFF image was saved to " . $tiffFile->getPathname());
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -222,7 +222,7 @@ File.binwrite("slide_3.tiff", tiff_data)
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -249,7 +249,7 @@ print("The TIFF image was saved to " + tiff_path)
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -276,7 +276,7 @@ slidesApi.downloadSlide("MyPresentation.pptx", 3, "tiff", tiffOptions, null, nul
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -305,7 +305,7 @@ public class Application {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/TiffExportOptions.h"
@@ -339,7 +339,7 @@ int main()
 {{< tab tabNum="9" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use File::Slurp;
 
@@ -461,7 +461,7 @@ None
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
@@ -493,7 +493,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -522,7 +522,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -553,7 +553,7 @@ $slidesApi->saveSlide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImage
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -582,7 +582,7 @@ slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat::PNG, "MyImage
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -610,7 +610,7 @@ slides_api.save_slide("MyPresentation.pptx", 2, SlideExportFormat.PNG, "MyImages
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 
@@ -634,7 +634,7 @@ slidesApi.saveSlide("MyPresentation.pptx", 2, "png", "MyImages/slide_2.png", png
 {{< tab tabNum="7" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/ImageExportOptions.h"
@@ -669,7 +669,7 @@ int main()
 {{< tab tabNum="8" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
@@ -787,7 +787,7 @@ PDF file data
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
@@ -824,7 +824,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -859,7 +859,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -891,7 +891,7 @@ echo "The PDF document was saved to ", $pdfFile->getPathname();
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -923,7 +923,7 @@ File.binwrite("slide_5.pdf", pdf_data)
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -951,7 +951,7 @@ print("The PDF document was saved to ", pdf_file_path)
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -980,7 +980,7 @@ slidesApi.downloadSlideOnline(fileStream, 5, cloud.SlideExportFormat.Pdf, null, 
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -1015,7 +1015,7 @@ public class Application {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/PdfExportOptions.h"
@@ -1054,7 +1054,7 @@ int main()
 {{< tab tabNum="9" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;
@@ -1169,7 +1169,7 @@ None
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using Aspose.Slides.Cloud.Sdk.Model;
@@ -1200,7 +1200,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -1231,7 +1231,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -1259,7 +1259,7 @@ $slidesApi->saveSlideOnline($fileStream, 4, SlideExportFormat::SVG, "MyImages/sl
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -1286,7 +1286,7 @@ slides_api.save_slide_online(file_data, 4, SlideExportFormat::SVG, "MyImages/sli
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -1311,7 +1311,7 @@ with open("MyPresentation.pptx", "rb") as file_stream:
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -1334,7 +1334,7 @@ slidesApi.saveSlideOnline(fileStream, 4, cloud.SlideExportFormat.Svg, "MyImages/
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -1365,7 +1365,7 @@ public class Application {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 #include "asposeslidescloud/model/SvgExportOptions.h"
@@ -1398,7 +1398,7 @@ int main()
 {{< tab tabNum="9" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;

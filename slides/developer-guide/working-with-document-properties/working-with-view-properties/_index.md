@@ -393,7 +393,7 @@ print "Vertical bar state: $view_properties->{vertical_bar_state}\n";
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -756,7 +756,7 @@ print "Slide view scale: $updated_properties->{slide_view_properties}{scale}\n";
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {

@@ -318,7 +318,7 @@ print("Number of the paragraphs: ", $paragraph_count);
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -646,7 +646,7 @@ print("Alignment: ", $paragraph->{alignment}); # Right
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {

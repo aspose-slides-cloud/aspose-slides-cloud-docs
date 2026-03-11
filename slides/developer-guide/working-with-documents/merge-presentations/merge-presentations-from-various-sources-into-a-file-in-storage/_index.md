@@ -79,7 +79,7 @@ Document with merged presentation info.
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
@@ -109,7 +109,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.FileInfo;
@@ -145,7 +145,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -170,7 +170,7 @@ $slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $files, null, "My
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -196,7 +196,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, nil, "My
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -220,7 +220,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, None, "M
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -242,7 +242,7 @@ slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, null, "MySto
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.FileInfo;
@@ -278,7 +278,7 @@ public class Application {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 
@@ -311,7 +311,7 @@ int main()
 {{< tab tabNum="9" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use File::Slurp;
 
@@ -416,7 +416,7 @@ Document with merged presentation info.
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using FileInfo = Aspose.Slides.Cloud.Sdk.FileInfo;
@@ -472,7 +472,7 @@ class Application
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -523,7 +523,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -570,7 +570,7 @@ $slidesApi->mergeAndSaveOnline("MyFolder/MyPresentation.pptx", $files, $request,
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -616,7 +616,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, request,
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -662,7 +662,7 @@ slides_api.merge_and_save_online("MyFolder/MyPresentation.pptx", files, request,
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 const fs = require("fs");
@@ -703,7 +703,7 @@ slidesApi.mergeAndSaveOnline("MyFolder/MyPresentation.pptx", files, request, "My
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -754,7 +754,7 @@ public class Application {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 
@@ -806,7 +806,7 @@ https://drive.google.com/uc?export=download&id=remote.pptx"));
 {{< tab tabNum="9" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;

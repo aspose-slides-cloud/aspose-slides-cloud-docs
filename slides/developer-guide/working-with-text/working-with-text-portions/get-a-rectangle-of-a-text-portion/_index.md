@@ -286,7 +286,7 @@ slidesApi.getPortionRectangle(fileName, slideIndex, shapeIndex, paragraphIndex, 
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {

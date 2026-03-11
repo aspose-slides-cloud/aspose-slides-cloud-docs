@@ -90,7 +90,7 @@ curl -X POST "https://api.aspose.cloud/v3.0/slides/MyPresentation.pptx/slides/3/
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using Aspose.Slides.Cloud.Sdk;
 using System.Diagnostics;
@@ -115,7 +115,7 @@ Caption text.";
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.ApiException;
 import com.aspose.slides.api.SlidesApi;
@@ -134,7 +134,7 @@ public class Application {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -153,7 +153,7 @@ $slidesApi->createCaptionTrack("MyPresentation.pptx", 3, 1, "Captions", $caption
 {{< tab tabNum="4" >}}
 
 ```ruby
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-ruby
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby
 
 require "aspose_slides_cloud"
 
@@ -173,7 +173,7 @@ slides_api.create_caption_track("MyPresentation.pptx", 3, 1, "Captions", caption
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 
@@ -189,7 +189,7 @@ slides_api.create_caption_track("MyPresentation.pptx", 3, 1, "Captions", caption
 {{< tab tabNum="6" >}}
 
 ```js
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const cloud = require("asposeslidescloud");
 
@@ -203,7 +203,7 @@ slidesApi.createCaptionTracks("MyPresentation.pptx", 3, 1, "Captions", captionsD
 {{< tab tabNum="7" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include "asposeslidescloud/api/SlidesApi.h"
 
@@ -226,7 +226,7 @@ int main()
 {{< tab tabNum="8" >}}
 
 ```perl
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-perl
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl
 
 use AsposeSlidesCloud::Configuration;
 use AsposeSlidesCloud::SlidesApi;

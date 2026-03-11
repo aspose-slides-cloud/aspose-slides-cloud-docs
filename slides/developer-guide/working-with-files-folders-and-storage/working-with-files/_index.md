@@ -272,7 +272,7 @@ import (
 	"io"
 	"os"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -553,7 +553,7 @@ import (
 	"fmt"
 	"os"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -767,7 +767,7 @@ $slides_api->copy_file(
 {{< tab tabNum="9" >}}
 ```go
 import (
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -977,7 +977,7 @@ $slides_api->move_file(
 {{< tab tabNum="9" >}}
 ```go
 import (
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {
@@ -1176,7 +1176,7 @@ $slides_api->delete_file(
 {{< tab tabNum="9" >}}
 ```go
 import (
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {

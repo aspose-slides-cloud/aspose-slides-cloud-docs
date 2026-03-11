@@ -434,7 +434,7 @@ print("Italic font: ", $new_paragraph->{default_portion_format}->{font_italic});
 import (
 	"fmt"
 
-	asposeslidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
+	asposeslidescloud "github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go/v24"
 )
 
 func main() {

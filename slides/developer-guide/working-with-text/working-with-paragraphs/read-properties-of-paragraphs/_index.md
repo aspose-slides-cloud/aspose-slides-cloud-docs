@@ -93,7 +93,7 @@ Read the number of paragraphs in a shape at index 3 on a slide at index 1 in exa
 {{< tab tabNum="1" >}}
 
 ```csharp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-dotnet
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET
 
 using System;
 using System.IO;
@@ -140,7 +140,7 @@ namespace SlidesCloudApp
 {{< tab tabNum="2" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-java
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java
 
 import com.aspose.slides.api.SlidesApi;
 import java.io.File;
@@ -178,7 +178,7 @@ public class Main {
 {{< tab tabNum="3" >}}
 
 ```php
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-php
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
@@ -223,7 +223,7 @@ catch (ApiException $e) {
 {{< tab tabNum="5" >}}
 
 ```python
-# For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-python
+# For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python
 
 import asposeslidescloud
 import os
@@ -264,7 +264,7 @@ except ApiException as e:
 {{< tab tabNum="6" >}}
 
 ```js
-// https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-nodejs
+// https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js
 
 const api = require("asposeslidescloud");
 const fs = require("fs");
@@ -295,7 +295,7 @@ slidesApi.uploadFile(filePath, readStream, storageName).then(() => {
 {{< tab tabNum="7" >}}
 
 ```java
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-android
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android
 
 import com.aspose.slides.api.SlidesApi;
 import java.io.File;
@@ -333,7 +333,7 @@ public class Main {
 {{< tab tabNum="8" >}}
 
 ```cpp
-// For complete examples and data files, please go to https://github.com/aspose-Slides-cloud/aspose-Slides-cloud-cpp
+// For complete examples and data files, please go to https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp
 
 #include <asposeslidescloud/api/SlidesApi.h>
 

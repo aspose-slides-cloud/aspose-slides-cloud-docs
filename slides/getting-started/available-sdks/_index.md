@@ -34,7 +34,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for .NET** allows you to work with Aspose.Slides Cloud REST APIs in your .NET applications quickly and easily, with zero initial cost:
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-.NET>
 
 {{< /tab >}}
 
@@ -42,7 +42,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Java** provides a quick and easy mechanism to incorporate Aspose.Slides Cloud APIs in your Java applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-java>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Java>
 
 {{< /tab >}}
 
@@ -50,7 +50,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for PHP** is a convenient approach to use Aspose.Slides Cloud REST APIs in PHP applications. No initial costs.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-php>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-PHP>
 
 {{< /tab >}}
 
@@ -58,7 +58,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Python** is a convenient approach to incorporate Aspose.Slides Cloud services in python applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-python>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Python>
 
 {{< /tab >}}
 
@@ -66,7 +66,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Node.js** provides the capabilities to work with Aspose.Slides Cloud REST APIs in Node.js applications. Use the SDK to produce stunning applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-nodejs>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Node.js>
 
 {{< /tab >}}
 
@@ -74,7 +74,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Go** empowers you to work with Aspose.Slides Cloud REST APIs in your Go applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-go>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Go>
 
 {{< /tab >}}
 
@@ -82,7 +82,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for C++** empowers you to work with Aspose.Slides Cloud REST APIs in your C++ applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-cpp>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Cpp>
 
 {{< /tab >}}
 
@@ -90,7 +90,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Swift** empowers you to work with Aspose.Slides Cloud REST APIs in your Swift applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-swift>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Swift>
 
 {{< /tab >}}
 
@@ -98,7 +98,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Perl** empowers you to work with Aspose.Slides Cloud REST APIs in your Perl applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-perl>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Perl>
 
 {{< /tab >}}
 
@@ -106,7 +106,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Ruby** empowers you to work with Aspose.Slides Cloud REST APIs in your Ruby applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-ruby>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Ruby>
 
 {{< /tab >}}
 
@@ -114,7 +114,7 @@ Our supported SDKs are 100% tested and out of the box running. These SDKs are op
 
 **Aspose.Slides Cloud SDK for Android** empowers you to work with Aspose.Slides Cloud REST APIs in your Java(Android) applications.
 
-- <https://github.com/aspose-slides-cloud/aspose-slides-cloud-android>
+- <https://github.com/aspose-slides-cloud/Aspose.Slides-Cloud-SDK-for-Android>
 
 {{< /tab >}}
 
