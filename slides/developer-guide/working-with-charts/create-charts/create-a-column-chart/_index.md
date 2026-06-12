@@ -1,4 +1,4 @@
----
+﻿---
 title: "Create a Column Chart"
 keywords:
 - PowerPoint
@@ -15,7 +15,7 @@ weight: 10
 ---
 
 ## **Introduction**
-The example below shows how to create an ordinary column chart using Aspose.Slides Cloud. A chart is a kind of shape, so you should use [CreateShape](https://apireference.aspose.cloud/slides/#/Shapes/CreateShape) method for this action.
+The example below shows how to create an ordinary column chart using Aspose.Slides Cloud. A chart is a kind of shape, so you should use [CreateShape](https://apireference.aspose.cloud/slides/#/Shapes/CreateShape) method for this action. To import an existing chart from an Excel workbook instead, see [Import a Chart from an Excel Workbook](/slides/import-chart-from-workbook/).
 ### **cURL Example**
 
 {{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}

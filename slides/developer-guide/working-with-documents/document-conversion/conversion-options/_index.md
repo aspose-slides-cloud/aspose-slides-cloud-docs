@@ -178,6 +178,7 @@ The following values may be used together as a combination of choices.
 |**Name**|**Type**|**Description**|
 | :- | :- | :- |
 |Conformance|ConformanceEnum|Specifies the conformance class to which the PresentationML document conforms.|
+|CompressionLevel|CompressionLevelEnum|Specifies the ZIP compression level used when saving the PPTX file. Higher levels produce smaller files at the cost of longer processing time. The default value is `Level6`.|
 
 {{< expand-list title="ConformanceEnum" >}}
 |**Value**|**Description**|
@@ -185,6 +186,21 @@ The following values may be used together as a combination of choices.
 |Ecma3762006|The document conforms to the ECMA376:2006.|
 |Iso295002008Transitional|The document conforms to the ISO/IEC 29500:2008 Transitional conformance class.|
 |Iso295002008Strict|The document conforms to the ISO/IEC 29500:2008 Strict conformance class.|
+{{< /expand-list >}}
+
+{{< expand-list title="CompressionLevelEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|None|No compression is applied. Results in the largest file size with the fastest processing time.|
+|Level1|Compression level 1 (fastest, lowest compression).|
+|Level2|Compression level 2.|
+|Level3|Compression level 3.|
+|Level4|Compression level 4.|
+|Level5|Compression level 5.|
+|Level6|Compression level 6 (default). Balances file size and processing time.|
+|Level7|Compression level 7.|
+|Level8|Compression level 8.|
+|Level9|Compression level 9 (slowest, highest compression). Results in the smallest file size.|
 {{< /expand-list >}}
 
 ### **SVG Options**
