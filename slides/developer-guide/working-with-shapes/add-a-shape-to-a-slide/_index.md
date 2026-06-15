@@ -22,7 +22,7 @@ weight: 25
 
 ## **Introduction**
 
-The following API method allows you to add a shape to a PowerPoint document. You can use this method to add shapes of many types, such as text boxes, charts, WordArt objects, SmartArt objects, pictures, OLE objects, tables, etc. To add the shape to a presentation slide, you should prepare an appropriate data transfer object and pass it to the parameters. Alternatively, you can specify an index of the shape to be cloned.
+The following API method allows you to add a shape to a PowerPoint document. You can use this method to add shapes of many types, such as text boxes, charts, WordArt objects, SmartArt objects, pictures, OLE objects, tables, etc. To add the shape to a presentation slide, you should prepare an appropriate data transfer object and pass it to the parameters. Alternatively, you can specify an index of the shape to be cloned. To import a chart or table from an Excel workbook, see [Import a Chart from an Excel Workbook](/slides/import-chart-from-workbook/) and [Import a Table from an Excel Workbook](/slides/import-table-from-workbook/).
 
 ## **CreateShape**
 
@@ -40,6 +40,7 @@ The following API method allows you to add a shape to a PowerPoint document. You
 |slideIndex|integer|path|true|The 1-based index of the slide where a shape will be added.|
 |dto|object|body|true|The data transfer object with parameters for the new shape.|
 |shapeToClone|integer|query|false|The 1-based index of a shape to be cloned.|
+|cloneFromSlide|integer|query|false|The 1-based index of the slide to clone the shape from. When omitted and `shapeToClone` is set, the shape is cloned from the slide specified by `slideIndex`. See [Clone a Shape from Another Slide](/slides/clone-a-shape-from-another-slide/).|
 |position|integer|query|false|The 1-based index of a position for the new shape. By default, the shape is added to the end.|
 |password|string|header|false|The password to open the presentation.|
 |folder|string|query|false|The path to the folder containing the presentation.|
