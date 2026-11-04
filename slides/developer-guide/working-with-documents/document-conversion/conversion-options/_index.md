@@ -101,6 +101,18 @@ The options below are format-specific. Check the tables to see what options can 
 |TemplatesPath|string|Specifies the path to custom templates.|
 |SlidesLayoutOptions|SlidesLayoutOptions|Specifies slides layout options.|
 |DisableFontLigatures|boolean|True to disable ligatures in the rendered output.|
+|PicturesCompression|PicturesCompressionEnum|Specifies the compression level for pictures. By default, pictures are not compressed (`DocumentResolution`). This option is not applied when `TemplatesPath` is set.|
+
+{{< expand-list title="PicturesCompressionEnum" >}}
+|**Value**|**Description**|
+| :- | :- |
+|DocumentResolution|Use document resolution. Pictures will not be compressed and used in the output document as-is. This is the default value.|
+|Dpi150|Good quality for web pages and projectors.|
+|Dpi220|Excellent quality on most printers and screens.|
+|Dpi330|Good quality for high-definition (HD) displays.|
+|Dpi72|The highest compression level.|
+|Dpi96|Minimize document size for sharing.|
+{{< /expand-list >}}
 
 ### **JPG Options**
 
