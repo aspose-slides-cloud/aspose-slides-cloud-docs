@@ -110,7 +110,12 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-        using var imageStream = slidesApi.DownloadTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat.Png, folder: "MyFolder");
+        const int slideIndex = 1;
+        const int shapeIndex = 1;
+        const int rowIndex = 1;
+        const int cellIndex = 2;
+        const int paragraphIndex = 1;
+        using var imageStream = slidesApi.DownloadTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, ImageExportFormat.Png, folder: "MyFolder");
 
         // Save the image to a file.
         using var outputStream = File.Create("paragraph.png");
@@ -137,7 +142,12 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-        File imageFile = slidesApi.downloadTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat.PNG, null, null, null, null, "MyFolder", null, null);
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int rowIndex = 1;
+        int cellIndex = 2;
+        int paragraphIndex = 1;
+        File imageFile = slidesApi.downloadTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, ImageExportFormat.PNG, null, null, null, null, "MyFolder", null, null);
 
         System.out.println("The paragraph image was saved to " + imageFile.getPath());
     }
@@ -162,7 +172,12 @@ $config->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $config);
 
 // Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-$imageFile = $slidesApi->downloadTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat::PNG, null, null, null, null, "MyFolder");
+$slideIndex = 1;
+$shapeIndex = 1;
+$rowIndex = 1;
+$cellIndex = 2;
+$paragraphIndex = 1;
+$imageFile = $slidesApi->downloadTableCellParagraph("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, ImageExportFormat::PNG, null, null, null, null, "MyFolder");
 
 echo "The paragraph image was saved to ", $imageFile->getPathname();
 ```
@@ -185,7 +200,12 @@ configuration.app_key = "MyClientSecret"
 slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-image_data = slides_api.download_table_cell_paragraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat::PNG, nil, nil, nil, nil, "MyFolder")
+slide_index = 1
+shape_index = 1
+row_index = 1
+cell_index = 2
+paragraph_index = 1
+image_data = slides_api.download_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, ImageExportFormat::PNG, nil, nil, nil, nil, "MyFolder")
 
 # Save the image to a file.
 File.binwrite("paragraph.png", image_data)
@@ -204,7 +224,12 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-image_file_path = slides_api.download_table_cell_paragraph("MyPresentation.pptx", 1, 1, 1, 2, 1, "Png", None, None, None, None, "MyFolder")
+slide_index = 1
+shape_index = 1
+row_index = 1
+cell_index = 2
+paragraph_index = 1
+image_file_path = slides_api.download_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, "Png", None, None, None, None, "MyFolder")
 
 print("The paragraph image was saved to", image_file_path)
 ```
@@ -222,7 +247,12 @@ const fs = require("fs");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-slidesApi.downloadTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, cloud.ImageExportFormat.Png, null, null, null, null, "MyFolder").then(response => {
+const slideIndex = 1;
+const shapeIndex = 1;
+const rowIndex = 1;
+const cellIndex = 2;
+const paragraphIndex = 1;
+slidesApi.downloadTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, cloud.ImageExportFormat.Png, null, null, null, null, "MyFolder").then(response => {
     // Save the image to a file.
     fs.writeFile("paragraph.png", response.body, (error) => {
         if (error) throw error;
@@ -246,7 +276,12 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Render paragraph 1 of cell 2 in row 1 of the table (shape 1 on slide 1) to PNG.
-    auto imageContent = slidesApi->downloadTableCellParagraph(L"MyPresentation.pptx", 1, 1, 1, 2, 1, L"Png", boost::none, boost::none, boost::none, L"", L"MyFolder").get();
+    int slideIndex = 1;
+    int shapeIndex = 1;
+    int rowIndex = 1;
+    int cellIndex = 2;
+    int paragraphIndex = 1;
+    auto imageContent = slidesApi->downloadTableCellParagraph(L"MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, L"Png", boost::none, boost::none, boost::none, L"", L"MyFolder").get();
 
     // Save the image to a file.
     std::ofstream imageStream("paragraph.png", std::ofstream::binary);
@@ -369,7 +404,14 @@ class Application
         var slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-        slidesApi.SaveTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat.Png, "MyFolder/paragraph.png", 2, 2, folder: "MyFolder");
+        const int slideIndex = 1;
+        const int shapeIndex = 1;
+        const int rowIndex = 1;
+        const int cellIndex = 2;
+        const int paragraphIndex = 1;
+        const double scaleX = 2;
+        const double scaleY = 2;
+        slidesApi.SaveTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, ImageExportFormat.Png, "MyFolder/paragraph.png", scaleX, scaleY, folder: "MyFolder");
     }
 }
 ```
@@ -390,7 +432,14 @@ public class Application {
         SlidesApi slidesApi = new SlidesApi("MyClientId", "MyClientSecret");
 
         // Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-        slidesApi.saveTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat.PNG, "MyFolder/paragraph.png", 2.0, 2.0, null, null, "MyFolder", null, null);
+        int slideIndex = 1;
+        int shapeIndex = 1;
+        int rowIndex = 1;
+        int cellIndex = 2;
+        int paragraphIndex = 1;
+        double scaleX = 2.0;
+        double scaleY = 2.0;
+        slidesApi.saveTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, ImageExportFormat.PNG, "MyFolder/paragraph.png", scaleX, scaleY, null, null, "MyFolder", null, null);
     }
 }
 ```
@@ -413,7 +462,14 @@ $config->setAppKey("MyClientSecret");
 $slidesApi = new SlidesApi(null, $config);
 
 // Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-$slidesApi->saveTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat::PNG, "MyFolder/paragraph.png", 2, 2, null, null, "MyFolder");
+$slideIndex = 1;
+$shapeIndex = 1;
+$rowIndex = 1;
+$cellIndex = 2;
+$paragraphIndex = 1;
+$scaleX = 2;
+$scaleY = 2;
+$slidesApi->saveTableCellParagraph("MyPresentation.pptx", $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, ImageExportFormat::PNG, "MyFolder/paragraph.png", $scaleX, $scaleY, null, null, "MyFolder");
 ```
 
 {{< /tab >}}
@@ -434,7 +490,14 @@ configuration.app_key = "MyClientSecret"
 slides_api = AsposeSlidesCloud::SlidesApi.new(configuration)
 
 # Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-slides_api.save_table_cell_paragraph("MyPresentation.pptx", 1, 1, 1, 2, 1, ImageExportFormat::PNG, "MyFolder/paragraph.png", 2, 2, nil, nil, "MyFolder")
+slide_index = 1
+shape_index = 1
+row_index = 1
+cell_index = 2
+paragraph_index = 1
+scale_x = 2
+scale_y = 2
+slides_api.save_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, ImageExportFormat::PNG, "MyFolder/paragraph.png", scale_x, scale_y, nil, nil, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -450,7 +513,14 @@ from asposeslidescloud.apis.slides_api import SlidesApi
 slides_api = SlidesApi(None, "MyClientId", "MyClientSecret")
 
 # Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-slides_api.save_table_cell_paragraph("MyPresentation.pptx", 1, 1, 1, 2, 1, "Png", "MyFolder/paragraph.png", 2, 2, None, None, "MyFolder")
+slide_index = 1
+shape_index = 1
+row_index = 1
+cell_index = 2
+paragraph_index = 1
+scale_x = 2
+scale_y = 2
+slides_api.save_table_cell_paragraph("MyPresentation.pptx", slide_index, shape_index, row_index, cell_index, paragraph_index, "Png", "MyFolder/paragraph.png", scale_x, scale_y, None, None, "MyFolder")
 ```
 
 {{< /tab >}}
@@ -465,7 +535,14 @@ const cloud = require("asposeslidescloud");
 const slidesApi = new cloud.SlidesApi("MyClientId", "MyClientSecret");
 
 // Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-slidesApi.saveTableCellParagraph("MyPresentation.pptx", 1, 1, 1, 2, 1, cloud.ImageExportFormat.Png, "MyFolder/paragraph.png", 2, 2, null, null, "MyFolder").then(() => {
+const slideIndex = 1;
+const shapeIndex = 1;
+const rowIndex = 1;
+const cellIndex = 2;
+const paragraphIndex = 1;
+const scaleX = 2;
+const scaleY = 2;
+slidesApi.saveTableCellParagraph("MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, cloud.ImageExportFormat.Png, "MyFolder/paragraph.png", scaleX, scaleY, null, null, "MyFolder").then(() => {
     console.log("The paragraph image was saved to the storage.");
 });
 ```
@@ -486,7 +563,14 @@ int main()
     auto slidesApi = new SlidesApi(L"MyClientId", L"MyClientSecret");
 
     // Render paragraph 1 of cell 2 in row 1 of the table to PNG and save it to the storage.
-    slidesApi->saveTableCellParagraph(L"MyPresentation.pptx", 1, 1, 1, 2, 1, L"Png", L"MyFolder/paragraph.png", 2.0, 2.0, boost::none, L"", L"MyFolder").wait();
+    int slideIndex = 1;
+    int shapeIndex = 1;
+    int rowIndex = 1;
+    int cellIndex = 2;
+    int paragraphIndex = 1;
+    double scaleX = 2.0;
+    double scaleY = 2.0;
+    slidesApi->saveTableCellParagraph(L"MyPresentation.pptx", slideIndex, shapeIndex, rowIndex, cellIndex, paragraphIndex, L"Png", L"MyFolder/paragraph.png", scaleX, scaleY, boost::none, L"", L"MyFolder").wait();
 
     return 0;
 }
